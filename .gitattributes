@@ -1,0 +1,3 @@
+# Preserve exact model literals, fixture line endings, and recorded source hashes.
+# Do not normalize the reviewed Windows files when adding or checking them out.
+* -text
