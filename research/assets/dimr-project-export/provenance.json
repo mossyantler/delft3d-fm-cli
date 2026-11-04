@@ -1,0 +1,179 @@
+{
+  "state": "static_inspection_only_no_host_started",
+  "suite_files": {
+    "bin/DeltaShell.Console.exe": {
+      "sha256": "7d16e799fcb19aeff11f0a9738eb6a067e17af3fa9c82d53511feea33cfeb4d0",
+      "bytes": 31648
+    },
+    "bin/DeltaShell.Console.exe.config": {
+      "sha256": "a8066391f6811bfb316c80c940370240817e99a7665a584479750a877241d5c5",
+      "bytes": 3606
+    },
+    "bin/DeltaShell.Core.dll": {
+      "sha256": "caf6eb548e8ad859dec67c058958332208f6339acf7c488accf5b59804aacffb",
+      "bytes": 111520
+    },
+    "bin/DelftTools.Utils.dll": {
+      "sha256": "894332b1614938ab375cf16830378add2dea949cc7347ea22b06e564e5e58adf",
+      "bytes": 607136
+    },
+    "plugins/DeltaShell.Plugins.DelftModels.HydroModel/DeltaShell.Plugins.DelftModels.HydroModel.dll": {
+      "sha256": "d9a614db1b162a0acb02d3ea99ffaa50b40ff0cfa2d15aac2d19bd393245072e",
+      "bytes": 156064
+    },
+    "plugins/DeltaShell.Plugins.FMSuite.FlowFM/DeltaShell.Plugins.FMSuite.FlowFM.dll": {
+      "sha256": "29875501d762930515ac6ecdcd8ea92ba4611c22826917776f4ba4008edc1bd4",
+      "bytes": 1161632
+    },
+    "plugins/DeltaShell.Dimr/DeltaShell.Dimr.dll": {
+      "sha256": "bdc99126d038edc3d2f8bbecc1f1dffe8054b0bbc939db3b9a62622e3f6d1503",
+      "bytes": 326560
+    }
+  },
+  "exporter_type": "DeltaShell.Plugins.DelftModels.HydroModel.Export.DHydroConfigXmlExporter",
+  "interface": "public IFileExporter registered through HydroModelApplicationPlugin.GetFileExporters(Application.FileExportService)",
+  "sources": [
+    {
+      "local_ignored_path": "research/assets/dimr-project-export/local-inspection/DHydroConfigXmlExporter.cs",
+      "sha256": "1646da3a1700405a5ce75588a0ab6f6a836f61f94a9a79ff6be81c1a2c19bfe6",
+      "symbols": {
+        "public string Name": [
+          45
+        ],
+        "public bool Export": [
+          66
+        ],
+        "private IDimrModelFileExporter": [
+          138
+        ],
+        "public bool CanExportFor": [
+          149
+        ],
+        "private ICompositeActivity GetWorkflow": [
+          181
+        ]
+      }
+    },
+    {
+      "local_ignored_path": "research/assets/dimr-project-export/local-inspection/DHydroConfigWriter.cs",
+      "sha256": "9f752107ac166d6313f9ff3e31e938b6d99d6112675f3987951c0aa6e88b7f7a",
+      "symbols": {
+        "public XDocument CreateConfigDocument": [
+          49
+        ],
+        "private static XElement CreateRootNode": [
+          78
+        ],
+        "private static XElement CreateComponentNode": [
+          93
+        ],
+        "private void RecursivelyAddCompositeControlNodes": [
+          270
+        ]
+      }
+    },
+    {
+      "local_ignored_path": "research/assets/dimr-project-export/local-inspection/HydroModelApplicationPlugin.cs",
+      "sha256": "2c4f72a1c894726ccda6e2e053473cb05b118cdea44e8751854d3aa5872149fb",
+      "symbols": {
+        "public override IEnumerable<IFileExporter> GetFileExporters": [
+          122
+        ]
+      }
+    },
+    {
+      "local_ignored_path": "research/experiments/E007-I-phase-A-20261104-01/static/DeltaShellApplication.cs",
+      "sha256": "9375b6bdf789e092faa47d5bd37a47d1791c1c30fd33d4e39847088061cfd2e5",
+      "symbols": {
+        "UserSettings = DeltaShell.Core.Properties.Settings.Default": [
+          257
+        ],
+        "public string WorkDirectory": [
+          169
+        ],
+        "public void Run()": [
+          328
+        ],
+        "ClearWorkingDirectory();": [
+          341,
+          611
+        ],
+        "private void ClearWorkingDirectory()": [
+          512
+        ]
+      }
+    },
+    {
+      "local_ignored_path": "research/experiments/E007-I-phase-A-20261104-01/static/CoreSettings.cs",
+      "sha256": "1cb0cd2f5bc285d51559cf8b3fb6fdaff7ac31c937c7d5ad71168c3fc6cabdfe",
+      "symbols": {
+        "ApplicationSettingsBase": [
+          11
+        ],
+        "loadedPluginsFilterExpression": [
+          20,
+          24,
+          28
+        ],
+        "disabledPlugins": [
+          34,
+          38,
+          42
+        ]
+      }
+    },
+    {
+      "local_ignored_path": "research/experiments/E001-E002-export-20261103/managed-inspection/ConsoleRunner.cs",
+      "sha256": "545bbf7547f2dd7bf75a2d4d9d33639900071a563813110fdf0d4d88d66f267b",
+      "symbols": {
+        "Directory.SetCurrentDirectory": [
+          51,
+          53,
+          73
+        ],
+        "application.Run();": [
+          52
+        ],
+        "HandleCommandLineOptions();": [
+          54
+        ]
+      }
+    },
+    {
+      "local_ignored_path": "research/experiments/E001-E002-export-20261103/managed-inspection/CommandLineHandler.cs",
+      "sha256": "d38bf6d48dc6fb167fb4ae58da29c17f4a35be5574b17167790f257bc09876d3",
+      "symbols": {
+        "options.RunScriptFile": [
+          55,
+          57
+        ],
+        "options.AppSettings.ForEach": [
+          71
+        ]
+      }
+    }
+  ],
+  "manuals": [
+    {
+      "path": "research/manuals/D-Flow_FM_User_Manual.pdf",
+      "sha256": "77751bb8769fb92f33cbf5b36133e2507a9b810f5b3e1e9275cc0010eabed374",
+      "sections": "8.3 / 8.3.2, PDF151-153; P04 vs DIMR exporter"
+    },
+    {
+      "path": "research/manuals/DIMR_User_Manual.pdf",
+      "sha256": "aaebeffe13ccadedeef6b1247e03987a1c183cd01ed0ded6065de979f03c1420",
+      "sections": "2.3.3, 2.4.3.2-2.4.3.4; PDF11-17, namespaces/control/component refs"
+    }
+  ],
+  "installed_sample": {
+    "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Plugins.Toolbox\\Scripts\\Examples\\FlowFlexibleMesh.py",
+    "sha256": "6502c1f72d1128eb5e2e1bd391979e26ba5eaa17160ffcc1e581f4c370271090",
+    "scope": "Shows public scripting model construction/project usage; does not demonstrate DIMR export or isolation"
+  },
+  "limits": [
+    "Installed managed assembly identities are not the source commit of the native engine",
+    "No GUI/console or engine was started",
+    "Console core Settings class has no WorkDirectory property: TEMP contains its default fallback, not all per-user startup settings",
+    "No supported pre-start profile redirection established; prepare distinct disposable guest route instead"
+  ]
+}

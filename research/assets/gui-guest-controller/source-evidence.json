@@ -1,0 +1,53 @@
+{
+  "classification": "static inspection, not target execution; raw decompilation retained only in existing ignored evidence",
+  "artifacts": {
+    "SettingsHelper.cs": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\SettingsHelper.cs",
+      "sha256": "1162f637513df3d4efcc23d826ce01465114231f76b553e898485bfdd4171f88"
+    },
+    "GuiSettings.cs": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\GuiSettings.cs",
+      "sha256": "c3f3a4c7c95d85a5cac4be0a5ed1c6726e0e5310101819d1eb1cab22201d2f06"
+    },
+    "GuiPortableSettingsProvider.cs": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\GuiPortableSettingsProvider.cs",
+      "sha256": "6ec7ae0ba25304482ff01fda4d433daa40b58125b4b63cb059ce90490a9d4cf3"
+    },
+    "CoreSettings.cs": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\CoreSettings.cs",
+      "sha256": "1cb0cd2f5bc285d51559cf8b3fb6fdaff7ac31c937c7d5ad71168c3fc6cabdfe"
+    },
+    "DeltaShellUserDataFolderConverter.cs": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\DeltaShellUserDataFolderConverter.cs",
+      "sha256": "ca425db3dfcababaf67f31bc121326c98d0f082101c0b2cdf9370bd2229788f0"
+    },
+    "selected-GUI.exe.config": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\selected-GUI.exe.config",
+      "sha256": "8a1b55ca6501819edcb0b285e6f5710e976e9082ba7dfff2b490f2fbf63dcdf4"
+    },
+    "CommandLineParser.cs": {
+      "path": "research\\experiments\\E007-I-phase-A-20261104-01\\static\\CommandLineParser.cs",
+      "sha256": "a453a9929792617e773758b5ff825da8d5266b184df269faf898bba198b3b6ba"
+    }
+  },
+  "dotnet_reference": "https://github.com/microsoft/referencesource/blob/main/System.Configuration/System/Configuration/ClientConfigPaths.cs",
+  "dotnet_lines": [
+    [
+      67,
+      78
+    ],
+    [
+      131,
+      137
+    ],
+    [
+      164,
+      183
+    ],
+    [
+      309,
+      340
+    ]
+  ],
+  "limitation": "reference implementation is not proof of the installed .NET binary identity; no reviewed side-effect-free real-entry-context resolver admitted"
+}

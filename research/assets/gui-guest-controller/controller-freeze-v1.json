@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "freeze_id": "E007-GUEST-CONTROLLER-I-20261104-01",
+  "created_at_utc": "2026-11-04T12:29:07.955790+00:00",
+  "scope": "separately gated guest controller; offline process/kernel/signature tests only",
+  "correction": {
+    "raw_ValueError_from_frozen_path_parser": "owned proof API Refusal(startup_paths), preserving cause/text",
+    "diagnostic_codes": [
+      "startup_paths",
+      "startup_path_escape",
+      "startup_config_alias",
+      "startup_known_folder",
+      "startup_temp"
+    ],
+    "validated_permit_paths": "immutable",
+    "proof_api_sha256": "44dbc308c387c652e24f7f51044478f5781b9acbeb31c501406b2b942585e3b4"
+  },
+  "offline_command": ".venv/Scripts/python.exe -B research/assets/gui-guest-controller/offline_checks.py --out research/assets/gui-guest-controller/scratch/check-04",
+  "checks": {
+    "schema": 1,
+    "evidence_kind": "offline_fake_process_kernel_signature_tests",
+    "tests": 37,
+    "passed": true,
+    "failures": 0,
+    "errors": 0,
+    "native_GUI_VM_or_helper_launched": false,
+    "Windows_user_settings_changed": false,
+    "admitted_production_resolvers": 0,
+    "runtime_acceptance": "unknown",
+    "controller_signature": "7bc4f8f11692028828ed90a36ed53768d2ab59e472edaca2bd8d57383f0bb910"
+  },
+  "detached_package_plan": {
+    "state": "blocked",
+    "native_ready": false,
+    "admitted_resolver_count": 0
+  },
+  "preserved_dependencies": {
+    "research/workflows/replay/gui_guest_bridge.py": "cdbd15b5685771ef4d906c7d46b8110045751d5eee4fbbc71af68642e4a20184",
+    "research/workflows/replay/gui_guest_identity.py": "8f3e0085462ac5330d50598409b15b69f470661c40f01fd060a0370798303cd3",
+    "research/workflows/replay/trace_gui_activity.py": "9659b232fa88c56ef715227b6c58f8454dd80dbe7930748fdefb2cd0e160cd29",
+    "research/assets/gui-guest-bridge/producer-fix-freeze.json": "4df704e0608a81ef5c684bb8a272d5caa1e7aca80f1d1ea42d9a08f7d8e94012",
+    "research/assets/gui-guest-bridge/payload/payload-lock.json": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58",
+    "research/workflows/verification/verify_gui_trace.py": "f53a7213778a762eca2818f1d325e998532f48c25251237cbcd23ae8af302ddf",
+    "research/workflows/verification/verify_gui_guest.py": "ac0adbc2d3a78c1a73a9c2e9f1737b7872fb4f463c0b54758f8b2df59aac52e9",
+    "research/workflows/verification/verify_gui_guest_identity.py": "510f53a71809baf8b9b60d46af2bce7930450a8c69df00513502092439751f7c",
+    "research/workflows/verification/verify_gui_guest_paths.py": "1920e8855fe8371de61c39f7007344afe15a051b262b47aa2582148eac6fb96e"
+  },
+  "files": {
+    "research/assets/gui-guest-controller/dependency-freeze.json": {
+      "sha256": "3a8b689e96d64665cbce71c7d73c7b6b4b4207deac0ff6719d144862b03eba81",
+      "bytes": 1259
+    },
+    "research/assets/gui-guest-controller/offline_checks.py": {
+      "sha256": "d095a3a8a465a6a6d7bd9817c5f108acbfcd27aecb68b6b479706835e1717a2a",
+      "bytes": 31835
+    },
+    "research/assets/gui-guest-controller/README.md": {
+      "sha256": "ac3b87a0a4e6116ff393ec6fa7ee1ee10e503b57812d20f07774bca248dcc38b",
+      "bytes": 14620
+    },
+    "research/assets/gui-guest-controller/scratch/.gitignore": {
+      "sha256": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d",
+      "bytes": 14
+    },
+    "research/assets/gui-guest-controller/source-evidence.json": {
+      "sha256": "45358460619b421d0afc7c574fe997c693ffddfc16af06e27d2c9c7083826532",
+      "bytes": 2214
+    },
+    "research/assets/gui-guest-controller/test-rsa-key.json": {
+      "sha256": "186767139fd247e4515e4c93da06b6ef9c2ec6caae9a02d7be44c7ce5e17e819",
+      "bytes": 1174
+    },
+    "research/workflows/replay/gui_guest_controller.py": {
+      "sha256": "643a8564a0691f568e3ae48c3bbc51ff2cc67a123be571429937355f5269940d",
+      "bytes": 26529
+    },
+    "research/workflows/replay/gui_guest_controller_proof.py": {
+      "sha256": "44dbc308c387c652e24f7f51044478f5781b9acbeb31c501406b2b942585e3b4",
+      "bytes": 12128
+    },
+    "research/workflows/replay/gui_guest_controller_windows.py": {
+      "sha256": "19d18dcc6f6cd0a92c87de6210e6992cbebec816833f5883e33ebf2f2cb2e4c2",
+      "bytes": 5333
+    }
+  },
+  "GUI_VM_native_helper_launched": false,
+  "Windows_user_settings_changed": false,
+  "independent_verifier_changed": false,
+  "remaining_external_requirements": [
+    "User-provided named disposable guest and entire independent disposable profile allocation",
+    "Independently reviewed real-entry-context side-effect-free resolver for portable, actual .NET local/roaming configs and logs",
+    "Source-admitted authority/suite/Framework/resolver policy plus new controller freeze; no CLI override exists",
+    "Explicit user guest command and native GUI allocation after review; Raman raw-runtime adapter and scientific/output acceptance remain independent"
+  ]
+}

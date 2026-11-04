@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "scope": "E007 portability I offline implementation only; no live guest/GUI/native claim",
+  "command": ".venv/Scripts/python.exe -B research/assets/gui-guest-bridge/offline_checks.py --out research/assets/gui-guest-bridge/scratch/check-02",
+  "checks": {
+    "evidence_kind": "offline_synthetic_tests_only",
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "native_processes_launched": false,
+    "live_guest_validated": false,
+    "E007_acceptance": "unknown",
+    "payload_lock_sha256": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58"
+  },
+  "frozen_runtime_byte_matches": 17,
+  "exported_standalone_cli_checks": {
+    "inspect": "passed outside repository cwd",
+    "relocated_collection_replay": "passed outside repository cwd; runtime_acceptance=unknown"
+  },
+  "files": {
+    "research/assets/gui-guest-bridge/offline_checks.py": {
+      "sha256": "1965615c8ce197ebe848afb99ee9ddef319874b4c0808f8fe293a6ccdeca6b16",
+      "bytes": 30767
+    },
+    "research/assets/gui-guest-bridge/payload/payload-lock.json": {
+      "sha256": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58",
+      "bytes": 6966
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/__init__.py": {
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+      "bytes": 127
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/common.py": {
+      "sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+      "bytes": 3773
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/model.py": {
+      "sha256": "ce379ed72248ec2b1fc7916552f2ee9226a6735950348dd913b1c0bce9d108cf",
+      "bytes": 12388
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/outputs.py": {
+      "sha256": "376cd7908ba5d274a995bb2b35c4f9c81a6ff68e4873fd7448d07cbbef77dfd7",
+      "bytes": 6213
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/windows_job.py": {
+      "sha256": "44a79240854ef0e195033b846b738ffc29fe6ca8adca3a446742a4a1a02b8af1",
+      "bytes": 10427
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/assets/gui-activity-trace/host.py": {
+      "sha256": "9c2670d4e634f760f8e21cf9487ec4d61cc6b1e0dbcded8fa2a0fce9d725386a",
+      "bytes": 8334
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/assets/gui-activity-trace/OwnedHostGuard.cs": {
+      "sha256": "10c930a1910bde193e004983b540ff82380175138c9a5236462f9612c134900c",
+      "bytes": 1683
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/assets/gui-activity-trace/README.md": {
+      "sha256": "b6cd0770775836fa03e6c723604af390f7c56ff39ab158d20971be5a955f74ca",
+      "bytes": 13955
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/__init__.py": {
+      "sha256": "ded1d017d6d7ecea071abda8b508baf57bbd79777b9c4c815ed04e4c0c61f618",
+      "bytes": 72
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/paths.py": {
+      "sha256": "8f37d7a3e10833598911a9cdf6160e7df14d298fe3ade53a47f7cdcb73a1c205",
+      "bytes": 85
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/replay/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/replay/run_serial_experiment.py": {
+      "sha256": "40925884cb74807530fe0c1811255e80c9a5acb8ee6f67e0435b7e2f1c73780e",
+      "bytes": 9735
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/replay/trace_gui_activity.py": {
+      "sha256": "9659b232fa88c56ef715227b6c58f8454dd80dbe7930748fdefb2cd0e160cd29",
+      "bytes": 20613
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/compare_model_exports.py": {
+      "sha256": "45b47323297b7089a8e531cf22e7daba3abc9d4d281aaed6f4e73a791b0fbf3a",
+      "bytes": 6124
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/snapshot.py": {
+      "sha256": "eafcf7681a16894b9a7b777fd64d577a2cb0557926f800d2411e07a10fe21880",
+      "bytes": 3255
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/verify_gui_trace.py": {
+      "sha256": "f53a7213778a762eca2818f1d325e998532f48c25251237cbcd23ae8af302ddf",
+      "bytes": 22231
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34.mdu": {
+      "sha256": "d904d38867caa3ff343bbc54bfcddd61f3301d559392327e3be0967b4a1b174b",
+      "bytes": 34358
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34.wnd": {
+      "sha256": "b2aa538bc180d424b448fb5ce2168d683cbea311cb24952e57d19ab07df339d5",
+      "bytes": 84
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_001.bc": {
+      "sha256": "f0e7aaeea9f54a7395315ecf6317154b0fd4f7579a30ee1c33c61eeea5ce25a3",
+      "bytes": 1264
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_001.pli": {
+      "sha256": "486a6d2eef9a3e7c9077e0d45fcf8605e787a68d9ffc92e9a7990fe565414457",
+      "bytes": 730
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_bnd.ext": {
+      "sha256": "c35dfda6d7fdbfb952390a5c9a1f7d7fac36aa295afebee3976cf0ac7178ec77",
+      "bytes": 246
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_crs.pli": {
+      "sha256": "3617d10bcd440c67a45752211ab78d7a8abf64082bf3a10ed432d2d239a18d2a",
+      "bytes": 1523
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_drypoints_dry.xyz": {
+      "sha256": "98c0a83c6fc985ccb373bd442c5b7fe768c5d42d45d06e4ebecd6e0c0fbec259",
+      "bytes": 54
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_net.nc": {
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d",
+      "bytes": 23984
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_obs.xyn": {
+      "sha256": "f470065fc33516fb88ae039023213081b4f66d6044dd4cd5bc64ef20d0bd333e",
+      "bytes": 265
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_thd.pli": {
+      "sha256": "28d122f7dea66184de7686882f45aec31e33b524610e085cad0ce8a7753d352e",
+      "bytes": 1231
+    },
+    "research/assets/gui-guest-bridge/README.md": {
+      "sha256": "56dba41644904a95253a8bb1b2f39e4eccda411acba8a13194e4324abd03aa6f",
+      "bytes": 12350
+    },
+    "research/workflows/replay/gui_guest_bridge.py": {
+      "sha256": "2e7c7d390627aeeab1ab40c4468247babd7e4c0690bbfb0226ffe786af971155",
+      "bytes": 25838
+    },
+    "research/workflows/replay/gui_guest_identity.py": {
+      "sha256": "8f3e0085462ac5330d50598409b15b69f470661c40f01fd060a0370798303cd3",
+      "bytes": 8592
+    }
+  },
+  "gui_or_VM_or_native_engine_launched": false,
+  "system_or_installed_files_changed": false
+}

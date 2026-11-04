@@ -1,0 +1,18 @@
+{
+  "freeze_id": "E007-GUEST-CONTROLLER-I-20261104-02",
+  "freeze_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\assets\\gui-guest-controller\\controller-audit-repair-freeze.json",
+  "freeze_sha256": "ed2d48ec12cfbca2f3ecd2d2031ae1d965ef700fdb66ff991fc7b607af55ebb8",
+  "followup_report": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\assets\\gui-guest-controller\\scratch\\independent-followup-01\\independent-review.json",
+  "followup_report_sha256": "6ee10a35a193dcffcb6cb3743c92e972c07ef04039bc936430b9d658dd3e0cdf",
+  "followup_cases": 19,
+  "producer_freeze_matches_reviewed_sources": true,
+  "late_resumes": 0,
+  "late_go_files": 0,
+  "accepted_nonzero_exits": 0,
+  "resumes_after_proof_expiry": 0,
+  "portable_tests": 51,
+  "original_audit_files_unchanged": 527,
+  "runtime_acceptance": "unknown",
+  "real_processes_started": 0,
+  "note": "Unmodified Raman review driver run in fresh owned output; not a real guest or independent scientific acceptance"
+}

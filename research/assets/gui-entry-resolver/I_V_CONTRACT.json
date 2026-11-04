@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "implemented and source frozen; partial file evidence only",
+  "modules": {
+    "research.workflows.replay.gui_entry_resolver_metadata": {
+      "ManagedImage(path)": "read-only PE/CLR parser; never loads target assembly",
+      "ManagedImage.identity()": "dict: file sha256, bytes, PE machine/CLI flags, entry token, module MVID, assembly name/version/culture/public-key-token, string custom attributes, assembly references",
+      "ManagedImage.method_record(token)": "dict: token, owner/name/signature, RVA/file offset, IL bytes sha256, decoded instructions with operand byte offsets and resolved calls/string literals",
+      "ManagedImage.resolve_token(token)": "dict: table/index, owner/name and assembly-ref scope where available"
+    },
+    "research.workflows.replay.gui_entry_resolver": {
+      "scan(install, framework_root, anchor, anchor_sha256, out)": "writes fresh read-only file evidence report: pinned seven-file anchor, actual GUI/Utils/Core/log4net metadata and call anchors, selected Framework/CLR/config policy; partial/unknown resolution never admission",
+      "resolve_destinations(report, known_folders=None)": "pure path constraints derived from actual file evidence. Caller strings are untrusted declarations, never real entry context or OS observation"
+    },
+    "research.workflows.replay.gui_entry_resolver_windows": {
+      "measure_guest(transfer, transfer_sha256, report_path, report_sha256, allocation_root)": "explicit Windows guest-only identity/known-folder and read-only ACL measurement; rejects origin host and wrong named guest. Does not execute CLR or target getters"
+    },
+    "research.workflows.replay.gui_entry_resolver_pack": {
+      "pack(out)": "read-only code export with exact frozen transfer-validator dependency; no installed/profile files or controller proof"
+    }
+  },
+  "invariants": [
+    "No GUI/Console/engine/native helper launched",
+    "No target reflection/load/cctor/getter invocation",
+    "No config/user-profile/registry writes",
+    "No production policy/controller edits",
+    "No synthetic real-entry authority, fake tokens, signing keys or self-signed controller statements",
+    "Always native_ready=false, production_admitted=false, controller_proof_emitted=false",
+    "Unknown actual CLR/AppDomain/evidence-dependent paths remain null with exact required calls and file/token/IL provenance"
+  ],
+  "authority": "Out-of-band hash of separately retained Phase A suite anchor, actual selected file bytes, independent verification. Reports are unsigned measurements, not controller authorization."
+}

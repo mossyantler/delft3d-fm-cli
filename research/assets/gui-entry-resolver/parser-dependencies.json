@@ -1,0 +1,24 @@
+{
+  "dnfile": {
+    "version": "0.18.0",
+    "origin": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\__init__.py",
+    "files": {
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\__init__.py": "9d1460cd8e5b5f05abd37c68193a1d465ae9094dc3a9abb2a7891e067a7d34e3",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\base.py": "cdfe3d228e92f7d38b4ca816a6ab385c422b7bddf777ae90c0a1bbfe2b2d5865",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\codedindex.py": "0b83cefbb65b32e21ab0ddfc09d6cdd3278f52243bdd18ae2691f8ba64a0d88f",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\enums.py": "8197bc2576c5ec059f6e010e49e5c651f138a771bd08034d4e0f17943cfd615c",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\errors.py": "a28c3d59911afd579ee849aaca7f42eeaef4c91deb0007b38f905bd059051f28",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\mdtable.py": "534fd7dfeac2ba5f7649f0104a9289eb3543a15ad0f8795f51591e70c88c303b",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\resource.py": "13891e0df8695d9abc8e0a7a996a271a0d0061d6d3b5dd7d6ee2aa858858ce97",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\stream.py": "aca58c0ed4c5e13a390dcd6cfdf997b5486be0dbba8bc78f989e2f7405509648",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\dnfile\\utils.py": "606b3b69983542d49dd35d041da57033620e364b64cca32f92915040e97fd4f6"
+    }
+  },
+  "pefile": {
+    "version": "2024.8.26",
+    "origin": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\pefile.py",
+    "files": {
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\.venv\\Lib\\site-packages\\pefile.py": "0d0eb68f0f169182613dc64b3ab50b20855508c1c1d2faafe8fccf23edb6a345"
+    }
+  }
+}

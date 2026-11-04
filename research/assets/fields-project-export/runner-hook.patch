@@ -1,0 +1,81 @@
+--- a/research/workflows/replay/dimr_project_export.py
++++ b/research/workflows/replay/dimr_project_export.py
+@@ -271,6 +271,35 @@
+     """Not exercised in preparation. Identity is checked BEFORE launch/writes."""
+     bundle, install = plain(bundle), plain(install)
+     record = inspect(bundle, expected_sha)
++    return run_export_guest(bundle, expected_sha, install, out, record=record,
++                            slot=slot, timeout=timeout, kind=KIND,
++                            env_prefix='P08_EXPORT', completion_prefix='P08_DIMR_PROJECT_EXPORT_OK:',
++                            success_state='passed_export_structure_only', report_name='verification.json',
++                            output_verifier=verify_outputs)
++
++
++def run_export_guest(bundle, expected_sha, install, out, *, record, slot, timeout,
++                     kind, env_prefix, completion_prefix, success_state, report_name,
++                     output_verifier):
++    """Shared isolated lifecycle only. Caller owns experiment inspection/receipt.
++
++    No FM/DIMR export acceptance is implied here. The ordinary P08 wrapper above
++    supplies precisely its existing verifier, marker, request and result names.
++    Other bounded exporters must provide their own pinned manifest and verifier.
++    The executable, fixed host script, guest identity, lease and Job remain fixed.
++    """
++    bundle, install = plain(bundle), plain(install)
++    require(sha(bundle / 'bundle.json') == expected_sha and read_json(bundle / 'bundle.json') == record,
++            'Shared lifecycle requires exact pinned manifest')
++    current = inventory(bundle); current.pop('bundle.json', None)
++    require(current == record['files'], 'Shared lifecycle bundle bytes changed')
++    require(record['kind'] == kind and record.get('isolation_purpose', KIND) == KIND,
++            'Wrong export experiment/isolation purpose')
++    require(record['schema'] == 1 and record['native_started'] is False and record['engine_execution'] is False
++            and re.fullmatch('[0-9a-f]{64}', record['nonce']), 'Wrong preparation/lifecycle nonce')
++    require(env_prefix in ('P08_EXPORT', 'E014_EXPORT') and callable(output_verifier), 'Invalid bounded exporter adapter')
++    require(re.fullmatch(r'[A-Za-z0-9_]+:', completion_prefix) and re.fullmatch(r'[A-Za-z0-9_]+', success_state)
++            and report_name in ('verification.json', 'fields-verification.json'), 'Invalid export receipt contract')
+     require(slot and re.fullmatch(r'[A-Za-z0-9_-]{1,64}', slot), 'Exclusive native lease identifier required')
+     require(record['target_identity'] is not None and record['guest_identity_pending'] is False, 'No independently identified disposable guest')
+     identity = load_identity(bundle); observed = identity.probe()
+@@ -284,18 +313,18 @@
+     require(0 < timeout <= 180, 'Bound export host to 180 seconds')
+     out = fresh(out, bundle, install); copy_tree(bundle / 'source', out / 'project')
+     project = out / 'project' / Path(record['project']).name
+-    request = {'kind': KIND, 'nonce': record['nonce'], 'project': project.relative_to(out).as_posix(),
++    request = {'kind': kind, 'nonce': record['nonce'], 'project': project.relative_to(out).as_posix(),
+                'project_sha256': sha(project), 'companion_before': inventory(Path(str(project) + '_data')), 'engine_execution': False}
+     write_new(out / 'request.json', request)
+-    env = os.environ.copy(); env.update(P08_EXPORT_ROOT=str(out), P08_EXPORT_NONCE=record['nonce'],
+-                                        TEMP=str(out / 'temp'), TMP=str(out / 'temp'))
++    env = os.environ.copy(); env.update({env_prefix + '_ROOT': str(out), env_prefix + '_NONCE': record['nonce'],
++                                        'TEMP': str(out / 'temp'), 'TMP': str(out / 'temp')})
+     (out / 'temp').mkdir()
+     sys.path.insert(0, str(bundle / 'runtime'))
+     from p08_runtime.windows_job import OwnedJob
+     from p08_runtime.windows_exit_evidence import capture_normal_exit
+     argv = [str(plain(install) / 'bin/DeltaShell.Console.exe'), '--skip-default-libs', '--run-file', str(bundle / 'runtime/host.py')]
+     report = {'state': 'failed_host_export', 'native_started': False, 'engine_execution': False, 'slot': slot,
+-              'argv': argv, 'cwd': str(out), 'guest_identity': observed, 'bundle_sha256': expected_sha}
++              'argv': argv, 'cwd': str(out), 'guest_identity': observed, 'bundle_sha256': expected_sha, 'experiment_kind': kind}
+     job = OwnedJob(); process = None
+     try:
+         with (out / 'stdout.bin').open('xb') as stdout, (out / 'stderr.bin').open('xb') as stderr:
+@@ -308,8 +337,8 @@
+                 report['returncode'] = process.returncode; report['normal_exit'] = capture_normal_exit(job, process)
+                 require(report['normal_exit']['all_owned_members_exit_confirmed'] is True, 'Missing exact owned host exit/empty-job evidence')
+                 require(process.returncode == 0, 'Console returned nonzero')
+-                require(('P08_DIMR_PROJECT_EXPORT_OK:' + record['nonce']).encode() in (out / 'stdout.bin').read_bytes(), 'Missing nonce-bound host completion marker')
+-                report['verification'] = verify_outputs(out); report['state'] = 'passed_export_structure_only'
++                require((completion_prefix + record['nonce']).encode() in (out / 'stdout.bin').read_bytes(), 'Missing nonce-bound host completion marker')
++                report['verification'] = output_verifier(out); report['state'] = success_state
+     except Exception as exc:
+         report.update(error=str(exc), traceback=traceback.format_exc())
+     finally:
+@@ -322,7 +351,7 @@
+             job.close()
+         report['bundle_unchanged'] = inventory(bundle) == dict(record['files'], **{'bundle.json': {'sha256': expected_sha, 'bytes': (bundle / 'bundle.json').stat().st_size}})
+         if not report['bundle_unchanged']: report['state'] = 'failed_bundle_changed'
+-        write_new(out / 'verification.json', report)
++        write_new(out / report_name, report)
+     return report
+ 
+ 

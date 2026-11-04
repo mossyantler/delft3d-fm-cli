@@ -1,0 +1,11 @@
+{
+  "state": "SUPERSEDED_DO_NOT_APPLY",
+  "target": "research\\workflows\\replay\\dimr_project_export.py",
+  "base_sha256": "a6ca9ec68170ddd244772c5639ce3bdd4dbdf877f03e589e9114c988945699b3",
+  "proposed_text_sha256": "4d4ffcdaf9adf591ba3ffd0d0f38353a4be5f6c225bb87522c76eacfa522f955",
+  "patch_sha256": "c792a8ce0bc7e60d7627409d5199d26d561f8a69fa69f9f82bb090c495041923",
+  "P08_behavior": "same host, request kind/environment, marker, verifier, success state and verification.json by default; no E014 FM/DIMR prerequisite",
+  "native_execution": false,
+  "reason": "Nash owns closed shared lifecycle registry and trace packaging. Old generic caller-supplied callbacks are not admitted.",
+  "replacement_owner": "Nash: shared dimr_project_export.py / guest_console_lifecycle*.py"
+}

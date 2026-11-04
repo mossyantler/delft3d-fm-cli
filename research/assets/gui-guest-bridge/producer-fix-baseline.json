@@ -1,0 +1,14 @@
+{
+  "scope": "pre-repair freeze; read-only baseline for timestamp and recorded guest-root fixes",
+  "files": {
+    "research/workflows/replay/gui_guest_bridge.py": "2e7c7d390627aeeab1ab40c4468247babd7e4c0690bbfb0226ffe786af971155",
+    "research/workflows/replay/gui_guest_identity.py": "8f3e0085462ac5330d50598409b15b69f470661c40f01fd060a0370798303cd3",
+    "research/workflows/replay/trace_gui_activity.py": "9659b232fa88c56ef715227b6c58f8454dd80dbe7930748fdefb2cd0e160cd29",
+    "research/workflows/verification/verify_gui_trace.py": "f53a7213778a762eca2818f1d325e998532f48c25251237cbcd23ae8af302ddf",
+    "research/assets/gui-guest-bridge/payload/payload-lock.json": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58",
+    "research/assets/gui-guest-bridge/offline-verification.json": "01fdf8f9e48212946499c03ad10cf3372d836b5cf513331906340a7a0eff4fa4",
+    "research/workflows/verification/verify_gui_guest.py": "ac0adbc2d3a78c1a73a9c2e9f1737b7872fb4f463c0b54758f8b2df59aac52e9",
+    "research/workflows/verification/verify_gui_guest_identity.py": "510f53a71809baf8b9b60d46af2bce7930450a8c69df00513502092439751f7c",
+    "research/workflows/verification/verify_gui_guest_paths.py": "1920e8855fe8371de61c39f7007344afe15a051b262b47aa2582148eac6fb96e"
+  }
+}

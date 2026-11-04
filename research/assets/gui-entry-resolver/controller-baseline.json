@@ -1,0 +1,10 @@
+{
+  "scope": "read-only frozen controller before resolver research",
+  "files": {
+    "research/workflows/replay/gui_guest_controller.py": "e3876813020a0b19c44176153c64376276d471858371880a469c1ed253f73aac",
+    "research/workflows/replay/gui_guest_controller_proof.py": "44dbc308c387c652e24f7f51044478f5781b9acbeb31c501406b2b942585e3b4",
+    "research/workflows/replay/gui_guest_controller_windows.py": "bc98ff9bcb584354bbf562f9a45f1cabc6de70fe390d133406ac3108358ea75c",
+    "research/assets/gui-guest-controller/controller-freeze.json": "ed2d48ec12cfbca2f3ecd2d2031ae1d965ef700fdb66ff991fc7b607af55ebb8",
+    "research/assets/gui-guest-controller/controller-audit-repair-freeze.json": "ed2d48ec12cfbca2f3ecd2d2031ae1d965ef700fdb66ff991fc7b607af55ebb8"
+  }
+}

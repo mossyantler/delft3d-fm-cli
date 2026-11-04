@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "freeze_id": "E007-ENTRY-RESOLVER-I-20261104-01",
+  "created_at_utc": "2026-11-04T13:40:19.208745+00:00",
+  "scope": "Real pinned installed PE/CLR/IL/config evidence, optional read-only named-guest OS/ACL observer; exact CLR paths remain unresolved",
+  "source_freeze_sha256": "e93e55ac1934e146a72e9464dc22c70373b04feba57a9d74012ffdbcdb711983",
+  "file_evidence": {
+    "path": "research\\assets\\gui-entry-resolver\\evidence-04\\file-evidence.json",
+    "sha256": "e3509d32cec52f7e4c0a58fe48f9d2caf7dc5bb3b41e997a58c47d1f712006b3",
+    "images": 9,
+    "methods": 58,
+    "parser_diagnostics_retained": 42
+  },
+  "checks": {
+    "schema": 1,
+    "evidence_kind": "file_only_resolver_tests",
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "GUI_Console_CLR_started": false,
+    "production_admitted": false,
+    "controller_proof_emitted": false,
+    "report_sha256": "e3509d32cec52f7e4c0a58fe48f9d2caf7dc5bb3b41e997a58c47d1f712006b3"
+  },
+  "file_only_test_command": "research/.venv/Scripts/python.exe -B research/assets/gui-entry-resolver/offline_checks.py --report research/assets/gui-entry-resolver/evidence-04/file-evidence.json --out research/assets/gui-entry-resolver/scratch/check-03",
+  "independent_V_receipts": {
+    "installed": {
+      "path": "research\\experiments\\E007-ENTRY-V-final-20261104-223319-1a2b688f\\installed-review\\verification.json",
+      "sha256": "4dd49bd5991c0a5c2d1058bb39105755e894418f431a60aaf451cba136722760"
+    },
+    "app_tests": {
+      "path": "research\\experiments\\E007-ENTRY-V-app-fix-20261104-223737-69fcb43e\\app-tests.stdout.json",
+      "sha256": "f2bf239b2c9885c85f78618db86afeca53ec77bfdb03c11c33b23482afcef373"
+    }
+  },
+  "package": {
+    "path": "research\\assets\\gui-entry-resolver\\deploy-01\\package.json",
+    "sha256": "5722607e75f9b4c2d0e95654ebb60c87cfab27acbeef08713c3e6541ae486e8d",
+    "pinned_dependency_sha256": "44dbc308c387c652e24f7f51044478f5781b9acbeb31c501406b2b942585e3b4"
+  },
+  "application_dependencies_changed": false,
+  "application_import_check_without_dnfile": "passed; no optional import attempts",
+  "preserved_controller_sha256": {
+    "research/workflows/replay/gui_guest_controller.py": "e3876813020a0b19c44176153c64376276d471858371880a469c1ed253f73aac",
+    "research/workflows/replay/gui_guest_controller_proof.py": "44dbc308c387c652e24f7f51044478f5781b9acbeb31c501406b2b942585e3b4",
+    "research/workflows/replay/gui_guest_controller_windows.py": "bc98ff9bcb584354bbf562f9a45f1cabc6de70fe390d133406ac3108358ea75c",
+    "research/assets/gui-guest-controller/controller-freeze.json": "ed2d48ec12cfbca2f3ecd2d2031ae1d965ef700fdb66ff991fc7b607af55ebb8",
+    "research/assets/gui-guest-controller/controller-audit-repair-freeze.json": "ed2d48ec12cfbca2f3ecd2d2031ae1d965ef700fdb66ff991fc7b607af55ebb8"
+  },
+  "controller_policies_modified": false,
+  "files": {
+    "research/assets/gui-entry-resolver/.gitignore": {
+      "sha256": "fd3addbaedcb3b9d696c4dba67e0fd38d0536122710eb82059497cef2b3f48d1",
+      "bytes": 44
+    },
+    "research/assets/gui-entry-resolver/controller-baseline.json": {
+      "sha256": "208eea317692ace20d76bf84f7169fb9104eb617e90a0b22d087dfa199f9ffe7",
+      "bytes": 769
+    },
+    "research/assets/gui-entry-resolver/I_V_CONTRACT.json": {
+      "sha256": "e129daef8cf3b70efcf18dcc28e3bec334c167a2200aee4ce1c3c2d9c9b7e25b",
+      "bytes": 2634
+    },
+    "research/assets/gui-entry-resolver/I_V_STATUS.json": {
+      "sha256": "a112848c0165892a6c900d88037315c98cd2e8c2f279f931f9e5f79c81ed8c87",
+      "bytes": 1727
+    },
+    "research/assets/gui-entry-resolver/offline_checks.py": {
+      "sha256": "f4486a7c7fba1bde8ae7e253b5b4b135e3f1fad0765b63ba09395005586e4732",
+      "bytes": 12032
+    },
+    "research/assets/gui-entry-resolver/parser-dependencies.json": {
+      "sha256": "455977dc11d575c4a91744e81ebb5dcf3285a430e5ffd038a13af2d375b37830",
+      "bytes": 2153
+    },
+    "research/assets/gui-entry-resolver/path-proof-summary.json": {
+      "sha256": "eb6239750ed1dad4eceb568a6464a1ab0d4850a1ae3651cac3d8188c399d110c",
+      "bytes": 37156
+    },
+    "research/assets/gui-entry-resolver/README.md": {
+      "sha256": "8b1e5e61ca108abd015d5f5135202276a8e88cbb3db5ff6a6272ca362edc6810",
+      "bytes": 11067
+    },
+    "research/assets/gui-entry-resolver/requirements.txt": {
+      "sha256": "7036b64d2fde2a4858e4cb5c2e9dab84f13832aa683d1875cf08fc555c0ac1aa",
+      "bytes": 33
+    },
+    "research/assets/gui-entry-resolver/SOURCE_FREEZE.json": {
+      "sha256": "e93e55ac1934e146a72e9464dc22c70373b04feba57a9d74012ffdbcdb711983",
+      "bytes": 902
+    },
+    "research/workflows/replay/gui_entry_resolver.py": {
+      "sha256": "ae34439b16a9ff42dafc1f8d53c24021774deaa9c198cfb3636354ec7593f72e",
+      "bytes": 18892
+    },
+    "research/workflows/replay/gui_entry_resolver_metadata.py": {
+      "sha256": "3a51d8a9de7d53086adba88ee304a8e37eae37d9ab0c0bef0d3083c693fb2e81",
+      "bytes": 15794
+    },
+    "research/workflows/replay/gui_entry_resolver_pack.py": {
+      "sha256": "0731a82d7cf5ee91092678958c668db0f5d3b526e9d5e7f28da06e2b0f60603e",
+      "bytes": 2210
+    },
+    "research/workflows/replay/gui_entry_resolver_windows.py": {
+      "sha256": "f5119ed9d4b08591862df1cfca920d9d2abaeab392ee98cc2c1f96a3806e0874",
+      "bytes": 9441
+    }
+  },
+  "GUI_Console_or_CLR_started": false,
+  "Windows_profile_or_settings_written": false,
+  "production_admitted": false,
+  "controller_proof_emitted": false,
+  "remaining": [
+    "Real CLR entry assembly/AppDomain/FriendlyName/ConfigurationFile/CodeBase and evidence suffix",
+    "Actual binding and hash mode/value with initialization order",
+    "Named guest OS folder/protection observations not yet run",
+    "Independent review and existing controller admission remain separate; no manufactured authority"
+  ]
+}

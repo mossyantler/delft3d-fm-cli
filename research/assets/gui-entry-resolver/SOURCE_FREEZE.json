@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "freeze_id": "E007-ENTRY-I-source-20261104-01",
+  "status": "code frozen for independent V; actual paths remain unresolved; no authority issued",
+  "files": {
+    "research/workflows/replay/gui_entry_resolver.py": {
+      "sha256": "ae34439b16a9ff42dafc1f8d53c24021774deaa9c198cfb3636354ec7593f72e",
+      "bytes": 18892
+    },
+    "research/workflows/replay/gui_entry_resolver_metadata.py": {
+      "sha256": "3a51d8a9de7d53086adba88ee304a8e37eae37d9ab0c0bef0d3083c693fb2e81",
+      "bytes": 15794
+    },
+    "research/workflows/replay/gui_entry_resolver_pack.py": {
+      "sha256": "0731a82d7cf5ee91092678958c668db0f5d3b526e9d5e7f28da06e2b0f60603e",
+      "bytes": 2210
+    },
+    "research/workflows/replay/gui_entry_resolver_windows.py": {
+      "sha256": "f5119ed9d4b08591862df1cfca920d9d2abaeab392ee98cc2c1f96a3806e0874",
+      "bytes": 9441
+    }
+  }
+}

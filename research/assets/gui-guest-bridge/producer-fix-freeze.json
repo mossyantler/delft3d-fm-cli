@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "freeze_id": "E007-I-producer-receipt-repair-20261104-01",
+  "created_at_utc": "2026-11-04T11:39:43.917045+00:00",
+  "scope": "Producer only; chronology/local guest roots/pairwise disjoint roots. No controller work or live UI.",
+  "portable_command": ".venv/Scripts/python.exe -B research/assets/gui-guest-bridge/offline_checks.py --out research/assets/gui-guest-bridge/scratch/producer-fixed-01",
+  "pre_fix_reproduction": {
+    "scope": "intentional pre-fix reproduction with real collect and valid resealed replay hashes",
+    "tests": 3,
+    "failures": 36,
+    "errors": 0,
+    "native_processes_launched": false
+  },
+  "portable_checks": {
+    "evidence_kind": "offline_synthetic_tests_only",
+    "tests": 37,
+    "failures": 0,
+    "errors": 0,
+    "passed": true,
+    "native_processes_launched": false,
+    "live_guest_validated": false,
+    "E007_acceptance": "unknown",
+    "payload_lock_sha256": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58"
+  },
+  "independent_checks": {
+    "scope": "offline TEST collections; no observed guest or GUI evidence",
+    "passed": true,
+    "phase_a_sha256": "153ceae23316007a90ec9e75f680662d900967f2a49723a4eae69e98f1ca2a4b",
+    "control_sha256": "4ca76e12f740020985da41708db43a51bb18a790e15f4fd7a1e5abcc522e9ec8",
+    "control_state": "prepared",
+    "runtime_acceptance": "unknown",
+    "negatives": [
+      {
+        "case": "preparation_after_receipt",
+        "state": "refused",
+        "code": "phase_inversion",
+        "message": "Guest identity/collection chronology precedes preparation",
+        "collection_sha256": "3eb676778c49b4a6bba483fee20adf17d09c50f2f107c2f70d6f14895c23d1de"
+      },
+      {
+        "case": "unc_suite",
+        "state": "refused",
+        "code": "escaped_guest_path",
+        "message": "Guest paths must stay on an explicit local Windows drive",
+        "collection_sha256": "ac612399c35067d12c472ed322d414a32453020b75976cc31285d436a424a3c0"
+      },
+      {
+        "case": "suite_equals_bundle",
+        "state": "refused",
+        "code": "escaped_guest_path",
+        "message": "Guest suite/bundle/evidence roots overlap",
+        "collection_sha256": "904a8fb83dd98fa020e622960826dc54f1ad074bd73804fa3919d5907ade8675"
+      },
+      {
+        "case": "suite_inside_bundle",
+        "state": "refused",
+        "code": "escaped_guest_path",
+        "message": "Guest suite/bundle/evidence roots overlap",
+        "collection_sha256": "5295b689877873ec87758842cfbe3719c10f26f95d70571ac1ed4b17d62400bd"
+      },
+      {
+        "case": "suite_equals_evidence",
+        "state": "refused",
+        "code": "escaped_guest_path",
+        "message": "Guest suite/bundle/evidence roots overlap",
+        "collection_sha256": "0713d010942beb3b12f858da8fbcd021312018b7b5bfc013e5e545ee75cbdef4"
+      },
+      {
+        "case": "bundle_equals_evidence",
+        "state": "refused",
+        "code": "escaped_guest_path",
+        "message": "Guest suite/bundle/evidence roots overlap",
+        "collection_sha256": "d330c0c743d8518850f0c7cdb7e8ae11fdc61696c9ff0578176422060604dda8"
+      },
+      {
+        "case": "runtime_adapter_still_required",
+        "state": "refused",
+        "code": "runtime_evidence_refused",
+        "message": "Only identity-check transfer is reviewable; actual/synthetic runtime requires a later independent raw adapter",
+        "collection_sha256": "4a83bf8df2289c59731e95496d529c5e316c07528bd1a2dd1a27dfb0f0f00101"
+      }
+    ],
+    "independent_verifier_modified": false,
+    "native_processes_launched": false
+  },
+  "preserved_baseline_sha256": {
+    "research/workflows/replay/gui_guest_identity.py": "8f3e0085462ac5330d50598409b15b69f470661c40f01fd060a0370798303cd3",
+    "research/workflows/replay/trace_gui_activity.py": "9659b232fa88c56ef715227b6c58f8454dd80dbe7930748fdefb2cd0e160cd29",
+    "research/workflows/verification/verify_gui_trace.py": "f53a7213778a762eca2818f1d325e998532f48c25251237cbcd23ae8af302ddf",
+    "research/assets/gui-guest-bridge/payload/payload-lock.json": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58",
+    "research/assets/gui-guest-bridge/offline-verification.json": "01fdf8f9e48212946499c03ad10cf3372d836b5cf513331906340a7a0eff4fa4",
+    "research/workflows/verification/verify_gui_guest.py": "ac0adbc2d3a78c1a73a9c2e9f1737b7872fb4f463c0b54758f8b2df59aac52e9",
+    "research/workflows/verification/verify_gui_guest_identity.py": "510f53a71809baf8b9b60d46af2bce7930450a8c69df00513502092439751f7c",
+    "research/workflows/verification/verify_gui_guest_paths.py": "1920e8855fe8371de61c39f7007344afe15a051b262b47aa2582148eac6fb96e"
+  },
+  "files": {
+    "research/assets/gui-guest-bridge/offline-verification.json": {
+      "sha256": "01fdf8f9e48212946499c03ad10cf3372d836b5cf513331906340a7a0eff4fa4",
+      "bytes": 7147
+    },
+    "research/assets/gui-guest-bridge/offline_checks.py": {
+      "sha256": "78e7ca5cfa6306dee9740c842e862225c6c66a62547253825c24b1158aace67d",
+      "bytes": 38353
+    },
+    "research/assets/gui-guest-bridge/payload/payload-lock.json": {
+      "sha256": "16ebbde700314e0a2984974e43833f3ead417cdef08901270eec08259e6c3c58",
+      "bytes": 6966
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/__init__.py": {
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+      "bytes": 127
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/common.py": {
+      "sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+      "bytes": 3773
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/model.py": {
+      "sha256": "ce379ed72248ec2b1fc7916552f2ee9226a6735950348dd913b1c0bce9d108cf",
+      "bytes": 12388
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/outputs.py": {
+      "sha256": "376cd7908ba5d274a995bb2b35c4f9c81a6ff68e4873fd7448d07cbbef77dfd7",
+      "bytes": 6213
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/dfm_cli/windows_job.py": {
+      "sha256": "44a79240854ef0e195033b846b738ffc29fe6ca8adca3a446742a4a1a02b8af1",
+      "bytes": 10427
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/assets/gui-activity-trace/host.py": {
+      "sha256": "9c2670d4e634f760f8e21cf9487ec4d61cc6b1e0dbcded8fa2a0fce9d725386a",
+      "bytes": 8334
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/assets/gui-activity-trace/OwnedHostGuard.cs": {
+      "sha256": "10c930a1910bde193e004983b540ff82380175138c9a5236462f9612c134900c",
+      "bytes": 1683
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/assets/gui-activity-trace/README.md": {
+      "sha256": "b6cd0770775836fa03e6c723604af390f7c56ff39ab158d20971be5a955f74ca",
+      "bytes": 13955
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/__init__.py": {
+      "sha256": "ded1d017d6d7ecea071abda8b508baf57bbd79777b9c4c815ed04e4c0c61f618",
+      "bytes": 72
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/paths.py": {
+      "sha256": "8f37d7a3e10833598911a9cdf6160e7df14d298fe3ade53a47f7cdcb73a1c205",
+      "bytes": 85
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/replay/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/replay/run_serial_experiment.py": {
+      "sha256": "40925884cb74807530fe0c1811255e80c9a5acb8ee6f67e0435b7e2f1c73780e",
+      "bytes": 9735
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/replay/trace_gui_activity.py": {
+      "sha256": "9659b232fa88c56ef715227b6c58f8454dd80dbe7930748fdefb2cd0e160cd29",
+      "bytes": 20613
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/compare_model_exports.py": {
+      "sha256": "45b47323297b7089a8e531cf22e7daba3abc9d4d281aaed6f4e73a791b0fbf3a",
+      "bytes": 6124
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/snapshot.py": {
+      "sha256": "eafcf7681a16894b9a7b777fd64d577a2cb0557926f800d2411e07a10fe21880",
+      "bytes": 3255
+    },
+    "research/assets/gui-guest-bridge/payload/runtime/research/workflows/verification/verify_gui_trace.py": {
+      "sha256": "f53a7213778a762eca2818f1d325e998532f48c25251237cbcd23ae8af302ddf",
+      "bytes": 22231
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34.mdu": {
+      "sha256": "d904d38867caa3ff343bbc54bfcddd61f3301d559392327e3be0967b4a1b174b",
+      "bytes": 34358
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34.wnd": {
+      "sha256": "b2aa538bc180d424b448fb5ce2168d683cbea311cb24952e57d19ab07df339d5",
+      "bytes": 84
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_001.bc": {
+      "sha256": "f0e7aaeea9f54a7395315ecf6317154b0fd4f7579a30ee1c33c61eeea5ce25a3",
+      "bytes": 1264
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_001.pli": {
+      "sha256": "486a6d2eef9a3e7c9077e0d45fcf8605e787a68d9ffc92e9a7990fe565414457",
+      "bytes": 730
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_bnd.ext": {
+      "sha256": "c35dfda6d7fdbfb952390a5c9a1f7d7fac36aa295afebee3976cf0ac7178ec77",
+      "bytes": 246
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_crs.pli": {
+      "sha256": "3617d10bcd440c67a45752211ab78d7a8abf64082bf3a10ed432d2d239a18d2a",
+      "bytes": 1523
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_drypoints_dry.xyz": {
+      "sha256": "98c0a83c6fc985ccb373bd442c5b7fe768c5d42d45d06e4ebecd6e0c0fbec259",
+      "bytes": 54
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_net.nc": {
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d",
+      "bytes": 23984
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_obs.xyn": {
+      "sha256": "f470065fc33516fb88ae039023213081b4f66d6044dd4cd5bc64ef20d0bd333e",
+      "bytes": 265
+    },
+    "research/assets/gui-guest-bridge/payload/source-input/f34_thd.pli": {
+      "sha256": "28d122f7dea66184de7686882f45aec31e33b524610e085cad0ce8a7753d352e",
+      "bytes": 1231
+    },
+    "research/assets/gui-guest-bridge/producer-fix-baseline.json": {
+      "sha256": "348ae2a8c089714e969a579092c28c6e851e9507ba8bc6ddd8fc707eca3482f8",
+      "bytes": 1288
+    },
+    "research/assets/gui-guest-bridge/producer_fix_independent_checks.py": {
+      "sha256": "ee6934cffbd4f0761be6d2dd4f2fc343cb2394d1f2ea06fb9916a3c59e75f8f4",
+      "bytes": 6818
+    },
+    "research/assets/gui-guest-bridge/README.md": {
+      "sha256": "38ea18bd88cd137b9b60f7a93d4d2f54cd32c33fec686c49fb9e7fbcf0139c62",
+      "bytes": 15826
+    },
+    "research/workflows/replay/gui_guest_bridge.py": {
+      "sha256": "cdbd15b5685771ef4d906c7d46b8110045751d5eee4fbbc71af68642e4a20184",
+      "bytes": 28749
+    },
+    "research/workflows/replay/gui_guest_identity.py": {
+      "sha256": "8f3e0085462ac5330d50598409b15b69f470661c40f01fd060a0370798303cd3",
+      "bytes": 8592
+    }
+  },
+  "gui_VM_or_engine_launched": false,
+  "Windows_user_settings_changed": false,
+  "independent_verifier_changed": false,
+  "external_requirements": [
+    "Fresh export to include repaired producer scripts",
+    "Named disposable guest and independent profile remain required",
+    "Startup containment and owned guest controller remain unimplemented",
+    "Raman independently reviews real evidence; runtime acceptance not established"
+  ]
+}

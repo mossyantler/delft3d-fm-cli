@@ -1,0 +1,948 @@
+{
+  "schema": 1,
+  "scope": "actual pinned file and CIL evidence; no real entry-context or production authority",
+  "report_path": "research\\assets\\gui-entry-resolver\\evidence-04\\file-evidence.json",
+  "report_sha256": "e3509d32cec52f7e4c0a58fe48f9d2caf7dc5bb3b41e997a58c47d1f712006b3",
+  "state": "partial_unresolved",
+  "authority": {
+    "basis": "separate-channel SHA256 of retained Phase A and actual selected bytes",
+    "anchor_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\E007-I-phase-A-20261104-01\\prepared-final\\fixture.json",
+    "anchor_sha256": "153ceae23316007a90ec9e75f680662d900967f2a49723a4eae69e98f1ca2a4b",
+    "report_signed": false,
+    "signer_authority_established": false,
+    "scope": "byte identities and static CIL/config observations only"
+  },
+  "managed_images": {
+    "bin/DeltaShell.Gui.exe": {
+      "sha256": "37ff0890bd729a534881782db00ced653ddc1049988f4c1b0e0afbe36b00b097",
+      "bytes": 3264928,
+      "assembly_name": "DeltaShell.Gui",
+      "assembly_version": "3.0.0.4936",
+      "mvid": "7955b0fd-ea6c-47a3-a972-12326e2577fd",
+      "entry_point_token": "0x6000012",
+      "machine": "0x14c",
+      "cli_flags": 1
+    },
+    "bin/DelftTools.Utils.dll": {
+      "sha256": "894332b1614938ab375cf16830378add2dea949cc7347ea22b06e564e5e58adf",
+      "bytes": 607136,
+      "assembly_name": "DelftTools.Utils",
+      "assembly_version": "3.0.0.4936",
+      "mvid": "6c08232e-224e-4e4a-8f93-fe3c9e5a2f97",
+      "entry_point_token": "0x0",
+      "machine": "0x14c",
+      "cli_flags": 1
+    },
+    "bin/DeltaShell.Core.dll": {
+      "sha256": "caf6eb548e8ad859dec67c058958332208f6339acf7c488accf5b59804aacffb",
+      "bytes": 111520,
+      "assembly_name": "DeltaShell.Core",
+      "assembly_version": "3.0.0.4936",
+      "mvid": "c4ed26cf-3e1b-4c42-8424-a3683a45b187",
+      "entry_point_token": "0x0",
+      "machine": "0x14c",
+      "cli_flags": 1
+    },
+    "bin/log4net.dll": {
+      "sha256": "8c5759278d0d0e083ec3c8d3893129bb4c3e72ac296c9f6a651208ae5d0e61b6",
+      "bytes": 302592,
+      "assembly_name": "log4net",
+      "assembly_version": "3.3.1.0",
+      "mvid": "84bfe2e2-f3f0-4797-8377-d16cd526a18e",
+      "entry_point_token": "0x0",
+      "machine": "0x14c",
+      "cli_flags": 9
+    },
+    "framework/System.Configuration.dll": {
+      "sha256": "e346f5d994fecaf847d7e675a96f6de82288ce471b008f4c7b579935a39ccb7a",
+      "bytes": 407864,
+      "assembly_name": "System.Configuration",
+      "assembly_version": "4.0.0.0",
+      "mvid": "0bdd7b69-bfbb-4d92-b3c3-55dc2aa7669b",
+      "entry_point_token": "0x0",
+      "machine": "0x14c",
+      "cli_flags": 9
+    },
+    "framework/mscorlib.dll": {
+      "sha256": "94715f6991e2b9dc7481532c05aa99e74a5fff4ee147be541bca27f99e003fc7",
+      "bytes": 5495096,
+      "assembly_name": "mscorlib",
+      "assembly_version": "4.0.0.0",
+      "mvid": "bfd49f34-d993-46d9-a858-bbbd68128a61",
+      "entry_point_token": "0x0",
+      "machine": "0x8664",
+      "cli_flags": 9
+    },
+    "framework/System.Windows.Forms.dll": {
+      "sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+      "bytes": 5992288,
+      "assembly_name": "System.Windows.Forms",
+      "assembly_version": "4.0.0.0",
+      "mvid": "266319ca-a267-4be1-bdb1-3bc6bc385173",
+      "entry_point_token": "0x0",
+      "machine": "0x14c",
+      "cli_flags": 9
+    },
+    "bin/DeltaShell.Console.exe": {
+      "sha256": "7d16e799fcb19aeff11f0a9738eb6a067e17af3fa9c82d53511feea33cfeb4d0",
+      "bytes": 31648,
+      "assembly_name": "DeltaShell.Console",
+      "assembly_version": "3.0.0.4936",
+      "mvid": "fd08343a-2536-47c1-9742-a8849b25f86f",
+      "entry_point_token": "0x600000a",
+      "machine": "0x14c",
+      "cli_flags": 1
+    },
+    "framework/System.dll": {
+      "sha256": "09787b4f38f4f020c6b8a3894146085d4df7b8ae337577ed42d9acf1419660e8",
+      "bytes": 3561272,
+      "assembly_name": "System",
+      "assembly_version": "4.0.0.0",
+      "mvid": "59052c3e-f37d-4f34-8bcd-ecf9a2c89138",
+      "entry_point_token": "0x0",
+      "machine": "0x14c",
+      "cli_flags": 9
+    }
+  },
+  "method_anchors": {
+    "bin/DeltaShell.Gui.exe": [
+      {
+        "token": "0x6000012",
+        "full_name": "DeltaShell.Gui.App::Main",
+        "rva": 9284,
+        "il_file_offset": 1616,
+        "il_bytes": 20,
+        "il_sha256": "b5256e0407fd15d18af01663c7b88d67a7cca6dd3f33ab34eae8e5b98d43f8a1",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000013",
+        "full_name": "DeltaShell.Gui.App::.cctor",
+        "rva": 9316,
+        "il_file_offset": 1637,
+        "il_bytes": 31,
+        "il_sha256": "93e451315598e05f420337230d722b35528c5c6c3507edd340ef717874f26c47",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000009",
+        "full_name": "DeltaShell.Gui.App::.ctor",
+        "rva": 8572,
+        "il_file_offset": 904,
+        "il_bytes": 66,
+        "il_sha256": "6586e619c2e0a547fa4cd62b965f506bc5f5a799484f4356ca5c79ca45672a73",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000011",
+        "full_name": "DeltaShell.Gui.App::InitializeComponent",
+        "rva": 9216,
+        "il_file_offset": 1548,
+        "il_bytes": 54,
+        "il_sha256": "1535dd836ccef8df2ab340f7ac6b44ea54eb3f93e519a83074d17924694eba1f",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600043d",
+        "full_name": "DeltaShell.Gui.Properties.Settings::.ctor",
+        "rva": 52824,
+        "il_file_offset": 45156,
+        "il_bytes": 150,
+        "il_sha256": "1748df0632de7c67dc1115651adbb39b85e8605bd6ad9c8601fcd76478e6aead",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600046b",
+        "full_name": "DeltaShell.Gui.Properties.Settings::.cctor",
+        "rva": 53729,
+        "il_file_offset": 46050,
+        "il_bytes": 21,
+        "il_sha256": "d540cfe9bc84926051fd331242ccc17ada87cf608065eb86bd8b11b04aab73e1",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000440",
+        "full_name": "DeltaShell.Gui.Properties.Settings::get_Default",
+        "rva": 52990,
+        "il_file_offset": 45311,
+        "il_bytes": 6,
+        "il_sha256": "513de498ad0c1a993c105cc70c3e0cc5abff90c574ea49c37a49ab2ea2d9bb4d",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000037",
+        "full_name": "DeltaShell.Gui.PortableSettingsProvider::.cctor",
+        "rva": 11410,
+        "il_file_offset": 3731,
+        "il_bytes": 21,
+        "il_sha256": "13f3d82af8667ffd27619307b76c5cca7b0e1d3704175921d92353191853cbf5",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600002a",
+        "full_name": "DeltaShell.Gui.PortableSettingsProvider::get_SettingsFileName",
+        "rva": 10205,
+        "il_file_offset": 2526,
+        "il_bytes": 6,
+        "il_sha256": "5e6c736f337fbacde2b6e7500279514072fe28f412ac26750a8f893af0fffdb0",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600002b",
+        "full_name": "DeltaShell.Gui.PortableSettingsProvider::set_SettingsFileName",
+        "rva": 10212,
+        "il_file_offset": 2533,
+        "il_bytes": 7,
+        "il_sha256": "8dff06edc7a3a5d7dabc4629083005484bb6ab16e03158a0d892ae62558cc806",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600002e",
+        "full_name": "DeltaShell.Gui.PortableSettingsProvider::GetPropertyValues",
+        "rva": 10376,
+        "il_file_offset": 2708,
+        "il_bytes": 93,
+        "il_sha256": "f980166001e62da940b8e69da6c7642ba6912a40cc11ebadb03742f18c78fc06",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600002d",
+        "full_name": "DeltaShell.Gui.PortableSettingsProvider::SetPropertyValues",
+        "rva": 10236,
+        "il_file_offset": 2568,
+        "il_bytes": 98,
+        "il_sha256": "1678e72b7cc5575dd12343e4bc038dee4047b9c04488ac39f69b51cc3f5f77fd",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000030",
+        "full_name": "DeltaShell.Gui.PortableSettingsProvider::CreateNewSettingsXml",
+        "rva": 10600,
+        "il_file_offset": 2932,
+        "il_bytes": 79,
+        "il_sha256": "e46474d63c6606f8b844a2e71c1fc3a821326e28dea541f3cf1898ac9c8cd658",
+        "body_state": "decoded"
+      }
+    ],
+    "bin/DelftTools.Utils.dll": [
+      {
+        "token": "0x60000d7",
+        "full_name": "DelftTools.Utils.SettingsHelper::.cctor",
+        "rva": 17065,
+        "il_file_offset": 9386,
+        "il_bytes": 6,
+        "il_sha256": "c94983393efaf913a7157691f8164928194ddb3d20915051efca3f4a37a8d605",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000de",
+        "full_name": "DelftTools.Utils.SettingsHelper::InitializeFromExecutingAssembly",
+        "rva": 17120,
+        "il_file_offset": 9452,
+        "il_bytes": 39,
+        "il_sha256": "09f521a9d156a0f22ceb35af7fc24df6ea93e579c0c0e2a242e656101c3a2826",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000df",
+        "full_name": "DelftTools.Utils.SettingsHelper::InitializeFromApplicationConfiguration",
+        "rva": 17172,
+        "il_file_offset": 9504,
+        "il_bytes": 14,
+        "il_sha256": "0a1efad564e07e0ef2441cf006c31f93a51685ba25629c8cc1006d3c7fee426f",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000e0",
+        "full_name": "DelftTools.Utils.SettingsHelper::GetApplicationLocalUserSettingsDirectory",
+        "rva": 17200,
+        "il_file_offset": 9532,
+        "il_bytes": 67,
+        "il_sha256": "e17417737a22ab157f5d8f3e4663f344bc09842544a23315dd1943f2054aee82",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000e1",
+        "full_name": "DelftTools.Utils.SettingsHelper::InitializeFromSettings",
+        "rva": 17280,
+        "il_file_offset": 9612,
+        "il_bytes": 71,
+        "il_sha256": "d35693d82cde99b26dd4cc518dfe7cef8f106ce26e3b96c8c3334aeac474748f",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000e2",
+        "full_name": "DelftTools.Utils.SettingsHelper::GetApplicationLocalUserSettingsDirectoryName",
+        "rva": 17364,
+        "il_file_offset": 9696,
+        "il_bytes": 137,
+        "il_sha256": "ac5f6c4bcdd554efb1aab2ed33f63b65e91869fc0fb58d7b5515029bfadfcf64",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000460",
+        "full_name": "DelftTools.Utils.Reflection.AssemblyUtils::GetExecutingAssemblyInfo",
+        "rva": 65588,
+        "il_file_offset": 57920,
+        "il_bytes": 76,
+        "il_sha256": "b4bd03de203c58a5bf57d815b21df0fb449cbc79bacac7144d5d3231ba5e1c43",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600045f",
+        "full_name": "DelftTools.Utils.Reflection.AssemblyUtils::GetAssemblyInfo",
+        "rva": 65384,
+        "il_file_offset": 57716,
+        "il_bytes": 192,
+        "il_sha256": "263488453adf5b9a7113c0fa85bc4f50ea80f23ca46ae3b9d3c3786b7a647eec",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60002dc",
+        "full_name": "DelftTools.Utils.UnitTest.UnitTestDetector::IsRunningFromNUnit",
+        "rva": 38960,
+        "il_file_offset": 31281,
+        "il_bytes": 6,
+        "il_sha256": "113423461b9b01cdf10bc18360054ef629351cc78e21878725585d555d30286a",
+        "body_state": "decoded"
+      }
+    ],
+    "bin/DeltaShell.Core.dll": [
+      {
+        "token": "0x600006d",
+        "full_name": "DeltaShell.Core.DeltaShellUserDataFolderConverter::Convert",
+        "rva": 12560,
+        "il_file_offset": 4892,
+        "il_bytes": 26,
+        "il_sha256": "004e27adb47199d192c497c59d9ccad4f18fc864ae5a19687b189d3d606d981b",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600006e",
+        "full_name": "DeltaShell.Core.DeltaShellUserDataFolderConverter::DeleteOldLogFiles",
+        "rva": 12600,
+        "il_file_offset": 4932,
+        "il_bytes": 83,
+        "il_sha256": "8c79bcd85a8cc2c7095c0bd0df891b707726e4bebe4547ef1db89a4d03b006e1",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000145",
+        "full_name": "DeltaShell.Core.Properties.Settings::.ctor",
+        "rva": 20623,
+        "il_file_offset": 12944,
+        "il_bytes": 7,
+        "il_sha256": "904dc39bdd08ec9d737efd16a76f5868e15e6acd98df12458804be333d384f9a",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000146",
+        "full_name": "DeltaShell.Core.Properties.Settings::.cctor",
+        "rva": 20631,
+        "il_file_offset": 12952,
+        "il_bytes": 21,
+        "il_sha256": "787c6caa4a9f22e09cfee94b86df5ee0d5d08cb15521319c6734d0bf2cf00665",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000140",
+        "full_name": "DeltaShell.Core.Properties.Settings::get_Default",
+        "rva": 20552,
+        "il_file_offset": 12873,
+        "il_bytes": 6,
+        "il_sha256": "69756796af10dcb05d1c5c1fa9df116fc89ed3205b303c31efe5afeb6064c45d",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000014",
+        "full_name": "DeltaShell.Core.DeltaShellApplication::.ctor",
+        "rva": 8656,
+        "il_file_offset": 988,
+        "il_bytes": 360,
+        "il_sha256": "1d63197a913275f8d3babe1de8446f4e37fe11130a5b08aea4457b710b3ee4d8",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000032",
+        "full_name": "DeltaShell.Core.DeltaShellApplication::GetUserSettingsDirectoryPath",
+        "rva": 10072,
+        "il_file_offset": 2393,
+        "il_bytes": 6,
+        "il_sha256": "6ed090784200294fe1ff29500a34d2c3a35c99d6418487f1feddd6844596c88b",
+        "body_state": "decoded"
+      }
+    ],
+    "bin/log4net.dll": [
+      {
+        "token": "0x60001c5",
+        "full_name": "log4net.Util.PatternString::Format",
+        "rva": 25116,
+        "il_file_offset": 17448,
+        "il_bytes": 41,
+        "il_sha256": "46512a0884d0e54c3e8a1033aeddb558042c020cb942a886fc9595dcd7303e43",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60001c6",
+        "full_name": "log4net.Util.PatternString::Format",
+        "rva": 25172,
+        "il_file_offset": 17504,
+        "il_bytes": 39,
+        "il_sha256": "967d15ee304afb70e788cbb292852a890b2a7d651e19e6840f36d3b74b285912",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60006e6",
+        "full_name": "log4net.Appender.FileAppender::ActivateOptions",
+        "rva": 91592,
+        "il_file_offset": 83924,
+        "il_bytes": 177,
+        "il_sha256": "9e62c1a05c40d763fe4aff8b7f5edddc60862349f127ba415d354348db69b3be",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60006f1",
+        "full_name": "log4net.Appender.FileAppender::OpenFile",
+        "rva": 92332,
+        "il_file_offset": 84664,
+        "il_bytes": 284,
+        "il_sha256": "d5845fb6f4e0386f421d9e60bae67af0237741015209a3f56bcca3fa827f76fe",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60006dc",
+        "full_name": "log4net.Appender.FileAppender::get_File",
+        "rva": 91505,
+        "il_file_offset": 83826,
+        "il_bytes": 7,
+        "il_sha256": "6c7deeff65af98a70a81cee63cd2218b02fcb8433fb72215f5c1b39068463837",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60006dd",
+        "full_name": "log4net.Appender.FileAppender::set_File",
+        "rva": 91513,
+        "il_file_offset": 83834,
+        "il_bytes": 8,
+        "il_sha256": "75fa8f37098fba4c9597667b38dcda5a1b74c669ba9acd1a9b12b055fba59bf2",
+        "body_state": "decoded"
+      }
+    ],
+    "framework/System.Configuration.dll": [
+      {
+        "token": "0x60000b4",
+        "full_name": "System.Configuration.ClientConfigPaths::.ctor",
+        "rva": 30216,
+        "il_file_offset": 22548,
+        "il_bytes": 843,
+        "il_sha256": "5c52b4cf18290091b48f466837ded3f2f45599838d73ced850efd1183a2461b7",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000b5",
+        "full_name": "System.Configuration.ClientConfigPaths::GetPaths",
+        "rva": 31072,
+        "il_file_offset": 23404,
+        "il_bytes": 68,
+        "il_sha256": "82d9acb57998ddc48c1c0d55977619b7949d3bc815c2414cf0f62407b81e4cf9",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000c6",
+        "full_name": "System.Configuration.ClientConfigPaths::GetTypeAndHashSuffix",
+        "rva": 31428,
+        "il_file_offset": 23760,
+        "il_bytes": 105,
+        "il_sha256": "fb64ab802ded0313b9bc99fc8a863378e1e010d77893713e118d06992569c60a",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000c7",
+        "full_name": "System.Configuration.ClientConfigPaths::GetEvidenceInfo",
+        "rva": 31548,
+        "il_file_offset": 23880,
+        "il_bytes": 155,
+        "il_sha256": "4367c88d5709b9da7c4e421a939a73b18444ace7e04664471de142feed44891e",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000cb",
+        "full_name": "System.Configuration.ClientConfigPaths::SetNamesAndVersion",
+        "rva": 31864,
+        "il_file_offset": 24196,
+        "il_bytes": 815,
+        "il_sha256": "0931c4dc787186bcefd7c5ca81cbcb5f3e0b972a6e8cef6020cf99cb1b9fd76e",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000cd",
+        "full_name": "System.Configuration.ClientConfigPaths::Validate",
+        "rva": 33028,
+        "il_file_offset": 25360,
+        "il_bytes": 83,
+        "il_sha256": "9f9626d1355d4d8a42f7237ccc66fa251a5bb62ba5a83a4602316069392b08a0",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000c5",
+        "full_name": "System.Configuration.ClientConfigPaths::CombineIfValid",
+        "rva": 31360,
+        "il_file_offset": 23692,
+        "il_bytes": 38,
+        "il_sha256": "a2fa88ba1c14311acab4062a87406d2bdcd52445537f2c544069abb57629de36",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60000c9",
+        "full_name": "System.Configuration.ClientConfigPaths::IsClickOnceDeployed",
+        "rva": 31780,
+        "il_file_offset": 24112,
+        "il_bytes": 43,
+        "il_sha256": "106165b0d03fde5d9103c7e9787ad68a08a5ea96ef2f08bff22117ec2eaf4f45",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600023c",
+        "full_name": "System.Configuration.ConfigurationManager::OpenExeConfiguration",
+        "rva": 67144,
+        "il_file_offset": 59465,
+        "il_bytes": 11,
+        "il_sha256": "8d5c390ad05e3b1ada1e223ced8544acbf88cdbeb3376c3414e643d0395c134a",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600023d",
+        "full_name": "System.Configuration.ConfigurationManager::OpenExeConfiguration",
+        "rva": 67156,
+        "il_file_offset": 59477,
+        "il_bytes": 11,
+        "il_sha256": "087b5adf39744e711439755db22d3b76b02928058ea5df113cc509fee1685676",
+        "body_state": "decoded"
+      }
+    ],
+    "framework/mscorlib.dll": [
+      {
+        "token": "0x60004d1",
+        "full_name": "System.String::GetHashCode",
+        "rva": 70804,
+        "il_file_offset": 63136,
+        "il_bytes": 107,
+        "il_sha256": "a7ec20a12bd1720ec291254c14e41a1a64c96a7a7d3a49d173298ee4905f9525",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60004d2",
+        "full_name": "System.String::GetLegacyNonRandomizedHashCode",
+        "rva": 70924,
+        "il_file_offset": 63256,
+        "il_bytes": 85,
+        "il_sha256": "90969e4f405fe996b8235a3a1d51928a314a84e6f3015db56d7de53d2553b469",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000e6f",
+        "full_name": "System.Environment::GetFolderPath",
+        "rva": 182861,
+        "il_file_offset": 175182,
+        "il_bytes": 63,
+        "il_sha256": "acf138fda391db6da154ae580387cabd86451b4f63df06b30ef5d76e9fbe26a8",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000e70",
+        "full_name": "System.Environment::GetFolderPath",
+        "rva": 182928,
+        "il_file_offset": 175260,
+        "il_bytes": 117,
+        "il_sha256": "774a6aa229549ee0358359f1edca67bd2565eefc05fa1e639fecf7de8ffea373",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x60038a2",
+        "full_name": "System.Collections.HashHelpers::.cctor",
+        "rva": 892140,
+        "il_file_offset": 884461,
+        "il_bytes": 54,
+        "il_sha256": "dc929c0b39438f4511260ab50eb7b9f524aa4927f87826cd3bb1092d16609aa2",
+        "body_state": "decoded"
+      }
+    ],
+    "framework/System.Windows.Forms.dll": [
+      {
+        "token": "0x600090e",
+        "full_name": "System.Windows.Forms.Application::get_ExecutablePath",
+        "rva": 100740,
+        "il_file_offset": 93072,
+        "il_bytes": 169,
+        "il_sha256": "3a459e9c661466f34d42a5360587139457c2b253d9b9ed9f293a6e8244aafd7a",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000915",
+        "full_name": "System.Windows.Forms.Application::get_ProductName",
+        "rva": 101092,
+        "il_file_offset": 93424,
+        "il_bytes": 283,
+        "il_sha256": "11771faac90ff8bc125fa7aa3b9ad4c8e4a0178b0af3406a7ff359d996f11b52",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000908",
+        "full_name": "System.Windows.Forms.Application::get_CompanyName",
+        "rva": 100380,
+        "il_file_offset": 92712,
+        "il_bytes": 267,
+        "il_sha256": "fc6a62d6867592b8903e407950cb3b1373545d7833b262f47cec445833fe4c68",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000916",
+        "full_name": "System.Windows.Forms.Application::get_ProductVersion",
+        "rva": 101416,
+        "il_file_offset": 93748,
+        "il_bytes": 187,
+        "il_sha256": "e39cfe8c07b4b7c26b3329b0016ecbc7ffb5803580b235c874ba2d365157f4a4",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600090f",
+        "full_name": "System.Windows.Forms.Application::get_LocalUserAppDataPath",
+        "rva": 100924,
+        "il_file_offset": 93256,
+        "il_bytes": 65,
+        "il_sha256": "9a907724aec8c20935b0f465b6cf38bf39919ad35011d8a5171167b852bd5048",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x600091f",
+        "full_name": "System.Windows.Forms.Application::get_UserAppDataPath",
+        "rva": 101948,
+        "il_file_offset": 94280,
+        "il_bytes": 65,
+        "il_sha256": "240130956b53694470fea61100f8540cb5dde01db43ba83615c5dbea7de402ed",
+        "body_state": "decoded"
+      },
+      {
+        "token": "0x6000947",
+        "full_name": "System.Windows.Forms.Application::GetDataPath",
+        "rva": 104352,
+        "il_file_offset": 96684,
+        "il_bytes": 112,
+        "il_sha256": "ac216b3701538149b00f7cca208061ceb3a2495df8b5616c8a6178f9edcfa0d7",
+        "body_state": "decoded"
+      }
+    ],
+    "bin/DeltaShell.Console.exe": [
+      {
+        "token": "0x600000a",
+        "full_name": "DeltaShell.Console.Program::Main",
+        "rva": 9076,
+        "il_file_offset": 1408,
+        "il_bytes": 32,
+        "il_sha256": "95eb4f8df8e2e46982c4a3fb02d7bcdf444a40bfebd3fbad795d28947b72c434",
+        "body_state": "decoded"
+      }
+    ],
+    "framework/System.dll": []
+  },
+  "parser_diagnostics_retained": 42,
+  "resolution": {
+    "known_folders": {
+      "declared": null,
+      "observed_by_this_function": false
+    },
+    "portable_user_config": {
+      "absolute_path": null,
+      "exact_path_proven": false,
+      "production_admitted": false,
+      "known_root": "LocalApplicationData",
+      "company_component": "Deltares",
+      "suffix": "user.config",
+      "leaf_formula": "<active SettingsHelper identity>_#<Math.Abs(full Utils.Location String.GetHashCode())>",
+      "default_identity_from_real_entry_metadata": {
+        "product": "DeltaShell.Gui",
+        "version": "3.0.0.4936"
+      },
+      "unknowns": [
+        "Real CLR binding/Utils.Location",
+        "Actual String.GetHashCode runtime mode and value",
+        "SettingsHelper initialization order and UnitTestDetector branch"
+      ]
+    },
+    "log_directory": {
+      "absolute_path": null,
+      "exact_path_proven": false,
+      "production_admitted": false,
+      "known_root": "LocalApplicationData",
+      "company_component": "Deltares",
+      "configured_identity_components": [
+        "Delft3D FM Suite",
+        "2026.02",
+        "OpenHMWQ"
+      ],
+      "relative_components_checked": true,
+      "relative_leaf_prefix": "Delft3D FM Suite-2026.02-OpenHMWQ_#",
+      "containment_envelope": "KNOWN(LocalApplicationData)/Deltares/<relative leaf>",
+      "unknowns": [
+        "Real CLR binding/Utils.Location",
+        "Actual String.GetHashCode runtime value",
+        "OS known folder and ACL protection"
+      ]
+    },
+    "log_files": {
+      "absolute_path": null,
+      "exact_path_proven": false,
+      "pattern_from_config": [
+        {
+          "attributes": {
+            "name": "fileAppender",
+            "type": "log4net.Appender.FileAppender"
+          },
+          "file": "<file type=\"log4net.Util.PatternString\">\n        <converter>\n          <name value=\"path\" />\n          <type value=\"DeltaShell.Core.DeltaShellUserDataFolderConverter,DeltaShell.Core\" />\n        </converter>\n        \n        <conversionPattern value=\"%path{}\\DeltaShell-%date{yyyy.MMM.dd.HH.mm.ss}.log\" />\n      </file>\n      ",
+          "converter_types": [
+            {
+              "value": "DeltaShell.Core.DeltaShellUserDataFolderConverter,DeltaShell.Core"
+            }
+          ],
+          "conversion_patterns": [
+            {
+              "value": "%path{}\\DeltaShell-%date{yyyy.MMM.dd.HH.mm.ss}.log"
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "name": "messageWindow",
+            "type": "DeltaShell.Gui.Forms.MessageWindow.MessageWindowLogAppender, DeltaShell.Gui"
+          },
+          "file": null,
+          "converter_types": [],
+          "conversion_patterns": []
+        },
+        {
+          "attributes": {
+            "name": "runningActivityAppender",
+            "type": "DeltaShell.Core.RunningActivityLogAppender, DeltaShell.Core"
+          },
+          "file": null,
+          "converter_types": [],
+          "conversion_patterns": []
+        }
+      ],
+      "side_effects": "Configured converter calls Directory.GetFiles and File.Delete; never invoked here"
+    },
+    "core_user_config_local": {
+      "absolute_path": null,
+      "exact_path_proven": false,
+      "production_admitted": false,
+      "known_root": "LocalApplicationData",
+      "suffix": "user.config",
+      "unknowns": [
+        "Real AppDomain.ConfigurationFile/FriendlyName",
+        "Real Assembly.GetEntryAssembly.CodeBase",
+        "StrongName/Url/Path AppDomain evidence and BinaryFormatter SHA1 suffix",
+        "Actual CLR binding and config merge; ClickOnce context"
+      ]
+    },
+    "core_user_config_roaming": {
+      "absolute_path": null,
+      "exact_path_proven": false,
+      "production_admitted": false,
+      "known_root": "ApplicationData",
+      "suffix": "user.config",
+      "unknowns": [
+        "Same ClientConfigPaths context and evidence suffix as local; actual OS roaming folder"
+      ]
+    },
+    "dangerous_calls_not_invoked": [
+      {
+        "image": "bin/DeltaShell.Gui.exe",
+        "image_sha256": "37ff0890bd729a534881782db00ced653ddc1049988f4c1b0e0afbe36b00b097",
+        "method_token": "0x600002d",
+        "method": "DeltaShell.Gui.PortableSettingsProvider::SetPropertyValues",
+        "il_sha256": "1678e72b7cc5575dd12343e4bc038dee4047b9c04488ac39f69b51cc3f5f77fd",
+        "il_offset": 67,
+        "operand_file_offset": 2636,
+        "target": "System.Xml.XmlDocument::Save"
+      },
+      {
+        "image": "bin/DelftTools.Utils.dll",
+        "image_sha256": "894332b1614938ab375cf16830378add2dea949cc7347ea22b06e564e5e58adf",
+        "method_token": "0x60000e0",
+        "method": "DelftTools.Utils.SettingsHelper::GetApplicationLocalUserSettingsDirectory",
+        "il_sha256": "e17417737a22ab157f5d8f3e4663f344bc09842544a23315dd1943f2054aee82",
+        "il_offset": 58,
+        "operand_file_offset": 9591,
+        "target": "System.IO.Directory::CreateDirectory"
+      },
+      {
+        "image": "bin/DeltaShell.Core.dll",
+        "image_sha256": "caf6eb548e8ad859dec67c058958332208f6339acf7c488accf5b59804aacffb",
+        "method_token": "0x600006e",
+        "method": "DeltaShell.Core.DeltaShellUserDataFolderConverter::DeleteOldLogFiles",
+        "il_sha256": "8c79bcd85a8cc2c7095c0bd0df891b707726e4bebe4547ef1db89a4d03b006e1",
+        "il_offset": 67,
+        "operand_file_offset": 5000,
+        "target": "System.IO.File::Delete"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x6000947",
+        "method": "System.Windows.Forms.Application::GetDataPath",
+        "il_sha256": "ac216b3701538149b00f7cca208061ceb3a2495df8b5616c8a6178f9edcfa0d7",
+        "il_offset": 89,
+        "operand_file_offset": 96774,
+        "target": "System.IO.Directory::CreateDirectory"
+      }
+    ],
+    "runtime_context_calls_unresolved": [
+      {
+        "image": "bin/DelftTools.Utils.dll",
+        "image_sha256": "894332b1614938ab375cf16830378add2dea949cc7347ea22b06e564e5e58adf",
+        "method_token": "0x60000e0",
+        "method": "DelftTools.Utils.SettingsHelper::GetApplicationLocalUserSettingsDirectory",
+        "il_sha256": "e17417737a22ab157f5d8f3e4663f344bc09842544a23315dd1943f2054aee82",
+        "il_offset": 2,
+        "operand_file_offset": 9535,
+        "target": "System.Environment::GetFolderPath"
+      },
+      {
+        "image": "bin/DelftTools.Utils.dll",
+        "image_sha256": "894332b1614938ab375cf16830378add2dea949cc7347ea22b06e564e5e58adf",
+        "method_token": "0x60000e2",
+        "method": "DelftTools.Utils.SettingsHelper::GetApplicationLocalUserSettingsDirectoryName",
+        "il_sha256": "ac5f6c4bcdd554efb1aab2ed33f63b65e91869fc0fb58d7b5515029bfadfcf64",
+        "il_offset": 103,
+        "operand_file_offset": 9800,
+        "target": "System.Object::GetHashCode"
+      },
+      {
+        "image": "bin/DelftTools.Utils.dll",
+        "image_sha256": "894332b1614938ab375cf16830378add2dea949cc7347ea22b06e564e5e58adf",
+        "method_token": "0x6000460",
+        "method": "DelftTools.Utils.Reflection.AssemblyUtils::GetExecutingAssemblyInfo",
+        "il_sha256": "b4bd03de203c58a5bf57d815b21df0fb449cbc79bacac7144d5d3231ba5e1c43",
+        "il_offset": 65,
+        "operand_file_offset": 57986,
+        "target": "System.Reflection.Assembly::GetEntryAssembly"
+      },
+      {
+        "image": "framework/System.Configuration.dll",
+        "image_sha256": "e346f5d994fecaf847d7e675a96f6de82288ce471b008f4c7b579935a39ccb7a",
+        "method_token": "0x60000b4",
+        "method": "System.Configuration.ClientConfigPaths::.ctor",
+        "il_sha256": "5c52b4cf18290091b48f466837ded3f2f45599838d73ced850efd1183a2461b7",
+        "il_offset": 54,
+        "operand_file_offset": 22603,
+        "target": "System.Reflection.Assembly::GetEntryAssembly"
+      },
+      {
+        "image": "framework/System.Configuration.dll",
+        "image_sha256": "e346f5d994fecaf847d7e675a96f6de82288ce471b008f4c7b579935a39ccb7a",
+        "method_token": "0x60000b4",
+        "method": "System.Configuration.ClientConfigPaths::.ctor",
+        "il_sha256": "5c52b4cf18290091b48f466837ded3f2f45599838d73ced850efd1183a2461b7",
+        "il_offset": 730,
+        "operand_file_offset": 23279,
+        "target": "System.Environment::GetFolderPath"
+      },
+      {
+        "image": "framework/System.Configuration.dll",
+        "image_sha256": "e346f5d994fecaf847d7e675a96f6de82288ce471b008f4c7b579935a39ccb7a",
+        "method_token": "0x60000b4",
+        "method": "System.Configuration.ClientConfigPaths::.ctor",
+        "il_sha256": "5c52b4cf18290091b48f466837ded3f2f45599838d73ced850efd1183a2461b7",
+        "il_offset": 787,
+        "operand_file_offset": 23336,
+        "target": "System.Environment::GetFolderPath"
+      },
+      {
+        "image": "framework/System.Configuration.dll",
+        "image_sha256": "e346f5d994fecaf847d7e675a96f6de82288ce471b008f4c7b579935a39ccb7a",
+        "method_token": "0x60000c6",
+        "method": "System.Configuration.ClientConfigPaths::GetTypeAndHashSuffix",
+        "il_sha256": "fb64ab802ded0313b9bc99fc8a863378e1e010d77893713e118d06992569c60a",
+        "il_offset": 54,
+        "operand_file_offset": 23815,
+        "target": "System.Runtime.Serialization.Formatters.Binary.BinaryFormatter::Serialize"
+      },
+      {
+        "image": "framework/System.Configuration.dll",
+        "image_sha256": "e346f5d994fecaf847d7e675a96f6de82288ce471b008f4c7b579935a39ccb7a",
+        "method_token": "0x60000c7",
+        "method": "System.Configuration.ClientConfigPaths::GetEvidenceInfo",
+        "il_sha256": "4367c88d5709b9da7c4e421a939a73b18444ace7e04664471de142feed44891e",
+        "il_offset": 11,
+        "operand_file_offset": 23892,
+        "target": "System.AppDomain::get_Evidence"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x600090e",
+        "method": "System.Windows.Forms.Application::get_ExecutablePath",
+        "il_sha256": "3a459e9c661466f34d42a5360587139457c2b253d9b9ed9f293a6e8244aafd7a",
+        "il_offset": 7,
+        "operand_file_offset": 93080,
+        "target": "System.Reflection.Assembly::GetEntryAssembly"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x6000915",
+        "method": "System.Windows.Forms.Application::get_ProductName",
+        "il_sha256": "11771faac90ff8bc125fa7aa3b9ad4c8e4a0178b0af3406a7ff359d996f11b52",
+        "il_offset": 26,
+        "operand_file_offset": 93451,
+        "target": "System.Reflection.Assembly::GetEntryAssembly"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x6000908",
+        "method": "System.Windows.Forms.Application::get_CompanyName",
+        "il_sha256": "fc6a62d6867592b8903e407950cb3b1373545d7833b262f47cec445833fe4c68",
+        "il_offset": 26,
+        "operand_file_offset": 92739,
+        "target": "System.Reflection.Assembly::GetEntryAssembly"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x6000916",
+        "method": "System.Windows.Forms.Application::get_ProductVersion",
+        "il_sha256": "e39cfe8c07b4b7c26b3329b0016ecbc7ffb5803580b235c874ba2d365157f4a4",
+        "il_offset": 26,
+        "operand_file_offset": 93775,
+        "target": "System.Reflection.Assembly::GetEntryAssembly"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x600090f",
+        "method": "System.Windows.Forms.Application::get_LocalUserAppDataPath",
+        "il_sha256": "9a907724aec8c20935b0f465b6cf38bf39919ad35011d8a5171167b852bd5048",
+        "il_offset": 52,
+        "operand_file_offset": 93309,
+        "target": "System.Environment::GetFolderPath"
+      },
+      {
+        "image": "framework/System.Windows.Forms.dll",
+        "image_sha256": "ce60e5fecf60f3f394988ca439084296ca099711d90a1e179fdaf4fb2d74ee50",
+        "method_token": "0x600091f",
+        "method": "System.Windows.Forms.Application::get_UserAppDataPath",
+        "il_sha256": "240130956b53694470fea61100f8540cb5dde01db43ba83615c5dbea7de402ed",
+        "il_offset": 52,
+        "operand_file_offset": 94333,
+        "target": "System.Environment::GetFolderPath"
+      }
+    ],
+    "real_entry_context_verified": false,
+    "native_ready": false,
+    "controller_proof_emitted": false
+  },
+  "production_admitted": false,
+  "controller_proof_emitted": false,
+  "CLR_started": false
+}

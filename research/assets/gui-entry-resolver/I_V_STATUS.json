@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "status": "final source freeze; verified actual-file evidence; actual CLR paths unresolved",
+  "anchor_path": "research/experiments/E007-I-phase-A-20261104-01/prepared-final/fixture.json",
+  "anchor_sha256": "153ceae23316007a90ec9e75f680662d900967f2a49723a4eae69e98f1ca2a4b",
+  "report_path": "research\\assets\\gui-entry-resolver\\evidence-04\\file-evidence.json",
+  "report_sha256": "e3509d32cec52f7e4c0a58fe48f9d2caf7dc5bb3b41e997a58c47d1f712006b3",
+  "actual_images": 9,
+  "actual_methods": 58,
+  "lexical_correction": "local_path now rejects raw dot/dotdot, DOS devices, drive roots, ADS, UNC/device prefixes before filesystem access",
+  "production_admitted": false,
+  "controller_proof_emitted": false,
+  "real_entry_context_verified": false,
+  "framework_semantic_difference": {
+    "GUI_TargetFramework": [
+      {
+        "fixed_string": ".NETFramework,Version=v4.8",
+        "named_properties": {
+          "FrameworkDisplayName": ".NET Framework 4.8"
+        }
+      }
+    ],
+    "config_supportedRuntime": [
+      {
+        "version": "v4.0",
+        "sku": ".NETFramework,Version=v4.6.1"
+      }
+    ]
+  },
+  "code_freeze": "research/assets/gui-entry-resolver/SOURCE_FREEZE.json",
+  "full_transfer_validation_before_any_OS_probe": true,
+  "component_alias_correction": true,
+  "independent_installed_receipt": "research\\experiments\\E007-ENTRY-V-final-20261104-223319-1a2b688f\\installed-review\\verification.json",
+  "independent_installed_receipt_sha256": "4dd49bd5991c0a5c2d1058bb39105755e894418f431a60aaf451cba136722760",
+  "independent_app_tests_receipt": "research\\experiments\\E007-ENTRY-V-app-fix-20261104-223737-69fcb43e\\app-tests.stdout.json"
+}
