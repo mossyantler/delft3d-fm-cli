@@ -1,0 +1,107 @@
+{
+  "installed_cli": "0.4.0.dev1",
+  "wheel_sha256": "4398617a798df60734ec58df8ec6835dc978e710e66ee270e1326624db560c2d",
+  "suite": "2026.02 OpenHMWQ",
+  "binary_source_revision": "unknown",
+  "reference_source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "operation": "Named XYN inspect/add/move, bounded projected 2D input",
+  "public_native_cases": {
+    "base": {
+      "final_UTC": "2001-01-01T00:02:00",
+      "history_samples": 13,
+      "compared_variables": {
+        "history": 57,
+        "map": 34,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "input_files_matched": 9,
+      "owned_job_empty": true
+    },
+    "move_centre": {
+      "final_UTC": "2001-01-01T00:02:00",
+      "history_samples": 13,
+      "compared_variables": {
+        "history": 57,
+        "map": 34,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "input_files_matched": 9,
+      "owned_job_empty": true
+    },
+    "add_east_probe": {
+      "final_UTC": "2001-01-01T00:02:00",
+      "history_samples": 13,
+      "compared_variables": {
+        "history": 57,
+        "map": 34,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "input_files_matched": 9,
+      "owned_job_empty": true
+    },
+    "off_centre": {
+      "final_UTC": "2001-01-01T00:02:00",
+      "history_samples": 13,
+      "compared_variables": {
+        "history": 57,
+        "map": 34,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "input_files_matched": 9,
+      "owned_job_empty": true
+    }
+  },
+  "off_centre": {
+    "id": "centre",
+    "requested_xy": [
+      "500061.25",
+      "5700018.75"
+    ],
+    "map_face_index_zero_based": 24,
+    "atol": 0,
+    "native_result": "requested_XY_archived_and_output_exact_same_original_cell_WL"
+  },
+  "xyn_record_trials": [
+    {
+      "bytes": 256,
+      "cli": 0,
+      "engine": 0,
+      "state": "completed",
+      "requested_id_in_history": true
+    },
+    {
+      "bytes": 257,
+      "cli": 5,
+      "engine": 1,
+      "state": "failed",
+      "requested_id_in_history": false
+    }
+  ],
+  "gui_parity": "not_verified",
+  "evidence": [
+    {
+      "path": "PKG-G-G06-MDU-02/verification.json",
+      "sha256": "9b2ae3cc25e314c1bd75a5d8aed9106b24816b5260b9c3a6fe530ddf46cbcd8f"
+    },
+    {
+      "path": "G06-OBS-PUBLIC-G-slot156-01/verification.json",
+      "sha256": "8c78b81d8ac3ec39d3afc13c999b6c2b7f4245ed98e646c0e7ea75b7e4eb6300"
+    },
+    {
+      "path": "G06-OBS-G-width154-01/verification.json",
+      "sha256": "afe38b3e03b977dcb1dee02d86565d9a6ba8cb2eb63b21530e5aef51049d9d0d"
+    },
+    {
+      "path": "G06-OBS-PUBLIC-V-stage-01/integration-02/terminal-receipt.json",
+      "sha256": "e93e6adb66213a9dc11d06e5df5cce51e0a44fa6b67422b4c5993b37067df749"
+    },
+    {
+      "path": "CLI-G-G06-MDU-regression-157-01/verification.json",
+      "sha256": "0b6a8e7767007638c0310a50ae889466ca88e41658e54e812903d8d14505217b"
+    }
+  ]
+}

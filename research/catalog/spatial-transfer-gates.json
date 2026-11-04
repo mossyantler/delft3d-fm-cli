@@ -1,0 +1,201 @@
+{
+  "scope": "2026.02 OpenHMWQ; installed 0.4.0.dev1. GUI and console interaction are outside these gates.",
+  "package": {
+    "file": "experiments/PKG-G-spatial-01/verification.json",
+    "sha256": "d0e0e77edf2a33da5938b305642b1578c77c264592131e4c55b0b17409ca029a"
+  },
+  "wheel_sha256": "930bd8316bdc2fbee7554eebeb4046b6cf1b2a6d0e2ef99eeff0d9c73df98e5b",
+  "commands": {
+    "G10": {
+      "cases": {
+        "append": {
+          "unchanged_input_files": 9,
+          "samples": 13,
+          "last": "2001-01-01T00:02:00",
+          "dataset_variable_counts": {
+            "model_20010101_000000_rst.nc": 34,
+            "model_20010101_000200_rst.nc": 34,
+            "model_his.nc": 57,
+            "model_map.nc": 34
+          },
+          "manifest_sha256": "cbf8fe0bbdfee5420e8458da5a3a13ce3bf355ff38a69da77879412d89e38af7"
+        },
+        "remove": {
+          "unchanged_input_files": 9,
+          "samples": 13,
+          "last": "2001-01-01T00:02:00",
+          "dataset_variable_counts": {
+            "model_20010101_000000_rst.nc": 34,
+            "model_20010101_000200_rst.nc": 34,
+            "model_his.nc": 57,
+            "model_map.nc": 34
+          },
+          "manifest_sha256": "6a0393dd5a308106234cd8600f8316a13e75e006c79f7154719cfde3f5579a7f"
+        },
+        "move": {
+          "unchanged_input_files": 9,
+          "samples": 13,
+          "last": "2001-01-01T00:02:00",
+          "dataset_variable_counts": {
+            "model_20010101_000000_rst.nc": 34,
+            "model_20010101_000200_rst.nc": 34,
+            "model_his.nc": 57,
+            "model_map.nc": 34
+          },
+          "manifest_sha256": "d7054f2b53656f7a8da6100c4a3c607134ff98d3a098412380a0cf646b881745"
+        }
+      },
+      "native": {
+        "file": "experiments/G10-PUBLIC-G-native-161-01/verification.json",
+        "sha256": "3b5b50706408cd75e0808fe53d24b073404547ff788b93e17e58ada8c6c1f196"
+      },
+      "independent_file_checks": {
+        "file": "experiments/G10-XYN-V-stage-01/integration-01/public-01/verification.json",
+        "sha256": "47710b2196d5ae6a3b0f3ed14d21255f5172485a284311efd5dfd24f9b388e72"
+      }
+    },
+    "G12": {
+      "cases": {
+        "reverse": {
+          "unchanged_input_files": 10,
+          "samples": 11,
+          "last": "1990-08-05T00:10:00",
+          "dataset_variable_counts": {
+            "f34_19900805_000000_rst.nc": 34,
+            "f34_19900805_001000_rst.nc": 34,
+            "f34_his.nc": 68,
+            "f34_map.nc": 55
+          },
+          "manifest_sha256": "35a2db4ffeabc14126ddb75da9c0c4c845a8fd093bdb942f341fd9eed5fedf55"
+        },
+        "restore": {
+          "unchanged_input_files": 10,
+          "samples": 11,
+          "last": "1990-08-05T00:10:00",
+          "dataset_variable_counts": {
+            "f34_19900805_000000_rst.nc": 34,
+            "f34_19900805_001000_rst.nc": 34,
+            "f34_his.nc": 68,
+            "f34_map.nc": 55
+          },
+          "manifest_sha256": "efad053b7079d65e994e4968369714cef03c321bc8bc48122f576d2a331c0527"
+        }
+      },
+      "native": {
+        "file": "experiments/G12-PUBLIC-G-native-161-01/verification.json",
+        "sha256": "5e550d010ba888fc99a22baa10000122c6645fc6cf1abc5d4efc49c4fa2fa656"
+      },
+      "independent_file_checks": {
+        "file": "experiments/G12-SECTION-PUBLIC-V-live-20261105-02/acceptance.json",
+        "sha256": "f9825f4b1cb3bee2317e0e1b3a6dc31b2b600ebc32aee69e923773d29273bba1"
+      }
+    }
+  },
+  "G11": {
+    "wet_and_dry_input_difference": "only dry_area.pol; same named stations, explicit DeleteObsPointsOutsideGrid=0, Wrishp_obs=1",
+    "predeclared": {
+      "file": "experiments/G11-DRY-I-prepared-20261105-02/predeclared.json",
+      "sha256": "ad9b9d902188372d666c10d1e4bee9f7712dc10c5fc6d6ecd24e939e49d7ef0e"
+    },
+    "native": {
+      "file": "experiments/G11-DRY-I-native-163-01/verification.json",
+      "sha256": "4c745d800461bb1c9f4175a2220e180d60aea2221acf2b47b45239d7a07a6c92"
+    },
+    "first_check_failed": {
+      "file": "experiments/G11-DRY-I-offline-163-01/verification.json",
+      "sha256": "0ced50dbe2d937f5a35984e17d344145d4bfbc72525fc52b856b7bf42b34b3da"
+    },
+    "representation_only_rerating": {
+      "file": "experiments/G11-DRY-I-rerated-offline-163-01/representation-rerating.json",
+      "sha256": "492ac32860f354911b5a6f8ba2e2842d7b362944bf532fbd4124f7af2040d5bd"
+    },
+    "rerated": {
+      "file": "experiments/G11-DRY-I-rerated-offline-163-01/verification.json",
+      "sha256": "1d49d9394c7aaf3e1461267f052c6486e5ea1737753668bae3b81414dd916844"
+    },
+    "independent": {
+      "file": "experiments/G11-DRY-V-raw-review-20261105-023908-a669b026/review/verification.json",
+      "sha256": "cf7760ac0ac7416bb63947e609c2017412fb7e546742c1251dda8e3a98cd13af"
+    },
+    "cases": {
+      "wet": {
+        "physical_faces": 48,
+        "stations": {
+          "centre": {
+            "outcome": "assigned_surviving_face",
+            "masked": 0,
+            "samples": 13,
+            "snapped_measurement": {
+              "snapped_xy": [
+                500065.0,
+                5700015.0
+              ],
+              "requested_xy": [
+                500061.25,
+                5700018.75
+              ],
+              "flow_node_one_based": 25
+            }
+          },
+          "upstream": {
+            "outcome": "assigned_surviving_face",
+            "masked": 0,
+            "samples": 13,
+            "snapped_measurement": {
+              "snapped_xy": [
+                500015.0,
+                5700025.0
+              ],
+              "requested_xy": [
+                500015.0,
+                5700025.0
+              ],
+              "flow_node_one_based": 8
+            }
+          }
+        }
+      },
+      "dry": {
+        "physical_faces": 47,
+        "stations": {
+          "centre": {
+            "outcome": "retained_inactive_all_masked",
+            "masked": 13,
+            "samples": 13,
+            "snapped_measurement": null
+          },
+          "upstream": {
+            "outcome": "assigned_surviving_face",
+            "masked": 0,
+            "samples": 13,
+            "snapped_measurement": {
+              "snapped_xy": [
+                500015.0,
+                5700025.0
+              ],
+              "requested_xy": [
+                500015.0,
+                5700025.0
+              ],
+              "flow_node_one_based": 8
+            }
+          }
+        }
+      }
+    }
+  },
+  "regression": {
+    "serial": {
+      "file": "experiments/SPATIAL-G-regression-165-verify_cli_workflow-01/verification.json",
+      "sha256": "f6aa642c15695337d8a814687238118dc43ff165ae84c810310263ebf4f9007e"
+    },
+    "failure_cancellation": {
+      "file": "experiments/SPATIAL-G-regression-165-verify_failure_cancellation-01/verification.json",
+      "sha256": "af25713ce2bae0d55999d996ba5d4209b144958fc6289700d2f9eef3fd062c56"
+    },
+    "portable_spatial_tests": {
+      "file": "experiments/SPATIAL-G-permanent-01/stderr.txt",
+      "sha256": "aa90b56a5e53b0eccbeef7aec53ee9898c3440c67463d712bcc300bd906ed9dc"
+    }
+  }
+}

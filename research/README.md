@@ -5,8 +5,7 @@ Initial collection: **2026-11-03, Asia/Seoul**.
 This workspace combines installed-program evidence, official manuals, pinned
 engine source, supporting libraries, and portable Windows inspection tools.
 It is the evidence base for implementing the CLI; it is not a claim of complete
-GUI feature coverage. One short serial fixture is now verified through direct FM
-and DIMR; broader simulation workflows remain untested.
+GUI feature coverage. The [workflow table](notes/collection/gui-workflows.md) separates GUI and console behavior from native execution. The [experiment index](notes/experiments.md) includes f34 serial, an authored 2D channel, a local two-rank MPI run, a closed 1D weir and a three-layer salinity case. Each has its own verification scope.
 
 Canonical tools are grouped under `workflows/collection/`, `workflows/replay/` and `workflows/verification/`. Run them as modules from the repository root. The previous `scripts/` paths still forward commands and imports. Raw evidence stays in its original location.
 
@@ -16,6 +15,8 @@ Start with the [experiment index](notes/experiments.md) or the [0.3 release veri
 
 | Document | Purpose |
 | --- | --- |
+| [GUI/console workflow inventory (한국어)](notes/collection/gui-workflows.md) | Per operation: observed or expected file changes, engine source lines, host evidence, CLI coverage and roadmap IDs |
+| [Read the same inventory as JSON](workflows/collection/gui_workflows.py) | From the root: `python -m research.workflows.collection.gui_workflows P04 B02 R02`. Omit the IDs for all operations. Source and evidence links are retained. |
 | [Initial findings](notes/collection/initial-inspection.md) | What was actually inspected, what was learned, and remaining uncertainties |
 | [E001/E002 export findings](notes/replay/export-experiment.md) | Verified project save, GUI-hosted export, console reopen/export, and replay instructions |
 | [E003/E005 edit findings](notes/replay/edit-experiment.md) | Exact scalar/BC deltas, property ownership, sparse-point mapping, preservation requirements and replay |
@@ -73,11 +74,11 @@ python research/scripts/acquire.py repo xugrid
 python research/scripts/acquire.py tools
 python research/scripts/acquire_managed_cli.py
 
-research/.venv/Scripts/python.exe research/scripts/inspect_install.py --install '<Delft3D suite installation root>' --probe-help
-python research/scripts/decompile_targets.py --install '<Delft3D suite installation root>'
-python research/scripts/probe_console.py --install '<Delft3D suite installation root>'
+research/.venv/Scripts/python.exe research/scripts/inspect_install.py --install 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ' --probe-help
+python research/scripts/decompile_targets.py --install 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ'
+python research/scripts/probe_console.py --install 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ'
 ./research/scripts/capture_processes.ps1
-research/.venv/Scripts/python.exe research/scripts/index_manuals.py '<folder containing locally collected FM manuals>'
+research/.venv/Scripts/python.exe research/scripts/index_manuals.py 'C:\Users\minyeop\project\Deltares\manuals_FM'
 python research/scripts/build_catalog.py
 python research/scripts/audit_research.py
 ```

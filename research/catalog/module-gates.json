@@ -1,0 +1,590 @@
+{
+  "schema_version": 1,
+  "product_version": {
+    "cli_version": "0.4.0.dev1",
+    "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "reference_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "installed_engine_revision": null,
+  "short_serial_process_ownership": {
+    "gate": "SERIAL-EXIT-G-failure-cancel-01",
+    "verification_sha256": "d68b3ef9bb3d3402ecdb4baaccb935133bfaf64a6bcedb08ae4a9997a89c1549",
+    "raw_audit_sha256": "9f5738ce1c3ce6bcf865f4a0584fe805a4e8f2f42a15cf284f389faf9e93e90b",
+    "independent_gate": "SERIAL-EXIT-V-native-slot80-20261104-213939-7dd6c229",
+    "independent_verification_sha256": "268e96a95e6bb7d62a2d59e89728cd8deaceaf95146c0bcce7ceb65ceaf96d75",
+    "routes": [
+      "direct",
+      "dimr"
+    ],
+    "native_normal_and_failure_members_per_case": 2,
+    "verified": [
+      "natural and init-failure exit handles",
+      "forced active-member exit and same-binary peer survival",
+      "wrapper descendant termination",
+      "read-only lost-owner status",
+      "600 s f34 direct/DIMR: four NetCDF datasets and 191 variable arrays/masks"
+    ],
+    "not_claimed": [
+      "graceful native interruption",
+      "recovery from forced partial checkpoints"
+    ]
+  },
+  "boundary_series_2d": {
+    "gate": "B03-G-channel-edit-01",
+    "raw_audit_sha256": "d6b01a5a4945b947625d7881d032c6f207825a78a1dfd98071a72b346e8a4fac",
+    "independent_gate": "B03-V-native-slot77-20261104-212609-c9f856ee",
+    "independent_verification_sha256": "ae1765461336c175fb268b571eb69eea77d1944b4a70cf51c9bb11ad08c758a0",
+    "scope": "Existing linear UTC water-level knots; a 120 s authored 2D channel per gate with 3 separate native runs. No GUI parity, no function conversion.",
+    "g_east_final_delta_m": 0.0834602564573288
+  },
+  "configured_serial_checkpoints": {
+    "gate": "O02-G-cadence-tree-01",
+    "verification_sha256": "aafaccbbcf7670dd4ab80aaf098b5657367fae15ff72fd946e18756878a78d76",
+    "raw_audit_sha256": "5c03b5606dedad11a4d65f1041770ca7d23c92ec00dee617c5aadf35e03f0143",
+    "independent_gate": "O02-V-native-slot78-20261104-01",
+    "independent_verification_sha256": "e894458f14e58316b5c93e4b2a7fd90b83ad6cb2755d9eaafb602dee9359a623",
+    "cases_per_gate": 8,
+    "routes": [
+      "direct",
+      "dimr"
+    ],
+    "source_mdu_period_seconds": 120,
+    "checkpoint_seconds_by_setting": {
+      "30": [
+        0,
+        30,
+        60,
+        90,
+        120
+      ],
+      "45": [
+        0,
+        45,
+        90,
+        120
+      ],
+      "0": [],
+      "30 30 90": [
+        0,
+        30,
+        60,
+        90
+      ]
+    },
+    "g_short_serial_retained_members_per_case": 2,
+    "time_axes_do_not_certify_restart_continuation": true
+  },
+  "rr_f152_exchange": {
+    "gate": "RR-G-f152-exchange-01",
+    "verification_sha256": "55565bc073875fe5043925db6edc7d3bbd499e04749177cf7b31a872a8d40fa8",
+    "raw_audit_sha256": "7f9594edfa338997458b8f9296b7fe1fed66b184f424fe8f95d3211f68513957",
+    "independent_gate": "RR-F152-V-native-slot71-20261104-01",
+    "independent_verification_sha256": "01e6dd5cb4bc5bb14406e1910544f30b877a2528e2a1dd12319bdaff6a775a30",
+    "cases": [
+      "wet",
+      "dry",
+      "hydraulic"
+    ],
+    "paired_ids_per_direction": 34,
+    "intervals_per_case": 2,
+    "final_seconds": 600,
+    "wet_minus_dry_consumed_m3": 21054.36723623425,
+    "absolute_datum_and_gui_export": "not verified"
+  },
+  "rtc_live_control": {
+    "independent_gate": "E015-RTC-V-native-slot67-20261104-01",
+    "independent_verification_sha256": "a3cfc7396ac4250df5e1688186bbe2608d8b4dd1a63ace6b13d3bdab6134bbd5",
+    "gate": "RTC-G-exchange-01",
+    "verification_sha256": "7ea186cbd0a97b0f1839184a0807f5d891377cc8ed28a415e39d09a66bc237fa",
+    "raw_audit_sha256": "2f4ff82473e1fa07b4ff63bd33ff960c4cf7d098db050b8d25ec930fc776d300",
+    "live_exchange_causal_hydraulics": "passed",
+    "native_rule_pairs": 1,
+    "transactions_per_case": 10,
+    "final_seconds": 600,
+    "section_links": 50,
+    "retained_members_per_case": 2,
+    "changed_minus_baseline_final": {
+      "crest_m": 0.31801366806030273,
+      "section_discharge_m3_s": -4379.312255859375,
+      "downstream_level_m": -0.10158085823059082
+    },
+    "saved_actuator_restorability": "not established; this restart does not store the history crest field",
+    "scientific_validation": "not performed"
+  },
+  "serial_restart_saved_forecast": {
+    "contract": "saved-forecast-v1",
+    "independent_gate": "E013-V-forecast-public-20261104-05",
+    "independent_verification_sha256": "f09391b34dabcd99a58d4a3c316856bab8ea695a4266f5987cbbddfabb63248f",
+    "gate": "E013-G-forecast-public-01",
+    "verification_sha256": "028ea828ef5dd030c1902e7004c00e32fa7b941d567ab3f057df6ee7a3aae514",
+    "raw_audit_sha256": "a7d9a5056f4b5f8ff789db7cb947ea1565547f72720f1551c53c7ed01746708c",
+    "native_archives": 2,
+    "altered_copies_rejected": 32,
+    "raw_equivalence": false
+  },
+  "parallel_checkpoint_continuation": {
+    "independent_gate": "E012-R-V-native-slot54-20261104-01",
+    "gate": "E012-R-G-continuation-01",
+    "verification_sha256": "e84f754754cf5374039e1bfbc1114283de123255e310af0e736ad0d8303129ce",
+    "raw_audit_sha256": "be22c58686cc1722d27c048a8fdbbbc4f9c3461d3744e02a59153ef32621ff00",
+    "cut_seconds": 120,
+    "final_seconds": 240,
+    "parent_ranks": 2,
+    "final_restart_fields_within_declared_tolerance": 34,
+    "final_restart_fields_exact": 16,
+    "raw_equivalence": false
+  },
+  "offline_06_failed_input_isolation": {
+    "independent_gate": "WAQ-offline-V-failed-slot58-20261104-202654-40dd3207",
+    "independent_verification_sha256": "87422f75b23889fd8daa994e245cb2393a357c17dd3a7e4e2717c2fc7aac8c7b",
+    "gate": "WAQ-G-failed-input-01",
+    "verification_sha256": "4d63c182bc2fa7411efb41e47c299809fde5d28b540af12a286ad47ee787d31c",
+    "target": "damaged process-library header; solver returned 1 with a NEFIS error",
+    "control": "same executable observed live after target exit, then completed naturally to tick 48600",
+    "scope": "Natural completion can win cancellation. This failure gate does not cover timeout or forced stop."
+  },
+  "offline_06_forced_stops": {
+    "input_profile": "pinned06-lifecycle-dt1-v1",
+    "independent_gate": "WAQ-offline-V-dt1-slot66-20261104-205104-ce305fb5",
+    "independent_verification_sha256": "c1a259e6bae2c73e7b890e20c5d515fbf3defcc4337ac75512747b4f9be63208",
+    "gate": "WAQ-G-dt1-stops-01",
+    "verification_sha256": "a5a7d8b3a64dbd44803a5333a0f3f3a017ffb313e1b841cb599593f9acbee041",
+    "raw_audit_sha256": "0d57d15236063fe046c2a09d2d6bbd67d61a0fa5592d95d8274eb2a52e06f319",
+    "stop_reasons_checked": [
+      "cancelled",
+      "timed_out"
+    ],
+    "control_final_tick": 48600,
+    "native_time_step_seconds": 1,
+    "scope": "Real timed and requested stops, each with a same-executable healthy peer. Not a chemistry or graceful-shutdown gate."
+  },
+  "scope": "Bounded engineering fixtures. Each native scope below is independent. No field calibration.",
+  "morph": {
+    "gate": "MORPH-G-exchange-final-02",
+    "verification_sha256": "a104f64b05dbaf6d055daaa2d9d8a4c17c06fe89ecf931abe38aad7b7e7b6440",
+    "independent_gate": "MORPH-V-exchange-native-slot44-20261104-01",
+    "independent_verification_sha256": "22eb92417f7ca3e4584826ff36b89cbb22d6800cacd2494ee6498595d5b3da0c",
+    "fixtures": [
+      {
+        "cells": 48,
+        "final_seconds": 300,
+        "samples": 301,
+        "mobile_export_kg": 36.97336874461638
+      },
+      {
+        "cells": 72,
+        "final_seconds": 360,
+        "samples": 361,
+        "mobile_export_kg": 31.3463541980696
+      }
+    ],
+    "roles_in_each": [
+      "mobile",
+      "frozen",
+      "disabled",
+      "rest"
+    ],
+    "limits": "Synthetic single-sand MPM bedload, no field calibration. A nonzero native transport counter in the frozen-bed role is retained separately from the zero stock-update multiplier."
+  },
+  "fm_waves": {
+    "gate": "E015-G-08-exchange-01",
+    "experiment": "08; modified for the delayed single-FM-boundary experiment",
+    "verification_sha256": "16b59418e65ae9d734fd71c89adffb98b5c71d304448be1ba3529225068ea940",
+    "independent_raw_sha256": "faef1beb344d042c1835275a39cd33ada425b8e6370ddaf681a175d50ce88f21",
+    "v_receipt_sha256": "69f32edd1abee436d5911fbd75ebb5a1db5ed8468855c1716bca21a7f2544993",
+    "fm_time_seconds": [
+      0.0,
+      600.0,
+      1200.0,
+      1800.0,
+      2400.0,
+      3000.0,
+      3600.0,
+      4200.0,
+      4800.0,
+      5400.0,
+      6000.0,
+      6600.0,
+      7200.0
+    ],
+    "waves_sample_seconds": [
+      0.0,
+      3600.0
+    ],
+    "half_wave_boundary_max_FM_s1_delta_m": 0.031215222965126133,
+    "delayed_hydraulic_receiver": {
+      "hsign": [
+        0.0,
+        0.06499996781349182
+      ],
+      "depth": [
+        0.0,
+        0.14800024032592773
+      ],
+      "veloc-x": [
+        0.0,
+        0.025400005280971527
+      ],
+      "veloc-y": [
+        0.0,
+        0.1600000113248825
+      ],
+      "windu": [
+        0.0,
+        0.0
+      ],
+      "windv": [
+        0.0,
+        0.0
+      ]
+    },
+    "wet_convergence_percent": {
+      "fm_waves_candidate": [
+        98.86,
+        98.09
+      ],
+      "fm_waves_half_height": [
+        98.09,
+        98.09
+      ],
+      "fm_waves_hydraulic_control": [
+        98.86,
+        98.47
+      ]
+    },
+    "limits": "Stationary interval-start samples only; boundary height warnings retained. Strong typing and the directional pair do not validate arbitrary coupled models.",
+    "lifecycle": {
+      "scope": "Explicit matched victim/control pair per phase; live SWAN at cancel confirmed in terminated private job; unaffected controls reached expected FM and Waves timestamps.",
+      "gate": "E015-G-coupled-stop-01",
+      "statuses": [
+        "cancelled",
+        "timed_out",
+        "failed"
+      ],
+      "verification_sha256": "8966ff4872d1db3e66abf4b6da85851032164e3a71a1dfdc26dc333478d0ca4f",
+      "coordinator_raw_sha256": "fbf10a1dca74979e9b9bb3764259a0477f986aa05ce8444bd21cb70caffdc543"
+    }
+  },
+  "offline_delwaq_06": {
+    "gate": "WAQ-G-offline-consumer-01",
+    "verification_sha256": "759a48c478d74f8aae058b03e20f946b766d630968a658d8158a95bc159b5aee",
+    "coordinator_raw_sha256": "6ad552214eeb361d1b94330f28fef38557ec567364a8b0492900fcaccef9ddce",
+    "independent_gate": "WAQ-offline-V-slot51-20261104-195742-ebd15791",
+    "independent_verification_sha256": "58f690c78ef9a626bafeafd2c1c28f79a67e3bae2ce8bac50926096bbb7e8ffb",
+    "model_clock": {
+      "start_seconds": 45000,
+      "stop_seconds": 48600,
+      "cadence_seconds": 300,
+      "timezone": null
+    },
+    "segments": 1130,
+    "history_locations": 20,
+    "physical_constants_changed": {
+      "name": "RcMrtEColi",
+      "positive_per_day": 0.8,
+      "control_per_day": 0.0
+    },
+    "final_mean_delta_MPN_per_m3": -9.935473606434892,
+    "final_inventory_delta_MPN": -29512360748.648926,
+    "limits": "One fixed offline consumer, same hydrodynamics, source supplies units. MON crosscheck is not a complete source/process/boundary flux ledger."
+  },
+  "fm_processes": {
+    "gate": "E015-G-nitrification-01",
+    "experiment": "03; matched RcNit=1/day vs 0/day",
+    "verification_sha256": "482f6d92b9b4ebc7f33448670b7abda87dd92ba874ea368389143403a84d44b4",
+    "independent_raw_sha256": "1c65eaf119c590cd3ba90115d9178824c77c73b7c59a09de2b25b3e1cc73f6ae",
+    "v_receipt_sha256": "fc7071ea59d0b42a39cea9bac0e0c13f8ee4e60341cf1611401957c762084246",
+    "map_seconds": [
+      0,
+      300,
+      600,
+      900,
+      1200,
+      1500,
+      1800,
+      2100,
+      2400,
+      2700,
+      3000,
+      3300,
+      3600
+    ],
+    "scheduled_calls_per_run": 60,
+    "initialization_calls_per_run": 1,
+    "last_differences": {
+      "mesh2d_NH4": {
+        "unit": "g/m3",
+        "last_mean": -0.00819905041133235,
+        "last_count": 1731
+      },
+      "mesh2d_NO3": {
+        "unit": "gN/m3",
+        "last_mean": 0.008196515608460554,
+        "last_count": 1731
+      },
+      "mesh2d_OXY": {
+        "unit": "gO2/m3",
+        "last_mean": -0.03719749070536119,
+        "last_count": 1731
+      },
+      "mesh2d_s1": {
+        "unit": "m",
+        "last_mean": 0.0,
+        "last_count": 222
+      }
+    },
+    "limits": "Sample means, not total mass, not offline WAQ. Timer counts not per-step runtime timestamps.",
+    "public_compare": {
+      "gate": "E015-G-public-chemistry-01",
+      "verification_sha256": "3d4b497f50617e5a56b3f81e5155530dee9f91c4498e6024a0e42c124935e033",
+      "confirmed": "39 field-time aggregates; role reversal exit 6; no native execution"
+    }
+  },
+  "bmi_read_only": {
+    "gate": "BMI-G-native-clock-02",
+    "experiment": "48-cell M3; two live 60-second updates",
+    "raw_sha256": "911e2c31ae0b99ff2b105aacd22dddb86a827aca36309e01a8e9cd96d9365b1b",
+    "manifest_sha256": "2cc6e9d572aba9c7cb964c8f313b91bc4c024be69d74f9915bf1841641a2ba3d",
+    "observations": [
+      {
+        "t_s": 0.0,
+        "bmi_m": 0.0,
+        "raw_his_m": 0.0,
+        "abs_difference_m": 0.0
+      },
+      {
+        "t_s": 60.0,
+        "bmi_m": 0.011859943404460184,
+        "raw_his_m": 0.01185994315892458,
+        "abs_difference_m": 2.455356040015344e-10
+      },
+      {
+        "t_s": 120.0,
+        "bmi_m": 0.02223562022191593,
+        "raw_his_m": 0.022235620766878128,
+        "abs_difference_m": 5.449621968967033e-10
+      }
+    ],
+    "limits": "Observation get/clock/step/finalize only; no evidence for arbitrary writable variables."
+  },
+  "bmi_lifecycle": {
+    "gate": "BMI-G-lifecycle-01",
+    "receipt_sha256": "a1e55dd0684165cfc5806cc9a4b790ee5d635e85136a046c8845457153e054c2",
+    "states": {
+      "abort": "aborted",
+      "isolation-control": "finalized_partial",
+      "readonly": "failed",
+      "foreign-id": "failed",
+      "wrong-unit": "failed",
+      "zero-step": "failed",
+      "overshoot": "failed",
+      "before-init": "failed",
+      "repeat-init": "failed",
+      "malformed": "failed",
+      "eof": "aborted",
+      "timeout": "timed_out"
+    },
+    "control_advanced_to_seconds": 2,
+    "same_binary_hash": "4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a",
+    "all_jobs_empty_and_independent_handles_exited": true,
+    "physics_phase": "not_requested"
+  },
+  "bmi_weir": {
+    "gate": "BMI-G-all-mapped-01",
+    "verification_sha256": "7f6140e1f1f348c5f5c71bb252211315733c0fc22253c6e48264d758baaf08e6",
+    "coordinator_raw_sha256": "197d1240550b0fef9ce1b191acf702baaa0237901966babf6b0d28274f0945d3",
+    "independent_gate": "BMI-V-mapped-native-slot46-20261104-01",
+    "independent_verification_sha256": "7c66246f57181db8239de8ebf4c8a7d16e445afcd578808a976f6cea2103796f",
+    "physics_and_lifecycle_sessions": 14,
+    "edit_at_seconds": 30,
+    "end_seconds": 120,
+    "crossed_edges_zero_based": [
+      32,
+      37,
+      42,
+      47
+    ],
+    "final_signed_map_discharge_m3_s": {
+      "control": 0,
+      "edited": 42.2094612121582
+    },
+    "limitations": "One declared weir with oriented topology, adjacent negative sections and finite signed map transport. Literal processed weir history geometry and closed-control history discharge remain missing; no arbitrary pointer access."
+  },
+  "field_edit_eligibility": {
+    "scope": "Existing bounded E014 scalar editor. Static editor vs concrete MDU blockers vs candidate preview; no engine initialization or GUI ownership inferred.",
+    "public_checks": 75,
+    "input_copy_outcomes": {
+      "f34_chezy": "blocked",
+      "f34_manning_derivative": "blocked",
+      "M3_manning": "requires_preview -> preview_validated"
+    },
+    "evidence": [
+      {
+        "path": "E014-ELIGIBILITY-V-public-20261104-02/verification.json",
+        "sha256": "5bbe127db840e11c558dbbb9ab6837848d7a6d81ecca924805ed82b4b5528479"
+      },
+      {
+        "path": "E014-G-eligibility-public-01/verification.json",
+        "sha256": "ac456b3b31cb744f627c6556d055d30b5897b987f1b55019fd57f635e81f0d3e"
+      },
+      {
+        "path": "PKG-G-field-eligibility-01/verification.json",
+        "sha256": "960b9ef23d346cdbbd5eb1349bfc5c6ca1bdad59ebd43bea815cf5d329936573"
+      }
+    ]
+  },
+  "boundary_signal_import": {
+    "command": "boundary import",
+    "scope": "Existing UTC linear waterlevelbnd signals and explicit numeric CSV mapping. One exact PLI and one BC; replace, extend, overwrite-all. No location edits, interactive GUI parity or scientific validation.",
+    "coordinator": {
+      "models": 10,
+      "native_seconds": 120,
+      "paired_public_controls": 6,
+      "variables_compared_per_pair": 159,
+      "all_model_inputs_rechecked_with_final_product": true
+    },
+    "independent": {
+      "models": 3,
+      "raw_difference_m": 0,
+      "native_seconds": 120,
+      "jobs_empty": true
+    },
+    "negative_evidence": {
+      "old_unbound_mesh": "B09-V-stale-mesh-failure-01",
+      "restored_mtime_mesh_and_weather": "refused with no write",
+      "initial_native_failure": "B09-V-native-slot-89-01",
+      "destination_BOM": "Byte-preserving edits remain possible, but observed FM rejects UTF8 BOM preceding [General]. Never strip it silently."
+    },
+    "receipts": [
+      {
+        "path": "B09-V-public-portable-canonical-06/verification.json",
+        "sha256": "63fd380c4765dfe294bba357c1d08b9cb4591819f02e266a9e9517db395b1b8e"
+      },
+      {
+        "path": "B09-V-canonical-native-slot-95-01/native-verification.json",
+        "sha256": "8e87bb7bb88285c1419e2dff9b0dcd988272f931e43f8dd3db3d26653a994337"
+      },
+      {
+        "path": "B09-G-frozen-modes-01/verification.json",
+        "sha256": "074675d55d3b7a85774eb88bb1b395c60882f8072e1564d62db52340b5e472ab"
+      },
+      {
+        "path": "B09-G-final-files-02/coordinator-equivalence.json",
+        "sha256": "e4c95ac12747e26d0ca7967e7e79bc5445c033d7667cee86eb80edafa2e3b777"
+      },
+      {
+        "path": "B09-G-BC-BOM-01/verification.json",
+        "sha256": "f170d18f33b3dbd3760dd1be0c6bb5b0b78ab783a9f858f23ac21a9e6ff8c4b4"
+      },
+      {
+        "path": "B09-G-stale-netcdf-01/verification.json",
+        "sha256": "99c38e9e8f9a7ab494ac5d8869dab1167eb401f522a89a17283ce70e6072e601"
+      },
+      {
+        "path": "B09-G-installed-wheel-02/verification.json",
+        "sha256": "64ebb203d4345648e96c6031a6176870fb5c692f7518f02970a9dc48d77c98e5"
+      },
+      {
+        "path": "PKG-G-boundary-import-01/verification.json",
+        "sha256": "cd560595dee2bce1ba68586dcba87d6efbdfb3ab48f3fffc1e048857bd3b199b"
+      }
+    ]
+  },
+  "owned_job_forced_stop": {
+    "status": "accepted_scoped",
+    "scope": "Original Job stop request and stop-time member handle proof; no GUI/forced lifetime equivalence.",
+    "receipts": [
+      {
+        "path": "JOB-FORCE-G-accepted-01/verification.json",
+        "sha256": "d5042fdb2f843083b169b7c854d6ec7b8615c54728a493b8612da710776f1abf"
+      }
+    ]
+  },
+  "boundary_signal_export": {
+    "status": "accepted_scoped",
+    "scope": "Fresh standalone BC/PLI collection, four explicit groupings, operator-declared processes; historical 3-layer FM/190 variables, no GUI parity or position import.",
+    "receipts": [
+      {
+        "path": "B04-EXPORT-I-freeze-01/freeze.json",
+        "sha256": "5ce57af541291276bd865e122bf09976fc3a76f13d3ad895f013f14034da5b57"
+      },
+      {
+        "path": "B04-EXPORT-V-final-frozen-01/verification.json",
+        "sha256": "1ff74e438d0f4fc9ca969861fe8ecb29d7173f2289825a3e75906b49196cf10a"
+      },
+      {
+        "path": "B04-EXPORT-G-release-stage-01/verification.json",
+        "sha256": "cab7591711c3423810b728f8456cb49b3ec8833ada071ac6c5f782e4f3cf99a9"
+      },
+      {
+        "path": "B04-EXPORT-G-release-layers-01/verification.json",
+        "sha256": "0db4c8060c835e5c379c4458cd15080a3eebe082116bd1c4845ad7621aad28c9"
+      },
+      {
+        "path": "PKG-G-export-force-02/verification.json",
+        "sha256": "b0b6eae42937722a0eee0b9b6320d6b29a6cadb04df74ce13616e3cf6be6f630"
+      }
+    ]
+  },
+  "f34_output_toggle_engine": {
+    "status": "accepted_native_file_mechanism_not_gui_or_public_editor",
+    "scope": "Three 600 s direct FM runs. Wrishp_obs=1 produced five points joined to actual mesh centres; Wrihis_balance=0 removed exactly 36 history variables. Common native data checked across four datasets in each case.",
+    "receipts": [
+      {"path": "O03-O04-I-native-20261105-02/verification.json", "sha256": "51b418b7251119410a6fbc4c7aab4c3e60b7abff4d8d33c58ff9321832daf444"},
+      {"path": "O03-O04-V-independent-20261104-01/verification.json", "sha256": "b02e81c7a7d7977faff172f88d2f972ff75e1897692ac119b920ff5b4381c872"},
+      {"path": "O03-O04-G-raw-01/verification.json", "sha256": "fe87490728b01ebac13eada3f0413c0b6e4279e14add91d1b38c4330c0cece04"}
+    ]
+  },
+  "boundary_location_as_is": {
+    "status": "accepted_bounded_including_target_last_repair",
+    "counterexample": "B04-PLI-G-east-contrast-02/verification.json",
+    "scope": "Fresh-copy PLI addition/replacement, physical removal of retired BC blocks; original west tests plus unequal west signals retained when last east blocks removed. 75 independent public cases and 120 s native comparisons. Actual GUI dialog untested.",
+    "receipts": [{"path": "B04-B10-G-release-01/verification.json", "sha256": "72739061f7c51016c9328a861025cb896844393bc7777ef28e65f5c74d861ce8"}]
+  },
+  "boundary_location_public_transform_and_support": {
+    "status": "accepted_bounded",
+    "scope": "Explicit horizontal PLI projection verified on 48-cell UTM model with declared EPSG and units; separate enable/disable support and full harmonic/linear function replacement on water-level boundary. 27 public projection cases, 39 support tests, all four support cases matched manual controls at 120 s (159 variables each). No vertical conversion, GUI parity or general scientific validation.",
+    "receipts": [{"path": "B04-B10-G-release-01/verification.json", "sha256": "72739061f7c51016c9328a861025cb896844393bc7777ef28e65f5c74d861ce8"}]
+  },
+  "boundary_horizontal_projection_helper": {
+    "status": "accepted_numeric_helper_only",
+    "product": "src/dfm_cli/boundary_location_crs.py",
+    "source_sha256": "532bee3076c76a58a745aace2e41227656c0d49433787bbf71397744cf5c789b",
+    "scope": "45 independent numerical or refusal cases and 10 portable tests. Explicit horizontal EPSG declarations, XY order, units, offline operation; no mesh reconciliation, PLI publication, native FM or GUI claim.",
+    "receipts": [
+      {"path": "B04-CRS-V-extended-20261104-234041-d134f010/verification.json", "sha256": "32a45a5203130d92da07204b31a429a598959e2d393e33757e4629641404a147"},
+      {"path": "B04-CRS-G-helper-01/verification.json", "sha256": "32a45a5203130d92da07204b31a429a598959e2d393e33757e4629641404a147"}
+    ]
+  },
+  "public_f34_output_toggles": {
+    "status": "accepted",
+    "scope": "model set: existing binary Wrishp_obs and Wrihis_balance; three 600 s direct FM f34 runs from installed wheel, matched manual graphs/outputs; no GUI parity claim.",
+    "receipts": [{"path":"O03-O04-PUBLIC-G-native-01/release.json","sha256":"b6620d8b50711b31de52a4dcf28c6310b5849bbc57cf490e6116146de12bb499"}]
+  },
+  "public_waterlevel_series_rows": {
+    "status": "accepted_2001_and_2026_channels",
+    "scope": "Explicit insertion/deletion at one existing linear UTC water-level series. Four 120 s installed cases matched 2001 manual controls. Five 2026 runs demonstrate collinear invariance and spike sensitivity, with 159 exact variables per candidate/manual pair. No GUI generator or general function support.",
+    "receipts": [
+      {"path":"B03-ROWS-G-public-native-01/release.json","sha256":"d3332b1706c83543cae04632b70803641415a2833094513a084d74ec6764c266"},
+      {"path":"B03-ROWS-G-2026-raw-01/verification.json","sha256":"b610d2b263e27f9ac9c569112e85b4a99d27532bbbcda0cd3308d45808c117d9"}
+    ]
+  },
+  "manual_station_moves_and_additions": {
+    "status": "accepted_M3_manual_inputs",
+    "scope": "Three 120 s native controls at predeclared cell centres. Named XYN coordinates, CF point geometry and stored station samples compared against physical map cells. No GUI or public station editor evidence.",
+    "receipts": [
+      {"path":"G06-OBS-V-combined145-149-20261105-07/verification.json","sha256":"d4a1d105eb6639f6bec1558635589f9eedb8b1f31601df4e6419604fe821ad66"},
+      {"path":"G06-OBS-G-raw-01/verification.json","sha256":"ca9f7f13ab33baab01e4901092379459acefddb5a80b0a0c99e0e4de2e0d3b50"}
+    ]
+  },
+  "guest_forced_python_lifecycle": {
+    "status": "accepted_python_surrogate_only",
+    "scope": "Normal, denied member, timeout for private Python families in final E014 payload; no real guest, GUI, console or FM invocation.",
+    "receipts": [
+      {
+        "path": "GUEST-FORCED-G-accepted-01/verification.json",
+        "sha256": "3a3cf99e75110f78c3277a85b2428efb96ab289ced4d0a63f30cc57593203339"
+      }
+    ]
+  }
+}

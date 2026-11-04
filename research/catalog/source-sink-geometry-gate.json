@@ -1,0 +1,362 @@
+{
+  "experiment": "B06-native-223",
+  "date": "2026-11-05",
+  "status": "scoped_delta_and_geometry_observed",
+  "input_source": "independent manual models; not public CLI or GUI export",
+  "cases": 10,
+  "completed_seconds": 120,
+  "original_jobs_closed": 10,
+  "retained_member_exits": 20,
+  "all_requested_meanings_accepted": false,
+  "absolute_salinity_keys": "effect failed; authoring remains unsupported",
+  "delta_budgets_passed": true,
+  "reference_geometry_comparisons": [
+    {
+      "left": "pli-pair-delta-05",
+      "right": "inline-pair-delta-05",
+      "kind": "representation",
+      "passed": true
+    },
+    {
+      "left": "pli-pair-delta-15",
+      "right": "inline-pair-delta-15",
+      "kind": "representation",
+      "passed": true
+    },
+    {
+      "left": "pli-pair-absolute-05",
+      "right": "inline-pair-absolute-05",
+      "kind": "absolute_representation",
+      "passed": true
+    },
+    {
+      "left": "pli-pair-absolute-15",
+      "right": "inline-pair-absolute-15",
+      "kind": "absolute_representation",
+      "passed": true
+    },
+    {
+      "left": "pli-pair-absolute-05",
+      "right": "pli-pair-absolute-15",
+      "kind": "absolute_ignored_probe",
+      "passed": true
+    },
+    {
+      "left": "inline-pair-absolute-05",
+      "right": "inline-pair-absolute-15",
+      "kind": "absolute_ignored_probe",
+      "passed": true
+    },
+    {
+      "left": "pli-pair-absolute-05",
+      "right": "pli-pair-delta-00",
+      "kind": "absolute_vs_zero_probe",
+      "passed": true
+    },
+    {
+      "left": "pli-pair-absolute-15",
+      "right": "pli-pair-delta-00",
+      "kind": "absolute_vs_zero_probe",
+      "passed": true
+    },
+    {
+      "kind": "point_PLI_vs_retained215_inline",
+      "passed": true
+    }
+  ],
+  "cases_summary": {
+    "pli-point-delta-05": {
+      "exit": 0,
+      "members": 2,
+      "job": "3ce4a473e8514427b3eba443192065dd",
+      "closed": true,
+      "receipt_sha256": "64327022de40bc220e313f857a5aee01552717395ec6d03a32111853334272ff",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        5.0,
+        5.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": 12.000030517578125,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": 60.000431945110904,
+      "gate": "fixed_Q_delta_budget_passed"
+    },
+    "pli-pair-delta-00": {
+      "exit": 0,
+      "members": 2,
+      "job": "55b858731b4f4a29b1056d6ec4ce52f0",
+      "closed": true,
+      "receipt_sha256": "c879858e0e6ca31ba1e5c96e62056a3a89b03133d422a87ee987f49718d1cb14",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        0.0,
+        0.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": -0.00030517578125,
+      "gate": "fixed_Q_delta_budget_passed"
+    },
+    "pli-pair-delta-05": {
+      "exit": 0,
+      "members": 2,
+      "job": "b00548eb0bb6416f8a4185b00b46a5c9",
+      "closed": true,
+      "receipt_sha256": "feb3f7ba6299548fbbadf69555ea50add9045c3da7d41d8f9d0c55dbde5309b3",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        5.0,
+        5.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": 59.999735125515144,
+      "gate": "fixed_Q_delta_budget_passed"
+    },
+    "pli-pair-delta-15": {
+      "exit": 0,
+      "members": 2,
+      "job": "610b53070dfc4ed1a18b321ba63a4b83",
+      "closed": true,
+      "receipt_sha256": "9f7d2e608ac2703723cd87f6cd033b52623fac301378a0b195f36eae2c400b4e",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        15.0,
+        15.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": 179.99981571995886,
+      "gate": "fixed_Q_delta_budget_passed"
+    },
+    "pli-pair-absolute-05": {
+      "exit": 0,
+      "members": 2,
+      "job": "3f9205c6c70a4aa19d4035330e05c6e3",
+      "closed": true,
+      "receipt_sha256": "cb7e10aed9283f96bd8706d66c6751b45683fea88739a7c93d487a414a9f8670",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        0.0,
+        0.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": -0.00030517578125,
+      "property_interpretation": "measured_only_absolute_key_not_approved"
+    },
+    "pli-pair-absolute-15": {
+      "exit": 0,
+      "members": 2,
+      "job": "cdb625696ce344959625c40b2e36945e",
+      "closed": true,
+      "receipt_sha256": "a8c444f042edae4a487726848f2e055cda2df11121070251574457dad9814f16",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        0.0,
+        0.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": -0.00030517578125,
+      "property_interpretation": "measured_only_absolute_key_not_approved"
+    },
+    "inline-pair-delta-05": {
+      "exit": 0,
+      "members": 2,
+      "job": "0a7e39d06c304328a2189729e6f4e7eb",
+      "closed": true,
+      "receipt_sha256": "0a01a2ffc09f5d01a4aed66fc5c5afdce7d748b2eb085c969651d07629c326ad",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        5.0,
+        5.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": 59.999735125515144,
+      "gate": "fixed_Q_delta_budget_passed"
+    },
+    "inline-pair-delta-15": {
+      "exit": 0,
+      "members": 2,
+      "job": "7b0b398110ec49e6bf4c85941b823ead",
+      "closed": true,
+      "receipt_sha256": "258bae111e716862db9af9c8ad3838816d763e8f5dcd7649354f0e5305d26f44",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        15.0,
+        15.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": 179.99981571995886,
+      "gate": "fixed_Q_delta_budget_passed"
+    },
+    "inline-pair-absolute-05": {
+      "exit": 0,
+      "members": 2,
+      "job": "9bdf6c017ac34dc48ca17ef1cfcb7ce6",
+      "closed": true,
+      "receipt_sha256": "da85d7135fa1856e49afbe32caa1ec93e467a4af83aa2db364372983ded70e4c",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        0.0,
+        0.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": -0.00030517578125,
+      "property_interpretation": "measured_only_absolute_key_not_approved"
+    },
+    "inline-pair-absolute-15": {
+      "exit": 0,
+      "members": 2,
+      "job": "587b6ed96c4540c2bb385688808d8172",
+      "closed": true,
+      "receipt_sha256": "7e3fdc6775f081e0706e12e525549acd3e0537aa3e22a59476a498162f5fbcff",
+      "Q_m3_s": [
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "cumulative_m3": [
+        0.0,
+        12.0
+      ],
+      "prescribed_increment_ppt": [
+        0.0,
+        0.0
+      ],
+      "initial_m3": 14400.0,
+      "change_m3": -3.0517578125e-05,
+      "initial_ppt_m3": 144000.0,
+      "change_ppt_m3": -0.00030517578125,
+      "property_interpretation": "measured_only_absolute_key_not_approved"
+    }
+  },
+  "runner_review": "37 independent +27 producer before launch;2 new synthetic notification controls failed later. All10 original receipts pass final bidirectional guard in post-terminal independent and coordinator reads. Executed c4fd candidate retained unchanged.",
+  "evidence": [
+    {
+      "path": "research/experiments/B06-V-PLI-inputs-01/input-manifest.json",
+      "sha256": "56fce3c1d95950260effa6b629b5cbf580f1c1737b4342d03d4dccec533b8fbc"
+    },
+    {
+      "path": "research/experiments/B06-V-PLI-stage-01/freeze.json",
+      "sha256": "79e089660239856d99149d0491c2a50d219901a27a338965df3deff57d91393e"
+    },
+    {
+      "path": "research/experiments/B06-V-PLI-stage-01/predeclared.json",
+      "sha256": "c80c20545715ec4067e1e56e54689f9b49da81ad843c34392f8ff00356e69252"
+    },
+    {
+      "path": "research/experiments/B06-PLI-RUNNER-I-20261105-c4fd65ac/freeze.json",
+      "sha256": "c1ae6b80b7132be14e56d9c7c84d6637b532883e318380cc264edf7ddcca4b32"
+    },
+    {
+      "path": "research/experiments/B06-PLI-RUNNER-I-prepared-20261105-c4fd65ac-02/plan.json",
+      "sha256": "aafc97cff247b76b2b7aeff0b1f1218631a12b04a9a90f346c9180c3ae1062dd"
+    },
+    {
+      "path": "research/experiments/B06-PLI-RUNNER-I-native-223-01/runs.json",
+      "sha256": "a80962e0864e12a03003bbd33ad1f7670db9752d0038b41ef80cc9c8894dcc31"
+    },
+    {
+      "path": "research/experiments/B06-V-PLI-results223-01/verification.json",
+      "sha256": "e1e6ed6f22704447f2ed96b0389a710a863d6ddf39e49e1e814f136d9949c290"
+    },
+    {
+      "path": "research/experiments/B06-V-PLI-results223-G01/verification.json",
+      "sha256": "e1e6ed6f22704447f2ed96b0389a710a863d6ddf39e49e1e814f136d9949c290"
+    },
+    {
+      "path": "research/experiments/B06-PLI-G-readback-223-01/verification.json",
+      "sha256": "408cbdd68c63a6f08e37caed1e58b7e38851df837626f0f4d0df07d2008d6aae"
+    },
+    {
+      "path": "research/experiments/B06-PLI-G-readback-223-01/bidirectional-verification.json",
+      "sha256": "dc730c820019cb6c68c302859f9f99fe5aaee2d84c1b0b5a5d9113a45661200b"
+    },
+    {
+      "path": "research/experiments/B06-PLI-RUNNER-V-post223-01/verification.json",
+      "sha256": "7cc5ad456ae5fc004b191669daeb151a2f2f9b099a9e20a99ebd6186d995cbc7"
+    }
+  ],
+  "limitations": [
+    "48-cell 2D UTC bounded case",
+    "Not GUI/console export evidence",
+    "No PLI writer qualification",
+    "No general absolute/delta equivalence or scientific calibration"
+  ]
+}

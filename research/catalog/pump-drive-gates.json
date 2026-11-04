@@ -1,0 +1,245 @@
+{
+  "experiment": "G13-DRIVE",
+  "suite": "Windows 2026.02 OpenHMWQ",
+  "fm": "1.2.184.Unknown",
+  "sha256_fm_executable": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+  "scope": "48-cell closed synthetic 2D basin; one 4-link pump, no stages or reduction. Coordinates and locationFile unchanged. Not a general hydraulic or GUI validation.",
+  "runner_plan_sha256": "49cb7f62a0bde064a92433d945dd431fe9218343d48e0460855211ff641764e8",
+  "input_changes": {
+    "baseline": "original positive orientation, capacity=1",
+    "orientation_negative": "only orientation=negative",
+    "capacity_negative": "only capacity=-1"
+  },
+  "geographic_response": {
+    "baseline": "baseline",
+    "orientation_negative": "reversed",
+    "capacity_negative": "reversed"
+  },
+  "nominal_total_capacity_state": "failed for all three inputs",
+  "final_time_and_restart_seconds": [
+    0,
+    120
+  ],
+  "raw_output_measures": {
+    "baseline": {
+      "samples": 121,
+      "last_sec": 120.0,
+      "map_geographic_each_link_final_m3_s": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fixed_east_min_max_after_initial": [
+        4.0,
+        4.0
+      ],
+      "history_final": {
+        "cross_section_cumulative_discharge": 480.0,
+        "cross_section_discharge": 4.0,
+        "pump_structure_discharge": 4.0,
+        "pump_capacity": 1.0,
+        "pump_discharge_dir": 4.0,
+        "pump_head": 0.40693771839141846
+      },
+      "bank_delta_west_east_m3": [
+        -480.0001220703125,
+        480.0
+      ],
+      "bank_mean_stage_west_east_m": [
+        -0.1999999980131785,
+        0.1999999980131785
+      ],
+      "gauges": [
+        "west_pool",
+        "east_pool"
+      ],
+      "last_station_levels_m": [
+        -0.19872735440731049,
+        0.1994987428188324
+      ],
+      "max_side_continuity_residual_m3": 0.000244140625,
+      "restart": [
+        {
+          "time_s": 0,
+          "east_m3_s": 0.0,
+          "max_stage_difference_m": 0.0
+        },
+        {
+          "time_s": 120,
+          "east_m3_s": 4.0,
+          "max_stage_difference_m": 5.866667263099146e-09
+        }
+      ],
+      "files": {
+        "model_20010101_000000_rst.nc": "b6485b4862396362b5e969fc3f923c62623b73cc1e47892673f6307c692a3d79",
+        "model_20010101_000200_rst.nc": "47d9d75017ee3ecd421c94795477d90b3fd5b483f32e2da5866acbeab6a6c890",
+        "model_his.nc": "09a99e88c3c8243da94f33f92c53dc5a68c6a5ce4255dcf048525e039fb40cac",
+        "model_map.nc": "bec4686403ee88884002886573935636b2655b1c023bfdee12da1373d4849cd3"
+      }
+    },
+    "orientation_negative": {
+      "samples": 121,
+      "last_sec": 120.0,
+      "map_geographic_each_link_final_m3_s": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "fixed_east_min_max_after_initial": [
+        -4.0,
+        -4.0
+      ],
+      "history_final": {
+        "cross_section_cumulative_discharge": -480.0,
+        "cross_section_discharge": -4.0,
+        "pump_structure_discharge": -4.0,
+        "pump_capacity": 1.0,
+        "pump_discharge_dir": 4.0,
+        "pump_head": 0.40693771839141846
+      },
+      "bank_delta_west_east_m3": [
+        480.0,
+        -480.0001220703125
+      ],
+      "bank_mean_stage_west_east_m": [
+        0.1999999980131785,
+        -0.1999999980131785
+      ],
+      "gauges": [
+        "west_pool",
+        "east_pool"
+      ],
+      "last_station_levels_m": [
+        0.1994987428188324,
+        -0.19872735440731049
+      ],
+      "max_side_continuity_residual_m3": 0.000244140625,
+      "restart": [
+        {
+          "time_s": 0,
+          "east_m3_s": 0.0,
+          "max_stage_difference_m": 0.0
+        },
+        {
+          "time_s": 120,
+          "east_m3_s": -4.0,
+          "max_stage_difference_m": 5.866667374121448e-09
+        }
+      ],
+      "files": {
+        "model_20010101_000000_rst.nc": "bc99f45d957fd59603847f7bf2bdd89945f3242706c98db303c1a73d327c46ed",
+        "model_20010101_000200_rst.nc": "6079148ac7c7275a21800411c0c5031d3191eef64e5a2717dcd81a3870c92030",
+        "model_his.nc": "56d21046b26c2ca4006a8bded6e3e340890fe21ab44aeb5cd7ac090df830d3de",
+        "model_map.nc": "fcf5d64edaa3eaff0cec5589c16eebc9b500015c5ca2291cb1d21123d3899123"
+      }
+    },
+    "capacity_negative": {
+      "samples": 121,
+      "last_sec": 120.0,
+      "map_geographic_each_link_final_m3_s": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "fixed_east_min_max_after_initial": [
+        -4.0,
+        -4.0
+      ],
+      "history_final": {
+        "cross_section_cumulative_discharge": -480.0,
+        "cross_section_discharge": -4.0,
+        "pump_structure_discharge": -4.0,
+        "pump_capacity": -1.0,
+        "pump_discharge_dir": -4.0,
+        "pump_head": 0.40693771839141846
+      },
+      "bank_delta_west_east_m3": [
+        480.0,
+        -480.0001220703125
+      ],
+      "bank_mean_stage_west_east_m": [
+        0.1999999980131785,
+        -0.1999999980131785
+      ],
+      "gauges": [
+        "west_pool",
+        "east_pool"
+      ],
+      "last_station_levels_m": [
+        0.1994987428188324,
+        -0.19872735440731049
+      ],
+      "max_side_continuity_residual_m3": 0.000244140625,
+      "restart": [
+        {
+          "time_s": 0,
+          "east_m3_s": 0.0,
+          "max_stage_difference_m": 0.0
+        },
+        {
+          "time_s": 120,
+          "east_m3_s": -4.0,
+          "max_stage_difference_m": 5.866667374121448e-09
+        }
+      ],
+      "files": {
+        "model_20010101_000000_rst.nc": "69e3e8d1d93a230fb89f27657522b748eaaff9a711e5297598906cc8dff93987",
+        "model_20010101_000200_rst.nc": "01932d94e59a8ea07302d4e10c06b3a6e17a59da0e2cf873895e3b42a35d89f9",
+        "model_his.nc": "3b9c6629ca8ff758e07f6e08546edfeae7d79b203020452fe5b137699fc12f73",
+        "model_map.nc": "da99b633dd92bce379b34330ddb15dbe365733d9d06d832d7d49c14135318850"
+      }
+    }
+  },
+  "baseline_vs_175": {
+    "four_map_links": true,
+    "all_face_volumes": true,
+    "all_face_stages": true,
+    "stations": true,
+    "fixed_section": true,
+    "east_transfer": true
+  },
+  "two_interventions_exact_geographic_arrays": {
+    "four_map_links": true,
+    "all_face_volumes": true,
+    "all_face_stages": true,
+    "stations": true,
+    "fixed_section": true,
+    "east_transfer": true
+  },
+  "gui_export": "not observed",
+  "original_175_negative_gate": "retained, not superseded",
+  "annotations": "A positive reported pump_discharge_dir in the negative orientation case is compatible with westward flow.",
+  "evidence": {
+    "inputs": {
+      "path": "research/experiments/G13-DRIVE-I-20261105-034315/prepared/preparation.json",
+      "sha256": "41c0b4c585785de2ec8f0d0f279eaa3607cb9233f9a7318345b824851d23a4f5"
+    },
+    "predicate": {
+      "path": "research/experiments/G13-DRIVE-V-preparation-final-01/predeclared.json",
+      "sha256": "e022eef34be28333e8b28a6ceafb22e9a1bf77bedcc4e7e4538c771299f0d005"
+    },
+    "preflight": {
+      "path": "research/experiments/G13-DRIVE-V-adapter-review-02/verification.json",
+      "sha256": "9ce33dace52d54fe96803ef22c0b85f98b27669b82d1eb6bb694d91bb1b145b7"
+    },
+    "runs": {
+      "path": "research/experiments/G13-DRIVE-RUNNER-I-G-native-177-01/runs.json",
+      "sha256": "ab980b6f77e117261dc6f1522da67a88551f9eac816e1a252b06bd6424e9a24f"
+    },
+    "native": {
+      "path": "research/experiments/G13-DRIVE-RUNNER-I-G-native-177-01/verification.json",
+      "sha256": "16034ff9a056326fff18b33caaec1e7b86e14174ad11c5493888d93c515fa3ee"
+    },
+    "independent": {
+      "path": "research/experiments/G13-DRIVE-V-G-native-177-01/verification.json",
+      "sha256": "2e56d5f14c8b29c4d56f47fefbc81b02389eefcc3264af74acc700b7786592de"
+    },
+    "readback": {
+      "path": "research/experiments/G13-DRIVE-G-raw-177-01/readback.json",
+      "sha256": "8c116ff9fae808903de798f50a7fd657aacbef6ff59866983b6755746aa521eb"
+    }
+  }
+}

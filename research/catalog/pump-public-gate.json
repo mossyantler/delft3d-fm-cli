@@ -1,0 +1,211 @@
+{
+  "state": "accepted_bounded_public_pump_scalar",
+  "cli_version": "0.4.0.dev1",
+  "protocol_version": 2,
+  "installed_fm_exe_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+  "comparison_wheel_sha256": "edf9fb730b45016e438905a991eafeee5eebc26ad03e33e62890e6b954ca299c",
+  "release_wheel_sha256": "2895d8aba0b717d8f3bb56373204f14810879975e264c86512bb7f26c99f95b9",
+  "public_commands": [
+    "pump inspect",
+    "pump set",
+    "run start --profile pump-scalar --route direct",
+    "run status"
+  ],
+  "scope": "Cold serial 2D; scalar pump; 12x1 or 12x4 closed 120x40 m basin; no GUI mapping or general direction/total-capacity prediction. Only the specified model files are staged.",
+  "cases": [
+    {
+      "id": "baseline",
+      "simulation_duration_s": 120,
+      "variables": 173,
+      "east_discharge_m3_s": 4,
+      "east_transfer_m3": 480.0,
+      "pump_relative_final_discharge_m3_s": 4.0,
+      "owned_exits": 2,
+      "output_sha256": {
+        "model_20010101_000000_rst.nc": "90dcfc8ee062a8028d977700c9771d5d8b756df3a0eb629a203bd9ed1658a36b",
+        "model_20010101_000200_rst.nc": "91ead83a56683d95d72893520675ed0791a3456cd966a5b96bfb14ffaee65e38",
+        "model_his.nc": "ebbb0d46112ec840c0b547b7d8d3def9e84a24874a1d9695f80ec4287c2052ec",
+        "model_map.nc": "ea02d40ddcd2d4051e9e9027258f90f56c4827bf98789050c7b4dd0f1f1c5378"
+      }
+    },
+    {
+      "id": "orientation_negative",
+      "simulation_duration_s": 120,
+      "variables": 173,
+      "east_discharge_m3_s": -4,
+      "east_transfer_m3": -480.0,
+      "pump_relative_final_discharge_m3_s": 4.0,
+      "owned_exits": 2,
+      "output_sha256": {
+        "model_20010101_000000_rst.nc": "86439430f6c21038052d07ed91e3cdba7cce3e04b6dbfc40b6c6e750edd4d7c5",
+        "model_20010101_000200_rst.nc": "17c33ed0ea143c348e86a3a5a37c9e2945416242e02eefe1978fdf74985a4adc",
+        "model_his.nc": "14ab2137e36052ab6400e896da0f30bf97f86a120afb54b42398a1e570d892e7",
+        "model_map.nc": "e42ad26c74016b251590ac95b1bd8652767af0d683f6fb529c60dd9f23fcf35c"
+      }
+    },
+    {
+      "id": "capacity_negative",
+      "simulation_duration_s": 120,
+      "variables": 173,
+      "east_discharge_m3_s": -4,
+      "east_transfer_m3": -480.0,
+      "pump_relative_final_discharge_m3_s": -4.0,
+      "owned_exits": 2,
+      "output_sha256": {
+        "model_20010101_000000_rst.nc": "10c980c3a4f641b20f67c63c53c8b761481179c4a9e0d4420dfe0dd9bed83ab6",
+        "model_20010101_000200_rst.nc": "dc64c030f0b084593730c0e0952155eae57af0912d002f9758ef240b7206af69",
+        "model_his.nc": "be803f89a16d14cd61fbb218eefd09c9b2f9054938dc048d6507e3c8915bad40",
+        "model_map.nc": "81e4d450b55d60c2fce7ad52446e49d664deb10fe7af71bb19938dc36d61bc3f"
+      }
+    },
+    {
+      "id": "single_baseline",
+      "simulation_duration_s": 120,
+      "variables": 173,
+      "east_discharge_m3_s": 1,
+      "east_transfer_m3": 120.0,
+      "pump_relative_final_discharge_m3_s": 1.0,
+      "owned_exits": 2,
+      "output_sha256": {
+        "model_20010101_000000_rst.nc": "10629ba3fb39c4d33796686fcd8f7156356da3bae90c001fe5781704e5b8e103",
+        "model_20010101_000200_rst.nc": "4b79640813d363e4e82d207160f943dc94d6e3a23ae2aa87059d64b8b7d6feba",
+        "model_his.nc": "939e26c64001c85edbc2527ab2e3d25b17250436889b6ba5934974bb873e732d",
+        "model_map.nc": "d85c72bd9dd01d0bc8d2ae6d02f825249dc515179a519304c4f4485fef8a20e7"
+      }
+    },
+    {
+      "id": "single_reversed_polyline",
+      "simulation_duration_s": 120,
+      "variables": 173,
+      "east_discharge_m3_s": 1,
+      "east_transfer_m3": 120.0,
+      "pump_relative_final_discharge_m3_s": -1.0,
+      "owned_exits": 2,
+      "output_sha256": {
+        "model_20010101_000000_rst.nc": "c4d90e3e4eeb6dae3dd32a257f70f242d7d5c16bd6034890540bd1c42c9bdd67",
+        "model_20010101_000200_rst.nc": "2f94a5f91ec0de6b8d47bae54e36ec3b1dbfc231bfd453626c776bacc1c5f92c",
+        "model_his.nc": "0a24a17ad9bbb4e5164325525910d79a68e04b5baba3a3f1891c7b8454dd3841",
+        "model_map.nc": "78cdaf471c96686346de1087f0fe5faf455ec705bff543988a3cb5c0cb997f1b"
+      }
+    }
+  ],
+  "example_sha256": {
+    "fixed_sections.pli": "e10df10a2948727c616ccb25b01e802ec55761e1e136eb473a317280357a1067",
+    "mesh_net.nc": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+    "model.mdu": "06c515d55210c37c738e564ec63baabc34bf47530c3f9673ee0ba509366721f5",
+    "observations.xyn": "b0939fba16356d09d1fc3f5fea155cf1bca6722e2de8f72c7f8c2f8b57f75789",
+    "pump.pli": "c93117bac95a232914573dec9d62936f4a30ab4de250d76cfe59785a742678e2",
+    "structures.ini": "832afd8b25aa62f5d5019c013aba74b2d4bfb1f0843b9b41e89d36da4c82d23b"
+  },
+  "evidence": {
+    "final_package": {
+      "path": "experiments/G13-PUBLIC-G-release-01/verification.json",
+      "sha256": "27618e19d6b3c6bbcf8947c811c649df6b29789c2c2f31cb7456a58c97a4b406"
+    },
+    "installed_example": {
+      "path": "experiments/G13-PUBLIC-G-release-01/example-verification.json",
+      "sha256": "a9e611ca34fa4442f3609851f1f35db5874177b099790c359b68d2fd213204b4"
+    },
+    "installed_edit_and_run": {
+      "path": "experiments/G13-INTEGRATION-REPLAY-I-G-native-187-01/verification.json",
+      "sha256": "be96af808f1676c903690fbfedff6725e4b112521c6c3657274bfabe74846f0e"
+    },
+    "independent_raw_comparison": {
+      "path": "experiments/G13-INTEGRATION-REPLAY-V-20261105-01/native-readback-G-187-01/verification.json",
+      "sha256": "203f06de0f6b2e687f81f0bc7e53a0c2a3168086a02a41d1e6ef22571a13e14f"
+    },
+    "edit_contract": {
+      "path": "experiments/G13-EDIT-V-replay-descriptor-20261105-045640-9c4e524a/verification.json",
+      "sha256": "0135b2f1412e04419b9bc8257d4d1a79236905bc24f93443140f9e78446040f8"
+    },
+    "installed_ACL": {
+      "path": "experiments/G13-EDIT-V-installed-20261105-051042-7a65ac49/verification.json",
+      "sha256": "b1479e121bdfead4257704fdc6daaa017321401335b8c703947f2cb60bd5601b"
+    },
+    "input_scope": {
+      "path": "experiments/G13-RUN-PROFILE-V-final-10/verification.json",
+      "sha256": "dd4e9eaffff23d40b0f2c2fdb4b11acc5996b7bde2f2f6afa8d697934fbea34d"
+    },
+    "lifecycle_contract": {
+      "path": "experiments/G13-RUN-LIFECYCLE-V-terminal-05/verification.json",
+      "sha256": "a04de4f81424e37349eaa7e2bae96aed6406ef5dacc16881b8d82d5944b38878"
+    },
+    "f34_serial": {
+      "path": "experiments/G13-PUBLIC-G-serial-189-01/verification.json",
+      "sha256": "bf691dad74db031d428a608bda378c14174c9e38b3ccca03ec8ed79a31637a5b"
+    },
+    "f34_failure_cancel": {
+      "path": "experiments/G13-PUBLIC-G-failures-191-01/verification.json",
+      "sha256": "3171f6080d7c93b05ede971294e58030c341232ea5af3b0e5ee494d4d4a531a4"
+    }
+  },
+  "f34_regressions": {
+    "matched_variables": 191,
+    "failure_cancel_groups": 17,
+    "unchanged_inputs": true
+  },
+  "observed_stop_cases": {
+    "wheel_sha256": "2895d8aba0b717d8f3bb56373204f14810879975e264c86512bb7f26c99f95b9",
+    "195": "Both naturally completed. Cold cancellation returned run_not_active.",
+    "197": "25 ms timeout; actual bound terminate, root previously live and child already signalled. cleanup_failed/run_timeout.",
+    "199": "Warm cancellation delivered and owner acknowledged. Same mixed member observations; cleanup_failed/run_cancelled.",
+    "actual_close": "All four original Job closes and their collector closures confirmed. No attribution of killing the already-exited child. No same-executable survival claim for these pump runs.",
+    "evidence": [
+      {
+        "path": "research/experiments/G13-PUBLIC-G-stop-195-01/verification.json",
+        "sha256": "345468d0cd5ab8b396037b8a7bd730c77eed16d3237c560a378a425127c9645e"
+      },
+      {
+        "path": "research/experiments/G13-PUBLIC-G-warm-stop-197-01/timeout-run/manifest.json",
+        "sha256": "65d63c1378ccb763d6537413d12af7903de609213e75f1ff000369ba102c8dab"
+      },
+      {
+        "path": "research/experiments/G13-PUBLIC-G-warm-cancel-199-01/cancel-run/manifest.json",
+        "sha256": "a24f846eab1d409558d159309055a3aba3e79dde0018c576dd91de9665c243ba"
+      },
+      {
+        "path": "research/experiments/G13-PUBLIC-STOP-V-results-01/verification.json",
+        "sha256": "244b6a793dd09c35d025431f42a5dd65a9325b75e3e4554dcae56488010ebc69"
+      }
+    ]
+  },
+  "stop_diagnostics_revision": {
+    "pump_lifecycle_schema": 2,
+    "ownership_exit_rule": "unchanged",
+    "wheel_sha256": "2f33c17e94282cfe6c2278a87f7004a6e37cecde4a82650b276bad2405a1890c",
+    "code": {
+      "path": "src/dfm_cli/run_pump_lifecycle.py",
+      "sha256": "20f622e98ad3b29cb16cfbfe30c3eb7a3303ea959309777ad736f49866cccc92"
+    },
+    "portable_tests": {
+      "path": "tests/test_pump_close_attribution.py",
+      "sha256": "03336a43d87911388ecbbc69505f48ee35d801e5e8fd415d60f77c11b23d66af"
+    },
+    "independent": {
+      "path": "research/experiments/G13-PUBLIC-STOP-V-patch-01/verification.json",
+      "sha256": "b858edbe84abd8951e70ad49082cb3f26a7a8e64dd5f2e27007dba7374253dc8"
+    },
+    "installed": {
+      "path": "research/experiments/G13-STOP-G-native-201-01/verification.json",
+      "sha256": "0fb96a30fb89a05e92f7c100709ec4da483f5a3bc7f3c7851a141c10ad6a5610"
+    },
+    "actual": "Natural: two original members exited normally. 25ms timeout: only FM present; retained root was live, then signalled with exit 1, original Job empty and closed; timed_out/run_timeout.",
+    "root_pump_tests": {
+      "executed": 64,
+      "passed": 64,
+      "log": {
+        "path": "research/experiments/G13-STOP-G-native-201-01/pump-regression.log",
+        "sha256": "2a797e4daa84943ab1e26d8dbc7409050dc5dde4f8f543da4252fdc21fb3f681"
+      }
+    },
+    "pre_revision_full_suite": {
+      "executed_or_skipped": 1543,
+      "passed": 1507,
+      "skipped": 36,
+      "log": {
+        "path": "research/experiments/G13-PUBLIC-G-full-tests-01/all-tests.log",
+        "sha256": "5a1b567b8487e6e36970eadb4dcc35f5f2bf01c909f93af38e4a438e281d9741"
+      }
+    }
+  }
+}

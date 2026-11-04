@@ -1,0 +1,108 @@
+{
+  "scope": "One modern weir, existing single-consumer crest TIM, sampled crest at existing knots only. Times in min or s from explicitly matched UTC origin, heights in m. GUI CSV equivalence unverified.",
+  "cli_version": "0.4.0.dev1",
+  "protocol": 2,
+  "commands": [
+    "weir series-export",
+    "weir series-import",
+    "weir series-inspect"
+  ],
+  "root_product_files": 185,
+  "wheel_sha256": "b22a8f5fd891908c33095cde7fb5bf91d12b89982db8c3243041de77d4b20c74",
+  "editor_acceptance": "passed",
+  "implementation": {
+    "path": "research/experiments/G16-SERIES-I-20261105-rev03/freeze.json",
+    "sha256": "bb7cc6bf10e71016a8d41bab8c03f7192c1774f55bfadc183dc0780a2bef8777"
+  },
+  "package": {
+    "path": "research/experiments/G16-SERIES-PACK-20261105-rev03-01/verification.json",
+    "sha256": "64ea62c1fb2da9439f47b01126a26f24d13dae972b9a5103e89d07282f3bb6b4"
+  },
+  "independent_public": {
+    "path": "research/experiments/G16-SERIES-V-20261105-01/installed-rev03-public-01/verification.json",
+    "sha256": "a92d6ce613f8a654b22f64fabb8c4e8190cb3e4556527ce26376be62aa40f125"
+  },
+  "independent_portable": {
+    "path": "research/experiments/G16-SERIES-V-20261105-01/root-ready-installed-rev03-02/verification.json",
+    "sha256": "41963aabd85f758126e7bd2707b9a0bdc1b6a43184451980a72bb214db644171"
+  },
+  "coordinator_file_example": {
+    "path": "research/experiments/G16-SERIES-G-example-01/checked-01/verification.json",
+    "sha256": "50b6f33e45a12a04f20b455528489687017c6c3cf934c66fbf7142872600311c"
+  },
+  "assembly_benchmark": {
+    "path": "research/experiments/G16-SERIES-I-20261105-rev03/patch-assembly.json",
+    "sha256": "61ea479e96d5a888a7f0e5d7cbafd414f9333f8c452856b97256cc66b959c653"
+  },
+  "root_tests": [
+    {
+      "tests": 36,
+      "receipt": {
+        "path": "research/experiments/G16-SERIES-G-example-01/root-weir-tests.log",
+        "sha256": "88b4f38cf0bcf10b5efcac3af68ae6d2c99c5f2a4dd98f9485ef3088ec2a6058"
+      }
+    },
+    {
+      "tests": 24,
+      "receipt": {
+        "path": "research/experiments/G16-SERIES-G-example-01/root-cli-tests.log",
+        "sha256": "5aa4b561097ce4f86fdd7f848a638f2da2587671a93a2931708ab1930f267d48"
+      }
+    }
+  ],
+  "engine_experiment": {
+    "slot": 211,
+    "suite": "2026.02 OpenHMWQ",
+    "route": "owned direct research executor; not product run start",
+    "engine_version": "1.2.184.Unknown",
+    "cases": [
+      "baseline_low",
+      "public_noop_low",
+      "manual_rise",
+      "public_rise"
+    ],
+    "terminal_members": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "model_seconds": 120,
+    "states": {
+      "file_exchange_and_manual_public_values": "passed",
+      "noop_and_baseline_values": "passed",
+      "prespecified_hydraulic_response": "failed",
+      "public_run_profile": "not_tested",
+      "GUI": "not_tested"
+    },
+    "arrays_per_pair": 189,
+    "initial_time_included": true,
+    "response_window_seconds_inclusive": [
+      80,
+      120
+    ],
+    "mean_east_Q_delta_m3_per_s": -40.46622885727301,
+    "mean_below_stage_delta_m": 0.0666344560119863,
+    "final_below_stage_delta_m": -0.1401262879371643,
+    "source_preparation": {
+      "path": "research/experiments/G16-SERIES-REPLAY-four-ready-20261105-01/prepared-final/preparation.json",
+      "sha256": "14eb1b2100ead8887ff97a3fc82f253b264e87060a0f5ca5c521d3f989198357"
+    },
+    "prospective_criteria": {
+      "path": "research/experiments/G16-SERIES-REPLAY-oracle-freeze-20261105-01/predeclared.json",
+      "sha256": "2630afd9cb05e523ad186caa7a36f1cf194075ab1a86a5e67a8c4a17cdc1244a"
+    },
+    "native_summary": {
+      "path": "research/experiments/G16-SERIES-REPLAY-G-native-211-01/verification.json",
+      "sha256": "28d64604726322e3a4d593496071d940eee00b7b119f9c847a60ff1883b2116d"
+    },
+    "independent_raw_reader": {
+      "path": "research/experiments/G16-SERIES-REPLAY-oracle-G211-01/verification.json",
+      "sha256": "2820620d10b65ad5eab215a94473dad92294393c15424d04d44c57f49ef4d960"
+    },
+    "coordinator_review": {
+      "path": "research/experiments/G16-SERIES-G211-readback-01/review.json",
+      "sha256": "bc4014f12313bb7bd270a219a11b5f923160ece38553dfa5c8eeca9f503230dd"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "scope": "Orchestrator-replayed M1-M5 Windows 2026.02 OpenHMWQ synthetic and f34 acceptance. No general scientific validation.",
+  "cli": "0.4.0.dev1",
+  "protocol": 2,
+  "nodes": {
+    "M1": {
+      "experiment": "M1-G-coordinator-final-01",
+      "report": "verification.json",
+      "report_sha256": "cf2d437fbd0c19dc45568d308961d5a4d9727b31cb8e15a7e966d32a41718bdc"
+    },
+    "M2": {
+      "experiment": "M2-G-coordinator-final-01",
+      "report": "verification.json",
+      "report_sha256": "4c98b982aa750a2c327b977453a87712dd6a7fce1d0987c902826342b220aa49"
+    },
+    "M3": {
+      "experiment": "M3-G-coordinator-final-01",
+      "report": "verification.json",
+      "report_sha256": "de5a2e623167d0bc8a417b2e184153cc698dd08f5c5e57dbfa0791f868b4a7db"
+    },
+    "M4": {
+      "experiment": "M4-G-coordinator-final-01",
+      "report": "verification.json",
+      "report_sha256": "f1812095a04e1a0aee9ef95a5191543f0b7c8ca157afff7a3c5d4fa729200902"
+    },
+    "M5": {
+      "experiment": "M5-G-coordinator-final-01",
+      "report": "verification.json",
+      "report_sha256": "84462435474b38629a927ec2176e7f33df25fcd5e5bfdc7c9458e5a422f367b1"
+    }
+  }
+}

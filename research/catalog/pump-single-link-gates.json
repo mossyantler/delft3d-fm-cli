@@ -1,0 +1,230 @@
+{
+  "node": "G13-SINGLE",
+  "scope": "One closed 120 m x 40 m rectangular synthetic basin; twelve cells, one crossing computational link, one modern scalar-capacity pump. Not an automatic capacity conversion.",
+  "state": "single_link_response_characterized",
+  "nominal_capacity": "passed_all_five",
+  "kernel_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+  "geographic_positive": "east",
+  "source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "installed_source_revision": "unknown",
+  "cases": {
+    "baseline": {
+      "links": 1,
+      "faces_per_side": 6,
+      "east_q_range_after_initial_m3_s": [
+        1.0,
+        1.0
+      ],
+      "east_transfer_m3": 120.0,
+      "relative_final_m3_s": 1.0,
+      "bank_delta_m3": [
+        -120.0,
+        120.0
+      ],
+      "mean_stage_m": [
+        -0.050000000124176346,
+        0.050000000124176346
+      ],
+      "station_stage_m": [
+        -0.05178885534405708,
+        0.05202721431851387
+      ],
+      "max_continuity_residual_m3": 0.000244140625,
+      "time_s": [
+        0,
+        120
+      ],
+      "samples": 121,
+      "sha256": {
+        "history": "43000b087f1f943ec061294637a9cb4d3bad350f07871c50616b0c22cece205b",
+        "map": "6bdcdf22b0f560ffb8bad32586cdecd433eb4f7074af580bf5dc211e21010d66",
+        "start": "fc0ed563b1d22b5a4689a2d495dc761a6622c4781d27cb9e116203470a185b30",
+        "end": "11823a3d25a8da1056a0a93f42806bf7251d61205d85de8f313a95990d41b36b"
+      }
+    },
+    "reversed_polyline": {
+      "links": 1,
+      "faces_per_side": 6,
+      "east_q_range_after_initial_m3_s": [
+        1.0,
+        1.0
+      ],
+      "east_transfer_m3": 120.0,
+      "relative_final_m3_s": -1.0,
+      "bank_delta_m3": [
+        -120.0,
+        120.0
+      ],
+      "mean_stage_m": [
+        -0.050000000124176346,
+        0.050000000124176346
+      ],
+      "station_stage_m": [
+        -0.05178885534405708,
+        0.05202721431851387
+      ],
+      "max_continuity_residual_m3": 0.000244140625,
+      "time_s": [
+        0,
+        120
+      ],
+      "samples": 121,
+      "sha256": {
+        "history": "98ca45a4412b8767d3b54473757ab04fcc524796b3fc5d47adea2609930ee074",
+        "map": "08215245607cd49b4ce9c60294c7a76d17b52e7525f2ab2c92e4c0e3593ad8cb",
+        "start": "6ad487e95f182f042e4bc101d55b36489530303ecfc1d84af25eba0b33d940ab",
+        "end": "2b8fd8bee7d39c32b350b914bd1acf165cfd8d68fb3a487a556451793df01dee"
+      }
+    },
+    "orientation_negative": {
+      "links": 1,
+      "faces_per_side": 6,
+      "east_q_range_after_initial_m3_s": [
+        -1.0,
+        -1.0
+      ],
+      "east_transfer_m3": -120.0,
+      "relative_final_m3_s": 1.0,
+      "bank_delta_m3": [
+        120.0,
+        -120.0
+      ],
+      "mean_stage_m": [
+        0.050000000124176346,
+        -0.050000000124176346
+      ],
+      "station_stage_m": [
+        0.05202721431851387,
+        -0.05178885534405708
+      ],
+      "max_continuity_residual_m3": 0.000244140625,
+      "time_s": [
+        0,
+        120
+      ],
+      "samples": 121,
+      "sha256": {
+        "history": "3a0f32d04afcf056d419d21bba08a34317afbb5d6f7b63450eca44164e0e5cc9",
+        "map": "f72f8ae7ff32c786ea435e76f2f453c518ad2b4b5d54bde12336996a874af00f",
+        "start": "151220176210dd2a9b73117fb5078ab20aa10625448472a0b08889313c112317",
+        "end": "9a2669d009250e6b3ba7f966c6b51aec9cc179ee1e662b43b993cf2aec94e7b9"
+      }
+    },
+    "capacity_negative": {
+      "links": 1,
+      "faces_per_side": 6,
+      "east_q_range_after_initial_m3_s": [
+        -1.0,
+        -1.0
+      ],
+      "east_transfer_m3": -120.0,
+      "relative_final_m3_s": -1.0,
+      "bank_delta_m3": [
+        120.0,
+        -120.0
+      ],
+      "mean_stage_m": [
+        0.050000000124176346,
+        -0.050000000124176346
+      ],
+      "station_stage_m": [
+        0.05202721431851387,
+        -0.05178885534405708
+      ],
+      "max_continuity_residual_m3": 0.000244140625,
+      "time_s": [
+        0,
+        120
+      ],
+      "samples": 121,
+      "sha256": {
+        "history": "1b372967bb7930035a9bb021608e56648ef3d0246953e26c030f052cc263572a",
+        "map": "44077bb1626720321a040e11cb01d665a0a5662faec66c3212fd224aa2ba91e7",
+        "start": "4084ac3f5c331090adba68b11280979a82c8f82aadea2ee770d71b1c4e37f1a8",
+        "end": "dd5a7b716b79d5cd4139818dd8e41b502bd7a35d850aaadcd270467b89187c2e"
+      }
+    },
+    "zero_capacity": {
+      "links": 1,
+      "faces_per_side": 6,
+      "east_q_range_after_initial_m3_s": [
+        0.0,
+        0.0
+      ],
+      "east_transfer_m3": 0.0,
+      "relative_final_m3_s": 0.0,
+      "bank_delta_m3": [
+        0.0,
+        0.0
+      ],
+      "mean_stage_m": [
+        0.0,
+        0.0
+      ],
+      "station_stage_m": [
+        0.0,
+        0.0
+      ],
+      "max_continuity_residual_m3": 0.0,
+      "time_s": [
+        0,
+        120
+      ],
+      "samples": 121,
+      "sha256": {
+        "history": "d9f6901c234bbbac317fde3bf158b30d71cd5004161012dfe16f8a5945f23662",
+        "map": "6b222754dd95f630f411ced44fb688ec7ed013044a76557063830c1b38f1549a",
+        "start": "e3b1453b6e0d81e5fe3df4e9f281272ec58eb6da136f2218abcf7bb9a0f774f5",
+        "end": "aa83145d56395f074c18cd5a93fdcb2ad1582ecfaaa6767c58a3f22c0eb81054"
+      }
+    }
+  },
+  "physical_array_identity": {
+    "baseline_vs_polyline_reversal": {
+      "q": true,
+      "bank": true,
+      "stages": true,
+      "volumes": true,
+      "stations": true,
+      "transfer": true
+    },
+    "orientation_negative_vs_negative_capacity": {
+      "q": true,
+      "bank": true,
+      "stages": true,
+      "volumes": true,
+      "stations": true,
+      "transfer": true
+    }
+  },
+  "hypotheses": {
+    "H_documented_physical_polyline_reversal": {
+      "state": "not_established",
+      "state_scope": "Geographic physics only; reporting pattern evaluated independently",
+      "reporting_state": "not_established",
+      "completed_cases_match": false
+    },
+    "H_175_source_pattern_reporting_only_polyline_reversal": {
+      "state": "matched_all_five",
+      "state_scope": "Geographic physics only; reporting pattern evaluated independently",
+      "reporting_state": "matched_all_five",
+      "completed_cases_match": true
+    }
+  },
+  "all_case_inputs_unchanged": true,
+  "original_jobs_terminated_confirmed": true,
+  "reference_four_link_gates": [
+    "pump-orientation-gates.json",
+    "pump-drive-gates.json"
+  ],
+  "gui_parity": "unverified",
+  "receipts": {
+    "research/experiments/G13-SINGLE-RUNNER-I-G-native-183-01/verification.json": "cd0e1efa1c5b94ec46403c4dc5bedfcf04d762b6b22d598e2c4d0730905a3d6c",
+    "research/experiments/G13-SINGLE-RUNNER-V-G-native-183-01/verification.json": "75c392458ea494fa1f5ddc56cc0a6d771837c0223e2efca7141be6eb556b039e",
+    "research/experiments/G13-SINGLE-G-raw-183-01/readback.json": "8cace76737a04bf240d96bbca74c6c071e1e9f4d85151f28b63e94f617503a5e",
+    "research/experiments/G13-SINGLE-RUNNER-V-final-copy-20261105-01/prepared183-review-01/verification.json": "77cad020be10a747965f07de74cb0830d9ab9e68858e30ea7b11891f23b95ab4",
+    "research/experiments/G13-SINGLE-G-plan-review-183-01/verification.json": "7e2b0b1f34351456797ce5a92b3601a5e43dc95e82d61acd13d2a98e7de5aaf7",
+    "research/experiments/G13-SINGLE-RUNNER-V-predeclared-20261105-02/predeclared.json": "d63fb4cf985ec6cc676a9589c13538f35a66941784585f9faa55064d7ae53afa",
+    "research/experiments/G13-SINGLE-I-20261105-034940/prepared-final/preparation.json": "593079843a32def6b77e1ddfb341cf4e2be78456076b5a46ea9fd692ed34d6eb"
+  }
+}

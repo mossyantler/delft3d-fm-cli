@@ -1,0 +1,273 @@
+{
+  "node": "B12-ENGINE",
+  "gate": "#209",
+  "verdict": "Not equivalent at all nine predeclared times; retain the two failed arms. No model-time shift applied.",
+  "solver": "Windows 2026.02 OpenHMWQ; installed FM source commit unknown",
+  "installed_dll_sha256": "ca6de0b6d900a51ece33140b4666ca97d6875d8e60cac31e91ad072800f1df99",
+  "readback": "zbndz, float64[8], m from public FM source; homogeneous support values; no spatial ordering claim.",
+  "clock_seconds": [
+    0,
+    1,
+    7,
+    17,
+    31,
+    40,
+    61,
+    97,
+    120
+  ],
+  "absolute_tolerance_m": 1e-08,
+  "actual_worker_clock_tolerance_seconds": 1e-07,
+  "raw_case_values_m": {
+    "linear": {
+      "state": "readback_mismatch",
+      "mismatching_clocks": [
+        0
+      ],
+      "samples": [
+        {
+          "t_s": 0,
+          "min": 0.2100000023574103,
+          "max": 0.2100000023574103,
+          "file_input_m": 0.2,
+          "absolute_error_m": 0.010000002357410276
+        },
+        {
+          "t_s": 1,
+          "min": 0.2100000023574103,
+          "max": 0.2100000023574103,
+          "file_input_m": 0.21000000000000002,
+          "absolute_error_m": 2.35741026699543e-09
+        },
+        {
+          "t_s": 7,
+          "min": 0.26999999764258975,
+          "max": 0.26999999764258975,
+          "file_input_m": 0.27,
+          "absolute_error_m": 2.35741026699543e-09
+        },
+        {
+          "t_s": 17,
+          "min": 0.37000000235741026,
+          "max": 0.37000000235741026,
+          "file_input_m": 0.37,
+          "absolute_error_m": 2.35741026699543e-09
+        },
+        {
+          "t_s": 31,
+          "min": 0.5099999976425897,
+          "max": 0.5099999976425897,
+          "file_input_m": 0.51,
+          "absolute_error_m": 2.35741026699543e-09
+        },
+        {
+          "t_s": 40,
+          "min": 0.6,
+          "max": 0.6,
+          "file_input_m": 0.6000000000000001,
+          "absolute_error_m": 1.1102230246251565e-16
+        },
+        {
+          "t_s": 61,
+          "min": 0.3900000007858034,
+          "max": 0.3900000007858034,
+          "file_input_m": 0.39,
+          "absolute_error_m": 7.858033668206588e-10
+        },
+        {
+          "t_s": 97,
+          "min": 0.02999999764258965,
+          "max": 0.02999999764258965,
+          "file_input_m": 0.029999999999999916,
+          "absolute_error_m": 2.35741026699543e-09
+        },
+        {
+          "t_s": 120,
+          "min": -0.20000000000000007,
+          "max": -0.20000000000000007,
+          "file_input_m": -0.20000000000000007,
+          "absolute_error_m": 0.0
+        }
+      ],
+      "retained_member_exits": 2
+    },
+    "harmonic": {
+      "state": "readback_mismatch",
+      "mismatching_clocks": [
+        0
+      ],
+      "samples": [
+        {
+          "t_s": 0,
+          "min": 0.05877852522924733,
+          "max": 0.05877852522924733,
+          "file_input_m": 0.05000000000000002,
+          "absolute_error_m": 0.008778525229247311
+        },
+        {
+          "t_s": 1,
+          "min": 0.05877852522924733,
+          "max": 0.05877852522924733,
+          "file_input_m": 0.05877852522924733,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 7,
+          "min": 0.09510565162951536,
+          "max": 0.09510565162951536,
+          "file_input_m": 0.09510565162951537,
+          "absolute_error_m": 1.3877787807814457e-17
+        },
+        {
+          "t_s": 17,
+          "min": 0.07431448254773944,
+          "max": 0.07431448254773944,
+          "file_input_m": 0.07431448254773941,
+          "absolute_error_m": 2.7755575615628914e-17
+        },
+        {
+          "t_s": 31,
+          "min": -0.05877852522924731,
+          "max": -0.0587785252292473,
+          "file_input_m": -0.05877852522924731,
+          "absolute_error_m": 6.938893903907228e-18
+        },
+        {
+          "t_s": 40,
+          "min": -0.1,
+          "max": -0.1,
+          "file_input_m": -0.1,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 61,
+          "min": 0.05877852522924723,
+          "max": 0.05877852522924723,
+          "file_input_m": 0.05877852522924729,
+          "absolute_error_m": 6.245004513516506e-17
+        },
+        {
+          "t_s": 97,
+          "min": -0.09510565162951529,
+          "max": -0.09510565162951529,
+          "file_input_m": -0.09510565162951529,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 120,
+          "min": 0.04999999999999976,
+          "max": 0.04999999999999976,
+          "file_input_m": 0.04999999999999976,
+          "absolute_error_m": 0.0
+        }
+      ],
+      "retained_member_exits": 2
+    },
+    "constant_reference": {
+      "state": "completed_readback",
+      "mismatching_clocks": [],
+      "samples": [
+        {
+          "t_s": 0,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 1,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 7,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 17,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 31,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 40,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 61,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 97,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        },
+        {
+          "t_s": 120,
+          "min": 0.15,
+          "max": 0.15,
+          "file_input_m": 0.15,
+          "absolute_error_m": 0.0
+        }
+      ],
+      "retained_member_exits": 2
+    }
+  },
+  "original_job_confirmed_exits": 6,
+  "recorded_arms": 3,
+  "public_preview_wheel_sha256": "488bb4a3033a16a5e46b2cad502e057f5504980441a9b446112e2da01766e098",
+  "evidence": {
+    "research/experiments/B12-ENGINE-G-raw-209-01/verification.json": "761b8ed5503af16ff3dc983214f0ffd4eefd8acb4f5a8ec5101105bc92909a23",
+    "research/experiments/B12-ENGINE-G-native-209-01/verification.json": "8e1226dc99fcdd880d4a46bf8c6b26d6d17ed2fa8ceabab6b828037727bfd79d",
+    "research/experiments/B12-ENGINE-G-preview-preflight-01/verification.json": "f631cb25077550eb4b777a7ddde96596e86d88b3b6eb7854506e9e61562a21d1",
+    "research/experiments/B12-ENGINE-V-preflight-01/predeclared-01/predeclared.json": "f3d28adee1ebdecf49632737bbcd8dc015dadefd159b948ef3c314e64a70491b",
+    "research/experiments/B12-ENGINE-I-20261105-a0611daf/freeze.json": "de71e9453fc1086d179e03d1f63e39bce01d3f24fe77ec60511408fa5eb8a872",
+    "research/experiments/B12-ENGINE-I-20261105-a0611daf/native-command.json": "c8d5c8f192bd79c809045327e5cf70be2a41b30c87f2195d4580e0e3ed75afcf",
+    "research/experiments/B12-ENGINE-I-20261105-a0611daf/prepared-04/preparation.json": "8681d31416fff854da1fa8682408e73461c9914a93c97f960a0518f68e835db8",
+    "research/experiments/B12-ENGINE-I-20261105-a0611daf/public-preview-receipt-02.json": "e9cb9fbb9ea1252357a8a529eb64b3e2fca16c50b147af722eebeb422466cc2f",
+    "research/experiments/B12-ENGINE-G-native-209-01/linear/worker-result.json": "bd91107dd1f705ae101f00144e1269536991f2cf0ae6852022ea61122df8ec5e",
+    "research/experiments/B12-ENGINE-G-native-209-01/linear/samples.jsonl": "bd56b857c288ace98e717c29e8b813660fee6e77aa09da3e958a684f8e5c1c42",
+    "research/experiments/B12-ENGINE-G-native-209-01/linear/manifest.json": "63a52a1851094b4793522f890da08f1c53a7aa02d8a1ff934e5a4330f31b72c3",
+    "research/experiments/B12-ENGINE-G-native-209-01/harmonic/worker-result.json": "44f7123c3961bc364c6bb71cfc06271d6fde1e8f8a4343f4a8adfd79590c0c48",
+    "research/experiments/B12-ENGINE-G-native-209-01/harmonic/samples.jsonl": "482fb3f756d2b8a4cf52edb38da166ca800e4c1262800412dd05fdc1de0d0765",
+    "research/experiments/B12-ENGINE-G-native-209-01/harmonic/manifest.json": "8410bd386cba894ad69225ca1ccfbe0bf2fbd85e6ba9c1097ddc9cd0d2ceb26d",
+    "research/experiments/B12-ENGINE-G-native-209-01/constant_reference/worker-result.json": "2344ba3b03a0ca8aa09c1de2b994b4b521978cfbfa58d92c39f7ef38f3d2f166",
+    "research/experiments/B12-ENGINE-G-native-209-01/constant_reference/samples.jsonl": "f44f5b8e852fbe87d26d1cbfe3eab96834c03b0bbf1d64c3e4b7bf2b4c5dc54a",
+    "research/experiments/B12-ENGINE-G-native-209-01/constant_reference/manifest.json": "d11cb1f545e30ed936caec36a02122fd4de58c5656937235dcd47c9b61cc0de2",
+    "research/experiments/B12-ENGINE-V-post209-01/review-02/verification.json": "dc19d2b6ce6ee6f4d89932381df5a15c21d975625240717bbaa33a46f3ebf805",
+    "research/experiments/B12-ENGINE-V-preflight-01/final04-readiness-03/readiness.json": "f3befd3b9feb3320fa839d17cb47e392e777d188e01aa7c756da4f7f57a04739"
+  },
+  "latent_cause": "not established by this replay",
+  "GUI_equivalence": "not evaluated",
+  "independent_verification": {
+    "passed_entries": 200,
+    "total_entries": 216,
+    "failed_entries_at_initialization": 16,
+    "whole_arms_passed": [
+      "constant_reference"
+    ],
+    "raw_events_vs_manifests": true,
+    "lifecycle_all_arms_passed": true
+  }
+}

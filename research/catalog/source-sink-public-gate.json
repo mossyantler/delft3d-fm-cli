@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-05",
+  "state": "accepted_bounded_source_input_commands",
+  "commands": [
+    "source inspect",
+    "source add",
+    "source set",
+    "source forcing-create"
+  ],
+  "wheel_sha256": "eedd753e1a5a8a6bdf7d798f7c551b1d467318ea162cc3cc3f84edfc73d8ea9d",
+  "product_files": 191,
+  "public_commands": 98,
+  "scientific_comparisons": 12,
+  "variables_per_case": 170,
+  "native_seconds": 120,
+  "native_cases": 6,
+  "original_jobs_closed": 6,
+  "original_member_exits": 12,
+  "independent_installed_checks": 158,
+  "independent_installed_calls": 312,
+  "unexercised_link_creation_conditions": 3,
+  "portable_new_tests": 30,
+  "full_regression": {
+    "tests": 1697,
+    "passed": 1661,
+    "skipped": 36,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 613.844,
+    "optional_geo_skipped": 33,
+    "symlink_privilege_skipped": 3
+  },
+  "reader_replay": "same JSON after sorting global-attribute difference entries by attribute name; no values excluded",
+  "cases": {
+    "point_noop5": {
+      "change_m3": 12.000030517578125,
+      "change_ppt_m3": 60.000431945110904,
+      "variable_count": 170
+    },
+    "point_set15": {
+      "change_m3": 12.000030517578125,
+      "change_ppt_m3": 180.0001784064516,
+      "variable_count": 170
+    },
+    "point_add15": {
+      "change_m3": 12.000030517578125,
+      "change_ppt_m3": 180.0001784064516,
+      "variable_count": 170
+    },
+    "pair_noop5": {
+      "change_m3": -3.0517578125e-05,
+      "change_ppt_m3": 59.999735125515144,
+      "variable_count": 170
+    },
+    "pair_set15": {
+      "change_m3": -3.0517578125e-05,
+      "change_ppt_m3": 179.99981571995886,
+      "variable_count": 170
+    },
+    "pair_add15": {
+      "change_m3": -3.0517578125e-05,
+      "change_ppt_m3": 179.99981571995886,
+      "variable_count": 170
+    }
+  },
+  "evidence": [
+    {
+      "path": "research/experiments/B06-I-PUBLIC-20261105-02/package-01/wheel/delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+      "sha256": "eedd753e1a5a8a6bdf7d798f7c551b1d467318ea162cc3cc3f84edfc73d8ea9d"
+    },
+    {
+      "path": "research/experiments/B06-V-public-install-results-01/verification.json",
+      "sha256": "517231af9a1d664229dae5374396c90089a0aac64da107f4983c98a26d99fa18"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-rev02-01/verification.json",
+      "sha256": "8a8c33831bd65320eb1a5800b4439f05a194d271b5ea3862a3c97019cbc14ffb"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-inputs-01/input-manifest.json",
+      "sha256": "53915bd4f46dcebef02e6d39c69eeecbbb16c942077a30f922914b256af74fe7"
+    },
+    {
+      "path": "research/experiments/B06-V-public-install-science-01/freeze.json",
+      "sha256": "c5384ee812d9d229156e42b62f5cabe4dea35289fc134ad762948ddfd5ce8ac1"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-RUNNER-V-20261105-02/final-review-01.json",
+      "sha256": "bf6d838933d433429a278c20f6704c3ef30396c91f32183fbfd7dee10bfdc881"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-runner-review-01/final-revision-verification.json",
+      "sha256": "5aa42f2be64af117f93bac55d9c2f3f8be1b4b0f25215f88ca98061783d4111a"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-RUNNER-I-native-225-01/runs.json",
+      "sha256": "e9445f77d03f0ee8136bcbd905d296538b6ff6e26050ecdfced1b57fb34edad6"
+    },
+    {
+      "path": "research/experiments/B06-V-public-install-native225-01/verification.json",
+      "sha256": "c662dcae49e0be912dc03f1de6b801e7a3485ceb3efd7b469c81a352e5d00648"
+    },
+    {
+      "path": "research/experiments/B06-V-public-install-native225-G01/verification.json",
+      "sha256": "06ef98cf23996bc81fe40c62cb8fa452674a85b038b8dd08e5deb6eccf8532ad"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-native-readback-01/results225-01/verification.json",
+      "sha256": "5a1d585a3d75585a3bd3c02c8c3206ba2b29d76fbbc3bac3e2cb5297a85c420c"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-merge-01/verification.json",
+      "sha256": "15a5c5edd9d4bb1f99a5f7f5911d29be9530fbd1c27e4dcfa238ef77f7534681"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-repo-examples-01/verification.json",
+      "sha256": "385832f54f31b57e88d20d9d3fba491e2e56e35878f3e3c6540632aea7a04fb5"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-merge-01/regression.json",
+      "sha256": "a1e9773f8c3d5015b79c659b17d3e685e4df4a6c5acc1f40efc24513c62957aa"
+    },
+    {
+      "path": "research/experiments/B06-PUBLIC-G-merge-01/acceptance.json",
+      "sha256": "b218d470c5b9ff154093d3dbd6c95bed1d051348e12aff9bed3a4c70437b9d05"
+    }
+  ],
+  "limits": [
+    "Input file commands only; research-owned direct-FM native execution",
+    "One/two inlineXY,2DUTC,zeroarea,linearQ/salinityDelta",
+    "No public run profile,PLI writer,GUI parity,other constituents or scientific calibration claim"
+  ],
+  "repository_example_public_calls": 10,
+  "repository_example_native_inputs_equal": true
+}

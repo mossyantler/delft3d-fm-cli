@@ -1,0 +1,25 @@
+{
+  "accepted": "portable three-case input preparation only",
+  "legacy_runner": {
+    "path": "research/workflows/replay/vertical_boundary_cases.py",
+    "sha256": "d3495337b729cac0ca66e19b91aaf8e710c8b2d384d39c0e9cce8f4999669a6d"
+  },
+  "portable_runtime": {
+    "research/workflows/replay/vertical_boundary_fixture.py": "1845a3a9b9779694f5bcf5ef100be06192ba987c085b4bef127d47fab94a4e9b",
+    "examples/layers/vertical-cell.expected.json": "44adda3998f423735828d5ee53e6e984cf943a1a61c0e8e19b116c353ed197a2",
+    "examples/layers/vertical-cell.json": "3b422b18903a0a5df21a47b97dc8a68fbbe844ecdae4e96177810bbd35563c46"
+  },
+  "independent_rejected_cases": 25,
+  "independent_foreign_launches": 0,
+  "verified_numeric_runs_in_this_gate": 0,
+  "manual_public_9_native_files_byte_equal": true,
+  "baseline_difference": "boundaries.bc[636:638], 20 -> 22 ppt",
+  "prior_numerical_evidence": "research/catalog/vertical-boundary-gate.json",
+  "receipts": {
+    "research/experiments/B13-PORTABILITY-I-20261105-v3-01/freeze.json": "76e0fdaded5d69ff14961aa3613566dbd921ca898079e3e97093bfb57b587f1f",
+    "research/experiments/B13-PORTABILITY-I-20261105-v3-01/clean-proof-02/clean-checkout-proof.json": "58791d277bb02b9219b35c0a099ae9040ac826e67d1e972fe6ab97676eef7181",
+    "research/experiments/B13-PORTABILITY-V-v3-renamed-20261105-114540-907e389a/independent-input-proof.json": "28f1d97ab06a7b0f1ab9c762d0c02c8e9cae91f7be7124f9d2cce0147d14dc15",
+    "research/experiments/B13-PORTABILITY-V-v3-preflight-20261105-120120-50d2fd9b/verification.json": "306b8f0dac011c46a8e1742819eb2c9b7aa43ef6cdfb6cc200dfa0a376cce58a",
+    "research/experiments/B13-PORTABILITY-G-renamed-01/preparation.json": "f9d326b2c1f834e12e0217e94bff20bd574d5bf5b659ea22244827d239fda864"
+  }
+}

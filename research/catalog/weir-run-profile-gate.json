@@ -1,0 +1,127 @@
+{
+  "command": "dfm run start MODEL.mdu --out FRESH --route direct --profile weir-series --timeout 120",
+  "suite": "2026.02 OpenHMWQ",
+  "FM": "1.2.184.Unknown",
+  "engine_source_revision": null,
+  "native_tested_wheel_sha256": "f914a8700dc9b9726d0d4d81316f2f565aa304abac392052aa12add1b487cdab",
+  "runtime_code_review": "187 product files identical to native-tested wheel before post-acceptance workflow_evidence.py metadata update",
+  "schema_version": 3,
+  "protocol_version": 2,
+  "cases": {
+    "baseline_low": {
+      "manifest": {
+        "path": "research/experiments/G16-RUN-PROFILE-G-native-217-01/runs/baseline_low/manifest.json",
+        "sha256": "5f1a7dd5ce83d78cf99fe348c3dbf8c0e2d9b839b9e3a73578a7ad669c20b8a2"
+      },
+      "variables": {
+        "history": 86,
+        "map": 35,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "confirmed_owned_processes": 2,
+      "source_files": 11,
+      "native_status": "completed"
+    },
+    "public_noop_low": {
+      "manifest": {
+        "path": "research/experiments/G16-RUN-PROFILE-G-native-217-01/runs/public_noop_low/manifest.json",
+        "sha256": "649c648c6451ac9d999a3be11c1b76f21b8c085e5356c0be76220e7e182d4ddd"
+      },
+      "variables": {
+        "history": 86,
+        "map": 35,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "confirmed_owned_processes": 2,
+      "source_files": 11,
+      "native_status": "completed"
+    },
+    "manual_rise": {
+      "manifest": {
+        "path": "research/experiments/G16-RUN-PROFILE-G-native-217-01/runs/manual_rise/manifest.json",
+        "sha256": "4d586359f1913e01168ce5fcd4761ffe88952ed03ae314ae93cb6288bff1fb43"
+      },
+      "variables": {
+        "history": 86,
+        "map": 35,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "confirmed_owned_processes": 2,
+      "source_files": 11,
+      "native_status": "completed"
+    },
+    "public_rise": {
+      "manifest": {
+        "path": "research/experiments/G16-RUN-PROFILE-G-native-217-01/runs/public_rise/manifest.json",
+        "sha256": "a84f9fe8f3cdb073fb9f52793bc5a62ce5d3f516e0b98d59426526f5414faaef"
+      },
+      "variables": {
+        "history": 86,
+        "map": 35,
+        "restart_0": 34,
+        "restart_120": 34
+      },
+      "confirmed_owned_processes": 2,
+      "source_files": 11,
+      "native_status": "completed"
+    }
+  },
+  "accepted_scope": "One cold 48-cell planar 2D channel, one standalone crest TIM, two water-level boundaries. Full 0..120 s axes; 0 and 120 s restarts. Four public runs equal corresponding #211 raw output.",
+  "causal_average_downstream_stage_hypothesis": "failed in #211 and not superseded",
+  "GUI_CSV_equivalence": "unverified",
+  "DIMR": "refused before creating a run",
+  "pump_regression": {
+    "cases": 5,
+    "variables_per_case": 173,
+    "reference": "#187",
+    "evidence": {
+      "path": "research/experiments/G16-PUMP-REGRESSION-G-native-219-01/verification.json",
+      "sha256": "7b5a8a2e77c0edf5cb6ef649c885280929d7d572569137d892e85ec8a852fa79"
+    }
+  },
+  "receipts": [
+    {
+      "path": "research/experiments/G16-RUN-PROFILE-G-native-217-01/preflight.json",
+      "sha256": "a964d6db5a50b2fc8d11d1c68a4ee67e68adf9ea2c9ddf5fa818148b08591296"
+    },
+    {
+      "path": "research/experiments/G16-RUN-PROFILE-G-native-217-01/runs.json",
+      "sha256": "d1345e4cc2e96caf0ae5387ea54b2bb2d41efaffaa8c3bda56e0e69444f0f485"
+    },
+    {
+      "path": "research/experiments/G16-RUN-PROFILE-V-coordinator-readback-217-01/verification.json",
+      "sha256": "f479333710f767240a95866b3341cbc7b1a715c2fb7284d89b8e19b4d82435df"
+    },
+    {
+      "path": "research/experiments/G16-RUN-PROFILE-V-public217-01/verification.json",
+      "sha256": "2b48bd961a3d9f44e5222c579b1971c3ef2e3a49e33dd091e9632313895d12dd"
+    },
+    {
+      "path": "research/experiments/G16-RUN-PROFILE-V-20261105-01/public-predeclared-01/predeclared.json",
+      "sha256": "b4d71684c6eec82f6aa7569f92933ee7c6acf8e5ecc786182ab162885702ad0c"
+    }
+  ],
+  "final_wheel_sha256": "ec7f24255f002dfcf5a575bfbd4988e34b6f80ac28be0c6ab1ddc09b2d926b97",
+  "final_wheel_schema": "94 commands, verified_case weir-series",
+  "product_files_checked": 187,
+  "metadata_only_delta": [
+    "dfm_cli/workflow_evidence.py",
+    "*.dist-info/RECORD"
+  ],
+  "final_package_evidence": {
+    "path": "research/experiments/G16-RUN-PROFILE-RELEASE-V-20261105-01/verification.json",
+    "sha256": "a5e84256e50b27aef33f8057bb0aab1be6e9813d8e6d45a2d4af42fa9c87c610"
+  },
+  "portable_suite": {
+    "discovered": 1667,
+    "passed": 1631,
+    "skipped": 36,
+    "errors": 0,
+    "failures": 0,
+    "path": "research/experiments/G16-RUN-PROFILE-G-acceptance-01/root-tests.log",
+    "sha256": "f6d549ac138096746231eb57d282fd4c5786e3ebafe202f7a1c723b8d09c4db2"
+  }
+}

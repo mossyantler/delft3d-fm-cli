@@ -1,0 +1,182 @@
+{
+  "scope": "Windows 2026.02 OpenHMWQ. Native source revision unknown; product editor checks and GUI host parity are separate.",
+  "wheel_sha256": "7da2cc9ff5532b9b325ddfe519368669a653ea8d02b5935aebf7e97ba2e0ca1d",
+  "native_B11_wheel_sha256": "0e181d02b365c7370074d778266f78c9ea3c101ea533e60138279c1505c65bc2",
+  "changed_package_files_between_wheels": [
+    "dfm_cli/results_stations.py",
+    "dfm_cli/results_stations_contract.py",
+    "dfm_cli/results_stations_data.py",
+    "dfm_cli/results_stations_gis.py",
+    "dfm_cli/results_stations_io.py"
+  ],
+  "B11": {
+    "raw_native_cases": 8,
+    "zero_tolerance_dataset_pairs": [
+      [
+        "default",
+        "east_implicit_defaults"
+      ],
+      [
+        "east_factor2",
+        "east_factor2_manual"
+      ],
+      [
+        "east_offset0125",
+        "east_offset0125_manual"
+      ],
+      [
+        "default",
+        "east_factor2_late_header"
+      ],
+      [
+        "default",
+        "east_offset0125_late_header"
+      ]
+    ],
+    "installed_edits": {
+      "explicit-factor": {
+        "history": 57,
+        "map": 34,
+        "restart_initial": 34,
+        "restart_final": 34
+      },
+      "explicit-offset": {
+        "history": 57,
+        "map": 34,
+        "restart_initial": 34,
+        "restart_final": 34
+      },
+      "implicit-offset": {
+        "history": 57,
+        "map": 34,
+        "restart_initial": 34,
+        "restart_final": 34
+      }
+    },
+    "scope": "linear 2D waterlevelbnd; not harmonic or GUI serialization"
+  },
+  "G11": {
+    "installed_replayed_cases": 29,
+    "extras": {
+      "netCDF4": true,
+      "numpy": true,
+      "pyproj": false
+    },
+    "scope": "post-run actual assignment; no GUI prediction or attribution of mask cause"
+  },
+  "CRS_IO": {
+    "metric": "Python allocations measured by tracemalloc during 128-row import preview; not RSS or engine time",
+    "measured": [
+      {
+        "faces": 48,
+        "incoming_positions": 128,
+        "before_peak_bytes": 269046975,
+        "after_peak_bytes": 1969481,
+        "counters": {
+          "mesh_Dataset_opens": 2,
+          "all_Dataset_opens": 2,
+          "quality_calls": 1,
+          "Python_mesh_open_calls": 3
+        },
+        "answers_match": true
+      },
+      {
+        "faces": 4096,
+        "incoming_positions": 128,
+        "before_peak_bytes": 271465690,
+        "after_peak_bytes": 11926278,
+        "counters": {
+          "mesh_Dataset_opens": 2,
+          "all_Dataset_opens": 2,
+          "quality_calls": 1,
+          "Python_mesh_open_calls": 3
+        },
+        "answers_match": true
+      }
+    ]
+  },
+  "regression": {
+    "related_portable_tests": 86,
+    "f34_final_seconds": 600,
+    "variables_compared": 191,
+    "failure_cancel_groups": 17,
+    "full_suite": {
+      "discovered": 1487,
+      "passed": 1484,
+      "skipped": 3,
+      "reason": "Windows symlink creation unavailable",
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "receipts": {
+    "freeze": {
+      "path": "research/experiments/B11-COEFF-G-frozen-01/predeclared.json",
+      "sha256": "7696ed417fa218e4672234eb8eb2c358e8ee72d25c22c7da3a408196f59e91cb"
+    },
+    "raw": {
+      "path": "research/experiments/B11-COEFF-G-raw-167-02/verification.json",
+      "sha256": "5bfc211ba709d793967588537e726304fad47769933f932c29e2f133944a1e11"
+    },
+    "original_oracle_failure": {
+      "path": "research/experiments/B11-COEFF-G-raw-167-01/verification.json",
+      "sha256": "fcff502eb8482e7a00a819369270c36f07688f5fee261df45c3a2d562e2321f3"
+    },
+    "challenge": {
+      "path": "research/experiments/B11-COEFF-G-challenge-01/verification.json",
+      "sha256": "b00e77a44e30f3608b6872d106d607ad18e827df8f9857bd7dcdd0e4359f6d3c"
+    },
+    "editor_tests": {
+      "path": "research/experiments/B11-COEFF-PUBLIC-V-permanent-20261105-030029-a53468da/verification.json",
+      "sha256": "c33fe88a98b85e3c82c355bddb936376ad6298e9c1dd5b9c5996e1f41277888b"
+    },
+    "installed_B11_native": {
+      "path": "research/experiments/B11-PUBLIC-G-native-169-01/verification.json",
+      "sha256": "89c477fc2f2fc3ef7d11553d670cb7526ccd3e2b9e978cf831ee36bb13d845b5"
+    },
+    "installed_B11_final_base": {
+      "path": "research/experiments/B11-PUBLIC-G-final-base-01/verification.json",
+      "sha256": "714aaafbf471134366677f1e5a3c2ffbaa18deb957ae1623628a3030c666d2b2"
+    },
+    "station_primary": {
+      "path": "research/experiments/G11-DRY-V-raw-review-20261105-023908-a669b026/review/verification.json",
+      "sha256": "cf7760ac0ac7416bb63947e609c2017412fb7e546742c1251dda8e3a98cd13af"
+    },
+    "station_independent": {
+      "path": "research/experiments/G11-ASSIGN-V-stage-01/public-02/verification.json",
+      "sha256": "74e49a4908df0af321bac496c73359f837d0f018991eb821ec1abbe563c85f07"
+    },
+    "station_installed": {
+      "path": "research/experiments/G11-ASSIGN-G-installed-02/verification.json",
+      "sha256": "8e083961ab56ce0e602a233d6ead7273957114410362271bb0b26907c363e0a2"
+    },
+    "crs_independent": {
+      "path": "research/experiments/CRS-IO-V-before-after-03/verification.json",
+      "sha256": "104e88d76af7c4e50093cec1f864dc85c3ee7b9e1d4bf9fa8b6682952a742484"
+    },
+    "crs_coordinator": {
+      "path": "research/experiments/CRS-IO-G-batch-01/verification.json",
+      "sha256": "1e29e4623cf0e606c665dd932b35d0f69408b886229606149ec81423fdf0f52f"
+    },
+    "wheel": {
+      "path": "research/experiments/PKG-G-coeff-stations-02/verification.json",
+      "sha256": "43f73c4579658614f5ba3fe11784802f717d81246e77a31824443748edde3257"
+    },
+    "f34": {
+      "path": "research/experiments/COEFF-ASSIGN-G-171-serial/verification.json",
+      "sha256": "d19330f25aaf072e7a398967ba8cc54cf7624893c17fd10ae6cd0efe029143e7"
+    },
+    "errors": {
+      "path": "research/experiments/COEFF-ASSIGN-G-171-errors/verification.json",
+      "sha256": "366b6c30a2180a4ca4411c9d8c6f3bdf8dd8559040a3fda16fca3d41f8344dac"
+    },
+    "permanent_tests": {
+      "path": "research/experiments/COEFF-ASSIGN-G-permanent-01/stderr.txt",
+      "sha256": "bbf461a5e6d1215a89a0ae9adb9feb1ab79f00ff37c08b52db89c1eb00579c02"
+    },
+    "full_suite": {
+      "path": "research/experiments/COEFF-ASSIGN-G-all-173-01/stderr.txt",
+      "sha256": "4bbbd29938a3e2b58cc91e6cd71e3317f533607ba40a0332c43110fbb581dc85"
+    }
+  }
+}

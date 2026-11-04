@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "node": "SHORT-CLOSE",
+  "state": "private_correction_pending",
+  "root_merged": false,
+  "native_validated": false,
+  "native_slot": {
+    "owner": "idle",
+    "sequence": 226
+  },
+  "implementation": "Archimedes / gpt-6.1-sol high",
+  "verification": "Plato / gpt-6.1-sol high",
+  "integration": "coordinator",
+  "evidence": {
+    "coordinator_close_failures": {
+      "path": "research/experiments/SHORT-CLOSE-G-reproducer-01/evidence/verification.json",
+      "sha256": "24ad3b123737f4d193598bfa82e4fc613ee22308486f6b380ec10edbf7079a5e"
+    },
+    "coordinator_notifications": {
+      "path": "research/experiments/SHORT-CLOSE-G-notifications-01/verification.json",
+      "sha256": "8c9090a4e89513e0658e47dda88e16c17ddccc60fd7275ac3c4cb55c1488c2f1"
+    },
+    "independent_rejection": {
+      "path": "research/experiments/S07-RUN-CLOSE-V-20261105-01/final-review-01.json",
+      "sha256": "bc9ee0f1b9222956eb883a59789d6a8186b8d8691ad866cab87d8f2e8f6b09a7"
+    },
+    "implementation_design": {
+      "path": "research/experiments/SHORT-CLOSE-I-20261105-design01/DESIGN.md",
+      "sha256": "bc252c034f759d01413ad672505edc42b5762e19aebc0cfc00d7ced9fa834af9"
+    }
+  },
+  "confirmed_defects": [
+    "short publishes completed before original Job close",
+    "returned CloseHandle failure discarded; raised close error leaves completed record",
+    "shared natural_exit ignores unmatched and duplicate raw process notifications"
+  ],
+  "required_gates": [
+    "one shared strict raw-notification/event/membership predicate with multiplicity and exact identities",
+    "short complete barrier after original retained exits and original Job/collector close",
+    "preserved raw close failure and original stop reason; no post-terminal retermination or double close",
+    "independent malformed/exception/storage fault tests and original positive pump/weir/source receipts",
+    "actual final installed package; default and family contracts preserved",
+    "new f34 direct and DIMR 600s/191variable evidence plus E009/E011 isolated controls"
+  ],
+  "dependent_nodes": [
+    "S07 native public-short run",
+    "B14 public-short route if selected",
+    "B06 shared source-sink run integration"
+  ],
+  "scope_limit": "Fault injection and read-only raw-receipt mutation evidence only so far; no native failure or correction success is inferred."
+}

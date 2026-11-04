@@ -1,0 +1,156 @@
+{
+  "experiment": "G13-PUMP",
+  "scope": "One synthetic closed 48-face Cartesian 2D basin, four links, non-staged constant-capacity pump; no GUI or console actions",
+  "state": "observed_line_reversal_does_not_reverse_fixed_geographic_transfer",
+  "native_fm": "1.2.184.Unknown",
+  "engine_exe_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+  "source_reference": "5a4649830b1e5072caf019fb4850bbdefd9ad431 (installed binary source unknown)",
+  "before_launch_expected_east_m3_s": {
+    "baseline": 1,
+    "reversed_polyline": -1,
+    "zero_capacity": 0
+  },
+  "cases": {
+    "baseline": {
+      "last_seconds": 120,
+      "records": 121,
+      "reported_capacity_m3_s": 1,
+      "pump_relative_m3_s": 4,
+      "fixed_east_link_flux_final_m3_s": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "fixed_east_total_after_initial_min_max_m3_s": [
+        4,
+        4
+      ],
+      "cumulative_east_m3": 480,
+      "west_east_storage_change_m3": [
+        -480.0001220703125,
+        480
+      ],
+      "west_east_mean_stage_m": [
+        -0.1999999980131785,
+        0.1999999980131785
+      ],
+      "max_side_balance_residual_m3": 0.000244140625,
+      "restart_seconds": [
+        0,
+        120
+      ],
+      "input_unchanged": true,
+      "owned_job_all_members_exited_and_closed": true,
+      "raw_netcdf_sha256": {
+        "model_20010101_000000_rst.nc": "134ad85d403bd0aa91c9a8ccce9843164e4a1822bb386b7ee2c345e1b56bc03b",
+        "model_20010101_000200_rst.nc": "c19b10e147994115f06a6eaf846d9c36ab97006611e36949d637f818f4bd759f",
+        "model_his.nc": "8626749003a16b1c77c14dcf15c90125b2a81a3f8d19366a548c1dfee25836f8",
+        "model_map.nc": "5599c184de910cec331ae545eed797d9a434c65b3c3cb0f0e905301c6107d711"
+      }
+    },
+    "reversed_polyline": {
+      "last_seconds": 120,
+      "records": 121,
+      "reported_capacity_m3_s": 1,
+      "pump_relative_m3_s": -4,
+      "fixed_east_link_flux_final_m3_s": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "fixed_east_total_after_initial_min_max_m3_s": [
+        4,
+        4
+      ],
+      "cumulative_east_m3": 480,
+      "west_east_storage_change_m3": [
+        -480.0001220703125,
+        480
+      ],
+      "west_east_mean_stage_m": [
+        -0.1999999980131785,
+        0.1999999980131785
+      ],
+      "max_side_balance_residual_m3": 0.000244140625,
+      "restart_seconds": [
+        0,
+        120
+      ],
+      "input_unchanged": true,
+      "owned_job_all_members_exited_and_closed": true,
+      "raw_netcdf_sha256": {
+        "model_20010101_000000_rst.nc": "d09890c6eab463ee84b14dd09b9254fe16a4b75e7228aa94766c2f9f157251d2",
+        "model_20010101_000200_rst.nc": "afbb132de0e8940f5901b7d90525957cc216354712f94bc2e8d1fb6a58a814c6",
+        "model_his.nc": "72d4ce98a464af61e4c04106953c0963b18455d3517cdd3295426b7a946422f3",
+        "model_map.nc": "4dbbfae1296cfdbf40f0d1bf13fb8bce3e2b5a672c77a2d198177fc9afac738b"
+      }
+    },
+    "zero_capacity": {
+      "last_seconds": 120,
+      "records": 121,
+      "reported_capacity_m3_s": 0,
+      "pump_relative_m3_s": 0,
+      "fixed_east_link_flux_final_m3_s": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fixed_east_total_after_initial_min_max_m3_s": [
+        0,
+        0
+      ],
+      "cumulative_east_m3": 0,
+      "west_east_storage_change_m3": [
+        0,
+        0
+      ],
+      "west_east_mean_stage_m": [
+        0,
+        0
+      ],
+      "max_side_balance_residual_m3": 0,
+      "restart_seconds": [
+        0,
+        120
+      ],
+      "input_unchanged": true,
+      "owned_job_all_members_exited_and_closed": true,
+      "raw_netcdf_sha256": {
+        "model_20010101_000000_rst.nc": "63e1162862775bdad413e14b85b32a363672e3a3571ef952698f938b14fc7cf2",
+        "model_20010101_000200_rst.nc": "924c96471ed28a7bc99cb8f68d259fbf566a603e4a55e440e10c64fa906585b4",
+        "model_his.nc": "a8a6ee8bed336c76bc0731be2ddb1526d2286bd40c3ecf6010839f09b9ca4342",
+        "model_map.nc": "0cb04dfd345978c60631b0d5eb362b65e1459734167078ce758b0d21a8c93f21"
+      }
+    }
+  },
+  "baseline_vs_reversed_exact_arrays": {
+    "four_signed_link_series": true,
+    "all_face_volume": true,
+    "all_face_stage": true,
+    "fixed_section": true,
+    "fixed_cumulative": true,
+    "all_gauge_stage": true
+  },
+  "asserted_scope": {
+    "native_lifecycle": "three natural zero exits, retained member handles accounted, original Jobs closed",
+    "geographic_direction_hypothesis": "rejected for a locationFile-only reversal",
+    "nominal_total_capacity_hypothesis": "rejected for this four-link configuration",
+    "zero_capacity_control": "passed",
+    "gui_reverse_mutation": "unmeasured",
+    "public_hydraulic_reversal": "not_approved",
+    "general_per_link_scaling": "not_established"
+  },
+  "inputs": "research/experiments/G13-PUMP-I-20261105-031310-1da415d6/prepared-final/preparation.json",
+  "predeclared": "research/experiments/G13-PUMP-V-frozen-01/predeclared.json",
+  "predeclared_sha256": "77777f5f91bea32a05fd689a2bf5aa1b23c33c87e77c4e158cc7da160567acc3",
+  "runs": "research/experiments/G13-RUNNER-I-G-native-175-01/runs.json",
+  "runner_verification_sha256": "6e005d24c0a32e4dbc0b41c3858291ce691f823fc8be463d684bc7615b9f001f",
+  "frozen_verdict": "research/experiments/G13-PUMP-V-G-native-175-01/verification.json",
+  "frozen_verdict_sha256": "fb113dc1e7477821200df58ca5ffe2db6b4ad47d8fe5ffe7973a6f4d6ab20e37",
+  "coordinator_readback": "research/experiments/G13-PUMP-G-raw-175-01/readback.json",
+  "independent_all_variable_comparison": "research/experiments/G13-PUMP-V-results-175-01/verification.json",
+  "independent_all_variable_comparison_sha256": "aab47124ba7184f3e75ba9b713643adb9abef19b402d39e539ee3be114ba4ada"
+}

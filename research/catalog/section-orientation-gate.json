@@ -1,0 +1,33 @@
+{
+  "case": "f34/Entrance; eight vertices reversed, direct FM 600s, 11 timestamps, not a GUI test",
+  "measurements": {
+    "cross_section_discharge": {
+      "final_baseline": 45.72335433959961,
+      "final_reversed": -45.72335433959961,
+      "exact_samples": 11,
+      "max_abs_departure": 0.0
+    },
+    "cross_section_cumulative_discharge": {
+      "final_baseline": 13380.92578125,
+      "final_reversed": -13380.92578125,
+      "exact_samples": 11,
+      "max_abs_departure": 0.0
+    },
+    "cross_section_velocity": {
+      "final_baseline": 0.0012322075199335814,
+      "final_reversed": -0.0012322075199335814,
+      "exact_samples": 11,
+      "max_abs_departure": 0.0
+    },
+    "cross_section_area": {
+      "final_baseline": 37106.859375,
+      "final_reversed": 37106.859375,
+      "exact_samples": 11,
+      "max_abs_departure": 0.0
+    }
+  },
+  "state": "passed_independent_raw_orientation_oracle",
+  "raw_receipt": "research/experiments/G12-ORI-G-159-01/verification.json",
+  "raw_receipt_sha256": "cde231e68b32589067319958dc99aeae4f2830f870c231353241f85a728c72aa",
+  "no_general_section_editor_verified": true
+}

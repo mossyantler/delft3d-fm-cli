@@ -14,7 +14,7 @@ earlier baseline; current limitations are recorded in those follow-up reports.
 Installed suite:
 
 ```text
-<Delft3D suite installation root>
+C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ
 ```
 
 Two existing `DeltaShell.Gui.exe` processes were found. The visible window was an

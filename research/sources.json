@@ -84,7 +84,7 @@
     {
       "id": "local-official-manuals",
       "local": "manuals/manifest.json",
-      "original_local_directory": "<local FM manual folder; not included>",
+      "original_local_directory": "C:/Users/minyeop/project/Deltares/manuals_FM",
       "role": "FM user/numerics, Delta Shell user/technical, DIMR user/technical, RGFGRID, Morphology, Waves and RTC manuals",
       "note": "Local copies, no assertion of a verified original download URL. Exact PDF hashes and original paths are recorded."
     },

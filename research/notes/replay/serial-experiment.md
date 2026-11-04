@@ -189,7 +189,7 @@ the pinned requirements, including netCDF4, numpy and cftime for verification:
 ```powershell
 research/.venv/Scripts/python.exe -m pip install -r research/requirements.txt
 
-python research/scripts/run_serial_experiment.py --baseline research/experiments/E001-E002-replay-20261103/console-export-1 --install '<Delft3D suite installation root>' --proj-data '<Delft3D suite installation root>\bin\gdal\share' --out research/experiments/E004-E008-new-replay
+python research/scripts/run_serial_experiment.py --baseline research/experiments/E001-E002-replay-20261103/console-export-1 --install 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ' --proj-data 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ\bin\gdal\share' --out research/experiments/E004-E008-new-replay
 
 research/.venv/Scripts/python.exe research/scripts/verify_serial_experiment.py research/experiments/E004-E008-new-replay
 ```

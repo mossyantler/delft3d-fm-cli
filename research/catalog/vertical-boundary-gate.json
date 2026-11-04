@@ -1,0 +1,220 @@
+{
+  "state": "accepted_installed_B13_existing_T3D_salinity_cell",
+  "cli_version": "0.4.0.dev1",
+  "protocol_version": 2,
+  "wheel_sha256": "2f33c17e94282cfe6c2278a87f7004a6e37cecde4a82650b276bad2405a1890c",
+  "package_files": 178,
+  "new_commands": [
+    "boundary vertical-inspect",
+    "boundary vertical-set"
+  ],
+  "inputs": 9,
+  "changed": {
+    "support": "west_0001",
+    "time_s": 20,
+    "position_fraction_from_bed": 0.4,
+    "vert_position_index": 2,
+    "unit": "ppt",
+    "before": 20,
+    "after": 22,
+    "changed_file": "boundaries.bc",
+    "line": 35,
+    "byte_offset_half_open": [
+      636,
+      638
+    ]
+  },
+  "native": {
+    "cases": [
+      "baseline",
+      "manual",
+      "public"
+    ],
+    "route": "direct",
+    "profile": "layers",
+    "clock_s": [
+      0,
+      10,
+      20
+    ],
+    "restart_s": [
+      0,
+      20
+    ],
+    "manual_public_exact_variables_by_dataset": {
+      "history": 66,
+      "map": 46,
+      "restart_0": 39,
+      "restart_20": 39
+    },
+    "station_response_at_20s": [
+      {
+        "station_id": "near_west",
+        "layer_index_bottom_up_one_based": 1,
+        "native_salinity_unit": "1e-3",
+        "manual_minus_baseline": 0.014692306518554688
+      },
+      {
+        "station_id": "near_west",
+        "layer_index_bottom_up_one_based": 2,
+        "native_salinity_unit": "1e-3",
+        "manual_minus_baseline": 0.13003921508789062
+      },
+      {
+        "station_id": "near_west",
+        "layer_index_bottom_up_one_based": 3,
+        "native_salinity_unit": "1e-3",
+        "manual_minus_baseline": 0.04077434539794922
+      },
+      {
+        "station_id": "centre",
+        "layer_index_bottom_up_one_based": 1,
+        "native_salinity_unit": "1e-3",
+        "manual_minus_baseline": 0.0
+      },
+      {
+        "station_id": "centre",
+        "layer_index_bottom_up_one_based": 2,
+        "native_salinity_unit": "1e-3",
+        "manual_minus_baseline": 3.814697265625e-06
+      },
+      {
+        "station_id": "centre",
+        "layer_index_bottom_up_one_based": 3,
+        "native_salinity_unit": "1e-3",
+        "manual_minus_baseline": 1.9073486328125e-06
+      }
+    ]
+  },
+  "ownership": {
+    "scope": "Original outer research Job; individual inner layers Job CloseHandle not independently reported",
+    "total_confirmed": 26,
+    "empty_closed": true
+  },
+  "evidence": [
+    {
+      "path": "research/experiments/B13-EDIT-I-20261105-rev02/freeze.json",
+      "sha256": "4ad302458dfed1de18e596ba51f74924157a857770cfe8b2d2fd32a5faac4523"
+    },
+    {
+      "path": "research/experiments/B13-EDIT-G-package-01/verification.json",
+      "sha256": "ade553ce6a346e6ff9537fb8c688daae5154270263abf5e390e3e7d9879b0bb8"
+    },
+    {
+      "path": "research/experiments/B13-EDIT-V-installed-20261105-083240-f615347a/verification.json",
+      "sha256": "c0c27e024ac690ccd8355d95131f8e40bc68578e047e78ab721094f0b2562a39"
+    },
+    {
+      "path": "research/experiments/B13-RUN-I-20261105-prepare-01/freeze.json",
+      "sha256": "76e143551c996905666304aa9cec46b02b6d86d77698c37bc2c54ff8f9c7586b"
+    },
+    {
+      "path": "research/experiments/B13-RUN-V-predeclared-20261105-02/predeclared.json",
+      "sha256": "482f3eab69aaf808df0cb41da8466d2e8ac990d59f706998b0887ae1b0baaa91"
+    },
+    {
+      "path": "research/experiments/B13-RUN-G-native-203-01/runs.json",
+      "sha256": "e33bb5827040585c8de502bf1f9efdd78c4cf949bb10a55b59c0c6516a43522f"
+    },
+    {
+      "path": "research/experiments/B13-RUN-G-supervision-203-01/supervision.json",
+      "sha256": "63472bffc26666ff50b7794c49fd3b27593e54b05f7946390cd134faeb2839ea"
+    },
+    {
+      "path": "research/experiments/B13-RUN-V-native203-20261105-01/verification.json",
+      "sha256": "911b6cd5e5b4c7607637dd8242a6d71277d0e6d0a237b0aaa80159b7893e522c"
+    },
+    {
+      "path": "research/experiments/B13-RUN-V-native203-20261105-01/raw-array-index.json",
+      "sha256": "c52ae8f47c310866137de479650cf694240b50a108fbfe1a0e4cff4bccd03891"
+    },
+    {
+      "path": "research/experiments/B13-RUN-V-native203-20261105-01/raw-arrays.npz",
+      "sha256": "4f528400ae11476245353dd0f7f7fd3197ac535315681d77cb58f5a41848f8d9"
+    },
+    {
+      "path": "research/experiments/B13-EDIT-G-example-01/verification.json",
+      "sha256": "ac33cf7582e2bd4de0a9f7ed8360640fefc88470653f8ad6215dd3db125c6bd4"
+    },
+    {
+      "path": "research/experiments/B13-EDIT-G-example-01/root-tests.log",
+      "sha256": "a39ffbe10cdf3792c83af862734c04cb2b3d8d255861ab587c50eab537ddbcf9"
+    }
+  ],
+  "portable": [
+    {
+      "path": "examples/layers/vertical-cell.json",
+      "sha256": "3b422b18903a0a5df21a47b97dc8a68fbbe844ecdae4e96177810bbd35563c46"
+    },
+    {
+      "path": "tests/test_boundary_vertical_public.py",
+      "sha256": "4d8fde08dccaf5d33563d9c26ed7f6b2b1d90263bbe6c5717b3b3eca8a20d4c1"
+    },
+    {
+      "path": "research/workflows/replay/vertical_boundary_cases.py",
+      "sha256": "d3495337b729cac0ca66e19b91aaf8e710c8b2d384d39c0e9cce8f4999669a6d"
+    },
+    {
+      "path": "research/workflows/verification/verify_vertical_boundary_cases.py",
+      "sha256": "4655bcaba30a7db7b74ffb2d57de08ddc2681e29efba9042e6993a7c53f9b75f"
+    }
+  ],
+  "limits": [
+    "No GUI or console edit equivalence established",
+    "No new times/positions, generic vertical functions, or calibrated physics",
+    "Only existing raw cell on bounded model and signal supported; input positions not solver layer indices"
+  ],
+  "installed_regressions": {
+    "f34_serial": {
+      "path": "research/experiments/B13-RELEASE-G-serial-205-01/verification.json",
+      "sha256": "7c3d3d644455d668dfb176f2e8f5bc5e2ec6574a62b508740f91dd40ca6eebda"
+    },
+    "f34_failure_cancellation": {
+      "path": "research/experiments/B13-RELEASE-G-failure-207-01/verification.json",
+      "sha256": "3a29dbbc15ef5a09878a3ac0630f09f5dd690157e97ccc8b09aa252373569410"
+    },
+    "direct_and_dimr_final_seconds": 600,
+    "matching_variables": 191,
+    "failure_and_cleanup_groups": 17,
+    "same_executable_control_survived_by_route": [
+      "direct",
+      "dimr"
+    ],
+    "full_suite": {
+      "path": "research/experiments/B13-G-release-regression-01/verification.json",
+      "sha256": "c675f90ce3a1078e6ae3b4eacefed93f7c15616016dfd28bf9a0bf924d6df6c0",
+      "passed": 1566,
+      "skipped": 3,
+      "collected": 1569,
+      "skips": "Three Windows symlink-creation checks lacked the required OS privilege; optional geo enabled."
+    }
+  },
+  "engine": {
+    "product": {
+      "applicationName": "Delft3D FM Suite",
+      "publicReleaseVersion": "2026.02",
+      "distributionName": "OpenHMWQ"
+    },
+    "runtime_version": "1.2.184.Unknown",
+    "installed_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+    "source_revision": null,
+    "reference_revision": "5a4649830b1e5072caf019fb4850bbdefd9ad431"
+  },
+  "retained_warnings": {
+    "baseline": [
+      "** WARNING: Could not read mesh face x-coordinates. Check any previous warnings.",
+      "** WARNING: While reading 'model.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file.",
+      "** WARNING: While reading 'model.mdu': keyword [numerics] vertadvtypsal is deprecated and may be removed in a future release."
+    ],
+    "manual": [
+      "** WARNING: Could not read mesh face x-coordinates. Check any previous warnings.",
+      "** WARNING: While reading 'model.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file.",
+      "** WARNING: While reading 'model.mdu': keyword [numerics] vertadvtypsal is deprecated and may be removed in a future release."
+    ],
+    "public": [
+      "** WARNING: Could not read mesh face x-coordinates. Check any previous warnings.",
+      "** WARNING: While reading 'model.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file.",
+      "** WARNING: While reading 'model.mdu': keyword [numerics] vertadvtypsal is deprecated and may be removed in a future release."
+    ]
+  }
+}

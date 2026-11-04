@@ -1,9 +1,12 @@
 # Capability and implementation map
 
-Implemented commands are `install discover/inspect`, `schema inspect`, `model
+For GUI/console operations, observed file changes, pinned engine reader/writer lines,
+public CLI coverage and remaining experiments, use the [workflow inventory](gui-workflows.md).
+This page indexes the candidate implementation interfaces.
+
+At the time of the first CLI slice the implemented commands were `install discover/inspect`, `schema inspect`, `model
 inspect/validate/set`, and `run start/status/cancel`, with the limited contract described
-in [the first CLI slice](../verification/cli-first-slice.md). Other names and broader behavior
-below remain proposals. Source paths are relative to the corresponding checkout
+in [the first CLI slice](../verification/cli-first-slice.md). The tables below preserve that early design, including its then-open questions; use the [operation inventory](gui-workflows.md), [roadmap](../../../ROADMAP.md) and `dfm schema inspect` for current support. Source paths are relative to the corresponding checkout
 in `research/upstream/`.
 
 ## Interfaces to build around

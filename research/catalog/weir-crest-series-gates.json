@@ -1,0 +1,265 @@
+{
+  "node": "G16-CREST",
+  "state": "failed_physical_or_clock_or_input_evidence",
+  "scope": "Five direct native FM 120 s cases on one synthetic modern weir; no GUI/console exporter evidence. No new public CLI command.",
+  "suite": "2026.02 OpenHMWQ",
+  "engine_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+  "source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "installed_source_commit": "unknown",
+  "all_five_jobs_naturally_closed": true,
+  "authored_files_unchanged": true,
+  "per_case": {
+    "constant_high": {
+      "native_exit": 0,
+      "samples": 121,
+      "observed_crest_m_at_s": {
+        "0": 0.5,
+        "1": 0.5,
+        "59": 0.5,
+        "60": 0.5,
+        "61": 0.5,
+        "62": 0.5,
+        "63": 0.5,
+        "64": 0.5,
+        "65": 0.5,
+        "66": 0.5,
+        "67": 0.5,
+        "120": 0.5
+      },
+      "absolute_crest_error_m_except_initial": 0.0,
+      "final_fixed_east_m3_s": 0.0,
+      "fixed_section_minus_geographic_edge_flows_max_abs_m3_s": 0.0,
+      "below_weir_final_m": -0.17626908421516418,
+      "raw_sha256": {
+        "model_20010101_000000_rst.nc": "6850c98e41f8e79bd60730de0f17731f54d726789433e7e2ae621aa50c5421cf",
+        "model_20010101_000200_rst.nc": "3757676e77599cb3f45c23f834401a2bf9ba876cc67804bed2b1eed589d04d8d",
+        "model_his.nc": "1433754b0fac9687d125d6dcd428dcd457d0e7ad3fea5e4abfac8263f031e830",
+        "model_map.nc": "599b3794b414c104580f8d74e654f948b8d08b3ba54fd6293a70c8c48ce3e77f"
+      }
+    },
+    "constant_low": {
+      "native_exit": 0,
+      "samples": 121,
+      "observed_crest_m_at_s": {
+        "0": -0.5,
+        "1": -0.5,
+        "59": -0.5,
+        "60": -0.5,
+        "61": -0.5,
+        "62": -0.5,
+        "63": -0.5,
+        "64": -0.5,
+        "65": -0.5,
+        "66": -0.5,
+        "67": -0.5,
+        "120": -0.5
+      },
+      "absolute_crest_error_m_except_initial": 0.0,
+      "final_fixed_east_m3_s": 40.48393630981445,
+      "fixed_section_minus_geographic_edge_flows_max_abs_m3_s": 0.0,
+      "below_weir_final_m": -0.21505087614059448,
+      "raw_sha256": {
+        "model_20010101_000000_rst.nc": "f9133f68418fd6f92ecb36b016d81fbe9e59105f687f6ef4341b9e6771377452",
+        "model_20010101_000200_rst.nc": "462d645dffd169f204a25eae823b4e6a4a99b77d05077814f9181bbac8a2b39d",
+        "model_his.nc": "3d8ce4b8bedcfb3ca6b960ba732fff503d7a45117721c2f4b69f8b4d800712f0",
+        "model_map.nc": "c79573e64ce9fc032c6dfea90e3d0da7a9c54ca9e400e5cc8f5df586505dbc07"
+      }
+    },
+    "tim_high": {
+      "native_exit": 0,
+      "samples": 121,
+      "observed_crest_m_at_s": {
+        "0": 0.0,
+        "1": 0.5,
+        "59": 0.5,
+        "60": 0.5,
+        "61": 0.5,
+        "62": 0.5,
+        "63": 0.5,
+        "64": 0.5,
+        "65": 0.5,
+        "66": 0.5,
+        "67": 0.5,
+        "120": 0.5
+      },
+      "absolute_crest_error_m_except_initial": 0.0,
+      "final_fixed_east_m3_s": 0.0,
+      "fixed_section_minus_geographic_edge_flows_max_abs_m3_s": 0.0,
+      "below_weir_final_m": -0.17626908421516418,
+      "raw_sha256": {
+        "model_20010101_000000_rst.nc": "d9fc30afaa3a5be0faaaae74dfa139256ac7bb3ef1db2eef567d26fbadc4d43d",
+        "model_20010101_000200_rst.nc": "722097073af5a692f9d8fe4eb2a57073e02e3dd1492b96d75230bc74a8c7ae55",
+        "model_his.nc": "09c6a90dc65a36e932950b0377e0aa8ac9d5941e3edeef86990193fe7587b2a7",
+        "model_map.nc": "4e39bdbcd56912dbb581684e48b7867e6a6b26fd9a9faf356609e2a694d871d0"
+      }
+    },
+    "tim_low": {
+      "native_exit": 0,
+      "samples": 121,
+      "observed_crest_m_at_s": {
+        "0": 0.0,
+        "1": -0.5,
+        "59": -0.5,
+        "60": -0.5,
+        "61": -0.5,
+        "62": -0.5,
+        "63": -0.5,
+        "64": -0.5,
+        "65": -0.5,
+        "66": -0.5,
+        "67": -0.5,
+        "120": -0.5
+      },
+      "absolute_crest_error_m_except_initial": 0.0,
+      "final_fixed_east_m3_s": 40.48393630981445,
+      "fixed_section_minus_geographic_edge_flows_max_abs_m3_s": 0.0,
+      "below_weir_final_m": -0.21505087614059448,
+      "raw_sha256": {
+        "model_20010101_000000_rst.nc": "0d8568c2a920ac262d8333d34ded31d848e26f988738f07019facbd27ecd9d2b",
+        "model_20010101_000200_rst.nc": "8b76b2195c7d13ba83b806e4857337a205488c61864333278e0bc79f8265dd48",
+        "model_his.nc": "09ce6925e01890f58fc12862ec8ec4905232fc64aa96bf5257d98bd031900e52",
+        "model_map.nc": "07b1a4b75dbcbe3a2fa1b5d1cbde9939edf97b303d578c096b0ffa14cd79cd04"
+      }
+    },
+    "tim_high_to_low": {
+      "native_exit": 0,
+      "samples": 121,
+      "observed_crest_m_at_s": {
+        "0": 0.0,
+        "1": 0.5,
+        "59": 0.5,
+        "60": 0.5,
+        "61": 0.3333333730697632,
+        "62": 0.1666666716337204,
+        "63": -5.2386898374834345e-08,
+        "64": -0.1666666716337204,
+        "65": -0.3333333730697632,
+        "66": -0.5,
+        "67": -0.5,
+        "120": -0.5
+      },
+      "absolute_crest_error_m_except_initial": 5.2386898374834345e-08,
+      "final_fixed_east_m3_s": 40.43062973022461,
+      "fixed_section_minus_geographic_edge_flows_max_abs_m3_s": 0.0,
+      "below_weir_final_m": -0.1859455406665802,
+      "raw_sha256": {
+        "model_20010101_000000_rst.nc": "b6928f3cf2f102bd940dfce84eb08359ba94be5c245c4e356fd701eb1c4e6592",
+        "model_20010101_000200_rst.nc": "fe6fc0ade70fd160bf6c337d9f9b55deacb5e5961a01d9df5861a530a854c8b4",
+        "model_his.nc": "f28058b50660b8f30a2499bf7f092e3366484400fb45e1e269972ef78a2c48af",
+        "model_map.nc": "1b1b3640850482e88d324b4da3d1e54af729574f958aeb567e18cad8458b224f"
+      }
+    }
+  },
+  "nonpassing_case_checks": {
+    "constant_high": {},
+    "constant_low": {},
+    "tim_high": {
+      "literal_processed_crest": {
+        "masked_samples": 0,
+        "finite_mismatches": 1,
+        "first_observed_m": 0.0,
+        "final_observed_m": 0.5,
+        "mismatch_times_s": [
+          0
+        ],
+        "source_schedule_never_used_as_observation": true,
+        "observed_endpoints_m": {
+          "60": 0.5,
+          "66": 0.5
+        },
+        "endpoints60_66_checked_not_silent_step_assumption": true
+      }
+    },
+    "tim_low": {
+      "literal_processed_crest": {
+        "masked_samples": 0,
+        "finite_mismatches": 1,
+        "first_observed_m": 0.0,
+        "final_observed_m": -0.5,
+        "mismatch_times_s": [
+          0
+        ],
+        "source_schedule_never_used_as_observation": true,
+        "observed_endpoints_m": {
+          "60": -0.5,
+          "66": -0.5
+        },
+        "endpoints60_66_checked_not_silent_step_assumption": true
+      }
+    },
+    "tim_high_to_low": {
+      "literal_processed_crest": {
+        "masked_samples": 0,
+        "finite_mismatches": 1,
+        "first_observed_m": 0.0,
+        "final_observed_m": -0.5,
+        "mismatch_times_s": [
+          0
+        ],
+        "source_schedule_never_used_as_observation": true,
+        "observed_endpoints_m": {
+          "60": 0.5,
+          "66": -0.5
+        },
+        "endpoints60_66_checked_not_silent_step_assumption": true
+      }
+    }
+  },
+  "nonpassing_pairs_first_reported_difference": [
+    {
+      "cases": [
+        "constant_high",
+        "tim_high"
+      ],
+      "role": "history",
+      "check": "all_native_fields_exact",
+      "details": "ValueError: Pair raw/decoded values differ: weirgen_crest_level"
+    },
+    {
+      "cases": [
+        "constant_low",
+        "tim_low"
+      ],
+      "role": "history",
+      "check": "all_native_fields_exact",
+      "details": "ValueError: Pair mask differs: weirgen_discharge"
+    },
+    {
+      "cases": [
+        "constant_low",
+        "tim_low"
+      ],
+      "role": "restart_initial",
+      "check": "all_native_fields_exact",
+      "details": "ValueError: Pair raw/decoded values differ: hu"
+    }
+  ],
+  "selected_hydraulics_in_constant_pairs": {
+    "high": {
+      "q": 0.0,
+      "stage": 0.0,
+      "below": 0.0
+    },
+    "low": {
+      "q": 0.0,
+      "stage": 0.0,
+      "below": 0.0
+    }
+  },
+  "late_switch_vs_held_high": {
+    "q": 41.288997650146484,
+    "stage": 0.15106533467769623,
+    "below": 0.13884665817022324
+  },
+  "complete_constant_equivalence": false,
+  "receipts": {
+    "research/experiments/G16-CREST-G-input-review-01/verification.json": "426431d2df298ed384dd4bde9bf50e27bdd7d36765beefc9d8191eb365f7f83d",
+    "research/experiments/G16-CREST-V-frozen-01/predeclared.json": "e6e9f7154a304d8c46664621be613541dccfe63303a50c38ec4b988fb58742ac",
+    "research/experiments/G16-CREST-RUNNER-I-G-prepared-01/plan.json": "b82abe5b69675e4e8f62f24d16f8487af3f32b0961d369549e9813c9ad5bb17e",
+    "research/experiments/G16-CREST-RUNNER-V-final-11/actual-candidate-verification.json": "ea28d484f8ebe93ac3d46fae38998a48ca70f57d7c286dc7e56f95cf42641dd6",
+    "research/experiments/G16-CREST-RUNNER-V-final-11/copied-oracle-invocation.json": "42b6a5f19159624990c0db0a09dc03f294744f7a781d9f6d20c801bbbe832dbf",
+    "research/experiments/G16-CREST-G-raw-185-01/readback.json": "b21432de614ff54b42c6b43ae05afcf679cce3fcd2dd88ba190745588a22d855",
+    "research/experiments/G16-CREST-V-G-native-185-01/verification.json": "67afad71d3eeb2f54f5a6dfd00deed18ae0a32fe9d15715c2c5e08ef3c49cdfd",
+    "research/experiments/G16-CREST-RUNNER-I-G-native-185-01/verification.json": "6ef13b8f3720ee8a9b245e296ace9a414a223fde62d889c94bdcd2abbdbafc32"
+  }
+}

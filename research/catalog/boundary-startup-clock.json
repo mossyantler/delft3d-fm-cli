@@ -1,0 +1,295 @@
+{
+  "evidence_id": "B12-ENGINE-T0-G-native-221-01",
+  "diagnostic_only": true,
+  "origin": "2001-01-01 UTC",
+  "formula_tested": "F(max(actual BMI current clock, DtInit))",
+  "units": "water level (m), time (s)",
+  "absolute_tolerance_m": 1e-08,
+  "values": 704,
+  "matches": {
+    "reported_clock": 464,
+    "clock_plus_user": 136,
+    "clock_plus_max": 208,
+    "max_init_clock": 704,
+    "held_init": 384
+  },
+  "inputs": "four identical supports per case, 12x4 cells, linear, harmonic or flat water levels; multiple DtUser, DtMax, DtInit values",
+  "combined_original_member_exits": 16,
+  "cases": [
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 1.0,
+        "DtUser": 1.0,
+        "DtMax": 1.0
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        8.0,
+        11.0
+      ],
+      "actual_initial_m": 0.2100000023574103,
+      "authored_at_reported_t0_m": 0.2,
+      "all_element_matches_of_88": {
+        "reported_clock": 64,
+        "clock_plus_user": 24,
+        "clock_plus_max": 24,
+        "max_init_clock": 88,
+        "held_init": 32
+      },
+      "manifest_sha256": "76c595cf3786f19f1c0d51427ef6d06404d2406d65f449f3b91abaf1faaff7dd",
+      "raw_sha256": "d443a292ed78f00ade57d974845131a244e54203267934e7ed1605ce43a50674",
+      "id": "linear_A"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 1.0,
+        "DtUser": 4.0,
+        "DtMax": 1.0
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        8.0,
+        11.0
+      ],
+      "actual_initial_m": 0.2100000023574103,
+      "authored_at_reported_t0_m": 0.2,
+      "all_element_matches_of_88": {
+        "reported_clock": 64,
+        "clock_plus_user": 0,
+        "clock_plus_max": 24,
+        "max_init_clock": 88,
+        "held_init": 32
+      },
+      "manifest_sha256": "300ea82e4b785d801b820182cefc84a74387eb2c48c52dbcfa542b4f033a5026",
+      "raw_sha256": "c6576c8239f69b448ab5d3fdd2f5406e8b3f1df9570df1c1a6df84fc180aa27d",
+      "id": "linear_B"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 1.0,
+        "DtUser": 4.0,
+        "DtMax": 0.25
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.75,
+        5.0
+      ],
+      "actual_initial_m": 0.2100000023574103,
+      "authored_at_reported_t0_m": 0.2,
+      "all_element_matches_of_88": {
+        "reported_clock": 40,
+        "clock_plus_user": 0,
+        "clock_plus_max": 8,
+        "max_init_clock": 88,
+        "held_init": 56
+      },
+      "manifest_sha256": "dcf2d9c45cf9eb1487bdbadfa06c38dce4712bd1bef820fff35f6279de997a01",
+      "raw_sha256": "7aa605938015d22d3a7d45bf3480dc752ea176d09356a3787d157f31aedf9e23",
+      "id": "linear_C"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 0.25,
+        "DtUser": 4.0,
+        "DtMax": 0.25
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.75,
+        5.0
+      ],
+      "actual_initial_m": 0.20249999901774574,
+      "authored_at_reported_t0_m": 0.2,
+      "all_element_matches_of_88": {
+        "reported_clock": 64,
+        "clock_plus_user": 0,
+        "clock_plus_max": 24,
+        "max_init_clock": 88,
+        "held_init": 32
+      },
+      "manifest_sha256": "c06978edfd5e7e2fdf1ea7131f789c95cc514a9d50e030ca9764adb2f0ca5a22",
+      "raw_sha256": "d736c81dc252edafc5e48b517c99a9dccf920f7f53aa15564f857efcb1006f11",
+      "id": "linear_D"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 1.0,
+        "DtUser": 1.0,
+        "DtMax": 0.25
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.75,
+        5.0
+      ],
+      "actual_initial_m": 0.2100000023574103,
+      "authored_at_reported_t0_m": 0.2,
+      "all_element_matches_of_88": {
+        "reported_clock": 40,
+        "clock_plus_user": 24,
+        "clock_plus_max": 8,
+        "max_init_clock": 88,
+        "held_init": 56
+      },
+      "manifest_sha256": "df44b8cccb19d9727d1a9e1a6a34326d8736a2d94869b5be0388a6746eab7a0d",
+      "raw_sha256": "b3c4d12e1c2cae91f4c2e02f361fb92afc9ea8b4b1017e3256981afb5cbfd741",
+      "id": "linear_E"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 1.0,
+        "DtUser": 4.0,
+        "DtMax": 0.25
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.75,
+        5.0
+      ],
+      "actual_initial_m": 0.05877852522924733,
+      "authored_at_reported_t0_m": 0.05000000000000002,
+      "all_element_matches_of_88": {
+        "reported_clock": 40,
+        "clock_plus_user": 0,
+        "clock_plus_max": 8,
+        "max_init_clock": 88,
+        "held_init": 56
+      },
+      "manifest_sha256": "522ba6d28eda9805a8e9011b33f31760573c642a0ce3ab3f808a1ec2b6e270d7",
+      "raw_sha256": "2562eb1141602bfa13aff0edae3c4785e16dd9a09306d6a20f06734f3dd5e50d",
+      "id": "harmonic_C"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 0.25,
+        "DtUser": 4.0,
+        "DtMax": 0.25
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.75,
+        5.0
+      ],
+      "actual_initial_m": 0.05224985647159489,
+      "authored_at_reported_t0_m": 0.05000000000000002,
+      "all_element_matches_of_88": {
+        "reported_clock": 64,
+        "clock_plus_user": 0,
+        "clock_plus_max": 24,
+        "max_init_clock": 88,
+        "held_init": 32
+      },
+      "manifest_sha256": "7d3122e47e9a0f17254e662a4f76ea4ba7e7954f6f036bee3104c0a700d90709",
+      "raw_sha256": "0b3d02501900a5c280550a3c08972a19564bd179b8aa2363f21256ee5390f6de",
+      "id": "harmonic_D"
+    },
+    {
+      "actual_parameters_seconds": {
+        "DtInit": 1.0,
+        "DtUser": 4.0,
+        "DtMax": 0.25
+      },
+      "times": [
+        0.0,
+        0.0,
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0,
+        1.25,
+        1.5,
+        2.75,
+        5.0
+      ],
+      "actual_initial_m": 0.15,
+      "authored_at_reported_t0_m": 0.15,
+      "all_element_matches_of_88": {
+        "reported_clock": 88,
+        "clock_plus_user": 88,
+        "clock_plus_max": 88,
+        "max_init_clock": 88,
+        "held_init": 88
+      },
+      "manifest_sha256": "edaabe118dfe3f3a8dc1ad5d3973f207b3cecfe35d7d8ab89c5ba047282c657a",
+      "raw_sha256": "7382ac863a4b51866e7d9804e919deff633047a51d9de8038c759da7d56c236d",
+      "id": "constant_reference_C"
+    }
+  ],
+  "sources": [
+    {
+      "path": "research/experiments/B12-ENGINE-T0-G-readback-221-01/verification.json",
+      "sha256": "8b1859dc5de228ac01369ae8f1e77f97e6fd3b510ea880e9fa19128530561265"
+    },
+    {
+      "path": "research/experiments/B12-ENGINE-T0-V-schedule12-reader221-01/post221-review-01/verification.json",
+      "sha256": "3e290104e0021a338011926367fee2a98e4ce4b8525b6506f48ebf7c0977b7fd"
+    },
+    {
+      "path": "research/experiments/B12-ENGINE-T0-G-native-221-01/verification.json",
+      "sha256": "0ae23cf8944fa9c3932f51cf9921d998da60a2fba368633f6cbd022f4f3365d0"
+    },
+    {
+      "path": "research/experiments/B12-ENGINE-T0-V-schedule12-reader221-01/freeze.json",
+      "sha256": "2575e9d9dda1d294a11649f115a24bffed6211430ef8d7067d9cf78a74558fb9"
+    }
+  ],
+  "limits": "Fixed installed DLL 1.2.184.Unknown, partial slices to 5 or 11 s. No retiming in CLI, no GUI, solver-wide clock rule or causality claim."
+}

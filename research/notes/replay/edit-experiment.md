@@ -197,7 +197,7 @@ safe; characterize scratch-directory isolation before enabling concurrency.
 Use the existing fresh E001/E002 baseline and a new, nonexistent output folder:
 
 ```powershell
-python research/scripts/run_edit_experiment.py --baseline research/experiments/E001-E002-replay-20261103/gui-project --install '<Delft3D suite installation root>' --out research/experiments/E003-E005-new-replay
+python research/scripts/run_edit_experiment.py --baseline research/experiments/E001-E002-replay-20261103/gui-project --install 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ' --out research/experiments/E003-E005-new-replay
 ```
 
 The command creates three independent project copies, records fingerprints,

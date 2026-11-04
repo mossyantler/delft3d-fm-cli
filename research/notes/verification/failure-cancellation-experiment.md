@@ -1,5 +1,9 @@
 # E009/E011: native failure diagnostics and owned-process cancellation
 
+**후속 직렬 회귀(2026-11-04).** 짧은 직렬 실행도 시작 스레드를 재개하기 전에 개인 Job의 새 멤버를 추적한다. [독립 시험 12개 실행](../../experiments/SERIAL-EXIT-V-native-slot80-20261104-213939-7dd6c229/verification.json)과 [통합자의 E009/E011 재현](../../experiments/SERIAL-EXIT-G-failure-cancel-01/verification.json)을 분리했다. 직접 FM과 단일 FM DIMR 모두 정상 종료(rc 0), 손상된 망·빈 BC에서 엔진 스스로 종료(rc 1)한 경우마다 루트와 자식 두 핸들의 종료 및 빈 Job을 확인했다. 강제 중단에서는 중단 시점에 살아 있던 멤버의 종료와, 동일 실행 파일을 쓰는 대조 프로세스의 PID·생성 시각이 중단 뒤에도 같은지 확인했다. 대조군은 확인을 마친 뒤 별도로 정리했으며 정상 완주로 세지 않았다.
+
+통합 재현은 잘못된 취소 요청, 실제 엔진을 자식으로 둔 래퍼와 소유자 소실도 확인했다. 소유자가 사라졌을 때 디스크의 `running`은 다시 쓰지 않았고 실제 관찰은 `owner_lost`였다. [통합 원자료 대조](../../experiments/SERIAL-EXIT-G-failure-cancel-01/coordinator-raw.json)에는 f34 정상 대조군의 600초 history/map·최종 restart, 네 데이터셋의 191변수 비교, 강제 종료 때의 대상/대조군 증거가 있다. 강제 종료는 정상적인 엔진 finalization을 뜻하지 않는다.
+
 **Date:** 2026-11-04, Asia/Seoul. **CLI:** 0.2.0. **Result:** passed for the copied
 f34 serial fixture on 2026.02 OpenHMWQ. The final replay contains **18 native
 engine executions**, **25 public CLI commands**, and 17 result groups, including

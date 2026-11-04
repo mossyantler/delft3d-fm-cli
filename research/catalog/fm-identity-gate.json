@@ -1,0 +1,126 @@
+{
+  "installed_cli": "0.4.0.dev1",
+  "wheel_sha256": "4398617a798df60734ec58df8ec6835dc978e710e66ee270e1326624db560c2d",
+  "suite": "2026.02 OpenHMWQ",
+  "binary_source_revision": "unknown",
+  "reference_source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "operation": "FM Program identity; exact value, case-insensitive section/key; not full version validation",
+  "cases": {
+    "canonical": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "installed_completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "missing": {
+      "identity": "missing",
+      "section": "general",
+      "observed_native_result": "native_rejection_or_noncompletion",
+      "expected_prelaunch_refusal_both_routes": true
+    },
+    "empty": {
+      "identity": "empty",
+      "section": "general",
+      "observed_native_result": "native_rejection_or_noncompletion",
+      "expected_prelaunch_refusal_both_routes": true
+    },
+    "wrong-case-value": {
+      "identity": "unaccepted_value",
+      "section": "general",
+      "observed_native_result": "native_rejection_or_noncompletion",
+      "expected_prelaunch_refusal_both_routes": true
+    },
+    "mixed-case-key-section": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "installed_completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "duplicate-identical": {
+      "identity": "ambiguous",
+      "section": "general",
+      "observed_native_result": "public_preflight_refusal",
+      "expected_prelaunch_refusal_both_routes": true
+    },
+    "duplicate-conflicting": {
+      "identity": "ambiguous",
+      "section": "general",
+      "observed_native_result": "public_preflight_refusal",
+      "expected_prelaunch_refusal_both_routes": true
+    },
+    "alias-mixed-Unstruc": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "installed_completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "alias-uppercase-UNSTRUC": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "installed_completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "alias-D-Flow-Flexible-Mesh": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "installed_completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "numeric-version-mismatch-9.99": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "native_rejection_or_noncompletion",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "legacy-only-good": {
+      "identity": "source_admitted",
+      "section": "model",
+      "observed_native_result": "completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    },
+    "legacy-wrong-general-good": {
+      "identity": "unaccepted_value",
+      "section": "model",
+      "observed_native_result": "native_rejection_or_noncompletion",
+      "expected_prelaunch_refusal_both_routes": true
+    },
+    "modern-good-legacy-wrong": {
+      "identity": "source_admitted",
+      "section": "general",
+      "observed_native_result": "completed_120s_four_outputs_owned_exit",
+      "expected_prelaunch_refusal_both_routes": false
+    }
+  },
+  "f34_serial_variables_compared": 191,
+  "e009_e011": "passed",
+  "evidence": [
+    {
+      "path": "PKG-G-G06-MDU-02/verification.json",
+      "sha256": "9b2ae3cc25e314c1bd75a5d8aed9106b24816b5260b9c3a6fe530ddf46cbcd8f"
+    },
+    {
+      "path": "MDU-ID-G-public-01/verification.json",
+      "sha256": "d10b723a2bf4d09d074c7f14e8d1a614b866ce269efb1ba3417929f426aa34bd"
+    },
+    {
+      "path": "MDU-ID-V-stage-01/native-slot-153-01/verification.json",
+      "sha256": "f6b6d2f0da3a9bd376d07ddc68a65b2b7366fa2277a9dbfc9efd92cb1d83c142"
+    },
+    {
+      "path": "MDU-ID-V-stage-01/native-slot-155-01/verification.json",
+      "sha256": "de9702f71d126136af3052e8363adebf55dc11c06d23ca9084745686a6872627"
+    },
+    {
+      "path": "MDU-ID-G-f34-156-01/verification.json",
+      "sha256": "b2f4acc801b6655316a927e2e1de4619a7d9310c72f6e7cb1f64b91298bbdc54"
+    },
+    {
+      "path": "MDU-ID-G-E009-E011-158-01/verification.json",
+      "sha256": "c81e322fd29d43f817bfc0a1b6d0fa9d189e4c065c63e62f3570c41ad4f2eb53"
+    },
+    {
+      "path": "CLI-G-G06-MDU-regression-157-01/verification.json",
+      "sha256": "0b6a8e7767007638c0310a50ae889466ca88e41658e54e812903d8d14505217b"
+    }
+  ]
+}

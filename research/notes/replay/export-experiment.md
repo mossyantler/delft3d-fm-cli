@@ -153,7 +153,7 @@ and the intended installation:
 
 ```powershell
 $experiment = 'research/experiments/E001-E002-new-replay'
-$install = '<Delft3D suite installation root>'
+$install = 'C:\Program Files\Deltares\Delft3D FM Suite 2026.02 OpenHMWQ'
 
 python research/scripts/prepare_export_experiment.py --out $experiment
 python research/scripts/run_gui_export.py --install $install --experiment-root $experiment

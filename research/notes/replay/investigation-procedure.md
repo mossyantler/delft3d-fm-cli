@@ -104,6 +104,8 @@ Run cancellation must target processes owned by that experiment.
 
 ## Completion criterion for one capability
 
+For E007, [the coordinator's installed-binary scan](../../experiments/E007-G-entry-metadata-02/file-evidence.json) traced 58 methods across nine managed images without starting the CLR or the application. It establishes code and configuration paths, not the live entry assembly, per-user directory, selected assembly binding or log destination. Run this research tool with `research/.venv` (it needs `dnfile`); the public CLI does not need that package. The ordinary desktop is not an E007 test host. For E014 the [standalone prepared field experiment](../verification/fields.md) uses the console in an identified disposable guest and does not depend on GUI Run or on a successful P08 DIMR export.
+
 A capability is understood when a small reproducible example, exact versioned
 file/API mapping, expected side effects, success/failure observations, and a
 reviewable CLI behavior are documented. A screenshot, exported symbol, or method

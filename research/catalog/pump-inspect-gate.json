@@ -1,0 +1,66 @@
+{
+  "node": "G13-READ",
+  "state": "accepted_inspection_only",
+  "version": "0.4.0.dev1",
+  "protocol_version": 2,
+  "command": "dfm pump inspect MODEL.mdu [--id ID]",
+  "public_scope": "Existing 2D XY single-file location per pump, modern structures, bounded scalar profile. No solver or writes; no hydraulic reversal inference.",
+  "baseline_evidence": {
+    "path": "research/catalog/pump-orientation-gates.json",
+    "sha256": "c022b4cd72d608c9bc284fa49b4e51c7301f3cfb9cb3712bc3f0b911b384f98d"
+  },
+  "root_module_sha256": {
+    "pump_text.py": "311ef1f6e5b04995f9859d9950dbae9cff010871b12c63d4ddc337891d198360",
+    "pump_contract.py": "94645cc0abe6cc8d032e79ddaef61ed211964d4bfaa65ef11f7005db14de821e",
+    "pump_graph.py": "fb6a16d05cc49d567571932462f719999107209fe7841cf641db9df6836c5b78",
+    "pump_public.py": "6274dc06b0829004fb1956e06fd8dac4bd0c9b1b92b1c71e983a1aed8fe64d9d"
+  },
+  "dispatcher_sha256": "bb9f09634c8719040e07cb948112d3571bdd6fa7b926881a9999fec3a94bc68e",
+  "wheel_sha256": "f61961f93719d0311311026da0189c936ba06d1586f1cc1cda67cba1b20e3985",
+  "verification": {
+    "independent_cases": 18,
+    "independent_public_calls": 55,
+    "retained_portable_cases": 21,
+    "dispatcher_cases": 24,
+    "native_public_routes": [
+      "direct",
+      "dimr"
+    ],
+    "final_time_seconds": 600,
+    "final_restart_checked": true,
+    "datasets": 4,
+    "variables_compared": 191,
+    "failure_groups": 17,
+    "unrelated_control_identity_preserved": true
+  },
+  "receipts": {
+    "independent": {
+      "path": "research/experiments/G13-READ-V-EIN-corrected-results-20261105-040103-51b9468e/verification.json",
+      "sha256": "86d8701a52581014c5645fd7f85ece9f981895c324ab2bef73ef5a8a2fe029a4"
+    },
+    "wheel": {
+      "path": "research/experiments/G13-READ-G-staged-wheel-01/verification.json",
+      "sha256": "2bb6b30f749dca78432b817bce7f269c8a7884c7226a9532cfe31cc1d8a7b6bb"
+    },
+    "root": {
+      "path": "research/experiments/G13-READ-G-root-01/verification.json",
+      "sha256": "8d57f8bba67ec2776fdf71c0febb2ff5901ac35b4f5294c418e2eba4b3a19185"
+    },
+    "pump_regression": {
+      "path": "research/experiments/G13-READ-G-root-01/pump-unittest.log",
+      "sha256": "db77be09a287c629e7f00ac78e82d69c50292ca2ad56ecbb375b8e9cc2b7aea2"
+    },
+    "dispatcher_regression": {
+      "path": "research/experiments/G13-READ-G-root-01/cli-unittest.log",
+      "sha256": "b166b249e4a945c9685b1eb1e8e0351d4cb188149532b078e1ec398049bc06cd"
+    },
+    "direct_dimr": {
+      "path": "research/experiments/G13-READ-G-serial-179-01/verification.json",
+      "sha256": "022b5348dc906c4fc373d39ba2ae9e9389b6d9dc0f35e3ba8fb3b6be477cd909"
+    },
+    "failure_cancellation": {
+      "path": "research/experiments/G13-READ-G-failures-181-01/verification.json",
+      "sha256": "883c5cd3dc64694184b8939d0a9f10123a6f6ddc078819f7c3331022c3c540a0"
+    }
+  }
+}

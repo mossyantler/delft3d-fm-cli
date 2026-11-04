@@ -1,0 +1,62 @@
+{
+  "id": "B12-PREVIEW",
+  "status": "accepted_input_inventory_and_source_based_samples",
+  "wheel_sha256": "488bb4a3033a16a5e46b2cad502e057f5504980441a9b446112e2da01766e098",
+  "wheel_product_files": 181,
+  "modules": {
+    "boundary_preview.py": "2b90d9d178f8979c24d5c72d0ad05e51dd3261bd8d071be9115af5a97bb56e17",
+    "boundary_preview_eval.py": "80a242a16b859d3fa3c48e2fc44882b1baca6f1e782f6870c650e4601592f579",
+    "boundary_preview_graph.py": "c7022551a96955b1f3992c96698e42c21db60dab30eaf843fce684a72b054321"
+  },
+  "registered_command": "dfm boundary preview",
+  "protocol_version": 2,
+  "source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "optional_runtime_dependencies": [],
+  "independent_portable_tests": 37,
+  "installed_public_checks": 13,
+  "installed_public_invocations": 18,
+  "coordinator_observations": {
+    "east_linear_m": [
+      0,
+      0.03,
+      0.06,
+      0.09,
+      0.12
+    ],
+    "east_clock_s": [
+      0,
+      30,
+      60,
+      90,
+      120
+    ],
+    "f34_quarter_cycle_m": [
+      1.5,
+      0,
+      -1.5,
+      0,
+      1.5
+    ],
+    "zero_tolerance_m": 1e-12,
+    "unbound_foreign_correction_changes_selected_value": false,
+    "connected_matching_correction": "unsupported",
+    "missing_support": "missing/null"
+  },
+  "does_not_prove": [
+    "running native prescribed values",
+    "GUI graph equivalence",
+    "receiving water levels",
+    "spatial interpolation or astronomical/correction reconstruction"
+  ],
+  "evidence": {
+    "research/experiments/B12-PREVIEW-I-20261105-02/freeze.json": "634382144775c632c0c53591cbd6af1a7c3369e51fef905495be18d37f6e383d",
+    "research/experiments/B12-PREVIEW-G-installed-02/verification.json": "3863cdbd5ddab23182a87ee88329c145dcfe507053b2fc2a50d2db0ff978e340",
+    "research/experiments/B12-PREVIEW-V-v2-candidate-01/verification.json": "47a51427ccd85e274ad1f0b154d71ece1288250bf484e8078b6bf4d4dcb7476d",
+    "research/experiments/B12-PREVIEW-V-installed-v2-tests-01/verification.json": "aaf6380466ff3f1a391032e7118a97c119afec3a6c85a263b8706f65c9f28496",
+    "research/experiments/B12-PREVIEW-V-public-v2-01/verification.json": "bda3da5ec8e642b1ffbb1a8dc3c49e03ddc64a8e2bc91bf67701745da4a93f0a",
+    "research/experiments/B12-PREVIEW-G-channel-01/plan.json": "5215dfe350255d8dce83225aef5ad71b10b3b8636dd11a4c60741473b17904b8",
+    "research/experiments/B12-PREVIEW-G-readback-02/verification.json": "fd6f8915986f64a781a504c20c1a8197efab7bbb4a734f099fb851462582f6c3",
+    "research/experiments/B12-PREVIEW-G-crossfile-01/readback.json": "fb000de01dee6d82f292e198bac48fb3ec9d8f64a4e3d6b84ddca8efc7434d9f",
+    "research/experiments/B12-PREVIEW-G-crossfile-02/verification.json": "4b3c3910c37382bdee42507e4ce9fafd209877e7c007dd971c9dee986ffb3071"
+  }
+}
