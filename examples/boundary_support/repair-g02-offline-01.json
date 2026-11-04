@@ -1,0 +1,44 @@
+{
+  "kind": "B10-G02-offline-repair-byte-comparison",
+  "scope": "Public CLI on fresh private copies only; no native execution; exact whole BC comparison against four independently authored G02 models",
+  "historical_G02_tree_unchanged": true,
+  "native_execution": "not_performed",
+  "cases": [
+    {
+      "case": "disable",
+      "actual_bc_sha256": "f0aecbb70fccdcffe1e04ae372dfc61550fe3b7917c53536d5737459a683bd6a",
+      "manual_bc_sha256": "f0aecbb70fccdcffe1e04ae372dfc61550fe3b7917c53536d5737459a683bd6a",
+      "entire_bc_equal": true,
+      "non_target_files_bytes_equal": true,
+      "retired_slice_exact": true,
+      "retired_marker_absent": true
+    },
+    {
+      "case": "enable",
+      "actual_bc_sha256": "711ac505cd26e7c721e9ebbd85245df4860bc30b406b1932379b7d5032cab44d",
+      "manual_bc_sha256": "711ac505cd26e7c721e9ebbd85245df4860bc30b406b1932379b7d5032cab44d",
+      "entire_bc_equal": true,
+      "non_target_files_bytes_equal": true,
+      "retired_slice_exact": true,
+      "retired_marker_absent": true
+    },
+    {
+      "case": "to-linear",
+      "actual_bc_sha256": "3b9248817ebc3dfe9a402cc0e08872a3d0e6d303e255daca44b668e2c53cf056",
+      "manual_bc_sha256": "3b9248817ebc3dfe9a402cc0e08872a3d0e6d303e255daca44b668e2c53cf056",
+      "entire_bc_equal": true,
+      "non_target_files_bytes_equal": true,
+      "retired_slice_exact": true,
+      "retired_marker_absent": true
+    },
+    {
+      "case": "to-harmonic",
+      "actual_bc_sha256": "6ec4b259bf10831bebb432bcabdb8740c6914367b255aa0aa0871a45cee03314",
+      "manual_bc_sha256": "6ec4b259bf10831bebb432bcabdb8740c6914367b255aa0aa0871a45cee03314",
+      "entire_bc_equal": true,
+      "non_target_files_bytes_equal": true,
+      "retired_slice_exact": true,
+      "retired_marker_absent": true
+    }
+  ]
+}

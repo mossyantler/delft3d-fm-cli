@@ -1,0 +1,516 @@
+{
+  "kind": "B10-public-producer-replay",
+  "schema_version": 1,
+  "public_entry_point": ".venv/Scripts/dfm.exe",
+  "implementation": {
+    "boundary_support.py": "9f51554714989c90dbde1d2d5840830e3377c95af110826ef81502676c67c376",
+    "boundary_support_contract.py": "cb501dcd5e0d5e7bbeab24281d99d46a423430d79c48d5dfba7782c84a05e017",
+    "boundary_support_parse.py": "3b779cba7fc48ee057c24447853ea4a0fac5f458b52bc8d5170b31b9eae8683a",
+    "boundary_support_write.py": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2"
+  },
+  "freeze_sha256": "8fa530866f93b4b84375465014d9545f237ae4589a17a01904411dbfd935dc45",
+  "tests_passed": 15,
+  "public_json_calls": 62,
+  "calls": [
+    {
+      "command": "boundary support",
+      "exit_code": 2,
+      "ok": false,
+      "stdout_sha256": "16608c75d6579307600741255efd686479a507a6555778506c492adfe97d5d78",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "expected_hash_required"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "9646f49dd02e65fe189dae6fa2d094481bed883029d1e4aafca56d7b08a064ce",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "e1101a5f17f99f8f99112843f95ee21dc68bdcd20dd5580e49cb374b1f37e8a2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_function"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "522b97397ed738ad95032afffd62d76270dd852294d908a297b1bf1c9666726d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_coverage"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "ffd2d459960231260bfc0b6d07637af42f4e0f0308eefbd37d1b4bbb41dbdb14",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_coverage"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "a81a8ae2ce7339f58482c49b7e400097d27274e8b7997ee842812b5a4ddb889c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_import_identity"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "ee2fab73cd7397b3dfedcec482fc813100e7fb9361b97ce842624879591191e7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_import_identity"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "e856f608572623b3d5d8879ad225e07943fa119a4d438d44713df4ebfd4de581",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_import_units"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "e5d0f1ddb63fa75a089d13aa43690bfd6bc401bd218fb88a6909ca7f6e7a38db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_import_units"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "af1775dd6be4f465a0fc1a1590aa43cd07893b130ee6afeaca641e0e65db2f1c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_series_coverage"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "671222a78a7c7aa275b302ef22c8da559102f5e1068e35acc1b5ae2d29b1ab16",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_import_columns"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "c7239497898df071506668b96ba5d205e026851a450a83f41ecf8df6e3733941",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "invalid_scalar"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "3a0a5e5bb8d503d22b65eef5f9c7fa91ce0f44c9f1d270ab5b13c93c358cbc70",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_series_time_collision"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f171c71add5780810232431d985fc62253a6b32a149480c022ad36f5f3a16f50",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "dcad7a2121d51cf263e3cbd1df17d76eb8fef051db6398598cd1fc75d8f68f95",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "884a2c2aded82d018afcea1d1513009b4e509ae83fd1e68f838c754b8b844016",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "178a0b967e6cd9c8b5834e9ccdbec7740b1ac79b78584488ded3fd1ffb082ccf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "2d8fa1735c2c9166b5ac876a50b127e8455ffbfbfd4a2ac92392a238d1fce314",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "4818c87965b42cc90d3bcc98a9eefc13fef1ccd0b80394ecd07148777380f67f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "d36042d3d4c8688f92df14cb462626fc467562a679f283c04138c6a190700624",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "89c424e48afd55e99eb6b5f3c7a4a27a8a4d5ffd7ac7af387d02583aa44b6ab9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "572e73f19615ac3e5cfe264675e47cfc70299ed141751e5f27c0e7c43238bdd4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "053d5ce694bcb2c0c190e33acd673a3dea4e5e3f9df0c5ea49f0fc4e2f740b2e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "f72fafadbab31251fe0d086949aebf91aca48a93e3e9b0fd687384e61faa3ded",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 4,
+      "ok": false,
+      "stdout_sha256": "8652be7a1aa8ca2e55a2a6e8f565ff3fa35219ce89c29b4cb66a1288a4c1cd32",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "stale_preview"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "76e3c5796b9a85a5d4715a6c2368cfdd6d064b8eee7f7fba3ad44ec1ea71ee34",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "a1d871b199dafce4965e8cc90eb2f8245a716327b277c22a39f0dc1f3f4b7091",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "a5faebdf405435776a75d22381e9edb64abc5d7f9ef3f2907ee51b239c83567e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "a3159f034aeac9e877f9acaf92ce22101bd63e04c00513de358cc70362fcfff8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "3fc9e65f4380ed02e06e22a88d1cf6e6d16a1f3dada6ea4feaf7466360d489e2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "586c5b342de5020af332d01f060fc355ff2cfc5a225b08d978ebeed796e02791",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "56afcb29f77791832a95f47a5af6b731163e6f8832e8a8ac287033b5d3be04f2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_point"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "b132c44d41312b4400eaa9d7d2afffc31b8f8a636d6e552109aa94a1fe498a75",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_point"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "94eda555570a996b29bd0e5a3c7100503d61f9120689edb119930dacb4e9b07e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_function"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 2,
+      "ok": false,
+      "stdout_sha256": "fd6585ee60cdf5b2ff27f9d2ebafcc4e4798abb5755db968acd1f06301dfbfa9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_request"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 2,
+      "ok": false,
+      "stdout_sha256": "9010f5d3cb8cec484172cdd0c67465d19892c29942439bb8e9ed53542497fec4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "usage"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "139717bc4b78a3af1ee9987840036a55d559242b849698b8b23759e756efa162",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_import_source"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "e119c2df98cd158114939cc9d78cdf05c9bfcdacd2878751328285dd6b72f155",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_last_support"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "bd98429637d37404af55b5e5fdb4e0f3d4f3d0648f1e52d51f7edbd67810ba91",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_numeric_comment"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "9ace021a1125654c7ae5210de4befd2831aafcf2d74993fa1faf43c22be06d49",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_legacy_retirement"
+    },
+    {
+      "command": "boundary support",
+      "exit_code": 3,
+      "ok": false,
+      "stdout_sha256": "9d3161ece42f96f76b3612053f38ac4d9542190f40df6818eb24f725eccb378a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": "boundary_support_legacy_retirement"
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "60eb683e4e00fba93ec0c4adcf3f04b63657042323389af399c75b503ae7bbfc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "boundary function-set",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "8a49085ce5fc1b5cfc366ddf1a3b29a97dccf8615b8f8f8828006678f05cea62",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    },
+    {
+      "command": "schema inspect",
+      "exit_code": 0,
+      "ok": true,
+      "stdout_sha256": "4eef234d468c0b3007a2991c5124ece5e46d4ce26639468a4b9c8de7cde88457",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "error_code": null
+    }
+  ],
+  "assertions": "Full authored BC byte images, independently parsed active points, ordered quantities/units/Decimal rows, unchanged protected input bytes/inodes/mtime, retired raw slices, preview/refusal no writes",
+  "scope": "Production-source public parser/dispatch file editing only; static mesh hash sentinel. Producer replay, not independent V/G. Native G is separate.",
+  "native_execution": "not_performed",
+  "product_and_original_freeze": "unchanged"
+}

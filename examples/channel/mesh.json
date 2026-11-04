@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "name": "channel",
+  "crs": {"epsg": 32631, "kind": "projected", "unit": "m"},
+  "vertical_datum": "synthetic local zero; no geodetic vertical datum realization",
+  "vertical_datum_provenance": "User-defined synthetic zero for the analytic -3 m bed channel; no survey benchmark, geoid model, or geodetic vertical transformation is claimed.",
+  "geometry": {
+    "kind": "polygon",
+    "boundary": [[500000, 5700000], [500120, 5700000], [500120, 5700040], [500000, 5700040]],
+    "cell_size": {"x": 10, "y": 10, "unit": "m"},
+    "refinements": []
+  },
+  "bathymetry": {
+    "quantity": "bed_elevation",
+    "positive": "up",
+    "unit": "m",
+    "vertical_datum": "synthetic local zero; no geodetic vertical datum realization",
+    "method": "constant",
+    "value": -3,
+    "missing": {"policy": "error"}
+  },
+  "initial_water_level": {
+    "value": 0,
+    "unit": "m",
+    "vertical_datum": "synthetic local zero; no geodetic vertical datum realization"
+  },
+  "roughness": {"law": "Manning", "value": 0.023, "unit": "s m-1/3"}
+}

@@ -12,6 +12,7 @@ import time
 
 from .common import DfmError, utc_now, write_json
 from .windows_job import observe
+from .progress import ProgressReader, observe_progress, wall_clock, verified_time
 
 ACTIVE = {"preparing", "starting", "running", "verifying", "stopping"}
 CANCELLABLE = {"starting", "running", "stopping"}
@@ -100,6 +101,8 @@ def status(folder: Path) -> dict:
                  "unknown" if active and owner in {"unknown", "unavailable"} else record["state"])
     return {"manifest": str(folder / "manifest.json"), "record": record, "recorded_state": record["state"],
             "observations": {"owner": owner, "native": native}, "effective_state": effective,
+            "simulation_progress": observe_progress(folder, record), "wall_clock": wall_clock(record),
+            "verified_simulation_time": verified_time(record),
             "limitations": ["Point-in-time identity check; no manifest repair or output reverification"]}
 
 
@@ -155,9 +158,17 @@ def read_request(path, run_id):
         return None, str(exc)
 
 
-def monitor(process: subprocess.Popen, folder: Path, manifest: dict, save) -> int:
+def monitor(process: subprocess.Popen, folder: Path, manifest: dict, save, on_progress=None) -> int:
     deadline = time.monotonic() + manifest["timeout_seconds"]
+    progress_reader = ProgressReader(folder, manifest)
+    def update_progress(final=False):
+        observation = progress_reader.poll(final=final)
+        if observation is not None:
+            manifest["simulation_progress"] = observation
+            if on_progress is not None:
+                on_progress(observation)
     while (code := process.poll()) is None:
+        update_progress()
         request, error = read_request(folder / "cancel.request.json", manifest["run_id"])
         if error and "ignored_cancel_request" not in manifest:
             manifest["ignored_cancel_request"] = {"reason": error, "at_utc": utc_now()}
@@ -167,15 +178,27 @@ def monitor(process: subprocess.Popen, folder: Path, manifest: dict, save) -> in
             # A request may arrive as the engine finishes. Observe its retained handle again.
             code = process.poll()
             if code is not None:
+                update_progress(final=True)
                 return code
             if request:
                 manifest["cancellation"] = {"request": request, "acknowledged_at_utc": utc_now()}
-            save("stopping")
+            try:
+                save("stopping")
+            except OSError as exc:
+                # Native stop intent already exists. Retain its original cause
+                # while exposing persistent metadata failure as secondary evidence.
+                reason = "run_cancelled" if request else "run_timeout"
+                manifest["metadata_publication_error"] = {"state": "stopping", "message": str(exc), "at_utc": utc_now()}
+                raise DfmError(reason, "Native stop requested; stopping metadata could not be published", 5,
+                               {"metadata_publication_error": str(exc)}) from exc
             if request:
                 raise DfmError("run_cancelled", "Cancellation acknowledged by run owner", 5)
             raise DfmError("run_timeout", "Owned native process exceeded wall-clock timeout", 5)
         try:
-            return process.wait(timeout=min(.1, remaining))
+            code = process.wait(timeout=min(.1, remaining))
+            update_progress(final=True)
+            return code
         except subprocess.TimeoutExpired:
             pass
+    update_progress(final=True)
     return code

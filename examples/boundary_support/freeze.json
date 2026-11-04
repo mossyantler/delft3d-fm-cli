@@ -1,0 +1,19 @@
+{
+  "state": "immutable_for_independent_V_and_G",
+  "contract": "boundary-support-function-v1",
+  "representation_revision": 2,
+  "implementation": {
+    "boundary_support.py": "9f51554714989c90dbde1d2d5840830e3377c95af110826ef81502676c67c376",
+    "boundary_support_contract.py": "cb501dcd5e0d5e7bbeab24281d99d46a423430d79c48d5dfba7782c84a05e017",
+    "boundary_support_parse.py": "3b779cba7fc48ee057c24447853ea4a0fac5f458b52bc8d5170b31b9eae8683a",
+    "boundary_support_write.py": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2"
+  },
+  "producer_receipt": "producer-receipt.json",
+  "producer_receipt_sha256": "5293199fd7777a174639c949388c804ff0b08966df8675c367d06e7c6838694c",
+  "contract_file": "contract.json",
+  "contract_sha256": "3bfda5bded65cc5acda6d25159aef4dc2728d53e48cc52d22b34f6ab9ba59f18",
+  "historical_rejected_freeze": "history/freeze-01/freeze.json",
+  "historical_rejected_freeze_sha256": "cbba9c10159a4b6dab5a5fa0e5679a69ed79a651add1e2ddaf737391e890273f",
+  "native_execution": "not_performed",
+  "gate": "independent_review_and_native_replay_pending_after_G02_block"
+}

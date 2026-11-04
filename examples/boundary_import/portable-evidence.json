@@ -1,0 +1,95 @@
+{
+  "state": "passed_portable_public_import",
+  "cases": [
+    {
+      "format": "bc",
+      "mode": "replace",
+      "actions": [
+        "replaced",
+        "added",
+        "preserved"
+      ],
+      "receipt_sha256": "96b6b7e879ae7045f01f3927f558ca760362fdf92b722d5d41ec92b1989b0862",
+      "before_sha256": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+      "after_sha256": "f070c6a216a23238a8b3a22abf083e65fbe9ad933323c639872bc5261993f411",
+      "west_prefix_preserved": true
+    },
+    {
+      "format": "bc",
+      "mode": "extend",
+      "actions": [
+        "preserved",
+        "added",
+        "preserved"
+      ],
+      "receipt_sha256": "dbb78cbad435f0f453bebf7f0eb8b98e6469a5f0169a8f85f37a27ad376c2ae1",
+      "before_sha256": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+      "after_sha256": "bf49417d170f006123f0dd737a55cd7c89a8ed35cc2f551ffadef364377bf398",
+      "west_prefix_preserved": true
+    },
+    {
+      "format": "bc",
+      "mode": "overwrite-all",
+      "actions": [
+        "replaced",
+        "added",
+        "cleared"
+      ],
+      "receipt_sha256": "effeceefb5fb853c86a0fd64132fdca458b36c5a168c81513e1496d090fb7d8f",
+      "before_sha256": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+      "after_sha256": "8240013f055bc28298ea2695f914dc79f61340c22d8e76079f892b251cf80fcc",
+      "west_prefix_preserved": true
+    },
+    {
+      "format": "csv",
+      "mode": "replace",
+      "actions": [
+        "replaced",
+        "added",
+        "preserved"
+      ],
+      "receipt_sha256": "969e528301194ca98c866e3ed143fde3b9d189f616e5d79db762d1b731ddb6f8",
+      "before_sha256": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+      "after_sha256": "f070c6a216a23238a8b3a22abf083e65fbe9ad933323c639872bc5261993f411",
+      "west_prefix_preserved": true
+    },
+    {
+      "format": "csv",
+      "mode": "extend",
+      "actions": [
+        "preserved",
+        "added",
+        "preserved"
+      ],
+      "receipt_sha256": "1f03e0b969bf7e51f780ebcd8f39789cb26b75fa03864739e7cd0816c1cff5b2",
+      "before_sha256": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+      "after_sha256": "bf49417d170f006123f0dd737a55cd7c89a8ed35cc2f551ffadef364377bf398",
+      "west_prefix_preserved": true
+    },
+    {
+      "format": "csv",
+      "mode": "overwrite-all",
+      "actions": [
+        "replaced",
+        "added",
+        "cleared"
+      ],
+      "receipt_sha256": "04ca4b05be3b9aa38ef914a4486684bb0835d4737402c95eb9a838b7917e9f16",
+      "before_sha256": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+      "after_sha256": "8240013f055bc28298ea2695f914dc79f61340c22d8e76079f892b251cf80fcc",
+      "west_prefix_preserved": true
+    }
+  ],
+  "fixture_sha256": {
+    "boundaries.bc": "be9c8d2d2eba364db4ccc6ecbb7e6631b04182cdab2bdb3d20bff30dbc49e3fd",
+    "boundaries.ext": "de22b45b367286dbbddc6727f94cbb70184af6eaebe958c206cd2e22aa23cc2f",
+    "boundary_east.pli": "aebc70d878135d95d12e174f06230ef88190504f3117138ea4636908658cb1c6",
+    "boundary_west.pli": "729d6eb6f4465ebd0c38c3182feae40275ae2316a13999ecb6259cdd15ce55c8",
+    "mesh_net.nc": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+    "model.mdu": "0259f844558f68bdfb89a4f6d9ff4c06c41adb1ae81f83a33a0322c7c89d2028",
+    "observations.xyn": "d12e53a7be104e17454ede8ff27b007c66ccb622ac88cb7d856e165a7f1fc6c7"
+  },
+  "native_execution": "not_performed",
+  "gui_execution": "not_performed",
+  "scope": "implementation replay of six private-copy cases; independent/native gates remain separate"
+}

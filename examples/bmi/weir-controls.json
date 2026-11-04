@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "crs": {"epsg": 32631, "unit": "m"},
+  "vertical_datum": "synthetic local zero; no geodetic vertical datum realization",
+  "weirs": [
+    {"id": "control", "unit": "m", "minimum": -3, "maximum": 2, "initial": -1, "transfer": "dimr_address_scalar"}
+  ]
+}

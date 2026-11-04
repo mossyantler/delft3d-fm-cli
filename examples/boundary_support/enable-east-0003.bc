@@ -1,0 +1,16 @@
+[General]
+fileVersion = 1.01
+fileType = boundConds
+
+# Explicit replacement data for one inactive point; adjust the exact Name.
+[Forcing]
+Name = east_0003
+Function = harmonic
+Quantity = harmonic component
+Unit = minutes
+Quantity = waterlevelbnd amplitude
+Unit = m
+Quantity = waterlevelbnd phase
+Unit = deg
+0 0.15 0
+12 0.03 45

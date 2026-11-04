@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "crs": {"epsg": 32631, "unit": "m"},
+  "vertical_datum": "synthetic local zero; no geodetic vertical datum realization",
+  "weirs": []
+}

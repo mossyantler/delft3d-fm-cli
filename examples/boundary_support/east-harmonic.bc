@@ -1,0 +1,27 @@
+[General]
+fileVersion = 1.01
+fileType = boundConds
+
+[Forcing]
+Name = east_0001
+Function = harmonic
+Quantity = harmonic component
+Unit = minutes
+Quantity = waterlevelbnd amplitude
+Unit = m
+Quantity = waterlevelbnd phase
+Unit = deg
+0 0.10 0
+12 0.02 30
+
+[Forcing]
+Name = east_0002
+Function = harmonic
+Quantity = harmonic component
+Unit = minutes
+Quantity = waterlevelbnd amplitude
+Unit = m
+Quantity = waterlevelbnd phase
+Unit = deg
+0 0.15 0
+12 0.03 45

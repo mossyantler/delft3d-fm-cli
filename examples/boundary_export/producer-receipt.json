@@ -1,0 +1,8 @@
+{
+  "kind": "boundary_export_producer_receipt_index",
+  "raw_receipt": "../../research/experiments/B04-EXPORT-I-freeze-01/producer-receipt.json",
+  "raw_receipt_sha256": "6038825938fc88ffd2d543ea1a38fd94d2cc2df11608f94a62d00e95750feb74",
+  "authoritative_freeze": "../../research/experiments/B04-EXPORT-I-freeze-01/freeze.json",
+  "authoritative_freeze_sha256": "5ce57af541291276bd865e122bf09976fc3a76f13d3ad895f013f14034da5b57",
+  "scope": "Portable evidence link only; this index is not the raw machine-specific producer receipt"
+}

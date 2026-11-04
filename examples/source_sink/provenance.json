@@ -1,0 +1,112 @@
+{
+  "source_experiment": "B06-SOURCES-V-inputs-03",
+  "source_manifest_sha256": "eebdb7bb5056702028ea849be6c835a16861b3150bf08688f06ac38e56002251",
+  "examples": {
+    "inline-outfall-5": {
+      "independent_case": "point-inline-delta-05",
+      "files": {
+        "model.mdu": {
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231
+        },
+        "mesh_net.nc": {
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036
+        },
+        "observations.xyn": {
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92
+        },
+        "fixed_sections.pli": {
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48
+        },
+        "sources.ext": {
+          "sha256": "36e78a4d485e139ee515010a6f5f4aa37f8b1cc08c2f12344743581f5b45aa54",
+          "bytes": 330
+        },
+        "source.bc": {
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628
+        }
+      },
+      "omitted_unreferenced_auxiliaries": [
+        "pair.pli",
+        "point.pli"
+      ],
+      "input_changes": "none to six native-referenced files"
+    },
+    "inline-outfall-15": {
+      "independent_case": "point-inline-delta-15",
+      "files": {
+        "model.mdu": {
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231
+        },
+        "mesh_net.nc": {
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036
+        },
+        "observations.xyn": {
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92
+        },
+        "fixed_sections.pli": {
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48
+        },
+        "sources.ext": {
+          "sha256": "36e78a4d485e139ee515010a6f5f4aa37f8b1cc08c2f12344743581f5b45aa54",
+          "bytes": 330
+        },
+        "source.bc": {
+          "sha256": "291894b16285bb6452e543b3f2d4e9bd4de67bb575e55faae9177416e074f09c",
+          "bytes": 630
+        }
+      },
+      "omitted_unreferenced_auxiliaries": [
+        "pair.pli",
+        "point.pli"
+      ],
+      "input_changes": "none to six native-referenced files"
+    },
+    "inline-intake-outfall-5": {
+      "independent_case": "pair-inline-delta-05",
+      "files": {
+        "model.mdu": {
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231
+        },
+        "mesh_net.nc": {
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036
+        },
+        "observations.xyn": {
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92
+        },
+        "fixed_sections.pli": {
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48
+        },
+        "sources.ext": {
+          "sha256": "83a48c140d41a702eb5e0afa09dee91c089cd738a58f0cb3cc72c71c20efcf8d",
+          "bytes": 345
+        },
+        "source.bc": {
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628
+        }
+      },
+      "omitted_unreferenced_auxiliaries": [
+        "pair.pli",
+        "point.pli"
+      ],
+      "input_changes": "none to six native-referenced files"
+    }
+  },
+  "native_evidence_scope": "Slot215 separate raw numeric readback supports these inline Delta cases only; original thirteen-case frozen gate not globally accepted",
+  "GUI_parity": "unverified",
+  "vertical_datum": "synthetic local zero",
+  "XY": "EPSG32631 projected metres"
+}

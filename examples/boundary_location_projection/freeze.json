@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "state": "implementation_frozen_pending_independent_V_and_G",
+  "contract": "boundary-location-projection-adapter-v1",
+  "source": {
+    "path": "src/dfm_cli/boundary_location_projection.py",
+    "sha256": "eff145cfceb7f5effe047224e43a36d517039a568b80bf1f1f41d09f51c62cfb"
+  },
+  "frozen_helper": {
+    "path": "src/dfm_cli/boundary_location_crs.py",
+    "sha256": "532bee3076c76a58a745aace2e41227656c0d49433787bbf71397744cf5c789b"
+  },
+  "API": "project_locations(raw, parsed, *, mdu, source_crs, target_crs, source_unit, target_unit) -> (bytes, JSON-safe evidence)",
+  "required_units": [
+    "degree",
+    "m"
+  ],
+  "target_profile_EPSG": [
+    "32601..32660",
+    "32701..32760",
+    5179,
+    28992,
+    3857,
+    4326,
+    4258,
+    4737
+  ],
+  "self_check": {
+    "script": "examples/boundary_location_projection/check_projection.py",
+    "sha256": "9fbb281f6e529f68f13bbdfcf964b024599c0df1d85a865a8c2ff414be286338",
+    "cases": 42,
+    "evidence": "research/experiments/B04-CRS-ADAPTER-I-selfcheck-03/verification.json",
+    "evidence_sha256": "c4a67d352dd00d7ef0b1f2c7eedfa4a4157d1675e6dee59f044517ec9d7f18b0",
+    "actual_M3_receipt": "research/experiments/B04-CRS-ADAPTER-I-selfcheck-03/actual-M3-receipt.json",
+    "actual_M3_receipt_sha256": "be0b980ded3f0230e19ea5c3488bf5914cfa4bf92f239580ec329351090ba935"
+  },
+  "known_M3_mesh_sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+  "known_M3_mdu_sha256": "0259f844558f68bdfb89a4f6d9ff4c06c41adb1ae81f83a33a0322c7c89d2028",
+  "runtime": {
+    "netCDF4": "1.7.5.1.post1",
+    "numpy": "2.5.4",
+    "pyproj": "3.7.2",
+    "PROJ": "9.5.1",
+    "EPSG_database": "v11.022",
+    "EPSG_database_date": "2024-11-05"
+  },
+  "independent_V": "pending",
+  "G_and_public_authoring_integration": "pending",
+  "native_suite_launches": 0,
+  "limits": [
+    "Read-only adapter; no CLI/dependency/as-is/helper edits.",
+    "Unbound geometry only; no mesh containment, snapping, vertical changes or scientific validation.",
+    "One flat 2D UGRID, explicit scalar mapping on X/Y; unknown/ambiguous/conflicting CRS refused.",
+    "NetFile <=256MiB and <=1000000 nodes; source PLI/MDU <=16MiB.",
+    "Actual read-only NetCDF handle with before/after identity and full SHA256 checks; no writer lock."
+  ]
+}

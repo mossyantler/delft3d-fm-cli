@@ -1,0 +1,73 @@
+{
+  "state": "frozen_for_independent_review",
+  "contract": "preserved-waterlevel-import-v1",
+  "public_preview_receipt_sha256": "ffa4d85ad9177be5dd487b1a4d7a01aa39438d545e357044343ba9b47d052825",
+  "public_preview_input_sha256": "4f29580c678368df7ca3012804702a09a564d67b96498a9c86be9c54be4f53e4",
+  "preview_stdout_sha256": "e6cffada5ee2d93fb84de145f80a19bc8233021f5c38f48f617260b9c5d40d25",
+  "implementation": {
+    "boundary_import.py": "aab9c8cf9e05a63c900a17d2fd4529d1ee36ce161d24c4d0176c396103ea9388",
+    "boundary_import_contract.py": "156efa823226a09e60bc9b2a09ffc2f52499890bcc5d0b975642eabff3c61de2",
+    "boundary_import_graph.py": "0f46c35e8719a1685adacaf532e1fb06ee0f76ea9b0355b3620654cccc33df1e",
+    "boundary_import_parse.py": "9c8a8780dfbdbfadc6aada338c7c7209730e8e48a24f889bb2215d258e2a28ef"
+  },
+  "io_observation": [
+    {
+      "phase": "preview",
+      "median_seconds": 0.0693879000027664,
+      "samples": [
+        {
+          "streams": 1,
+          "bytes": 33560644,
+          "elapsed_seconds": 0.08934630000294419
+        },
+        {
+          "streams": 1,
+          "bytes": 33560644,
+          "elapsed_seconds": 0.06707679999817628
+        },
+        {
+          "streams": 1,
+          "bytes": 33560644,
+          "elapsed_seconds": 0.0693879000027664
+        }
+      ]
+    },
+    {
+      "phase": "apply",
+      "median_seconds": 0.09713379999811877,
+      "samples": [
+        {
+          "streams": 2,
+          "bytes": 67121288,
+          "elapsed_seconds": 0.09685420000096201
+        },
+        {
+          "streams": 2,
+          "bytes": 67121288,
+          "elapsed_seconds": 0.09713379999811877
+        },
+        {
+          "streams": 2,
+          "bytes": 67121288,
+          "elapsed_seconds": 0.09771600000021863
+        }
+      ]
+    }
+  ],
+  "valid_100k_knots": {
+    "patches_total": 200000,
+    "retained": 256,
+    "omitted": 199744,
+    "stdout_bytes": 53232,
+    "all_spans_sha256": "b16ce4cfb062775f57502923f1bf102282d84bc6e1b86887e8f6f6d1195aa5ac"
+  },
+  "checks": {
+    "independent_authored_portable_tests": 42,
+    "public_mode_cases": 6,
+    "late_preserved_stamp_content_checks": 8,
+    "changed_and_noop_final_content_rechecks": "passed",
+    "no_op_does_not_rewrite": "passed"
+  },
+  "scope": "Implementation portable evidence only; independent V/G and native physics remain separate",
+  "native_execution_by_implementation": "not_performed"
+}

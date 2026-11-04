@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "pinned_waves_07",
+  "profile": "waves",
+  "source": {
+    "root": "../../research/experiments/E015-coordinator-source-01/examples/dflowfm/07_dwaves",
+    "files": ["wave/coastw.grd", "wave/coastw20.dep", "wave/obw.mdw", "wave/obw.obs", "wave/obw.pol", "wave/points.xy"]
+  },
+  "clock": {"reference": "2000-07-14T00:00:00Z", "start": "2000-07-14T00:00:00Z", "stop": "2000-07-14T01:00:00Z"},
+  "components": [
+    {"name": "Waves", "library": "wave", "working_dir": "wave", "input_file": "obw.mdw", "process": [0], "settings": [], "parameters": []}
+  ],
+  "control": [{"kind": "start", "name": "Waves"}],
+  "couplers": [],
+  "patches": [],
+  "observables": [
+    {"component": "Waves", "path": "wave/wavm-obw.nc", "format": "netcdf", "variable": "hsign", "unit": "m", "time_variable": "time", "interval": {"value": 3600, "unit": "s"}, "nonzero": true}
+  ]
+}

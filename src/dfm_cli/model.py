@@ -9,10 +9,34 @@ from pathlib import Path
 import re
 
 from .common import DfmError, atomic_bytes, inside, sha
+from .output_schedule import SETTING as RESTART_INTERVAL_SETTING
+from .fm_model_identity import observe as observe_fm_identity, require as require_fm_identity
 
 SETTINGS = {
     "output/hisinterval": {"unit": "seconds", "type": "positive scalar decimal", "scope": "Existing single-value interval only"},
     "output/mapinterval": {"unit": "seconds", "type": "positive scalar decimal", "scope": "Existing single-value interval only"},
+    "output/rstinterval": RESTART_INTERVAL_SETTING,
+    "output/wrishp_obs": {
+        "type": "exact ASCII binary token", "allowed_values": ["0", "1"], "unit": "1",
+        "scope": "Existing unique target address only; old and new tokens must be 0 or 1; unrelated repeated keys/blocks preserved",
+        "effects": {"0": "Disable observation-station shapefile output",
+                    "1": "Request grid-snapped observation-station shapefiles when stations and native writer support are available"},
+        "observed_native_case": {"experiment": "O03-O04-I-native-20261105-02", "route": "direct FM, short serial f34, 600 seconds",
+                                 "files": ["f34_snapped_obs.shp", "f34_snapped_obs.shx", "f34_snapped_obs.dbf"]},
+        "limits": ["The observed case wrote no PRJ; CRS correctness and GUI/editor ownership are unverified",
+                   "Editing does not run the engine or guarantee GIS output for other models/installations"],
+        "preview_hash_scope": "MDU bytes; same model set preview/apply contract"},
+    "output/wrihis_balance": {
+        "type": "exact ASCII binary token", "allowed_values": ["0", "1"], "unit": "1",
+        "scope": "Existing unique target address only; old and new tokens must be 0 or 1; unrelated repeated keys/blocks preserved",
+        "effects": {"0": "Omit global water-balance totals from history output",
+                    "1": "Request global water-balance totals in history output"},
+        "observed_native_case": {"experiment": "O03-O04-I-native-20261105-02", "route": "direct FM, short serial f34, 600 seconds",
+                                 "disabled_effect": "36 water_balance_* history variables removed; common output values and masks unchanged"},
+        "limits": ["The variable set depends on the model; 36 is the observed f34 case only",
+                   "Controls history writing; does not establish numerical conservation or scientific validity",
+                   "Editing does not run the engine; GUI/editor ownership is unverified"],
+        "preview_hash_scope": "MDU bytes; same model set preview/apply contract"},
     "time/stopdatetime": {"type": "YYYYMMDDhhmmss", "scope": "Existing absolute stop date, later than explicit StartDateTime"},
 }
 INPUTS = {"geometry/netfile", "geometry/thindamfile", "geometry/drypointsfile", "geometry/landboundaryfile",
@@ -160,7 +184,11 @@ def inspect_mdu(mdu: Mdu) -> dict:
                             issues.append({"code": "unsupported_ext_entry", "setting": item.address})
                 except DfmError as exc:
                     issues.append({"code": exc.code, "file": str(target)})
-            elif target and target.suffix.casefold() not in OPAQUE_SUFFIXES:
+            # FM accepts polygon dry areas at this MDU address (unstruc_model.f90:2712).
+            # Treat the file as opaque; this does not validate its points or ring.
+            elif target and target.suffix.casefold() not in OPAQUE_SUFFIXES and not (
+                entry.address == "geometry/drypointsfile" and target.suffix.casefold() == ".pol"
+            ):
                 issues.append({"code": "unsupported_input_format", "path": str(target)})
         elif ("file" in key and entry.address not in OUTPUT_FILES and entry.address not in {"general/fileversion", "general/filetype"}) or entry.address in {"trachytopes/trtdef", "trachytopes/trtl"}:
             issues.append({"code": "unsupported_reference", "setting": entry.address, "value": entry.value})
@@ -185,16 +213,24 @@ def validate(path: Path) -> dict:
     return validate_mdu(Mdu(path))
 
 
-def validate_mdu(mdu: Mdu) -> dict:
+def validate_mdu(mdu: Mdu, *, fm_identity: dict | None = None) -> dict:
+    identity = observe_fm_identity(mdu) if fm_identity is None else fm_identity
+    if identity["state"] == "ambiguous":
+        require_fm_identity(mdu, observation=identity)
     report = inspect_mdu(mdu)
+    report["fm_model_identity"] = identity
+    report["issues"].extend(identity["issues"])
     for address in ["output/hisinterval", "output/mapinterval"]:
         try:
             if decimal(mdu.get(address), address) <= 0:
                 raise DfmError("invalid_interval", "Interval must be positive", details=address)
         except DfmError as exc:
             report["issues"].append({"code": exc.code, "setting": address, "message": str(exc)})
-    report["checks"] = {"syntax": "passed", "references_and_limited_semantics": "passed" if not report["issues"] else "failed_or_unsupported",
+    report["checks"] = {"syntax": "passed", "fm_model_identity": identity["state"], "references_and_limited_semantics": "passed" if not report["issues"] else "failed_or_unsupported",
                         "engine_initialization": "not_performed", "simulation": "not_performed", "scientific_validation": "not_performed"}
+    if mdu.get("restart/restartfile", ""):
+        from .restart_dispatch import augment
+        return augment(report, mdu)
     return report
 
 
@@ -204,7 +240,15 @@ def edit(path: Path, setting: str, value: str, apply: bool, expected: str | None
     if setting not in SETTINGS:
         raise DfmError("unsupported_edit", "Setting is outside the first editable schema", details=SETTINGS)
     old = mdu.get(setting)
-    if setting.endswith("interval"):
+    restart_schedule = None
+    if setting == 'output/rstinterval':
+        from .output_schedule import restart_edit
+        restart_schedule = restart_edit(mdu, old, value)
+    elif setting in ('output/wrishp_obs', 'output/wrihis_balance'):
+        if type(value) is not str or value not in ('0', '1') or old not in ('0', '1'):
+            raise DfmError("invalid_scalar", "Current and proposed output-toggle values must each be the exact ASCII token 0 or 1",
+                           details={"setting": setting, "allowed_values": ["0", "1"], "current": old, "proposed": value})
+    elif setting.endswith("interval"):
         if not re.fullmatch(r"[+]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?", value):
             raise DfmError("invalid_scalar", "New interval must be one positive ASCII decimal token")
         if decimal(old, setting) <= 0 or decimal(value, setting) <= 0:
@@ -222,7 +266,10 @@ def edit(path: Path, setting: str, value: str, apply: bool, expected: str | None
         if mdu.path.read_bytes() != mdu.raw:
             raise DfmError("stale_preview", "Input changed during edit preparation", 4)
         atomic_bytes(mdu.path, changed)
-    return {"path": str(mdu.path), "setting": setting, "before": old, "after": value, "applied": apply,
+    result = {"path": str(mdu.path), "setting": setting, "before": old, "after": value, "applied": apply,
             "before_sha256": before_hash, "after_sha256": hashlib.sha256(changed).hexdigest(),
             "diff": "".join(difflib.unified_diff(mdu.raw.decode("utf-8-sig").splitlines(keepends=True), changed.decode("utf-8-sig").splitlines(keepends=True), fromfile="before", tofile="after")),
             "preservation": "Only the selected existing value token is replaced; BOM, newlines and all other bytes preserved"}
+    if restart_schedule is not None:
+        result['restart_schedule'] = restart_schedule
+    return result

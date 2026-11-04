@@ -1,0 +1,63 @@
+# Independently authored B06 V input; native UNLAUNCHED.
+# EPSG:32631; synthetic local zero; no geodetic vertical datum realization.
+[General]
+fileVersion = 1.09
+fileType = modelDef
+program = D-Flow FM
+PathsRelativeToParent = 0
+[geometry]
+NetFile = mesh_net.nc
+Kmx = 0
+BedlevType = 3
+WaterLevIni = 0
+[time]
+RefDate = 20010101
+TZone = 0
+TUnit = S
+TStart = 0
+TStop = 120
+StartDateTime = 20010101000000
+StopDateTime = 20010101000200
+DtUser = 1
+DtMax = 1
+DtInit = 1
+[numerics]
+CFLMax = 0.7
+Tlfsmo = 0
+[physics]
+Salinity = 1
+InitialSalinity = 10
+Temperature = 0
+Idensform = 0
+Dicouv = 0
+UnifFrictType = 1
+UnifFrictCoef = 0.023
+[external forcing]
+ExtForceFile =
+ExtForceFileNew = sources.ext
+[restart]
+RestartFile =
+[waves]
+WaveModelNr = 0
+[trachytopes]
+TrtRou = N
+[output]
+OutputDir = output
+ObsFile = observations.xyn
+CrsFile = fixed_sections.pli
+HisFile = model_his.nc
+MapFile = model_map.nc
+HisInterval = 1
+MapInterval = 1
+RstInterval = 120 0 120
+MapFormat = 4
+NcFormat = 3
+Wrihis_balance = 1
+Wrihis_sourcesink = 1
+Wrihis_crs_flow = 1
+Wrimap_waterlevel_s0 = 1
+Wrimap_waterlevel_s1 = 1
+Wrimap_waterdepth = 1
+Wrimap_volume1 = 1
+Wrimap_salinity = 1
+Wrimap_flow_flux_q1 = 1

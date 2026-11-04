@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "discharge": {
+    "bc": "replacement.bc"
+  },
+  "constituents": {
+    "salinityDelta": {
+      "bc": "replacement.bc"
+    }
+  }
+}

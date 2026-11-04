@@ -1,0 +1,36 @@
+{
+  "kind": "B10-producer-repair-selfcheck-summary",
+  "schema_version": 1,
+  "representation_revision": 2,
+  "scope": "Portable static file editing; native counterexample retained; corrected representation NOT native accepted",
+  "command": [
+    "python",
+    "-B",
+    "examples/boundary_support/selfcheck.py"
+  ],
+  "exit_code": 0,
+  "tests_passed": 25,
+  "raw_test_output": "selfcheck-output.txt",
+  "raw_test_output_sha256": "f0592387f5a59918a105bfaebe7137be09a99d158fad6ae8227bc485e581ff53",
+  "implementation": {
+    "boundary_support.py": "9f51554714989c90dbde1d2d5840830e3377c95af110826ef81502676c67c376",
+    "boundary_support_contract.py": "cb501dcd5e0d5e7bbeab24281d99d46a423430d79c48d5dfba7782c84a05e017",
+    "boundary_support_parse.py": "3b779cba7fc48ee057c24447853ea4a0fac5f458b52bc8d5170b31b9eae8683a",
+    "boundary_support_write.py": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2"
+  },
+  "native_execution": "not_performed",
+  "repair_byte_evidence": "repair-g02-offline-01.json",
+  "repair_byte_evidence_sha256": "ee996c3930af29e70f91ee63ce0d1f8069fb7b05a0153668ab96acf11dcaf80b",
+  "historical_rejected_freeze": "history/freeze-01/freeze.json",
+  "historical_rejected_freeze_sha256": "cbba9c10159a4b6dab5a5fa0e5679a69ed79a651add1e2ddaf737391e890273f",
+  "native_counterexample": {
+    "gate": "B10-G-native-02 #128",
+    "log": "research/experiments/B10-G-native-02/run-candidate-disable/stdout.log",
+    "log_sha256": "8d75f39c3cdcd0f75cbaef83bbac6274671fe11a508769117e8ec176f358eb53"
+  },
+  "source_requests": {
+    "east-harmonic.bc": "289b6afb63bbcf8d94bd21cd09754335c569c9db7c071474880aabe5ab9af960",
+    "east-linear.bc": "b2e3c74b2862d6c975870e026c50b168d2f71b75e1541bce202f486c6623c7b4",
+    "enable-east-0003.bc": "8822e07c0b989a062a31025db9bba6a0406dfb514f6b01c727879e83b54b0a11"
+  }
+}

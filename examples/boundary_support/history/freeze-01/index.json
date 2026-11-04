@@ -1,0 +1,17 @@
+{
+  "state": "historical_rejected_native_representation",
+  "reason": "B10-G-native-02 #128 rejects retirement comments in active numeric stream; portable gates did not establish native format validity",
+  "files": {
+    "freeze.json": "cbba9c10159a4b6dab5a5fa0e5679a69ed79a651add1e2ddaf737391e890273f",
+    "contract.json": "0c7c0e0d79821bc33e74b3cbc6d2afe13558ca4fb60e9fe2510b5461bc98ae6c",
+    "producer-receipt.json": "0f0387fb64b40e9e8019d0b11047447e1dc9d358616bed1a6a3871557616d649",
+    "selfcheck-output.txt": "5b84fee55f9be4ed8dd9eba16c11783ddc6abb59e4b3a45b32737a547704ccf8",
+    "selfcheck.py.txt": "5342e51ba5cbefc96d4cc91a07e75dbfa8e582655ca710b3c6949cc7a9b0fd59",
+    "public_replay.py.txt": "6312664d8502cfd34a8cec5d6d450908161c0f2b051bad4a000f1f25cc6af9be",
+    "public-replay-01.json": "a3408bd3177d372b69965e7af1860a9ed818cd244eeb68ba81d1d071c2e069cf",
+    "boundary_support.py.txt": "42cd4adacc52fd27c81ae9ad3109049dbbad2b95f1f7a5487fd2a56e34378b83",
+    "boundary_support_contract.py.txt": "41d3526eced45e980db18e03c2fab271b03ef2557212ba1024e44dfe381bf2e0",
+    "boundary_support_parse.py.txt": "d283decdc7c7d43c033cc5d2379e95895b10ec4b7f6e95fb81925b729cc64c0d",
+    "boundary_support_write.py.txt": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2"
+  }
+}

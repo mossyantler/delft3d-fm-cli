@@ -1,0 +1,6 @@
+{"id":1,"op":"initialize"}
+{"id":2,"op":"clock"}
+{"id":3,"op":"get","name":"observations/centre/water_level","unit":"m"}
+{"id":4,"op":"step","seconds":60}
+{"id":5,"op":"get","name":"observations/centre/water_level","unit":"m"}
+{"id":6,"op":"finalize"}

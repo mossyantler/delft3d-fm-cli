@@ -1,5 +1,6 @@
 """Read each generated dataset once and derive both verification and partial evidence."""
 from datetime import datetime, timedelta
+from glob import escape
 import importlib
 from pathlib import Path
 
@@ -27,7 +28,7 @@ def schedules(mdu):
     paths = output_paths(mdu)
     intervals = {paths[kind]: float(decimal(mdu.get(key), key)) for kind, key in
                  (("history", "output/hisinterval"), ("map", "output/mapinterval"))}
-    restarts = sorted(paths["directory"].glob(f"{mdu.path.stem}_*_rst.nc"))
+    restarts = sorted(paths["directory"].glob(f"{escape(mdu.path.stem)}_*_rst.nc"))
     return paths, intervals, restarts
 
 
@@ -62,7 +63,7 @@ def read_axis(path, digest, clock, interval, snapshot):
         raise DfmError("unreadable_output", "Cannot read/decode NetCDF output", 6, {"path": str(path), "reason": str(exc)}) from exc
 
 
-def verified(paths, restarts, axes):
+def verified(paths, restarts, axes, *, checkpoint_schedule=None):
     def axis(path):
         result = axes.get(path)
         if result is None:
@@ -72,10 +73,17 @@ def verified(paths, restarts, axes):
         return result
     regular = {kind: axis(paths[kind]) for kind in ("history", "map")}
     checkpoints = [axis(path) for path in restarts]
-    if not any(a["requested_final_time_matches"] for a in checkpoints):
+    schedule_check = {}
+    if checkpoint_schedule is not None:
+        from .checkpoint_schedule import assess
+        receipt = assess(checkpoint_schedule, checkpoints)
+        if receipt["state"] != "passed":
+            raise DfmError("checkpoint_schedule_mismatch", "Observed CF checkpoint times differ from the configured restart schedule", 6, receipt)
+        schedule_check["checkpoint_schedule"] = receipt
+    elif not any(a["requested_final_time_matches"] for a in checkpoints):
         raise DfmError("missing_final_restart", "No restart dataset has the requested final time", 6)
     return {"verified_at_utc": utc_now(), "state": "passed", "axes": regular, "restart_axes": checkpoints,
-            "scientific_validation": "not_performed", "scope": "CF times and cadence only"}
+            "scientific_validation": "not_performed", "scope": "CF times and cadence only", **schedule_check}
 
 
 def collect_outputs(folder, manifest, *, verify, digests=None):
@@ -102,7 +110,7 @@ def collect_outputs(folder, manifest, *, verify, digests=None):
             snapshot.update(read_error=str(exc), error_code=exc.code)
             axes[path] = exc
     if verify:
-        return verified(paths, restarts, axes)
+        return verified(paths, restarts, axes, checkpoint_schedule=manifest["profile"].get("checkpoint_schedule"))
 
 
 def verify_outputs(mdu_path, expected_clock):

@@ -1,0 +1,41 @@
+{
+  "state": "immutable_for_independent_V_and_G",
+  "contract": "standalone-boundary-collection-v1",
+  "implementation": {
+    "boundary_export.py": "9877306f4d1d33886a56eb44e049bcd413d41de9e9501c01e5db530834d452b1",
+    "boundary_export_contract.py": "360234f5665970c72ac40133b00290093edd163a9bc731ed2ff4ad88762ddab7",
+    "boundary_export_graph.py": "53d5fbd4b9c8145350662dddfd2734bebfe47fc8559d68910e114da5a38e2a87",
+    "boundary_export_stage.py": "80ae119ed4fa25df71e71e09cbab530f937852846d834b688c6303057b973fae"
+  },
+  "producer_receipt": "../../research/experiments/B04-EXPORT-I-freeze-01/producer-receipt.json",
+  "producer_receipt_sha256": "6038825938fc88ffd2d543ea1a38fd94d2cc2df11608f94a62d00e95750feb74",
+  "public_modes": {
+    "all": {
+      "positions": 2,
+      "signals": 1,
+      "blocks": 12
+    },
+    "boundary": {
+      "positions": 2,
+      "signals": 2,
+      "blocks": 12
+    },
+    "process": {
+      "positions": 2,
+      "signals": 2,
+      "blocks": 12
+    },
+    "quantity": {
+      "positions": 2,
+      "signals": 3,
+      "blocks": 12
+    }
+  },
+  "portable_tests_passed": 28,
+  "stage_reassignment_reproductions": "successful/failing publication peer path and foreign content preserved",
+  "native_execution_by_implementation": "not_performed",
+  "kind": "boundary_export_freeze_index",
+  "authoritative_freeze": "../../research/experiments/B04-EXPORT-I-freeze-01/freeze.json",
+  "authoritative_freeze_sha256": "5ce57af541291276bd865e122bf09976fc3a76f13d3ad895f013f14034da5b57",
+  "packaging_scope": "Portable relative index; authoritative freeze and raw producer receipt archived byte-for-byte; product source hashes unchanged"
+}

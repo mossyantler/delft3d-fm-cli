@@ -1,0 +1,16 @@
+{
+  "state": "immutable_for_independent_V_and_G",
+  "contract": "boundary-support-function-v1",
+  "implementation": {
+    "boundary_support.py": "42cd4adacc52fd27c81ae9ad3109049dbbad2b95f1f7a5487fd2a56e34378b83",
+    "boundary_support_contract.py": "41d3526eced45e980db18e03c2fab271b03ef2557212ba1024e44dfe381bf2e0",
+    "boundary_support_parse.py": "d283decdc7c7d43c033cc5d2379e95895b10ec4b7f6e95fb81925b729cc64c0d",
+    "boundary_support_write.py": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2"
+  },
+  "producer_receipt": "producer-receipt.json",
+  "producer_receipt_sha256": "0f0387fb64b40e9e8019d0b11047447e1dc9d358616bed1a6a3871557616d649",
+  "contract_file": "contract.json",
+  "contract_sha256": "0c7c0e0d79821bc33e74b3cbc6d2afe13558ca4fb60e9fe2510b5461bc98ae6c",
+  "native_execution": "not_performed",
+  "gate": "independent_review_pending"
+}

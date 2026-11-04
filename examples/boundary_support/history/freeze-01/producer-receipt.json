@@ -1,0 +1,27 @@
+{
+  "kind": "B10-producer-selfcheck-summary",
+  "schema_version": 1,
+  "scope": "Portable static register/execute and file editor checks; not independent V/G or native validation",
+  "command": [
+    "python",
+    "-B",
+    "examples/boundary_support/selfcheck.py"
+  ],
+  "exit_code": 0,
+  "tests_passed": 22,
+  "raw_test_output": "selfcheck-output.txt",
+  "raw_test_output_sha256": "5b84fee55f9be4ed8dd9eba16c11783ddc6abb59e4b3a45b32737a547704ccf8",
+  "implementation": {
+    "boundary_support.py": "42cd4adacc52fd27c81ae9ad3109049dbbad2b95f1f7a5487fd2a56e34378b83",
+    "boundary_support_contract.py": "41d3526eced45e980db18e03c2fab271b03ef2557212ba1024e44dfe381bf2e0",
+    "boundary_support_parse.py": "d283decdc7c7d43c033cc5d2379e95895b10ec4b7f6e95fb81925b729cc64c0d",
+    "boundary_support_write.py": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2"
+  },
+  "native_execution": "not_performed",
+  "shared_cli_registration": "parent_owned; hooks tested with test-only argparse parser",
+  "source_requests": {
+    "east-harmonic.bc": "289b6afb63bbcf8d94bd21cd09754335c569c9db7c071474880aabe5ab9af960",
+    "east-linear.bc": "b2e3c74b2862d6c975870e026c50b168d2f71b75e1541bce202f486c6623c7b4",
+    "enable-east-0003.bc": "8822e07c0b989a062a31025db9bba6a0406dfb514f6b01c727879e83b54b0a11"
+  }
+}

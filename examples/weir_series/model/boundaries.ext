@@ -1,0 +1,13 @@
+[General]
+fileVersion = 2.02
+fileType = extForce
+
+[Boundary]
+quantity = waterlevelbnd
+locationFile = boundary_west.pli
+forcingFile = boundaries.bc
+
+[Boundary]
+quantity = waterlevelbnd
+locationFile = boundary_east.pli
+forcingFile = boundaries.bc

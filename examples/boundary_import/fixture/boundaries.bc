@@ -1,0 +1,47 @@
+[General]
+fileVersion = 1.01
+fileType = boundConds
+
+[Forcing]
+Name = west_0001
+Function = harmonic
+Quantity = harmonic component
+Unit = minutes
+Quantity = waterlevelbnd amplitude
+Unit = m
+Quantity = waterlevelbnd phase
+Unit = deg
+10 0.05 90
+
+[Forcing]
+Name = west_0002
+Function = harmonic
+Quantity = harmonic component
+Unit = minutes
+Quantity = waterlevelbnd amplitude
+Unit = m
+Quantity = waterlevelbnd phase
+Unit = deg
+10 0.05 90
+
+[Forcing]
+Name = east_0001
+Function = timeseries
+Time-interpolation = linear
+Quantity = time
+Unit = seconds since 2001-01-01 00:00:00 +00:00
+Quantity = waterlevelbnd
+Unit = m
+0 0
+120 0
+
+[Forcing]
+Name = east_0003
+Function = timeseries
+Time-interpolation = linear
+Quantity = time
+Unit = seconds since 2001-01-01 00:00:00 +00:00
+Quantity = waterlevelbnd
+Unit = m
+0 0
+120 0

@@ -1,0 +1,27 @@
+test_active_enable_inactive_disable_and_missing_source_refused (__main__.SupportChecks.test_active_enable_inactive_disable_and_missing_source_refused) ... ok
+test_changed_source_request_and_all_graph_bytes_stale (__main__.SupportChecks.test_changed_source_request_and_all_graph_bytes_stale) ... ok
+test_destination_BOM_preserved_and_compatibility_reported (__main__.SupportChecks.test_destination_BOM_preserved_and_compatibility_reported) ... ok
+test_different_empty_function_stays_inactive_and_preserved (__main__.SupportChecks.test_different_empty_function_stays_inactive_and_preserved) ... ok
+test_disable_full_data_recoverable (__main__.SupportChecks.test_disable_full_data_recoverable) ... ok
+test_enable_public_hooks (__main__.SupportChecks.test_enable_public_hooks) ... ok
+test_enable_replaces_explicit_empty_block_only (__main__.SupportChecks.test_enable_replaces_explicit_empty_block_only) ... ok
+test_extra_graph_weather_and_observation_same_stamp_stale (__main__.SupportChecks.test_extra_graph_weather_and_observation_same_stamp_stale) ... ok
+test_failure_does_not_clean_reoccupied_stage (__main__.SupportChecks.test_failure_does_not_clean_reoccupied_stage) ... ok
+test_final_content_recheck_after_staging (__main__.SupportChecks.test_final_content_recheck_after_staging) ... ok
+test_function_both_directions_hooks (__main__.SupportChecks.test_function_both_directions_hooks) ... ok
+test_last_active_disable_refused (__main__.SupportChecks.test_last_active_disable_refused) ... ok
+test_line_function_coverage_clock_and_receipt_digest (__main__.SupportChecks.test_line_function_coverage_clock_and_receipt_digest) ... ok
+test_mixed_enable_and_current_line_refused (__main__.SupportChecks.test_mixed_enable_and_current_line_refused) ... ok
+test_required_consent_and_bad_hash (__main__.SupportChecks.test_required_consent_and_bad_hash) ... ok
+test_same_function_refused (__main__.SupportChecks.test_same_function_refused) ... ok
+test_source_missing_surplus_duplicate_case_collision_refused (__main__.SupportChecks.test_source_missing_surplus_duplicate_case_collision_refused) ... ok
+test_stage_content_mutation_in_final_recheck_refused_without_deleting_peer (__main__.SupportChecks.test_stage_content_mutation_in_final_recheck_refused_without_deleting_peer) ... ok
+test_success_does_not_clean_reoccupied_stage (__main__.SupportChecks.test_success_does_not_clean_reoccupied_stage) ... ok
+test_unhandled_input_alias_and_traversal_refused (__main__.SupportChecks.test_unhandled_input_alias_and_traversal_refused) ... ok
+test_unknown_sections_metadata_and_unrecognized_functions_refused (__main__.SupportChecks.test_unknown_sections_metadata_and_unrecognized_functions_refused) ... ok
+test_wrong_boundary_point_function_units_clock_coverage_refused (__main__.SupportChecks.test_wrong_boundary_point_function_units_clock_coverage_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 2.095s
+
+OK

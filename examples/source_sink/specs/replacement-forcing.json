@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "id": "intake-A.1",
+  "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+  "columns": [
+    {
+      "quantity": "sourcesink_discharge",
+      "unit": "m3/s"
+    },
+    {
+      "quantity": "sourcesink_salinityDelta",
+      "unit": "ppt"
+    }
+  ],
+  "rows": [
+    [
+      "0",
+      "0.1",
+      "15"
+    ],
+    [
+      "120",
+      "0.1",
+      "15"
+    ]
+  ]
+}

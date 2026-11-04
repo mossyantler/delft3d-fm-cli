@@ -1,0 +1,9 @@
+{
+  "time_unit": "seconds since 2026-01-01 00:00:00 +00:00",
+  "value_unit": "m",
+  "insert": [
+    {"time": "30", "value": "0.20"},
+    {"time": "60", "value": "-0.06"}
+  ],
+  "delete": []
+}

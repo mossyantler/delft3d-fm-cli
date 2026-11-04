@@ -1,0 +1,27 @@
+[General]
+fileVersion = 1.01
+fileType = boundConds
+
+[Forcing]
+Name = east_0001
+Function = timeseries
+Time-interpolation = linear
+Quantity = time
+Unit = seconds since 2001-01-01 00:00:00 +00:00
+Quantity = waterlevelbnd
+Unit = m
+0 0
+60 0.12
+120 0.12
+
+[Forcing]
+Name = east_0002
+Function = timeseries
+Time-interpolation = linear
+Quantity = time
+Unit = seconds since 2001-01-01 00:00:00 +00:00
+Quantity = waterlevelbnd
+Unit = m
+0 0
+60 0.06
+120 0.06

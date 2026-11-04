@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "scope": "Fixed tracked vertical-cell.json; byte-exact native preparation, no new native validation",
+  "spec_sha256": "3b422b18903a0a5df21a47b97dc8a68fbbe844ecdae4e96177810bbd35563c46",
+  "baseline_hashes": {
+    "boundaries.bc": "3eec8b091fefe6b57ddd5de92c60f258b8c43b57104d6466aa505a637fadd617",
+    "boundaries.ext": "d888b7648b28a4aad82ebe578a3ac88041eb254c43ee935b456f6a9387c4be8c",
+    "boundary_east.pli": "db66da4470f7bb8112cc2a8d3df445df734364c36361a0c6d76113010d258671",
+    "boundary_west.pli": "87a8af3f1c80fec5ac7ed5ae3480503d27a9d4faadbcdbe33bfb2014f2bfbb63",
+    "initial.ini": "3391f64292c54eefccc20c3f20032ef24b6216840292273f78a1f4c8c039a127",
+    "initial_salinity.pli": "d56342fdb3b971f1f135e9c915fdb3ab19b9501e8518f35cc811d1b44354ad67",
+    "mesh_net.nc": "60c6b83f3a460164dbb815777bf31472cdde6d9047bfdcb428f8b37b58d51f0e",
+    "model.mdu": "c7dd028f4917d420cbc68942bbab2a7cc9b5fc12875d0a8525f96d7d2f4b8d52",
+    "observations.xyn": "08c788739ed938d495fbb7b67a5f4487380884f9307baa4489256d51c33a8c3e"
+  },
+  "request": {
+    "point": "west_0001",
+    "quantity": "salinitybnd",
+    "time": "20",
+    "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+    "position": "0.4",
+    "position_type": "percBed",
+    "unit": "ppt"
+  },
+  "single_cell": {
+    "raw": "20",
+    "start": 636,
+    "end": 638,
+    "line": 35,
+    "physical_column_one_based": 3,
+    "vertical_index_one_based": 2,
+    "block_start": 241,
+    "block_end": 642,
+    "point": "west_0001",
+    "quantity": "salinitybnd",
+    "time": "20",
+    "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+    "position": "0.4",
+    "position_type": "percBed",
+    "unit": "ppt",
+    "before_raw": "20",
+    "after_raw": "22",
+    "before_sha256": "3eec8b091fefe6b57ddd5de92c60f258b8c43b57104d6466aa505a637fadd617",
+    "after_sha256": "0d96c20aad97492e3a88260cd4a09ff71dc60e03d411918edd4fd870bbb61fe6"
+  },
+  "manual_bc_sha256": "0d96c20aad97492e3a88260cd4a09ff71dc60e03d411918edd4fd870bbb61fe6"
+}

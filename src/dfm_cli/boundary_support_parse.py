@@ -1,0 +1,77 @@
+"""B10 explicit full BC signals; reuse pinned harmonic and series validators."""
+from pathlib import Path
+import re
+
+from . import boundary
+from .boundary_import import _load, _external
+from .boundary_import_parse import blocks, linear
+from .boundary_series_parse import _clock
+from .common import DfmError
+
+GENERAL = b"[General]\nfileVersion=1.01\nfileType=boundConds\n"
+
+
+def fail(code, message, details=None, exit_code=3):
+    raise DfmError("boundary_support_" + code, message, exit_code, details)
+
+
+def direct_path(path):
+    if not isinstance(path, (str, Path)) or ".." in Path(path).parts:
+        fail("path", "Explicit input paths must not contain parent traversal", str(path))
+    return Path(path)
+
+
+def signals(graph, path, raw):
+    if re.search(rb"(?im)^[ \t]*#[ \t]*boundary-support[ \t]+retired:", raw):
+        fail("legacy_retirement", "Historical commented retirement can enter a native numeric stream; use a fresh unchanged baseline/source", str(path))
+    parsed = blocks(raw, path)
+    if sum(len(item["block"].rows) for item in parsed) > 100000:
+        fail("bound", "BC exceeds 100000 aggregate data rows")
+    result = {}
+    for item in parsed:
+        if item["function"] == "timeseries":
+            info = linear(graph, path, item, allow_empty=True)
+            info["active"] = not info["empty"]
+            info["rows_count"] = len(info["rows"])
+            # Full validated bytes are retained separately; avoid a second copy
+            # of giant structured knot arrays in the receipt.
+            del info["rows"]
+        elif item["function"] == "harmonic":
+            info = boundary._bc(GENERAL + item["raw"], path)[item["name"].casefold()]
+            info = {"active": True, "rows_count": len(info["components"]),
+                    "units": info["units"], "quantity": "waterlevelbnd"}
+        else:
+            fail("function", "Unknown BC function is refused, including unrelated blocks", item["name"])
+        result[item["name"]] = dict(item, info=info)
+    return result
+
+
+def load(mdu, label):
+    graph, selected, supports, target = _load(direct_path(mdu), label)
+    _clock(graph)
+    if not 1 <= len(supports) <= 64:
+        fail("bound", "Selected line must contain 1 to 64 PLI supports")
+    original = graph.inputs.raw(target)
+    current = signals(graph, target, original)
+    active = {name for name in supports if name in current and current[name]["info"]["active"]}
+    kinds = {current[name]["function"] for name in active}
+    if len(kinds) > 1:
+        fail("mixed_function", "Selected line must have one unambiguous active function", sorted(kinds))
+    return graph, selected, supports, target, original, current, active, next(iter(kinds), None)
+
+
+def incoming(graph, source):
+    path = _external(graph, direct_path(source), 16 * 1024**2)
+    data = signals(graph, path, graph.inputs.raw(path))
+    if not 1 <= len(data) <= 64 or any(not v["info"]["active"] for v in data.values()):
+        fail("source", "Source must contain 1 to 64 complete nonempty signals")
+    for item in data.values():
+        first_data_line = item["block"].rows[0].line
+        for line_number, line in enumerate(item["raw"].splitlines(), item["block"].line):
+            if line_number >= first_data_line and line.lstrip().startswith((b"#", b";")):
+                fail("numeric_comment", "Incoming standalone comments after numeric data can enter the native numeric stream; author a clean explicit source, no silent stripping",
+                     {"path": str(path), "line": line_number})
+    units = {v["info"]["time_unit"] for v in data.values() if v["function"] == "timeseries"}
+    if len(units) > 1:
+        fail("units", "Replacement line time units and UTC origins must match exactly")
+    return path, data

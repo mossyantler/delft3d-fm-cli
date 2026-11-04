@@ -1,0 +1,117 @@
+{
+  "state": "passed_public_destination_vs_external_bom_observations",
+  "cases": [
+    {
+      "format": "bc",
+      "destination_bom": false,
+      "source_bom": false,
+      "mapping_bom": null,
+      "observation": "no_leading_utf8_bom",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "bc",
+      "destination_bom": false,
+      "source_bom": true,
+      "mapping_bom": null,
+      "observation": "no_leading_utf8_bom",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "bc",
+      "destination_bom": true,
+      "source_bom": false,
+      "mapping_bom": null,
+      "observation": "known_native_marker_incompatibility",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "bc",
+      "destination_bom": true,
+      "source_bom": true,
+      "mapping_bom": null,
+      "observation": "known_native_marker_incompatibility",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": false,
+      "source_bom": false,
+      "mapping_bom": false,
+      "observation": "no_leading_utf8_bom",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": false,
+      "source_bom": false,
+      "mapping_bom": true,
+      "observation": "no_leading_utf8_bom",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": false,
+      "source_bom": true,
+      "mapping_bom": false,
+      "observation": "no_leading_utf8_bom",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": false,
+      "source_bom": true,
+      "mapping_bom": true,
+      "observation": "no_leading_utf8_bom",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": true,
+      "source_bom": false,
+      "mapping_bom": false,
+      "observation": "known_native_marker_incompatibility",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": true,
+      "source_bom": false,
+      "mapping_bom": true,
+      "observation": "known_native_marker_incompatibility",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": true,
+      "source_bom": true,
+      "mapping_bom": false,
+      "observation": "known_native_marker_incompatibility",
+      "normalization": false,
+      "exact_preservation": "passed"
+    },
+    {
+      "format": "csv",
+      "destination_bom": true,
+      "source_bom": true,
+      "mapping_bom": true,
+      "observation": "known_native_marker_incompatibility",
+      "normalization": false,
+      "exact_preservation": "passed"
+    }
+  ],
+  "all_nonmarker_result_bytes_identical": true,
+  "gate_sha256": "f170d18f33b3dbd3760dd1be0c6bb5b0b78ab783a9f858f23ac21a9e6ff8c4b4",
+  "native_execution": "not_performed",
+  "scope": "Implementation portable public checks; retained native A/B evidence is separately attributed"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 2,
+  "profile": "pinned06-lifecycle-dt1-v1",
+  "purpose": "lifecycle_stress_only",
+  "name": "offline_lifecycle_dt1",
+  "source_root": "../../research/experiments/E015-WQ-I-20261104-01/offline-reference06",
+  "duration_seconds": 3600,
+  "time_step_seconds": 1,
+  "output_interval_seconds": 300,
+  "mortality": {"positive": 0.8, "control": 0.0, "unit": "1/d"},
+  "common_parameters": {"TcMrtEColi": 1.07, "CTMrtEColi": 2.0},
+  "timezone": "not_encoded_in_source"
+}

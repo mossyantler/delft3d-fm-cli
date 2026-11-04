@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "quantities": {
+    "waterlevelbnd": {"process": "flow", "basis": "Example operator declaration, not a verified GUI process identity"},
+    "dischargebnd": {"process": "flow", "basis": "Example operator declaration, not a verified GUI process identity"},
+    "salinitybnd": {"process": "transport", "basis": "Example operator declaration, not a verified GUI process identity"},
+    "temperaturebnd": {"process": "transport", "basis": "Example operator declaration, not a verified GUI process identity"}
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "f34_nitrification",
+  "source_root": "../../research/experiments/E015-WQ-I-20261104-01/example03/dflowfm",
+  "duration_seconds": 3600,
+  "process_step_seconds": 60,
+  "output_interval_seconds": 300,
+  "nitrification": {
+    "positive": 1.0,
+    "control": 0.0,
+    "unit": "1/d"
+  }
+}

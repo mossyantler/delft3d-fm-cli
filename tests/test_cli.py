@@ -16,6 +16,8 @@ from dfm_cli.common import DfmError, inside
 from dfm_cli import installation, model, runs
 
 MDU = """[General]
+FileVersion = 1.09
+Program = D-Flow FM
 PathsRelativeToParent = 1
 [geometry]
 NetFile = mesh.nc

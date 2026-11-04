@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "candidate_public_recipe_pending_product_V_and_G",
+  "purpose": "Change one coefficient for all active scalar water-level points on one boundary line, preserving raw samples and every other boundary.",
+  "model_placeholders": {
+    "factor_case/model.mdu": "A dedicated copy of the user's complete supported model, initially Factor=1 and Offset=0.",
+    "offset_case/model.mdu": "A second dedicated copy of that same model. Keeping the copies separate isolates the two effects."
+  },
+  "requirements": [
+    "New EXT linkage, one exact boundary label east, one scalar physical quantity waterlevelbnd, linear timeseries and value Unit=m.",
+    "Factor is dimensionless. Offset requires explicit --unit m and inherits the model's existing vertical datum.",
+    "No CRS, vertical-datum, time-origin, raw-sample or coefficient-placement guessing.",
+    "This recipe does not create missing boundary signals, run a solver or establish GUI/ShellConsole export parity."
+  ],
+  "commands": [
+    {
+      "step": "inspect_factor_copy",
+      "argv": ["dfm", "boundary", "coefficients", "factor_case/model.mdu", "--boundary", "east", "--quantity", "waterlevelbnd"]
+    },
+    {
+      "step": "preview_factor",
+      "argv": ["dfm", "boundary", "coefficients", "factor_case/model.mdu", "--boundary", "east", "--quantity", "waterlevelbnd", "--factor", "2"],
+      "expected_effect": "All active east water levels become 2*raw+0; raw tables, existing Offset=0, west blocks and time columns remain unchanged."
+    },
+    {
+      "step": "apply_factor_after_review",
+      "argv": ["dfm", "boundary", "coefficients", "factor_case/model.mdu", "--boundary", "east", "--quantity", "waterlevelbnd", "--factor", "2", "--apply", "--expect-sha256", "<matching preview.result.input_sha256>"]
+    },
+    {
+      "step": "preview_offset_on_separate_default_copy",
+      "argv": ["dfm", "boundary", "coefficients", "offset_case/model.mdu", "--boundary", "east", "--quantity", "waterlevelbnd", "--offset", "0.125", "--unit", "m"],
+      "expected_effect": "All active east water levels become 1*raw+0.125 m; raw tables, existing Factor=1, west blocks and time columns remain unchanged."
+    },
+    {
+      "step": "apply_offset_after_review",
+      "argv": ["dfm", "boundary", "coefficients", "offset_case/model.mdu", "--boundary", "east", "--quantity", "waterlevelbnd", "--offset", "0.125", "--unit", "m", "--apply", "--expect-sha256", "<matching preview.result.input_sha256>"]
+    }
+  ],
+  "scalar_examples_m": [
+    {"raw": "0.03125", "factor_2_offset_0": "0.0625", "factor_1_offset_0_125": "0.15625"},
+    {"raw": "-0.0234375", "factor_2_offset_0": "-0.046875", "factor_1_offset_0_125": "0.1015625"}
+  ],
+  "header_rule": {
+    "valid_FM_order": ["[Forcing]", "Name = east_0001", "Function = timeseries", "Time-interpolation = linear", "Factor = 2", "Offset = 0", "Quantity = time", "Unit = <unchanged explicit time unit and origin>", "Quantity = waterlevelbnd", "Unit = m", "<unchanged numeric rows>"],
+    "scope": "Global pre-Quantity Forcing header, not a coefficient attached to a single Quantity/Unit pair. Every active selected point must be handled.",
+    "late_or_duplicate_headers": "Public editor must refuse ambiguous/ignored headers rather than silently reinterpreting or relocating them.",
+    "multiple_physical_quantities": "Outside this bounded recipe; a global coefficient could affect another requested quantity."
+  },
+  "evidence_basis": {
+    "manual": "D-Flow FM User Manual 2026.02 section7.4.8.4, printed106/PDF132; GUI attribute-table claim only.",
+    "source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+    "FM_header": "ec_bcreader.f90:516-521 (iq>0 skipped)",
+    "scalar_formula": "ec_bcreader.f90:844,856-858 (raw*factor+offset)",
+    "excluded": "Other quantities/functions, harmonic offsets, coupled/MPI execution and scientific calibration are not established by these controls."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "intake-A.1",
+  "name": "Independent V source",
+  "location": {
+    "coordinates": [["500025", "5700015"], ["500095", "5700015"]]
+  },
+  "area": "0",
+  "discharge": {"bc": "replacement.bc"},
+  "constituents": {"salinityDelta": {"bc": "replacement.bc"}}
+}

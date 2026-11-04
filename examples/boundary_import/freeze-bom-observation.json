@@ -1,0 +1,44 @@
+{
+  "state": "frozen_for_independent_review",
+  "revision": "destination_bom_observation",
+  "contract": "preserved-waterlevel-import-v1",
+  "public_preview_receipt_sha256": "84c4bb395d4e2cea35d3b1f583dbeaa3930eb46f9a159fd8a93f0132e18420ea",
+  "public_preview_input_sha256": "7ef6ad2ffb8ae817331eb536e102952f1846b8ccdafe47ebdc1a5a95682136e1",
+  "preview_stdout_sha256": "6872e67bcf4ae02ed3723ba1e62ab9f0867c2938b5136f3a79bb0e1485af6e4b",
+  "implementation": {
+    "boundary_import.py": "6132c816558b0faa35dac02f30e856535ac5c142602ccb26b24d586128ff5af1",
+    "boundary_import_contract.py": "c24bfc44ed69534da838455bae31497f9e0137a9e12f942a590e909a862326de",
+    "boundary_import_graph.py": "0f46c35e8719a1685adacaf532e1fb06ee0f76ea9b0355b3620654cccc33df1e",
+    "boundary_import_parse.py": "9c8a8780dfbdbfadc6aada338c7c7209730e8e48a24f889bb2215d258e2a28ef"
+  },
+  "retained_native_bom_observation": {
+    "gate": "B09-G-BC-BOM-01/verification.json",
+    "gate_sha256": "f170d18f33b3dbd3760dd1be0c6bb5b0b78ab783a9f858f23ac21a9e6ff8c4b4",
+    "suite_observed": "2026.02 OpenHMWQ",
+    "engine_version_observed": "1.2.184.Unknown",
+    "recorded_binary_sha256": {
+      "bin/dflowfm-cli.exe": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "lib/dflowfm.dll": "ca6de0b6d900a51ece33140b4666ca97d6875d8e60cac31e91ad072800f1df99"
+    },
+    "controlled_change": "Only the leading EF BB BF bytes were removed; remaining model bytes identical",
+    "bom_result": {
+      "engine_returncode": 1,
+      "diagnostic": "Unknown block type U+FEFF[General]"
+    },
+    "no_bom_control_result": {
+      "engine_returncode": 0,
+      "final_seconds": 120
+    },
+    "scope": "Retained native A/B observation for this suite; not execution or initialization of the selected import model",
+    "installed_source_commit": "not inferred from suite or version"
+  },
+  "checks": {
+    "existing_portable_tests": 42,
+    "public_bom_combinations": 12,
+    "bom_preservation": "passed",
+    "external_source_mapping_bom_not_propagated": "passed",
+    "all_nonmarker_results_identical": "passed"
+  },
+  "historical_freeze": "freeze.json retained unchanged; its hashes describe the earlier revision",
+  "native_execution_by_implementation": "not_performed"
+}
