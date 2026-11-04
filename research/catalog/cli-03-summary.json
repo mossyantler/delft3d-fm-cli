@@ -1,0 +1,243 @@
+{
+  "cli_version": "0.3.0",
+  "protocol_version": 2,
+  "manifest_version": 3,
+  "scope": "Windows 2026.02 OpenHMWQ; copied f34 serial fixture. Timings exclude native execution.",
+  "release_reports": {
+    "experiments/CLI-03-serial-release/verification.json": "cd9de4ecb7c595a185237a7eadc877eddcbf8450c367f9b4f0a8195874e74ffd",
+    "experiments/E009-E011-03-release/verification.json": "dffb9e00b1139be21a1d058ac8dad2fbe13a4a57f9ccbbb66fcd2d189f8a7bf9",
+    "experiments/CLI-03-performance/release-before.json": "657f4e363edf85af15530091bf83050078da1a1684b6230654cae74d9a7206a2",
+    "experiments/CLI-03-performance/release-after.json": "41d62e2a6316c02a2b3de8388651a97b756b69e9cce43a729b2f5cf5ea752f23"
+  },
+  "serial": {
+    "cli_commands": 16,
+    "baseline_unchanged": true,
+    "variables_compared": 191,
+    "datasets": {
+      "f34_his.nc": {
+        "variable_count": 68,
+        "all_variable_values_equal": true,
+        "global_attribute_differences": {
+          "date_created": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "date_modified": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "history": {
+            "direct": "Created on 2026-11-04T13:06:13+0900, D-Flow FM",
+            "dimr": "Created on 2026-11-04T13:06:14+0900, D-Flow FM"
+          },
+          "uuid": {
+            "direct": "da62fb3c-7bf3-634b-92a9-0bf34a6c68cd",
+            "dimr": "5bb56022-9c88-ee41-9cfb-52bd8ab8dc65"
+          }
+        }
+      },
+      "f34_map.nc": {
+        "variable_count": 55,
+        "all_variable_values_equal": true,
+        "global_attribute_differences": {
+          "date_created": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "date_modified": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "history": {
+            "direct": "Created on 2026-11-04T13:06:13+0900, D-Flow FM",
+            "dimr": "Created on 2026-11-04T13:06:14+0900, D-Flow FM"
+          },
+          "uuid": {
+            "direct": "9631d0c3-d5e3-f343-97e5-c6a9ebea285e",
+            "dimr": "1134dd49-b09e-5945-9e8a-7a08772c9551"
+          }
+        }
+      },
+      "f34_19900805_000000_rst.nc": {
+        "variable_count": 34,
+        "all_variable_values_equal": true,
+        "global_attribute_differences": {
+          "date_created": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "date_modified": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "history": {
+            "direct": "Created on 2026-11-04T13:06:13+0900, D-Flow FM",
+            "dimr": "Created on 2026-11-04T13:06:14+0900, D-Flow FM"
+          },
+          "uuid": {
+            "direct": "6ed8d3a6-9b48-1549-a614-00c4dbe4665e",
+            "dimr": "0d52c10d-2508-a841-9aab-bcc5c64d67a5"
+          }
+        }
+      },
+      "f34_19900805_001000_rst.nc": {
+        "variable_count": 34,
+        "all_variable_values_equal": true,
+        "global_attribute_differences": {
+          "date_created": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "date_modified": {
+            "direct": "2026-11-04T13:06:13+0900",
+            "dimr": "2026-11-04T13:06:14+0900"
+          },
+          "history": {
+            "direct": "Created on 2026-11-04T13:06:13+0900, D-Flow FM",
+            "dimr": "Created on 2026-11-04T13:06:14+0900, D-Flow FM"
+          },
+          "uuid": {
+            "direct": "0c0c7c73-5c84-a642-8a2b-3e0d39c80d8f",
+            "dimr": "5f98bf78-07b5-024e-bb1f-0a32a60fad00"
+          }
+        }
+      }
+    },
+    "routes": {
+      "direct": {
+        "history_samples": 11,
+        "map_samples": 11,
+        "final_time_utc": "1990-08-05T00:10:00Z",
+        "final_restart": true
+      },
+      "dimr": {
+        "history_samples": 11,
+        "map_samples": 11,
+        "final_time_utc": "1990-08-05T00:10:00Z",
+        "final_restart": true
+      }
+    }
+  },
+  "failure_and_isolation": {
+    "cli_commands": 25,
+    "native_launches": 18,
+    "result_groups": 17,
+    "baseline_unchanged": true,
+    "routes": {
+      "direct": {
+        "control_survived": {
+          "timeout": true,
+          "cancel": true,
+          "descendant": true,
+          "owner-loss": true
+        },
+        "confirmed_tree_termination": {
+          "timeout": true,
+          "cancel": true,
+          "descendant": true
+        },
+        "malformed_request_ignored": true
+      },
+      "dimr": {
+        "control_survived": {
+          "timeout": true,
+          "cancel": true,
+          "descendant": true,
+          "owner-loss": true
+        },
+        "confirmed_tree_termination": {
+          "timeout": true,
+          "cancel": true,
+          "descendant": true
+        },
+        "malformed_request_ignored": true
+      }
+    }
+  },
+  "benchmarks": {
+    "before": {
+      "cli": "0.2.0",
+      "fixture": "CLI-job-regression-20261104",
+      "failure_run": "bad-mesh-direct",
+      "measurements": {
+        "validation": {
+          "median_ms": 12.636,
+          "warm_samples": 15,
+          "counts": {
+            "input_read": 3,
+            "bytes_input_read": 58128,
+            "parse": 3,
+            "mdu_parses": 2,
+            "input_digest": 11,
+            "bytes_input_digest": 87407
+          }
+        },
+        "outputs": {
+          "median_ms": 26.754,
+          "warm_samples": 15,
+          "counts": {
+            "input_read": 1,
+            "bytes_input_read": 28933,
+            "parse": 1,
+            "mdu_parses": 1,
+            "netcdf_opens": 8,
+            "output_digest": 11,
+            "bytes_output_digest": 1550092,
+            "netcdf_digests": 8,
+            "bytes_netcdf_digest": 1443472
+          }
+        },
+        "native_failure_diagnostics": {
+          "median_ms": 1.47,
+          "warm_samples": 15,
+          "counts": {
+            "log_read": 8,
+            "bytes_log_read": 5294
+          }
+        }
+      }
+    },
+    "after": {
+      "cli": "0.3.0",
+      "fixture": "CLI-job-regression-20261104",
+      "failure_run": "bad-mesh-direct",
+      "measurements": {
+        "validation": {
+          "median_ms": 8.794,
+          "warm_samples": 15,
+          "counts": {
+            "input_read": 2,
+            "bytes_input_read": 29195,
+            "parse": 2,
+            "mdu_parses": 1,
+            "input_digest": 8,
+            "bytes_input_digest": 29279
+          }
+        },
+        "outputs": {
+          "median_ms": 17.075,
+          "warm_samples": 15,
+          "counts": {
+            "input_read": 1,
+            "bytes_input_read": 28933,
+            "parse": 1,
+            "mdu_parses": 1,
+            "output_digest": 7,
+            "bytes_output_digest": 828356,
+            "netcdf_digests": 4,
+            "bytes_netcdf_digest": 721736,
+            "netcdf_opens": 4
+          }
+        },
+        "native_failure_diagnostics": {
+          "median_ms": 0.79,
+          "warm_samples": 15,
+          "counts": {
+            "log_read": 4,
+            "bytes_log_read": 2647
+          }
+        }
+      }
+    }
+  }
+}

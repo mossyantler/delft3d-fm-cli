@@ -1,0 +1,585 @@
+{
+  "experiment_ids": [
+    "E009",
+    "E011"
+  ],
+  "date": "2026-11-04",
+  "cli_version": "0.2.0",
+  "status": "passed for copied serial fixture",
+  "final_replay": "E009-E011-replay-20261104",
+  "native_engine_executions": 18,
+  "public_cli_commands": 25,
+  "regression_tests_passed": 25,
+  "baseline_and_case_inputs_unchanged": true,
+  "model_duration_seconds": 600,
+  "common_mdu_edits": {
+    "time/StopDateTime": "19900805001000",
+    "output/HisInterval": "60",
+    "output/MapInterval": "60"
+  },
+  "e011_additional_edit": {
+    "time/DtMax": {
+      "before": "30",
+      "after": "0.0001",
+      "unit": "seconds"
+    }
+  },
+  "static_missing_reference": {
+    "cli_exit": 4,
+    "native_started": false,
+    "error": "model_not_supported"
+  },
+  "native_failure_and_controls": [
+    {
+      "case": "bad-mesh",
+      "route": "direct",
+      "state": "failed",
+      "native_returncode": 1,
+      "cli_exit": 5,
+      "engine_initialization": "failed_native_diagnostic",
+      "primary_error": {
+        "line": 14,
+        "text": "** ERROR  : Failed to open: f34_net.nc",
+        "context": [
+          "** INFO   : No cache file available initially. Proceeding with normal initialization.",
+          "** WARNING: could not open f34_net.nc",
+          "** ERROR  : Failed to open: f34_net.nc"
+        ]
+      },
+      "generated_files": [
+        "model\\output\\f34.dia",
+        "model\\unstruc.dia"
+      ]
+    },
+    {
+      "case": "bad-mesh",
+      "route": "dimr",
+      "state": "failed",
+      "native_returncode": 1,
+      "cli_exit": 5,
+      "engine_initialization": "failed_native_diagnostic",
+      "primary_error": {
+        "line": 24,
+        "text": "** ERROR  : Failed to open: f34_net.nc",
+        "context": [
+          "** WARNING: could not open f34_net.nc",
+          "Dimr [2026-11-04 10:57:08.800] #0 >> kernel: could not open f34_net.nc",
+          "** ERROR  : Failed to open: f34_net.nc"
+        ]
+      },
+      "generated_files": [
+        "model\\output\\f34.dia"
+      ]
+    },
+    {
+      "case": "empty-bc",
+      "route": "direct",
+      "state": "failed",
+      "native_returncode": 1,
+      "cli_exit": 5,
+      "engine_initialization": "failed_native_diagnostic",
+      "primary_error": {
+        "line": 49,
+        "text": "** ERROR  : No signals for polyline file f34_001.pli found in f34_001.bc",
+        "context": [
+          "** INFO   : Start initializing external forcings...",
+          "** ERROR  : ...",
+          "** ERROR  : No signals for polyline file f34_001.pli found in f34_001.bc",
+          "** ERROR  :     for polyline L1 and quantity WATERLEVELBND.",
+          "** ERROR  : initboundaryblockforcings: Error while initializing quantity 'waterlevelbnd'. Check preceding log lines for details."
+        ]
+      },
+      "generated_files": [
+        "model\\output\\f34.dia",
+        "model\\unstruc.dia"
+      ]
+    },
+    {
+      "case": "empty-bc",
+      "route": "dimr",
+      "state": "failed",
+      "native_returncode": 1,
+      "cli_exit": 5,
+      "engine_initialization": "failed_native_diagnostic",
+      "primary_error": {
+        "line": 61,
+        "text": "** ERROR  : No signals for polyline file f34_001.pli found in f34_001.bc",
+        "context": [
+          "** ERROR  : ...",
+          "Dimr [2026-11-04 10:57:10.384] #0 >> kernel: ...",
+          "** ERROR  : No signals for polyline file f34_001.pli found in f34_001.bc",
+          "Dimr [2026-11-04 10:57:10.384] #0 >> kernel: No signals for polyline file f34_001.pli found in f34_001.bc",
+          "** ERROR  :     for polyline L1 and quantity WATERLEVELBND."
+        ]
+      },
+      "generated_files": [
+        "model\\output\\f34.dia"
+      ]
+    },
+    {
+      "case": "unknown-function",
+      "route": "direct",
+      "state": "completed",
+      "native_returncode": 0,
+      "cli_exit": 0,
+      "engine_initialization": "passed_native_marker",
+      "primary_error": null,
+      "generated_files": [
+        "model\\f34.cache",
+        "model\\output\\f34.dia",
+        "model\\output\\f34_19900805_000000_rst.nc",
+        "model\\output\\f34_19900805_001000_rst.nc",
+        "model\\output\\f34_his.nc",
+        "model\\output\\f34_map.nc",
+        "model\\unstruc.dia"
+      ]
+    },
+    {
+      "case": "unknown-function",
+      "route": "dimr",
+      "state": "completed",
+      "native_returncode": 0,
+      "cli_exit": 0,
+      "engine_initialization": "passed_native_marker",
+      "primary_error": null,
+      "generated_files": [
+        "model\\f34.cache",
+        "model\\output\\f34.dia",
+        "model\\output\\f34_19900805_000000_rst.nc",
+        "model\\output\\f34_19900805_001000_rst.nc",
+        "model\\output\\f34_Cdwcoeff.tek",
+        "model\\output\\f34_his.nc",
+        "model\\output\\f34_map.nc"
+      ]
+    },
+    {
+      "case": "valid",
+      "route": "direct",
+      "state": "completed",
+      "native_returncode": 0,
+      "cli_exit": 0,
+      "engine_initialization": "passed_native_marker",
+      "primary_error": null,
+      "generated_files": [
+        "model\\f34.cache",
+        "model\\output\\f34.dia",
+        "model\\output\\f34_19900805_000000_rst.nc",
+        "model\\output\\f34_19900805_001000_rst.nc",
+        "model\\output\\f34_his.nc",
+        "model\\output\\f34_map.nc",
+        "model\\unstruc.dia"
+      ]
+    },
+    {
+      "case": "valid",
+      "route": "dimr",
+      "state": "completed",
+      "native_returncode": 0,
+      "cli_exit": 0,
+      "engine_initialization": "passed_native_marker",
+      "primary_error": null,
+      "generated_files": [
+        "model\\f34.cache",
+        "model\\output\\f34.dia",
+        "model\\output\\f34_19900805_000000_rst.nc",
+        "model\\output\\f34_19900805_001000_rst.nc",
+        "model\\output\\f34_Cdwcoeff.tek",
+        "model\\output\\f34_his.nc",
+        "model\\output\\f34_map.nc"
+      ]
+    }
+  ],
+  "ownership_results": {
+    "timeout-direct": {
+      "termination": {
+        "method": "windows_job_object",
+        "pid": 38832,
+        "job_pids_before": [
+          38832
+        ],
+        "forced": true,
+        "graceful": false,
+        "errors": [],
+        "job_pids_after": [],
+        "member_exit_confirmations": {
+          "38832": true
+        },
+        "owned_process_exited": true,
+        "tree_terminated": true
+      },
+      "partial_outputs": [
+        {
+          "path": "model\\output\\f34_19900805_000000_rst.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_his.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_map.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        }
+      ],
+      "control": {
+        "identity_before": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "identity_after": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "controller_still_live": true
+      }
+    },
+    "cancel-direct": {
+      "termination": {
+        "method": "windows_job_object",
+        "pid": 40724,
+        "job_pids_before": [
+          40724
+        ],
+        "forced": true,
+        "graceful": false,
+        "errors": [],
+        "job_pids_after": [],
+        "member_exit_confirmations": {
+          "40724": true
+        },
+        "owned_process_exited": true,
+        "tree_terminated": true
+      },
+      "partial_outputs": [
+        {
+          "path": "model\\output\\f34_19900805_000000_rst.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_his.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_map.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        }
+      ],
+      "control": {
+        "identity_before": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "identity_after": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "controller_still_live": true
+      }
+    },
+    "descendant-direct": {
+      "parent_pid": 10100,
+      "engine_pid": 15972,
+      "termination": {
+        "method": "windows_job_object",
+        "pid": 10100,
+        "job_pids_before": [
+          10100,
+          15972,
+          18164
+        ],
+        "forced": true,
+        "graceful": false,
+        "errors": [],
+        "job_pids_after": [],
+        "member_exit_confirmations": {
+          "10100": true,
+          "15972": true,
+          "18164": true
+        },
+        "owned_process_exited": true,
+        "tree_terminated": true
+      },
+      "control": {
+        "identity_before": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "identity_after": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "controller_still_live": true
+      }
+    },
+    "owner-loss-direct": {
+      "native_identity": {
+        "pid": 25260,
+        "creation_time_100ns": "134382310388381778"
+      },
+      "native_exited": true,
+      "recorded_state": "running",
+      "effective_state": "owner_lost",
+      "control": {
+        "identity_before": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "identity_after": {
+          "pid": 10236,
+          "creation_time_100ns": "134382310341889919"
+        },
+        "controller_still_live": true
+      }
+    },
+    "timeout-dimr": {
+      "termination": {
+        "method": "windows_job_object",
+        "pid": 41852,
+        "job_pids_before": [
+          41852
+        ],
+        "forced": true,
+        "graceful": false,
+        "errors": [],
+        "job_pids_after": [],
+        "member_exit_confirmations": {
+          "41852": true
+        },
+        "owned_process_exited": true,
+        "tree_terminated": true
+      },
+      "partial_outputs": [
+        {
+          "path": "model\\output\\f34_19900805_000000_rst.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_his.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_map.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        }
+      ],
+      "control": {
+        "identity_before": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "identity_after": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "controller_still_live": true
+      }
+    },
+    "cancel-dimr": {
+      "termination": {
+        "method": "windows_job_object",
+        "pid": 15596,
+        "job_pids_before": [
+          15596
+        ],
+        "forced": true,
+        "graceful": false,
+        "errors": [],
+        "job_pids_after": [],
+        "member_exit_confirmations": {
+          "15596": true
+        },
+        "owned_process_exited": true,
+        "tree_terminated": true
+      },
+      "partial_outputs": [
+        {
+          "path": "model\\output\\f34_19900805_000000_rst.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_his.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        },
+        {
+          "path": "model\\output\\f34_map.nc",
+          "readable": true,
+          "time_samples": 1,
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "calendar": "standard",
+          "last_time": "1990-08-05T00:00:00",
+          "requested_final_time_matches": false
+        }
+      ],
+      "control": {
+        "identity_before": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "identity_after": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "controller_still_live": true
+      }
+    },
+    "descendant-dimr": {
+      "parent_pid": 36468,
+      "engine_pid": 7564,
+      "termination": {
+        "method": "windows_job_object",
+        "pid": 36468,
+        "job_pids_before": [
+          36468,
+          7564,
+          39236
+        ],
+        "forced": true,
+        "graceful": false,
+        "errors": [],
+        "job_pids_after": [],
+        "member_exit_confirmations": {
+          "36468": true,
+          "7564": true,
+          "39236": true
+        },
+        "owned_process_exited": true,
+        "tree_terminated": true
+      },
+      "control": {
+        "identity_before": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "identity_after": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "controller_still_live": true
+      }
+    },
+    "owner-loss-dimr": {
+      "native_identity": {
+        "pid": 36268,
+        "creation_time_100ns": "134382310447495695"
+      },
+      "native_exited": true,
+      "recorded_state": "running",
+      "effective_state": "owner_lost",
+      "control": {
+        "identity_before": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "identity_after": {
+          "pid": 21336,
+          "creation_time_100ns": "134382310401711519"
+        },
+        "controller_still_live": true
+      }
+    }
+  },
+  "normal_workflow_regression": {
+    "experiment": "CLI-job-regression-20261104",
+    "public_commands": 16,
+    "variables_equal": 191,
+    "final_model_time_utc": "1990-08-05T00:10:00+00:00"
+  },
+  "native_replay_implementation_sha256": {
+    "pyproject.toml": "046ea605ceceed965efbab21fa110e3dd378e5a1af556a6d1e8882cee5f92484",
+    "src\\dfm_cli\\__init__.py": "17b73b3205800ecb23ae759f1c81cf11324ac2406d6efc77e592f1cdcd9332e7",
+    "src\\dfm_cli\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src\\dfm_cli\\cli.py": "0f55c71949bdc947666298a8e9d517f77ec13e405131fb94a04897d69e32310f",
+    "src\\dfm_cli\\common.py": "49f8e90ed1b3e74bc8a93d4e2477b826b8c487d1c4bbb870a55148a62d1e9781",
+    "src\\dfm_cli\\installation.py": "7bf37a1f7f953fa86c13c78cf39e465705fea2287aef02200ec41ff1d19d1ad9",
+    "src\\dfm_cli\\model.py": "c9818ed5e08fb3d1b3ee31d72d1d7930ff322d0e609c1c903c8ba7c9723f274e",
+    "src\\dfm_cli\\runs.py": "0afa9618471eb8435848480d9504830ec97aec691766ddb5ab1acedbd7f4c149",
+    "src\\dfm_cli\\windows_job.py": "3b6accac3ea819061fc0780ec5a953ebfda5d581b5f5839e16c72cac333ab2f9",
+    "research\\scripts\\verify_failure_cancellation.py": "99febc1782aab60c840a0309a7650d58c9a054e6ab80b8c8d22376060d1b240a"
+  },
+  "current_application_and_test_sha256": {
+    "pyproject.toml": "046ea605ceceed965efbab21fa110e3dd378e5a1af556a6d1e8882cee5f92484",
+    "src/dfm_cli/__init__.py": "17b73b3205800ecb23ae759f1c81cf11324ac2406d6efc77e592f1cdcd9332e7",
+    "src/dfm_cli/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/dfm_cli/cli.py": "ab44565f60a47e7cf1e4ab0d4072351d924983d23f3fbd52ba5cca66e69cf9f5",
+    "src/dfm_cli/common.py": "49f8e90ed1b3e74bc8a93d4e2477b826b8c487d1c4bbb870a55148a62d1e9781",
+    "src/dfm_cli/installation.py": "7bf37a1f7f953fa86c13c78cf39e465705fea2287aef02200ec41ff1d19d1ad9",
+    "src/dfm_cli/model.py": "c9818ed5e08fb3d1b3ee31d72d1d7930ff322d0e609c1c903c8ba7c9723f274e",
+    "src/dfm_cli/runs.py": "0afa9618471eb8435848480d9504830ec97aec691766ddb5ab1acedbd7f4c149",
+    "src/dfm_cli/windows_job.py": "3b6accac3ea819061fc0780ec5a953ebfda5d581b5f5839e16c72cac333ab2f9",
+    "tests/test_cli.py": "0c3d304f7ea9efa0a5146650daf1b7550a6bc95dedef16f5b7eb2a3ffcf7ce01",
+    "tests/test_windows_job.py": "a2356eff9df6f3a5fbfe85736b9f0f642518f0b9c3f258a56c03c738b05ad38b",
+    "research/scripts/verify_failure_cancellation.py": "0231268b754ac814089f93e2aaa0858eee6c8a77b524d5e8f6f5ca971e66f49b"
+  },
+  "post_replay_metadata_changes": [
+    "CLI status help now mentions identity observations",
+    "Research raw controller stdout capture suffix is .txt because abrupt exit can leave empty/truncated output"
+  ],
+  "tested_packages": {
+    "delft3d-fm-cli": "0.2.0",
+    "netCDF4": "1.7.5.1.post1",
+    "numpy": "2.5.4",
+    "cftime": "1.6.6.1"
+  },
+  "limitations": [
+    "Forced termination, not graceful finalization; partial NetCDF may be unreadable",
+    "Owner-loss test begins after native readiness, not during the suspended creation/assignment window",
+    "Serial 2026.02 fixture only; MPI/coupling cancellation untested",
+    "Terminal Ctrl+C delivery and graceful engine finalization untested",
+    "BC function semantics remain opaque; the single first-function mutation did not fail natively"
+  ]
+}

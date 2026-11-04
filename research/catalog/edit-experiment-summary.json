@@ -1,0 +1,191 @@
+{
+  "experiment_ids": [
+    "E003",
+    "E005"
+  ],
+  "date": "2026-11-04",
+  "timezone": "Asia/Seoul",
+  "status": "passed",
+  "method": "Separate copied projects; suite model API edits through console; repeated exports; clean sequential replay",
+  "baseline": "E001-E002-replay-20261103/gui-project",
+  "scalar": {
+    "key": "output/HisInterval",
+    "unit": "s",
+    "before": "300",
+    "after": "600",
+    "export_line": 162,
+    "owner": "HisOutputDeltaT",
+    "owner_type": "System.TimeSpan",
+    "raw_property_type": "System.Collections.Generic.List[System.Double]",
+    "raw_setter_probe": "Raw HisInterval setter reported 600 before export, but exported 300; negative probe retained."
+  },
+  "boundary": {
+    "feature": "L1",
+    "name": "L1_0001",
+    "point_index_zero_based": 0,
+    "function": "harmonic",
+    "api_data_type": "Harmonics",
+    "period_minutes": "750",
+    "api_frequency_deg_per_hour": 28.8,
+    "component": "waterlevelbnd amplitude",
+    "unit": "m",
+    "before": "1.5",
+    "after": "1.75",
+    "export_line": 15,
+    "row_zero_based": 1,
+    "column_zero_based": 1,
+    "bc_forcing_names": [
+      "L1_0001",
+      "L1_0007",
+      "L1_0013"
+    ],
+    "pli_point_count": 13,
+    "api_data_point_indices": [
+      0,
+      6,
+      12
+    ],
+    "non_target_numeric_cells_and_metadata_preserved": true,
+    "non_target_bc_blocks_byte_identical": true,
+    "collateral_formatting": "Column alignment changes spacing of the unchanged zero row in the target block."
+  },
+  "runs": [
+    {
+      "experiment": "E003-E005-edits-20261104",
+      "status": "passed",
+      "scalar_change": {
+        "before": [
+          {
+            "value": "300",
+            "line": 162
+          }
+        ],
+        "after": [
+          {
+            "value": "600",
+            "line": 162
+          }
+        ]
+      },
+      "boundary_numeric_changes": [
+        {
+          "name": "L1_0001",
+          "row_zero_based": 1,
+          "column_zero_based": 1,
+          "period_minutes": "750",
+          "before": "1.5",
+          "after": "1.75",
+          "before_line": 15,
+          "after_line": 15
+        }
+      ],
+      "cases": {
+        "control": {
+          "changed_files_vs_control": [],
+          "known_references_resolved": 9,
+          "repeat_non_mdu_files_identical": 9,
+          "repeat_mdu_value_changes": 0
+        },
+        "scalar": {
+          "changed_files_vs_control": [
+            "f34.mdu"
+          ],
+          "known_references_resolved": 9,
+          "repeat_non_mdu_files_identical": 9,
+          "repeat_mdu_value_changes": 0
+        },
+        "boundary": {
+          "changed_files_vs_control": [
+            "f34_001.bc"
+          ],
+          "known_references_resolved": 9,
+          "repeat_non_mdu_files_identical": 9,
+          "repeat_mdu_value_changes": 0
+        }
+      },
+      "metadata_and_units_preserved": true,
+      "non_target_bc_blocks_byte_identical": true,
+      "original_baseline_unchanged": true
+    },
+    {
+      "experiment": "E003-E005-replay-20261104",
+      "status": "passed",
+      "scalar_change": {
+        "before": [
+          {
+            "value": "300",
+            "line": 162
+          }
+        ],
+        "after": [
+          {
+            "value": "600",
+            "line": 162
+          }
+        ]
+      },
+      "boundary_numeric_changes": [
+        {
+          "name": "L1_0001",
+          "row_zero_based": 1,
+          "column_zero_based": 1,
+          "period_minutes": "750",
+          "before": "1.5",
+          "after": "1.75",
+          "before_line": 15,
+          "after_line": 15
+        }
+      ],
+      "cases": {
+        "control": {
+          "changed_files_vs_control": [],
+          "known_references_resolved": 9,
+          "repeat_non_mdu_files_identical": 9,
+          "repeat_mdu_value_changes": 0
+        },
+        "scalar": {
+          "changed_files_vs_control": [
+            "f34.mdu"
+          ],
+          "known_references_resolved": 9,
+          "repeat_non_mdu_files_identical": 9,
+          "repeat_mdu_value_changes": 0
+        },
+        "boundary": {
+          "changed_files_vs_control": [
+            "f34.mdu",
+            "f34_001.bc"
+          ],
+          "known_references_resolved": 9,
+          "repeat_non_mdu_files_identical": 9,
+          "repeat_mdu_value_changes": 0
+        }
+      },
+      "metadata_and_units_preserved": true,
+      "non_target_bc_blocks_byte_identical": true,
+      "original_baseline_unchanged": true
+    }
+  ],
+  "preservation_requirements": [
+    "Separate semantic edits from generated timestamps and lexical formatting.",
+    "Preserve MDU non-target keys, comments, ordering, numeric tokens, encoding and line endings for a targeted file editor.",
+    "History intervals use seconds independently of TUnit; retain optional start/stop window values.",
+    "Address BC block, quantity, period and component explicitly; preserve repeated ordered Quantity/Unit entries and all other cells/blocks.",
+    "Preserve sparse support identities and mapping from PLI label plus one-based suffix to zero-based API point index.",
+    "Do not rewrite EXT, PLI, network or other input files for these edits.",
+    "Verify the exported artifact, not just setter/read-back or process exit.",
+    "Treat application API property ownership as version-specific; serialize shell cases until scratch isolation is established."
+  ],
+  "limitations": [
+    "Application APIs tested, not interactive GUI dialogs.",
+    "Modified project save/reopen persistence not tested; edits were exported from memory.",
+    "No solver execution, boundary snapping or physical validation.",
+    "Unknown/custom MDU keys, non-default history windows, other forcing types and multiple boundaries not covered."
+  ],
+  "failed_probes": {
+    "raw_scalar": "experiments/E003-E005-edits-20261104/scalar",
+    "parallel_startup": "experiments/E003-E005-edits-20261104/scalar/run/stdout.txt",
+    "parallel_startup_message": "Access to the path C:\\Temp\\DeltaShell_Working_Directory is denied.",
+    "interpretation": "Observed during concurrent starts; sequential retry and replay succeeded. Exact contention mechanism not established."
+  }
+}

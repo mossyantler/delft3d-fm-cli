@@ -1,0 +1,205 @@
+{
+  "experiment_ids": [
+    "E001",
+    "E002"
+  ],
+  "date": "2026-11-03",
+  "timezone": "Asia/Seoul",
+  "status": "completed for scripted GUI-hosted and console operations",
+  "interactive_menu_dialog_validation": false,
+  "fixture": {
+    "repository": "Deltares/Delft3D",
+    "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+    "path": "examples/dflowfm/01_dflowfm_sequential/dflowfm",
+    "name": "f34",
+    "input_files": 10,
+    "grid_vertices": 258,
+    "grid_edges": 479,
+    "source_copy_unchanged": true
+  },
+  "project": {
+    "database_format": "SQLite3",
+    "database_bytes": 806912,
+    "table_count": 92,
+    "database_integrity_check": "ok",
+    "companion_inputs": 10,
+    "total_files": 11
+  },
+  "export": {
+    "input_files": 10,
+    "known_input_links_checked": 9,
+    "simulation_executed": false
+  },
+  "source_to_export_mdu": {
+    "added_keys": {
+      "geometry/dztop": [
+        {
+          "value": "-999.0",
+          "line": 51
+        }
+      ],
+      "geometry/dztopuniabovez": [
+        {
+          "value": "-999.0",
+          "line": 53
+        }
+      ],
+      "geometry/floorlevtoplay": [
+        {
+          "value": "-999.0",
+          "line": 52
+        }
+      ],
+      "geometry/layertype": [
+        {
+          "value": "1",
+          "line": 50
+        }
+      ],
+      "geometry/numtopsig": [
+        {
+          "value": "0",
+          "line": 54
+        }
+      ],
+      "geometry/numtopsiguniform": [
+        {
+          "value": "1",
+          "line": 55
+        }
+      ],
+      "geometry/sigmagrowthfactor": [
+        {
+          "value": "1.0",
+          "line": 56
+        }
+      ],
+      "output/nchisdataprecision": [
+        {
+          "value": "single",
+          "line": 228
+        }
+      ],
+      "output/ncmapdataprecision": [
+        {
+          "value": "single",
+          "line": 231
+        }
+      ],
+      "output/wrihis_salinity": [
+        {
+          "value": "1",
+          "line": 230
+        }
+      ],
+      "output/wrihis_temperature": [
+        {
+          "value": "1",
+          "line": 229
+        }
+      ],
+      "wind/rhowaterinwindstress": [
+        {
+          "value": "0",
+          "line": 135
+        }
+      ]
+    },
+    "removed_keys": {
+      "output/classmapinterval": [
+        {
+          "value": "0",
+          "line": 219
+        }
+      ]
+    },
+    "value_changes": {
+      "general/guiversion": {
+        "before": [
+          {
+            "value": "4.18.0.9276",
+            "line": 9
+          }
+        ],
+        "after": [
+          {
+            "value": "4.19.0.9954",
+            "line": 9
+          }
+        ]
+      },
+      "general/version": {
+        "before": [
+          {
+            "value": "Deltares, D-Flow FM1.2.184.057d2f7ceeafda462a1b4e598efa4ce4f0c97cc5",
+            "line": 6
+          }
+        ],
+        "after": [
+          {
+            "value": "Deltares, D-Flow FM1.2.184.Unknown",
+            "line": 6
+          }
+        ]
+      }
+    },
+    "numeric_format_changes": {
+      "physics/dalton": {
+        "before": [
+          {
+            "value": "1.3d-3",
+            "line": 115
+          }
+        ],
+        "after": [
+          {
+            "value": "0.0013",
+            "line": 122
+          }
+        ]
+      },
+      "physics/stanton": {
+        "before": [
+          {
+            "value": "1.3d-3",
+            "line": 114
+          }
+        ],
+        "after": [
+          {
+            "value": "0.0013",
+            "line": 121
+          }
+        ]
+      }
+    }
+  },
+  "replays": [
+    {
+      "experiment": "E001-E002-export-20261103",
+      "gui_host_success": true,
+      "gui_console_identical_non_mdu_files": 9,
+      "gui_console_mdu_key_value_changes": 0,
+      "known_input_links_resolved": 9,
+      "project_unchanged_after_console_export": true
+    },
+    {
+      "experiment": "E001-E002-replay-20261103",
+      "gui_host_success": true,
+      "gui_console_identical_non_mdu_files": 9,
+      "gui_console_mdu_key_value_changes": 0,
+      "known_input_links_resolved": 9,
+      "project_unchanged_after_console_export": true
+    }
+  ],
+  "console_pitfalls": [
+    "script exception can return exit code 0 with empty stderr",
+    "console app config lacks persistence defaults needed for project operations",
+    "--app-setting is handled after the script in this version; set persistenceDefault and useNewPersistence in script before opening or creating a project"
+  ],
+  "limitations": [
+    "GUI executable and application services exercised through --run-file; interactive menu/dialog route untested",
+    "legacy network convention/z-value warnings retained; no simulation or physical validity claim",
+    "input-reference check covers known MDU/EXT fields for this fixture, not a full validator"
+  ]
+}

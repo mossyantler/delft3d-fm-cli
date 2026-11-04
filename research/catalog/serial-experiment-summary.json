@@ -1,0 +1,542 @@
+{
+  "experiment_ids": [
+    "E004",
+    "E008"
+  ],
+  "date": "2026-11-04",
+  "timezone": "Asia/Seoul",
+  "status": "passed with retained diagnostics",
+  "baseline": "experiments/E001-E002-replay-20261103/console-export-1",
+  "duration_seconds": 600,
+  "requested_start_utc": "1990-08-05T00:00:00+00:00",
+  "requested_stop_utc": "1990-08-05T00:10:00+00:00",
+  "input_changes": {
+    "time/StopDateTime": {
+      "before": "19900806010000",
+      "after": "19900805001000"
+    },
+    "output/HisInterval": {
+      "before": "300",
+      "after": "60",
+      "unit": "s"
+    },
+    "output/MapInterval": {
+      "before": "3000",
+      "after": "60",
+      "unit": "s"
+    }
+  },
+  "runs": [
+    {
+      "experiment": "E004-E008-serial-20261104",
+      "status": "passed",
+      "baseline_unchanged": true,
+      "routes": {
+        "direct": {
+          "returncode": 0,
+          "wall_seconds": 0.453,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_datetime": "1990-08-05T00:10:00",
+          "final_restart": "f34_19900805_001000_rst.nc",
+          "input_files_unchanged": true,
+          "diagnostics": {
+            "time_loop_start_banner_present": true,
+            "dimr_initialize_message_present": false,
+            "computation_finished_message": true,
+            "mpi": false,
+            "openmp_max_threads": 1,
+            "warning_lines": [
+              "** WARNING: MapFormat = 1 (NetCDF) does not support single precision output, output will be in double precision. Consider upgrading to MapFormat=4 (UGRID) for single precision output support.",
+              "** WARNING: While reading 'f34.mdu': keyword [geometry] sigmagrowthfactor is deprecated and may be removed in a future release.",
+              "** WARNING: While reading 'f34.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file."
+            ],
+            "stderr_lines": [
+              "proj_create: Cannot find proj.db",
+              "proj_create: unrecognized format / unknown name"
+            ],
+            "severe_lines": []
+          },
+          "core_fields": {
+            "f34_his.nc/waterlevel": {
+              "valid_values": 55,
+              "min": 1.89796781539917,
+              "max": 1.9006240367889404,
+              "dtype": "float32",
+              "units": "m"
+            },
+            "f34_his.nc/x_velocity": {
+              "valid_values": 55,
+              "min": -0.0016820802120491862,
+              "max": 0.001498354016803205,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/y_velocity": {
+              "valid_values": 55,
+              "min": -0.0009844251908361912,
+              "max": 0.0016963613452389836,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/velocity_magnitude": {
+              "valid_values": 55,
+              "min": 0.0,
+              "max": 0.0017089670291170478,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_map.nc/s1": {
+              "valid_values": 2442,
+              "min": 1.216399151855439,
+              "max": 1.900876011194061,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/waterdepth": {
+              "valid_values": 2442,
+              "min": 0.8229270679297762,
+              "max": 6.9,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/ucx": {
+              "valid_values": 2442,
+              "min": -0.4382867015987568,
+              "max": 0.6473801000045989,
+              "dtype": "float64",
+              "units": "m s-1"
+            },
+            "f34_map.nc/ucy": {
+              "valid_values": 2442,
+              "min": -0.003237044736025556,
+              "max": 0.5507659923144997,
+              "dtype": "float64",
+              "units": "m s-1"
+            }
+          },
+          "mass_balance": {
+            "volume_error_units": "m3",
+            "max_absolute_volume_error": 1.430511474609375e-06,
+            "final_volume_error": -9.5367431640625e-07,
+            "final_total_volume": 2887497728.0,
+            "scope": "Descriptive diagnostics only; no project-specific physical acceptance threshold applied"
+          },
+          "generated_files": [
+            "f34.cache",
+            "output/f34.dia",
+            "output/f34_19900805_000000_rst.nc",
+            "output/f34_19900805_001000_rst.nc",
+            "output/f34_his.nc",
+            "output/f34_map.nc",
+            "unstruc.dia"
+          ]
+        },
+        "dimr": {
+          "returncode": 0,
+          "wall_seconds": 0.344,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_datetime": "1990-08-05T00:10:00",
+          "final_restart": "f34_19900805_001000_rst.nc",
+          "input_files_unchanged": true,
+          "diagnostics": {
+            "time_loop_start_banner_present": false,
+            "dimr_initialize_message_present": true,
+            "computation_finished_message": true,
+            "mpi": false,
+            "openmp_max_threads": 1,
+            "warning_lines": [
+              "** WARNING: MapFormat = 1 (NetCDF) does not support single precision output, output will be in double precision. Consider upgrading to MapFormat=4 (UGRID) for single precision output support.",
+              "** WARNING: While reading 'f34.mdu': keyword [geometry] sigmagrowthfactor is deprecated and may be removed in a future release.",
+              "** WARNING: While reading 'f34.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file."
+            ],
+            "stderr_lines": [
+              "proj_create: Cannot find proj.db",
+              "proj_create: unrecognized format / unknown name"
+            ],
+            "severe_lines": []
+          },
+          "core_fields": {
+            "f34_his.nc/waterlevel": {
+              "valid_values": 55,
+              "min": 1.89796781539917,
+              "max": 1.9006240367889404,
+              "dtype": "float32",
+              "units": "m"
+            },
+            "f34_his.nc/x_velocity": {
+              "valid_values": 55,
+              "min": -0.0016820802120491862,
+              "max": 0.001498354016803205,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/y_velocity": {
+              "valid_values": 55,
+              "min": -0.0009844251908361912,
+              "max": 0.0016963613452389836,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/velocity_magnitude": {
+              "valid_values": 55,
+              "min": 0.0,
+              "max": 0.0017089670291170478,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_map.nc/s1": {
+              "valid_values": 2442,
+              "min": 1.216399151855439,
+              "max": 1.900876011194061,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/waterdepth": {
+              "valid_values": 2442,
+              "min": 0.8229270679297762,
+              "max": 6.9,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/ucx": {
+              "valid_values": 2442,
+              "min": -0.4382867015987568,
+              "max": 0.6473801000045989,
+              "dtype": "float64",
+              "units": "m s-1"
+            },
+            "f34_map.nc/ucy": {
+              "valid_values": 2442,
+              "min": -0.003237044736025556,
+              "max": 0.5507659923144997,
+              "dtype": "float64",
+              "units": "m s-1"
+            }
+          },
+          "mass_balance": {
+            "volume_error_units": "m3",
+            "max_absolute_volume_error": 1.430511474609375e-06,
+            "final_volume_error": -9.5367431640625e-07,
+            "final_total_volume": 2887497728.0,
+            "scope": "Descriptive diagnostics only; no project-specific physical acceptance threshold applied"
+          },
+          "generated_files": [
+            "f34.cache",
+            "output/f34.dia",
+            "output/f34_19900805_000000_rst.nc",
+            "output/f34_19900805_001000_rst.nc",
+            "output/f34_Cdwcoeff.tek",
+            "output/f34_his.nc",
+            "output/f34_map.nc"
+          ]
+        }
+      },
+      "dataset_comparisons": {
+        "f34_his.nc": {
+          "variable_count": 68,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "7dfe1448-5698-514c-85e8-a61fb71c1a81",
+              "dimr": "9fdbf7d4-d3dd-af42-8329-342b7c28570f"
+            }
+          }
+        },
+        "f34_map.nc": {
+          "variable_count": 55,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "20ba7121-3254-f04c-a391-462741eb5ee3",
+              "dimr": "2a869a14-cae7-ef46-9a8c-ce76fb2b392c"
+            }
+          }
+        },
+        "f34_19900805_000000_rst.nc": {
+          "variable_count": 34,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "20dfe77e-179c-1d4c-ac2b-fbd5e329c1fa",
+              "dimr": "a11bd8f5-b6e2-7048-a264-2d7c6214c426"
+            }
+          }
+        },
+        "f34_19900805_001000_rst.nc": {
+          "variable_count": 34,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "ee3e5892-d7d0-bc40-8388-1c126219e81a",
+              "dimr": "a6bde5ee-2fab-ce42-9b9c-222f0af6c0b5"
+            }
+          }
+        }
+      }
+    },
+    {
+      "experiment": "E004-E008-proj-20261104",
+      "status": "passed",
+      "baseline_unchanged": true,
+      "routes": {
+        "direct": {
+          "returncode": 0,
+          "wall_seconds": 0.203,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_datetime": "1990-08-05T00:10:00",
+          "final_restart": "f34_19900805_001000_rst.nc",
+          "input_files_unchanged": true,
+          "diagnostics": {
+            "time_loop_start_banner_present": true,
+            "dimr_initialize_message_present": false,
+            "computation_finished_message": true,
+            "mpi": false,
+            "openmp_max_threads": 1,
+            "warning_lines": [
+              "** WARNING: MapFormat = 1 (NetCDF) does not support single precision output, output will be in double precision. Consider upgrading to MapFormat=4 (UGRID) for single precision output support.",
+              "** WARNING: While reading 'f34.mdu': keyword [geometry] sigmagrowthfactor is deprecated and may be removed in a future release.",
+              "** WARNING: While reading 'f34.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file."
+            ],
+            "stderr_lines": [
+              "proj_create: unrecognized format / unknown name"
+            ],
+            "severe_lines": []
+          },
+          "core_fields": {
+            "f34_his.nc/waterlevel": {
+              "valid_values": 55,
+              "min": 1.89796781539917,
+              "max": 1.9006240367889404,
+              "dtype": "float32",
+              "units": "m"
+            },
+            "f34_his.nc/x_velocity": {
+              "valid_values": 55,
+              "min": -0.0016820802120491862,
+              "max": 0.001498354016803205,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/y_velocity": {
+              "valid_values": 55,
+              "min": -0.0009844251908361912,
+              "max": 0.0016963613452389836,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/velocity_magnitude": {
+              "valid_values": 55,
+              "min": 0.0,
+              "max": 0.0017089670291170478,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_map.nc/s1": {
+              "valid_values": 2442,
+              "min": 1.216399151855439,
+              "max": 1.900876011194061,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/waterdepth": {
+              "valid_values": 2442,
+              "min": 0.8229270679297762,
+              "max": 6.9,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/ucx": {
+              "valid_values": 2442,
+              "min": -0.4382867015987568,
+              "max": 0.6473801000045989,
+              "dtype": "float64",
+              "units": "m s-1"
+            },
+            "f34_map.nc/ucy": {
+              "valid_values": 2442,
+              "min": -0.003237044736025556,
+              "max": 0.5507659923144997,
+              "dtype": "float64",
+              "units": "m s-1"
+            }
+          },
+          "mass_balance": {
+            "volume_error_units": "m3",
+            "max_absolute_volume_error": 1.430511474609375e-06,
+            "final_volume_error": -9.5367431640625e-07,
+            "final_total_volume": 2887497728.0,
+            "scope": "Descriptive diagnostics only; no project-specific physical acceptance threshold applied"
+          },
+          "generated_files": [
+            "f34.cache",
+            "output/f34.dia",
+            "output/f34_19900805_000000_rst.nc",
+            "output/f34_19900805_001000_rst.nc",
+            "output/f34_his.nc",
+            "output/f34_map.nc",
+            "unstruc.dia"
+          ]
+        },
+        "dimr": {
+          "returncode": 0,
+          "wall_seconds": 0.203,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_datetime": "1990-08-05T00:10:00",
+          "final_restart": "f34_19900805_001000_rst.nc",
+          "input_files_unchanged": true,
+          "diagnostics": {
+            "time_loop_start_banner_present": false,
+            "dimr_initialize_message_present": true,
+            "computation_finished_message": true,
+            "mpi": false,
+            "openmp_max_threads": 1,
+            "warning_lines": [
+              "** WARNING: MapFormat = 1 (NetCDF) does not support single precision output, output will be in double precision. Consider upgrading to MapFormat=4 (UGRID) for single precision output support.",
+              "** WARNING: While reading 'f34.mdu': keyword [geometry] sigmagrowthfactor is deprecated and may be removed in a future release.",
+              "** WARNING: While reading 'f34.mdu': Summary warning: 1 deprecated keyword(s) detected. All individual WARNING messages are listed above. Check the User Manual appendix about the Master Definition file for information on how to update this input file."
+            ],
+            "stderr_lines": [
+              "proj_create: unrecognized format / unknown name"
+            ],
+            "severe_lines": []
+          },
+          "core_fields": {
+            "f34_his.nc/waterlevel": {
+              "valid_values": 55,
+              "min": 1.89796781539917,
+              "max": 1.9006240367889404,
+              "dtype": "float32",
+              "units": "m"
+            },
+            "f34_his.nc/x_velocity": {
+              "valid_values": 55,
+              "min": -0.0016820802120491862,
+              "max": 0.001498354016803205,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/y_velocity": {
+              "valid_values": 55,
+              "min": -0.0009844251908361912,
+              "max": 0.0016963613452389836,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_his.nc/velocity_magnitude": {
+              "valid_values": 55,
+              "min": 0.0,
+              "max": 0.0017089670291170478,
+              "dtype": "float32",
+              "units": "m s-1"
+            },
+            "f34_map.nc/s1": {
+              "valid_values": 2442,
+              "min": 1.216399151855439,
+              "max": 1.900876011194061,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/waterdepth": {
+              "valid_values": 2442,
+              "min": 0.8229270679297762,
+              "max": 6.9,
+              "dtype": "float64",
+              "units": "m"
+            },
+            "f34_map.nc/ucx": {
+              "valid_values": 2442,
+              "min": -0.4382867015987568,
+              "max": 0.6473801000045989,
+              "dtype": "float64",
+              "units": "m s-1"
+            },
+            "f34_map.nc/ucy": {
+              "valid_values": 2442,
+              "min": -0.003237044736025556,
+              "max": 0.5507659923144997,
+              "dtype": "float64",
+              "units": "m s-1"
+            }
+          },
+          "mass_balance": {
+            "volume_error_units": "m3",
+            "max_absolute_volume_error": 1.430511474609375e-06,
+            "final_volume_error": -9.5367431640625e-07,
+            "final_total_volume": 2887497728.0,
+            "scope": "Descriptive diagnostics only; no project-specific physical acceptance threshold applied"
+          },
+          "generated_files": [
+            "f34.cache",
+            "output/f34.dia",
+            "output/f34_19900805_000000_rst.nc",
+            "output/f34_19900805_001000_rst.nc",
+            "output/f34_Cdwcoeff.tek",
+            "output/f34_his.nc",
+            "output/f34_map.nc"
+          ]
+        }
+      },
+      "dataset_comparisons": {
+        "f34_his.nc": {
+          "variable_count": 68,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "6a962888-5383-d842-84ff-ec2af5b31c87",
+              "dimr": "b95a553e-800e-5042-b1e5-24c589703f5b"
+            }
+          }
+        },
+        "f34_map.nc": {
+          "variable_count": 55,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "dbcd108d-9adb-a644-80e8-cef380e137b4",
+              "dimr": "55cac137-569c-2245-86f3-ca3f9ef72527"
+            }
+          }
+        },
+        "f34_19900805_000000_rst.nc": {
+          "variable_count": 34,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "ff20dd79-afd9-6647-b803-8d619166bee7",
+              "dimr": "33e9144c-6358-e84f-a2a4-46d13e7889e2"
+            }
+          }
+        },
+        "f34_19900805_001000_rst.nc": {
+          "variable_count": 34,
+          "all_variable_values_equal": true,
+          "byte_identical_file": false,
+          "global_attribute_differences": {
+            "uuid": {
+              "direct": "6c54e13f-5d21-4a49-b90b-4e7c1a308e6b",
+              "dimr": "3896fba7-492e-ca49-9390-38a1f1a4fb2a"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No calibration or longer-period stability validation",
+    "One-component serial DIMR only; no MPI, coupling or restart execution",
+    "Input legacy CRS warning remains even with explicit proj.db discovery",
+    "Two-point wall timings are not a performance benchmark",
+    "XML syntax/component paths verified; XSD validation not performed"
+  ]
+}

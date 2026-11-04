@@ -1,0 +1,151 @@
+{
+  "collected_date": "2026-11-03",
+  "timezone": "Asia/Seoul",
+  "policy": "Primary sources; repository revisions and acquired tools are pinned separately in sources.lock.json. Local official manuals are fingerprinted in manuals/manifest.json.",
+  "sources": [
+    {
+      "id": "engine",
+      "url": "https://github.com/Deltares/Delft3D",
+      "ref": "DIMRset_2026.02",
+      "local": "upstream/Delft3D",
+      "role": "Authoritative engine behavior, MDU read/write, CLI options, DIMR, native interfaces, related components, examples and schema definitions",
+      "license_reference": "Inspect applicable component source headers and license files; the repository contains multiple licenses."
+    },
+    {
+      "id": "gui-engine-integration",
+      "url": "https://github.com/Deltares/Delft3D/blob/main/doc/guis_for_open_source.md",
+      "role": "Official GUI/kernel installation pairing and known bin/lib compatibility issue",
+      "version_note": "Current documentation on main, not necessarily present at the release tag"
+    },
+    {
+      "id": "engine-development",
+      "url": "https://github.com/Deltares/Delft3D/blob/DIMRset_2026.02/doc/development.md",
+      "role": "Release-specific build and development entry point"
+    },
+    {
+      "id": "windows-build",
+      "url": "https://github.com/Deltares/Delft3D/blob/DIMRset_2026.02/doc/compiling_Windows.md",
+      "role": "Compiler, oneAPI/MPI/MKL, CMake and Windows build requirements; no build performed"
+    },
+    {
+      "id": "windows-job-ownership",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects",
+      "reviewed_date": "2026-11-04",
+      "role": "Documented Job Object inheritance and kill-on-close behavior; E011 implementation uses suspended assignment, TerminateJobObject, membership checks and retained process-handle waits"
+    },
+    {
+      "id": "fm-community",
+      "url": "https://oss.deltares.nl/web/delft3dfm",
+      "role": "Official FM community, manuals and GUI distribution entry point"
+    },
+    {
+      "id": "fm-get-started",
+      "url": "https://oss.deltares.nl/web/delft3dfm/get-started",
+      "role": "Official distinctions between kernel source, GUI distribution and precompiled products"
+    },
+    {
+      "id": "hydrolib",
+      "url": "https://github.com/Deltares/HYDROLIB-core",
+      "docs": "https://deltares.github.io/HYDROLIB-core/",
+      "local": "upstream/HYDROLIB-core",
+      "role": "Typed Python file models, parsers, serialization, validation, reference handling and test fixtures",
+      "license_reference": "Local LICENSE: MIT"
+    },
+    {
+      "id": "meshkernel",
+      "url": "https://github.com/Deltares/MeshKernel",
+      "docs": "https://deltares.github.io/MeshKernel/",
+      "local": "upstream/MeshKernel",
+      "role": "Native mesh generation/editing/refinement and quality algorithms",
+      "license_reference": "Local LICENSE: LGPL-2.1"
+    },
+    {
+      "id": "meshkernel-python",
+      "url": "https://github.com/Deltares/MeshKernelPy",
+      "docs": "https://deltares.github.io/MeshKernelPy/",
+      "local": "upstream/MeshKernelPy",
+      "role": "Python API and examples for MeshKernel; Python wrapper and bundled native library have separate license provenance"
+    },
+    {
+      "id": "dfm-tools",
+      "url": "https://github.com/Deltares/dfm_tools",
+      "docs": "https://deltares.github.io/dfm_tools/",
+      "local": "upstream/dfm_tools",
+      "role": "Model preprocessing, forcing conversion and results workflows"
+    },
+    {
+      "id": "xugrid",
+      "url": "https://github.com/Deltares/xugrid",
+      "docs": "https://deltares.github.io/xugrid/",
+      "local": "upstream/xugrid",
+      "role": "Unstructured-grid topology and xarray-style model data processing",
+      "license_reference": "Local LICENSE: MIT"
+    },
+    {
+      "id": "local-official-manuals",
+      "local": "manuals/manifest.json",
+      "original_local_directory": "<local FM manual folder; not included>",
+      "role": "FM user/numerics, Delta Shell user/technical, DIMR user/technical, RGFGRID, Morphology, Waves and RTC manuals",
+      "note": "Local copies, no assertion of a verified original download URL. Exact PDF hashes and original paths are recorded."
+    },
+    {
+      "id": "installed-suite",
+      "local": "evidence/installation",
+      "role": "Observed actual executable options, versions, files, launchers, CLR types, native exports and process modules"
+    },
+    {
+      "id": "process-monitor",
+      "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/procmon",
+      "download": "https://download.sysinternals.com/files/ProcessMonitor.zip",
+      "role": "File/registry/process tracing; portable tool acquired, no capture performed"
+    },
+    {
+      "id": "strings",
+      "url": "https://learn.microsoft.com/en-us/sysinternals/downloads/strings",
+      "download": "https://download.sysinternals.com/files/Strings.zip",
+      "role": "Binary string inspection; acquired"
+    },
+    {
+      "id": "ilspy",
+      "url": "https://github.com/icsharpcode/ILSpy",
+      "releases": "https://github.com/icsharpcode/ILSpy/releases",
+      "nuget": "https://www.nuget.org/packages/ilspycmd",
+      "role": "Managed type/resource/decompilation inspection; GUI acquired and CLI exercised"
+    },
+    {
+      "id": "dependencies",
+      "url": "https://github.com/lucasg/Dependencies",
+      "role": "Native import/export/dependency analysis; acquired"
+    },
+    {
+      "id": "pefile",
+      "url": "https://github.com/erocarrera/pefile",
+      "role": "Programmatic PE architecture, imports, exports and version metadata; exercised"
+    },
+    {
+      "id": "dnfile",
+      "url": "https://github.com/malwarefrank/dnfile",
+      "role": "Programmatic CLR metadata inspection without loading target DLLs; exercised"
+    },
+    {
+      "id": "pypdf",
+      "url": "https://github.com/py-pdf/pypdf",
+      "role": "Page-delimited text extraction from local official manuals; exercised"
+    },
+    {
+      "id": "dnspyex-optional",
+      "url": "https://github.com/dnSpyEx/dnSpy",
+      "role": "Optional managed debugger; not downloaded or attached"
+    },
+    {
+      "id": "ghidra-optional",
+      "url": "https://github.com/NationalSecurityAgency/ghidra",
+      "role": "Optional native reverse engineering when release source is insufficient; not downloaded"
+    },
+    {
+      "id": "windbg-optional",
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/",
+      "role": "Optional native debugging and dump analysis; not installed or attached"
+    }
+  ]
+}

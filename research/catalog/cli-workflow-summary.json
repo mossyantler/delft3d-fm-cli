@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-04",
+  "cli_version": "0.1.0",
+  "status": "passed with retained native diagnostics",
+  "regression_tests_passed": 18,
+  "native_runs": 6,
+  "run_pairs": [
+    {
+      "experiment": "CLI-slice-20261104",
+      "public_cli_calls": 16,
+      "status": "passed",
+      "variables_compared": 191,
+      "baseline_unchanged": true,
+      "prepared_model_unchanged_by_runs": true,
+      "routes": {
+        "direct": {
+          "state": "completed",
+          "returncode": 0,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_model_time": "1990-08-05T00:10:00",
+          "stderr_lines": [
+            "proj_create: unrecognized format / unknown name"
+          ],
+          "runtime_versions": null,
+          "software": null
+        },
+        "dimr": {
+          "state": "completed",
+          "returncode": 0,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_model_time": "1990-08-05T00:10:00",
+          "stderr_lines": [
+            "proj_create: unrecognized format / unknown name"
+          ],
+          "runtime_versions": null,
+          "software": null
+        }
+      }
+    },
+    {
+      "experiment": "CLI-replay-20261104",
+      "public_cli_calls": 16,
+      "status": "passed",
+      "variables_compared": 191,
+      "baseline_unchanged": true,
+      "prepared_model_unchanged_by_runs": true,
+      "routes": {
+        "direct": {
+          "state": "completed",
+          "returncode": 0,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_model_time": "1990-08-05T00:10:00",
+          "stderr_lines": [
+            "proj_create: unrecognized format / unknown name"
+          ],
+          "runtime_versions": {
+            "fm": "1.2.184.Unknown",
+            "dimr_exe": null,
+            "dimr_library": null,
+            "source_revision": null
+          },
+          "software": {
+            "cli_version": "0.1.0",
+            "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "netCDF4_version": "1.7.5.1.post1",
+            "numpy_version": "2.5.4"
+          }
+        },
+        "dimr": {
+          "state": "completed",
+          "returncode": 0,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_model_time": "1990-08-05T00:10:00",
+          "stderr_lines": [
+            "proj_create: unrecognized format / unknown name"
+          ],
+          "runtime_versions": {
+            "fm": "1.2.184.Unknown",
+            "dimr_exe": "2.00.Unknown",
+            "dimr_library": "1.02.Unknown",
+            "source_revision": null
+          },
+          "software": {
+            "cli_version": "0.1.0",
+            "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "netCDF4_version": "1.7.5.1.post1",
+            "numpy_version": "2.5.4"
+          }
+        }
+      }
+    },
+    {
+      "experiment": "CLI-isolated-20261104",
+      "public_cli_calls": 16,
+      "status": "passed",
+      "variables_compared": 191,
+      "baseline_unchanged": true,
+      "prepared_model_unchanged_by_runs": true,
+      "routes": {
+        "direct": {
+          "state": "completed",
+          "returncode": 0,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_model_time": "1990-08-05T00:10:00",
+          "stderr_lines": [
+            "proj_create: unrecognized format / unknown name"
+          ],
+          "runtime_versions": {
+            "fm": "1.2.184.Unknown",
+            "dimr_exe": null,
+            "dimr_library": null,
+            "source_revision": null
+          },
+          "software": {
+            "cli_version": "0.1.0",
+            "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "netCDF4_version": "1.7.5.1.post1",
+            "numpy_version": "2.5.4"
+          }
+        },
+        "dimr": {
+          "state": "completed",
+          "returncode": 0,
+          "history_samples": 11,
+          "map_samples": 11,
+          "final_model_time": "1990-08-05T00:10:00",
+          "stderr_lines": [
+            "proj_create: unrecognized format / unknown name"
+          ],
+          "runtime_versions": {
+            "fm": "1.2.184.Unknown",
+            "dimr_exe": "2.00.Unknown",
+            "dimr_library": "1.02.Unknown",
+            "source_revision": null
+          },
+          "software": {
+            "cli_version": "0.1.0",
+            "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+            "netCDF4_version": "1.7.5.1.post1",
+            "numpy_version": "2.5.4"
+          }
+        }
+      }
+    }
+  ],
+  "application_source_sha256": {
+    "pyproject.toml": "1bb934ec5963a4b24ba4cb399dc6c44d7cc9fcc9c22f34287477c15caaa7b254",
+    "src/dfm_cli/__init__.py": "e1a5aa7065e2ccb6c3fef9a625e41b28fb5e678100156087f9fdf2383b11bea0",
+    "src/dfm_cli/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/dfm_cli/cli.py": "8d7484bcc070ed74ae58759c9fd238c24c7b8909b44a2f1a8bc4034edd3a5c2d",
+    "src/dfm_cli/common.py": "49f8e90ed1b3e74bc8a93d4e2477b826b8c487d1c4bbb870a55148a62d1e9781",
+    "src/dfm_cli/installation.py": "7bf37a1f7f953fa86c13c78cf39e465705fea2287aef02200ec41ff1d19d1ad9",
+    "src/dfm_cli/model.py": "c9818ed5e08fb3d1b3ee31d72d1d7930ff322d0e609c1c903c8ba7c9723f274e",
+    "src/dfm_cli/runs.py": "f339f13894eb1e64409ebeeae4ee939ed40c0cefc34bc0440610ea101f8f6a28",
+    "tests/test_cli.py": "6f02f4853650cc711303282644a4629dfe7b2b4d283aefc1371fb19ec5901bd8",
+    "research/scripts/verify_cli_workflow.py": "5b26039fa6ab7d9567ead119f7ab803fc3f7acf33c8529cff8a907f8d1d4caef"
+  },
+  "tested_packages": {
+    "delft3d-fm-cli": "0.1.0",
+    "netCDF4": "1.7.5.1.post1",
+    "numpy": "2.5.4",
+    "cftime": "1.6.6.1",
+    "certifi": "2026.10.23",
+    "packaging": "26.3"
+  },
+  "limitations": [
+    "Partial reference/semantic validation, not scientific or CRS validation",
+    "Synchronous runs and recorded status only; no daemon/PID identity/cancel API",
+    "Native timeout/process-tree cancellation remains integration-untested"
+  ]
+}

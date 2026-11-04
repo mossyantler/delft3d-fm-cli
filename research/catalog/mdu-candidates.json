@@ -1,0 +1,5092 @@
+{
+  "scope": "Candidate literal prop_set keys and Python annotated fields; not a complete engine schema. Defaults, dynamic sections, aliases, and semantic constraints require source review.",
+  "engine_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "engine_source": "upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90",
+  "engine_source_sha256": "c1c44f7d2f7ecd00b7fa2e260ee5f7bad097f58b868e683fb9c5de1f8c0b0087",
+  "engine_candidate_keys": [
+    {
+      "section": "General",
+      "key": "Program",
+      "line": 2699
+    },
+    {
+      "section": "General",
+      "key": "Version",
+      "line": 2700
+    },
+    {
+      "section": "General",
+      "key": "fileType",
+      "line": 2701
+    },
+    {
+      "section": "General",
+      "key": "fileVersion",
+      "line": 2704
+    },
+    {
+      "section": "General",
+      "key": "ModelSpecific",
+      "line": 2705
+    },
+    {
+      "section": "General",
+      "key": "PathsRelativeToParent",
+      "line": 2706
+    },
+    {
+      "section": "General",
+      "key": "ConvertLongCulverts",
+      "line": 2707
+    },
+    {
+      "section": "geometry",
+      "key": "NetFile",
+      "line": 2710
+    },
+    {
+      "section": "geometry",
+      "key": "GridEnclosureFile",
+      "line": 2711
+    },
+    {
+      "section": "geometry",
+      "key": "DryPointsFile",
+      "line": 2712
+    },
+    {
+      "section": "geometry",
+      "key": "CrossDefFile",
+      "line": 2716
+    },
+    {
+      "section": "geometry",
+      "key": "CrossLocFile",
+      "line": 2719
+    },
+    {
+      "section": "geometry",
+      "key": "StorageNodeFile",
+      "line": 2722
+    },
+    {
+      "section": "geometry",
+      "key": "frictFile",
+      "line": 2725
+    },
+    {
+      "section": "geometry",
+      "key": "StructureFile",
+      "line": 2728
+    },
+    {
+      "section": "geometry",
+      "key": "StructureFile",
+      "line": 2731
+    },
+    {
+      "section": "geometry",
+      "key": "WaterLevIniFile",
+      "line": 2733
+    },
+    {
+      "section": "geometry",
+      "key": "LandBoundaryFile",
+      "line": 2734
+    },
+    {
+      "section": "geometry",
+      "key": "ThinDamFile",
+      "line": 2735
+    },
+    {
+      "section": "geometry",
+      "key": "Cutcelllist",
+      "line": 2736
+    },
+    {
+      "section": "geometry",
+      "key": "FixedWeirFile",
+      "line": 2737
+    },
+    {
+      "section": "geometry",
+      "key": "PillarFile",
+      "line": 2738
+    },
+    {
+      "section": "geometry",
+      "key": "Gulliesfile",
+      "line": 2739
+    },
+    {
+      "section": "geometry",
+      "key": "Roofsfile",
+      "line": 2740
+    },
+    {
+      "section": "geometry",
+      "key": "VertplizFile",
+      "line": 2742
+    },
+    {
+      "section": "geometry",
+      "key": "ProflocFile",
+      "line": 2744
+    },
+    {
+      "section": "geometry",
+      "key": "ProfdefFile",
+      "line": 2745
+    },
+    {
+      "section": "geometry",
+      "key": "ProfdefxyzFile",
+      "line": 2746
+    },
+    {
+      "section": "geometry",
+      "key": "IniFieldFile",
+      "line": 2747
+    },
+    {
+      "section": "geometry",
+      "key": "UseCaching",
+      "line": 2748
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformwidth1D",
+      "line": 2750
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformheight1D",
+      "line": 2752
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformtyp1D",
+      "line": 2755
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformwidth1Dstreetinlets",
+      "line": 2759
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformheight1Dstreetinlets",
+      "line": 2762
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformtyp1Dstreetinlets",
+      "line": 2765
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformwidth1Droofgutterpipes",
+      "line": 2769
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformheight1Droofgutterpipes",
+      "line": 2772
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformtyp1Droofgutterpipes",
+      "line": 2775
+    },
+    {
+      "section": "geometry",
+      "key": "1D2DLinkFile",
+      "line": 2778
+    },
+    {
+      "section": "geometry",
+      "key": "Dxmin1D",
+      "line": 2782
+    },
+    {
+      "section": "geometry",
+      "key": "Dxwuimin2D",
+      "line": 2784
+    },
+    {
+      "section": "geometry",
+      "key": "Removesmalllinkstrsh",
+      "line": 2787
+    },
+    {
+      "section": "geometry",
+      "key": "Cosphiutrsh",
+      "line": 2790
+    },
+    {
+      "section": "geometry",
+      "key": "1D2Dinternallinktype",
+      "line": 2794
+    },
+    {
+      "section": "geometry",
+      "key": "PipeFile",
+      "line": 2798
+    },
+    {
+      "section": "geometry",
+      "key": "ShipdefFile",
+      "line": 2802
+    },
+    {
+      "section": "geometry",
+      "key": "WaterLevIni",
+      "line": 2805
+    },
+    {
+      "section": "geometry",
+      "key": "waterdepthini1D",
+      "line": 2807
+    },
+    {
+      "section": "geometry",
+      "key": "Uniformhu",
+      "line": 2811
+    },
+    {
+      "section": "geometry",
+      "key": "BedlevUni",
+      "line": 2814
+    },
+    {
+      "section": "geometry",
+      "key": "Bedslope",
+      "line": 2816
+    },
+    {
+      "section": "geometry",
+      "key": "Bedwaveamplitude",
+      "line": 2819
+    },
+    {
+      "section": "geometry",
+      "key": "Bedwavelength",
+      "line": 2822
+    },
+    {
+      "section": "geometry",
+      "key": "BedlevMode",
+      "line": 2826
+    },
+    {
+      "section": "geometry",
+      "key": "BedlevType",
+      "line": 2830
+    },
+    {
+      "section": "geometry",
+      "key": "Blmeanbelow",
+      "line": 2839
+    },
+    {
+      "section": "geometry",
+      "key": "Blminabove",
+      "line": 2840
+    },
+    {
+      "section": "geometry",
+      "key": "Groundlayerthickness",
+      "line": 2843
+    },
+    {
+      "section": "geometry",
+      "key": "PartitionFile",
+      "line": 2846
+    },
+    {
+      "section": "geometry",
+      "key": "AngLat",
+      "line": 2848
+    },
+    {
+      "section": "geometry",
+      "key": "AngLon",
+      "line": 2849
+    },
+    {
+      "section": "geometry",
+      "key": "Helmert",
+      "line": 2852
+    },
+    {
+      "section": "geometry",
+      "key": "Conveyance2D",
+      "line": 2855
+    },
+    {
+      "section": "geometry",
+      "key": "Conveyance3D",
+      "line": 2857
+    },
+    {
+      "section": "geometry",
+      "key": "Nonlin2D",
+      "line": 2860
+    },
+    {
+      "section": "geometry",
+      "key": "Nonlin1D",
+      "line": 2863
+    },
+    {
+      "section": "geometry",
+      "key": "Slotw2D",
+      "line": 2867
+    },
+    {
+      "section": "geometry",
+      "key": "Slotw1D",
+      "line": 2870
+    },
+    {
+      "section": "geometry",
+      "key": "Sillheightmin",
+      "line": 2874
+    },
+    {
+      "section": "geometry",
+      "key": "Makeorthocenters",
+      "line": 2878
+    },
+    {
+      "section": "geometry",
+      "key": "stripMesh",
+      "line": 2881
+    },
+    {
+      "section": "geometry",
+      "key": "Dcenterinside",
+      "line": 2884
+    },
+    {
+      "section": "geometry",
+      "key": "circumcenterMethod",
+      "line": 2887
+    },
+    {
+      "section": "geometry",
+      "key": "circumcenterTolerance",
+      "line": 2890
+    },
+    {
+      "section": "geometry",
+      "key": "Bamin",
+      "line": 2893
+    },
+    {
+      "section": "geometry",
+      "key": "OpenBoundaryTolerance",
+      "line": 2896
+    },
+    {
+      "section": "geometry",
+      "key": "AllowBndAtBifurcation",
+      "line": 2899
+    },
+    {
+      "section": "geometry",
+      "key": "CreateLinks1D2D",
+      "line": 2902
+    },
+    {
+      "section": "geometry",
+      "key": "RenumberFlowNodes",
+      "line": 2905
+    },
+    {
+      "section": "geometry",
+      "key": "dxDoubleAt1DEndNodes",
+      "line": 2908
+    },
+    {
+      "section": "geometry",
+      "key": "ChangeVelocityAtStructures",
+      "line": 2911
+    },
+    {
+      "section": "geometry",
+      "key": "ChangeStructureDimensions",
+      "line": 2914
+    },
+    {
+      "section": "geometry",
+      "key": "Kmx",
+      "line": 2917
+    },
+    {
+      "section": "geometry",
+      "key": "Layertype",
+      "line": 2919
+    },
+    {
+      "section": "geometry",
+      "key": "Layertype",
+      "line": 2921
+    },
+    {
+      "section": "geometry",
+      "key": "Numtopsig",
+      "line": 2923
+    },
+    {
+      "section": "geometry",
+      "key": "Numtopsiguniform",
+      "line": 2925
+    },
+    {
+      "section": "geometry",
+      "key": "zLayerGrowthFactor",
+      "line": 2928
+    },
+    {
+      "section": "geometry",
+      "key": "Dztop",
+      "line": 2930
+    },
+    {
+      "section": "geometry",
+      "key": "Toplayminthick",
+      "line": 2933
+    },
+    {
+      "section": "geometry",
+      "key": "StretchType",
+      "line": 2936
+    },
+    {
+      "section": "geometry",
+      "key": "StretchCoef",
+      "line": 2938
+    },
+    {
+      "section": "geometry",
+      "key": "StretchCoef",
+      "line": 2940
+    },
+    {
+      "section": "geometry",
+      "key": "Floorlevtoplay",
+      "line": 2944
+    },
+    {
+      "section": "geometry",
+      "key": "ZlayBot",
+      "line": 2948
+    },
+    {
+      "section": "geometry",
+      "key": "ZlayTop",
+      "line": 2952
+    },
+    {
+      "section": "geometry",
+      "key": "Dztopuniabovez",
+      "line": 2956
+    },
+    {
+      "section": "geometry",
+      "key": "Tsigma",
+      "line": 2959
+    },
+    {
+      "section": "geometry",
+      "key": "Keepzlayeringatbed",
+      "line": 2963
+    },
+    {
+      "section": "geometry",
+      "key": "Keepzlay1bedvol",
+      "line": 2967
+    },
+    {
+      "section": "geometry",
+      "key": "Ihuz",
+      "line": 2971
+    },
+    {
+      "section": "geometry",
+      "key": "ihuzcsig",
+      "line": 2975
+    },
+    {
+      "section": "geometry",
+      "key": "Zlayeratubybob",
+      "line": 2979
+    },
+    {
+      "section": "geometry",
+      "key": "Dpuopt",
+      "line": 2983
+    },
+    {
+      "section": "geometry",
+      "key": "ExtrBl",
+      "line": 2985
+    },
+    {
+      "section": "geometry",
+      "key": "calculateBedLevelOverNonActiveLinks",
+      "line": 2986
+    },
+    {
+      "section": "volumeTables",
+      "key": "useVolumeTables",
+      "line": 2991
+    },
+    {
+      "section": "volumeTables",
+      "key": "increment",
+      "line": 2993
+    },
+    {
+      "section": "volumeTables",
+      "key": "useVolumeTableFile",
+      "line": 2994
+    },
+    {
+      "section": "numerics",
+      "key": "CFLMax",
+      "line": 2999
+    },
+    {
+      "section": "numerics",
+      "key": "Lincontin",
+      "line": 3001
+    },
+    {
+      "section": "numerics",
+      "key": "AdvecType",
+      "line": 3003
+    },
+    {
+      "section": "numerics",
+      "key": "AdvecCorrection1D2D",
+      "line": 3004
+    },
+    {
+      "section": "numerics",
+      "key": "TimeStepType",
+      "line": 3006
+    },
+    {
+      "section": "numerics",
+      "key": "maxNonlinearIterations",
+      "line": 3008
+    },
+    {
+      "section": "numerics",
+      "key": "setHorizontalBobsFor1d2d",
+      "line": 3011
+    },
+    {
+      "section": "numerics",
+      "key": "Icoriolistype",
+      "line": 3013
+    },
+    {
+      "section": "numerics",
+      "key": "Newcorio",
+      "line": 3014
+    },
+    {
+      "section": "numerics",
+      "key": "Corioconstant",
+      "line": 3017
+    },
+    {
+      "section": "numerics",
+      "key": "Corioadamsbashfordfac",
+      "line": 3020
+    },
+    {
+      "section": "numerics",
+      "key": "Coriohhtrsh",
+      "line": 3023
+    },
+    {
+      "section": "numerics",
+      "key": "numoverlap",
+      "line": 3026
+    },
+    {
+      "section": "numerics",
+      "key": "Limtyphu",
+      "line": 3029
+    },
+    {
+      "section": "numerics",
+      "key": "Limtypmom",
+      "line": 3031
+    },
+    {
+      "section": "numerics",
+      "key": "Limtypsa",
+      "line": 3032
+    },
+    {
+      "section": "numerics",
+      "key": "Limtypw",
+      "line": 3034
+    },
+    {
+      "section": "numerics",
+      "key": "TransportAutoTimestepdiff",
+      "line": 3037
+    },
+    {
+      "section": "numerics",
+      "key": "Implicitdiffusion2D",
+      "line": 3038
+    },
+    {
+      "section": "numerics",
+      "key": "DiagnosticTransport",
+      "line": 3040
+    },
+    {
+      "section": "numerics",
+      "key": "VerticalAdvectionType",
+      "line": 3043
+    },
+    {
+      "section": "numerics",
+      "key": "Vertadvtypsal",
+      "line": 3045
+    },
+    {
+      "section": "numerics",
+      "key": "Vertadvtyptem",
+      "line": 3046
+    },
+    {
+      "section": "numerics",
+      "key": "Vertadvtypmom",
+      "line": 3048
+    },
+    {
+      "section": "numerics",
+      "key": "Vertadvtypmom3onbnd",
+      "line": 3050
+    },
+    {
+      "section": "numerics",
+      "key": "Cffacver",
+      "line": 3053
+    },
+    {
+      "section": "numerics",
+      "key": "Cffachormom",
+      "line": 3056
+    },
+    {
+      "section": "numerics",
+      "key": "Cfexphormom",
+      "line": 3059
+    },
+    {
+      "section": "numerics",
+      "key": "Cfconhormom",
+      "line": 3062
+    },
+    {
+      "section": "numerics",
+      "key": "Cffachu",
+      "line": 3066
+    },
+    {
+      "section": "numerics",
+      "key": "Cfexphu",
+      "line": 3069
+    },
+    {
+      "section": "numerics",
+      "key": "Jarhoxu",
+      "line": 3073
+    },
+    {
+      "section": "numerics",
+      "key": "Horadvtypzlayer",
+      "line": 3076
+    },
+    {
+      "section": "numerics",
+      "key": "Pure1D",
+      "line": 3080
+    },
+    {
+      "section": "numerics",
+      "key": "Junction1D",
+      "line": 3081
+    },
+    {
+      "section": "numerics",
+      "key": "Zerozbndinflowadvection",
+      "line": 3085
+    },
+    {
+      "section": "numerics",
+      "key": "Zlayercenterbedvel",
+      "line": 3088
+    },
+    {
+      "section": "numerics",
+      "key": "Structurelayersactive",
+      "line": 3091
+    },
+    {
+      "section": "numerics",
+      "key": "Icgsolver",
+      "line": 3094
+    },
+    {
+      "section": "numerics",
+      "key": "LogSolverConvergence",
+      "line": 3095
+    },
+    {
+      "section": "numerics",
+      "key": "Maxdegree",
+      "line": 3097
+    },
+    {
+      "section": "numerics",
+      "key": "Noderivedtypes",
+      "line": 3100
+    },
+    {
+      "section": "numerics",
+      "key": "jposhchk",
+      "line": 3103
+    },
+    {
+      "section": "numerics",
+      "key": "FixedWeirScheme",
+      "line": 3107
+    },
+    {
+      "section": "numerics",
+      "key": "FixedWeirScheme1d2d",
+      "line": 3108
+    },
+    {
+      "section": "numerics",
+      "key": "FixedWeir1d2d_dx",
+      "line": 3109
+    },
+    {
+      "section": "numerics",
+      "key": "FixedWeirContraction",
+      "line": 3110
+    },
+    {
+      "section": "numerics",
+      "key": "Fixedweirfrictscheme",
+      "line": 3111
+    },
+    {
+      "section": "numerics",
+      "key": "Fixedweirtopwidth",
+      "line": 3112
+    },
+    {
+      "section": "numerics",
+      "key": "Fixedweirtopfrictcoef",
+      "line": 3113
+    },
+    {
+      "section": "numerics",
+      "key": "Fixedweirtalud",
+      "line": 3114
+    },
+    {
+      "section": "numerics",
+      "key": "FixedweirRelaxationcoef",
+      "line": 3115
+    },
+    {
+      "section": "numerics",
+      "key": "Izbndpos",
+      "line": 3125
+    },
+    {
+      "section": "numerics",
+      "key": "Tlfsmo",
+      "line": 3128
+    },
+    {
+      "section": "numerics",
+      "key": "Keepstbndonoutflow",
+      "line": 3130
+    },
+    {
+      "section": "numerics",
+      "key": "Diffusiononbnd",
+      "line": 3134
+    },
+    {
+      "section": "numerics",
+      "key": "tSpinupTurbLogProf",
+      "line": 3138
+    },
+    {
+      "section": "numerics",
+      "key": "Logprofatubndin",
+      "line": 3141
+    },
+    {
+      "section": "numerics",
+      "key": "Logprofkepsbndin",
+      "line": 3144
+    },
+    {
+      "section": "numerics",
+      "key": "Slopedrop2D",
+      "line": 3147
+    },
+    {
+      "section": "numerics",
+      "key": "Drop1D",
+      "line": 3149
+    },
+    {
+      "section": "numerics",
+      "key": "Drop3D",
+      "line": 3152
+    },
+    {
+      "section": "numerics",
+      "key": "Chkadvd",
+      "line": 3156
+    },
+    {
+      "section": "numerics",
+      "key": "Linkdriedmx",
+      "line": 3160
+    },
+    {
+      "section": "numerics",
+      "key": "Huweirregular",
+      "line": 3164
+    },
+    {
+      "section": "numerics",
+      "key": "Chkdifd",
+      "line": 3168
+    },
+    {
+      "section": "numerics",
+      "key": "Trsh_u1Lb",
+      "line": 3172
+    },
+    {
+      "section": "numerics",
+      "key": "Epshstem",
+      "line": 3176
+    },
+    {
+      "section": "numerics",
+      "key": "Zwsbtol",
+      "line": 3180
+    },
+    {
+      "section": "numerics",
+      "key": "Teta0",
+      "line": 3184
+    },
+    {
+      "section": "numerics",
+      "key": "Jbasqbnddownwindhs",
+      "line": 3188
+    },
+    {
+      "section": "numerics",
+      "key": "cstbnd",
+      "line": 3191
+    },
+    {
+      "section": "numerics",
+      "key": "Maxitverticalforestersal",
+      "line": 3194
+    },
+    {
+      "section": "numerics",
+      "key": "Maxitverticalforestertem",
+      "line": 3198
+    },
+    {
+      "section": "numerics",
+      "key": "Turbulencemodel",
+      "line": 3202
+    },
+    {
+      "section": "numerics",
+      "key": "c1e",
+      "line": 3203
+    },
+    {
+      "section": "numerics",
+      "key": "c3eStable",
+      "line": 3204
+    },
+    {
+      "section": "numerics",
+      "key": "c3eUnstable",
+      "line": 3205
+    },
+    {
+      "section": "numerics",
+      "key": "Turbulenceadvection",
+      "line": 3209
+    },
+    {
+      "section": "numerics",
+      "key": "turbulenceTimeIntegrationFactor",
+      "line": 3213
+    },
+    {
+      "section": "numerics",
+      "key": "turbulenceTimeIntegrationMethod",
+      "line": 3214
+    },
+    {
+      "section": "numerics",
+      "key": "Eddyviscositybedfacmax",
+      "line": 3218
+    },
+    {
+      "section": "numerics",
+      "key": "AntiCreep",
+      "line": 3222
+    },
+    {
+      "section": "numerics",
+      "key": "Barocponbnd",
+      "line": 3226
+    },
+    {
+      "section": "numerics",
+      "key": "maxitpresdens",
+      "line": 3229
+    },
+    {
+      "section": "numerics",
+      "key": "rhoInterfaces",
+      "line": 3232
+    },
+    {
+      "section": "numerics",
+      "key": "Maxwaterleveldiff",
+      "line": 3245
+    },
+    {
+      "section": "numerics",
+      "key": "Maxvelocitydiff",
+      "line": 3249
+    },
+    {
+      "section": "numerics",
+      "key": "Maxvelocity",
+      "line": 3253
+    },
+    {
+      "section": "numerics",
+      "key": "Waterlevelwarn",
+      "line": 3257
+    },
+    {
+      "section": "numerics",
+      "key": "Velocitywarn",
+      "line": 3261
+    },
+    {
+      "section": "numerics",
+      "key": "Velmagnwarn",
+      "line": 3265
+    },
+    {
+      "section": "numerics",
+      "key": "MinTimestepBreak",
+      "line": 3269
+    },
+    {
+      "section": "numerics",
+      "key": "MinWaterlevelChangeBreak",
+      "line": 3273
+    },
+    {
+      "section": "numerics",
+      "key": "MaxSSC",
+      "line": 3277
+    },
+    {
+      "section": "numerics",
+      "key": "Epshu",
+      "line": 3280
+    },
+    {
+      "section": "numerics",
+      "key": "Lateral_fixedweir_umin",
+      "line": 3283
+    },
+    {
+      "section": "numerics",
+      "key": "Lateral_fixedweir_umin_method",
+      "line": 3284
+    },
+    {
+      "section": "numerics",
+      "key": "Lateral_fixedweir_Minimal_1d2d_Embankment",
+      "line": 3287
+    },
+    {
+      "section": "numerics",
+      "key": "Lateral_fixedweir_relax",
+      "line": 3291
+    },
+    {
+      "section": "numerics",
+      "key": "jaupwindsrc",
+      "line": 3294
+    },
+    {
+      "section": "numerics",
+      "key": "jasfer3D",
+      "line": 3296
+    },
+    {
+      "section": "numerics",
+      "key": "BarrierAdvection",
+      "line": 3299
+    },
+    {
+      "section": "numerics",
+      "key": "HorizontalMomentumFilter",
+      "line": 3303
+    },
+    {
+      "section": "numerics",
+      "key": "filterorder",
+      "line": 3304
+    },
+    {
+      "section": "numerics",
+      "key": "checkerboardmonitor",
+      "line": 3308
+    },
+    {
+      "section": "numerics",
+      "key": "LocSaltLev",
+      "line": 3312
+    },
+    {
+      "section": "numerics",
+      "key": "LocSaltMin",
+      "line": 3315
+    },
+    {
+      "section": "numerics",
+      "key": "LocSaltMax",
+      "line": 3318
+    },
+    {
+      "section": "numerics",
+      "key": "Numlimdt_baorg",
+      "line": 3321
+    },
+    {
+      "section": "numerics",
+      "key": "Baorgfracmin",
+      "line": 3324
+    },
+    {
+      "section": "numerics",
+      "key": "SubsUplUpdateS1",
+      "line": 3327
+    },
+    {
+      "section": "numerics",
+      "key": "EpsMaxlev",
+      "line": 3331
+    },
+    {
+      "section": "numerics",
+      "key": "EpsMaxlevm",
+      "line": 3334
+    },
+    {
+      "section": "numerics",
+      "key": "PerotType",
+      "line": 3337
+    },
+    {
+      "section": "numerics",
+      "key": "PerotWeightUpdate",
+      "line": 3338
+    },
+    {
+      "section": "numerics",
+      "key": "Oceaneddysizefrac",
+      "line": 3341
+    },
+    {
+      "section": "numerics",
+      "key": "Oceaneddysize",
+      "line": 3342
+    },
+    {
+      "section": "numerics",
+      "key": "Oceaneddyamp",
+      "line": 3343
+    },
+    {
+      "section": "numerics",
+      "key": "Oceaneddyvel",
+      "line": 3344
+    },
+    {
+      "section": "numerics",
+      "key": "Oceaneddyyoff",
+      "line": 3345
+    },
+    {
+      "section": "numerics",
+      "key": "Oceaneddyxoff",
+      "line": 3346
+    },
+    {
+      "section": "numerics",
+      "key": "PillarFarFieldVelocity",
+      "line": 3349
+    },
+    {
+      "section": "numerics",
+      "key": "Testdryingflooding",
+      "line": 3352
+    },
+    {
+      "section": "numerics",
+      "key": "Testfixedweirs",
+      "line": 3355
+    },
+    {
+      "section": "numerics",
+      "key": "FlowSolver",
+      "line": 3358
+    },
+    {
+      "section": "numerics",
+      "key": "Numlimdt_baorg",
+      "line": 3359
+    },
+    {
+      "section": "physics",
+      "key": "unifFrictCoef",
+      "line": 3362
+    },
+    {
+      "section": "physics",
+      "key": "unifFrictType",
+      "line": 3363
+    },
+    {
+      "section": "physics",
+      "key": "unifFrictCoef1D",
+      "line": 3364
+    },
+    {
+      "section": "physics",
+      "key": "unifFrictCoef1D2D",
+      "line": 3365
+    },
+    {
+      "section": "physics",
+      "key": "unifFrictCoefLin",
+      "line": 3366
+    },
+    {
+      "section": "physics",
+      "key": "unifFrictCoef1DgrLay",
+      "line": 3368
+    },
+    {
+      "section": "physics",
+      "key": "Umodlin",
+      "line": 3371
+    },
+    {
+      "section": "physics",
+      "key": "Vicouv",
+      "line": 3373
+    },
+    {
+      "section": "physics",
+      "key": "Dicouv",
+      "line": 3374
+    },
+    {
+      "section": "physics",
+      "key": "Vicoww",
+      "line": 3376
+    },
+    {
+      "section": "physics",
+      "key": "Dicoww",
+      "line": 3377
+    },
+    {
+      "section": "physics",
+      "key": "Vicwminb",
+      "line": 3380
+    },
+    {
+      "section": "physics",
+      "key": "Xlozmidov",
+      "line": 3382
+    },
+    {
+      "section": "physics",
+      "key": "TKEMin",
+      "line": 3384
+    },
+    {
+      "section": "physics",
+      "key": "EPSMin",
+      "line": 3388
+    },
+    {
+      "section": "physics",
+      "key": "TAUMin",
+      "line": 3390
+    },
+    {
+      "section": "physics",
+      "key": "SchmidtNumberSalinity",
+      "line": 3395
+    },
+    {
+      "section": "physics",
+      "key": "PrandtlNumberTemperature",
+      "line": 3396
+    },
+    {
+      "section": "physics",
+      "key": "SchmidtNumberTracer",
+      "line": 3397
+    },
+    {
+      "section": "physics",
+      "key": "Smagorinsky",
+      "line": 3398
+    },
+    {
+      "section": "physics",
+      "key": "Elder",
+      "line": 3399
+    },
+    {
+      "section": "physics",
+      "key": "irov",
+      "line": 3400
+    },
+    {
+      "section": "physics",
+      "key": "wall_ks",
+      "line": 3401
+    },
+    {
+      "section": "physics",
+      "key": "Rhomean",
+      "line": 3402
+    },
+    {
+      "section": "physics",
+      "key": "Idensform",
+      "line": 3404
+    },
+    {
+      "section": "physics",
+      "key": "thermobaricity",
+      "line": 3405
+    },
+    {
+      "section": "physics",
+      "key": "thermobaricityInPressureGradient",
+      "line": 3406
+    },
+    {
+      "section": "physics",
+      "key": "Ag",
+      "line": 3408
+    },
+    {
+      "section": "physics",
+      "key": "TidalForcing",
+      "line": 3409
+    },
+    {
+      "section": "physics",
+      "key": "SelfAttractionLoading",
+      "line": 3410
+    },
+    {
+      "section": "physics",
+      "key": "SelfAttractionLoading_correct_wl_with_ini",
+      "line": 3411
+    },
+    {
+      "section": "physics",
+      "key": "ITcap",
+      "line": 3413
+    },
+    {
+      "section": "physics",
+      "key": "Doodsonstart",
+      "line": 3416
+    },
+    {
+      "section": "physics",
+      "key": "Doodsonstop",
+      "line": 3417
+    },
+    {
+      "section": "physics",
+      "key": "Doodsoneps",
+      "line": 3418
+    },
+    {
+      "section": "physics",
+      "key": "VillemonteCD1",
+      "line": 3420
+    },
+    {
+      "section": "physics",
+      "key": "VillemonteCD2",
+      "line": 3421
+    },
+    {
+      "section": "physics",
+      "key": "Salinity",
+      "line": 3422
+    },
+    {
+      "section": "physics",
+      "key": "InitialSalinity",
+      "line": 3424
+    },
+    {
+      "section": "physics",
+      "key": "Sal0abovezlev",
+      "line": 3426
+    },
+    {
+      "section": "physics",
+      "key": "DeltaSalinity",
+      "line": 3429
+    },
+    {
+      "section": "physics",
+      "key": "Salimax",
+      "line": 3432
+    },
+    {
+      "section": "physics",
+      "key": "Salimin",
+      "line": 3433
+    },
+    {
+      "section": "physics",
+      "key": "Backgroundsalinity",
+      "line": 3437
+    },
+    {
+      "section": "physics",
+      "key": "Backgroundwatertemperature",
+      "line": 3438
+    },
+    {
+      "section": "physics",
+      "key": "Jadelvappos",
+      "line": 3441
+    },
+    {
+      "section": "physics",
+      "key": "Temperature",
+      "line": 3444
+    },
+    {
+      "section": "physics",
+      "key": "InitialTemperature",
+      "line": 3446
+    },
+    {
+      "section": "physics",
+      "key": "Secchidepth",
+      "line": 3447
+    },
+    {
+      "section": "physics",
+      "key": "Secchidepth2",
+      "line": 3449
+    },
+    {
+      "section": "physics",
+      "key": "Secchidepth2fraction",
+      "line": 3450
+    },
+    {
+      "section": "physics",
+      "key": "Stanton",
+      "line": 3453
+    },
+    {
+      "section": "physics",
+      "key": "Dalton",
+      "line": 3454
+    },
+    {
+      "section": "physics",
+      "key": "Albedo",
+      "line": 3455
+    },
+    {
+      "section": "physics",
+      "key": "Tempmax",
+      "line": 3458
+    },
+    {
+      "section": "physics",
+      "key": "Tempmin",
+      "line": 3459
+    },
+    {
+      "section": "physics",
+      "key": "salinityDependentFreezingPoint",
+      "line": 3462
+    },
+    {
+      "section": "physics",
+      "key": "Surftempsmofac",
+      "line": 3466
+    },
+    {
+      "section": "physics",
+      "key": "Soiltempthick",
+      "line": 3469
+    },
+    {
+      "section": "physics",
+      "key": "Heat_eachstep",
+      "line": 3472
+    },
+    {
+      "section": "physics",
+      "key": "freeConvectionCoefficient",
+      "line": 3475
+    },
+    {
+      "section": "physics",
+      "key": "Nudgetimeuni",
+      "line": 3479
+    },
+    {
+      "section": "physics",
+      "key": "IniWithNudge",
+      "line": 3480
+    },
+    {
+      "section": "physics",
+      "key": "NFEntrainmentMomentum",
+      "line": 3484
+    },
+    {
+      "section": "physics",
+      "key": "SecondaryFlow",
+      "line": 3488
+    },
+    {
+      "section": "physics",
+      "key": "BetaSpiral",
+      "line": 3491
+    },
+    {
+      "section": "physics",
+      "key": "Equili",
+      "line": 3494
+    },
+    {
+      "section": "physics",
+      "key": "BreachGrowth",
+      "line": 3498
+    },
+    {
+      "section": "sediment",
+      "key": "Sedimentmodelnr",
+      "line": 3502
+    },
+    {
+      "section": "sediment",
+      "key": "Implicitfallvelocity",
+      "line": 3503
+    },
+    {
+      "section": "sediment",
+      "key": "SedFile",
+      "line": 3506
+    },
+    {
+      "section": "sediment",
+      "key": "MorFile",
+      "line": 3507
+    },
+    {
+      "section": "sediment",
+      "key": "DredgeFile",
+      "line": 3508
+    },
+    {
+      "section": "sediment",
+      "key": "MorphoPol",
+      "line": 3509
+    },
+    {
+      "section": "sediment",
+      "key": "MorCFL",
+      "line": 3510
+    },
+    {
+      "section": "sediment",
+      "key": "DzbDtMax",
+      "line": 3511
+    },
+    {
+      "section": "sediment",
+      "key": "InMorphoPol",
+      "line": 3512
+    },
+    {
+      "section": "sediment",
+      "key": "MormergeDtUser",
+      "line": 3513
+    },
+    {
+      "section": "sediment",
+      "key": "UpperLimitSSC",
+      "line": 3514
+    },
+    {
+      "section": "sediment",
+      "key": "Nr_of_sedfractions",
+      "line": 3518
+    },
+    {
+      "section": "sediment",
+      "key": "MxgrKrone",
+      "line": 3519
+    },
+    {
+      "section": "sediment",
+      "key": "Seddenscoupling",
+      "line": 3520
+    },
+    {
+      "section": "sediment",
+      "key": "D50",
+      "line": 3524
+    },
+    {
+      "section": "sediment",
+      "key": "Rhosed",
+      "line": 3525
+    },
+    {
+      "section": "sediment",
+      "key": "Ws",
+      "line": 3528
+    },
+    {
+      "section": "sediment",
+      "key": "Erosionpar",
+      "line": 3529
+    },
+    {
+      "section": "sediment",
+      "key": "Taucre",
+      "line": 3530
+    },
+    {
+      "section": "sediment",
+      "key": "InitialSedimentConcentration",
+      "line": 3533
+    },
+    {
+      "section": "sediment",
+      "key": "UniformErodablethickness",
+      "line": 3534
+    },
+    {
+      "section": "sediment",
+      "key": "Numintverticaleinstein",
+      "line": 3535
+    },
+    {
+      "section": "sediment",
+      "key": "Jaceneqtr",
+      "line": 3536
+    },
+    {
+      "section": "sediment",
+      "key": "Morfac ",
+      "line": 3537
+    },
+    {
+      "section": "sediment",
+      "key": "TMorfspinup",
+      "line": 3538
+    },
+    {
+      "section": "sediment",
+      "key": "Alfabed",
+      "line": 3539
+    },
+    {
+      "section": "sediment",
+      "key": "Alfasus",
+      "line": 3540
+    },
+    {
+      "section": "sediment",
+      "key": "Crefcav",
+      "line": 3541
+    },
+    {
+      "section": "veg",
+      "key": "Vegetationmodelnr",
+      "line": 3547
+    },
+    {
+      "section": "veg",
+      "key": "Clveg",
+      "line": 3548
+    },
+    {
+      "section": "veg",
+      "key": "Cdveg",
+      "line": 3549
+    },
+    {
+      "section": "veg",
+      "key": "Cbveg",
+      "line": 3550
+    },
+    {
+      "section": "veg",
+      "key": "Rhoveg",
+      "line": 3551
+    },
+    {
+      "section": "veg",
+      "key": "Stemheightstd",
+      "line": 3552
+    },
+    {
+      "section": "veg",
+      "key": "StemheightConvention",
+      "line": 3554
+    },
+    {
+      "section": "veg",
+      "key": "Densvegminbap",
+      "line": 3557
+    },
+    {
+      "section": "veg",
+      "key": "Expchistem",
+      "line": 3560
+    },
+    {
+      "section": "veg",
+      "key": "Expchileaf",
+      "line": 3561
+    },
+    {
+      "section": "veg",
+      "key": "Uchistem",
+      "line": 3562
+    },
+    {
+      "section": "veg",
+      "key": "Uchileaf",
+      "line": 3563
+    },
+    {
+      "section": "veg",
+      "key": "Arealeaf",
+      "line": 3564
+    },
+    {
+      "section": "veg",
+      "key": "Cdleaf",
+      "line": 3565
+    },
+    {
+      "section": "wind",
+      "key": "ICdtyp",
+      "line": 3576
+    },
+    {
+      "section": "wind",
+      "key": "Cdbreakpoints",
+      "line": 3578
+    },
+    {
+      "section": "wind",
+      "key": "Cdbreakpoints",
+      "line": 3580
+    },
+    {
+      "section": "wind",
+      "key": "Windspeedbreakpoints",
+      "line": 3581
+    },
+    {
+      "section": "wind",
+      "key": "Cdbreakpoints",
+      "line": 3583
+    },
+    {
+      "section": "wind",
+      "key": "Windspeedbreakpoints",
+      "line": 3584
+    },
+    {
+      "section": "wind",
+      "key": "Cdbreakpoints",
+      "line": 3586
+    },
+    {
+      "section": "wind",
+      "key": "Cdbreakpoints",
+      "line": 3588
+    },
+    {
+      "section": "wind",
+      "key": "Relativewind",
+      "line": 3591
+    },
+    {
+      "section": "wind",
+      "key": "Windhuorzwsbased",
+      "line": 3594
+    },
+    {
+      "section": "wind",
+      "key": "Windpartialdry",
+      "line": 3597
+    },
+    {
+      "section": "wind",
+      "key": "Rhoair",
+      "line": 3600
+    },
+    {
+      "section": "wind",
+      "key": "PavBnd",
+      "line": 3601
+    },
+    {
+      "section": "wind",
+      "key": "Pavini",
+      "line": 3602
+    },
+    {
+      "section": "wind",
+      "key": "Stresstowind",
+      "line": 3604
+    },
+    {
+      "section": "wind",
+      "key": "Wind_eachstep",
+      "line": 3607
+    },
+    {
+      "section": "wind",
+      "key": "computedAirdensity",
+      "line": 3610
+    },
+    {
+      "section": "Wind",
+      "key": "rhoWaterInWindStress",
+      "line": 3614
+    },
+    {
+      "section": "grw",
+      "key": "groundwater",
+      "line": 3619
+    },
+    {
+      "section": "grw",
+      "key": "Infiltrationmodel",
+      "line": 3623
+    },
+    {
+      "section": "grw",
+      "key": "Hinterceptionlayer",
+      "line": 3624
+    },
+    {
+      "section": "grw",
+      "key": "UnifInfiltrationCapacity",
+      "line": 3625
+    },
+    {
+      "section": "grw",
+      "key": "Conductivity",
+      "line": 3626
+    },
+    {
+      "section": "grw",
+      "key": "h_aquiferuni",
+      "line": 3628
+    },
+    {
+      "section": "grw",
+      "key": "bgrwuni",
+      "line": 3630
+    },
+    {
+      "section": "grw",
+      "key": "h_unsatini",
+      "line": 3633
+    },
+    {
+      "section": "grw",
+      "key": "sgrwini",
+      "line": 3635
+    },
+    {
+      "section": "hydrology",
+      "key": "InterceptionModel",
+      "line": 3643
+    },
+    {
+      "section": "waves",
+      "key": "Wavemodelnr",
+      "line": 3648
+    },
+    {
+      "section": "waves",
+      "key": "Rouwav",
+      "line": 3649
+    },
+    {
+      "section": "waves",
+      "key": "Gammax",
+      "line": 3650
+    },
+    {
+      "section": "waves",
+      "key": "uorbfac",
+      "line": 3651
+    },
+    {
+      "section": "waves",
+      "key": "jahissigwav",
+      "line": 3652
+    },
+    {
+      "section": "waves",
+      "key": "jamapsigwav",
+      "line": 3653
+    },
+    {
+      "section": "waves",
+      "key": "hminlw",
+      "line": 3654
+    },
+    {
+      "section": "waves",
+      "key": "FlowWithoutWaves",
+      "line": 3660
+    },
+    {
+      "section": "waves",
+      "key": "Hwavuni",
+      "line": 3662
+    },
+    {
+      "section": "waves",
+      "key": "Twavuni",
+      "line": 3663
+    },
+    {
+      "section": "waves",
+      "key": "Phiwavuni",
+      "line": 3664
+    },
+    {
+      "section": "waves",
+      "key": "WaveSwartDelwaq",
+      "line": 3667
+    },
+    {
+      "section": "waves",
+      "key": "Tifetchcomp",
+      "line": 3670
+    },
+    {
+      "section": "waves",
+      "key": "3Dstokesprofile",
+      "line": 3673
+    },
+    {
+      "section": "waves",
+      "key": "3Dwavebreakerturbulence",
+      "line": 3674
+    },
+    {
+      "section": "waves",
+      "key": "3Dwavestreaming",
+      "line": 3675
+    },
+    {
+      "section": "waves",
+      "key": "3Dwaveboundarylayer",
+      "line": 3676
+    },
+    {
+      "section": "waves",
+      "key": "Waveforcing",
+      "line": 3679
+    },
+    {
+      "section": "sedtrails",
+      "key": "SedtrailsGrid",
+      "line": 3685
+    },
+    {
+      "section": "sedtrails",
+      "key": "SedtrailsAnalysis",
+      "line": 3686
+    },
+    {
+      "section": "sedtrails",
+      "key": "SedtrailsInterval",
+      "line": 3690
+    },
+    {
+      "section": "sedtrails",
+      "key": "SedtrailsOutputFile",
+      "line": 3691
+    },
+    {
+      "section": "Time",
+      "key": "refDate",
+      "line": 3695
+    },
+    {
+      "section": "Time",
+      "key": "tZone",
+      "line": 3696
+    },
+    {
+      "section": "Time",
+      "key": "dtUser",
+      "line": 3697
+    },
+    {
+      "section": "Time",
+      "key": "dtNodal",
+      "line": 3699
+    },
+    {
+      "section": "Time",
+      "key": "dtMax",
+      "line": 3701
+    },
+    {
+      "section": "Time",
+      "key": "dtFacMax",
+      "line": 3702
+    },
+    {
+      "section": "Time",
+      "key": "dtInit",
+      "line": 3703
+    },
+    {
+      "section": "Time",
+      "key": "timeStepAnalysis",
+      "line": 3705
+    },
+    {
+      "section": "Time",
+      "key": "autoTimeStep",
+      "line": 3708
+    },
+    {
+      "section": "Time",
+      "key": "autoTimeStepVisc",
+      "line": 3711
+    },
+    {
+      "section": "Time",
+      "key": "autoTimeStepNoStruct",
+      "line": 3715
+    },
+    {
+      "section": "Time",
+      "key": "autoTimeStepNoQout",
+      "line": 3719
+    },
+    {
+      "section": "Time",
+      "key": "tUnit",
+      "line": 3722
+    },
+    {
+      "section": "Time",
+      "key": "tStart",
+      "line": 3734
+    },
+    {
+      "section": "Time",
+      "key": "tStop",
+      "line": 3735
+    },
+    {
+      "section": "Time",
+      "key": "tStartTlfsmo",
+      "line": 3736
+    },
+    {
+      "section": "Time",
+      "key": "startDateTime",
+      "line": 3739
+    },
+    {
+      "section": "Time",
+      "key": "stopDateTime",
+      "line": 3743
+    },
+    {
+      "section": "Time",
+      "key": "startDateTimeTlfsmo",
+      "line": 3747
+    },
+    {
+      "section": "Time",
+      "key": "updateRoughnessInterval",
+      "line": 3751
+    },
+    {
+      "section": "restart",
+      "key": "RestartFile",
+      "line": 3755
+    },
+    {
+      "section": "restart",
+      "key": "RestartDateTime",
+      "line": 3756
+    },
+    {
+      "section": "restart",
+      "key": "RstIgnoreBl",
+      "line": 3757
+    },
+    {
+      "section": "external forcing",
+      "key": "ExtForceFile",
+      "line": 3760
+    },
+    {
+      "section": "external forcing",
+      "key": "ExtForceFileNew",
+      "line": 3761
+    },
+    {
+      "section": "external forcing",
+      "key": "Rainfall",
+      "line": 3763
+    },
+    {
+      "section": "external forcing",
+      "key": "QExt",
+      "line": 3766
+    },
+    {
+      "section": "external forcing",
+      "key": "Evaporation",
+      "line": 3769
+    },
+    {
+      "section": "external forcing",
+      "key": "WindExt",
+      "line": 3772
+    },
+    {
+      "section": "equatorial",
+      "key": "Ampfreeleft",
+      "line": 3776
+    },
+    {
+      "section": "equatorial",
+      "key": "Ampfreeright",
+      "line": 3777
+    },
+    {
+      "section": "equatorial",
+      "key": "Ampforcedzerofr",
+      "line": 3778
+    },
+    {
+      "section": "equatorial",
+      "key": "Nmode",
+      "line": 3779
+    },
+    {
+      "section": "equatorial",
+      "key": "Nfreq",
+      "line": 3780
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtRou",
+      "line": 3787
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtDef",
+      "line": 3788
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtL",
+      "line": 3789
+    },
+    {
+      "section": "trachytopes",
+      "key": "DtTrt",
+      "line": 3790
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtMxR",
+      "line": 3791
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtCll",
+      "line": 3792
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtMnH",
+      "line": 3793
+    },
+    {
+      "section": "trachytopes",
+      "key": "TrtMth",
+      "line": 3794
+    },
+    {
+      "section": "calibration",
+      "key": "UseCalibration",
+      "line": 3799
+    },
+    {
+      "section": "calibration",
+      "key": "DefinitionFile",
+      "line": 3800
+    },
+    {
+      "section": "calibration",
+      "key": "AreaFile",
+      "line": 3801
+    },
+    {
+      "section": "output",
+      "key": "OutputDir",
+      "line": 3812
+    },
+    {
+      "section": "output",
+      "key": "FlowGeomFile",
+      "line": 3813
+    },
+    {
+      "section": "output",
+      "key": "ObsFile",
+      "line": 3815
+    },
+    {
+      "section": "output",
+      "key": "DeleteObsPointsOutsideGrid",
+      "line": 3816
+    },
+    {
+      "section": "output",
+      "key": "CrsFile",
+      "line": 3817
+    },
+    {
+      "section": "output",
+      "key": "RugFile",
+      "line": 3818
+    },
+    {
+      "section": "output",
+      "key": "FouFile",
+      "line": 3819
+    },
+    {
+      "section": "output",
+      "key": "FouUpdateStep",
+      "line": 3820
+    },
+    {
+      "section": "output",
+      "key": "HisFile",
+      "line": 3822
+    },
+    {
+      "section": "output",
+      "key": "MapFile",
+      "line": 3823
+    },
+    {
+      "section": "output",
+      "key": "HisInterval",
+      "line": 3828
+    },
+    {
+      "section": "output",
+      "key": "XLSInterval",
+      "line": 3829
+    },
+    {
+      "section": "output",
+      "key": "MapInterval",
+      "line": 3834
+    },
+    {
+      "section": "output",
+      "key": "ComInterval",
+      "line": 3839
+    },
+    {
+      "section": "output",
+      "key": "RstInterval",
+      "line": 3844
+    },
+    {
+      "section": "output",
+      "key": "MbaInterval",
+      "line": 3845
+    },
+    {
+      "section": "output",
+      "key": "MbaWriteTxt",
+      "line": 3847
+    },
+    {
+      "section": "output",
+      "key": "MbaWriteCsv",
+      "line": 3848
+    },
+    {
+      "section": "output",
+      "key": "MbaWriteNetCDF",
+      "line": 3849
+    },
+    {
+      "section": "output",
+      "key": "MbaLumpFromToMba",
+      "line": 3851
+    },
+    {
+      "section": "output",
+      "key": "MbaLumpBoundaries",
+      "line": 3852
+    },
+    {
+      "section": "output",
+      "key": "MbaLumpSourceSinks",
+      "line": 3853
+    },
+    {
+      "section": "output",
+      "key": "MbaLumpProcesses",
+      "line": 3854
+    },
+    {
+      "section": "output",
+      "key": "WaqFileBase",
+      "line": 3856
+    },
+    {
+      "section": "output",
+      "key": "WaqOutputDir",
+      "line": 3857
+    },
+    {
+      "section": "output",
+      "key": "WaqInterval",
+      "line": 3862
+    },
+    {
+      "section": "output",
+      "key": "WaqHorAggr",
+      "line": 3863
+    },
+    {
+      "section": "output",
+      "key": "WaqVertAggr",
+      "line": 3864
+    },
+    {
+      "section": "output",
+      "key": "ClassMapInterval",
+      "line": 3867
+    },
+    {
+      "section": "output",
+      "key": "ClassMapFile",
+      "line": 3868
+    },
+    {
+      "section": "output",
+      "key": "WaterlevelClasses",
+      "line": 3870
+    },
+    {
+      "section": "output",
+      "key": "WaterlevelClasses",
+      "line": 3872
+    },
+    {
+      "section": "output",
+      "key": "WaterDepthClasses",
+      "line": 3875
+    },
+    {
+      "section": "output",
+      "key": "WaterDepthClasses",
+      "line": 3877
+    },
+    {
+      "section": "output",
+      "key": "VelocityMagnitudeClasses",
+      "line": 3880
+    },
+    {
+      "section": "output",
+      "key": "VelocityMagnitudeClasses",
+      "line": 3882
+    },
+    {
+      "section": "output",
+      "key": "VelocityDirectionClassesInterval",
+      "line": 3885
+    },
+    {
+      "section": "output",
+      "key": "VelocityDirectionClassesInterval",
+      "line": 3887
+    },
+    {
+      "section": "output",
+      "key": "StatsInterval",
+      "line": 3890
+    },
+    {
+      "section": "output",
+      "key": "SnapshotDir",
+      "line": 3892
+    },
+    {
+      "section": "output",
+      "key": "TimingsInterval",
+      "line": 3894
+    },
+    {
+      "section": "output",
+      "key": "TimeSplitInterval",
+      "line": 3897
+    },
+    {
+      "section": "output",
+      "key": "MapFormat",
+      "line": 3899
+    },
+    {
+      "section": "output",
+      "key": "NcFormat",
+      "line": 3901
+    },
+    {
+      "section": "output",
+      "key": "NcMapDataPrecision",
+      "line": 3903
+    },
+    {
+      "section": "output",
+      "key": "NcHisDataPrecision",
+      "line": 3904
+    },
+    {
+      "section": "output",
+      "key": "NcCompression",
+      "line": 3906
+    },
+    {
+      "section": "output",
+      "key": "NcNoUnlimited",
+      "line": 3909
+    },
+    {
+      "section": "output",
+      "key": "NcNoForcedFlush",
+      "line": 3913
+    },
+    {
+      "section": "output",
+      "key": "NcWriteLatLon",
+      "line": 3922
+    },
+    {
+      "section": "output",
+      "key": "Wrixyz_numlimdt",
+      "line": 3925
+    },
+    {
+      "section": "output",
+      "key": "MetaDataFile",
+      "line": 3929
+    },
+    {
+      "section": "output",
+      "key": "GenerateUUID",
+      "line": 3932
+    },
+    {
+      "section": "output",
+      "key": "Wrihis_zcor",
+      "line": 3938
+    },
+    {
+      "section": "output",
+      "key": "Wrimap_bnd",
+      "line": 3944
+    },
+    {
+      "section": "output",
+      "key": "Wrimap_Qin",
+      "line": 3947
+    },
+    {
+      "section": "output",
+      "key": "Wrimap_every_dt",
+      "line": 3950
+    },
+    {
+      "section": "output",
+      "key": "wrimap_wqbot3d",
+      "line": 3953
+    },
+    {
+      "section": "output",
+      "key": "Wrimap_wet_waterdepth_threshold",
+      "line": 3956
+    },
+    {
+      "section": "output",
+      "key": "Writepart_domain",
+      "line": 3959
+    },
+    {
+      "section": "output",
+      "key": "Richardsononoutput",
+      "line": 3962
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_crs",
+      "line": 3966
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_obs",
+      "line": 3969
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_weir",
+      "line": 3972
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_thd",
+      "line": 3975
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_gate",
+      "line": 3978
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_emb",
+      "line": 3981
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_fxw",
+      "line": 3984
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_src",
+      "line": 3987
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_pump",
+      "line": 3990
+    },
+    {
+      "section": "output",
+      "key": "Wrishp_dryarea",
+      "line": 3993
+    },
+    {
+      "section": "output",
+      "key": "wrishp_genstruc",
+      "line": 3996
+    },
+    {
+      "section": "output",
+      "key": "wrishp_dambreak",
+      "line": 3999
+    },
+    {
+      "section": "output",
+      "key": "WriteDFMinterpretedvalues",
+      "line": 4002
+    },
+    {
+      "section": "output",
+      "key": "WriteDetailedTimers",
+      "line": 4004
+    },
+    {
+      "section": "output",
+      "key": "MapOutputTimeVector",
+      "line": 4006
+    },
+    {
+      "section": "output",
+      "key": "FullGridOutput",
+      "line": 4007
+    },
+    {
+      "section": "output",
+      "key": "EulerVelocities",
+      "line": 4008
+    },
+    {
+      "section": "output",
+      "key": "Wrirst_bnd",
+      "line": 4009
+    },
+    {
+      "section": "output",
+      "key": "Writek_CdWind",
+      "line": 4011
+    },
+    {
+      "section": "processes",
+      "key": "SubstanceFile",
+      "line": 4016
+    },
+    {
+      "section": "processes",
+      "key": "AdditionalHistoryOutputFile",
+      "line": 4017
+    },
+    {
+      "section": "processes",
+      "key": "StatisticsFile",
+      "line": 4018
+    },
+    {
+      "section": "processes",
+      "key": "ThetaVertical",
+      "line": 4020
+    },
+    {
+      "section": "processes",
+      "key": "DtProcesses",
+      "line": 4022
+    },
+    {
+      "section": "processes",
+      "key": "VolumeDryThreshold",
+      "line": 4023
+    },
+    {
+      "section": "processes",
+      "key": "DepthDryThreshold",
+      "line": 4024
+    },
+    {
+      "section": "processes",
+      "key": "SubstanceDensityCoupling",
+      "line": 4025
+    }
+  ],
+  "hydrolib_commit": "48993b1c85d6237ba55de08a4b4fbf8cb7965b80",
+  "hydrolib_source": "upstream/HYDROLIB-core/hydrolib/core/dflowfm/mdu/models.py",
+  "hydrolib_classes": [
+    {
+      "class": "AutoStartOption",
+      "line": 105,
+      "fields": []
+    },
+    {
+      "class": "General",
+      "line": 117,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 143
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['General']",
+          "line": 144
+        },
+        {
+          "name": "program",
+          "annotation": "str",
+          "line": 145
+        },
+        {
+          "name": "version",
+          "annotation": "str",
+          "line": 146
+        },
+        {
+          "name": "filetype",
+          "annotation": "Literal['modelDef']",
+          "line": 147
+        },
+        {
+          "name": "fileversion",
+          "annotation": "str",
+          "line": 148
+        },
+        {
+          "name": "autostart",
+          "annotation": "Optional[AutoStartOption]",
+          "line": 149
+        },
+        {
+          "name": "pathsrelativetoparent",
+          "annotation": "bool",
+          "line": 150
+        },
+        {
+          "name": "guiversion",
+          "annotation": "Optional[str]",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "class": "Numerics",
+      "line": 154,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 396
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Numerics']",
+          "line": 398
+        },
+        {
+          "name": "cflmax",
+          "annotation": "float",
+          "line": 399
+        },
+        {
+          "name": "epsmaxlev",
+          "annotation": "float",
+          "line": 400
+        },
+        {
+          "name": "epsmaxlevm",
+          "annotation": "float",
+          "line": 401
+        },
+        {
+          "name": "advectype",
+          "annotation": "int",
+          "line": 402
+        },
+        {
+          "name": "timesteptype",
+          "annotation": "int",
+          "line": 403
+        },
+        {
+          "name": "limtyphu",
+          "annotation": "int",
+          "line": 404
+        },
+        {
+          "name": "limtypmom",
+          "annotation": "int",
+          "line": 405
+        },
+        {
+          "name": "limtypsa",
+          "annotation": "int",
+          "line": 406
+        },
+        {
+          "name": "icgsolver",
+          "annotation": "int",
+          "line": 407
+        },
+        {
+          "name": "maxdegree",
+          "annotation": "int",
+          "line": 408
+        },
+        {
+          "name": "fixedweirscheme",
+          "annotation": "int",
+          "line": 409
+        },
+        {
+          "name": "fixedweircontraction",
+          "annotation": "float",
+          "line": 410
+        },
+        {
+          "name": "izbndpos",
+          "annotation": "int",
+          "line": 411
+        },
+        {
+          "name": "tlfsmo",
+          "annotation": "float",
+          "line": 412
+        },
+        {
+          "name": "keepstbndonoutflow",
+          "annotation": "bool",
+          "line": 413
+        },
+        {
+          "name": "slopedrop2d",
+          "annotation": "float",
+          "line": 414
+        },
+        {
+          "name": "drop1d",
+          "annotation": "bool",
+          "line": 415
+        },
+        {
+          "name": "chkadvd",
+          "annotation": "float",
+          "line": 416
+        },
+        {
+          "name": "teta0",
+          "annotation": "float",
+          "line": 417
+        },
+        {
+          "name": "cstbnd",
+          "annotation": "bool",
+          "line": 418
+        },
+        {
+          "name": "maxitverticalforestersal",
+          "annotation": "int",
+          "line": 419
+        },
+        {
+          "name": "maxitverticalforestertem",
+          "annotation": "int",
+          "line": 420
+        },
+        {
+          "name": "maxitverticalforester",
+          "annotation": "int",
+          "line": 421
+        },
+        {
+          "name": "turbulencemodel",
+          "annotation": "int",
+          "line": 422
+        },
+        {
+          "name": "turbulenceadvection",
+          "annotation": "int",
+          "line": 423
+        },
+        {
+          "name": "anticreep",
+          "annotation": "bool",
+          "line": 424
+        },
+        {
+          "name": "barocponbnd",
+          "annotation": "bool",
+          "line": 425
+        },
+        {
+          "name": "maxwaterleveldiff",
+          "annotation": "float",
+          "line": 426
+        },
+        {
+          "name": "maxvelocitydiff",
+          "annotation": "float",
+          "line": 427
+        },
+        {
+          "name": "mintimestepbreak",
+          "annotation": "float",
+          "line": 428
+        },
+        {
+          "name": "epshu",
+          "annotation": "float",
+          "line": 429
+        },
+        {
+          "name": "fixedweirrelaxationcoef",
+          "annotation": "float",
+          "line": 430
+        },
+        {
+          "name": "implicitdiffusion2d",
+          "annotation": "bool",
+          "line": 431
+        },
+        {
+          "name": "vertadvtyptem",
+          "annotation": "int",
+          "line": 432
+        },
+        {
+          "name": "velmagnwarn",
+          "annotation": "float",
+          "line": 433
+        },
+        {
+          "name": "transportautotimestepdiff",
+          "annotation": "int",
+          "line": 434
+        },
+        {
+          "name": "sethorizontalbobsfor1d2d",
+          "annotation": "bool",
+          "line": 435
+        },
+        {
+          "name": "diagnostictransport",
+          "annotation": "bool",
+          "line": 436
+        },
+        {
+          "name": "vertadvtypsal",
+          "annotation": "int",
+          "line": 437
+        },
+        {
+          "name": "zerozbndinflowadvection",
+          "annotation": "int",
+          "line": 438
+        },
+        {
+          "name": "pure1d",
+          "annotation": "int",
+          "line": 439
+        },
+        {
+          "name": "testdryingflooding",
+          "annotation": "int",
+          "line": 440
+        },
+        {
+          "name": "logsolverconvergence",
+          "annotation": "bool",
+          "line": 441
+        },
+        {
+          "name": "fixedweirscheme1d2d",
+          "annotation": "int",
+          "line": 442
+        },
+        {
+          "name": "horizontalmomentumfilter",
+          "annotation": "bool",
+          "line": 443
+        },
+        {
+          "name": "maxnonlineariterations",
+          "annotation": "int",
+          "line": 444
+        },
+        {
+          "name": "maxvelocity",
+          "annotation": "float",
+          "line": 445
+        },
+        {
+          "name": "waterlevelwarn",
+          "annotation": "float",
+          "line": 446
+        },
+        {
+          "name": "tspinupturblogprof",
+          "annotation": "float",
+          "line": 447
+        },
+        {
+          "name": "fixedweirtopfrictcoef",
+          "annotation": "Optional[float]",
+          "line": 448
+        },
+        {
+          "name": "fixedweir1d2d_dx",
+          "annotation": "float",
+          "line": 449
+        },
+        {
+          "name": "junction1d",
+          "annotation": "int",
+          "line": 450
+        },
+        {
+          "name": "fixedweirtopwidth",
+          "annotation": "float",
+          "line": 451
+        },
+        {
+          "name": "vertadvtypmom",
+          "annotation": "int",
+          "line": 452
+        },
+        {
+          "name": "checkerboardmonitor",
+          "annotation": "bool",
+          "line": 453
+        },
+        {
+          "name": "velocitywarn",
+          "annotation": "float",
+          "line": 454
+        },
+        {
+          "name": "adveccorrection1d2d",
+          "annotation": "int",
+          "line": 455
+        },
+        {
+          "name": "fixedweirtalud",
+          "annotation": "float",
+          "line": 456
+        },
+        {
+          "name": "lateral_fixedweir_umin",
+          "annotation": "float",
+          "line": 457
+        },
+        {
+          "name": "jasfer3d",
+          "annotation": "bool",
+          "line": 458
+        }
+      ]
+    },
+    {
+      "class": "VolumeTables",
+      "line": 461,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 486
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['VolumeTables']",
+          "line": 488
+        },
+        {
+          "name": "usevolumetables",
+          "annotation": "bool",
+          "line": 489
+        },
+        {
+          "name": "increment",
+          "annotation": "float",
+          "line": 490
+        },
+        {
+          "name": "usevolumetablefile",
+          "annotation": "bool",
+          "line": 491
+        }
+      ]
+    },
+    {
+      "class": "Physics",
+      "line": 494,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 660
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Physics']",
+          "line": 662
+        },
+        {
+          "name": "uniffrictcoef",
+          "annotation": "float",
+          "line": 663
+        },
+        {
+          "name": "uniffricttype",
+          "annotation": "int",
+          "line": 664
+        },
+        {
+          "name": "uniffrictcoef1d",
+          "annotation": "float",
+          "line": 665
+        },
+        {
+          "name": "uniffrictcoeflin",
+          "annotation": "float",
+          "line": 666
+        },
+        {
+          "name": "vicouv",
+          "annotation": "float",
+          "line": 667
+        },
+        {
+          "name": "dicouv",
+          "annotation": "float",
+          "line": 668
+        },
+        {
+          "name": "vicoww",
+          "annotation": "float",
+          "line": 669
+        },
+        {
+          "name": "dicoww",
+          "annotation": "float",
+          "line": 670
+        },
+        {
+          "name": "vicwminb",
+          "annotation": "float",
+          "line": 671
+        },
+        {
+          "name": "xlozmidov",
+          "annotation": "float",
+          "line": 672
+        },
+        {
+          "name": "smagorinsky",
+          "annotation": "float",
+          "line": 673
+        },
+        {
+          "name": "elder",
+          "annotation": "float",
+          "line": 674
+        },
+        {
+          "name": "irov",
+          "annotation": "int",
+          "line": 675
+        },
+        {
+          "name": "wall_ks",
+          "annotation": "float",
+          "line": 676
+        },
+        {
+          "name": "rhomean",
+          "annotation": "float",
+          "line": 677
+        },
+        {
+          "name": "idensform",
+          "annotation": "int",
+          "line": 678
+        },
+        {
+          "name": "ag",
+          "annotation": "float",
+          "line": 679
+        },
+        {
+          "name": "tidalforcing",
+          "annotation": "bool",
+          "line": 680
+        },
+        {
+          "name": "itcap",
+          "annotation": "Optional[float]",
+          "line": 681
+        },
+        {
+          "name": "doodsonstart",
+          "annotation": "float",
+          "line": 682
+        },
+        {
+          "name": "doodsonstop",
+          "annotation": "float",
+          "line": 683
+        },
+        {
+          "name": "doodsoneps",
+          "annotation": "float",
+          "line": 684
+        },
+        {
+          "name": "villemontecd1",
+          "annotation": "float",
+          "line": 685
+        },
+        {
+          "name": "villemontecd2",
+          "annotation": "float",
+          "line": 686
+        },
+        {
+          "name": "salinity",
+          "annotation": "bool",
+          "line": 687
+        },
+        {
+          "name": "initialsalinity",
+          "annotation": "float",
+          "line": 688
+        },
+        {
+          "name": "sal0abovezlev",
+          "annotation": "float",
+          "line": 689
+        },
+        {
+          "name": "deltasalinity",
+          "annotation": "float",
+          "line": 690
+        },
+        {
+          "name": "backgroundsalinity",
+          "annotation": "float",
+          "line": 691
+        },
+        {
+          "name": "temperature",
+          "annotation": "int",
+          "line": 692
+        },
+        {
+          "name": "initialtemperature",
+          "annotation": "float",
+          "line": 693
+        },
+        {
+          "name": "backgroundwatertemperature",
+          "annotation": "float",
+          "line": 694
+        },
+        {
+          "name": "secchidepth",
+          "annotation": "float",
+          "line": 695
+        },
+        {
+          "name": "stanton",
+          "annotation": "float",
+          "line": 696
+        },
+        {
+          "name": "dalton",
+          "annotation": "float",
+          "line": 697
+        },
+        {
+          "name": "tempmax",
+          "annotation": "float",
+          "line": 698
+        },
+        {
+          "name": "tempmin",
+          "annotation": "float",
+          "line": 699
+        },
+        {
+          "name": "salinitydependentfreezingpoint",
+          "annotation": "bool",
+          "line": 700
+        },
+        {
+          "name": "salimax",
+          "annotation": "float",
+          "line": 703
+        },
+        {
+          "name": "salimin",
+          "annotation": "float",
+          "line": 704
+        },
+        {
+          "name": "heat_eachstep",
+          "annotation": "bool",
+          "line": 705
+        },
+        {
+          "name": "nudgetimeuni",
+          "annotation": "float",
+          "line": 706
+        },
+        {
+          "name": "iniwithnudge",
+          "annotation": "int",
+          "line": 707
+        },
+        {
+          "name": "secondaryflow",
+          "annotation": "bool",
+          "line": 708
+        },
+        {
+          "name": "betaspiral",
+          "annotation": "float",
+          "line": 709
+        }
+      ]
+    },
+    {
+      "class": "Sediment",
+      "line": 712,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 729
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Sediment']",
+          "line": 731
+        },
+        {
+          "name": "sedimentmodelnr",
+          "annotation": "Optional[int]",
+          "line": 732
+        },
+        {
+          "name": "morfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 733
+        },
+        {
+          "name": "sedfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 736
+        }
+      ]
+    },
+    {
+      "class": "Wind",
+      "line": 741,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 795
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Wind']",
+          "line": 797
+        },
+        {
+          "name": "icdtyp",
+          "annotation": "int",
+          "line": 798
+        },
+        {
+          "name": "cdbreakpoints",
+          "annotation": "List[float]",
+          "line": 799
+        },
+        {
+          "name": "windspeedbreakpoints",
+          "annotation": "List[float]",
+          "line": 800
+        },
+        {
+          "name": "rhoair",
+          "annotation": "float",
+          "line": 803
+        },
+        {
+          "name": "relativewind",
+          "annotation": "float",
+          "line": 804
+        },
+        {
+          "name": "windpartialdry",
+          "annotation": "bool",
+          "line": 805
+        },
+        {
+          "name": "pavbnd",
+          "annotation": "float",
+          "line": 806
+        },
+        {
+          "name": "pavini",
+          "annotation": "float",
+          "line": 807
+        },
+        {
+          "name": "computedairdensity",
+          "annotation": "bool",
+          "line": 808
+        },
+        {
+          "name": "rhowaterinwindstress",
+          "annotation": "int",
+          "line": 809
+        },
+        {
+          "name": "stresstowind",
+          "annotation": "bool",
+          "line": 810
+        }
+      ]
+    },
+    {
+      "class": "Waves",
+      "line": 826,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 851
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Waves']",
+          "line": 853
+        },
+        {
+          "name": "wavemodelnr",
+          "annotation": "int",
+          "line": 854
+        },
+        {
+          "name": "rouwav",
+          "annotation": "str",
+          "line": 855
+        },
+        {
+          "name": "gammax",
+          "annotation": "float",
+          "line": 856
+        }
+      ]
+    },
+    {
+      "class": "Time",
+      "line": 859,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 922
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Time']",
+          "line": 924
+        },
+        {
+          "name": "refdate",
+          "annotation": "int",
+          "line": 925
+        },
+        {
+          "name": "tzone",
+          "annotation": "float",
+          "line": 926
+        },
+        {
+          "name": "tunit",
+          "annotation": "str",
+          "line": 927
+        },
+        {
+          "name": "dtuser",
+          "annotation": "float",
+          "line": 928
+        },
+        {
+          "name": "dtnodal",
+          "annotation": "float",
+          "line": 929
+        },
+        {
+          "name": "dtmax",
+          "annotation": "float",
+          "line": 930
+        },
+        {
+          "name": "dtinit",
+          "annotation": "float",
+          "line": 931
+        },
+        {
+          "name": "autotimestep",
+          "annotation": "Optional[int]",
+          "line": 932
+        },
+        {
+          "name": "autotimestepnostruct",
+          "annotation": "bool",
+          "line": 933
+        },
+        {
+          "name": "autotimestepnoqout",
+          "annotation": "bool",
+          "line": 934
+        },
+        {
+          "name": "tstart",
+          "annotation": "float",
+          "line": 935
+        },
+        {
+          "name": "tstop",
+          "annotation": "float",
+          "line": 936
+        },
+        {
+          "name": "startdatetime",
+          "annotation": "Optional[str]",
+          "line": 937
+        },
+        {
+          "name": "stopdatetime",
+          "annotation": "Optional[str]",
+          "line": 938
+        },
+        {
+          "name": "updateroughnessinterval",
+          "annotation": "float",
+          "line": 939
+        },
+        {
+          "name": "dtfacmax",
+          "annotation": "float",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "class": "Restart",
+      "line": 948,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 970
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Restart']",
+          "line": 972
+        },
+        {
+          "name": "restartfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 973
+        },
+        {
+          "name": "restartdatetime",
+          "annotation": "Optional[str]",
+          "line": 976
+        }
+      ]
+    },
+    {
+      "class": "ExternalForcing",
+      "line": 984,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 1019
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['External Forcing']",
+          "line": 1021
+        },
+        {
+          "name": "extforcefile",
+          "annotation": "Optional[Union[ExtOldModel, DiskOnlyFileModel]]",
+          "line": 1022
+        },
+        {
+          "name": "extforcefilenew",
+          "annotation": "Optional[Union[ExtModel, DiskOnlyFileModel]]",
+          "line": 1025
+        },
+        {
+          "name": "rainfall",
+          "annotation": "Optional[bool]",
+          "line": 1028
+        },
+        {
+          "name": "qext",
+          "annotation": "Optional[bool]",
+          "line": 1029
+        },
+        {
+          "name": "evaporation",
+          "annotation": "Optional[bool]",
+          "line": 1030
+        },
+        {
+          "name": "windext",
+          "annotation": "Optional[int]",
+          "line": 1031
+        }
+      ]
+    },
+    {
+      "class": "Hydrology",
+      "line": 1042,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 1060
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Hydrology']",
+          "line": 1062
+        },
+        {
+          "name": "interceptionmodel",
+          "annotation": "bool",
+          "line": 1063
+        }
+      ]
+    },
+    {
+      "class": "Trachytopes",
+      "line": 1066,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 1098
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Trachytopes']",
+          "line": 1100
+        },
+        {
+          "name": "trtrou",
+          "annotation": "str",
+          "line": 1101
+        },
+        {
+          "name": "trtdef",
+          "annotation": "Annotated[Path | None, WrapValidator(_preserve_empty_string)]",
+          "line": 1102
+        },
+        {
+          "name": "trtl",
+          "annotation": "Annotated[Path | None, WrapValidator(_preserve_empty_string)]",
+          "line": 1105
+        },
+        {
+          "name": "dttrt",
+          "annotation": "float",
+          "line": 1108
+        },
+        {
+          "name": "trtmxr",
+          "annotation": "int | None",
+          "line": 1109
+        }
+      ]
+    },
+    {
+      "class": "Output",
+      "line": 1132,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 1643
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Output']",
+          "line": 1645
+        },
+        {
+          "name": "wrishp_crs",
+          "annotation": "bool",
+          "line": 1646
+        },
+        {
+          "name": "wrishp_weir",
+          "annotation": "bool",
+          "line": 1647
+        },
+        {
+          "name": "wrishp_gate",
+          "annotation": "bool",
+          "line": 1648
+        },
+        {
+          "name": "wrishp_fxw",
+          "annotation": "bool",
+          "line": 1649
+        },
+        {
+          "name": "wrishp_thd",
+          "annotation": "bool",
+          "line": 1650
+        },
+        {
+          "name": "wrishp_obs",
+          "annotation": "bool",
+          "line": 1651
+        },
+        {
+          "name": "wrishp_emb",
+          "annotation": "bool",
+          "line": 1652
+        },
+        {
+          "name": "wrishp_dryarea",
+          "annotation": "bool",
+          "line": 1653
+        },
+        {
+          "name": "wrishp_src",
+          "annotation": "bool",
+          "line": 1654
+        },
+        {
+          "name": "wrishp_pump",
+          "annotation": "bool",
+          "line": 1655
+        },
+        {
+          "name": "outputdir",
+          "annotation": "Annotated[Path | None, WrapValidator(_preserve_empty_string)]",
+          "line": 1656
+        },
+        {
+          "name": "waqoutputdir",
+          "annotation": "Annotated[Path | None, WrapValidator(_preserve_empty_string)]",
+          "line": 1659
+        },
+        {
+          "name": "flowgeomfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 1662
+        },
+        {
+          "name": "obsfile",
+          "annotation": "list[ObsFile] | None",
+          "line": 1665
+        },
+        {
+          "name": "crsfile",
+          "annotation": "list[ObsCrsFile] | None",
+          "line": 1666
+        },
+        {
+          "name": "mbafile",
+          "annotation": "list[MbaFile] | None",
+          "line": 1667
+        },
+        {
+          "name": "mbainterval",
+          "annotation": "list[float] | None",
+          "line": 1668
+        },
+        {
+          "name": "foufile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 1669
+        },
+        {
+          "name": "fouupdatestep",
+          "annotation": "int",
+          "line": 1672
+        },
+        {
+          "name": "hisfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 1673
+        },
+        {
+          "name": "hisinterval",
+          "annotation": "list[float]",
+          "line": 1676
+        },
+        {
+          "name": "xlsinterval",
+          "annotation": "list[float]",
+          "line": 1677
+        },
+        {
+          "name": "mapfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 1678
+        },
+        {
+          "name": "mapinterval",
+          "annotation": "list[float]",
+          "line": 1681
+        },
+        {
+          "name": "rstinterval",
+          "annotation": "list[float]",
+          "line": 1682
+        },
+        {
+          "name": "mapformat",
+          "annotation": "int",
+          "line": 1683
+        },
+        {
+          "name": "ncformat",
+          "annotation": "int",
+          "line": 1684
+        },
+        {
+          "name": "ncnounlimited",
+          "annotation": "bool",
+          "line": 1685
+        },
+        {
+          "name": "ncnoforcedflush",
+          "annotation": "bool",
+          "line": 1686
+        },
+        {
+          "name": "ncwritelatlon",
+          "annotation": "bool",
+          "line": 1687
+        },
+        {
+          "name": "wrihis_balance",
+          "annotation": "bool",
+          "line": 1690
+        },
+        {
+          "name": "wrihis_sourcesink",
+          "annotation": "bool",
+          "line": 1691
+        },
+        {
+          "name": "wrihis_structure_gen",
+          "annotation": "bool",
+          "line": 1692
+        },
+        {
+          "name": "wrihis_structure_dam",
+          "annotation": "bool",
+          "line": 1693
+        },
+        {
+          "name": "wrihis_structure_pump",
+          "annotation": "bool",
+          "line": 1694
+        },
+        {
+          "name": "wrihis_structure_gate",
+          "annotation": "bool",
+          "line": 1695
+        },
+        {
+          "name": "wrihis_structure_weir",
+          "annotation": "bool",
+          "line": 1696
+        },
+        {
+          "name": "wrihis_structure_orifice",
+          "annotation": "bool",
+          "line": 1697
+        },
+        {
+          "name": "wrihis_structure_bridge",
+          "annotation": "bool",
+          "line": 1698
+        },
+        {
+          "name": "wrihis_structure_culvert",
+          "annotation": "bool",
+          "line": 1699
+        },
+        {
+          "name": "wrihis_structure_longculvert",
+          "annotation": "bool",
+          "line": 1700
+        },
+        {
+          "name": "wrihis_structure_dambreak",
+          "annotation": "bool",
+          "line": 1703
+        },
+        {
+          "name": "wrihis_structure_uniweir",
+          "annotation": "bool",
+          "line": 1704
+        },
+        {
+          "name": "wrihis_structure_compound",
+          "annotation": "bool",
+          "line": 1705
+        },
+        {
+          "name": "wrihis_turbulence",
+          "annotation": "bool",
+          "line": 1706
+        },
+        {
+          "name": "wrihis_wind",
+          "annotation": "bool",
+          "line": 1707
+        },
+        {
+          "name": "wrihis_airdensity",
+          "annotation": "bool",
+          "line": 1708
+        },
+        {
+          "name": "wrihis_rain",
+          "annotation": "bool",
+          "line": 1709
+        },
+        {
+          "name": "wrihis_infiltration",
+          "annotation": "bool",
+          "line": 1710
+        },
+        {
+          "name": "wrihis_temperature",
+          "annotation": "bool",
+          "line": 1711
+        },
+        {
+          "name": "wrihis_waves",
+          "annotation": "bool",
+          "line": 1712
+        },
+        {
+          "name": "wrihis_heat_fluxes",
+          "annotation": "bool",
+          "line": 1713
+        },
+        {
+          "name": "wrihis_salinity",
+          "annotation": "bool",
+          "line": 1714
+        },
+        {
+          "name": "wrihis_density",
+          "annotation": "bool",
+          "line": 1715
+        },
+        {
+          "name": "wrihis_waterlevel_s1",
+          "annotation": "bool",
+          "line": 1716
+        },
+        {
+          "name": "wrihis_bedlevel",
+          "annotation": "bool",
+          "line": 1717
+        },
+        {
+          "name": "wrihis_waterdepth",
+          "annotation": "bool",
+          "line": 1718
+        },
+        {
+          "name": "wrihis_velocity_vector",
+          "annotation": "bool",
+          "line": 1719
+        },
+        {
+          "name": "wrihis_upward_velocity_component",
+          "annotation": "bool",
+          "line": 1720
+        },
+        {
+          "name": "wrihis_velocity",
+          "annotation": "bool",
+          "line": 1723
+        },
+        {
+          "name": "wrihis_discharge",
+          "annotation": "bool",
+          "line": 1724
+        },
+        {
+          "name": "wrihis_sediment",
+          "annotation": "bool",
+          "line": 1725
+        },
+        {
+          "name": "wrihis_constituents",
+          "annotation": "bool",
+          "line": 1726
+        },
+        {
+          "name": "wrihis_zcor",
+          "annotation": "bool",
+          "line": 1727
+        },
+        {
+          "name": "wrihis_lateral",
+          "annotation": "bool",
+          "line": 1728
+        },
+        {
+          "name": "wrihis_taucurrent",
+          "annotation": "bool",
+          "line": 1729
+        },
+        {
+          "name": "wrimap_waterlevel_s0",
+          "annotation": "bool",
+          "line": 1732
+        },
+        {
+          "name": "wrimap_waterlevel_s1",
+          "annotation": "bool",
+          "line": 1733
+        },
+        {
+          "name": "wrimap_evaporation",
+          "annotation": "bool",
+          "line": 1734
+        },
+        {
+          "name": "wrimap_waterdepth",
+          "annotation": "bool",
+          "line": 1735
+        },
+        {
+          "name": "wrimap_velocity_component_u0",
+          "annotation": "bool",
+          "line": 1736
+        },
+        {
+          "name": "wrimap_velocity_component_u1",
+          "annotation": "bool",
+          "line": 1739
+        },
+        {
+          "name": "wrimap_velocity_vector",
+          "annotation": "bool",
+          "line": 1742
+        },
+        {
+          "name": "wrimap_velocity_magnitude",
+          "annotation": "bool",
+          "line": 1743
+        },
+        {
+          "name": "wrimap_upward_velocity_component",
+          "annotation": "bool",
+          "line": 1744
+        },
+        {
+          "name": "wrimap_density_rho",
+          "annotation": "bool",
+          "line": 1747
+        },
+        {
+          "name": "wrimap_horizontal_viscosity_viu",
+          "annotation": "bool",
+          "line": 1748
+        },
+        {
+          "name": "wrimap_horizontal_diffusivity_diu",
+          "annotation": "bool",
+          "line": 1751
+        },
+        {
+          "name": "wrimap_flow_flux_q1",
+          "annotation": "bool",
+          "line": 1754
+        },
+        {
+          "name": "wrimap_spiral_flow",
+          "annotation": "bool",
+          "line": 1755
+        },
+        {
+          "name": "wrimap_numlimdt",
+          "annotation": "bool",
+          "line": 1756
+        },
+        {
+          "name": "wrimap_taucurrent",
+          "annotation": "bool",
+          "line": 1757
+        },
+        {
+          "name": "wrimap_chezy",
+          "annotation": "bool",
+          "line": 1758
+        },
+        {
+          "name": "wrimap_turbulence",
+          "annotation": "bool",
+          "line": 1759
+        },
+        {
+          "name": "wrimap_rain",
+          "annotation": "bool",
+          "line": 1760
+        },
+        {
+          "name": "wrimap_wind",
+          "annotation": "bool",
+          "line": 1761
+        },
+        {
+          "name": "wrimap_windstress",
+          "annotation": "bool",
+          "line": 1762
+        },
+        {
+          "name": "wrimap_airdensity",
+          "annotation": "bool",
+          "line": 1763
+        },
+        {
+          "name": "wrimap_calibration",
+          "annotation": "bool",
+          "line": 1764
+        },
+        {
+          "name": "wrimap_salinity",
+          "annotation": "bool",
+          "line": 1765
+        },
+        {
+          "name": "wrimap_temperature",
+          "annotation": "bool",
+          "line": 1766
+        },
+        {
+          "name": "writek_cdwind",
+          "annotation": "bool",
+          "line": 1767
+        },
+        {
+          "name": "wrimap_heat_fluxes",
+          "annotation": "bool",
+          "line": 1768
+        },
+        {
+          "name": "wrimap_wet_waterdepth_threshold",
+          "annotation": "float",
+          "line": 1769
+        },
+        {
+          "name": "wrimap_time_water_on_ground",
+          "annotation": "bool",
+          "line": 1772
+        },
+        {
+          "name": "wrimap_freeboard",
+          "annotation": "bool",
+          "line": 1775
+        },
+        {
+          "name": "wrimap_waterdepth_on_ground",
+          "annotation": "bool",
+          "line": 1776
+        },
+        {
+          "name": "wrimap_volume_on_ground",
+          "annotation": "bool",
+          "line": 1779
+        },
+        {
+          "name": "wrimap_total_net_inflow_1d2d",
+          "annotation": "bool",
+          "line": 1780
+        },
+        {
+          "name": "wrimap_total_net_inflow_lateral",
+          "annotation": "bool",
+          "line": 1783
+        },
+        {
+          "name": "wrimap_water_level_gradient",
+          "annotation": "bool",
+          "line": 1786
+        },
+        {
+          "name": "wrimap_tidal_potential",
+          "annotation": "bool",
+          "line": 1789
+        },
+        {
+          "name": "wrimap_sal_potential",
+          "annotation": "bool",
+          "line": 1790
+        },
+        {
+          "name": "wrimap_internal_tides_dissipation",
+          "annotation": "bool",
+          "line": 1791
+        },
+        {
+          "name": "wrimap_flow_analysis",
+          "annotation": "bool",
+          "line": 1794
+        },
+        {
+          "name": "mapoutputtimevector",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 1795
+        },
+        {
+          "name": "fullgridoutput",
+          "annotation": "bool",
+          "line": 1800
+        },
+        {
+          "name": "eulervelocities",
+          "annotation": "bool",
+          "line": 1801
+        },
+        {
+          "name": "classmapfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 1802
+        },
+        {
+          "name": "waterlevelclasses",
+          "annotation": "list[float]",
+          "line": 1805
+        },
+        {
+          "name": "waterdepthclasses",
+          "annotation": "list[float]",
+          "line": 1806
+        },
+        {
+          "name": "classmapinterval",
+          "annotation": "list[float]",
+          "line": 1807
+        },
+        {
+          "name": "waqinterval",
+          "annotation": "list[float]",
+          "line": 1808
+        },
+        {
+          "name": "statsinterval",
+          "annotation": "list[float]",
+          "line": 1809
+        },
+        {
+          "name": "timingsinterval",
+          "annotation": "list[float]",
+          "line": 1810
+        },
+        {
+          "name": "richardsononoutput",
+          "annotation": "bool",
+          "line": 1811
+        },
+        {
+          "name": "wrimap_every_dt",
+          "annotation": "bool",
+          "line": 1812
+        },
+        {
+          "name": "wrimap_input_roughness",
+          "annotation": "bool",
+          "line": 1813
+        },
+        {
+          "name": "wrimap_flowarea_au",
+          "annotation": "bool",
+          "line": 1814
+        },
+        {
+          "name": "wrimap_flow_flux_q1_main",
+          "annotation": "bool",
+          "line": 1815
+        },
+        {
+          "name": "wrishp_genstruc",
+          "annotation": "bool",
+          "line": 1816
+        },
+        {
+          "name": "wrimap_qin",
+          "annotation": "bool",
+          "line": 1817
+        },
+        {
+          "name": "wrimap_dtcell",
+          "annotation": "bool",
+          "line": 1818
+        },
+        {
+          "name": "wrimap_velocity_vectorq",
+          "annotation": "bool",
+          "line": 1819
+        },
+        {
+          "name": "wrimap_bnd",
+          "annotation": "bool",
+          "line": 1820
+        },
+        {
+          "name": "wrishp_dambreak",
+          "annotation": "bool",
+          "line": 1821
+        },
+        {
+          "name": "wrimap_waterdepth_hu",
+          "annotation": "bool",
+          "line": 1822
+        },
+        {
+          "name": "ncmapdataprecision",
+          "annotation": "Literal['single', 'double']",
+          "line": 1823
+        },
+        {
+          "name": "nchisdataprecision",
+          "annotation": "Literal['single', 'double']",
+          "line": 1826
+        },
+        {
+          "name": "wrimap_interception",
+          "annotation": "bool",
+          "line": 1829
+        },
+        {
+          "name": "wrimap_volume1",
+          "annotation": "bool",
+          "line": 1830
+        },
+        {
+          "name": "wrimap_ancillary_variables",
+          "annotation": "bool",
+          "line": 1831
+        },
+        {
+          "name": "wrimap_chezy_on_flow_links",
+          "annotation": "bool",
+          "line": 1832
+        },
+        {
+          "name": "writepart_domain",
+          "annotation": "bool",
+          "line": 1833
+        },
+        {
+          "name": "velocitydirectionclassesinterval",
+          "annotation": "float",
+          "line": 1834
+        },
+        {
+          "name": "velocitymagnitudeclasses",
+          "annotation": "list[float]",
+          "line": 1837
+        }
+      ]
+    },
+    {
+      "class": "Geometry",
+      "line": 1867,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 2118
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Geometry']",
+          "line": 2120
+        },
+        {
+          "name": "netfile",
+          "annotation": "Optional[Union[NetworkModel, DiskOnlyFileModel]]",
+          "line": 2121
+        },
+        {
+          "name": "drypointsfile",
+          "annotation": "Optional[List[DryPointsFile]]",
+          "line": 2124
+        },
+        {
+          "name": "structurefile",
+          "annotation": "Optional[List[Union[StructureModel, DiskOnlyFileModel]]]",
+          "line": 2127
+        },
+        {
+          "name": "inifieldfile",
+          "annotation": "Optional[IniFieldModel]",
+          "line": 2130
+        },
+        {
+          "name": "waterlevinifile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2131
+        },
+        {
+          "name": "landboundaryfile",
+          "annotation": "Optional[List[DiskOnlyFileModel]]",
+          "line": 2134
+        },
+        {
+          "name": "thindamfile",
+          "annotation": "Optional[List[Union[PolyFile, DiskOnlyFileModel]]]",
+          "line": 2137
+        },
+        {
+          "name": "fixedweirfile",
+          "annotation": "Optional[List[Union[PolyFile, DiskOnlyFileModel]]]",
+          "line": 2140
+        },
+        {
+          "name": "pillarfile",
+          "annotation": "Optional[List[Union[PolyFile, DiskOnlyFileModel]]]",
+          "line": 2143
+        },
+        {
+          "name": "usecaching",
+          "annotation": "bool",
+          "line": 2146
+        },
+        {
+          "name": "vertplizfile",
+          "annotation": "Optional[Union[PolyFile, DiskOnlyFileModel]]",
+          "line": 2147
+        },
+        {
+          "name": "frictfile",
+          "annotation": "Optional[List[Union[FrictionModel, DiskOnlyFileModel]]]",
+          "line": 2150
+        },
+        {
+          "name": "crossdeffile",
+          "annotation": "Optional[Union[CrossDefModel, DiskOnlyFileModel]]",
+          "line": 2153
+        },
+        {
+          "name": "crosslocfile",
+          "annotation": "Optional[Union[CrossLocModel, DiskOnlyFileModel]]",
+          "line": 2156
+        },
+        {
+          "name": "storagenodefile",
+          "annotation": "Optional[Union[StorageNodeModel, DiskOnlyFileModel]]",
+          "line": 2159
+        },
+        {
+          "name": "oned2dlinkfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2162
+        },
+        {
+          "name": "proflocfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2165
+        },
+        {
+          "name": "profdeffile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2168
+        },
+        {
+          "name": "profdefxyzfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2171
+        },
+        {
+          "name": "partitionfile",
+          "annotation": "Optional[Union[PolyFile, DiskOnlyFileModel]]",
+          "line": 2174
+        },
+        {
+          "name": "uniformwidth1d",
+          "annotation": "float",
+          "line": 2177
+        },
+        {
+          "name": "dxwuimin2d",
+          "annotation": "float",
+          "line": 2178
+        },
+        {
+          "name": "waterlevini",
+          "annotation": "float",
+          "line": 2179
+        },
+        {
+          "name": "bedlevuni",
+          "annotation": "float",
+          "line": 2180
+        },
+        {
+          "name": "bedslope",
+          "annotation": "float",
+          "line": 2181
+        },
+        {
+          "name": "bedlevtype",
+          "annotation": "int",
+          "line": 2182
+        },
+        {
+          "name": "blmeanbelow",
+          "annotation": "float",
+          "line": 2183
+        },
+        {
+          "name": "blminabove",
+          "annotation": "float",
+          "line": 2184
+        },
+        {
+          "name": "anglat",
+          "annotation": "float",
+          "line": 2185
+        },
+        {
+          "name": "anglon",
+          "annotation": "float",
+          "line": 2186
+        },
+        {
+          "name": "conveyance2d",
+          "annotation": "int",
+          "line": 2187
+        },
+        {
+          "name": "nonlin1d",
+          "annotation": "int",
+          "line": 2188
+        },
+        {
+          "name": "nonlin2d",
+          "annotation": "int",
+          "line": 2189
+        },
+        {
+          "name": "sillheightmin",
+          "annotation": "float",
+          "line": 2190
+        },
+        {
+          "name": "makeorthocenters",
+          "annotation": "bool",
+          "line": 2191
+        },
+        {
+          "name": "dcenterinside",
+          "annotation": "float",
+          "line": 2192
+        },
+        {
+          "name": "bamin",
+          "annotation": "float",
+          "line": 2193
+        },
+        {
+          "name": "openboundarytolerance",
+          "annotation": "float",
+          "line": 2194
+        },
+        {
+          "name": "renumberflownodes",
+          "annotation": "bool",
+          "line": 2195
+        },
+        {
+          "name": "kmx",
+          "annotation": "int",
+          "line": 2196
+        },
+        {
+          "name": "layertype",
+          "annotation": "int",
+          "line": 2197
+        },
+        {
+          "name": "numtopsig",
+          "annotation": "int",
+          "line": 2198
+        },
+        {
+          "name": "numtopsiguniform",
+          "annotation": "bool",
+          "line": 2199
+        },
+        {
+          "name": "sigmagrowthfactor",
+          "annotation": "float",
+          "line": 2200
+        },
+        {
+          "name": "dztop",
+          "annotation": "Optional[float]",
+          "line": 2201
+        },
+        {
+          "name": "floorlevtoplay",
+          "annotation": "Optional[float]",
+          "line": 2202
+        },
+        {
+          "name": "dztopuniabovez",
+          "annotation": "Optional[float]",
+          "line": 2203
+        },
+        {
+          "name": "keepzlayeringatbed",
+          "annotation": "int",
+          "line": 2204
+        },
+        {
+          "name": "dxdoubleat1dendnodes",
+          "annotation": "bool",
+          "line": 2205
+        },
+        {
+          "name": "changevelocityatstructures",
+          "annotation": "bool",
+          "line": 2206
+        },
+        {
+          "name": "changestructuredimensions",
+          "annotation": "bool",
+          "line": 2207
+        },
+        {
+          "name": "gridenclosurefile",
+          "annotation": "Optional[Union[PolyFile, DiskOnlyFileModel]]",
+          "line": 2208
+        },
+        {
+          "name": "allowbndatbifurcation",
+          "annotation": "bool",
+          "line": 2211
+        },
+        {
+          "name": "slotw1d",
+          "annotation": "float",
+          "line": 2212
+        },
+        {
+          "name": "slotw2d",
+          "annotation": "float",
+          "line": 2213
+        },
+        {
+          "name": "uniformheight1droofgutterpipes",
+          "annotation": "float",
+          "line": 2214
+        },
+        {
+          "name": "dxmin1d",
+          "annotation": "float",
+          "line": 2217
+        },
+        {
+          "name": "uniformtyp1dstreetinlets",
+          "annotation": "int",
+          "line": 2218
+        },
+        {
+          "name": "stretchtype",
+          "annotation": "int",
+          "line": 2219
+        },
+        {
+          "name": "zlaybot",
+          "annotation": "float",
+          "line": 2220
+        },
+        {
+          "name": "zlaytop",
+          "annotation": "float",
+          "line": 2221
+        },
+        {
+          "name": "uniformheight1d",
+          "annotation": "float",
+          "line": 2222
+        },
+        {
+          "name": "roofsfile",
+          "annotation": "Optional[Union[PolyFile, DiskOnlyFileModel]]",
+          "line": 2223
+        },
+        {
+          "name": "gulliesfile",
+          "annotation": "Optional[Union[PolyFile, DiskOnlyFileModel]]",
+          "line": 2226
+        },
+        {
+          "name": "uniformwidth1dstreetinlets",
+          "annotation": "float",
+          "line": 2229
+        },
+        {
+          "name": "uniformheight1dstreetinlets",
+          "annotation": "float",
+          "line": 2230
+        },
+        {
+          "name": "uniformtyp1droofgutterpipes",
+          "annotation": "int",
+          "line": 2231
+        },
+        {
+          "name": "uniformwidth1droofgutterpipes",
+          "annotation": "float",
+          "line": 2232
+        }
+      ]
+    },
+    {
+      "class": "Calibration",
+      "line": 2259,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 2285
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Calibration']",
+          "line": 2287
+        },
+        {
+          "name": "usecalibration",
+          "annotation": "bool",
+          "line": 2288
+        },
+        {
+          "name": "definitionfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2289
+        },
+        {
+          "name": "areafile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2292
+        }
+      ]
+    },
+    {
+      "class": "InfiltrationMethod",
+      "line": 2297,
+      "fields": []
+    },
+    {
+      "class": "GroundWater",
+      "line": 2311,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 2359
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Grw']",
+          "line": 2360
+        },
+        {
+          "name": "groundwater",
+          "annotation": "Optional[bool]",
+          "line": 2362
+        },
+        {
+          "name": "infiltrationmodel",
+          "annotation": "Optional[InfiltrationMethod]",
+          "line": 2363
+        },
+        {
+          "name": "hinterceptionlayer",
+          "annotation": "Optional[float]",
+          "line": 2366
+        },
+        {
+          "name": "unifinfiltrationcapacity",
+          "annotation": "Optional[float]",
+          "line": 2367
+        },
+        {
+          "name": "conductivity",
+          "annotation": "Optional[float]",
+          "line": 2370
+        },
+        {
+          "name": "h_aquiferuni",
+          "annotation": "Optional[float]",
+          "line": 2371
+        },
+        {
+          "name": "bgrwuni",
+          "annotation": "Optional[float]",
+          "line": 2372
+        },
+        {
+          "name": "h_unsatini",
+          "annotation": "Optional[float]",
+          "line": 2373
+        },
+        {
+          "name": "sgrwini",
+          "annotation": "Optional[float]",
+          "line": 2374
+        }
+      ]
+    },
+    {
+      "class": "_ProcessFluxIntegrationMeta",
+      "line": 2377,
+      "fields": []
+    },
+    {
+      "class": "ProcessFluxIntegration",
+      "line": 2386,
+      "fields": []
+    },
+    {
+      "class": "Processes",
+      "line": 2399,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 2440
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Processes']",
+          "line": 2442
+        },
+        {
+          "name": "substancefile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2444
+        },
+        {
+          "name": "additionalhistoryoutputfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2447
+        },
+        {
+          "name": "statisticsfile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2453
+        },
+        {
+          "name": "thetavertical",
+          "annotation": "Optional[float]",
+          "line": 2456
+        },
+        {
+          "name": "dtprocesses",
+          "annotation": "Optional[float]",
+          "line": 2457
+        },
+        {
+          "name": "volumedrythreshold",
+          "annotation": "Optional[float]",
+          "line": 2458
+        },
+        {
+          "name": "depthdrythreshold",
+          "annotation": "Optional[float]",
+          "line": 2459
+        }
+      ]
+    },
+    {
+      "class": "ParticlesThreeDType",
+      "line": 2462,
+      "fields": []
+    },
+    {
+      "class": "Particles",
+      "line": 2472,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 2503
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Particles']",
+          "line": 2505
+        },
+        {
+          "name": "particlesfile",
+          "annotation": "Optional[ParticlesFile]",
+          "line": 2507
+        },
+        {
+          "name": "particlesreleasefile",
+          "annotation": "Annotated[DiskOnlyFileModel, BeforeValidator(set_default_disk_only_file_model)]",
+          "line": 2508
+        },
+        {
+          "name": "addtracer",
+          "annotation": "Optional[bool]",
+          "line": 2513
+        },
+        {
+          "name": "starttime",
+          "annotation": "Optional[float]",
+          "line": 2514
+        },
+        {
+          "name": "timestep",
+          "annotation": "Optional[float]",
+          "line": 2515
+        },
+        {
+          "name": "threedtype",
+          "annotation": "Optional[ParticlesThreeDType]",
+          "line": 2516
+        }
+      ]
+    },
+    {
+      "class": "VegetationModelNr",
+      "line": 2521,
+      "fields": []
+    },
+    {
+      "class": "Vegetation",
+      "line": 2532,
+      "fields": [
+        {
+          "name": "comments",
+          "annotation": "Comments",
+          "line": 2563
+        },
+        {
+          "name": "_header",
+          "annotation": "Literal['Veg']",
+          "line": 2564
+        },
+        {
+          "name": "vegetationmodelnr",
+          "annotation": "Optional[VegetationModelNr]",
+          "line": 2566
+        },
+        {
+          "name": "clveg",
+          "annotation": "Optional[float]",
+          "line": 2569
+        },
+        {
+          "name": "cdveg",
+          "annotation": "Optional[float]",
+          "line": 2570
+        },
+        {
+          "name": "cbveg",
+          "annotation": "Optional[float]",
+          "line": 2571
+        },
+        {
+          "name": "rhoveg",
+          "annotation": "Optional[float]",
+          "line": 2572
+        },
+        {
+          "name": "stemheightstd",
+          "annotation": "Optional[float]",
+          "line": 2573
+        },
+        {
+          "name": "densvegminbap",
+          "annotation": "Optional[float]",
+          "line": 2574
+        }
+      ]
+    },
+    {
+      "class": "FMModel",
+      "line": 2577,
+      "fields": [
+        {
+          "name": "general",
+          "annotation": "General",
+          "line": 2587
+        },
+        {
+          "name": "geometry",
+          "annotation": "Geometry",
+          "line": 2588
+        },
+        {
+          "name": "volumetables",
+          "annotation": "VolumeTables",
+          "line": 2589
+        },
+        {
+          "name": "numerics",
+          "annotation": "Numerics",
+          "line": 2590
+        },
+        {
+          "name": "physics",
+          "annotation": "Physics",
+          "line": 2591
+        },
+        {
+          "name": "sediment",
+          "annotation": "Sediment",
+          "line": 2592
+        },
+        {
+          "name": "wind",
+          "annotation": "Wind",
+          "line": 2593
+        },
+        {
+          "name": "waves",
+          "annotation": "Optional[Waves]",
+          "line": 2594
+        },
+        {
+          "name": "time",
+          "annotation": "Time",
+          "line": 2595
+        },
+        {
+          "name": "restart",
+          "annotation": "Restart",
+          "line": 2596
+        },
+        {
+          "name": "external_forcing",
+          "annotation": "ExternalForcing",
+          "line": 2597
+        },
+        {
+          "name": "hydrology",
+          "annotation": "Hydrology",
+          "line": 2598
+        },
+        {
+          "name": "trachytopes",
+          "annotation": "Trachytopes",
+          "line": 2599
+        },
+        {
+          "name": "output",
+          "annotation": "Output",
+          "line": 2600
+        },
+        {
+          "name": "calibration",
+          "annotation": "Optional[Calibration]",
+          "line": 2601
+        },
+        {
+          "name": "grw",
+          "annotation": "Optional[GroundWater]",
+          "line": 2602
+        },
+        {
+          "name": "processes",
+          "annotation": "Optional[Processes]",
+          "line": 2603
+        },
+        {
+          "name": "particles",
+          "annotation": "Optional[Particles]",
+          "line": 2604
+        },
+        {
+          "name": "veg",
+          "annotation": "Optional[Vegetation]",
+          "line": 2605
+        },
+        {
+          "name": "serializer_config",
+          "annotation": "INISerializerConfig",
+          "line": 2607
+        }
+      ]
+    }
+  ]
+}

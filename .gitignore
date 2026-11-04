@@ -1,0 +1,14 @@
+# Downloaded upstream sources, licensed local artifacts, and machine evidence.
+research/upstream/
+research/tools/
+research/manuals/
+research/evidence/
+research/experiments/
+research/.venv/
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+.dfm-runs/
