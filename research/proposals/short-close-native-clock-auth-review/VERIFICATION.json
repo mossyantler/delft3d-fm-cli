@@ -1,0 +1,208 @@
+{
+  "candidate_checks_independently_rerun_v5_control": {
+    "admission": {
+      "count": 26,
+      "passed": true,
+      "verification_sha256": "056a83278dcf6dc45b998ddb3cdd9b97122e2701492cc45828ae7cf95c6db3b2"
+    },
+    "composition": {
+      "count": 13,
+      "passed": true,
+      "verification_sha256": "da6a5ac6bf57145c98d49b899b5704a991def875467969c4a61655a2aa6678e7"
+    },
+    "run-checks": {
+      "count": 32,
+      "passed": true,
+      "verification_sha256": "650e6fc9d836477cd6c7accdcb12b3aca0dc32c364e8a710ddb16de8dce29b61"
+    }
+  },
+  "candidate_checks_independently_rerun_v6": {
+    "admission": {
+      "count": 26,
+      "passed": true,
+      "verification_sha256": "dee1c994ec26183d74764bd3d2304c11b9e916f76c8a1cc8009c88e87f7b7047"
+    },
+    "composition": {
+      "count": 13,
+      "passed": true,
+      "verification_sha256": "63916bfc4c48f4e4df68eb5fdc58e0f914796eaaaafb4dd04157980908927608"
+    },
+    "run-checks": {
+      "count": 32,
+      "passed": true,
+      "verification_sha256": "5d301dae4860bdfc83e4aad5fe49d84dc9b9cb5a2172977fdb11a7f03db82e0e"
+    }
+  },
+  "canonical_dispatch_sha256_at_review": "df973d4b99e333132879790bfc3cce9c20674549d60817e464f408545ab820f6",
+  "canonical_dispatch_slot": "idle/230",
+  "controls_same_suite": {
+    "v3": {
+      "errors": 4,
+      "failures": 27,
+      "folder": "control-v3-b",
+      "reading": "V3 lacks progress sampling and lease binding (A1,C1,C2,C3,C5 fail); its coarse pair is refused by the frozen reader",
+      "requirements_satisfied": {
+        "A1": false,
+        "C1": false,
+        "C2": false,
+        "C3": false,
+        "C4": true,
+        "C5": false,
+        "F1": true,
+        "F2": true,
+        "F3": true,
+        "F4": true,
+        "F5": true,
+        "F6": true,
+        "F7": true
+      },
+      "tests": 54,
+      "v3_coarse_pair_reader_refusal": [
+        "Observer close final snapshot: monotonic stamp reused by a different snapshot"
+      ],
+      "verification_sha256": "c65dd06e593e93b5f61cfc3368de946e62b20cde430cb7cba99aab00315cbd6c"
+    },
+    "v5": {
+      "errors": 0,
+      "failures": 2,
+      "folder": "control-v5-b",
+      "reading": "V5 has the helper and the lease binding (A1,C1,C2,C3 pass) but NOT the three added transitions (C5 fails): V6 is needed",
+      "requirements_satisfied": {
+        "A1": true,
+        "C1": true,
+        "C2": true,
+        "C3": true,
+        "C4": true,
+        "C5": false,
+        "F1": true,
+        "F2": true,
+        "F3": true,
+        "F4": true,
+        "F5": true,
+        "F6": true,
+        "F7": true
+      },
+      "tests": 54,
+      "verification_sha256": "216d187991d8007e30719b6b089fbca9522f3931099a53a9d3fb272555363b3f"
+    }
+  },
+  "counts_note": "counts are per run and not additive (the 54 include the unchanged regression coverage)",
+  "final_review_run": {
+    "admission_refusal_reasons": {
+      "a1_another_admitted_grant": "Canonical lease binds another grant hash",
+      "a1_copied_path_same_bytes": "Canonical lease binds another grant path",
+      "a1_legacy_owner_sequence_only": "Canonical lease binds another grant hash",
+      "a1_recheck_another_grant": "Canonical lease binds another grant hash",
+      "a1_recheck_copied_path": "Canonical lease binds another grant path",
+      "a1_recheck_idle_slot": "Exact coordinator native owner required; idle/substrings are not grants",
+      "a1_recheck_legacy_owner_sequence_only": "Canonical lease binds another grant hash",
+      "a1_recheck_output_root": "Canonical lease binds another output root",
+      "a1_slot_grant_missing": "Canonical lease binds another grant path",
+      "a1_slot_grant_type_1": "Canonical lease binds another grant path",
+      "a1_slot_grant_type_None": "Canonical lease binds another grant path",
+      "a1_slot_grant_type_True": "Canonical lease binds another grant path",
+      "a1_slot_grant_type_['x']": "Canonical lease binds another grant path",
+      "a1_slot_hash_elsewhere": "Canonical lease binds another grant hash",
+      "a1_slot_hash_missing": "Canonical lease binds another grant hash",
+      "a1_slot_hash_type_1": "Canonical lease binds another grant hash",
+      "a1_slot_hash_type_None": "Canonical lease binds another grant hash",
+      "a1_slot_hash_type_True": "Canonical lease binds another grant hash",
+      "a1_slot_hash_type_['x']": "Canonical lease binds another grant hash",
+      "a1_slot_output_root_elsewhere": "Canonical lease binds another output root",
+      "a1_slot_owner_idle": "Exact coordinator native owner required; idle/substrings are not grants",
+      "a1_slot_path_elsewhere": "Canonical lease binds another grant path",
+      "a1_slot_root_missing": "Canonical lease binds another output root",
+      "a1_slot_root_type_1": "Canonical lease binds another output root",
+      "a1_slot_root_type_None": "Canonical lease binds another output root",
+      "a1_slot_root_type_True": "Canonical lease binds another output root",
+      "a1_slot_root_type_['x']": "Canonical lease binds another output root",
+      "a1_slot_sequence_other": "Current matching fresh lease sequence required",
+      "audit_module_other_name": "ValueError: Independent frozen auditor binding differs",
+      "auditor_api": "ValueError: Unknown independent audit API",
+      "auditor_freeze_other_copy": "ValueError: Independent frozen auditor binding differs",
+      "concurrency_1": "ValueError: Bound/retry mismatch",
+      "contract_relocated_copy": "ValueError: Runtime contract/package binding differs",
+      "direct_exe_swapped": "ValueError: Wrong native engines",
+      "engine_file_dropped": "ValueError: Selected native executable/library missing from pins: lib/gdal.dll",
+      "engine_hash_wrong": "ValueError: Pinned file hash mismatch: C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+      "exists": "ValueError: Destination must be absent: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-rev04-REVIEW-PROBE-f5ffe0d9",
+      "extra_dependency": "ValueError: Only pinned observer and independent raw-output reader required",
+      "idle": "ValueError: Exact coordinator native owner required; idle/substrings are not grants",
+      "kernel_root_outside_install": "ValueError: Native kernels outside declared selected installation",
+      "launch_cap_13": "ValueError: Bound/retry mismatch",
+      "launch_cap_float": "ValueError: Bound/retry mismatch",
+      "nested": "ValueError: Native output must be fresh direct approved experiment child",
+      "observer_byte_identical_copy": "ValueError: Observer/comparator roles must use the original canonical pinned source paths",
+      "owner_substring": "ValueError: Exact coordinator native owner required; idle/substrings are not grants",
+      "package_freeze_other": "ValueError: Only exact compatibility package freeze admitted",
+      "prefix": "ValueError: Native output must be fresh direct approved experiment child",
+      "prepared-01": "ValueError: Plan does not join exact adapter freeze",
+      "retry_true": "ValueError: Bound/retry mismatch",
+      "review_native_true": "ValueError: Offline composition G review required; it is not a native lease",
+      "review_state_admitted": "ValueError: Offline composition G review required; it is not a native lease",
+      "review_wrong_adapter": "ValueError: G review does not join this exact composition",
+      "review_wrong_plan": "ValueError: G review does not join this exact composition",
+      "review_wrong_reader": "ValueError: G review does not join this exact composition",
+      "review_wrong_wheel": "ValueError: G review does not join this exact composition",
+      "roles_swapped": "ValueError: Observer/comparator roles must use the original canonical pinned source paths",
+      "run_root_other": "ValueError: G admission must bind exact fresh output directory",
+      "sequence_bool": "ValueError: Current matching fresh lease sequence required",
+      "sequence_mismatch": "ValueError: Current matching fresh lease sequence required",
+      "sequence_string": "ValueError: Current matching fresh lease sequence required",
+      "state_draft": "ValueError: Explicit G admission required"
+    },
+    "delta_requirements_satisfied": {
+      "A1": "The active canonical lease must bind this exact grant hash, path and output root (owner+sequence alone is refused), in check() AND recheck_start(); the matching grant passes",
+      "C1": "Equal coarse ticks with distinct UTC: sample_after returns the actual NEXT returned snapshot unchanged, without touching earlier values",
+      "C2": "A stalled, identity-changing or regressing observer clock is refused with bounded reads, and close_observer still closes the retained observer",
+      "C3": "Pair end to end on a coarse (15.625 ms) clock with real Active/Driver/Observer classes: every adjacent strict transition is ordered and both survival verdicts are confirmed",
+      "C4": "The frozen trial229 cancellation verdict stays refused with the same reason, by the unchanged frozen reader, on unchanged retained bytes",
+      "C5": "V6 produces EVERY strict adjacent transition through sample_after with the exact previous actual sample (call-structure proof)"
+    },
+    "errors": 0,
+    "failures": 0,
+    "folder": "research/experiments/SHORT-CLOSE-NATIVE-CLOCK-AUTH-V-20261105-01/review-03",
+    "regression_requirements_satisfied": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7"
+    ],
+    "skips": 0,
+    "tests": 54,
+    "verification_sha256": "863c3b614af88cc4f094658564705e9eeca4f8642337d3ee382f0d25a7706662"
+  },
+  "native_authorized": false,
+  "native_launches": 0,
+  "node": "NATIVE-CLOCK-AUTH-V",
+  "not_validated": [
+    "real GetTickCount64 / real kernel32 observer handles; native, GUI, Job, FFI or process behaviour",
+    "a rapid-timeline end-to-end tie for cb->ca, tb->te, cp->cf (the metadata copies embed a ~46 ms request-to-close window, longer than one 15.625 ms tick); covered instead by the call-structure proof C5, strict ordering on a coarse clock C3 and helper tests C1/C2",
+    "a live canonical dispatcher slot (only a SYNTHETIC active dispatcher bound to one fixture grant; the real slot is idle/230)",
+    "a real DIMR record; admission still pins 5 of 134 kernel binaries (unchanged)"
+  ],
+  "preserved_iteration_notes": "review-01: 4 failures from my own new-test bugs (real trial-229 folder legitimately exists; shared work dir; reused case id); review-02: 54/54 before a harness fix; control-v5/v3: first controls were invalid because the synthetic review hard-coded the V6 freeze (fixed, rerun as -b)",
+  "preserved_iterations": {
+    "control-v3": {
+      "verification_sha256": "da753f7b7761f526259e7ab0353aef66e35c98535c2dbbc7e6fe0b25d6faad22"
+    },
+    "control-v5": {
+      "verification_sha256": "09fa5928503bbe441818eed0174352f9aa89e83c12007884125cd612e7af0550"
+    },
+    "review-01": {
+      "verification_sha256": "a43841e1ce96f7d2c82d2452bdb8c582ac8a578e7ec562649e99e1e6ba8bc9da"
+    },
+    "review-02": {
+      "verification_sha256": "68edc27890e957558d8570b2cb1c57a99aaac84bc10f2ea48dd4378dd58f70c8"
+    }
+  },
+  "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+  "reviewed_adapter_freeze_sha256": "53a1db831f37b6a09b925711cd0beb19f0dd8b325e0d26f6f4436fd6776e82e5",
+  "schema": "SHORT-CLOSE-NATIVE-CLOCK-AUTH-V-verification-1",
+  "trial229": "retained cancellation verdict re-derived by the unchanged frozen reader: refused (control_after->control_pre_cleanup tie), timeout confirmed; all 192 run-root files and the grant folder byte-identical",
+  "v5_freeze_sha256_control": "9e72d5393a8e5977ce477a8de9933da4f1f1d37a7848d85834c03594f4cc4390",
+  "verdict": "BOUNDED_CHECKS_PASS_FOR_V6: coarse-clock progress sampling on all strict transitions and exact grant/hash/output lease binding verified; no concrete defect reproduced; no native authority"
+}
