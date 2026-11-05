@@ -1,0 +1,460 @@
+{
+  "node": "NATIVE-ADAPTER-RECEIPT-I",
+  "state": "frozen_correction_pending_independent_V",
+  "native_launches": 0,
+  "native_authorized": false,
+  "freeze_sha256": "1001d5702ab0e4320b6841813536b51545df7831e298cf4a22b0610d90e0a3f0",
+  "base_freeze_sha256": "481029ee17637b49a2518e4b62bee9071cd0cfcd0ba4751ae2144a6dce85c0fe",
+  "changed_python_files": [
+    "replay_adapter.py",
+    "test_flow.py"
+  ],
+  "validation": [
+    {
+      "path": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01/final-bundle-before-fix/verification.json",
+      "sha256": "c740b2bf6e43b1dd36d4bf18e9864016b1c560db48da740a30be45e02891acfb",
+      "result": {
+        "node": "NATIVE-ADAPTER-I",
+        "tests": 23,
+        "failures": 2,
+        "errors": 0,
+        "skips": 0,
+        "passed": false,
+        "blocked_attempts": [],
+        "native_launches": 0,
+        "sources": {
+          "admission.py": "11bcac2d34ea49ef06b10f92888520e06a31212aee05baee6d89d079954fd693",
+          "bind_runtime.py": "c26323ae13aaa6f61a63c8ff155c2fb63dc328ea91210f3bdd925c2643e0d6b2",
+          "check_admission.py": "ac743e86b3c6a0cde49b1d01e45ff0e53ded55c34fcc174f5a65392dfb84bf37",
+          "check_composition.py": "a2cd8f25b9c464c57d415d7e66d4aa8ebb9dee39165f3b7588e911ce34ae2916",
+          "draft_grant.py": "34b141b6f08f2339402b9f50194dfaa8276f0daa16feab072ec240818d2b17d1",
+          "freeze_source.py": "45cf73205796df42ad530d8a5a3ed0cf062bb98151f16639d435db76cd82bd49",
+          "prepare.py": "8a3e463db0332eb7ae075736afef65c641f9e188ac9970bd3dc93c43d10d814e",
+          "public_driver.py": "5f2ba684df205c701980d8b6a3411a2f4d7805a89f6cb1397f66a8030ae43a99",
+          "replay_adapter.py": "28c4d1f251c197948c6a0a8472ec70fa361d5b78a19f5021f93e6efb37f4e7f9",
+          "run_checks.py": "a2bc424b95ee14a3345ddcde5c01f7a07b5dbcd879a888d1dffd6e57507474a0",
+          "test_flow.py": "bed4fbb9a7cf056c39fe7e726ac105dd82c09b856bfa3bc53897f359b8450fcd",
+          "test_portable.py": "7a815f4881278c6fdc10bc89b123f424b5d2832e3a364562d02dac9a527429e2",
+          "warm_client.py": "508adf798d2c75d79d4b8499a1fbf8c62e6df7866600b1552868367499896e7b"
+        },
+        "scope": "Synthetic adapter control-flow and file admission checks only; exact-reader composition is separate."
+      }
+    },
+    {
+      "path": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01/final-bundle-after-fix/verification.json",
+      "sha256": "68b34799ed9f50101183ba960e94c5ad0ba7a47f61c3f320e88dbc5ba47fc729",
+      "result": {
+        "node": "NATIVE-ADAPTER-I",
+        "tests": 23,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "passed": true,
+        "blocked_attempts": [],
+        "native_launches": 0,
+        "sources": {
+          "admission.py": "11bcac2d34ea49ef06b10f92888520e06a31212aee05baee6d89d079954fd693",
+          "bind_runtime.py": "c26323ae13aaa6f61a63c8ff155c2fb63dc328ea91210f3bdd925c2643e0d6b2",
+          "check_admission.py": "ac743e86b3c6a0cde49b1d01e45ff0e53ded55c34fcc174f5a65392dfb84bf37",
+          "check_composition.py": "a2cd8f25b9c464c57d415d7e66d4aa8ebb9dee39165f3b7588e911ce34ae2916",
+          "draft_grant.py": "34b141b6f08f2339402b9f50194dfaa8276f0daa16feab072ec240818d2b17d1",
+          "freeze_source.py": "45cf73205796df42ad530d8a5a3ed0cf062bb98151f16639d435db76cd82bd49",
+          "prepare.py": "8a3e463db0332eb7ae075736afef65c641f9e188ac9970bd3dc93c43d10d814e",
+          "public_driver.py": "5f2ba684df205c701980d8b6a3411a2f4d7805a89f6cb1397f66a8030ae43a99",
+          "replay_adapter.py": "4f741f492cffa3b3447ae7061f713a8ab8f298f49a484b97984bba5fb61c03d1",
+          "run_checks.py": "a2bc424b95ee14a3345ddcde5c01f7a07b5dbcd879a888d1dffd6e57507474a0",
+          "test_flow.py": "bed4fbb9a7cf056c39fe7e726ac105dd82c09b856bfa3bc53897f359b8450fcd",
+          "test_portable.py": "7a815f4881278c6fdc10bc89b123f424b5d2832e3a364562d02dac9a527429e2",
+          "warm_client.py": "508adf798d2c75d79d4b8499a1fbf8c62e6df7866600b1552868367499896e7b"
+        },
+        "scope": "Synthetic adapter control-flow and file admission checks only; exact-reader composition is separate."
+      }
+    },
+    {
+      "path": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01/final-bundle-composition/verification.json",
+      "sha256": "72c455cc9e9424ae6fc8a000fe0686bc1a1a4ed2ef56f242a2a0810a0463faa4",
+      "result": {
+        "node": "NATIVE-ADAPTER-I",
+        "scope": "Exact independent reader and adapter composition; synthetic metadata only",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skips": 0,
+        "passed": true,
+        "cases": [
+          {
+            "case": "test_auxiliary_capture_cannot_replace_original",
+            "accepted": false,
+            "raw_audit_state": "refused",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "c15fe4c63406c89d9d38e477de1edd47927733dac78a1f77083b971775e1aae3",
+              "recorded_state": "timed_out",
+              "stop_achieved": true,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_bad_mesh_original_close_through_adapter",
+            "accepted": true,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "fcc7166f3bed65a9b68cc77c75f9824cb3f7cefd5a83dd6e5dc05843eeca55c2",
+              "recorded_state": "failed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_close_bool_rejected_despite_completed_public_state",
+            "accepted": false,
+            "raw_audit_state": "refused",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "fff1c662e9be82bac15c5321ba89427fffbe2accee778d90e18bee320598719c",
+              "recorded_state": "completed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_control_failed_is_not_acceptable_disposal",
+            "accepted": false,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": false,
+              "case_success": false,
+              "record_sha256": "88db4cbe003a96909cf21ffcea853822f16ab84bb3db35bc1585067c2090e955",
+              "recorded_state": "failed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [
+                {
+                  "type": "EvidenceError",
+                  "reason": "Control disposal state differs"
+                }
+              ]
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_empty_bc_original_close_through_adapter",
+            "accepted": true,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "61947c6786fc7d5c5e4f6c4f1d3c77ccd4e0931f04e4dd95e0c986f195a3cfc5",
+              "recorded_state": "failed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_exact_reader_survival_wrapper_and_negative_close",
+            "accepted_positive": true,
+            "negative_rejected": true,
+            "synthetic": true
+          },
+          {
+            "case": "test_historical_cleanup_failed_never_promoted",
+            "accepted": false,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": false,
+              "case_success": false,
+              "record_sha256": "9a27ecec652767140ed48bbf3956674685bf8097f62c761a1708116d5350b044",
+              "recorded_state": "cleanup_failed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [
+                {
+                  "type": "EvidenceError",
+                  "reason": "Public stop state/reason differs"
+                }
+              ]
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_missing_original_early_capture_rejected",
+            "accepted": false,
+            "raw_audit_state": "refused",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "0bd0d7dd0267a10a527f6ad951357ea364d08cf0f1545a4e8ba9abc227b54087",
+              "recorded_state": "timed_out",
+              "stop_achieved": true,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_mixed_early_and_live_forced_copy_keeps_raw_false_flag",
+            "accepted": true,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "108d9e256f6187f5a9fd1ae12f66cba6966b557733d0b529ee9bad445644ba89",
+              "recorded_state": "timed_out",
+              "stop_achieved": true,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_natural_original_close_through_adapter",
+            "accepted": true,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "87e6ecf05d3cc4223cf013d3908a457c814fc5122a9c62f1d82327d85c3a5fea",
+              "recorded_state": "completed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_natural_race_is_not_a_forced_exercise",
+            "accepted": false,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": false,
+              "record_sha256": "85598e54e09728e571359fab640cf79ee5335a7980352c4161aeb02c9d2db82b",
+              "recorded_state": "completed",
+              "stop_achieved": false,
+              "natural_race_observed": true,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "natural_race_requested_stop_NOT_exercised"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_public_protocol_boolean_is_not_version_two",
+            "accepted": false,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "cce8db8949d0aec90838daedd0b1757f214417b2e51c434e0e3914c25aac8a3a",
+              "recorded_state": "completed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          },
+          {
+            "case": "test_public_returncode_boolean_is_not_zero",
+            "accepted": false,
+            "raw_audit_state": "qualified_full_lifetime_close",
+            "public_state": {
+              "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+              "passed": true,
+              "case_success": true,
+              "record_sha256": "ec4ee649352eee1a70942849aae09dae1d8f0051f17d08aedcd910079b60038d",
+              "recorded_state": "completed",
+              "stop_achieved": false,
+              "natural_race_observed": false,
+              "lifetime_proven_here": false,
+              "errors": [],
+              "classification": "recorded_state_matches_declaration"
+            },
+            "synthetic": true
+          }
+        ],
+        "native_launches": 0,
+        "blocked_attempts": [],
+        "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+        "historical_manifest_hashes": {
+          "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\bad-mesh-direct\\manifest.json": "17dd68c80a66a9367e0bf5c36152570dbe2de7b6c58ec35a389efaf0a58cae38",
+          "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\control-direct\\manifest.json": "8a035c641b076a75c80e50a53f3097818c2a40b6ff68010c6a92172920231b19",
+          "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\empty-bc-direct\\manifest.json": "71c79d7586421886edf24382c3c9e67b20fd0b06f608ca2631dbd169c15daf50",
+          "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\natural-direct\\manifest.json": "e87dbc6e0314bcf526c383356e3ed73b3f62369d0f67c183ab96b8ec685a253a",
+          "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\timeout-direct\\manifest.json": "9966b277fff7eac92fa770945488172918252f3c7f1feae12d3355701973e103"
+        },
+        "adapter_sources": {
+          "admission.py": "11bcac2d34ea49ef06b10f92888520e06a31212aee05baee6d89d079954fd693",
+          "bind_runtime.py": "c26323ae13aaa6f61a63c8ff155c2fb63dc328ea91210f3bdd925c2643e0d6b2",
+          "check_admission.py": "ac743e86b3c6a0cde49b1d01e45ff0e53ded55c34fcc174f5a65392dfb84bf37",
+          "check_composition.py": "a2cd8f25b9c464c57d415d7e66d4aa8ebb9dee39165f3b7588e911ce34ae2916",
+          "draft_grant.py": "34b141b6f08f2339402b9f50194dfaa8276f0daa16feab072ec240818d2b17d1",
+          "freeze_source.py": "45cf73205796df42ad530d8a5a3ed0cf062bb98151f16639d435db76cd82bd49",
+          "prepare.py": "8a3e463db0332eb7ae075736afef65c641f9e188ac9970bd3dc93c43d10d814e",
+          "public_driver.py": "5f2ba684df205c701980d8b6a3411a2f4d7805a89f6cb1397f66a8030ae43a99",
+          "replay_adapter.py": "4f741f492cffa3b3447ae7061f713a8ab8f298f49a484b97984bba5fb61c03d1",
+          "run_checks.py": "a2bc424b95ee14a3345ddcde5c01f7a07b5dbcd879a888d1dffd6e57507474a0",
+          "test_flow.py": "bed4fbb9a7cf056c39fe7e726ac105dd82c09b856bfa3bc53897f359b8450fcd",
+          "test_portable.py": "7a815f4881278c6fdc10bc89b123f424b5d2832e3a364562d02dac9a527429e2",
+          "warm_client.py": "508adf798d2c75d79d4b8499a1fbf8c62e6df7866600b1552868367499896e7b"
+        }
+      }
+    },
+    {
+      "path": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01/final-bundle-admission/verification.json",
+      "sha256": "4920f83bc559b1673af46dd2bc3c53905196185bae6602a6444ec467ee58c8a4",
+      "result": {
+        "node": "NATIVE-ADAPTER-I",
+        "scope": "Full real file joins with SYNTHETIC authority; no native permission granted",
+        "passed": true,
+        "cases": [
+          {
+            "case": "canonical_idle_rejects_lookalike",
+            "accepted": false,
+            "reason": "Exact coordinator native owner required; idle/substrings are not grants"
+          },
+          {
+            "case": "full_file_join_positive",
+            "accepted": true,
+            "synthetic_authority_only": true
+          },
+          {
+            "case": "wrong_host_python",
+            "accepted": false,
+            "reason": "Execute adapter with admitted isolated runtime Python only"
+          },
+          {
+            "case": "wrong_state",
+            "accepted": false,
+            "reason": "Explicit G admission required"
+          },
+          {
+            "case": "wrong_owner",
+            "accepted": false,
+            "reason": "Exact coordinator native owner required; idle/substrings are not grants"
+          },
+          {
+            "case": "wrong_lease_sequence",
+            "accepted": false,
+            "reason": "Current matching fresh lease sequence required"
+          },
+          {
+            "case": "wrong_wheel_sha256",
+            "accepted": false,
+            "reason": "Only the independently reviewed compatibility wheel is in scope"
+          },
+          {
+            "case": "wrong_source_freeze_sha256",
+            "accepted": false,
+            "reason": "Only the reviewed compatibility package composition is in scope"
+          },
+          {
+            "case": "wrong_predeclared_sha256",
+            "accepted": false,
+            "reason": "Wrong frozen plan binding"
+          },
+          {
+            "case": "wrong_adapter_freeze_sha256",
+            "accepted": false,
+            "reason": "Wrong frozen plan binding"
+          },
+          {
+            "case": "wrong_max_native_launches",
+            "accepted": false,
+            "reason": "Bound/retry mismatch"
+          },
+          {
+            "case": "wrong_max_concurrent_native",
+            "accepted": false,
+            "reason": "Bound/retry mismatch"
+          },
+          {
+            "case": "wrong_retry",
+            "accepted": false,
+            "reason": "Bound/retry mismatch"
+          },
+          {
+            "case": "bad_pin_audit_module",
+            "accepted": false,
+            "reason": "Pinned file hash mismatch: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\proposals\\short-close-native-reader\\raw_audit.py"
+          },
+          {
+            "case": "bad_pin_auditor_freeze",
+            "accepted": false,
+            "reason": "Pinned file hash mismatch: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\proposals\\short-close-native-reader\\freeze.json"
+          },
+          {
+            "case": "bad_pin_runtime_contract",
+            "accepted": false,
+            "reason": "Pinned file hash mismatch: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01\\native-admission-contract.json"
+          },
+          {
+            "case": "bad_pin_package_freeze",
+            "accepted": false,
+            "reason": "Pinned file hash mismatch: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-COMPAT-PACK-I-20261105-02\\freeze.json"
+          },
+          {
+            "case": "bad_pin_composition_review",
+            "accepted": false,
+            "reason": "Pinned file hash mismatch: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01\\final-bundle-admission\\fake-composition-review.json"
+          },
+          {
+            "case": "before_each_start_full_recheck",
+            "accepted": true,
+            "synthetic_authority_only": true
+          },
+          {
+            "case": "grant_drift_rejected",
+            "accepted": false
+          }
+        ],
+        "case_count": 20,
+        "native_launches": 0,
+        "blocked_attempts": [],
+        "canonical_dispatch_unchanged_sha256": "2b4c7ad1f58be77466842fd9f3ee3bbf9f45bd8ede760c7117d993905119217d",
+        "adapter_freeze_sha256": "1001d5702ab0e4320b6841813536b51545df7831e298cf4a22b0610d90e0a3f0",
+        "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62"
+      }
+    }
+  ]
+}

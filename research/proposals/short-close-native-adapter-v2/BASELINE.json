@@ -1,0 +1,13 @@
+{
+  "node": "NATIVE-ADAPTER-RECEIPT-I",
+  "base_source": "research\\proposals\\short-close-native-adapter",
+  "base_freeze_sha256": "481029ee17637b49a2518e4b62bee9071cd0cfcd0ba4751ae2144a6dce85c0fe",
+  "changed_code": [
+    "replay_adapter.py",
+    "test_flow.py"
+  ],
+  "native_launches": 0,
+  "native_authorized": false,
+  "before_fix_receipt": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01/final-bundle-before-fix/verification.json",
+  "after_fix_receipt": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-I-20261105-01/final-bundle-after-fix/verification.json"
+}
