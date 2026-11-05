@@ -1,0 +1,21 @@
+{
+  "artifact_files": {
+    "VERIFICATION.json": {
+      "bytes": 6507,
+      "sha256": "d9e5a0217077d16baa6187ade2ba1311e15c6c6fcb919302a0c671c421263629"
+    },
+    "root_review.py": {
+      "bytes": 15847,
+      "sha256": "446e7c3bad31ea5196d10fa1ea8c1466c237f14514cbd3d0a5b2b3e26de77ec8"
+    }
+  },
+  "excluded_from_artifact_files": [
+    "freeze.json (self)",
+    "REVIEW.md (cites the freeze hash)"
+  ],
+  "final_run": "research/experiments/SHORT-CLOSE-ROOT-V-20261105-01/review-02",
+  "native_authorized": false,
+  "node": "SHORT-CLOSE-ROOT-V",
+  "schema": "SHORT-CLOSE-ROOT-V-freeze-1",
+  "state": "frozen_review_result_approve_pending_coordinator_commit"
+}

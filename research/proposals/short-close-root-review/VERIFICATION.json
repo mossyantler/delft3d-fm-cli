@@ -1,0 +1,96 @@
+{
+  "checkpoints_and_raw_runs": "checkpoint and run229/231 raw bytes untouched: this review only read them",
+  "established": [
+    "src/dfm_cli (191 files) is byte-identical to the accepted e32bf84f wheel payload and to the admission expected-product pin; runs.py a9e36eab\u2026 and run_pump_lifecycle.py 49c4a6ed\u2026 carry the pinned hashes; both differ from HEAD.",
+    "The change set is exactly 2 modules + 3 touched tests + 4 new test files; nothing staged.",
+    "test_cli.py (63 assert statements, 27 functions) and test_pump_close_attribution.py (33, 10) keep byte-identical assertion ASTs against HEAD in every function; no removed line contains an assertion; pump_lifecycle_fixtures.py is an assertion-free helper with the same function set.",
+    "Provenance: cli_job_fixtures.py and test_cli.py equal the checkpoint migrated and fixture-I migrated copies; pump_lifecycle_fixtures.py and test_pump_close_attribution.py equal the checkpoint legacy49 copies; short_fixtures.py and test_short_close_contract.py equal the accepted author116 versions except 2 and 1 docstring/comment lines.",
+    "No skip/expectedFailure marker was added anywhere (the 8 test_cli Windows platform guards pre-exist unchanged); receipts in the helpers are constructed before launch/stop/close and checked unchanged; short_fixtures forbids real Popen and both Windows API entry points; cli_job_fixtures patches only OwnedJob and the native normal-exit capture boundary.",
+    "Focused portable runs, all OK with 0 skips: test_short_close_errors 3, test_short_close_contract 18, test_pump_close_attribution 8, test_cli OutputVerification+FailureDiagnostics 10 (not a substitute for the coordinator full run).",
+    "Persistent cross-profile coverage: tests/test_short_close_errors.py maps one identical failed-lifetime/passed-close receipt to termination_unconfirmed (short), pump_cleanup_failed and weir_cleanup_failed, and FAILS (2 failures) when the compat profile guard is removed from runs.fail, i.e. it retains the compat package guard regression; close-failure codes probe: short_cleanup_failed, pump_cleanup_failed, weir_cleanup_failed with no leakage."
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "INFO",
+      "what": "The short contract file has 18 test methods (equal to the accepted author116 count and to the focused run), not 19; the 3 persistent error tests make 21 short-related. State 18 + 3 in the commit/DELIVERY text."
+    },
+    {
+      "id": "R2",
+      "severity": "INFO",
+      "what": "Optional, not required: test_short_close_errors parametrizes close-failure priority and storage propagation for \"short\" only. Pump and weir close-failure codes are asserted by their own persistent tests (test_pump_close_attribution.py:82, test_weir_run_profile.py:271), and the probe shows no leakage. Minimal addition if desired: loop the close-failure field cases over (\"pump-scalar\",\"pump_cleanup_failed\") and (\"weir-series\",\"weir_cleanup_failed\")."
+    },
+    {
+      "id": "R3",
+      "severity": "INFO",
+      "what": "short_fixtures.py ends with stacked redefinitions of normal_receipt/close_receipt that add the schema fields (observed_at_utc, termination_attempted) at receipt construction. Behaviour is correct (globals resolve at call time) and identical to the accepted author116 file; folding them into the constructors is a later maintainability cleanup, not a blocker. Its forced_receipt is a minimal orchestration stub, so these tests prove orchestration and ordering, not native evidence strictness (that is the independent reader job)."
+    },
+    {
+      "id": "R4",
+      "severity": "INFO",
+      "what": "The four migrated test_cli tests are Windows-only (skipUnless nt) at HEAD as well, so on other platforms they skip silently; unchanged."
+    }
+  ],
+  "hash_manifest": {
+    "src/dfm_cli/run_pump_lifecycle.py": {
+      "bytes": 49032,
+      "sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207"
+    },
+    "src/dfm_cli/runs.py": {
+      "bytes": 26748,
+      "sha256": "a9e36eab5f0120f7db53f5f8aaa89726a712ae0616fec64349fc9e8e73ce7513"
+    },
+    "tests/cli_job_fixtures.py": {
+      "bytes": 12649,
+      "sha256": "ba19d58800f5d30d011db68c222ff8d23f380117e777fb82997eea82a2363244"
+    },
+    "tests/pump_lifecycle_fixtures.py": {
+      "bytes": 10566,
+      "sha256": "b84850361bd42940106d807613b9a7a47c15577eb3cf4e70fff8614c6b86a885"
+    },
+    "tests/short_fixtures.py": {
+      "bytes": 11041,
+      "sha256": "8e4dd000fbcb1ad8de843b749f042386b82cf4b36614640d401de0b84c617909"
+    },
+    "tests/test_cli.py": {
+      "bytes": 20005,
+      "sha256": "05d9f7703612da75d2e1de73729c29144c1140417ba8a8709a9d60567d6b57bd"
+    },
+    "tests/test_pump_close_attribution.py": {
+      "bytes": 8397,
+      "sha256": "f649196d8a812cfdf5ae26a1e1ccd439d44d920959c1867cfa086e21e864e7b5"
+    },
+    "tests/test_short_close_contract.py": {
+      "bytes": 8605,
+      "sha256": "b20f4603a865df211512c4bc6df48029f8116232574fdac2b9373bc0e2b59774"
+    },
+    "tests/test_short_close_errors.py": {
+      "bytes": 4048,
+      "sha256": "7718df1dd8ff7e5a4f50730bf5940b1adae3b8c4aa77a5a7e61fda4f23d4b0e7"
+    }
+  },
+  "native_launches": 0,
+  "no_blocking_defect": true,
+  "node": "SHORT-CLOSE-ROOT-V",
+  "not_done": [
+    "the full root unittest run (coordinator owns it; not duplicated)",
+    "any native, GUI, Job, FFI or process action",
+    "review of research/proposals/short-close-native-gates/verify_root.py (outside scope)",
+    "staging or commit (coordinator only; this node is not complete until the coordinator commits)"
+  ],
+  "preserved_first_run": {
+    "cause": "two over-broad checks of mine (an unrelated untracked coordinator file elsewhere under research/; pre-existing platform skip guards); no product or test finding",
+    "checks_failed": 2,
+    "folder": "review-01",
+    "verification_sha256": "56c381b5a535be09948401d3cd3c18a5a52afcf6b73641595113b434a076514e"
+  },
+  "review": {
+    "checks_failed": 0,
+    "checks_total": 27,
+    "folder": "research/experiments/SHORT-CLOSE-ROOT-V-20261105-01/review-02",
+    "verification_sha256": "04569e6d03575b5bd31da19584f0280835bc923f8bab6e4d10753e01ad57b630"
+  },
+  "schema": "SHORT-CLOSE-ROOT-V-verification-1",
+  "verdict": "APPROVE_ROOT_INTEGRATION_PENDING_COORDINATOR_FULL_SUITE_AND_COMMIT",
+  "wheel_sha256": "e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6"
+}
