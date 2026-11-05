@@ -1,0 +1,21 @@
+{
+  "artifact_files": {
+    "VERIFICATION.json": {
+      "bytes": 8422,
+      "sha256": "251cd1af0988558559e959b4168e02a3e23f1e7c3b6c4aa0db2f20917cb74b6d"
+    },
+    "readback.py": {
+      "bytes": 27360,
+      "sha256": "d25af1494833ce6a67362d0c06d48fe75409006fe9f45a60904e216e07bcb25d"
+    }
+  },
+  "excluded_from_artifact_files": [
+    "freeze.json (self)",
+    "RELEASE_VERDICT.md (cites the freeze hash)"
+  ],
+  "final_run": "research/experiments/SHORT-CLOSE-NATIVE229-CLOSE-V-20261105-01/readback-02",
+  "native_authorized": false,
+  "node": "NATIVE229-CLOSE-V",
+  "schema": "SHORT-CLOSE-NATIVE229-CLOSE-V-freeze-1",
+  "state": "frozen_release_only_verdict"
+}

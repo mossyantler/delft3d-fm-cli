@@ -1,0 +1,89 @@
+{
+  "adapter_freeze_sha256": "daffc237b80eb5c35b49dcb445e11cda03ae91f86ba080b9a2177253d3aa8c16",
+  "dispatch_sha256_at_readback": "ff534d85ee8cf477bc820cb6447954c32129568c3eab2730642d66c992b8f3e5",
+  "established_by_raw_receipts": [
+    "Six original owners (natural, bad-mesh, empty-bc, control, timeout, cancel; all DIRECT): frozen-reader audit_state=qualified_full_lifetime_close, each with 2 retained members whose same-HANDLE exits are confirmed, final original-Job accounting TotalProcesses=2 ActiveProcesses=0, Job empty, real Job CloseHandle (int, nonzero) and collector closed; reruns equal the adapter-saved results exactly.",
+    "Six observer CloseHandle receipts: real int 1, same observer object/birth/image as the live capture, exited final sample ordered before the close; accepted by the frozen reader; six distinct observer objects.",
+    "Eight public-client invocations all returned: natural start 0/ok; bad-mesh and empty-bc native_failure 5; timeout run_timeout 5; cancel and control run_cancelled 5; two cancel requests 0/ok; protocol 2; every go delivered once; no unstarted or unknown-delivery client.",
+    "Public states completed/failed/failed/timed_out/cancelled/cancelled; none cleanup_failed; both forced targets achieved a stop; peak concurrent owners 2; 6 of 12 launches; no DIMR folder or manifest; no cleanup, audit or manifest-polling errors.",
+    "Timeout control survival: independent_control_survival_confirmed (reader rerun identical)."
+  ],
+  "grant_folder_files": {
+    "admitted-grant.json": "552ebe0a9b987d2d5d3ef63b5540bb8862cde2a2b9d072af4d583222a9659171",
+    "composition-review.json": "8a6dd4e5fadcf97f2ec400d6e93d531f68096e03d983beab538b286adc6707e2",
+    "dispatch-before-lease.json": "2c6d7297b03897b4db12600d52706d82b05a2dc7cbfa13fb42b501ab566fde10",
+    "draft-grant.json": "02c4ccd3b428b8b803f805cf21c7b020a66f1923f914d0a7ca81b79a30fbdb65",
+    "lease-activated.json": "fb71fceab832b450d3b0168a8c046b98ec936005220eaab757151daf6eda3978",
+    "observed-clock.json": "aa373c1c1a4e34b37526d9c40cb93e16c167e9e8c5e9219838f05ce6a63c03aa"
+  },
+  "grant_sha256": "552ebe0a9b987d2d5d3ef63b5540bb8862cde2a2b9d072af4d583222a9659171",
+  "key_file_sha256": {
+    "audits/bad-mesh-direct.json": "834e0e07d5e17c32e143ca4aa4e6e7e2c92187708220178d2a100b5276cba07c",
+    "audits/cancel-direct-control-survival.json": "c0e12f33d723cae9abbeacb29c1ebb3df13531001b4f8397a2474f09df60a47a",
+    "audits/cancel-direct.json": "563ecfe97454ba024b7b847e3b5dd5f7adc51f041275b9726f597959a35dfbbe",
+    "audits/control-direct.json": "f2a358475748650a58017da38741021f2989fad628978b59582ea42483838b60",
+    "audits/empty-bc-direct.json": "b6f86c5ea9b8ed0692ca58ac658e21214c2b6d2851b5fa1b3d600bca9b8d0400",
+    "audits/natural-direct.json": "bcbade69d39c953e0fdecff76834e1977738634f90fe794fcfc4653a74884737",
+    "audits/timeout-direct-control-survival.json": "90f440eb97fb0334930035bd1f83481dd706c48050446f303af033f0861c1fef",
+    "audits/timeout-direct.json": "d961c8adf7d4400edbc0b739b28e6d66b4cb96b0747ea2f7151c565e333e2850",
+    "bad-mesh-direct/manifest.json": "00e161e9ad8365df6f2b5ab878a4c5841ec68eeb6490c3b448f2ba8c06380be7",
+    "cancel-direct/manifest.json": "351593b5c991e5b447d900911ff4d106bb6cd5dd6fb3771c88345911f30c295b",
+    "commands/bad-mesh-direct-start/invocation.json": "cde42e3d2b02cfa48646e87772c6d52fcff2939300e8127607fc42b1af39ab62",
+    "commands/cancel-direct-cancel/invocation.json": "e3c67765f5e62fa65d137c057daa1b37017b77a2b1aa8af5bf6026579e2fc618",
+    "commands/cancel-direct-start/invocation.json": "fb9782a1d782fd9e0425dd7c15fccb131564c4eac6ac3a9116a3e41ad3d61041",
+    "commands/control-direct-cancel/invocation.json": "096273b8a7a17db9ab0af7591b13b0c32159920753eb20b22da6ad0e6e67a0b0",
+    "commands/control-direct-start/invocation.json": "7fe2f80e8ccfb93ff6095ebec03734cd153a77a99d929f780138668c8ff14697",
+    "commands/empty-bc-direct-start/invocation.json": "cd6bbd66ea05e6df4d0d671c60123b66653ea946a71078a8b96f033611b78e4f",
+    "commands/natural-direct-start/invocation.json": "5c4dc726fd4554db915cde2230b2360d0ebb8a5b600f9a016221860d0c581673",
+    "commands/timeout-direct-start/invocation.json": "f24503ced7a9dff233609ba4d333d7c931559138c3bfe067ca010865ecae6b7e",
+    "control-direct/manifest.json": "37c3453e56f17500aec801a273d89fa3c41c9a5c89afdfa9eac55ab795979613",
+    "empty-bc-direct/manifest.json": "dab57d971d64204b3487c007177f325d20e7086ad20eb65699c3c18575cfd7eb",
+    "natural-direct/manifest.json": "aa3f10d88da502e4ef4263fa62f4d3f3106387d3283aef58b79ed0de7af50bc9",
+    "observations/bad-mesh-direct-observer-close.json": "cd10efda1b72d2622b68f9a43a04658b4b993c9ea63633cf6dee3671b42c9dae",
+    "observations/cancel-direct-observer-close.json": "41bf0d4c4fa7fda2e1a26111fa8e874ae7b8c77b36cffb57e9b4fc2bda98052f",
+    "observations/cancel-direct-survival-final.json": "51c8507fe835512893a6aaabaf2f577751053feb4479d446f2e96016471f82c0",
+    "observations/control-direct-observer-close.json": "798b317bd83cc949ad116b4eec3ac57939fb9f1a734cf1141ecdb7cd7e692c9d",
+    "observations/empty-bc-direct-observer-close.json": "9a65fd80fc96145b99adc10b6c03133f293e0ddb157b07b5d3070633b6083017",
+    "observations/natural-direct-observer-close.json": "5ab977f2b6b151982d911b90eb9f39a45dbfc258d1c30fc6cf0c8157cf3d202d",
+    "observations/timeout-direct-observer-close.json": "189c5e832696d66a70bc6a20db112ff90c9618d2159685b121ed8dfa56b5e874",
+    "observations/timeout-direct-survival-final.json": "fefba576fc6fe6c8476f0dc14eff1763e811618df3213d4f7a977ab1c9660e33",
+    "timeout-direct/manifest.json": "9a54acc802160463aee5f4d70cc2edb1dce233923809992c53df00338d003e46",
+    "verification.json": "f347417c5f6348df9196083d60182a6aea7598cebe985fab1f77d503502b887f"
+  },
+  "native_launches": 0,
+  "node": "NATIVE229-CLOSE-V",
+  "not_established": [
+    "confirmation of cancel-case control survival (reader refused)",
+    "causal kill attribution (live_then_signalled_cause_not_proven)",
+    "clean native finalization or scientific/numerical validity of any forced case",
+    "any DIMR behaviour; the 191-variable comparison (not run; comparison191.json absent)",
+    "liveness AFTER the recorded times (by instruction no process/PID/Job/FFI query was made; receipts bound the state at record time)",
+    "natural-direct output gate: only the adapter-saved raw-output receipt was read (history/map final times match, final restart present); it was not recomputed here"
+  ],
+  "preservation": "all 192 run-root files, 6 grant-folder files, dispatch, reader and adapter V3 re-hashed byte-identical after the readback",
+  "readback": {
+    "final": {
+      "checks_failed": 0,
+      "checks_total": 31,
+      "folder": "research/experiments/SHORT-CLOSE-NATIVE229-CLOSE-V-20261105-01/readback-02",
+      "verification_sha256": "9d532fe607b4c9eac85f6fb281b052552fa5f7d3037547223959c9688fa4c6b7"
+    },
+    "preserved_first_run": {
+      "cause": "my own wrong assumption that monotonic stamps are multiples of 15.625 ms; they are whole milliseconds advancing in ~15.6 ms steps. No evidence difference.",
+      "checks_failed": 1,
+      "folder": "readback-01",
+      "verification_sha256": "61f26ee7e3b6f2b7a378bdb3bef77e8c620007a3d60069efcc1843901a49d84f"
+    }
+  },
+  "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+  "refused_gate": {
+    "raw_facts": "two distinct LIVE samples of one observer object, UTC 2.534 ms apart, identical monotonic_ns 111819015000000 (GetTickCount64, 15.625 ms tick); all other 19 of the 20 gates evaluated separately pass and the method agrees with the reader on the timeout bundle",
+    "scope": "a chronology-ordering gate only: it says nothing about process exit, Job closure or physics; the reader verdict stays refused and survival of the cancel-case control is NOT confirmed",
+    "what": "cancel-direct control survival: control_after -> control_pre_cleanup: monotonic stamp reused by a different snapshot"
+  },
+  "run_root": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-rev04-229-20261105-01",
+  "run_root_file_count": 192,
+  "run_root_files_listing_sha256": "e0e3520a866441d1707b005b7385916dd6a5c934c8dfe2bc4fec87dc4fb04c82",
+  "schema": "SHORT-CLOSE-NATIVE229-CLOSE-V-verification-1",
+  "verdict": "RELEASE_SAFE_BY_RAW_RECEIPTS_TRIAL_NOT_ACCEPTED"
+}
