@@ -35,8 +35,8 @@ an assertion capture); 03–05 were intermediate passes, and 06 binds these fina
 candidate bytes. Keep those local records. Results are not additive.
 
 Independent static review and independent runtime verification are distinct.
-Next steps are independent candidate execution, a new package freeze and the
-runner/reader composition gate before any native lease or product integration.
+At the first replay, independent candidate execution, a new package freeze and
+the runner/reader composition gate were all still pending.
 
 `SHORT-CLOSE-COMPAT-D1-I` strengthens the profile comparison identified in the
 independent static review: the same complete passing close receipt now checks
@@ -44,5 +44,15 @@ short, pump and weir. Removing the short-only predicate must fail that compariso
 an explicit mutation test verifies this. All 15 synthetic tests passed in fresh
 `SHORT-CLOSE-COMPAT-D1-I-20261105-01`; `d1-verification.json` and `d1-tests.log`
 retain the result. The candidate product bytes are unchanged (`a9e36eab…`).
-The original 14-test evidence above remains historical. Independent execution
-and wheel acceptance are still separate gates.
+The original 14-test evidence above remains historical.
+
+Independent [runtime and installed-wheel checks](../short-close-compat-review/EVIDENCE.md)
+now reproduce the 15-test replay and pass the protected 116-, 49- and 18-test
+corpora. The actual installed compatibility wheel passes the four unchanged CLI
+tests; the previous rev04 runtime still fails the one expected error-code test.
+The corpora overlap and their counts must not be added. Removing the profile
+guard independently fails the pump/weir tests. Commits `1a1e5b6` (RUNTIME-V) and
+`1f0acbd` (PACK-V) retain separate node evidence. No actionable product defect
+was found; the literal issue string and non-specific author mutation assertion
+remain documented non-blocking limitations. Runner/reader composition and native
+regressions precede product integration.

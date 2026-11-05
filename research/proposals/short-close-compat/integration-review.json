@@ -1,0 +1,19 @@
+{
+  "node": "SHORT-CLOSE-COMPAT-RESUME-G",
+  "state": "synthetic_and_package_scope_reviewed_only",
+  "checkpoint_files_verified": 343,
+  "accepted_root_files_unchanged": 191,
+  "installed_wheel_payload_files_verified": 191,
+  "changed_from_accepted_base": [
+    "dfm_cli/run_pump_lifecycle.py",
+    "dfm_cli/runs.py"
+  ],
+  "wheel_sha256": "e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6",
+  "runtime_V_commit": "1a1e5b6",
+  "package_V_commit": "1f0acbd",
+  "author_D1_commit": "bdbe355",
+  "package_I_commit": "1fce44d",
+  "native_launches": 0,
+  "product_integration": false,
+  "next_gate": "Freeze and compose native-I producer and native-V independent reader before any new native lease."
+}

@@ -20,4 +20,13 @@ Attempt `SHORT-CLOSE-COMPAT-PACK-I-20261105-01` failed because preparation omitt
 `audit_install.py`. Its complete failed folder remains unchanged. Preparation
 now includes the auditor, and attempt `SHORT-CLOSE-COMPAT-PACK-I-20261105-02`
 uses a new folder. Test and package results are not additive. Independent wheel
-verification, runner/reader composition and native regressions remain separate.
+verification, runner/reader composition and native regressions are separate gates.
+
+Attempt 02 produced wheel SHA-256
+`e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6`.
+The origin audit covered all 191 payload files and preserved the 98-command,
+protocol-2, manifest-3 contract. Independent installed-code testing is retained
+in [Sonnet's evidence](../short-close-compat-review/EVIDENCE.md), node
+`SHORT-CLOSE-COMPAT-PACK-V` commit `1f0acbd`. That verifier compared 190 Python
+payloads and exercised the installed functions without overlays. Broader native
+execution and product integration remain pending.
