@@ -2,10 +2,24 @@
 
 ## User-requested checkpoint
 
-Work is paused at the user's request for quota protection (2026-11-05).
-Read [RESUME.md](RESUME.md) and its checkpoint before continuing. Pending code
-under `research/checkpoints/` is not accepted product code. Do not start further
-implementation, agents or native experiments until the user explicitly resumes.
+The user explicitly resumed work on 2026-11-05 in Herdr and authorized Claude
+Code Sonnet 5.5 with high effort as an additional subagent option. Read
+[RESUME.md](RESUME.md) and its checkpoint before continuing. Pending code under
+`research/checkpoints/` is not accepted product code. Preserve the immutable
+checkpoint; prepare new candidates separately and retain existing review gates.
+
+### Herdr subagents
+
+Codex and Claude Code may both perform assigned I/V work; keep independent
+verification separate from authorship and serialize shared Git operations here.
+For Claude use `herdr agent start <name> --kind claude --pane <available-pane>
+-- --model claude-sonnet-5-5 --effort high`. Verify the startup banner and response;
+do not silently substitute another model. Herdr 0.9.5 and Claude Code 2.1.318
+were observed at resumption; discover capabilities again on another machine.
+Read AGENTS.md explicitly in each Claude assignment. Give each worker a node,
+owned paths, prerequisites and validation scope. Native slots still require the
+coordinator's package/runner/reader review. Resolve the actual caller pane from
+live agent state when inherited HERDR pane/workspace variables are stale.
 
 ## Purpose and current phase
 

@@ -1,5 +1,11 @@
 # 로드맵 공정표
 
+**Herdr에서 재개(2026-11-05).** 사용자가 명시적으로 재개했고 Claude Code
+Sonnet 5.5 high를 추가 작업자로 허용했다. `HERDR-RESUME-G`에서 지침을 갱신하고
+Herdr의 `sonnet-review`를 `SHORT-CLOSE-COMPAT-V`에 배정했다. 첫 작업은 기존
+단언을 유지하는 오류 코드 호환성 검토다. 아래 중단 기록과 동결본은 역사 자료로
+유지한다. 새 네이티브 실행·제품 병합 승인은 아직 없다.
+
 **사용자 요청으로 중단(2026-11-05).** 이번 경계는 [공용 패키지 최종 검수](research/experiments/SHORT-CLOSE-PACK-G-final-01/verification.json)까지다. 독립 검수 자료 460개와 두 설치본의 제품 191파일을 대조했다. 실제 엔진 재시험·제품 병합은 미완료다. [재개 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 미병합 코드와 작업자별 중단 상태를 보관한다. 기존 CLI fixture 이관은 4건 중 3건 통과, 공개 오류 코드 호환성 차이 1건이 남아 있다. 아래의 ‘진행 중’ 기록은 중단 직전 상태이며 명시적인 재개 요청 전에는 계속 실행하지 않는다.
 
 **B14 후보 6의 통합 회귀 통과, 독립 검수 대기.** [다섯 합성 검사](research/experiments/B14-RUNNER-G-rev06-consistency-01/verification.json)에서 원래 멤버의 확보 시각과 종료 코드 모순을 거부했고, 이후 관찰 시각만 다른 정상 기록은 허용했다. [파일 사전 검사](research/experiments/B14-RUNNER-G-rev06-preflight-01/verification.json)는 동결 참조 52개와 후보·준비 입력 113파일의 불변을 확인했다. 네 BMI 진단의 실제 실행은 아직 없으며, 공개 direct 여섯 사례는 공용 실행 수정 통합이 선행한다. Faraday의 구현본은 동결했고 Plato가 독립 검수한다.
