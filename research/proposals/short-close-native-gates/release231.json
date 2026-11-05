@@ -1,0 +1,27 @@
+{
+  "node": "NATIVE231-REPLAY-G",
+  "state": "lease_released_bounded_fixture_accepted",
+  "released_sequence": 231,
+  "new_idle_sequence": 232,
+  "native_attempts": 12,
+  "original_member_exits": 24,
+  "original_Job_closes": 12,
+  "original_collector_closes": 12,
+  "observer_closes": 12,
+  "public_client_exits": 16,
+  "control_survival_bundles": 4,
+  "independent_review_sha256": "7047aafcaf75149cb57c945999d856f6fca98bd28f66bdf7e402139a1f78cffb",
+  "dispatch_after_sha256": "82ee43d2388649f3e9654a013428517d208aa0c3b7738b9a9ed6b356c8eff624",
+  "DIMR_executed": true,
+  "comparison191_executed": true,
+  "native_records_rewritten": false,
+  "trial229_remains_NOT_ACCEPTED": true,
+  "integration_authorization": {
+    "product_paths": [
+      "src/dfm_cli/runs.py",
+      "src/dfm_cli/run_pump_lifecycle.py"
+    ],
+    "exact_wheel_sha256": "e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6",
+    "scope": "Accept two exact reviewed modules after I/V, package V and twelve-case native V; fixture migration and full-root regression still required. Other pending products remain separate gates."
+  }
+}
