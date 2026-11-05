@@ -1,0 +1,122 @@
+{
+  "counts_are_not_additive_with": "checkpoint 107-case run; the 107 are re-executed inside the 215",
+  "final_run": {
+    "case_groups": {
+      "adversarial": 108,
+      "original107": 107
+    },
+    "cases": 215,
+    "errors": 0,
+    "failures": 0,
+    "folder": "research/experiments/SHORT-CLOSE-NATIVE-READER-I-20261105-01/tests-03",
+    "skips": 0,
+    "state": "passed_raw_record_composition",
+    "tests_log_sha256": "48cb1038a1f0ff65549605074b96df73ead5c1d241d99ca85f9f86cb08eabf00",
+    "unit_methods": 10,
+    "verification_json_sha256": "004c31ec19b72519471d877eb0cd545e2929675b8b9fd80f9a1f61c51f5616d1"
+  },
+  "mutation_sensitivity": {
+    "caught": 13,
+    "detail": {
+      "capture_before_obs": "CAUGHT (1 fail/0 err)",
+      "final_snapshot_chain": "CAUGHT (1 fail/0 err)",
+      "identity_source": "CAUGHT (1 fail/0 err)",
+      "image_query": "CAUGHT (1 fail/0 err)",
+      "initial_pids": "CAUGHT (1 fail/0 err)",
+      "label_check": "CAUGHT (1 fail/0 err)",
+      "monotonic_reuse": "CAUGHT (1 fail/0 err)",
+      "root_exit_primitive": "CAUGHT (1 fail/0 err)",
+      "schema_version": "CAUGHT (1 fail/0 err)",
+      "skew_bound": "CAUGHT (1 fail/0 err)",
+      "stop_reason": "CAUGHT (1 fail/0 err)",
+      "terminal_state": "CAUGHT (1 fail/0 err)",
+      "unavailable_error": "CAUGHT (1 fail/0 err)"
+    },
+    "folder": "research/experiments/SHORT-CLOSE-NATIVE-READER-I-20261105-01/mutation-01",
+    "mutations": 13,
+    "result_sha256": "9b469a4e6aa7f6255f92a49959a7976a2a2274e4496303b637a4d31825665107"
+  },
+  "not_validated": [
+    "any native/GUI/process behaviour",
+    "composition with the adapter",
+    "real observer snapshots (all observer bundles are SYNTHETIC)",
+    "independent G review of this reader"
+  ],
+  "original107_rerun": {
+    "baseline": "research/experiments/SHORT-CLOSE-NATIVE-V-rev04-20261105-01/tests-01",
+    "baseline_manifest_hashes_equal": true,
+    "baseline_verification_sha256": "dc3612ac971f9c027d4e776125d2b634152ee33539e4238ffbd94db8f6070a7b",
+    "compared_cases": 107,
+    "identical_input_bytes": 107,
+    "verdict_differences": []
+  },
+  "original227_manifests_unchanged": true,
+  "preserved_earlier_iterations": {
+    "tests-01": {
+      "case_groups": {
+        "adversarial": 202,
+        "original107": 0
+      },
+      "cases": 202,
+      "cause": "harness defects only: case-group tag depended on class order and one case name collided (control_final_clock_skew); no reader defect",
+      "errors": 1,
+      "state": "failed_raw_record_composition",
+      "verification_json_sha256": "6bf9b92760358afee510086945f6110dda26f94eb6ddefdd164c938eaa4261bf"
+    },
+    "tests-02": {
+      "case_groups": {
+        "adversarial": 108,
+        "original107": 107
+      },
+      "cases": 215,
+      "note": "same sources as tests-03 (sha256 recorded in source-hashes-before-tests-03.txt)",
+      "state": "passed_raw_record_composition",
+      "verification_json_sha256": "004c31ec19b72519471d877eb0cd545e2929675b8b9fd80f9a1f61c51f5616d1"
+    }
+  },
+  "schema": "SHORT-CLOSE-NATIVE-READER-validation-1",
+  "static_purity_audit": {
+    "fixtures.py": {
+      "forbidden_attribute_calls": [],
+      "forbidden_builtin_calls": [],
+      "forbidden_imports": [],
+      "imports": [
+        "copy",
+        "datetime",
+        "json",
+        "pathlib",
+        "raw_audit"
+      ]
+    },
+    "raw_audit.py": {
+      "forbidden_attribute_calls": [],
+      "forbidden_builtin_calls": [],
+      "forbidden_imports": [],
+      "imports": [
+        "datetime",
+        "hashlib",
+        "json",
+        "pathlib",
+        "re"
+      ]
+    },
+    "test_raw_audit.py": {
+      "forbidden_attribute_calls": [],
+      "forbidden_builtin_calls": [],
+      "forbidden_imports": [
+        "sys"
+      ],
+      "imports": [
+        "copy",
+        "datetime",
+        "fixtures",
+        "hashlib",
+        "json",
+        "pathlib",
+        "raw_audit",
+        "sys",
+        "unittest"
+      ]
+    }
+  }
+}

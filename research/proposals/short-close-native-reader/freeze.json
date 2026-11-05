@@ -1,0 +1,68 @@
+{
+  "api": "SHORT-CLOSE-NATIVE-V-raw-api-2",
+  "api_breaking_change_from_checkpoint_candidate": false,
+  "artifact_files": {
+    "PROVENANCE.json": {
+      "bytes": 2685,
+      "sha256": "dd0f331bdefc2c3dc08f739093e857c40618752fbfdebbf29629bd4990fdf460"
+    },
+    "VALIDATION.json": {
+      "bytes": 4080,
+      "sha256": "d9d42e8ecede0382386ba43028ebb7b9811cf0a5f0eb7115b6f7c55ae7e52acf"
+    },
+    "api-contract-v1-SUPERSEDED.json": {
+      "bytes": 5311,
+      "sha256": "fbd74feaadceae90f43ccff32c4d2f15390b7d7bf7b3b8279ef0585998c8b986"
+    },
+    "api-contract.json": {
+      "bytes": 15034,
+      "sha256": "90e867263e5b555ebc5b98e45810e02bec5b2980f5e8c316d697af8b1dfc355d"
+    },
+    "fixtures.py": {
+      "bytes": 5048,
+      "sha256": "486d0cbc8805b2b98139aa37c3bbbac7208a9c41e6573adf17a835dc46bd7373"
+    },
+    "raw_audit.py": {
+      "bytes": 49679,
+      "sha256": "ddf31bae3ec558a5d0ec27b739990e4201ccc16908013069f7b6b7df8b76e215"
+    },
+    "test_raw_audit.py": {
+      "bytes": 38407,
+      "sha256": "b1c5c444884440fba248b7bad682297d77d3a0c1f1d6eb77f7f2f017997ce1f8"
+    }
+  },
+  "callables": {
+    "assert_public_state": "assert_public_state(record:dict, expectation:dict)->dict",
+    "audit_control_survival": "audit_control_survival(target_record:dict, control_record:dict, observations:dict, expected_control:dict)->dict",
+    "audit_record": "audit_record(record:dict, expected:dict)->dict"
+  },
+  "excluded_from_artifact_files": [
+    "freeze.json (self)",
+    "HANDOFF.md (cites the freeze hash)"
+  ],
+  "module": "raw_audit.py",
+  "native_authorized": false,
+  "node": "NATIVE-READER-I",
+  "pass_keys": {
+    "assert_public_state": {
+      "case_success": true,
+      "passed": true
+    },
+    "audit_control_survival": {
+      "audit_state": "independent_control_survival_confirmed",
+      "control_lifetime_passed": true,
+      "observer_same_handle_confirmed": true,
+      "passed": true
+    },
+    "audit_record": {
+      "actual_job_close_passed": true,
+      "audit_state": "qualified_full_lifetime_close",
+      "collector_close_passed": true,
+      "lifetime_passed": true
+    }
+  },
+  "product_accepted": false,
+  "schema": "SHORT-CLOSE-NATIVE-READER-freeze-1",
+  "state": "frozen_candidate_pending_coordinator_review_and_independent_G_review",
+  "validation_run": "research/experiments/SHORT-CLOSE-NATIVE-READER-I-20261105-01/tests-03"
+}

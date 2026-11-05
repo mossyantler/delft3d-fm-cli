@@ -1,0 +1,52 @@
+{
+  "adapter_observer_wrapper_read_only_reference": {
+    "note": "read only; the later adapter copy under research/proposals/short-close-native-adapter was not opened or touched",
+    "path": "research/checkpoints/20261105-quota-pause/pending/native-I/public_driver.py (Observer subclass, close_observer)",
+    "sha256": "9bd09cab97c805058a3f7a1641c1c31c469345d7e8d5f7117552ab1377dffa21"
+  },
+  "checkpoint_files": {
+    "api-contract-v1-SUPERSEDED.json": {
+      "bytes": 5311,
+      "sha256": "fbd74feaadceae90f43ccff32c4d2f15390b7d7bf7b3b8279ef0585998c8b986"
+    },
+    "api-contract.json": {
+      "bytes": 7801,
+      "sha256": "11fe9b6cd3a8c77c3696735f693ee798ab33daf253afb946fdf696e401aa1bd2"
+    },
+    "fixtures.py": {
+      "bytes": 3419,
+      "sha256": "e58a11f6ecd510a3b541acc61f139e346b77d142dca08db9df7472e69e0b0bd0"
+    },
+    "raw_audit.py": {
+      "bytes": 42632,
+      "sha256": "ccabff06809a4629fbff50f2c67281dee516509735db8166133bd646a50c0b57"
+    },
+    "test_raw_audit.py": {
+      "bytes": 15429,
+      "sha256": "aed7a7ab2d5da5cd77cf45a1b5a222522e00c35994b445ddd481874efc2bcd1d"
+    }
+  },
+  "copied_unchanged": [
+    "api-contract-v1-SUPERSEDED.json"
+  ],
+  "derived_from": "research/checkpoints/20261105-quota-pause/pending/native-V (immutable, unmodified)",
+  "modified_copies": {
+    "api-contract.json": "checkpoint 11fe9b6c...; finalized wrapper/observer/chronology wording, api id unchanged",
+    "fixtures.py": "checkpoint e58a11f6...; observer_bundle gained shape=\"driver\" (default shape unchanged, so the original 107 inputs are byte-identical)",
+    "raw_audit.py": "checkpoint ccabff06...; stricter admission/chronology checks, no signature change",
+    "test_raw_audit.py": "checkpoint aed7a7ab...; output folder is a required fresh argument, original 7 methods unchanged in content, 3 adversarial methods added"
+  },
+  "node": "NATIVE-READER-I",
+  "observer_source": {
+    "path": "research/workflows/verification/verify_water_quality_offline_lifecycle_observe.py",
+    "sha256": "13282606386e8cad8655bfee1570cdb4283acd8059d43f5fcbb0c316ef6141e0"
+  },
+  "original227_records": {
+    "bad-mesh-direct": "17dd68c80a66a9367e0bf5c36152570dbe2de7b6c58ec35a389efaf0a58cae38",
+    "control-direct": "8a035c641b076a75c80e50a53f3097818c2a40b6ff68010c6a92172920231b19",
+    "empty-bc-direct": "71c79d7586421886edf24382c3c9e67b20fd0b06f608ca2631dbd169c15daf50",
+    "natural-direct": "e87dbc6e0314bcf526c383356e3ed73b3f62369d0f67c183ab96b8ec685a253a",
+    "timeout-direct": "9966b277fff7eac92fa770945488172918252f3c7f1feae12d3355701973e103"
+  },
+  "schema": "SHORT-CLOSE-NATIVE-READER-provenance-1"
+}
