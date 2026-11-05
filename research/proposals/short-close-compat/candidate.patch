@@ -1,0 +1,25 @@
+--- rev04/runs.py
++++ compat/runs.py
+@@ -400,7 +400,21 @@
+             record.setdefault("postmortem_errors", []).append(str(collection_error))
+     if pump:
+         lifecycle = close(run, trigger=record["stop_reason"], original_error=record["error"])
+-        if lifecycle["state"] not in {"passed", "not_created"}:
++        # Preserve the established public code for unproven lifetime only.
++        # Actual original Job/collector close failures still take precedence.
++        lifetime_only = (
++            record.get("profile_name") == "short"
++            and error.code == "termination_unconfirmed"
++            and lifecycle.get("state") == "failed"
++            and lifecycle.get("exit_evidence", {}).get("passed") is False
++            and lifecycle.get("close_assessment", {}).get("passed") is True
++            and lifecycle["close_assessment"].get("job_handle_close_confirmed") is True
++            and lifecycle["close_assessment"].get("collector_close_confirmed") is True
++            and lifecycle["close_assessment"].get("job_binding_confirmed") is True
++            and "close_error" not in lifecycle
++            and lifecycle.get("issues") == ["Required all-member lifetime/forced-attribution evidence unproven"]
++        )
++        if lifecycle["state"] not in {"passed", "not_created"} and not lifetime_only:
+             original = record["error"]
+             state = "cleanup_failed"
+             error = lifecycle_error(run, "cleanup_failed",

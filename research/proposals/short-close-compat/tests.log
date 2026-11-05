@@ -1,0 +1,19 @@
+test_acknowledged_cancel_losing_race_to_natural_exit_verifies_outputs (test_cli.OutputVerification.test_acknowledged_cancel_losing_race_to_natural_exit_verifies_outputs) ... ok
+test_zero_exit_missing_outputs_fails_manifest_and_preserves_source (test_cli.OutputVerification.test_zero_exit_missing_outputs_fails_manifest_and_preserves_source) ... ok
+test_timeout_records_failure_and_cleanup_targets_owned_process (test_cli.OutputVerification.test_timeout_records_failure_and_cleanup_targets_owned_process) ... ok
+test_unconfirmed_cleanup_is_not_reported_as_a_successful_stop (test_cli.FailureDiagnostics.test_unconfirmed_cleanup_is_not_reported_as_a_successful_stop) ... ok
+test_actual_job_close_failure (__main__.CloseFailurePrecedence.test_actual_job_close_failure) ... ok
+test_actual_collector_close_failure (__main__.CloseFailurePrecedence.test_actual_collector_close_failure) ... ok
+test_close_exception (__main__.CloseFailurePrecedence.test_close_exception) ... ok
+test_additional_issue (__main__.CloseFailurePrecedence.test_additional_issue) ... ok
+test_non_boolean_close (__main__.CloseFailurePrecedence.test_non_boolean_close) ... ok
+test_false_job_binding (__main__.CloseFailurePrecedence.test_false_job_binding) ... ok
+test_false_handle_with_true_summary (__main__.CloseFailurePrecedence.test_false_handle_with_true_summary) ... ok
+test_false_collector_with_true_summary (__main__.CloseFailurePrecedence.test_false_collector_with_true_summary) ... ok
+test_storage_failure_is_not_suppressed (__main__.CloseFailurePrecedence.test_storage_failure_is_not_suppressed) ... ok
+test_existing_pump_and_weir_codes (__main__.CloseFailurePrecedence.test_existing_pump_and_weir_codes) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.621s
+
+OK
