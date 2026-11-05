@@ -1,0 +1,17 @@
+{
+  "node": "NATIVE229-REPLAY-G",
+  "state": "lease_released_trial_NOT_ACCEPTED",
+  "released_sequence": 229,
+  "new_idle_sequence": 230,
+  "native_attempts": 6,
+  "original_member_exits": 12,
+  "original_Job_closes": 6,
+  "original_collector_closes": 6,
+  "observer_closes": 6,
+  "public_client_exits": 8,
+  "independent_review_sha256": "251cd1af0988558559e959b4168e02a3e23f1e7c3b6c4aa0db2f20917cb74b6d",
+  "dispatch_after_sha256": "df973d4b99e333132879790bfc3cce9c20674549d60817e464f408545ab820f6",
+  "DIMR_executed": false,
+  "comparison191_executed": false,
+  "native_records_rewritten": false
+}
