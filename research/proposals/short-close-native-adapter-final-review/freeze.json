@@ -1,0 +1,27 @@
+{
+  "artifact_files": {
+    "VERIFICATION.json": {
+      "bytes": 7521,
+      "sha256": "d4f7281a4ffdbc5007c656f367aac89f10049816a80626135ede031f19b85f81"
+    },
+    "harness.py": {
+      "bytes": 20046,
+      "sha256": "8a28c661d3d14d2ec86ba6f4071d668b298a72de97a9cc8277d3265dcdb8aed9"
+    },
+    "review_checks.py": {
+      "bytes": 74504,
+      "sha256": "1f0f7924b95fc4efddfb86c964fdaea45fdadcc40640932c022ce5b8ca20ece9"
+    }
+  },
+  "excluded_from_artifact_files": [
+    "freeze.json (self)",
+    "HANDOFF.md (cites the freeze hash)"
+  ],
+  "final_run": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-FINAL-V-20261105-01/review-01",
+  "native_authorized": false,
+  "node": "NATIVE-ADAPTER-FINAL-V",
+  "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+  "reviewed_adapter_freeze_sha256": "daffc237b80eb5c35b49dcb445e11cda03ae91f86ba080b9a2177253d3aa8c16",
+  "schema": "SHORT-CLOSE-NATIVE-ADAPTER-FINAL-V-freeze-1",
+  "state": "frozen_review_result_V3_bounded_checks_pass"
+}
