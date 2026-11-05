@@ -1,0 +1,65 @@
+{
+  "node": "NATIVE-ADAPTER-I",
+  "state": "source_candidate_for_independent_review",
+  "artifact_files": {
+    "admission.py": {
+      "sha256": "11bcac2d34ea49ef06b10f92888520e06a31212aee05baee6d89d079954fd693",
+      "bytes": 12616
+    },
+    "bind_runtime.py": {
+      "sha256": "c26323ae13aaa6f61a63c8ff155c2fb63dc328ea91210f3bdd925c2643e0d6b2",
+      "bytes": 3339
+    },
+    "check_admission.py": {
+      "sha256": "ac743e86b3c6a0cde49b1d01e45ff0e53ded55c34fcc174f5a65392dfb84bf37",
+      "bytes": 4821
+    },
+    "check_composition.py": {
+      "sha256": "a2cd8f25b9c464c57d415d7e66d4aa8ebb9dee39165f3b7588e911ce34ae2916",
+      "bytes": 10170
+    },
+    "draft_grant.py": {
+      "sha256": "34b141b6f08f2339402b9f50194dfaa8276f0daa16feab072ec240818d2b17d1",
+      "bytes": 2843
+    },
+    "expected-product.json": {
+      "sha256": "b8c0705c26489081b3a39a59f42560ec45128c909e327419e90a1229e40e621e",
+      "bytes": 19442
+    },
+    "freeze_source.py": {
+      "sha256": "45cf73205796df42ad530d8a5a3ed0cf062bb98151f16639d435db76cd82bd49",
+      "bytes": 764
+    },
+    "prepare.py": {
+      "sha256": "8a3e463db0332eb7ae075736afef65c641f9e188ac9970bd3dc93c43d10d814e",
+      "bytes": 9008
+    },
+    "public_driver.py": {
+      "sha256": "5f2ba684df205c701980d8b6a3411a2f4d7805a89f6cb1397f66a8030ae43a99",
+      "bytes": 11304
+    },
+    "replay_adapter.py": {
+      "sha256": "28c4d1f251c197948c6a0a8472ec70fa361d5b78a19f5021f93e6efb37f4e7f9",
+      "bytes": 15979
+    },
+    "run_checks.py": {
+      "sha256": "a2bc424b95ee14a3345ddcde5c01f7a07b5dbcd879a888d1dffd6e57507474a0",
+      "bytes": 1930
+    },
+    "test_flow.py": {
+      "sha256": "f9f5c4cdc919aff2aac7691e6ec9120f1d121ab60268eda590ed21883a53010b",
+      "bytes": 11118
+    },
+    "test_portable.py": {
+      "sha256": "7a815f4881278c6fdc10bc89b123f424b5d2832e3a364562d02dac9a527429e2",
+      "bytes": 8207
+    },
+    "warm_client.py": {
+      "sha256": "508adf798d2c75d79d4b8499a1fbf8c62e6df7866600b1552868367499896e7b",
+      "bytes": 1433
+    }
+  },
+  "predeclared_sha256": "d83da17fa87246ab557dafbffb7e2a3aba099cd2188f28fbceb846584716589a",
+  "native_authorized": false,
+  "native_launches": 0
+}
