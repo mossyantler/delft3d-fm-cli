@@ -15,3 +15,8 @@ Herdr에서 명시적으로 재개했다. Claude Code Sonnet 5.5 high도 서브�
 재개 첫 노드 `HERDR-RESUME-G`: 실행 환경·에이전트 지정·현재 상태를 갱신한다.
 `SHORT-CLOSE-COMPAT-I/V`는 새 후보에서 공개 오류 코드 호환성을 검토한다.
 기존 체크포인트와 제품 소스는 검수 전까지 유지한다.
+
+첫 재개 결과와 재현 명령은
+[호환성 후보](research/proposals/short-close-compat/README.md)에 있다.
+기존 CLI 4건을 포함한 합성 14건은 통과했다. 독립 실행 검수와 새 패키지 동결,
+실행기·판독기 합성 검증이 다음 순서이며 실제 엔진 회귀는 여전히 미실행이다.
