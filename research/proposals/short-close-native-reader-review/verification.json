@@ -1,0 +1,114 @@
+{
+  "node": "NATIVE-READER-V",
+  "passed": true,
+  "checks": 19,
+  "cases": [
+    {
+      "name": "original-natural-direct",
+      "accepted": true,
+      "expectation_met": true
+    },
+    {
+      "name": "original-bad-mesh-direct",
+      "accepted": true,
+      "expectation_met": true
+    },
+    {
+      "name": "original-empty-bc-direct",
+      "accepted": true,
+      "expectation_met": true
+    },
+    {
+      "name": "original-timeout-direct",
+      "accepted": true,
+      "expectation_met": true
+    },
+    {
+      "name": "original-control-direct",
+      "accepted": true,
+      "expectation_met": true
+    },
+    {
+      "name": "schema-True",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "schema-2",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "schema-4",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "schema-3",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "unknown-terminal",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "original-child-capture-absent",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "wrong-borrowed-identity-source",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "boolean-original-close",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "boolean-forced-request",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "same-object-positive",
+      "accepted": true,
+      "expectation_met": true
+    },
+    {
+      "name": "reversed-close-final-monotonic",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "exact-job-label-invented",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "borrow-target-observer",
+      "accepted": false,
+      "expectation_met": true
+    },
+    {
+      "name": "close-bool",
+      "accepted": false,
+      "expectation_met": true
+    }
+  ],
+  "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+  "source_sha256": "ddf31bae3ec558a5d0ec27b739990e4201ccc16908013069f7b6b7df8b76e215",
+  "native_launches": 0,
+  "blocked_attempts": [],
+  "historical_manifest_hashes": {
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\bad-mesh-direct\\manifest.json": "17dd68c80a66a9367e0bf5c36152570dbe2de7b6c58ec35a389efaf0a58cae38",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\control-direct\\manifest.json": "8a035c641b076a75c80e50a53f3097818c2a40b6ff68010c6a92172920231b19",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\empty-bc-direct\\manifest.json": "71c79d7586421886edf24382c3c9e67b20fd0b06f608ca2631dbd169c15daf50",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\natural-direct\\manifest.json": "e87dbc6e0314bcf526c383356e3ed73b3f62369d0f67c183ab96b8ec685a253a",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\timeout-direct\\manifest.json": "9966b277fff7eac92fa770945488172918252f3c7f1feae12d3355701973e103"
+  },
+  "scope": "Pure original JSON plus labelled adversarial copies; no HANDLE/engine/physics proof"
+}
