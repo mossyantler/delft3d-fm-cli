@@ -37,3 +37,12 @@ candidate bytes. Keep those local records. Results are not additive.
 Independent static review and independent runtime verification are distinct.
 Next steps are independent candidate execution, a new package freeze and the
 runner/reader composition gate before any native lease or product integration.
+
+`SHORT-CLOSE-COMPAT-D1-I` strengthens the profile comparison identified in the
+independent static review: the same complete passing close receipt now checks
+short, pump and weir. Removing the short-only predicate must fail that comparison;
+an explicit mutation test verifies this. All 15 synthetic tests passed in fresh
+`SHORT-CLOSE-COMPAT-D1-I-20261105-01`; `d1-verification.json` and `d1-tests.log`
+retain the result. The candidate product bytes are unchanged (`a9e36eab…`).
+The original 14-test evidence above remains historical. Independent execution
+and wheel acceptance are still separate gates.

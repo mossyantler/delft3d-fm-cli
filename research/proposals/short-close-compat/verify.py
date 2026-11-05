@@ -107,7 +107,7 @@ class CloseFailurePrecedence(test_cli.FailureDiagnostics):
         from dfm_cli.common import DfmError
         run = SimpleNamespace(record={'validation': {}}, process=object(),
                               terminate=Mock(), diagnostics=Mock(), outputs=Mock(), save=Mock())
-        storage_error = DfmError('short_lifecycle_persistence', 'synthetic storage failure', 5)
+        storage_error = DfmError('short_lifecycle_persistence', 'synthetic storage failure', 6)
         with patch.object(runs, '_guarded_terminal', return_value=True), \
              patch.object(lifecycle, 'exit_evidence', return_value={'passed': False}), \
              patch.object(lifecycle, 'close', side_effect=storage_error):
@@ -118,18 +118,37 @@ class CloseFailurePrecedence(test_cli.FailureDiagnostics):
 
     def test_existing_pump_and_weir_codes(self):
         from dfm_cli.common import DfmError
-        for profile, expected in [('pump-scalar', 'pump_cleanup_failed'), ('weir-series', 'weir_cleanup_failed')]:
+        for profile, expected in [('short', 'termination_unconfirmed'),
+                                  ('pump-scalar', 'pump_cleanup_failed'),
+                                  ('weir-series', 'weir_cleanup_failed')]:
             with self.subTest(profile=profile):
                 run = SimpleNamespace(record={'validation': {}, 'profile_name': profile}, process=object(),
                                       folder=Path('synthetic'), terminate=Mock(), diagnostics=Mock(), outputs=Mock(), save=Mock())
                 receipt = {'state': 'failed', 'exit_evidence': {'passed': False},
-                           'close_assessment': {'passed': True},
+                           'close_assessment': {'passed': True,
+                                                'job_handle_close_confirmed': True,
+                                                'collector_close_confirmed': True,
+                                                'job_binding_confirmed': True},
                            'issues': ['Required all-member lifetime/forced-attribution evidence unproven']}
                 with patch.object(lifecycle, 'exit_evidence', return_value={'passed': False}), \
                      patch.object(lifecycle, 'close', return_value=receipt):
                     error = runs.fail(run, DfmError('run_timeout', 'synthetic', 5))
                 self.assertEqual(error.code, expected)
                 run.save.assert_called_once_with('cleanup_failed')
+
+    def test_profile_guard_mutation_is_detected(self):
+        guard = '            record.get("profile_name") == "short"\n            and '
+        self.assertEqual(candidate.count(guard), 1)
+        mutated = dict(runs.__dict__)
+        exec(compile(candidate.replace(guard, '            '),
+                     '<profile-guard-removed>', 'exec'), mutated)
+        # Without the profile guard, the full passing receipt must expose
+        # a pump/weir error-code regression in the same comparison test.
+        with patch.object(runs, 'fail', mutated['fail']):
+            # Use a fresh case so subTest failures propagate to assertRaises.
+            case = CloseFailurePrecedence('test_existing_pump_and_weir_codes')
+            with self.assertRaises(AssertionError):
+                case.test_existing_pump_and_weir_codes()
 
 blocked = []
 def forbid(*args, **kwargs):
@@ -146,7 +165,7 @@ with tempfile.TemporaryDirectory() as temporary, ExitStack() as stack:
     for module in (windows_job, windows_job_trace_api):
         stack.enter_context(patch.object(module, 'api', side_effect=forbid))
     suite = unittest.defaultTestLoader.loadTestsFromNames(names)
-    # Select only the six new tests, avoiding inherited unrelated methods.
+    # Select only explicitly added tests, avoiding inherited unrelated methods.
     for name in CloseFailurePrecedence.__dict__:
         if name.startswith('test_'):
             suite.addTest(CloseFailurePrecedence(name))

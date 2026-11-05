@@ -1,0 +1,13 @@
+{
+  "node": "SHORT-CLOSE-COMPAT-I",
+  "tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "passed": true,
+  "native_launches": 0,
+  "blocked_attempts": [],
+  "base_sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c",
+  "candidate_sha256": "a9e36eab5f0120f7db53f5f8aaa89726a712ae0616fec64349fc9e8e73ce7513",
+  "scope": "In-memory candidate overlay on frozen installed dependencies; not a wheel or native acceptance."
+}
