@@ -12,6 +12,7 @@ import unittest
 from unittest.mock import patch
 
 from dfm_cli.cli import main
+from cli_job_fixtures import CliJobFixture
 from dfm_cli.common import DfmError, inside
 from dfm_cli import installation, model, runs
 
@@ -214,8 +215,9 @@ class OutputVerification(Workspace):
         from dfm_cli.common import utc_now, write_json
         destination = self.root / "race"
         info = {"kernels": str(self.root), "proj_data": None,
-                "binaries": {key: {"path": "stub", "sha256": "stub", "exists": True}
+                "binaries": {key: {"path": str(self.root / "stub.exe"), "sha256": "stub", "exists": True}
                              for key in ("bin/dflowfm-cli.exe", "lib/dflowfm.dll", "lib/gdal.dll")}}
+        owned = CliJobFixture(self.root / "stub.exe", outcome="natural")
         fixture = self.folder
         def launch(*args, **kwargs):
             # The initial test model was staged; generate only the simulated native outputs.
@@ -230,8 +232,8 @@ class OutputVerification(Workspace):
             process = Mock(pid=1234)
             process.poll.side_effect = [None, None, 0]  # alive on acknowledgement; gone at termination
             return process
-        with patch.object(runs, "select", return_value=info), patch.object(runs, "OwnedJob") as job:
-            job.return_value.launch.side_effect = launch
+        with patch.object(runs, "select", return_value=info), owned.patch(normal=True) as job:
+            job.return_value.launch.side_effect = owned.launched(launch)
             job.return_value.members.return_value = []
             job.return_value.terminate.return_value = {"forced": False, "tree_terminated": True}
             result = runs.start(self.mdu, destination, None, "direct", 5, False)
@@ -246,6 +248,7 @@ class OutputVerification(Workspace):
         binary.write_bytes(b"stub")
         info = {"kernels": str(self.root), "proj_data": None,
                 "binaries": {key: {"path": str(binary), "sha256": hashlib.sha256(b"stub").hexdigest(), "exists": True} for key in ["bin/dflowfm-cli.exe", "lib/dflowfm.dll", "lib/gdal.dll"]}}
+        owned = CliJobFixture(binary, outcome="natural")
         original = self.mdu.read_bytes()
         def popen(*args, **kwargs):
             kwargs["stdout"].write(b"Start of the computation time loop\nComputation finished at:\nMPI : no.\nOpenMP : yes. #threads max : 1\n")
@@ -255,8 +258,8 @@ class OutputVerification(Workspace):
             process.poll.return_value = 0
             return process
         dest = self.root / "run"
-        with patch.object(runs, "select", return_value=info), patch.object(runs, "OwnedJob") as job:
-            job.return_value.launch.side_effect = popen
+        with patch.object(runs, "select", return_value=info), owned.patch(normal=True) as job:
+            job.return_value.launch.side_effect = owned.launched(popen)
             job.return_value.members.return_value = []
             job.return_value.terminate.return_value = {"tree_terminated": True}
             with self.assertRaises(DfmError) as caught:
@@ -272,12 +275,13 @@ class OutputVerification(Workspace):
         info = {"kernels": str(self.root), "proj_data": None,
                 "binaries": {key: {"path": str(binary), "sha256": hashlib.sha256(b"stub").hexdigest(), "exists": True} for key in ["bin/dflowfm-cli.exe", "lib/dflowfm.dll", "lib/gdal.dll"]}}
         from unittest.mock import Mock
+        owned = CliJobFixture(binary, outcome="timeout")
         process = Mock(pid=1234, returncode=99)
-        process.poll.return_value = None
+        process.poll.side_effect = owned.poll
         process.wait.side_effect = subprocess.TimeoutExpired(["owned"], 1)
         dest = self.root / "timed-out"
-        with patch.object(runs, "select", return_value=info), patch.object(runs, "OwnedJob") as job, patch.object(runs, "terminate_owned", return_value={"pid": 1234, "owned_process_exited": True, "tree_terminated": True}) as terminate:
-            job.return_value.launch.return_value = process
+        with patch.object(runs, "select", return_value=info), owned.patch() as job, patch.object(runs, "terminate_owned", side_effect=owned.stop) as terminate:
+            job.return_value.launch.side_effect = owned.launched(process)
             job.return_value.members.return_value = [1234]
             with self.assertRaises(DfmError) as caught:
                 runs.start(self.mdu, dest, None, "direct", 0.01, False)
@@ -295,12 +299,13 @@ class FailureDiagnostics(Workspace):
         binary.write_bytes(b"stub")
         info = {"kernels": str(self.root), "proj_data": None,
                 "binaries": {key: {"path": str(binary), "sha256": "test", "exists": True} for key in ["bin/dflowfm-cli.exe", "lib/dflowfm.dll", "lib/gdal.dll"]}}
+        owned = CliJobFixture(binary, outcome="unconfirmed")
         process = Mock(pid=1234, returncode=1)
         process.poll.return_value = None
         process.wait.side_effect = subprocess.TimeoutExpired(["owned"], .01)
         dest = self.root / "unconfirmed"
-        with patch.object(runs, "select", return_value=info), patch.object(runs, "OwnedJob") as job:
-            job.return_value.launch.return_value = process
+        with patch.object(runs, "select", return_value=info), owned.patch() as job:
+            job.return_value.launch.side_effect = owned.launched(process)
             job.return_value.members.return_value = [1234]
             job.return_value.terminate.return_value = {"tree_terminated": False, "errors": ["test cleanup failure"]}
             with self.assertRaises(DfmError) as caught:

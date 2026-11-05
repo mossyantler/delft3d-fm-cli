@@ -39,6 +39,11 @@ def _guarded_serial(run):
     return AUTHORED_PROFILES.get(run.record.get("profile_name")) in (pump_run_profile, weir_run_profile)
 
 
+def _guarded_terminal(run):
+    """Lifetime/closure scope is separate from authored physical model hooks."""
+    return _guarded_serial(run) or run.record.get("profile_name") == "short"
+
+
 def profile(report: dict, mdu: Mdu | None = None, profile_name: str = "short") -> dict:
     """Apply the established short profile or an explicit bounded extended gate."""
     if profile_name not in {"short", "extended", "restart"}:
@@ -252,7 +257,7 @@ class Run:
         change = {"state": state, "updated_at_utc": utc_now()}
         manifest = self.folder / "manifest.json"
         proposed = self.record | change
-        if _guarded_serial(self) and state not in TRANSITIONS:
+        if _guarded_terminal(self) and state not in TRANSITIONS:
             from .run_pump_lifecycle import publish_terminal
             publish_terminal(manifest, proposed, write_json)
         else:
@@ -267,7 +272,7 @@ class Run:
     def terminate(self, reason: str):
         if "termination" in self.record:
             return
-        if _guarded_serial(self):
+        if _guarded_terminal(self):
             from .run_pump_lifecycle import can_terminate
             if not can_terminate(self):
                 return
@@ -299,7 +304,8 @@ def execute_native(run, command, cwd, environment):
             record.get("profile_name") == "coupling"
             and record.get("coupling", {}).get("profile", {}).get("name") in {"fm_rtc", "rr_f152"}
         )
-        if pump:
+        terminal = _guarded_terminal(run)
+        if terminal:
             run._pump_job_creation_attempted = True
         run.job = OwnedJob(trace_members=True) if trace_members else OwnedJob()
         if pump:
@@ -308,8 +314,8 @@ def execute_native(run, command, cwd, environment):
         record.update(pid=run.process.pid, started_at_utc=utc_now())
         record["ownership"] = {"method": "windows_job_object", "assigned_before_resume": True,
                                "kill_on_owner_handle_close": True, "initial_job_pids": run.job.members(), "stdin": "DEVNULL",
-                               "native_identity": copy.deepcopy(getattr(run.job, "_root_identity", None)) if pump else process_identity(run.process.pid)}
-        if pump:
+                               "native_identity": copy.deepcopy(getattr(run.job, "_root_identity", None)) if terminal else process_identity(run.process.pid)}
+        if terminal:
             record["ownership"]["native_identity_source"] = "original_Popen_HANDLE_GetProcessTimes"
         record["validation"]["engine_initialization"] = "attempted"
         run.save("running")
@@ -364,7 +370,7 @@ def verify_completion(run):
 
 def fail(run, exc):
     record = run.record
-    pump = _guarded_serial(run)
+    pump = _guarded_terminal(run)
     if isinstance(exc, KeyboardInterrupt):
         error = DfmError("interrupted", "CLI interrupted", 5)
     else:
@@ -394,7 +400,21 @@ def fail(run, exc):
             record.setdefault("postmortem_errors", []).append(str(collection_error))
     if pump:
         lifecycle = close(run, trigger=record["stop_reason"], original_error=record["error"])
-        if lifecycle["state"] not in {"passed", "not_created"}:
+        # Preserve the established public code for unproven lifetime only.
+        # Actual original Job/collector close failures still take precedence.
+        lifetime_only = (
+            record.get("profile_name") == "short"
+            and error.code == "termination_unconfirmed"
+            and lifecycle.get("state") == "failed"
+            and lifecycle.get("exit_evidence", {}).get("passed") is False
+            and lifecycle.get("close_assessment", {}).get("passed") is True
+            and lifecycle["close_assessment"].get("job_handle_close_confirmed") is True
+            and lifecycle["close_assessment"].get("collector_close_confirmed") is True
+            and lifecycle["close_assessment"].get("job_binding_confirmed") is True
+            and "close_error" not in lifecycle
+            and lifecycle.get("issues") == ["Required all-member lifetime/forced-attribution evidence unproven"]
+        )
+        if lifecycle["state"] not in {"passed", "not_created"} and not lifetime_only:
             original = record["error"]
             state = "cleanup_failed"
             error = lifecycle_error(run, "cleanup_failed",
@@ -414,7 +434,7 @@ def start(path: Path, destination: Path, installation: str | None, route: str, t
     try:
         execute_native(run, *stage(run))
         verify_completion(run)
-        if _guarded_serial(run):
+        if _guarded_terminal(run):
             from .run_pump_lifecycle import require_normal_exit, close, lifecycle_error
             require_normal_exit(run)
             lifecycle = close(run, trigger="normal_completion")
@@ -427,10 +447,10 @@ def start(path: Path, destination: Path, installation: str | None, route: str, t
     else:
         # Once verified and closed, a terminal publication error is a storage
         # error. Re-entering fail() could replace an already committed result.
-        if _guarded_serial(run):
+        if _guarded_terminal(run):
             run.save("completed")
     finally:
-        if run.job is not None and not _guarded_serial(run):
+        if run.job is not None and not _guarded_terminal(run):
             run.job.close()
     return {"manifest": str(run.folder / "manifest.json"), "state": run.record["state"],
             "verification": run.record["verification"], "diagnostics": run.record["diagnostics"],

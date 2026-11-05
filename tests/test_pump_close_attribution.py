@@ -20,7 +20,7 @@ def receipt():
             "job_binding": {"handle_source": "original_private_job_handle", "job_instance_token": TOKEN,
                             "original_handle_verified": True, "same_original_retained_handle": True, "trace_binding_verified": True},
             "collector_close": {"attempted": True, "state": "returned", "return_type": "dict", "return_value":
-                                {"state": "closed", "collector_stopped": True, "errors": [], "borrowed_root_closed": False, "borrowed_job_closed": False}}}
+                                {"state": "closed", "termination_attempted": False, "collector_stopped": True, "errors": [], "borrowed_root_closed": False, "borrowed_job_closed": False}}}
 
 
 def unproven_stop():

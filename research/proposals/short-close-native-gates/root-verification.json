@@ -1,0 +1,102 @@
+{
+  "node": "SHORT-CLOSE-ROOT-G",
+  "state": "file_and_full_regression_checks_passed",
+  "product_wheel_sha256": "e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6",
+  "payload_matches": 191,
+  "changed_product_modules": [
+    "dfm_cli/run_pump_lifecycle.py",
+    "dfm_cli/runs.py"
+  ],
+  "checkpoint_files_preserved": 343,
+  "trial229_files_preserved": 192,
+  "trial231_files_preserved": 388,
+  "all_original_cli_assertions_preserved": true,
+  "full_suite": {
+    "path": "research\\experiments\\SHORT-CLOSE-ROOT-G-20261105-01\\unittest.log",
+    "sha256": "9afb1820475d4609f73cadaea2bab36cd065a39df65ccf4a29d6192363264911",
+    "tests": 1715,
+    "skipped": 36,
+    "passed": true
+  },
+  "additional_compatibility_suite": {
+    "path": "research\\experiments\\SHORT-CLOSE-ROOT-G-20261105-01\\compatibility-tests.log",
+    "sha256": "74d42ef6a10ee650ec5ba84b6673002d5c3698fa1a990745f762593c6a19ba31",
+    "tests": 3,
+    "skipped": 0,
+    "passed": true
+  },
+  "independent_root_review_sha256": "d9e5a0217077d16baa6187ade2ba1311e15c6c6fcb919302a0c671c421263629",
+  "independent_root_review_commit": "0ceb728",
+  "compileall": "src tests research/workflows research/scripts: exit 0",
+  "schema": {
+    "commands": 98,
+    "protocol": 2,
+    "manifest": 3,
+    "version": "0.4.0.dev1"
+  },
+  "integration_inputs": {
+    "node": "SHORT-CLOSE-ROOT-G",
+    "product_wheel_sha256": "e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6",
+    "payload_matches": 191,
+    "files": {
+      "src/dfm_cli/runs.py": {
+        "source": "research\\experiments\\SHORT-CLOSE-COMPAT-PACK-I-20261105-02\\build-01\\composed-source\\src\\dfm_cli\\runs.py",
+        "source_sha256": "a9e36eab5f0120f7db53f5f8aaa89726a712ae0616fec64349fc9e8e73ce7513",
+        "before_sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b",
+        "after_sha256": "a9e36eab5f0120f7db53f5f8aaa89726a712ae0616fec64349fc9e8e73ce7513"
+      },
+      "src/dfm_cli/run_pump_lifecycle.py": {
+        "source": "research\\experiments\\SHORT-CLOSE-COMPAT-PACK-I-20261105-02\\build-01\\composed-source\\src\\dfm_cli\\run_pump_lifecycle.py",
+        "source_sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207",
+        "before_sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+        "after_sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207"
+      },
+      "tests/test_cli.py": {
+        "source": "research\\checkpoints\\20261105-quota-pause\\pending\\cli-fixtures\\migrated\\test_cli.py",
+        "source_sha256": "05d9f7703612da75d2e1de73729c29144c1140417ba8a8709a9d60567d6b57bd",
+        "before_sha256": "c75ec2d5d7a77351cd1b84d2364d1c35273a0beaa29e30ae32ec0822e5547143",
+        "after_sha256": "05d9f7703612da75d2e1de73729c29144c1140417ba8a8709a9d60567d6b57bd"
+      },
+      "tests/cli_job_fixtures.py": {
+        "source": "research\\checkpoints\\20261105-quota-pause\\pending\\cli-fixtures\\migrated\\cli_job_fixtures.py",
+        "source_sha256": "ba19d58800f5d30d011db68c222ff8d23f380117e777fb82997eea82a2363244",
+        "before_sha256": null,
+        "after_sha256": "ba19d58800f5d30d011db68c222ff8d23f380117e777fb82997eea82a2363244"
+      },
+      "tests/pump_lifecycle_fixtures.py": {
+        "source": "research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\tests\\legacy49\\pump_lifecycle_fixtures.py",
+        "source_sha256": "b84850361bd42940106d807613b9a7a47c15577eb3cf4e70fff8614c6b86a885",
+        "before_sha256": "28ad0a1baaf3fcfa67d31337eda79cf922820cd2fcae6896ab361d366e6985c8",
+        "after_sha256": "b84850361bd42940106d807613b9a7a47c15577eb3cf4e70fff8614c6b86a885"
+      },
+      "tests/test_pump_close_attribution.py": {
+        "source": "research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\tests\\legacy49\\test_pump_close_attribution.py",
+        "source_sha256": "f649196d8a812cfdf5ae26a1e1ccd439d44d920959c1867cfa086e21e864e7b5",
+        "before_sha256": "03336a43d87911388ecbbc69505f48ee35d801e5e8fd415d60f77c11b23d66af",
+        "after_sha256": "f649196d8a812cfdf5ae26a1e1ccd439d44d920959c1867cfa086e21e864e7b5"
+      },
+      "tests/short_fixtures.py": {
+        "source": "research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\checks\\short_fixtures.py",
+        "source_sha256": "a9b5b02e69081f3d7f988bd226684bcebeda57b84a7a8e2902f9785c278c7456",
+        "before_sha256": null,
+        "after_sha256": "8e4dd000fbcb1ad8de843b749f042386b82cf4b36614640d401de0b84c617909"
+      },
+      "tests/test_short_close_contract.py": {
+        "source": "research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\checks\\test_short_close_contract.py",
+        "source_sha256": "6a4eeb633cb0906224ead3af2923b23b2c3dae320677cf109a376d06553aff1f",
+        "before_sha256": null,
+        "after_sha256": "b20f4603a865df211512c4bc6df48029f8116232574fdac2b9373bc0e2b59774"
+      },
+      "tests/test_short_close_errors.py": {
+        "source": "coordinator-authored portable public error compatibility tests",
+        "before_sha256": null,
+        "after_sha256": "7718df1dd8ff7e5a4f50730bf5940b1adae3b8c4aa77a5a7e61fda4f23d4b0e7"
+      }
+    },
+    "existing_assertions_preserved": true
+  },
+  "native231_independent_review_sha256": "7047aafcaf75149cb57c945999d856f6fca98bd28f66bdf7e402139a1f78cffb",
+  "release231_sha256": "3625734f8608dd7253ad7a12f8dce3fc7b0316694d273b6d135085579b1974f0",
+  "native_launches_by_this_audit": 0,
+  "native_slot": "idle232"
+}
