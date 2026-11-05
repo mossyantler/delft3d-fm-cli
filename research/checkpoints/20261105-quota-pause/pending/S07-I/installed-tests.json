@@ -1,0 +1,37 @@
+{
+  "tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "modules": {
+    "dfm_cli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\__init__.py",
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3"
+    },
+    "dfm_cli.wind_drag": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\wind_drag.py",
+      "sha256": "4f69965cae952398fbaa0f298fa79dd9919ca553686a05339d96216d5efaf05b"
+    },
+    "dfm_cli.wind_drag_graph": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\wind_drag_graph.py",
+      "sha256": "b8c1c9bc4c98c276811d8cbf02c8d34b0449552d03355df274bf0e46b047912a"
+    },
+    "dfm_cli.wind_drag_text": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\wind_drag_text.py",
+      "sha256": "3d47f0edb0ae4f1e4aebcd90c5587a3d7272f9d833ea25bdd446438d6d3069c9"
+    }
+  },
+  "sys_path": [
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\checks",
+    "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip",
+    "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\DLLs",
+    "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\Lib",
+    "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages"
+  ],
+  "python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Scripts\\python.exe",
+  "overlay": false,
+  "root_import": false,
+  "native_launches": 0
+}

@@ -1,0 +1,158 @@
+{
+  "state": "passed_private_package_no_native",
+  "wheel": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\wheels\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "87d02495ad992eacc0edbbecd1ba16668c564dd86da51e8d6921e76e08bdd204",
+    "bytes": 810740
+  },
+  "dfm": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Scripts\\dfm.exe",
+    "sha256": "f178cacdce36823037c0ce8c4af0fae2da89864299c3a4d0af7f5da49c2e5c1e",
+    "bytes": 108462
+  },
+  "python": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Scripts\\python.exe",
+    "sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14",
+    "bytes": 274424
+  },
+  "base_wheel": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\baseline\\wheels\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "4dea0b64489fa8b45535395973fb5c28ba89646c380db975e7cb281f06853478",
+    "bytes": 801408
+  },
+  "S07_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-I-20261105-01\\freeze.json",
+    "sha256": "88b9a8ef39c9c16c23f6dc3809e1c26a7826bf29c54e596c29df9d70c9130362",
+    "bytes": 25437
+  },
+  "file_delta": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\file-delta.json",
+    "sha256": "c4c88766ee181538a8f2378d5fe1607aee7dda7950ee46623f64c3be61b9ea2c",
+    "bytes": 1266
+  },
+  "product_files": 194,
+  "unchanged_base_product_files": 190,
+  "base_commands": 98,
+  "installed_commands": 100,
+  "old_commands_parameters_and_other_schema_unchanged": true,
+  "schema_S07_contract_exactly_frozen": true,
+  "snapshot_equals_wheel_equals_clean_install": true,
+  "overlay": false,
+  "root_source_used": "Read-only snapshotted current191 baseline; never old187 CLI",
+  "installed_tests": {
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "modules": {
+      "dfm_cli": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\__init__.py",
+        "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3"
+      },
+      "dfm_cli.wind_drag": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\wind_drag.py",
+        "sha256": "4f69965cae952398fbaa0f298fa79dd9919ca553686a05339d96216d5efaf05b"
+      },
+      "dfm_cli.wind_drag_graph": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\wind_drag_graph.py",
+        "sha256": "b8c1c9bc4c98c276811d8cbf02c8d34b0449552d03355df274bf0e46b047912a"
+      },
+      "dfm_cli.wind_drag_text": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\dfm_cli\\wind_drag_text.py",
+        "sha256": "3d47f0edb0ae4f1e4aebcd90c5587a3d7272f9d833ea25bdd446438d6d3069c9"
+      }
+    },
+    "sys_path": [
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\checks",
+      "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\python312.zip",
+      "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\DLLs",
+      "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\Lib",
+      "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv",
+      "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages"
+    ],
+    "python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Scripts\\python.exe",
+    "overlay": false,
+    "root_import": false,
+    "native_launches": 0
+  },
+  "public_example_inputs": 7,
+  "public_non_target_files_unchanged_per_edit": 6,
+  "launcher_RECORD": [
+    "../../Scripts/dfm.exe",
+    "sha256=8XjKzc42gjA3wM6MSvD64tqJhkKZw6TQr39dpJwuXB4",
+    "108462"
+  ],
+  "direct_url": {
+    "archive_info": {
+      "hash": "sha256=87d02495ad992eacc0edbbecd1ba16668c564dd86da51e8d6921e76e08bdd204",
+      "hashes": {
+        "sha256": "87d02495ad992eacc0edbbecd1ba16668c564dd86da51e8d6921e76e08bdd204"
+      }
+    },
+    "url": "file:///C:/Users/minyeop/project/delft3d-fm-cli/research/experiments/S07-COMBINED-PACK-I-20261105-01/wheels/delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl"
+  },
+  "optional_packages": {
+    "netCDF4": false,
+    "numpy": false,
+    "pyproj": false
+  },
+  "metadata": {
+    "METADATA": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\delft3d_fm_cli-0.4.0.dev1.dist-info\\METADATA",
+      "sha256": "d0889326549147624478dd5a751d9875f7a30cafa6703f6b2feb721abb3c9d6a",
+      "bytes": 374
+    },
+    "WHEEL": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\delft3d_fm_cli-0.4.0.dev1.dist-info\\WHEEL",
+      "sha256": "98e75747d0b7c0c568bfb71263c3d8f970b3a374a6996087bc642be5cb09a1aa",
+      "bytes": 91
+    },
+    "entry_points.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\delft3d_fm_cli-0.4.0.dev1.dist-info\\entry_points.txt",
+      "sha256": "a72239e063630ab88b97e9e020b31238b2540f420e3768459a978bbc047724e3",
+      "bytes": 41
+    },
+    "RECORD": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\delft3d_fm_cli-0.4.0.dev1.dist-info\\RECORD",
+      "sha256": "edf358eec2f9af64d0214a3252f0e10e868bc24adbc1a215133d2037a9428762",
+      "bytes": 28515
+    },
+    "direct_url.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\venv\\Lib\\site-packages\\delft3d_fm_cli-0.4.0.dev1.dist-info\\direct_url.json",
+      "sha256": "dedc11f6053cbea9df9ce9c20abd2f4c8d0509d33a409fc6c88ee52203324a9a",
+      "bytes": 352
+    }
+  },
+  "build_configuration": {
+    "pyproject.toml": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\baseline\\snapshot\\pyproject.toml",
+      "sha256": "3cde978af77ef2f2d0ba660f1b023ae0c413f54f91215d60e7e95de1a328f3fc",
+      "bytes": 648
+    },
+    "README.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\baseline\\snapshot\\README.md",
+      "sha256": "9a3fc0149d54d9d54d32fc0316912c2d5792abadfb6edbc8d344dea3549e5b95",
+      "bytes": 28294
+    }
+  },
+  "S07_original_all_files_rechecked_unchanged": true,
+  "numerical_contract_supplement": "numerical-law-contract.json",
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "root_writes": false,
+  "limitations": "Private packaged candidate only; source formulas conditional, no measured native wind response or new native lease",
+  "source_commands": [
+    "source inspect",
+    "source add",
+    "source set",
+    "source forcing-create"
+  ],
+  "source_schema_and_parameters_unchanged": true,
+  "root_current191_source_hashes_unchanged_at_final_freeze": true,
+  "run_environment": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\runtime-verification.json",
+    "sha256": "b4450314c1f3bf83d2a0e39c905301be05e5f133d1c121b48be0078e9f82c1c7",
+    "bytes": 31359
+  }
+}

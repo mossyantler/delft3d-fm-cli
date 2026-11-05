@@ -1,0 +1,9 @@
+{
+  "state": "checkpoint_bytes_and_python_syntax_verified",
+  "saved_files": 343,
+  "saved_bytes": 8174253,
+  "python_sources_parsed": 181,
+  "root_reuse_entries": 380,
+  "all_sources_stable_after_pause": true,
+  "product_tests_or_native_launched": false
+}

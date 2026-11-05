@@ -1,0 +1,60 @@
+{
+  "state": "requirements_and_sources_ready_adapter_tests_pending_freeze",
+  "native_started": false,
+  "GUI_started": false,
+  "product_or_common_imported": false,
+  "adapter_executed": false,
+  "root_written": false,
+  "active_source_files_checked": 36,
+  "inactive_source_files_checked": 4,
+  "reference_files_checked": 36,
+  "references225_cases": 6,
+  "reference_output_files": 24,
+  "public_schema_witnesses": 2,
+  "tamper_cases_predeclared": 70,
+  "positive_controls_predeclared": 6,
+  "requirements": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PROVENANCE-V-EIN-20261105-01\\requirements.json",
+    "sha256": "7d3e209fd4af4acf54b5c6bb920a5a7687deeda4c132f193603fa1cef5872f8c",
+    "bytes": 8142,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 36591746974593238,
+      "mtime_ns": 1793841054388443400,
+      "nlink": 1
+    }
+  },
+  "tamper_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PROVENANCE-V-EIN-20261105-01\\tamper-plan.json",
+    "sha256": "d3909d6575f2855cf1691311742b8d373bdba3e5813add7d782a4e03327f5db3",
+    "bytes": 25463,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 5066549583003489,
+      "mtime_ns": 1793841054389446600,
+      "nlink": 1
+    }
+  },
+  "source_audit": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PROVENANCE-V-EIN-20261105-01\\source-audit.json",
+    "sha256": "c0fc4a78ae44fdc22fd6524773aba55de59df6a210edfb07b485e91c93106766",
+    "bytes": 95497,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 4785074606289090,
+      "mtime_ns": 1793841054380448900,
+      "nlink": 1
+    }
+  },
+  "audit_source": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PROVENANCE-V-EIN-20261105-01\\derive_requirements.py",
+    "sha256": "72d001b2f0c516a7b4d42beedda3a173b5ce6e364a80f34fc418ed0c3ddfef50",
+    "bytes": 16895,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 25051272929456320,
+      "mtime_ns": 1793841054000846000,
+      "nlink": 1
+    }
+  }
+}

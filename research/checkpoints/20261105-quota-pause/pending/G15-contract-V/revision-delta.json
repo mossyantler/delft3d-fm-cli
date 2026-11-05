@@ -1,0 +1,54 @@
+{
+  "original_contract": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\contract.json",
+    "sha256": "b133c3c9f5ffaf523724b9f79f80a2320c760d3429f77bb604c716a405c251e9",
+    "bytes": 8426
+  },
+  "revised_contract": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\contract.json",
+    "sha256": "88016f2fa2c3e6ea368cfdd2cd8f6ae64e2b89c6d0308eec57bb41a3dea78585",
+    "bytes": 12171
+  },
+  "changed_json_paths": [
+    "/I1_eligibility/format",
+    "/I1_eligibility/geometry_import",
+    "/commands/import",
+    "/commands/import_geometry",
+    "/commands/import_hydraulic",
+    "/geometry_routing_proposal",
+    "/identity/selection",
+    "/identity/source_order",
+    "/metadata",
+    "/path_rules/I1_MDU_StructureFile",
+    "/path_rules/child_and_external_spaces",
+    "/path_rules/counterpath",
+    "/path_rules/spaces",
+    "/representations/geometry",
+    "/supersedes",
+    "/version"
+  ],
+  "all_other_contract_fields_identical": true,
+  "all_16_coverage_IDs_retained": true,
+  "coverage_changes_exactly_reviewed_additions_only": [
+    "W2D/P2D operator routing/explicit target qualification",
+    "GROUP early whitespace counterpath and future reader reconciliation gate"
+  ],
+  "three_counterpath_source_blob_matches_to_independent_capture": true,
+  "prose_checks": {
+    "geometry_source_identity_unverified": true,
+    "geometry_target_from_actual_INI": true,
+    "complete_model_graph_not_selected_only": true,
+    "unknown_graph_not_opaque_hash_authority": true,
+    "map_existing_byte_identical_targets": true,
+    "full_critical_consumers": true,
+    "modern_reader_first_block": true,
+    "no_G18_sentinel_semantics": true,
+    "full_native_not_guessed_from_Kmx": true,
+    "single_file_not_multi_transaction": true,
+    "raw_publication_faults": true,
+    "new_dir_needs_actual_review": true,
+    "strict_metadata_not_authority": true
+  },
+  "F01": "resolved prospectively",
+  "F02": "resolved prospectively"
+}

@@ -1,0 +1,92 @@
+--- a/src/dfm_cli/runs.py
++++ b/src/dfm_cli/runs.py
+@@ -23,11 +23,11 @@
+ from .diagnostics import collect_diagnostics
+ from .windows_job import OwnedJob, process_identity
+ from . import progress as simulation_progress
+-from . import layers, morph, network, pump_run_profile, weir_run_profile
++from . import layers, morph, network, pump_run_profile, weir_run_profile, source_sink_run_profile
+ 
+ # Authored model families verify their complete input graphs on both sides of
+ # staging. The runner remains the sole owner of launch, monitoring and cleanup.
+-AUTHORED_PROFILES = {name: module for module in (network, layers, morph, pump_run_profile, weir_run_profile) for name in module.PROFILES}
++AUTHORED_PROFILES = {name: module for module in (network, layers, morph, pump_run_profile, weir_run_profile, source_sink_run_profile) for name in module.PROFILES}
+ 
+ 
+ def _pump(run):
+@@ -36,7 +36,7 @@
+ 
+ def _guarded_serial(run):
+     """Closed families sharing strict retained-handle lifecycle, not physics."""
+-    return AUTHORED_PROFILES.get(run.record.get("profile_name")) in (pump_run_profile, weir_run_profile)
++    return AUTHORED_PROFILES.get(run.record.get("profile_name")) in (pump_run_profile, weir_run_profile, source_sink_run_profile)
+ 
+ 
+ def profile(report: dict, mdu: Mdu | None = None, profile_name: str = "short") -> dict:
+@@ -114,7 +114,7 @@
+ 
+ 
+ def prepare(path: Path, destination: Path, installation: str | None, route: str, timeout: float, progress: bool, profile_name: str = "short", *, restart_policy: str = "require-final") -> Run:
+-    if AUTHORED_PROFILES.get(profile_name) in (pump_run_profile, weir_run_profile):
++    if AUTHORED_PROFILES.get(profile_name) in (pump_run_profile, weir_run_profile, source_sink_run_profile):
+         AUTHORED_PROFILES[profile_name].require_route(route)  # Before reader, install or filesystem work.
+     if not 0 < timeout <= 3600 or not math.isfinite(timeout):
+         raise DfmError("invalid_timeout", "Timeout must be finite and between 0 and 3600 seconds", 2)
+@@ -122,6 +122,8 @@
+         raise DfmError("invalid_route", "Select direct or single-component dimr", 2, route)
+     if restart_policy not in {"configured", "require-final"} or restart_policy == "configured" and profile_name != "short":
+         raise DfmError("unsupported_restart_policy", "Configured restart output schedules require the cold short serial profile", 2)
++    if AUTHORED_PROFILES.get(profile_name) is source_sink_run_profile:
++        source_sink_run_profile.pre_read_hook(path)
+     mdu = Mdu(path)
+     identity = require_fm_identity(mdu)  # Before install/output/staging/process side effects.
+     if os.name != "nt":
+--- a/src/dfm_cli/run_pump_lifecycle.py
++++ b/src/dfm_cli/run_pump_lifecycle.py
+@@ -16,6 +16,8 @@
+ 
+ def lifecycle_key(run):
+     """Closed family namespace; pump's established public contract is default."""
++    if run.record.get("profile_name") == "source-sink":
++        return "source_sink_lifecycle"
+     return "weir_lifecycle" if run.record.get("profile_name") == "weir-series" else "pump_lifecycle"
+ 
+ 
+@@ -26,14 +28,15 @@
+     A weir error and any later nested cause therefore share the weir namespace.
+     Neither the caller nor a manifest can provide a custom key/code/message.
+     """
+-    family = "Weir" if run.record.get("profile_name") == "weir-series" else "Pump"
++    family = ("Source/sink" if run.record.get("profile_name") == "source-sink" else
++              "Weir" if run.record.get("profile_name") == "weir-series" else "Pump")
+     messages = {
+         "exit_unconfirmed": "{family} completion requires all prospective retained member handles and original Job accounting",
+         "member_failure": "A retained native member exited nonzero; exit/close proof does not establish successful computation",
+         "job_close_failed": "{family} completion requires verified original Job and all collector handle closes",
+         "cleanup_failed": "{family} original Job/member/collector closure unconfirmed",
+     }
+-    return DfmError(family.lower() + "_" + kind, messages[kind].format(family=family), 5, details)
++    return DfmError(family.lower().replace("/", "_") + "_" + kind, messages[kind].format(family=family), 5, details)
+ 
+ 
+ def _token(value):
+@@ -123,6 +126,9 @@
+                                and (event["sequence"], event["raw_message"], key[1], token) in notifications)
+             seen.add(key)
+         valid = valid and seen == expected
++        if record.get("profile_name") == "source-sink":
++            from .source_sink_run_profile import notifications_complete
++            valid = valid and notifications_complete(trace)
+         return {"passed": bool(valid), "kind": "normal", "job_instance_token": token}
+     except (KeyError, TypeError, ValueError, IndexError):
+         return {"passed": False, "kind": "normal", "job_instance_token": None}
+--- a/src/dfm_cli/cli.py
++++ b/src/dfm_cli/cli.py
+@@ -142,6 +142,7 @@
+                 "weir_series": weir_series.contract(),
+                 "pump_run_profile": {"name": "pump-scalar", "routes": ["direct"], "required_inputs": 6, "maximum_duration_seconds": 120,
+                                      "limits": list(runs.pump_run_profile.LIMITATIONS)},
++                "source_sink_run_profile": runs.source_sink_run_profile.contract(),
+                 "fm_model_identity": fm_model_identity.contract(),
+                 "boundary_location_import": boundary_locations.contract(),
+                 "boundary_preview": boundary_preview.contract(),

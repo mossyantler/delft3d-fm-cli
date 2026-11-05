@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "kind": "short-close-final-implementation",
+  "freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\freeze.json",
+    "sha256": "2254e8835cd8a70beabea1af2860db751b28dbea2fb60f06ccd773d4b6d198e1"
+  },
+  "G_final": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-rev04-final-01\\verification.json",
+    "sha256": "f42b8d1f26e7132bc2c26464d3c1ae1ce7f236a6236741c4d60b12573c7e52a1"
+  },
+  "modules": {
+    "dfm_cli/runs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\runs.py",
+      "sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c"
+    },
+    "dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207"
+    }
+  },
+  "native_authorization": false
+}

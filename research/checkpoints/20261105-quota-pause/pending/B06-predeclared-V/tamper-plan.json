@@ -1,0 +1,601 @@
+{
+  "state": "prospectively_declared_not_executed",
+  "negative_cases": [
+    {
+      "id": "B06-EIN-001",
+      "group": "raw_public_record",
+      "mutation": "missing_manifest",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-002",
+      "group": "raw_public_record",
+      "mutation": "private225_receipt_relabel",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-003",
+      "group": "raw_public_record",
+      "mutation": "schema_bool",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-004",
+      "group": "raw_public_record",
+      "mutation": "schema_wrong_version",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-005",
+      "group": "raw_public_record",
+      "mutation": "duplicate_JSON_key",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-006",
+      "group": "raw_public_record",
+      "mutation": "missing_public_stdout",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-007",
+      "group": "raw_public_record",
+      "mutation": "native_stdout_substituted_for_JSON",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-008",
+      "group": "raw_public_record",
+      "mutation": "stdout_changed_bytes",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-009",
+      "group": "raw_public_record",
+      "mutation": "stdout_runid_mismatch",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-010",
+      "group": "raw_public_record",
+      "mutation": "service_nonzero_but_manifest_completed",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-011",
+      "group": "raw_public_record",
+      "mutation": "status_other_runid",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-012",
+      "group": "raw_public_record",
+      "mutation": "status_wrong_manifest_hash",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-013",
+      "group": "raw_public_record",
+      "mutation": "status_ok_true_but_failed_state",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-014",
+      "group": "raw_public_record",
+      "mutation": "canonical_replaced_same_size_mtime",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-015",
+      "group": "raw_public_record",
+      "mutation": "incomplete_canonical_entry_read",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-016",
+      "group": "raw_public_record",
+      "mutation": "missing_invocation_capture",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-017",
+      "group": "raw_public_record",
+      "mutation": "capture_argv_controller_or_entrypoint_mismatch",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-018",
+      "group": "routes",
+      "mutation": "direct_wrong_executable_or_hash",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-019",
+      "group": "routes",
+      "mutation": "direct_wrong_cwd",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-020",
+      "group": "routes",
+      "mutation": "direct_extra_argv",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-021",
+      "group": "routes",
+      "mutation": "dimr_invented_FM_argv_or_child",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-022",
+      "group": "routes",
+      "mutation": "dimr_wrong_cwd",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-023",
+      "group": "routes",
+      "mutation": "dimr_XML_changed_same_size_mtime",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-024",
+      "group": "routes",
+      "mutation": "XML_duplicate_component",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-025",
+      "group": "routes",
+      "mutation": "XML_wrong_start_component_name",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-026",
+      "group": "routes",
+      "mutation": "XML_wrong_library_or_process",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-027",
+      "group": "routes",
+      "mutation": "XML_unsafe_workingDir_or_inputFile",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-028",
+      "group": "routes",
+      "mutation": "XML_extra_control_or_unbound_component",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-029",
+      "group": "routes",
+      "mutation": "XML_DTD_or_external_reference",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-030",
+      "group": "routes",
+      "mutation": "FM_DLL_hash_mismatch",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-031",
+      "group": "routes",
+      "mutation": "PROJ_gdal_or_DIMR_payload_pin_mismatch",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-032",
+      "group": "input_graph",
+      "mutation": "missing_one_active",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-033",
+      "group": "input_graph",
+      "mutation": "extra_active_file",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-034",
+      "group": "input_graph",
+      "mutation": "active_hash_changed_same_size_mtime",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-035",
+      "group": "input_graph",
+      "mutation": "source_vs_stage_role_swap",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-036",
+      "group": "input_graph",
+      "mutation": "oldBC_staged_for_set15",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-037",
+      "group": "input_graph",
+      "mutation": "noop_sourcebc_wrongly_marked_inactive",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-038",
+      "group": "input_graph",
+      "mutation": "inactive_original_mutated",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-039",
+      "group": "input_graph",
+      "mutation": "inactive_alias_to_active",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-040",
+      "group": "input_graph",
+      "mutation": "same_bytes_new_identity",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-041",
+      "group": "input_graph",
+      "mutation": "unsafe_absolute_or_parent_reference",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-042",
+      "group": "input_graph",
+      "mutation": "hardlink_symlink_junction_if_supported",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-043",
+      "group": "input_graph",
+      "mutation": "known_unbound_block_miscounted",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-044",
+      "group": "input_graph",
+      "mutation": "unknown_unbound_grammar_swallowed",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-045",
+      "group": "input_graph",
+      "mutation": "source_model_or_runroot_rebound",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-046",
+      "group": "outputs",
+      "mutation": "missing_output_snapshot",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-047",
+      "group": "outputs",
+      "mutation": "raw_output_changed_same_size_mtime",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-048",
+      "group": "outputs",
+      "mutation": "borrowed225_outputs_as_newrun",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-049",
+      "group": "outputs",
+      "mutation": "output_outside_owned_run",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-050",
+      "group": "outputs",
+      "mutation": "same_file_for_two_roles",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-051",
+      "group": "outputs",
+      "mutation": "missing_initial_or_final_restart",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-052",
+      "group": "outputs",
+      "mutation": "CF_duplicate_time_or_wrong_origin",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-053",
+      "group": "outputs",
+      "mutation": "CF_time_mask_or_wrong_unit",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-054",
+      "group": "outputs",
+      "mutation": "physical_mask_or_nonfinite",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-055",
+      "group": "outputs",
+      "mutation": "raw_salinity_unit_rewritten",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-056",
+      "group": "outputs",
+      "mutation": "one_non_target_array_changed",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-057",
+      "group": "outputs",
+      "mutation": "variable_inventory_or_dtype_changed",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-058",
+      "group": "outputs",
+      "mutation": "pervariable_attr_or_unknown_global_waived",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-059",
+      "group": "outputs",
+      "mutation": "stationID_or_XY_or_topology_changed",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-060",
+      "group": "admission_scope",
+      "mutation": "no_future_corrected_runtime_receipt",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-061",
+      "group": "admission_scope",
+      "mutation": "known_failed_or_held_wheel_promoted",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-062",
+      "group": "admission_scope",
+      "mutation": "site_payload_differs_from_wheel",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-063",
+      "group": "admission_scope",
+      "mutation": "reference_context_claimed_public",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-064",
+      "group": "admission_scope",
+      "mutation": "synthetic_fixture_claimed_observed_native",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-065",
+      "group": "admission_scope",
+      "mutation": "unobserved_case_or_route_inherits_pass",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-066",
+      "group": "admission_scope",
+      "mutation": "minimum_C15_matrix_claims_C5_controls",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-067",
+      "group": "admission_scope",
+      "mutation": "withinbounds_variable_forcing_claims_measured_constant",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-068",
+      "group": "admission_scope",
+      "mutation": "lifecycle_object_missing_or_other_job",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-069",
+      "group": "admission_scope",
+      "mutation": "source_science_function_changed_or_callback_bypass",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    },
+    {
+      "id": "B06-EIN-070",
+      "group": "admission_scope",
+      "mutation": "data_only_match_claims_runtime_or_Job_approval",
+      "expected": "explicit evidence refusal or correctly scoped unobserved/not_admitted; no public/native/science pass",
+      "originals_unchanged_required": true,
+      "not_executed_before_adapter_freeze": true
+    }
+  ],
+  "positive_controls": [
+    {
+      "id": "positive-direct-point_set15",
+      "purpose": "Metadata-only fixture semantic admission, never native evidence",
+      "route": "direct",
+      "case": "point_set15"
+    },
+    {
+      "id": "positive-direct-pair_set15",
+      "purpose": "Metadata-only fixture semantic admission, never native evidence",
+      "route": "direct",
+      "case": "pair_set15"
+    },
+    {
+      "id": "positive-dimr-point_set15",
+      "purpose": "Metadata-only fixture semantic admission, never native evidence",
+      "route": "dimr",
+      "case": "point_set15"
+    },
+    {
+      "id": "positive-dimr-pair_set15",
+      "purpose": "Metadata-only fixture semantic admission, never native evidence",
+      "route": "dimr",
+      "case": "pair_set15"
+    },
+    {
+      "id": "reference225-readonly-physical-control",
+      "purpose": "Unchanged ReferenceContext retains original private225 receipt and all170variables; not a PublicContext"
+    },
+    {
+      "id": "inactiveBC-role-control",
+      "purpose": "noop source.bc active; edited replacement.bc active with oldsource.bc source-only"
+    }
+  ],
+  "geometry_clock_units_tolerances_changed": false,
+  "native_started": false
+}

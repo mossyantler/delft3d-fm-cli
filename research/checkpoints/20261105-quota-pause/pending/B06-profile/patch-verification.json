@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "five_reconstructed_modules_match": true,
+  "checks": [
+    {
+      "patch": "shared-integration.patch",
+      "sha256": "c89032450238ee59f1dd770e155a6f3ab39cb4b5fd1cb1e5c851bff602630a1e",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "patch": "new-modules.patch",
+      "sha256": "ffa2211f8d04f45d566fb4abfdde8fe0ab3b592a5d05bdb3be354990fbb85f8e",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "transport": "Shared patch is a logical LF unified diff. Original shared-base CRLF files stay untouched; this exact-byte reconstruction canonicalizes only the three private patch-check copies to LF before application.",
+  "root_readonly_check": "git apply --check --ignore-space-change shared-integration.patch and git apply --check new-modules.patch both passed; no root application.",
+  "historical_failure": "First exact-byte reconstruction attempted LF hunks against CRLF copies with autocrlf disabled; failed before applying. patch-reconstruction retains those unchanged copies."
+}

@@ -1,0 +1,63 @@
+--- held-rev05/lifecycle_gate.py
++++ rev06/lifecycle_gate.py
+@@ -8,7 +8,7 @@
+ import json
+ import ownership_guard as original
+ 
+-POLICY='B14-original-launch-lifecycle-2'
++POLICY='B14-original-launch-lifecycle-3'
+ 
+ CONFINEMENT=('association_before_assignment','collector_started_before_resume','assigned_before_resume','no_breakaway','kill_on_close')
+ 
+@@ -21,6 +21,24 @@
+ def image(value):
+     need(type(value) is str and 0<len(value)<=32768 and '\0' not in value,'Invalid retained executable image')
+     path=PureWindowsPath(value);need(path.is_absolute(),'Retained executable image is not absolute');return path
++
++def original_member(member,retained):
++    """Immutable live capture + semantic exit, not equality of observations.
++
++    _force_member_before deep-copies the original member data. Its capture UTC
++    stamp is immutable, unlike exit checks/snapshot/accounting observation times.
++    An optional later trace must describe that same original member and exit.
++    """
++    need(same_context(member['identity'],retained['identity']) and image(member['image'])==image(retained['image'])
++         and all(same_context(member[k],retained[k]) for k in
++                 ('role','handle_source','identity_source','capture_wait_result','capture_sequence','captured_at_utc','job_membership')),
++         'Copied original member identity/image/live capture facts differ')
++    need(type(member['captured_at_utc']) is str and bool(member['captured_at_utc'])
++         and same_context(member['exit_identity'],retained['identity']) and member['retained_until_exit_check'] is True
++         and member['exit']['state']=='signalled' and member['exit']['same_retained_handle'] is True
++         and member['exit']['exit_code_query']=='captured' and original.integer(member['exit']['wait_result'],0)
++         and original.integer(member['exit']['exit_code'],retained['exit']['exit_code']),
++         'Original retained member exit facts differ')
+ 
+ def common_lifetime(receipt,reviewed):
+     """Route-independent facts NOT delegated to a discarded normal summary.
+@@ -72,8 +90,11 @@
+             if 'member_trace' in forced:
+                 extra=forced['member_trace']
+                 need(extra['job']['instance_token']==token and reviewed.notifications_complete(extra),'Supplied forced trace is foreign/incomplete')
+-                need({original.identity(m['identity']) for m in extra['members']}=={original.identity(m['identity']) for m in trace['members']},
+-                     'Supplied forced trace birth set differs')
++                retained={original.identity(m['identity']):m for m in trace['members']};seen=set()
++                for member in extra['members']:
++                    key=original.identity(member['identity']);need(key in retained and key not in seen,'Supplied forced trace birth set differs')
++                    original_member(member,retained[key]);seen.add(key)
++                need(seen==set(retained),'Supplied forced trace member coverage differs')
+         result.update(passed=True,job_instance_token=token,notifications_complete=True,original_provenance=True)
+     except Exception as exc:result.update(reason=str(exc),error_type=type(exc).__name__)
+     return result
+@@ -108,11 +129,7 @@
+                      and original.identity(member['exit_identity'])==key and image(member['image'])==image(expected[key]['image']),
+                      'Forced retained identity/image does not join this original lifetime')
+                 retained=expected[key]
+-                need(all(same_context(member[k],retained[k]) for k in ('role','handle_source','identity_source','capture_wait_result','capture_sequence','job_membership'))
+-                     and same_context(member['identity'],retained['identity']) and same_context(member['identity'],member['exit_identity'])
+-                     and member['exit']['same_retained_handle'] is True and original.integer(member['exit']['wait_result'],0)
+-                     and original.integer(member['exit']['exit_code'],retained['exit']['exit_code']),
+-                     'Forced retained HANDLE provenance/exit context differs')
++                original_member(member,retained)
+                 seen.add(key)
+             need(seen==set(expected),'Forced retained-member coverage differs from original lifetime')
+         result.update(passed=True,job_instance_token=token,launch_root_birth_join=True,launch_image_join=True)

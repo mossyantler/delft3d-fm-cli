@@ -1,0 +1,54 @@
+{
+  "state": "private_correction_passed_pending_exact_V_G",
+  "test_summary": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "failed_ids": [],
+    "error_ids": [],
+    "native_launches": 0,
+    "root_writes": false,
+    "scope": "Fake process/Job boundaries with actual private Run/start/save and portable file writes"
+  },
+  "owned_product_files": {
+    "src/dfm_cli/runs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\runs.py",
+      "sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c",
+      "bytes": 25798,
+      "root_base_sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b",
+      "rev03_sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c"
+    },
+    "src/dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207",
+      "bytes": 49032,
+      "root_base_sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+      "rev03_sha256": "784a2cffc729c1cc4ddab10ab35b8b58666a27647f83f6cd0df142ffb04e6c43"
+    }
+  },
+  "root_product_count": 191,
+  "root_product_bytes_unchanged": true,
+  "prior_rev03_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev03\\freeze.json",
+    "sha256": "e4a7e8c840ccad46be7f80d1662e08f4371c09c9987a356f56a1ffc6c43be681",
+    "bytes": 9268
+  },
+  "prior_V121_red_report": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-V-rev03-20261105-01\\replay-e4a7-component-01\\verification.json",
+    "sha256": "9bc5bc201a4f63852e2e9b26554d498ea90afda53ec9257eaf029ede037341b7",
+    "bytes": 334958
+  },
+  "finding": "Uninspected supplied top-level auxiliary image contradicts original retained capture",
+  "scope_nuance": "Current auxiliary data=None producer does not emit this optional field; not an actual227 malformed-input claim",
+  "candidate_V121_result": "Not executed by I; exact V/G required",
+  "native_launches": 0,
+  "root_writes": false,
+  "wheel_builds": 0,
+  "holds": [
+    "Plato exact-candidate corpus and integration review",
+    "G exact-candidate review",
+    "Separate composition/package authorization",
+    "No native lease"
+  ]
+}

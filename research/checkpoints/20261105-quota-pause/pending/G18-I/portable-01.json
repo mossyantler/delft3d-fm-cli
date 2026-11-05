@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\test_section_transfer.py"
+  ],
+  "cwd": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02",
+  "returncode": 0,
+  "native": false
+}

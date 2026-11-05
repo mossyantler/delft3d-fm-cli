@@ -1,0 +1,90 @@
+{
+  "schema": "B14-original-member-semantic-consistency-revision-6",
+  "source_changes": {
+    "lifecycle_gate.py": {
+      "old_sha256": "df0812c72060eed4655177817637845b01246443a89f72ef32bc5e87655aa477",
+      "new_sha256": "c7f5f713d97711d5d69799764b5ce8829cb4744a4efe2ac31f6d23785619be27"
+    }
+  },
+  "held_original_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev05-0daab520\\freeze.json",
+    "sha256": "513b693f2b186f7b7c463cb485cc2197f1969baf7f4a858a2c93109d9130d067",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 5066549583015822,
+      "bytes": 25897,
+      "mtime_ns": 1793842125295112100,
+      "nlink": 1
+    }
+  },
+  "held_original_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev05-0daab520-02\\plan.json",
+    "sha256": "b988939aef2b0ec0ac231a456175a530296576ba9719214f2306acf9ec7eee9b",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 12666373953145917,
+      "bytes": 339482,
+      "mtime_ns": 1793841903989088700,
+      "nlink": 1
+    }
+  },
+  "old_artifacts_and80prepared_inputs_unchanged": true,
+  "runtime9_and_other6code_unchanged": true,
+  "G_contradiction_evidence": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-G-rev05-consistency-01\\verification.json",
+    "sha256": "e42b9a74e6c83e7896a82572127c60c80dd69966237910a4067fd7cbbb5473be",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 5066549583035875,
+      "bytes": 120373,
+      "mtime_ns": 1793842574580930400,
+      "nlink": 1
+    }
+  },
+  "V08_rejection": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-08\\final-review-01.json",
+    "sha256": "ebdc504af503759e82f04252be1626d4bc713207d9b7df22c47e60f754c54601",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 5066549583049643,
+      "bytes": 2504,
+      "mtime_ns": 1793842784459955700,
+      "nlink": 1
+    }
+  },
+  "I_selfcheck": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\selfcheck-01.json",
+    "sha256": "b06611443750862268c8e99938dca13dc81c883fc5b528b9d327c2a2eecf0330",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 3940649676258528,
+      "bytes": 10262,
+      "mtime_ns": 1793843569538006600,
+      "nlink": 1
+    }
+  },
+  "I_replay": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\V06-V07-replay-I-01.json",
+    "sha256": "47bd95cb0a1999a98796854bf488c3a7951bb48b1c39406c69201b81ff84d8ed",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 33495522228577339,
+      "bytes": 18227,
+      "mtime_ns": 1793843650695876400,
+      "nlink": 1
+    }
+  },
+  "semantic_fix": "One shared immutable-original-member capture + exit join for termination retained copy and optional trace members",
+  "observation_timestamps_may_differ": true,
+  "whole_trace_equality_required": false,
+  "optional_trace_current_producer_field": false,
+  "raw_records_not_rewritten": true,
+  "no_new_native_failure_inferred": true,
+  "no_common_rev04_adopted": true,
+  "continued_existing_assignment_after429": true,
+  "further_rate_limit_observed": false,
+  "science_input_signal_ABI_protocol_thresholds_unchanged": true,
+  "native_started": false,
+  "real_Job_constructed": false,
+  "root_or_dispatch_written": false
+}

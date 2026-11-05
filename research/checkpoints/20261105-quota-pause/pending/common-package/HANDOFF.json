@@ -1,0 +1,97 @@
+{
+  "state": "PRIVATE_COMMON_REV04_CLEAN_PACKAGE_AND_TEST_DELTA_READY_FOR_V_G",
+  "created_utc": "2026-11-05T01:43:08.604354+00:00",
+  "wheel": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\dist\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "f7eb645f48bf51cb6176970a749f09bc040472be5969b469892ac8b848a9586b",
+    "bytes": 807421
+  },
+  "source_freeze": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\freeze.json",
+  "source_freeze_sha256": "2254e8835cd8a70beabea1af2860db751b28dbea2fb60f06ccd773d4b6d198e1",
+  "modules": {
+    "dfm_cli/runs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\runs.py",
+      "sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c",
+      "bytes": 25798
+    },
+    "dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207",
+      "bytes": 49032
+    }
+  },
+  "dfm": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\dfm.exe",
+  "python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\python.exe",
+  "clean_schema_command": [
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\python.exe",
+    "-I",
+    "-B",
+    "-m",
+    "dfm_cli",
+    "schema",
+    "inspect"
+  ],
+  "product_payloads": 191,
+  "unchanged_eedd_payloads": 189,
+  "CLI_commands": 98,
+  "protocol": 2,
+  "manifest": 3,
+  "no_pth_or_product_root_imports": true,
+  "package_origin_receipt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\origin-verification.json",
+  "installed_checks": {
+    "author116": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\installed-author116-01\\verification.json",
+      "sha256": "b3cbc4cab9c3d7f38bd9c3abbdda99d9563fb9f7f345c712c10bfc6724066d30",
+      "tests": 116,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "legacy49": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\installed-legacy49-01\\verification.json",
+      "sha256": "8fa75264e8cabea1dfe917e9b78960972ef9a69efbd58b9d86d683858ea08b4e",
+      "tests": 49,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "focused": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\installed-focused-01\\verification.json",
+      "sha256": "f9582029f2d55e78ecc49bc982445664b06acf4a4e66134c8bbffe5f85de1b31",
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    }
+  },
+  "counts_not_additive_across_corpora": true,
+  "fixture_only_patch": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\fixture-only.patch",
+    "sha256": "a1c52f74a13de0f0d46ab82cf31b008a1d4b7161750a77bafed09f76e1f372a4",
+    "files": [
+      "pump_lifecycle_fixtures.py",
+      "test_pump_close_attribution.py"
+    ],
+    "literal_test_bodies": 49,
+    "unchanged_assertions_and_negative": true,
+    "construction": "New synthetic normal/trace False flags and event/notice independent sequence UTCpairs; both collector-close factories False, BEFORE mutation.",
+    "not_product_payload": true,
+    "root_applied": false
+  },
+  "other_dependents": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\dependent-test-census.json",
+  "scope_limit": "Literal full-root-suite pass is not claimed; old test_cli local Mock Job factories require separately reviewed original-HANDLE schema fixtures. No skipped/rewritten old assertions are counted as passes.",
+  "independent_package_V": "Plato priority audit requested, pending",
+  "native_admission": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\native-admission-contract.json",
+  "no_live_build_session": true,
+  "native_regressions": "Not launched; G owns next lease",
+  "excluded_additions": [
+    "B06 source run profile",
+    "S07",
+    "G18",
+    "G15",
+    "B14"
+  ],
+  "root_writes": 0,
+  "native_launches": 0,
+  "GUI_launches": 0
+}

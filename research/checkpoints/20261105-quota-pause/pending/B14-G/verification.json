@@ -1,0 +1,3666 @@
+{
+  "state": "PASSED_CONSISTENCY_PROBES",
+  "candidate_freeze_sha256": "2641efa950a126bafefa11d7f44d50fa9c57a0cf35fb269d0cb03c08e6fb57fb",
+  "candidate_files_unchanged": 32,
+  "cases": [
+    {
+      "case": "synthetic_baseline",
+      "expected_passed": true,
+      "actual_passed": true,
+      "expectation_met": true,
+      "basis": "Existing valid synthetic lifetime control, never a native B14 result",
+      "raw": {
+        "state": "running",
+        "original_root_identity": {
+          "pid": 42952,
+          "creation_time_100ns": "134383036280879843"
+        },
+        "before_resume": {
+          "state": "passed",
+          "original_root_identity": {
+            "pid": 42952,
+            "creation_time_100ns": "134383036280879843"
+          },
+          "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        },
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        ],
+        "normal_exit": {
+          "method": "windows_job_object_normal_exit",
+          "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+          "state": "captured",
+          "termination_attempted": false,
+          "root": {
+            "state": "signalled",
+            "handle_source": "original_subprocess.Popen._handle",
+            "exit_confirmed": true,
+            "wait_timeout_ms": 0,
+            "pid": 42952,
+            "captured_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "wait_result": 0,
+            "exit_code": 1,
+            "exit_code_query": {
+              "state": "captured"
+            },
+            "identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "root_exit_confirmed": true,
+          "job_empty": true,
+          "sole_ever_member": false,
+          "all_owned_members_exit_confirmed": true,
+          "member_exit_confirmations": {
+            "42952": true,
+            "23876": true
+          },
+          "retained_member_handle_count": 2,
+          "confirmed_member_exit_count": 2,
+          "unobserved_member_count": 0,
+          "limitations": [
+            "Prospective exact-Job IOCP acquisition; Windows notifications are not guaranteed.",
+            "Any missed/late/unavailable member HANDLE or accounting/event mismatch leaves coverage incomplete.",
+            "Individual HANDLE waits use zero timeout; notification, empty Job and count alone never prove an exit.",
+            "No native finalization, simulation completion or scientific validity is established."
+          ],
+          "job_pids_after": [],
+          "total_processes": 2,
+          "active_processes": 0,
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          },
+          "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00"
+        },
+        "native_returncode": 1,
+        "pid": 42952,
+        "job_close": {
+          "schema_version": 1,
+          "api": "CloseHandle",
+          "handle_source": "original_private_job_handle",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "job_binding": {
+            "handle_source": "original_private_job_handle",
+            "original_handle_verified": true,
+            "same_original_retained_handle": true,
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "trace_binding_verified": true
+          },
+          "attempted": true,
+          "succeeded": true,
+          "return_value": 1,
+          "return_type": "int",
+          "winerror": null,
+          "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "collector_close": {
+            "attempted": true,
+            "state": "returned",
+            "return_value": {
+              "state": "closed",
+              "collector_stopped": true,
+              "errors": [],
+              "borrowed_root_closed": false,
+              "borrowed_job_closed": false,
+              "termination_attempted": false
+            },
+            "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "return_type": "dict"
+          },
+          "borrowed_root_handle_closed": false
+        },
+        "termination": {
+          "forced": true,
+          "tree_terminated": true,
+          "prospective_handle_coverage_complete": true,
+          "errors": [],
+          "trace_errors": [],
+          "prospective_job": {
+            "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "handle_source": "original_private_job_handle",
+            "association_before_assignment": true,
+            "collector_started_before_resume": true,
+            "assigned_before_resume": true,
+            "no_breakaway": true,
+            "kill_on_close": true,
+            "limit_flags": 8192,
+            "initial_accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 0,
+                "TotalKernelTime": 0,
+                "ThisPeriodTotalUserTime": 0,
+                "ThisPeriodTotalKernelTime": 0,
+                "TotalPageFaultCount": 0,
+                "TotalProcesses": 0,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+            },
+            "initial_members": [],
+            "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+          },
+          "termination_request": {
+            "attempted": true,
+            "succeeded": true,
+            "return_value": 1,
+            "original_root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "job_binding": {
+              "handle_source": "original_private_job_handle",
+              "original_handle_verified": true,
+              "same_original_retained_handle": true,
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "trace_binding_verified": true
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members_after": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "after_accounting": true
+          },
+          "retained_members": [
+            {
+              "identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+              "role": "root",
+              "handle_source": "original_launch_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 2,
+              "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            },
+            {
+              "identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "image": "C:\\Windows\\System32\\cmd.exe",
+              "role": "descendant",
+              "handle_source": "owned_job_member_retained_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 5,
+              "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            }
+          ]
+        }
+      },
+      "derived": {
+        "passed": true,
+        "strict_original_job": {
+          "policy": "B14-original-job-terminal-route-4",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "member_count": 2,
+          "identity_events": 4,
+          "raw_notification_join": true,
+          "bidirectional_process_notification_join": true,
+          "original_Job_CloseHandle": true,
+          "collector_close_confirmed": true,
+          "native_result": "not established by lifetime/close facts"
+        },
+        "common_lifetime": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "notifications_complete": true,
+          "original_provenance": true
+        },
+        "launch_binding": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "qualified_natural": {
+            "passed": true,
+            "kind": "normal",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+          },
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "launch_root_birth_join": true,
+          "launch_image_join": true
+        },
+        "qualified_natural": {
+          "passed": true,
+          "kind": "normal",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        },
+        "forced_attribution": {
+          "passed": true,
+          "kind": "forced",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        }
+      },
+      "input_unchanged": true
+    },
+    {
+      "case": "contradictory_copied_original_capture_time",
+      "expected_passed": false,
+      "actual_passed": false,
+      "expectation_met": true,
+      "basis": "windows_job._force_member_before copies immutable original trace data; the same original member capture cannot acquire a different captured_at_utc in the termination copy",
+      "raw": {
+        "state": "running",
+        "original_root_identity": {
+          "pid": 42952,
+          "creation_time_100ns": "134383036280879843"
+        },
+        "before_resume": {
+          "state": "passed",
+          "original_root_identity": {
+            "pid": 42952,
+            "creation_time_100ns": "134383036280879843"
+          },
+          "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        },
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        ],
+        "normal_exit": {
+          "method": "windows_job_object_normal_exit",
+          "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+          "state": "captured",
+          "termination_attempted": false,
+          "root": {
+            "state": "signalled",
+            "handle_source": "original_subprocess.Popen._handle",
+            "exit_confirmed": true,
+            "wait_timeout_ms": 0,
+            "pid": 42952,
+            "captured_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "wait_result": 0,
+            "exit_code": 1,
+            "exit_code_query": {
+              "state": "captured"
+            },
+            "identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "root_exit_confirmed": true,
+          "job_empty": true,
+          "sole_ever_member": false,
+          "all_owned_members_exit_confirmed": true,
+          "member_exit_confirmations": {
+            "42952": true,
+            "23876": true
+          },
+          "retained_member_handle_count": 2,
+          "confirmed_member_exit_count": 2,
+          "unobserved_member_count": 0,
+          "limitations": [
+            "Prospective exact-Job IOCP acquisition; Windows notifications are not guaranteed.",
+            "Any missed/late/unavailable member HANDLE or accounting/event mismatch leaves coverage incomplete.",
+            "Individual HANDLE waits use zero timeout; notification, empty Job and count alone never prove an exit.",
+            "No native finalization, simulation completion or scientific validity is established."
+          ],
+          "job_pids_after": [],
+          "total_processes": 2,
+          "active_processes": 0,
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          },
+          "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00"
+        },
+        "native_returncode": 1,
+        "pid": 42952,
+        "job_close": {
+          "schema_version": 1,
+          "api": "CloseHandle",
+          "handle_source": "original_private_job_handle",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "job_binding": {
+            "handle_source": "original_private_job_handle",
+            "original_handle_verified": true,
+            "same_original_retained_handle": true,
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "trace_binding_verified": true
+          },
+          "attempted": true,
+          "succeeded": true,
+          "return_value": 1,
+          "return_type": "int",
+          "winerror": null,
+          "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "collector_close": {
+            "attempted": true,
+            "state": "returned",
+            "return_value": {
+              "state": "closed",
+              "collector_stopped": true,
+              "errors": [],
+              "borrowed_root_closed": false,
+              "borrowed_job_closed": false,
+              "termination_attempted": false
+            },
+            "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "return_type": "dict"
+          },
+          "borrowed_root_handle_closed": false
+        },
+        "termination": {
+          "forced": true,
+          "tree_terminated": true,
+          "prospective_handle_coverage_complete": true,
+          "errors": [],
+          "trace_errors": [],
+          "prospective_job": {
+            "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "handle_source": "original_private_job_handle",
+            "association_before_assignment": true,
+            "collector_started_before_resume": true,
+            "assigned_before_resume": true,
+            "no_breakaway": true,
+            "kill_on_close": true,
+            "limit_flags": 8192,
+            "initial_accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 0,
+                "TotalKernelTime": 0,
+                "ThisPeriodTotalUserTime": 0,
+                "ThisPeriodTotalKernelTime": 0,
+                "TotalPageFaultCount": 0,
+                "TotalProcesses": 0,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+            },
+            "initial_members": [],
+            "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+          },
+          "termination_request": {
+            "attempted": true,
+            "succeeded": true,
+            "return_value": 1,
+            "original_root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "job_binding": {
+              "handle_source": "original_private_job_handle",
+              "original_handle_verified": true,
+              "same_original_retained_handle": true,
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "trace_binding_verified": true
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members_after": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "after_accounting": true
+          },
+          "retained_members": [
+            {
+              "identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+              "role": "root",
+              "handle_source": "original_launch_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 2,
+              "captured_at_utc": "2040-01-01T00:00:00+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            },
+            {
+              "identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "image": "C:\\Windows\\System32\\cmd.exe",
+              "role": "descendant",
+              "handle_source": "owned_job_member_retained_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 5,
+              "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            }
+          ]
+        }
+      },
+      "derived": {
+        "passed": false,
+        "strict_original_job": {
+          "policy": "B14-original-job-terminal-route-4",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "member_count": 2,
+          "identity_events": 4,
+          "raw_notification_join": true,
+          "bidirectional_process_notification_join": true,
+          "original_Job_CloseHandle": true,
+          "collector_close_confirmed": true,
+          "native_result": "not established by lifetime/close facts"
+        },
+        "common_lifetime": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "notifications_complete": true,
+          "original_provenance": true
+        },
+        "launch_binding": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": false,
+          "qualified_natural": {
+            "passed": true,
+            "kind": "normal",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+          },
+          "reason": "Copied original member identity/image/live capture facts differ",
+          "error_type": "ValueError"
+        },
+        "qualified_natural": {
+          "passed": true,
+          "kind": "normal",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        },
+        "forced_attribution": {
+          "passed": true,
+          "kind": "forced",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        }
+      },
+      "input_unchanged": true
+    },
+    {
+      "case": "matching_optional_trace",
+      "expected_passed": true,
+      "actual_passed": true,
+      "expectation_met": true,
+      "basis": "Optional trace is an exact matching synthetic assertion; current producer does not emit this field",
+      "raw": {
+        "state": "running",
+        "original_root_identity": {
+          "pid": 42952,
+          "creation_time_100ns": "134383036280879843"
+        },
+        "before_resume": {
+          "state": "passed",
+          "original_root_identity": {
+            "pid": 42952,
+            "creation_time_100ns": "134383036280879843"
+          },
+          "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        },
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        ],
+        "normal_exit": {
+          "method": "windows_job_object_normal_exit",
+          "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+          "state": "captured",
+          "termination_attempted": false,
+          "root": {
+            "state": "signalled",
+            "handle_source": "original_subprocess.Popen._handle",
+            "exit_confirmed": true,
+            "wait_timeout_ms": 0,
+            "pid": 42952,
+            "captured_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "wait_result": 0,
+            "exit_code": 1,
+            "exit_code_query": {
+              "state": "captured"
+            },
+            "identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "root_exit_confirmed": true,
+          "job_empty": true,
+          "sole_ever_member": false,
+          "all_owned_members_exit_confirmed": true,
+          "member_exit_confirmations": {
+            "42952": true,
+            "23876": true
+          },
+          "retained_member_handle_count": 2,
+          "confirmed_member_exit_count": 2,
+          "unobserved_member_count": 0,
+          "limitations": [
+            "Prospective exact-Job IOCP acquisition; Windows notifications are not guaranteed.",
+            "Any missed/late/unavailable member HANDLE or accounting/event mismatch leaves coverage incomplete.",
+            "Individual HANDLE waits use zero timeout; notification, empty Job and count alone never prove an exit.",
+            "No native finalization, simulation completion or scientific validity is established."
+          ],
+          "job_pids_after": [],
+          "total_processes": 2,
+          "active_processes": 0,
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          },
+          "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00"
+        },
+        "native_returncode": 1,
+        "pid": 42952,
+        "job_close": {
+          "schema_version": 1,
+          "api": "CloseHandle",
+          "handle_source": "original_private_job_handle",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "job_binding": {
+            "handle_source": "original_private_job_handle",
+            "original_handle_verified": true,
+            "same_original_retained_handle": true,
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "trace_binding_verified": true
+          },
+          "attempted": true,
+          "succeeded": true,
+          "return_value": 1,
+          "return_type": "int",
+          "winerror": null,
+          "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "collector_close": {
+            "attempted": true,
+            "state": "returned",
+            "return_value": {
+              "state": "closed",
+              "collector_stopped": true,
+              "errors": [],
+              "borrowed_root_closed": false,
+              "borrowed_job_closed": false,
+              "termination_attempted": false
+            },
+            "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "return_type": "dict"
+          },
+          "borrowed_root_handle_closed": false
+        },
+        "termination": {
+          "forced": true,
+          "tree_terminated": true,
+          "prospective_handle_coverage_complete": true,
+          "errors": [],
+          "trace_errors": [],
+          "prospective_job": {
+            "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "handle_source": "original_private_job_handle",
+            "association_before_assignment": true,
+            "collector_started_before_resume": true,
+            "assigned_before_resume": true,
+            "no_breakaway": true,
+            "kill_on_close": true,
+            "limit_flags": 8192,
+            "initial_accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 0,
+                "TotalKernelTime": 0,
+                "ThisPeriodTotalUserTime": 0,
+                "ThisPeriodTotalKernelTime": 0,
+                "TotalPageFaultCount": 0,
+                "TotalProcesses": 0,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+            },
+            "initial_members": [],
+            "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+          },
+          "termination_request": {
+            "attempted": true,
+            "succeeded": true,
+            "return_value": 1,
+            "original_root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "job_binding": {
+              "handle_source": "original_private_job_handle",
+              "original_handle_verified": true,
+              "same_original_retained_handle": true,
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "trace_binding_verified": true
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members_after": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "after_accounting": true
+          },
+          "retained_members": [
+            {
+              "identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+              "role": "root",
+              "handle_source": "original_launch_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 2,
+              "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            },
+            {
+              "identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "image": "C:\\Windows\\System32\\cmd.exe",
+              "role": "descendant",
+              "handle_source": "owned_job_member_retained_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 5,
+              "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            }
+          ],
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          }
+        }
+      },
+      "derived": {
+        "passed": true,
+        "strict_original_job": {
+          "policy": "B14-original-job-terminal-route-4",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "member_count": 2,
+          "identity_events": 4,
+          "raw_notification_join": true,
+          "bidirectional_process_notification_join": true,
+          "original_Job_CloseHandle": true,
+          "collector_close_confirmed": true,
+          "native_result": "not established by lifetime/close facts"
+        },
+        "common_lifetime": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "notifications_complete": true,
+          "original_provenance": true
+        },
+        "launch_binding": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "qualified_natural": {
+            "passed": true,
+            "kind": "normal",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+          },
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "launch_root_birth_join": true,
+          "launch_image_join": true
+        },
+        "qualified_natural": {
+          "passed": true,
+          "kind": "normal",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        },
+        "forced_attribution": {
+          "passed": true,
+          "kind": "forced",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        }
+      },
+      "input_unchanged": true
+    },
+    {
+      "case": "distinct_later_exit_observation_time",
+      "expected_passed": true,
+      "actual_passed": true,
+      "expectation_met": true,
+      "basis": "Same immutable capture and exit result may have different later observation times",
+      "raw": {
+        "state": "running",
+        "original_root_identity": {
+          "pid": 42952,
+          "creation_time_100ns": "134383036280879843"
+        },
+        "before_resume": {
+          "state": "passed",
+          "original_root_identity": {
+            "pid": 42952,
+            "creation_time_100ns": "134383036280879843"
+          },
+          "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        },
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        ],
+        "normal_exit": {
+          "method": "windows_job_object_normal_exit",
+          "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+          "state": "captured",
+          "termination_attempted": false,
+          "root": {
+            "state": "signalled",
+            "handle_source": "original_subprocess.Popen._handle",
+            "exit_confirmed": true,
+            "wait_timeout_ms": 0,
+            "pid": 42952,
+            "captured_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "wait_result": 0,
+            "exit_code": 1,
+            "exit_code_query": {
+              "state": "captured"
+            },
+            "identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "root_exit_confirmed": true,
+          "job_empty": true,
+          "sole_ever_member": false,
+          "all_owned_members_exit_confirmed": true,
+          "member_exit_confirmations": {
+            "42952": true,
+            "23876": true
+          },
+          "retained_member_handle_count": 2,
+          "confirmed_member_exit_count": 2,
+          "unobserved_member_count": 0,
+          "limitations": [
+            "Prospective exact-Job IOCP acquisition; Windows notifications are not guaranteed.",
+            "Any missed/late/unavailable member HANDLE or accounting/event mismatch leaves coverage incomplete.",
+            "Individual HANDLE waits use zero timeout; notification, empty Job and count alone never prove an exit.",
+            "No native finalization, simulation completion or scientific validity is established."
+          ],
+          "job_pids_after": [],
+          "total_processes": 2,
+          "active_processes": 0,
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          },
+          "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00"
+        },
+        "native_returncode": 1,
+        "pid": 42952,
+        "job_close": {
+          "schema_version": 1,
+          "api": "CloseHandle",
+          "handle_source": "original_private_job_handle",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "job_binding": {
+            "handle_source": "original_private_job_handle",
+            "original_handle_verified": true,
+            "same_original_retained_handle": true,
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "trace_binding_verified": true
+          },
+          "attempted": true,
+          "succeeded": true,
+          "return_value": 1,
+          "return_type": "int",
+          "winerror": null,
+          "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "collector_close": {
+            "attempted": true,
+            "state": "returned",
+            "return_value": {
+              "state": "closed",
+              "collector_stopped": true,
+              "errors": [],
+              "borrowed_root_closed": false,
+              "borrowed_job_closed": false,
+              "termination_attempted": false
+            },
+            "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "return_type": "dict"
+          },
+          "borrowed_root_handle_closed": false
+        },
+        "termination": {
+          "forced": true,
+          "tree_terminated": true,
+          "prospective_handle_coverage_complete": true,
+          "errors": [],
+          "trace_errors": [],
+          "prospective_job": {
+            "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "handle_source": "original_private_job_handle",
+            "association_before_assignment": true,
+            "collector_started_before_resume": true,
+            "assigned_before_resume": true,
+            "no_breakaway": true,
+            "kill_on_close": true,
+            "limit_flags": 8192,
+            "initial_accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 0,
+                "TotalKernelTime": 0,
+                "ThisPeriodTotalUserTime": 0,
+                "ThisPeriodTotalKernelTime": 0,
+                "TotalPageFaultCount": 0,
+                "TotalProcesses": 0,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+            },
+            "initial_members": [],
+            "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+          },
+          "termination_request": {
+            "attempted": true,
+            "succeeded": true,
+            "return_value": 1,
+            "original_root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "job_binding": {
+              "handle_source": "original_private_job_handle",
+              "original_handle_verified": true,
+              "same_original_retained_handle": true,
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "trace_binding_verified": true
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members_after": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "after_accounting": true
+          },
+          "retained_members": [
+            {
+              "identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+              "role": "root",
+              "handle_source": "original_launch_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 2,
+              "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            },
+            {
+              "identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "image": "C:\\Windows\\System32\\cmd.exe",
+              "role": "descendant",
+              "handle_source": "owned_job_member_retained_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 5,
+              "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            }
+          ],
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325227+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          }
+        }
+      },
+      "derived": {
+        "passed": true,
+        "strict_original_job": {
+          "policy": "B14-original-job-terminal-route-4",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "member_count": 2,
+          "identity_events": 4,
+          "raw_notification_join": true,
+          "bidirectional_process_notification_join": true,
+          "original_Job_CloseHandle": true,
+          "collector_close_confirmed": true,
+          "native_result": "not established by lifetime/close facts"
+        },
+        "common_lifetime": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "notifications_complete": true,
+          "original_provenance": true
+        },
+        "launch_binding": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "qualified_natural": {
+            "passed": true,
+            "kind": "normal",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+          },
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "launch_root_birth_join": true,
+          "launch_image_join": true
+        },
+        "qualified_natural": {
+          "passed": true,
+          "kind": "normal",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        },
+        "forced_attribution": {
+          "passed": true,
+          "kind": "forced",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        }
+      },
+      "input_unchanged": true
+    },
+    {
+      "case": "contradictory_optional_trace_exit_code",
+      "expected_passed": false,
+      "actual_passed": false,
+      "expectation_met": true,
+      "basis": "Same original member birth cannot have contradictory observed exit codes; optional supplied trace is not a new current producer observation",
+      "raw": {
+        "state": "running",
+        "original_root_identity": {
+          "pid": 42952,
+          "creation_time_100ns": "134383036280879843"
+        },
+        "before_resume": {
+          "state": "passed",
+          "original_root_identity": {
+            "pid": 42952,
+            "creation_time_100ns": "134383036280879843"
+          },
+          "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        },
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe"
+        ],
+        "normal_exit": {
+          "method": "windows_job_object_normal_exit",
+          "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+          "state": "captured",
+          "termination_attempted": false,
+          "root": {
+            "state": "signalled",
+            "handle_source": "original_subprocess.Popen._handle",
+            "exit_confirmed": true,
+            "wait_timeout_ms": 0,
+            "pid": 42952,
+            "captured_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "wait_result": 0,
+            "exit_code": 1,
+            "exit_code_query": {
+              "state": "captured"
+            },
+            "identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "root_exit_confirmed": true,
+          "job_empty": true,
+          "sole_ever_member": false,
+          "all_owned_members_exit_confirmed": true,
+          "member_exit_confirmations": {
+            "42952": true,
+            "23876": true
+          },
+          "retained_member_handle_count": 2,
+          "confirmed_member_exit_count": 2,
+          "unobserved_member_count": 0,
+          "limitations": [
+            "Prospective exact-Job IOCP acquisition; Windows notifications are not guaranteed.",
+            "Any missed/late/unavailable member HANDLE or accounting/event mismatch leaves coverage incomplete.",
+            "Individual HANDLE waits use zero timeout; notification, empty Job and count alone never prove an exit.",
+            "No native finalization, simulation completion or scientific validity is established."
+          ],
+          "job_pids_after": [],
+          "total_processes": 2,
+          "active_processes": 0,
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          },
+          "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00"
+        },
+        "native_returncode": 1,
+        "pid": 42952,
+        "job_close": {
+          "schema_version": 1,
+          "api": "CloseHandle",
+          "handle_source": "original_private_job_handle",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "job_binding": {
+            "handle_source": "original_private_job_handle",
+            "original_handle_verified": true,
+            "same_original_retained_handle": true,
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "trace_binding_verified": true
+          },
+          "attempted": true,
+          "succeeded": true,
+          "return_value": 1,
+          "return_type": "int",
+          "winerror": null,
+          "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+          "collector_close": {
+            "attempted": true,
+            "state": "returned",
+            "return_value": {
+              "state": "closed",
+              "collector_stopped": true,
+              "errors": [],
+              "borrowed_root_closed": false,
+              "borrowed_job_closed": false,
+              "termination_attempted": false
+            },
+            "started_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "return_type": "dict"
+          },
+          "borrowed_root_handle_closed": false
+        },
+        "termination": {
+          "forced": true,
+          "tree_terminated": true,
+          "prospective_handle_coverage_complete": true,
+          "errors": [],
+          "trace_errors": [],
+          "prospective_job": {
+            "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "handle_source": "original_private_job_handle",
+            "association_before_assignment": true,
+            "collector_started_before_resume": true,
+            "assigned_before_resume": true,
+            "no_breakaway": true,
+            "kill_on_close": true,
+            "limit_flags": 8192,
+            "initial_accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 0,
+                "TotalKernelTime": 0,
+                "ThisPeriodTotalUserTime": 0,
+                "ThisPeriodTotalKernelTime": 0,
+                "TotalPageFaultCount": 0,
+                "TotalProcesses": 0,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+            },
+            "initial_members": [],
+            "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+            "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+          },
+          "termination_request": {
+            "attempted": true,
+            "succeeded": true,
+            "return_value": 1,
+            "original_root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "job_binding": {
+              "handle_source": "original_private_job_handle",
+              "original_handle_verified": true,
+              "same_original_retained_handle": true,
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "trace_binding_verified": true
+            }
+          },
+          "job_accounting": {
+            "state": "captured",
+            "information_class": 1,
+            "buffer_bytes": 48,
+            "returned_bytes": 48,
+            "handle_source": "original_private_job_handle",
+            "values": {
+              "TotalUserTime": 625000,
+              "TotalKernelTime": 468750,
+              "ThisPeriodTotalUserTime": 625000,
+              "ThisPeriodTotalKernelTime": 468750,
+              "TotalPageFaultCount": 21868,
+              "TotalProcesses": 2,
+              "ActiveProcesses": 0,
+              "TotalTerminatedProcesses": 0
+            },
+            "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "after_member_exit_checks": true,
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+          },
+          "job_members_after": {
+            "state": "captured",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+            "pids": [],
+            "captured_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "after_accounting": true
+          },
+          "retained_members": [
+            {
+              "identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+              "role": "root",
+              "handle_source": "original_launch_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 2,
+              "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 42952,
+                "creation_time_100ns": "134383036280879843"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            },
+            {
+              "identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "image": "C:\\Windows\\System32\\cmd.exe",
+              "role": "descendant",
+              "handle_source": "owned_job_member_retained_handle",
+              "identity_source": "GetProcessTimes_same_retained_handle",
+              "capture_wait_result": 258,
+              "capture_sequence": 5,
+              "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+              "retained_until_exit_check": true,
+              "job_membership": {
+                "state": "captured",
+                "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                "is_member": true,
+                "query": "IsProcessInJob_same_retained_handle"
+              },
+              "exit": {
+                "state": "signalled",
+                "same_retained_handle": true,
+                "wait_timeout_ms": 0,
+                "wait_result": 0,
+                "exit_code_query": "captured",
+                "exit_code": 1,
+                "checked_at_utc": "2026-11-04T22:07:08.325226+00:00",
+                "confirmed": true
+              },
+              "exit_identity": {
+                "pid": 23876,
+                "creation_time_100ns": "134383036281692686"
+              },
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "prospective_qualified": true
+            }
+          ],
+          "member_trace": {
+            "schema_version": 1,
+            "classification": "windows_job_member_handle_trace",
+            "method": "windows_job_iocp_retained_members",
+            "state": "captured",
+            "capture_started_at_utc": "2026-11-04T22:07:08.324254+00:00",
+            "capture_finished_at_utc": "2026-11-04T22:07:08.325226+00:00",
+            "job": {
+              "instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "handle_source": "original_private_job_handle",
+              "association_before_assignment": true,
+              "collector_started_before_resume": true,
+              "assigned_before_resume": true,
+              "no_breakaway": true,
+              "kill_on_close": true,
+              "limit_flags": 8192,
+              "initial_accounting": {
+                "state": "captured",
+                "information_class": 1,
+                "buffer_bytes": 48,
+                "returned_bytes": 48,
+                "handle_source": "original_private_job_handle",
+                "values": {
+                  "TotalUserTime": 0,
+                  "TotalKernelTime": 0,
+                  "ThisPeriodTotalUserTime": 0,
+                  "ThisPeriodTotalKernelTime": 0,
+                  "TotalPageFaultCount": 0,
+                  "TotalProcesses": 0,
+                  "ActiveProcesses": 0,
+                  "TotalTerminatedProcesses": 0
+                },
+                "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits"
+              },
+              "initial_members": [],
+              "associated_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "collector_started_at_utc": "2026-11-04T22:07:08.084174+00:00",
+              "root_assigned_at_utc": "2026-11-04T22:07:08.090089+00:00"
+            },
+            "root_identity": {
+              "pid": 42952,
+              "creation_time_100ns": "134383036280879843"
+            },
+            "members": [
+              {
+                "identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                },
+                "image": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+                "role": "root",
+                "handle_source": "original_launch_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 2,
+                "captured_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 999,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 42952,
+                  "creation_time_100ns": "134383036280879843"
+                }
+              },
+              {
+                "identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                },
+                "image": "C:\\Windows\\System32\\cmd.exe",
+                "role": "descendant",
+                "handle_source": "owned_job_member_retained_handle",
+                "identity_source": "GetProcessTimes_same_retained_handle",
+                "capture_wait_result": 258,
+                "capture_sequence": 5,
+                "captured_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                "retained_until_exit_check": true,
+                "job_membership": {
+                  "state": "captured",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "is_member": true,
+                  "query": "IsProcessInJob_same_retained_handle"
+                },
+                "exit": {
+                  "state": "signalled",
+                  "same_retained_handle": true,
+                  "wait_timeout_ms": 0,
+                  "wait_result": 0,
+                  "exit_code_query": "captured",
+                  "exit_code": 1,
+                  "checked_at_utc": "2026-11-04T22:07:08.325226+00:00"
+                },
+                "exit_identity": {
+                  "pid": 23876,
+                  "creation_time_100ns": "134383036281692686"
+                }
+              }
+            ],
+            "accounting": {
+              "state": "captured",
+              "information_class": 1,
+              "buffer_bytes": 48,
+              "returned_bytes": 48,
+              "handle_source": "original_private_job_handle",
+              "values": {
+                "TotalUserTime": 625000,
+                "TotalKernelTime": 468750,
+                "ThisPeriodTotalUserTime": 625000,
+                "ThisPeriodTotalKernelTime": 468750,
+                "TotalPageFaultCount": 21868,
+                "TotalProcesses": 2,
+                "ActiveProcesses": 0,
+                "TotalTerminatedProcesses": 0
+              },
+              "TotalTerminatedProcesses_semantics": "limit_violations_only_not_normal_exits",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "after_member_exit_checks": true,
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "job_members": {
+              "state": "captured",
+              "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+              "pids": [],
+              "captured_at_utc": "2026-11-04T22:07:08.325226+00:00"
+            },
+            "collection": {
+              "state": "captured",
+              "errors": [],
+              "unavailable_members": [],
+              "dropped_events": 0,
+              "dropped_events_scope": "collector overflow only; Windows notification delivery is not guaranteed",
+              "pending_events": 0,
+              "ended_after_accounting": true,
+              "retained_handle_count": 2,
+              "events": [
+                {
+                  "sequence": 3,
+                  "type": "NEW_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                },
+                {
+                  "sequence": 4,
+                  "type": "NEW_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 6,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 6,
+                  "type": "EXIT_PROCESS",
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 23876,
+                    "creation_time_100ns": "134383036281692686"
+                  }
+                },
+                {
+                  "sequence": 7,
+                  "type": "EXIT_PROCESS",
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+                  "raw_message": 8,
+                  "identity_source": "matched_same_retained_handle",
+                  "identity": {
+                    "pid": 42952,
+                    "creation_time_100ns": "134383036280879843"
+                  }
+                }
+              ],
+              "notifications": [
+                {
+                  "sequence": 3,
+                  "message": 6,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.090089+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 4,
+                  "message": 6,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.168895+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 6,
+                  "message": 8,
+                  "pid": 23876,
+                  "observed_at_utc": "2026-11-04T22:07:08.183793+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 7,
+                  "message": 8,
+                  "pid": 42952,
+                  "observed_at_utc": "2026-11-04T22:07:08.320237+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                },
+                {
+                  "sequence": 8,
+                  "message": 4,
+                  "pid": null,
+                  "observed_at_utc": "2026-11-04T22:07:08.324254+00:00",
+                  "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+                }
+              ]
+            },
+            "all_owned_members_exit_confirmed": true,
+            "retained_member_handle_count": 2,
+            "confirmed_member_exit_count": 2,
+            "unobserved_member_count": 0,
+            "termination_attempted": false,
+            "native_finalization": "not_established",
+            "scientific_validation": "not_performed"
+          }
+        }
+      },
+      "derived": {
+        "passed": false,
+        "strict_original_job": {
+          "policy": "B14-original-job-terminal-route-4",
+          "passed": true,
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "member_count": 2,
+          "identity_events": 4,
+          "raw_notification_join": true,
+          "bidirectional_process_notification_join": true,
+          "original_Job_CloseHandle": true,
+          "collector_close_confirmed": true,
+          "native_result": "not established by lifetime/close facts"
+        },
+        "common_lifetime": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": false,
+          "reason": "Original retained member exit facts differ",
+          "error_type": "ValueError"
+        },
+        "launch_binding": {
+          "policy": "B14-original-launch-lifecycle-3",
+          "passed": true,
+          "qualified_natural": {
+            "passed": true,
+            "kind": "normal",
+            "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+          },
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559",
+          "launch_root_birth_join": true,
+          "launch_image_join": true
+        },
+        "qualified_natural": {
+          "passed": true,
+          "kind": "normal",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        },
+        "forced_attribution": {
+          "passed": true,
+          "kind": "forced",
+          "job_instance_token": "6cbf1643c8694eb59ecb697f5868b559"
+        }
+      },
+      "input_unchanged": true
+    }
+  ],
+  "unmet": [],
+  "native_launches": 0,
+  "PID_queries": 0,
+  "root_writes": false,
+  "scope": "Synthetic mutations of existing author test baseline only; no historical input edits or new native failure claim"
+}

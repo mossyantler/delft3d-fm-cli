@@ -1,0 +1,398 @@
+{
+  "node": "G18-NATIVE-PLAN-V",
+  "state": "prospective_inputs_prepared_no_native_lease",
+  "case_order": [
+    "baseline",
+    "all_roundtrip",
+    "manual_append",
+    "public_append",
+    "manual_replace",
+    "public_replace"
+  ],
+  "cases": {
+    "baseline": {
+      "mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34.mdu",
+      "files": {
+        "f34.mdu": {
+          "bytes": 28933,
+          "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+        },
+        "f34.wnd": {
+          "bytes": 86,
+          "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+        },
+        "f34_001.bc": {
+          "bytes": 1304,
+          "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+        },
+        "f34_001.pli": {
+          "bytes": 745,
+          "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+        },
+        "f34_bnd.ext": {
+          "bytes": 262,
+          "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+        },
+        "f34_crs.pli": {
+          "bytes": 1560,
+          "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+        },
+        "f34_drypoints_dry.xyz": {
+          "bytes": 55,
+          "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+        },
+        "f34_net.nc": {
+          "bytes": 23984,
+          "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+        },
+        "f34_obs.xyn": {
+          "bytes": 270,
+          "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+        },
+        "f34_thd.pli": {
+          "bytes": 1275,
+          "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+        }
+      },
+      "geometry": "baseline"
+    },
+    "all_roundtrip": {
+      "mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34.mdu",
+      "files": {
+        "f34.mdu": {
+          "bytes": 28933,
+          "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+        },
+        "f34.wnd": {
+          "bytes": 86,
+          "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+        },
+        "f34_001.bc": {
+          "bytes": 1304,
+          "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+        },
+        "f34_001.pli": {
+          "bytes": 745,
+          "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+        },
+        "f34_bnd.ext": {
+          "bytes": 262,
+          "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+        },
+        "f34_crs.pli": {
+          "bytes": 1560,
+          "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+        },
+        "f34_drypoints_dry.xyz": {
+          "bytes": 55,
+          "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+        },
+        "f34_net.nc": {
+          "bytes": 23984,
+          "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+        },
+        "f34_obs.xyn": {
+          "bytes": 270,
+          "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+        },
+        "f34_thd.pli": {
+          "bytes": 1275,
+          "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+        }
+      },
+      "geometry": "baseline"
+    },
+    "manual_append": {
+      "mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34.mdu",
+      "files": {
+        "f34.mdu": {
+          "bytes": 28933,
+          "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+        },
+        "f34.wnd": {
+          "bytes": 86,
+          "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+        },
+        "f34_001.bc": {
+          "bytes": 1304,
+          "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+        },
+        "f34_001.pli": {
+          "bytes": 745,
+          "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+        },
+        "f34_bnd.ext": {
+          "bytes": 262,
+          "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+        },
+        "f34_crs.pli": {
+          "bytes": 1783,
+          "sha256": "5e87b0a735be6fe36a54a8779c3617c693fbc06992b6f899fd2cdfbc2efb0d04"
+        },
+        "f34_drypoints_dry.xyz": {
+          "bytes": 55,
+          "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+        },
+        "f34_net.nc": {
+          "bytes": 23984,
+          "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+        },
+        "f34_obs.xyn": {
+          "bytes": 270,
+          "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+        },
+        "f34_thd.pli": {
+          "bytes": 1275,
+          "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+        }
+      },
+      "geometry": "append"
+    },
+    "public_append": {
+      "mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34.mdu",
+      "files": {
+        "f34.mdu": {
+          "bytes": 28933,
+          "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+        },
+        "f34.wnd": {
+          "bytes": 86,
+          "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+        },
+        "f34_001.bc": {
+          "bytes": 1304,
+          "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+        },
+        "f34_001.pli": {
+          "bytes": 745,
+          "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+        },
+        "f34_bnd.ext": {
+          "bytes": 262,
+          "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+        },
+        "f34_crs.pli": {
+          "bytes": 1783,
+          "sha256": "5e87b0a735be6fe36a54a8779c3617c693fbc06992b6f899fd2cdfbc2efb0d04"
+        },
+        "f34_drypoints_dry.xyz": {
+          "bytes": 55,
+          "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+        },
+        "f34_net.nc": {
+          "bytes": 23984,
+          "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+        },
+        "f34_obs.xyn": {
+          "bytes": 270,
+          "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+        },
+        "f34_thd.pli": {
+          "bytes": 1275,
+          "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+        }
+      },
+      "geometry": "append"
+    },
+    "manual_replace": {
+      "mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34.mdu",
+      "files": {
+        "f34.mdu": {
+          "bytes": 28933,
+          "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+        },
+        "f34.wnd": {
+          "bytes": 86,
+          "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+        },
+        "f34_001.bc": {
+          "bytes": 1304,
+          "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+        },
+        "f34_001.pli": {
+          "bytes": 745,
+          "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+        },
+        "f34_bnd.ext": {
+          "bytes": 262,
+          "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+        },
+        "f34_crs.pli": {
+          "bytes": 1560,
+          "sha256": "d366121b4a5aa5f0a846923591b0dec8637888b0adaf3f9d4a9e17ad8eb41ab9"
+        },
+        "f34_drypoints_dry.xyz": {
+          "bytes": 55,
+          "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+        },
+        "f34_net.nc": {
+          "bytes": 23984,
+          "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+        },
+        "f34_obs.xyn": {
+          "bytes": 270,
+          "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+        },
+        "f34_thd.pli": {
+          "bytes": 1275,
+          "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+        }
+      },
+      "geometry": "replace"
+    },
+    "public_replace": {
+      "mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34.mdu",
+      "files": {
+        "f34.mdu": {
+          "bytes": 28933,
+          "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+        },
+        "f34.wnd": {
+          "bytes": 86,
+          "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+        },
+        "f34_001.bc": {
+          "bytes": 1304,
+          "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+        },
+        "f34_001.pli": {
+          "bytes": 745,
+          "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+        },
+        "f34_bnd.ext": {
+          "bytes": 262,
+          "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+        },
+        "f34_crs.pli": {
+          "bytes": 1560,
+          "sha256": "d366121b4a5aa5f0a846923591b0dec8637888b0adaf3f9d4a9e17ad8eb41ab9"
+        },
+        "f34_drypoints_dry.xyz": {
+          "bytes": 55,
+          "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+        },
+        "f34_net.nc": {
+          "bytes": 23984,
+          "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+        },
+        "f34_obs.xyn": {
+          "bytes": 270,
+          "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+        },
+        "f34_thd.pli": {
+          "bytes": 1275,
+          "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+        }
+      },
+      "geometry": "replace"
+    }
+  },
+  "baseline": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\MDU-ID-G-f34-156-01\\prepared",
+    "files": {
+      "f34.mdu": {
+        "bytes": 28933,
+        "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+      },
+      "f34.wnd": {
+        "bytes": 86,
+        "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+      },
+      "f34_001.bc": {
+        "bytes": 1304,
+        "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+      },
+      "f34_001.pli": {
+        "bytes": 745,
+        "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+      },
+      "f34_bnd.ext": {
+        "bytes": 262,
+        "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+      },
+      "f34_crs.pli": {
+        "bytes": 1560,
+        "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+      },
+      "f34_drypoints_dry.xyz": {
+        "bytes": 55,
+        "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+      },
+      "f34_net.nc": {
+        "bytes": 23984,
+        "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+      },
+      "f34_obs.xyn": {
+        "bytes": 270,
+        "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+      },
+      "f34_thd.pli": {
+        "bytes": 1275,
+        "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+      }
+    }
+  },
+  "file_command_candidate": {
+    "hold_sha256": "876e21a2cd463a1c2137cfc13430349535988f47e6541365de09640799cfb454",
+    "wheel_sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+    "python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv\\Scripts\\python.exe",
+    "dfm": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv\\Scripts\\dfm.exe",
+    "dfm_sha256": "7941fe0218211f82727754dea3a0b12fcbfac3b008577d559d1ff1338eee83e9"
+  },
+  "clock": {
+    "origin": "1990-08-05T00:00:00+00:00",
+    "start_seconds": 0,
+    "stop_seconds": 600,
+    "history_map_seconds": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300,
+      360,
+      420,
+      480,
+      540,
+      600
+    ],
+    "restart_seconds": [
+      0,
+      600
+    ],
+    "MDU_relative_unit": "M",
+    "absolute_start_stop_authoritative": true
+  },
+  "append": {
+    "id": "G18_new_cut-A.1 (subset)",
+    "vertices": 4,
+    "origin": "Exact coordinate rows0,2,4,6 of original (7,7)..(7,14); no snapping/CRS conversion",
+    "core_sha256": "e0e811abeb64e08b753bf52a214e54e612f5782558d1b22d3b469fbe23d13d07"
+  },
+  "replace": {
+    "id": "Entrance",
+    "vertices": 8,
+    "operation": "Reverse only eight complete original coordinate records; header/count untouched; others exact",
+    "core_sha256": "7d85ee35093fe338240cf4abd86cbfcbb0b1d68686200ca5890f73639acba2db"
+  },
+  "comparisons_exact": [
+    [
+      "baseline",
+      "all_roundtrip"
+    ],
+    [
+      "manual_append",
+      "public_append"
+    ],
+    [
+      "manual_replace",
+      "public_replace"
+    ]
+  ],
+  "native_status": "unrun_all_six; corrected common short profile/runtime and independent admission required before any coordinator launch",
+  "separate_producer_plan": "G18-TRANSFER-I-native-plan-20261105-01/plan.json 3a1b9aa59a9b6dfb7796376f6c92a57fb9cba51c051c1fdf29a5bccd78e895ec retained supplemental, not merged; Boundary14 replacement/duplicateEntrance append have different predicates",
+  "public_preparation_calls": 8,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "root_writes": 0
+}

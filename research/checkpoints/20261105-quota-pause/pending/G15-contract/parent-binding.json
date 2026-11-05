@@ -1,0 +1,9 @@
+{
+  "parent_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\freeze.json",
+    "sha256": "e44e643b4745de7b795fbc19f4a38bb7b0c33c978d56ca9310545e2395fe926c",
+    "bytes": 20862
+  },
+  "parent_files_checked": 67,
+  "inherited_source_fixture_evidence": "All67 frozen01 files remain authoritative evidence, not modified or copied over. Revision02 clarifications override only two admission ambiguities."
+}

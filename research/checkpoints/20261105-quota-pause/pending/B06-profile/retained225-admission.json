@@ -1,0 +1,246 @@
+{
+  "kind": "author-read-only-225-admission",
+  "passed": true,
+  "inputs_manifest_sha256": "53915bd4f46dcebef02e6d39c69eeecbbb16c942077a30f922914b256af74fe7",
+  "cases": [
+    {
+      "case_id": "point_noop5",
+      "route": "direct",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "source.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [],
+      "input_sha256": "b3d9ed454bdf38838c013070a139604b0768e751e74be9581d1289903fa3b730",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "point_noop5",
+      "route": "dimr",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "source.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [],
+      "input_sha256": "b3d9ed454bdf38838c013070a139604b0768e751e74be9581d1289903fa3b730",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "point_set15",
+      "route": "direct",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "d258f17518d9b86558532663bcb021638a55302fca4b1e5661e07f692d25748e",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "point_set15",
+      "route": "dimr",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "d258f17518d9b86558532663bcb021638a55302fca4b1e5661e07f692d25748e",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "point_add15",
+      "route": "direct",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "01b6a5db8d6be3b38f86e96ad374279e15dc05dcc1cba831cf1bfa194807b834",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "point_add15",
+      "route": "dimr",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "01b6a5db8d6be3b38f86e96ad374279e15dc05dcc1cba831cf1bfa194807b834",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "pair_noop5",
+      "route": "direct",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "source.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [],
+      "input_sha256": "853986be0e7b72b5b4ef905bc9694e3b23610fb7583e6912b3de3979d9e85ce0",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "pair_noop5",
+      "route": "dimr",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "source.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [],
+      "input_sha256": "853986be0e7b72b5b4ef905bc9694e3b23610fb7583e6912b3de3979d9e85ce0",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "pair_set15",
+      "route": "direct",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "40330f97eb7c0bea00cc5ca3144a002fbd52ea68010630359228a963abfce791",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "pair_set15",
+      "route": "dimr",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "40330f97eb7c0bea00cc5ca3144a002fbd52ea68010630359228a963abfce791",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "pair_add15",
+      "route": "direct",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "db9158e7e3d3620d636eb9dbd886c3566799963266695f2e26653c198fcfac9a",
+      "status": "static_admission_passed_native_not_launched"
+    },
+    {
+      "case_id": "pair_add15",
+      "route": "dimr",
+      "active_input_files": [
+        "fixed_sections.pli",
+        "mesh_net.nc",
+        "model.mdu",
+        "observations.xyn",
+        "replacement.bc",
+        "sources.ext"
+      ],
+      "inactive_source_files": [
+        "source.bc"
+      ],
+      "input_sha256": "db9158e7e3d3620d636eb9dbd886c3566799963266695f2e26653c198fcfac9a",
+      "status": "static_admission_passed_native_not_launched"
+    }
+  ],
+  "original_inputs_unchanged": 40,
+  "retained_trace_join_checks": [
+    {
+      "case_id": "point_noop5",
+      "receipt_sha256": "af3551c2718211657c685444c36f844343d1fa81a59c00e644e44fce99a56e52",
+      "source_family_notification_bijection": "passed",
+      "scope": "Offline replay of the new pure subset guard only, not a new engine or full terminal verdict."
+    },
+    {
+      "case_id": "point_set15",
+      "receipt_sha256": "0c280e1a8e2897ea34293b0bf003860d5564a2ce38e9c0bf17c259c6569bb1b7",
+      "source_family_notification_bijection": "passed",
+      "scope": "Offline replay of the new pure subset guard only, not a new engine or full terminal verdict."
+    },
+    {
+      "case_id": "point_add15",
+      "receipt_sha256": "61fa5bb86e64e8a97d57a4570545078bf97a58584346e086e1482dbc70896365",
+      "source_family_notification_bijection": "passed",
+      "scope": "Offline replay of the new pure subset guard only, not a new engine or full terminal verdict."
+    },
+    {
+      "case_id": "pair_noop5",
+      "receipt_sha256": "c8a3f675a0fc522a7abf9db265db548708c6be37f3e46ca19be33b73e3d4c916",
+      "source_family_notification_bijection": "passed",
+      "scope": "Offline replay of the new pure subset guard only, not a new engine or full terminal verdict."
+    },
+    {
+      "case_id": "pair_set15",
+      "receipt_sha256": "954d269f2bed59aebf3a0519294236547056705de2b7376d6c11240d5a9ba1b2",
+      "source_family_notification_bijection": "passed",
+      "scope": "Offline replay of the new pure subset guard only, not a new engine or full terminal verdict."
+    },
+    {
+      "case_id": "pair_add15",
+      "receipt_sha256": "dc5a8994c60f67c21205c4575ddb3794cd6197ef2bf852b2e4480c9501b74706",
+      "source_family_notification_bijection": "passed",
+      "scope": "Offline replay of the new pure subset guard only, not a new engine or full terminal verdict."
+    }
+  ],
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "original_225_evidence_edited": false,
+  "limitations": "Static admission and raw-notification join compatibility only; both public run routes remain native-unverified."
+}

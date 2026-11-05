@@ -1,0 +1,11 @@
+--- rev03/src/dfm_cli/run_pump_lifecycle.py
++++ rev04/src/dfm_cli/run_pump_lifecycle.py
+@@ -438,6 +438,8 @@
+                       and aux["handle_source"] == "stop_time_OpenProcess", "auxiliary_late_or_unknown_member")
+         opened.add(pid)
+         original = roster[pid]
++        if "image" in aux:
++            _cleanup_need(aux["image"] == original["image"], "auxiliary_capture_image_contradiction")
+         if aux.get("identity") is not None:
+             _cleanup_need(_cleanup_identity(aux["identity"]) == original["identity"], "auxiliary_birth_contradiction")
+         _cleanup_need(aux.get("job_instance_token") == original["job_instance_token"], "auxiliary_Job_contradiction")

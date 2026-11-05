@@ -1,0 +1,11 @@
+{
+  "tests": 116,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "failed_ids": [],
+  "error_ids": [],
+  "native_launches": 0,
+  "root_writes": false,
+  "scope": "Fake process/Job boundaries with actual private Run/start/save and portable file writes"
+}

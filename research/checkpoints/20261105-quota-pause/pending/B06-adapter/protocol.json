@@ -1,0 +1,112 @@
+{
+  "schema": "b06-provenance-adapter-protocol-v1",
+  "state": "prospective_no_accepted_runtime_or_native_execution",
+  "implementation_entry": "science.py",
+  "CLI": "python -B science.py --admission FILE --expect-admission-sha256 HASH --collection FILE --expect-collection-sha256 HASH --out FRESH_B06_RESEARCH_DIRECTORY",
+  "default_domain": "observed_native; synthetic available only as an explicitly separate offline API kind",
+  "callables": {
+    "admit": "provenance.admit(file_pin, expected_sha256, kind='observed_native') -> Admission",
+    "bind": "provenance.bind(admission, collection_row) -> BoundRun (actual raw public evidence)",
+    "science": "science.check_science(bound_public_context, original_source_case) -> unchanged independent science result",
+    "archived_reference": "science.reference_context(original_source_case) -> ReferenceContext ONLY",
+    "collection": "science.verify_collection(admission_pin, expected_admission_sha, collection_pin, expected_collection_sha, fresh_out)",
+    "input_role_probe": "provenance.validate_inputs(manifest, admitted_case_descriptor, frozen_source_contract); no native/public admission by itself"
+  },
+  "four_observed_cases_only": [
+    "point_set15_direct",
+    "pair_set15_direct",
+    "point_set15_dimr",
+    "pair_set15_dimr"
+  ],
+  "actual_manifest_namespace": {
+    "version": 3,
+    "profile_name": "source-sink",
+    "selection": "profile.selection=source-sink",
+    "source_staging": [
+      "inputs",
+      "profile.source_binding",
+      "profile.input_files",
+      "source_sink_staged_identity"
+    ],
+    "route": [
+      "route",
+      "argv",
+      "working_directory",
+      "executable_sha256",
+      "source_sink_route_identity",
+      "installation.binaries",
+      "environment_overrides"
+    ],
+    "guards": [
+      "validation.staged_model",
+      "validation.pre_launch"
+    ],
+    "raw_ownership_delegated_to_separate_V_G": [
+      "ownership.native_identity",
+      "ownership.normal_exit",
+      "ownership.job_close",
+      "ownership.source_sink_lifecycle",
+      "all remaining ownership fields retained without reinterpretation"
+    ],
+    "outputs": [
+      "outputs",
+      "output_snapshots",
+      "verification.axes",
+      "verification.restart_axes",
+      "verification.checkpoint_schedule"
+    ]
+  },
+  "required_research_artifacts": [
+    "Prospectively reviewed capture-plan + collector code/freeze pins",
+    "Corrected common V/G acceptance + clean composed runtime/package V/G acceptance pins",
+    "This adapter freeze + Einstein independent review + coordinator final review pins",
+    "Actual public invocation/controller/entrypoint/interpreter/environment/argv/capture record",
+    "Actual raw manifest + CLI JSON stdout/stderr + raw run-status JSON",
+    "Actual native stdout/stderr (distinct from CLI JSON)",
+    "Terminal output full hash/identity inventory",
+    "Separate shared native-ownership V/G case/route/runID/manifest/raw-object-bound review",
+    "Independently pinned final four-case collection"
+  ],
+  "failed_runtime_sha256": "23f9daa7f8341e2b53e0d51d477273bd3fe72cdd456c5e4589b8921420c02e5d",
+  "held_artifacts_are_not_approval": [
+    "ced356ad commonrev02",
+    "b06261eb provisionalcomposition",
+    "d37a661c originalprofileprototype",
+    "current unaccepted commonrev03/rev04 source freezes"
+  ],
+  "raw_science": {
+    "history_variables": 82,
+    "map_variables": 36,
+    "restart_initial_variables": 26,
+    "restart_final_variables": 26,
+    "samples": 121,
+    "model_seconds": [
+      0,
+      120
+    ],
+    "restart_seconds": [
+      0,
+      120
+    ],
+    "BC_salinityDelta_unit": "ppt",
+    "native_salinity_unit": "1e-3",
+    "physical_tolerances": "UNMODIFIED frozen225 function ASTs; see math-extraction.json",
+    "exact_comparison": "ALL arrays/masks/dtypes/dimensions/variable attributes; no per-variable tolerances/waivers in exact comparison"
+  },
+  "authenticity_limit": "File-only consistency cannot authenticate arbitrary caller-fabricated execution. Expected hashes and external approvals/capture must be independently selected; synthetic records never satisfy observed-native admission or science.",
+  "native_lease": "NOT granted; independent final review required first",
+  "native_launches": 0,
+  "source_product_imports_for_science": 0,
+  "root_writes": 0,
+  "runtime_files_contract": {
+    "schema": "b06-admitted-runtime-files-v1",
+    "scope": "all current non-__pycache__ runtime files including dependencies/config/entrypoints plus base Python executable and DLL",
+    "limits": {
+      "files": 10000,
+      "aggregate_bytes": 2147483648,
+      "individual_bytes": 536870912
+    },
+    "packaging_approval": "separate actual origin/dependency audit remains required"
+  },
+  "math_wrapper": "Complete headers checked before frozen numeric observer; original all-array/unit/mask/physical predicates unchanged"
+}

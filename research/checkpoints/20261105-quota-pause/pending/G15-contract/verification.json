@@ -1,0 +1,22 @@
+{
+  "status": "FROZEN_REVISION02_ADMISSION_CLARIFICATIONS_V_G_REVIEW_PENDING",
+  "implemented": false,
+  "parent01_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\freeze.json",
+    "sha256": "e44e643b4745de7b795fbc19f4a38bb7b0c33c978d56ca9310545e2395fe926c",
+    "bytes": 20862
+  },
+  "parent01_files_unchanged": 67,
+  "coverage_rows_retained": 16,
+  "counterpath_source_blobs_verified": 3,
+  "counterpath_excerpt_hashes_checked": 3,
+  "literal_prospective_fixture_files": 6,
+  "proposal_consistency_checks": "representation-specific routing/native identity; explicit target command; I1 MDU path whitespace/quotes/semicolon refusal; child/external spaces retained; all16 coverage IDs retained; actual source hashes; JSON/AST",
+  "not_product_or_native_tests": true,
+  "G18_docs82_unchanged": true,
+  "root_product_docs_edits": false,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "runtime_built": false,
+  "approval": "independent V and G only"
+}

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "frozen_proposal_and_B14": {
+    "G18-PROPOSAL-I-20261105-01": {
+      "freeze_sha256": "d84c974418f9a03598708ee2b6213bf516178856435e726a26bd012b1d04f422",
+      "frozen_files_exact": 55
+    },
+    "B14-I-20261105-rev02": {
+      "freeze_sha256": "3bd4fd025cf97a14811f53295b9757783fc2bf4d6df3596640ce6c1d8547141d",
+      "frozen_files_exact": 55
+    },
+    "B14-I-PACK-20261105-rev02-01": {
+      "freeze_sha256": "c720cf8e3d75fb790ecd1ad8b3b380feb541f72afd20e3b4ecdc3864bae341fe",
+      "frozen_files_exact": 449
+    },
+    "B14-I-COMBINED-PACK-20261105-01": {
+      "freeze_sha256": "9089ea1c5c3f653e2cdad10eb8469b89b29671a6f04d8f1eeee51f9d310bf63d",
+      "frozen_files_exact": 469
+    }
+  },
+  "root191_still_exact": true,
+  "root_docs_concurrent_content_not_claimed": true,
+  "held_product_wheel_and_tests_exact": true
+}

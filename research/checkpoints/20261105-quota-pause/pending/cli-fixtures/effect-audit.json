@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "scope": "Raw synthetic orchestration effects, not native evidence",
+  "cases": [
+    {
+      "case": "test_acknowledged_cancel_losing_race_to_natural_exit_verifies_outputs",
+      "state": "completed",
+      "error_code": null,
+      "stop_reason": null,
+      "returncode": 0,
+      "close_assessment": {
+        "state": "passed",
+        "passed": true,
+        "job_handle_close_confirmed": true,
+        "collector_close_confirmed": true,
+        "job_binding_confirmed": true,
+        "job_instance_token": "cccccccccccccccccccccccccccccccc",
+        "token_source": "original_Job_member_trace",
+        "exit_or_kill_attribution": "not_established_by_close"
+      },
+      "exit_evidence": {
+        "passed": true,
+        "kind": "normal",
+        "job_instance_token": "cccccccccccccccccccccccccccccccc"
+      },
+      "manifest": "installed-final-01\\artifacts\\test_acknowledged_cancel_losing_race_to_natural_exit_verifies_outputs\\race\\manifest.json",
+      "sha256": "b58df2f9ea2bddef475f5aeebe555ffe97cb5c523c85eeaa1f87a3923997fd5a"
+    },
+    {
+      "case": "test_timeout_records_failure_and_cleanup_targets_owned_process",
+      "state": "timed_out",
+      "error_code": "run_timeout",
+      "stop_reason": "run_timeout",
+      "returncode": 99,
+      "close_assessment": {
+        "state": "passed",
+        "passed": true,
+        "job_handle_close_confirmed": true,
+        "collector_close_confirmed": true,
+        "job_binding_confirmed": true,
+        "job_instance_token": "cccccccccccccccccccccccccccccccc",
+        "token_source": "original_Job_member_trace",
+        "exit_or_kill_attribution": "not_established_by_close"
+      },
+      "exit_evidence": {
+        "passed": true,
+        "kind": "forced_shutdown",
+        "job_instance_token": "cccccccccccccccccccccccccccccccc",
+        "native_cleanup_evidence": {
+          "schema_version": 1,
+          "state": "confirmed",
+          "passed": true,
+          "job_instance_token": "cccccccccccccccccccccccccccccccc",
+          "original_retained_member_exits_confirmed": true,
+          "members": [
+            {
+              "identity": {
+                "pid": 1234,
+                "creation_time_100ns": "123456789000000"
+              },
+              "class": "live_before_request",
+              "original_capture": {
+                "live_wait_result": 258,
+                "job_membership_confirmed": true,
+                "captured_at_utc": "2026-11-05T00:00:04+00:00",
+                "capture_image_present": true
+              },
+              "pre_observation": {
+                "same_HANDLE_birth_and_wait_confirmed": true,
+                "image": "captured_matches_original"
+              },
+              "exit_observation": {
+                "same_HANDLE_birth_wait_and_code_confirmed": true,
+                "exit_code": 99
+              }
+            }
+          ],
+          "live_before_request": [
+            {
+              "pid": 1234,
+              "creation_time_100ns": "123456789000000"
+            }
+          ],
+          "already_exited_before_request": [],
+          "issues": [],
+          "force_attribution": {
+            "entire_owned_set_killed_by_request": null,
+            "already_exited_members_killed_by_request": false,
+            "live_members": "temporal observations only; individual cause unproven"
+          },
+          "auxiliaries": {
+            "coverage_used": false,
+            "observations": [],
+            "resource_close_state": "no_producer_close_error_reported",
+            "individual_auxiliary_CloseHandle_receipts": "not_recorded_by_producer"
+          }
+        }
+      },
+      "manifest": "installed-final-01\\artifacts\\test_timeout_records_failure_and_cleanup_targets_owned_process\\timed-out\\manifest.json",
+      "sha256": "594db06bd94d3874811e28e7c11e4925aec901913b0770608fb969e8593db9d2"
+    },
+    {
+      "case": "test_unconfirmed_cleanup_is_not_reported_as_a_successful_stop",
+      "state": "cleanup_failed",
+      "error_code": "short_cleanup_failed",
+      "stop_reason": "run_timeout",
+      "returncode": null,
+      "close_assessment": {
+        "state": "passed",
+        "passed": true,
+        "job_handle_close_confirmed": true,
+        "collector_close_confirmed": true,
+        "job_binding_confirmed": true,
+        "job_instance_token": "cccccccccccccccccccccccccccccccc",
+        "token_source": "original_Job_member_trace",
+        "exit_or_kill_attribution": "not_established_by_close"
+      },
+      "exit_evidence": {
+        "passed": false,
+        "kind": "unproven",
+        "job_instance_token": null
+      },
+      "manifest": "installed-final-01\\artifacts\\test_unconfirmed_cleanup_is_not_reported_as_a_successful_stop\\unconfirmed\\manifest.json",
+      "sha256": "883b6c7614de54332e52ec4b3570bc5664438c241cc1dfa709c1c6ca09d799ed",
+      "classification": "PUBLIC_ERROR_CODE_COMPATIBILITY_MISMATCH_REMAINS_RED"
+    },
+    {
+      "case": "test_zero_exit_missing_outputs_fails_manifest_and_preserves_source",
+      "state": "failed",
+      "error_code": "missing_output",
+      "stop_reason": "missing_output",
+      "returncode": 0,
+      "close_assessment": {
+        "state": "passed",
+        "passed": true,
+        "job_handle_close_confirmed": true,
+        "collector_close_confirmed": true,
+        "job_binding_confirmed": true,
+        "job_instance_token": "cccccccccccccccccccccccccccccccc",
+        "token_source": "original_Job_member_trace",
+        "exit_or_kill_attribution": "not_established_by_close"
+      },
+      "exit_evidence": {
+        "passed": true,
+        "kind": "normal",
+        "job_instance_token": "cccccccccccccccccccccccccccccccc"
+      },
+      "manifest": "installed-final-01\\artifacts\\test_zero_exit_missing_outputs_fails_manifest_and_preserves_source\\run\\manifest.json",
+      "sha256": "e8cac8d0c1851f2f9ff506e612fe93fa9e32d56be4a1d53666f8b67c43a7d0ac",
+      "error_code_exit6_assertion_passed": true
+    }
+  ],
+  "receipt_mutation_repairs": 0,
+  "close_calls_per_constructed_Job": 1,
+  "unconfirmed_negative_not_repaired_or_promoted": true
+}

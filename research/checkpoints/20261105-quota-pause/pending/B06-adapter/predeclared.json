@@ -1,0 +1,112 @@
+{
+  "schema": "b06-public-provenance-predeclaration-v1",
+  "state": "before any new native/public capture",
+  "fixed_cases": {
+    "point_set15_direct": [
+      "point_set15",
+      "direct"
+    ],
+    "pair_set15_direct": [
+      "pair_set15",
+      "direct"
+    ],
+    "point_set15_dimr": [
+      "point_set15",
+      "dimr"
+    ],
+    "pair_set15_dimr": [
+      "pair_set15",
+      "dimr"
+    ]
+  },
+  "original_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\freeze.json",
+    "bytes": 1481,
+    "sha256": "ca94cd7493111c0b5c35d39bc23f8f8e2bc311766da1ed61d0ee37c4c1e5be73",
+    "identity": [
+      15735799815185527221,
+      29836347533506958,
+      1481,
+      1793834665661439600,
+      1
+    ]
+  },
+  "original_input_closure": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\input-closure.json",
+    "bytes": 16248,
+    "sha256": "30430aec2df678033a1bb8dccb92f6594bfb9a2476cdbff41dbe22bedd562c4b",
+    "identity": [
+      15735799815185527221,
+      50102545856655712,
+      16248,
+      1793834435703639800,
+      1
+    ]
+  },
+  "original225_science": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-science-01\\freeze.json",
+    "bytes": 23880,
+    "sha256": "c5384ee812d9d229156e42b62f5cabe4dea35289fc134ad762948ddfd5ce8ac1",
+    "identity": [
+      15735799815185527221,
+      14073748837709535,
+      23880,
+      1793833472824035000,
+      1
+    ]
+  },
+  "original225_readout": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\verification.json",
+    "bytes": 37723,
+    "sha256": "c662dcae49e0be912dc03f1de6b801e7a3485ceb3efd7b469c81a352e5d00648",
+    "identity": [
+      15735799815185527221,
+      4222124652836956,
+      37723,
+      1793833633563382600,
+      1
+    ]
+  },
+  "math_ast_sha256": "69d13910ca4504cd799b011a7e2b2781d4e147c54455dc9144e9c1ca6dde3c80",
+  "raw_salinity_unit": "1e-3",
+  "BC_salinityDelta_unit": "ppt",
+  "scientific_math_tolerances_units_masks_unchanged": true,
+  "comparison": "all170 arrays/masks/dimensions/dtypes/variable attributes against corresponding225 reference; exact direct-vs-DIMR separately",
+  "required_native_clock": "121 times 0..120 s, singleton restart0 and120; fixed48face/3station profile",
+  "denied_wheels": [
+    "23f9daa7f8341e2b53e0d51d477273bd3fe72cdd456c5e4589b8921420c02e5d"
+  ],
+  "denied_common": [
+    "ced356ad573df46b6eff867aaf291fcd6db05226c00ed73e98b0a719d9aa6a99"
+  ],
+  "unaccepted_compositions": [
+    "b06261eb0c23bb964d501edfa2dd7dbab19a1ede7b5da8fe0a3d7b57fadcb27b",
+    "d37a661c69d1b9c8b467e7f61ae899b3ec5c2d198636705cbec2b37d4bdd6da5"
+  ],
+  "native_ownership": "separately reviewed shared V/G; raw fields/false/null/unknown retained, not adjudicated here",
+  "authenticity_boundary": "File consistency is not proof against a caller fabricating a complete execution. Independent prospective hashes, collector review, actual captures, package/common V/G and actual ownership review required.",
+  "admission": "No observed-native admission issued. Future corrected runtime must be independently accepted; source freezes alone confer no approval.",
+  "approval_pending": [
+    "Einstein independent adapter review",
+    "coordinator G final review",
+    "corrected common/runtime composition approval",
+    "future collector review",
+    "explicit native lease"
+  ],
+  "no_inherited_approval": [
+    "research225 is not a public run",
+    "227 is envelope only and failed runtime",
+    "G18 prospective gate",
+    "old24 boundary checks",
+    "Plato lifecycle review remains separate"
+  ],
+  "test_domains": [
+    "synthetic provenance",
+    "read-only original225 reference math",
+    "synthetic mutations of copied archived fields"
+  ],
+  "native_launches": 0,
+  "engine_calls": 0,
+  "product_source_imports_for_science": 0,
+  "root_writes": 0
+}

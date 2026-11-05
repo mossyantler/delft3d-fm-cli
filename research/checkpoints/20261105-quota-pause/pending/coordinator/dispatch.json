@@ -1,0 +1,994 @@
+{
+  "description": "Resume coordinator: these are dispatch receipts and file ownership, not proof of liveness. Observe handles; never duplicate a live writer.",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "passed": [
+    "M1-G-coordinator-final-01",
+    "M2-G-coordinator-final-01",
+    "M3-G-coordinator-final-01",
+    "M4-G-coordinator-final-01",
+    "M5-G-coordinator-final-01",
+    "P-BRIDGE-G-coordinator-final-01",
+    "NET-G-structures-coordinator-final-01",
+    "3D-G-coordinator-final-01",
+    "E012-G-coordinator-final-01",
+    "E015-G-waves-final-01",
+    "NET-G-branches-exchange-final-01",
+    "E014-G-coordinator-final-01",
+    "E015-G-08-exchange-01",
+    "E015-G-nitrification-01",
+    "E015-G-coupled-stop-01",
+    "BMI-G-lifecycle-01",
+    "E015-G-public-chemistry-01",
+    "MORPH-G-exchange-final-02",
+    "BMI-G-physics-mapped-01",
+    "BMI-G-all-mapped-01",
+    "WAQ-G-offline-consumer-01",
+    "E012-R-G-observed-consumption-only",
+    "WAQ-G-failed-input-01",
+    "E013-G-forecast-public-01",
+    "RTC-G-live-exchange-01",
+    "WAQ-G-dt1-stops-01",
+    "RR-F152-V-slot71-signed-20261104-01/verification.json",
+    "RR-G-f152-exchange-01/coordinator-raw.json",
+    "O02-G-schedule-probe-01/observations.json",
+    "B03-G-channel-edit-01/coordinator-raw.json",
+    "B03-V-native-slot77-20261104-212609-c9f856ee/slot-closure.json",
+    "O02-V-native-slot78-20261104-01/slot78-released.json",
+    "O02-G-cadence-tree-01/coordinator-raw.json",
+    "B03-G-channel-edit-01",
+    "O02-G-cadence-tree-01",
+    "RR-G-public-profile-01",
+    "P08-G-independent-preparation-01.json",
+    "PKG-G-series-schedule-01",
+    "SERIAL-EXIT-V-native-slot80-20261104-213939-7dd6c229/verification.json",
+    "SERIAL-EXIT-G-failure-cancel-01/verification.json",
+    "SERIAL-EXIT-G-failure-cancel-01",
+    "E007-G-controller-deadlines-02 (portable only)",
+    "E014-G-source-controls-01 (inputs only)",
+    "B09-G-3point-01/manual-native.json (manual controls only)",
+    "E014-G-eligibility-public-01 + E014-ELIGIBILITY-V-public-20261104-02 + PKG-G-field-eligibility-01",
+    "B09-G-3point-01/product-01/native-comparison.json",
+    "B09-G-frozen-modes-01/verification.json",
+    "B09-G-BC-BOM-01/verification.json",
+    "B09-V-canonical-native-slot-95-01/native-verification.json",
+    "B09-G-final-files-02/coordinator-equivalence.json",
+    "B09-G-installed-wheel-02/verification.json",
+    "E014-GUI-G-pinned-oracle-03/verification.json (offline only)",
+    "JOB-FORCE-G-accepted-01/verification.json",
+    "B04-EXPORT-G-release-layers-01/verification.json",
+    "B04-EXPORT-V-final-frozen-01/verification.json",
+    "PKG-G-export-force-02/verification.json",
+    "GUEST-FORCED-G-accepted-01/verification.json",
+    "B04-PLI-G-release-native-01",
+    "O03-O04-I-native-20261105-02 producer",
+    "B04-PLI-G-repaired-native-01",
+    "B10-G-repaired-native-03",
+    "B04-PLI-G-east-repair-03",
+    "B04-CRS-G-public-native-01",
+    "B04-PLI-G-final-tail-repair-04",
+    "REG-G-boundary-final-01",
+    "O03-O04-PUBLIC-G-native-01",
+    "B03-ROWS-G-controls-01",
+    "B03-ROWS-G-public-native-01",
+    "G06-OBS-I-add-only-native-slot149-20261105-01",
+    "B03-ROWS-2026-V-native-identity-20261105-012630-66fb054b",
+    "G06-OBS-G-width154-01/verification.json",
+    "MDU-ID-V-stage-01/native-slot-155-01/verification.json",
+    "G06-OBS-PUBLIC-G-slot156-01/verification.json",
+    "MDU-ID-G-E009-E011-158-01/verification.json",
+    "MDU-ID-G-public-01/verification.json",
+    "MDU-ID-G-f34-156-01/verification.json",
+    "G06-OBS-PUBLIC-V-stage-01/integration-02/terminal-receipt.json",
+    "CLI-G-G06-MDU-regression-157-01/verification.json",
+    "G12-ORI-G-159-01/verification.json",
+    "G12-ORI-V-native159-20261105-03/verification.json",
+    "SPATIAL-G-native-161",
+    "SPATIAL-G-regression-165",
+    "COEFF-ASSIGN-G-171-serial+errors",
+    "CRS-IO-G-batch-01/verification.json",
+    "G11-ASSIGN-G-installed-02/verification.json",
+    "B11-PUBLIC-G-native-169-01/verification.json",
+    "B11-COEFF-G-raw-167-02/verification.json",
+    "COEFF-ASSIGN-G-all-173-01/stderr.txt",
+    "G13: three owned 120s calculations and two NetCDF readbacks prove negative geographic result (slot 175); nominal hydraulic gates failed",
+    "G13-READ dispatcher serial release replay: 600s + 191 variables",
+    "G13-READ production registry release: E009/E011 native failure/timeout/cancel controls.",
+    "G13-SINGLE-RUNNER-I-G-native-183-01",
+    "G13-INTEGRATION-REPLAY-I-G-native-187-01",
+    "G13-PUBLIC-G-serial-189-01",
+    "G13-PUBLIC-G-failures-191-01",
+    "G13-PUBLIC-G-release-01",
+    "G13-STOP-G-native-201-01",
+    "B13-RUN-G-native-203-01/terminal",
+    "B13-RELEASE-G-serial-205-01",
+    "B13-RELEASE-G-failure-207-01",
+    "B12-PREVIEW public installed input-only; B13 portable three-case input preparation",
+    "G16-SERIES-G-example-01/checked-01/verification.json",
+    "G16-RUN-PROFILE-G-native-217-01",
+    "B06-PLI-G-readback-223-01/terminal-verification.json (original exits only)",
+    "B06-V-PLI-results223-G01/verification.json (delta/geometry only; absolute-key meaning fails)",
+    "B06-PLI-G-readback-223-01/bidirectional-verification.json (post-terminal original proof)",
+    "B06-PUBLIC-G-rev02-01/verification.json (input-only installed candidate)",
+    "M0-G-maintenance-20261105-03/verification.json",
+    "B06-PUBLIC-G-native-225-admission-01/verification.json (prelaunch only)",
+    "B06-PUBLIC-G-native-readback-01/results225-01/verification.json",
+    "B06-V-public-install-native225-01/verification.json",
+    "B06-PUBLIC-G-merge-01/acceptance.json",
+    "B06-PUBLIC-G-repo-examples-01/verification.json",
+    "G15-PROPOSAL-G-final-01/verification.json",
+    "SHORT-CLOSE-G-rev04-final-01/verification.json"
+  ],
+  "leases": [
+    {
+      "previous": "P-BRIDGE-I",
+      "node": "f152 metadata frozen; E014 GUI implementation transferred to Faraday on terminal service 429",
+      "agent_id": "01a1a56d-a8e8-7df0-9404-dcbbe96eadd9",
+      "nickname": "Bacon"
+    },
+    {
+      "previous": "M1-V",
+      "node": "GUEST-FORCE-I consume new JOB-FORCE receipt in dimr_project_export*.py/guest_forced*.py. No product Job changes.",
+      "agent_id": "01a1a56d-a956-7131-baad-1e6e14e132a2",
+      "nickname": "Nash"
+    },
+    {
+      "previous": "M5-I",
+      "node": "E012-R-V frozen; WIN-TRACE-V prospective assignment relinquished after terminal service error; no shared implementation ownership",
+      "agent_id": "01a1a56d-a98d-7191-a131-b737678561bd",
+      "nickname": "Ampere"
+    },
+    {
+      "previous": "M5-V",
+      "node": "GUEST-FORCE-V independent producer/witness oracle, Python-only lease after code freeze.",
+      "agent_id": "01a1a56e-570f-7451-86c6-50a8f2be0221",
+      "nickname": "Lovelace"
+    },
+    {
+      "previous": "M3-I",
+      "node": "B04-PLI-I: only boundary_locations*.py, examples/boundary_locations; E014 standalone fields GUI I frozen pending real guest.",
+      "agent_id": "01a1a56e-56d2-71c1-a236-f0c2d0c7d9a4",
+      "nickname": "Faraday"
+    },
+    {
+      "previous": "P-BRIDGE-V",
+      "node": "B04-CRS-V: tests/test_boundary_location_crs*.py and verify_boundary_location_crs*.py. JOB-FORCE-V final.",
+      "agent_id": "01a1a56e-574a-7ae1-aa51-101c4d765368",
+      "nickname": "Einstein"
+    },
+    {
+      "previous": null,
+      "node": "B04-EXPORT-I: boundary_export*.py and examples/boundary_export/ only; B09 implementation frozen after acceptance",
+      "agent_id": "01a1a570-10f9-7ee2-a91f-d7926a2217b1",
+      "nickname": "Mill"
+    },
+    {
+      "previous": null,
+      "node": "B04-EXPORT-V: independent test_boundary_export*.py + verify_boundary_export*.py only; B09 native #95 released",
+      "agent_id": "01a1a632-c8e1-7700-b59d-8f610117aab9",
+      "nickname": "Raman"
+    },
+    {
+      "previous": null,
+      "node": "B04-CRS-I new boundary_location_crs.py only. JOB-FORCE-I accepted immutable A5EF.",
+      "agent_id": "01a1a63e-c258-77c2-bc07-403709d8a207",
+      "nickname": "Archimedes"
+    },
+    {
+      "previous": null,
+      "node": "B04-PLI-V: only test_boundary_locations*.py and verify_boundary_locations*.py; E007 entry resolver I frozen pending guest.",
+      "agent_id": "01a1a641-2ac3-7a80-a4f5-b91ca8b79b68",
+      "nickname": "Plato"
+    }
+  ],
+  "native_slot": {
+    "rule": "One owner at a time; confirm released before transfer, always use a fresh folder.",
+    "owner": "idle",
+    "sequence": 228,
+    "next_candidates": [
+      "E014/P08/E007 live exports require supported separate disposable guest",
+      "No native slot required for public field eligibility inspect/preview",
+      "No new launches in a previously released slot"
+    ]
+  },
+  "next": "Commonwheel f7eb Gexact191/site/schema pass; finalIpackagefreeze andPlatoV pending. Arch/Einstein newindependentfull-lifetime nativeadapter/audit before anylease. B14rev05 G2contradictions->Faradayrev06; G15I/V privateactive; B06adapteractive. Nativeidle228;rootunchanged.",
+  "current_nodes": {
+    "G06-OBS-PUBLIC": {
+      "implementation": "Faraday",
+      "verification": "Plato",
+      "replay": "Nash",
+      "integration": "coordinator",
+      "state": "accepted_bounded_profile_after_coordinator_review",
+      "evidence": "G06-OBS-PUBLIC-G-slot156-01/verification.json",
+      "regression": "CLI-G-G06-MDU-regression-157-01/verification.json",
+      "failure_and_cancellation_replay": "MDU-ID-G-E009-E011-158-01/verification.json"
+    },
+    "MDU-ID": {
+      "implementation": "Mill",
+      "verification": "Raman, Einstein",
+      "integration": "coordinator",
+      "state": "accepted_bounded_profile_after_coordinator_review",
+      "evidence": "MDU-ID-G-public-01/verification.json",
+      "regression": "CLI-G-G06-MDU-regression-157-01/verification.json",
+      "failure_and_cancellation_replay": "MDU-ID-G-E009-E011-158-01/verification.json"
+    },
+    "G12-ORI": {
+      "needs": [
+        "f34 unchanged direct 600s",
+        "predeclared-v",
+        "exclusive native slot"
+      ],
+      "implementation": "Mill: research/workflows/replay/section_orientation.py and fresh G12-ORI-I-*",
+      "verification": "Lovelace: research/workflows/verification/verify_section_orientation.py and fresh G12-ORI-V-*",
+      "integration": "coordinator: dispatch, raw outputs, documentation",
+      "state": "accepted_manual_file_and_engine_scope",
+      "independent": "G12-ORI-V-native159-20261105-03/verification.json",
+      "coordinator": "G12-ORI-G-159-01/verification.json"
+    },
+    "G10-XYN": {
+      "needs": [
+        "G06-OBS-PUBLIC",
+        "G10-GEOM"
+      ],
+      "state": "accepted_installed_and_independent_file_profile",
+      "implementation": "Faraday: observation_transfer*.py, isolated stage",
+      "verification": "Plato: independent fixture/oracle, isolated stage",
+      "integration": "coordinator: command registration, package and native comparison",
+      "coordinator": "G10-PUBLIC-G-native-161-01/verification.json"
+    },
+    "G12-SECTION-PUBLIC": {
+      "needs": [
+        "G12-ORI"
+      ],
+      "state": "accepted_installed_and_independent_file_profile",
+      "implementation": "Mill: section_orientation*.py, isolated stage",
+      "verification": "Lovelace: independent sections and output verifier, isolated stage",
+      "integration": "coordinator: command registration, package and raw comparison",
+      "coordinator": "G12-PUBLIC-G-native-161-01/verification.json"
+    },
+    "G10-GEOM": {
+      "needs": [
+        "G06-OBS-PUBLIC"
+      ],
+      "implementation": "Archimedes staged common mesh reader (no root edits); Faraday batch index only",
+      "verification": "Raman independent costing and geometry oracle",
+      "integration": "coordinator commits shared dependency first",
+      "state": "accepted_single_and_prepared_geometry",
+      "coordinator": "G10-BATCH-V-live-02/verification.json"
+    },
+    "G11-DRY": {
+      "needs": [
+        "G06-OBS-PUBLIC",
+        "O03 shapefile control",
+        "single fresh native slot after predeclaration"
+      ],
+      "implementation": "Nash: observation_dry_area.py and fresh experiment",
+      "verification": "Einstein: verify_observation_dry_area.py with independent geometry/shapes/history check",
+      "integration": "coordinator",
+      "state": "accepted_engine_only_guest_unverified",
+      "coordinator": "G11-DRY-V-raw-review-20261105-023908-a669b026/review/verification.json"
+    },
+    "B11-COEFF": {
+      "needs": [
+        "B03",
+        "B11 inventory"
+      ],
+      "implementation": "Archimedes: boundary_line_coefficients replay",
+      "verification": "Mill: independent raw output verifier",
+      "integration": "coordinator: final review, package, regression",
+      "state": "accepted_bounded_scope",
+      "coordinator": "B11-COEFF-G-raw-167-02/verification.json",
+      "release": "research/catalog/coefficients-stations-gates.json"
+    },
+    "G11-ASSIGN": {
+      "needs": [
+        "G11-DRY"
+      ],
+      "implementation": "Faraday: separately staged result reader",
+      "verification": "Plato: read-only evidence oracle",
+      "integration": "coordinator: final review, package, regression",
+      "state": "accepted_bounded_scope",
+      "coordinator": "G11-ASSIGN-G-installed-02/verification.json",
+      "release": "research/catalog/coefficients-stations-gates.json"
+    },
+    "CRS-IO": {
+      "needs": [
+        "G10-GEOM",
+        "B04-CRS"
+      ],
+      "implementation": "Lovelace: staged CRS snapshot changes only",
+      "verification": "Raman: allocation, fingerprint and race checks",
+      "integration": "coordinator: final review, package, regression",
+      "state": "accepted_bounded_scope",
+      "coordinator": "CRS-IO-G-batch-01/verification.json",
+      "release": "research/catalog/coefficients-stations-gates.json"
+    },
+    "G13-PUMP": {
+      "needs": [
+        "G07 structures",
+        "G13 inventory"
+      ],
+      "implementation": "Archimedes: research/workflows/replay/pump_orientation.py and G13-PUMP-I-* only",
+      "verification": "Mill: research/workflows/verification/verify_pump_orientation.py and G13-PUMP-V-* only",
+      "integration": "coordinator: freeze controls, review both, grant separate native lease",
+      "state": "native_verified_counterexample",
+      "preparation_sha256": "7644041eed4f4df1ccaebee5f0d42aa7382fb5521024c35e9dc7e3cb70560505",
+      "before_native_plan": "G13-PUMP-G-input-review-01/prelaunch-geographic-plan.json",
+      "native": "G13-RUNNER-I-G-native-175-01/verification.json",
+      "verdict": "research/catalog/pump-orientation-gates.json"
+    },
+    "B11-PUBLIC": {
+      "needs": [
+        "B11-COEFF"
+      ],
+      "implementation": "Nash: boundary_coefficients modules",
+      "verification": "Einstein: separate CLI tests and byte controls",
+      "integration": "coordinator: compare installed package to manual models",
+      "state": "accepted_bounded_scope",
+      "coordinator": "B11-PUBLIC-G-native-169-01/verification.json",
+      "release": "research/catalog/coefficients-stations-gates.json"
+    },
+    "G13-RUNNER": {
+      "needs": [
+        "G13-PUMP frozen input and V predicate pins before native launch"
+      ],
+      "implementation": "Nash: research/workflows/replay/run_pump_orientation.py and G13-RUNNER-I-* only",
+      "verification": "Einstein: isolated runner preflight/mutations G13-RUNNER-V-* only",
+      "integration": "coordinator: final review plus native grant",
+      "state": "executed_three_natural_confirmed_original_jobs",
+      "prepared": "G13-RUNNER-I-prepared-20261105-01/plan.json"
+    },
+    "G13-PUBLIC": {
+      "needs": [
+        "G13-PUMP native geographic transfer proof before approval",
+        "G13-RUNNER"
+      ],
+      "implementation": "Faraday: pump_*.py in G13-PUBLIC-I-* staging only",
+      "verification": "Plato: independent controls G13-PUBLIC-V-* only",
+      "integration": "coordinator: root registration after review, installed native match and rollback",
+      "state": "rejected_hydraulic_claim_do_not_register",
+      "reason": "eastward four-link flux unaffected by geometry reversal"
+    },
+    "G13-READ": {
+      "needs": [
+        "G13-PUMP"
+      ],
+      "implementation": "Faraday private G13-PUBLIC-I-inspect-only-*",
+      "verification": "Plato wrote predeclared candidate tests; terminal service 429. Einstein owns private G13-READ-V-EIN-* independent execution only.",
+      "integration": "coordinator only after independent review, native slots explicitly granted",
+      "state": "accepted_inspection_only",
+      "package_evidence": "G13-READ-G-staged-wheel-01/verification.json",
+      "wheel_sha256": "f61961f93719d0311311026da0189c936ba06d1586f1cc1cda67cba1b20e3985",
+      "release_gate": "research/catalog/pump-inspect-gate.json",
+      "release_receipts": [
+        "G13-READ-G-root-01/verification.json",
+        "G13-READ-G-serial-179-01/verification.json",
+        "G13-READ-G-failures-181-01/verification.json"
+      ]
+    },
+    "G13-DRIVE": {
+      "needs": [
+        "G13-PUMP"
+      ],
+      "implementation": "Archimedes replay/pump_drive_controls and G13-DRIVE-I-*",
+      "verification": "Raman verification/verify_pump_drive and G13-DRIVE-V-*",
+      "integration": "coordinator only after independent review, native slots explicitly granted",
+      "state": "verified_both_scalar_changes_reversed_nominal_total_capacity_failed",
+      "preparation": "G13-DRIVE-I-20261105-034315/prepared/preparation.json",
+      "preparation_sha256": "41c0b4c585785de2ec8f0d0f279eaa3607cb9233f9a7318345b824851d23a4f5",
+      "coordinator_input_review": "G13-DRIVE-G-input-review-01/verification.json",
+      "remaining": "No general capacity scaling or GUI parity; one-link case separate",
+      "release_receipts": [
+        "G13-DRIVE-V-G-native-177-01/verification.json",
+        "G13-DRIVE-G-raw-177-01/readback.json",
+        "G13-DRIVE-V-results-177-01/verification.json"
+      ],
+      "catalog": "research/catalog/pump-drive-gates.json"
+    },
+    "G13-DRIVE-RUNNER": {
+      "needs": [
+        "G13-DRIVE",
+        "G13-RUNNER"
+      ],
+      "implementation": "Nash replay/run_pump_drive adapter and G13-DRIVE-RUNNER-I-*",
+      "verification": "Lovelace private G13-DRIVE-RUNNER-V-*",
+      "integration": "coordinator only after independent review, native slots explicitly granted",
+      "state": "accepted_three_natural_exits",
+      "coordinator": "G13-DRIVE-G-input-review-01/review-findings.json",
+      "release_receipts": [
+        "G13-DRIVE-V-adapter-review-02/verification.json",
+        "G13-DRIVE-RUNNER-I-G-native-177-01/verification.json"
+      ]
+    },
+    "G13-SINGLE": {
+      "needs": [
+        "G13-PUMP; wait for G13-DRIVE before actual calculation"
+      ],
+      "implementation": "Archimedes: replay/pump_single_link.py; G13-SINGLE-I-* only",
+      "verification": "Mill: G13-SINGLE-V-* only",
+      "state": "accepted_single_link_response_nominal_capacity_passed_polyline_geography_unchanged",
+      "integration": "coordinator; no native lease",
+      "verifier_predeclaration": "G13-SINGLE-V-predeclared-01/scientific-plan.json",
+      "evidence": [
+        "G13-SINGLE-I-20261105-034940/prepared-final/preparation.json",
+        "G13-SINGLE-V-predeclared-01/geometry-audit.json",
+        "G13-SINGLE-V-predeclared-01/freeze.json",
+        "G13-SINGLE-RUNNER-V-G-native-183-01/verification.json",
+        "G13-SINGLE-G-raw-183-01/readback.json"
+      ],
+      "catalog": "research/catalog/pump-single-link-gates.json"
+    },
+    "G13-SINGLE-RUNNER": {
+      "needs": [
+        "G13-SINGLE",
+        "G13-DRIVE-RUNNER"
+      ],
+      "implementation": "Nash: research_serial_cases and run_pump_single; private runner fixtures",
+      "verification": "Lovelace: verify_pump_single and private offline checker. Mill: original separate one-link hypotheses",
+      "integration": "Coordinator only: frozen inputs, real predicate, actual retained-Job proof then raw physical readback",
+      "state": "accepted_five_natural_owned_exits_slot183",
+      "evidence": [
+        "G13-SINGLE-V-predeclared-01/predictions.json",
+        "G13-SINGLE-RUNNER-V-final-copy-20261105-01/prepared183-review-01/verification.json",
+        "G13-SINGLE-RUNNER-I-G-native-183-01/verification.json"
+      ],
+      "plan": "G13-SINGLE-RUNNER-I-G-prepared-183-01/plan.json",
+      "plan_sha256": "80452ad4a8d85c93b6c6e510440f3b296d48b2e70b57eedd581ee5521f5cbae9",
+      "coordinator_evidence": "G13-SINGLE-G-plan-review-183-01/verification.json"
+    },
+    "G16-CREST": {
+      "needs": [
+        "G07",
+        "G16"
+      ],
+      "implementation": "Archimedes: weir_crest_series and input evidence",
+      "verification": "Mill: verify_weir_crest_series and independent frozen science plan",
+      "integration": "Coordinator reviews actual CSV-to-TIM clock and engine readback; GUI is separate",
+      "state": "measured_frozen_gate_failed_initial_TIM_crest_and_low_initial_restart",
+      "evidence": [
+        "G16-CREST-I-20261105-040000/prepared-final/preparation.json",
+        "G16-CREST-G-input-review-01/verification.json",
+        "G16-CREST-V-predeclared-01/scientific-plan.json",
+        "G16-CREST-V-G-native-185-01/verification.json",
+        "G16-CREST-G-raw-185-01/readback.json",
+        "G16-CREST-V-results-185-01/verification.json"
+      ],
+      "catalog": "research/catalog/weir-crest-series-gates.json",
+      "remaining": "Full constant equivalence not established. GUI CSV export/roundtrip not measured. Initial history and restart discrepancies stay visible."
+    },
+    "G16-CREST-RUNNER": {
+      "needs": [
+        "G16-CREST",
+        "G13-SINGLE-RUNNER"
+      ],
+      "implementation": "Archimedes: weir_crest_profile only; Nash owns shared executor",
+      "verification": "Raman: only G16-CREST-RUNNER-V-* independent safety audit (Mill owns physics)",
+      "integration": "Coordinator verifies closed references, case matching and predicate before serial lease",
+      "state": "accepted_five_owned_natural_exits_slot185_not_hydraulic_equivalence",
+      "evidence": [
+        "G16-CREST-RUNNER-I-20261105-041210/profile-checks.json",
+        "G16-CREST-RUNNER-V-final-11/acceptance.json",
+        "G16-CREST-RUNNER-I-G-native-185-01/verification.json"
+      ]
+    },
+    "G13-EDIT": {
+      "needs": [
+        "G13-READ",
+        "G13-DRIVE"
+      ],
+      "implementation": "Faraday: staged pump_edit*.py only",
+      "verification": "Einstein: independent request/graph, publication and permission checks",
+      "integration": "Coordinator: no registration until installed byte preservation, scoped publication, hydraulic replay",
+      "state": "accepted_bounded_public_workflow_after_coordinator_review",
+      "evidence": [
+        "G13-EDIT-G-security-review-01/verification.json",
+        "G13-EDIT-V-preparation-20261105-040812-e7ba3d4e/PREDECLARED.json",
+        "G13-EDIT-G-native-plan-01/acceptance-plan.json",
+        "G13-EDIT-I-20261105-fbff80e4/freeze.json",
+        "G13-EDIT-V-replay-descriptor-20261105-045640-9c4e524a/verification.json",
+        "G13-EDIT-V-installed-20261105-051042-7a65ac49/verification.json",
+        "G13-EDIT-G-staged-wheel-02/verification.json",
+        "G13-EDIT-V-portable-20261105-052506-248bf5ab/handoff.json"
+      ],
+      "staged_wheel_sha256": "b8a57c428802934f634923be843ad8546496222b4422848495b132b26ab0e992",
+      "remaining": "GUI Reverse line(s), generalized pump geometries, staged controls, MPI/DIMR and calibrated physics not qualified.",
+      "release_gate": "research/catalog/pump-public-gate.json"
+    },
+    "G13-RUN-PROFILE": {
+      "needs": [
+        "G13-READ",
+        "G13-DRIVE",
+        "G13-SINGLE"
+      ],
+      "implementation": "Archimedes: after G16 adapter handoff; only G13-RUN-PROFILE-I-*/src/dfm_cli/pump_run_*.py and isolated tests",
+      "verification": "Raman: after G16 runner independent review, G13-RUN-PROFILE-V-* only",
+      "integration": "Coordinator gates explicit opt-in via retained public OwnedJob, both preflight and staged graph, full signed output and flow/time checks; no implicit short profile extension",
+      "state": "accepted_bounded_public_workflow_after_coordinator_review",
+      "evidence": [
+        "G13-RUN-PROFILE-G-baseline-01/verification.json"
+      ],
+      "remaining": "GUI Reverse line(s), generalized pump geometries, staged controls, MPI/DIMR and calibrated physics not qualified.",
+      "release_gate": "research/catalog/pump-public-gate.json"
+    },
+    "G13-INTEGRATION-REPLAY": {
+      "needs": [
+        "G13-EDIT",
+        "G13-RUN-PROFILE",
+        "G13-RUN-LIFECYCLE",
+        "installed combined wheel"
+      ],
+      "implementation": "Nash: only G13-INTEGRATION-REPLAY-I-* public-command replay; no separate native launcher",
+      "verification": "Lovelace: independent signed flux, mass balance, full datasets and original handle readback in G13-INTEGRATION-REPLAY-V-*; no engine launches",
+      "integration": "coordinator only; no production registration or new native slot yet",
+      "state": "accepted_bounded_public_workflow_after_coordinator_review",
+      "evidence": [
+        "G13-EDIT-G-native-plan-01/acceptance-plan.json",
+        "G13-SINGLE-G-raw-183-01/readback.json"
+      ],
+      "release_gate": "research/catalog/pump-public-gate.json",
+      "remaining": "GUI Reverse line(s), generalized pump geometries, staged controls, MPI/DIMR and calibrated physics not qualified."
+    },
+    "G13-RUN-LIFECYCLE": {
+      "needs": [
+        "G13-RUN-PROFILE hook interface",
+        "G13-READ"
+      ],
+      "implementation": "Faraday: G13-RUN-LIFECYCLE-I-* only, private runs.py and run_pump_lifecycle.py, no native launches",
+      "verification": "Mill: independent predeclared synthetic transitions and original archived receipts in G13-RUN-LIFECYCLE-V-* only",
+      "integration": "Coordinator: ensure original handles closed before publishing any terminal state, no PID adoption; precedes package + leased integration replay",
+      "state": "accepted_bounded_public_workflow_after_coordinator_review",
+      "evidence": [
+        "G13-RUN-LIFECYCLE-V-predeclared-01/plan.json",
+        "G13-RUN-LIFECYCLE-I-20261105-e616e833/source.json"
+      ],
+      "release_gate": "research/catalog/pump-public-gate.json",
+      "remaining": "GUI Reverse line(s), generalized pump geometries, staged controls, MPI/DIMR and calibrated physics not qualified."
+    },
+    "B13-EDIT": {
+      "needs": [
+        "3D-G-coordinator-final-01",
+        "B13 M0 manual/source mapping"
+      ],
+      "implementation": "Nash: staged boundary vertical inspection/edit in B13-EDIT-I-* only",
+      "verification": "Einstein: portable byte/consumer refusals and independent one-cell manual control under B13-EDIT-V-* only",
+      "integration": "Coordinator stages command registration, public editor and native comparison separately after G13; no GUI mapping or new engine lease granted",
+      "state": "accepted_bounded_installed_public_edit_and_native_comparison",
+      "evidence": [
+        "B13-EDIT-I-20261105-rev02/freeze.json",
+        "B13-EDIT-V-rev02-results-20261105-074230-af758f61/verification.json",
+        "B13-EDIT-V-installed-20261105-083240-f615347a/verification.json"
+      ],
+      "gate": "research/catalog/vertical-boundary-gate.json",
+      "remaining": "GUI/Shell editing, generic times/positions/functions, broader models not qualified"
+    },
+    "G13-PUBLIC-STOP": {
+      "needs": [
+        "G13-INTEGRATION-REPLAY",
+        "final wheel",
+        "exclusive native slot"
+      ],
+      "implementation": "Coordinator runs two independent public CLI stop requests in new owned root only",
+      "verification": "Mill reads raw outcomes with no process launches, G13-PUBLIC-STOP-V-* only",
+      "state": "reviewed_actual_races_and_mixed_member_forced_requests",
+      "scope": "Real timeout and cancel or natural race. Earlier f34 same-executable control evidence remains separate.",
+      "evidence": [
+        "G13-PUBLIC-STOP-V-results-01/verification.json"
+      ]
+    },
+    "G13-STOP": {
+      "needs": [
+        "G13-PUBLIC-STOP"
+      ],
+      "implementation": "Faraday, isolated G13-STOP-I helper + synthetic tests only",
+      "verification": "Mill, independent G13-PUBLIC-STOP-V-patch-01, 17 negative/positive copied-fact cases",
+      "integration": "Coordinator only: source/actual-close readback, promotion and installed-wheel run",
+      "state": "accepted_installed_natural_and_forced_with_separate_close_evidence",
+      "evidence": [
+        "G13-STOP-I-20261105-d22d8b5c/handoff.json",
+        "G13-PUBLIC-STOP-V-patch-01/verification.json"
+      ],
+      "release_gate": "research/catalog/pump-public-gate.json"
+    },
+    "B13-RUN": {
+      "needs": [
+        "B13-EDIT",
+        "3D-G-coordinator-final-01",
+        "exclusive native slot"
+      ],
+      "implementation": "Archimedes: research/workflows/replay/vertical_boundary_cases.py and B13-RUN-I only; no launch without coordinator lease",
+      "verification": "Lovelace: research/workflows/verification/verify_vertical_boundary_cases.py and B13-RUN-V only; raw arrays and frozen control/input interpretation; no launches",
+      "integration": "Coordinator: installed public edit plus control/manual/public bounded 20s layers run, file-by-file and station/layer comparison before root publication",
+      "state": "accepted_bounded_installed_public_edit_and_native_comparison",
+      "gate": "research/catalog/vertical-boundary-gate.json",
+      "remaining": "GUI/Shell editing, generic times/positions/functions, broader models not qualified"
+    },
+    "B12-PREVIEW": {
+      "needs": [
+        "M0 B12 mapping",
+        "B03 signal inventory",
+        "B10 support activation",
+        "B11 factor/offset behavior"
+      ],
+      "implementation": "Raman: read-only boundary preview, B12-PREVIEW-I-* staged modules only",
+      "verification": "Mill: independent raw signal/time/units oracle, B12-PREVIEW-V-* only",
+      "integration": "Coordinator registers only after review; receiving water levels do not establish input preview or GUI equivalence",
+      "state": "accepted_root_installed_v2_inputs_only",
+      "evidence": [
+        "research/catalog/boundary-preview-gate.json",
+        "B12-PREVIEW-I-20261105-02/freeze.json",
+        "B12-PREVIEW-G-installed-02/verification.json",
+        "B12-PREVIEW-V-v2-candidate-01/verification.json",
+        "B12-PREVIEW-V-installed-v2-tests-01/verification.json",
+        "B12-PREVIEW-V-public-v2-01/verification.json",
+        "B12-PREVIEW-G-channel-01/plan.json",
+        "B12-PREVIEW-G-readback-02/verification.json",
+        "B12-PREVIEW-G-crossfile-01/readback.json",
+        "B12-PREVIEW-G-crossfile-02/verification.json"
+      ]
+    },
+    "B13-PORTABILITY": {
+      "needs": [
+        "B13-RUN",
+        "portable three-layer specification",
+        "installed B13 package"
+      ],
+      "implementation": "Archimedes: stage portable fresh-input research replay under B13-PORTABILITY-I-*; do not rewrite historical producer or launch engines",
+      "verification": "Einstein: independent clean checkout with no historical reference Python; B13-PORTABILITY-V-* only",
+      "integration": "Coordinator reviews file/reference authority, byte oracle and archived compatibility",
+      "state": "accepted_renamed_clean_input_replay_only",
+      "evidence": [
+        "research/catalog/vertical-boundary-portability.json"
+      ]
+    },
+    "B12-ENGINE": {
+      "needs": [
+        "B12-PREVIEW accepted inputs and clock rules",
+        "BMI worker lifecycle evidence",
+        "separate exclusive native slot"
+      ],
+      "implementation": "Faraday: B12-ENGINE-I-* only, copied uniform prescribed water level models and isolated read-only native observer; no free-form variable writes",
+      "verification": "Plato: B12-ENGINE-V-* only, independent source/units/clock/shape and expected values; accounting and actual sampled raw values",
+      "integration": "Coordinator; qualify original worker, mesh/BC inputs, predeclared clocks and actual prescribed heights, never use receiving water level as oracle",
+      "state": "diagnostic_completed_209_two_t0_mismatches_calibration_not_approved",
+      "evidence": [
+        "research/catalog/boundary-prescribed-array.json"
+      ]
+    },
+    "G16-SERIES": {
+      "needs": [
+        "G16-CREST #185 source/inputs/manual runs",
+        "G07 structure definition references"
+      ],
+      "implementation": "Nash: G16-SERIES-I-* only, staged support for weir crest CSV/TIM inspection/export/import; no public CLI wiring or native launch",
+      "verification": "Lovelace: G16-SERIES-V-* only, independent column, units, time origin, lossless preservation and numerical-response control; no launch",
+      "integration": "Coordinator; do not equate CSV interchange or native time-zero output with GUI CSV parity",
+      "state": "editor_merged_185_files_research_run_211_completed_scientific_sign_failed",
+      "package": "Archimedes: G16-SERIES-PACK-* only, exact B12 base, no native launches",
+      "replay": "Einstein: G16-SERIES-REPLAY-* only, manual vs public TIM cases before exclusive launch",
+      "evidence": "research/catalog/weir-series-public-gate.json"
+    },
+    "B06-SOURCES": {
+      "needs": [
+        "M3 new-EXT graph",
+        "B06 manual and fixed source discrepancy",
+        "B12-PREVIEW reviewed inputs"
+      ],
+      "implementation": "Raman: B06-SOURCES-I-* only; single outfall vs coupled intake/outfall; exact IDs, direct/PLI coordinates and fixed-Q salinity changes",
+      "verification": "Mill: B06-SOURCES-V-* only; independent native input and salt/water balance plus preserved edits",
+      "integration": "Coordinator checks paired raw cases; do not infer absolute/delta consumption from export or successful exit",
+      "state": "accepted_bounded_public_input_commands_root191_native225",
+      "runtime": "Faraday corrects PLI runtime in B06-PLI-RUNNER-I; Plato separate ownership review; Mill predeclared geometry and science; Raman corrected public product candidate; coordinator owns merge.",
+      "evidence": "research/catalog/source-sink-public-gate.json",
+      "review_blocker": "none for accepted input scope; dedicated source run profile is separate B06-RUN-PROFILE node"
+    },
+    "B12-ENGINE-T0": {
+      "needs": [
+        "#209 arrays, clocks and failed initialization measurements",
+        "source trace of initialization versus updates",
+        "separate prospective V; new exclusive slot"
+      ],
+      "implementation": "Faraday only in B12-ENGINE-T0-I-*; vary declared steps against isolated frozen worker",
+      "verification": "Plato only in B12-ENGINE-T0-V-*; rederive expected initial alternatives independent of observed #209",
+      "integration": "coordinator. No retrospective correction or discarded t0. Preserve the original gate.",
+      "state": "eight_diagnostic_slices_collected_not_full_simulations",
+      "runner_fix": "Faraday isolated new revision; exact fixed dispatch owner and path. Archimedes independent runner proof; Plato unchanged science predeclaration.",
+      "evidence": "research/experiments/B12-ENGINE-T0-G-readback-221-01/verification.json",
+      "independent": "research/experiments/B12-ENGINE-T0-V-schedule12-reader221-01/post221-review-01/verification.json",
+      "next": "Retain distinction between file preview at t and observed installed engine startup; no universal retiming."
+    },
+    "G16-RUN-PROFILE": {
+      "depends_on": [
+        "G16-SERIES file gate",
+        "original #187 pump guarded lifecycle and #211 raw comparisons"
+      ],
+      "implementation": "Nash private G16-RUN-PROFILE-I-* only",
+      "verification": "Lovelace independent G16-RUN-PROFILE-V-* only",
+      "package": "Einstein private G16-RUN-PROFILE-PACK with 185-file base; no native",
+      "integration": "Coordinator common run/schema merge after installed preflight and native controls; preserve pump, no CLI scientific sign prediction",
+      "state": "approved_public_run_profile_root_and_release_wheel",
+      "evidence": "research/catalog/weir-run-profile-gate.json",
+      "native_217": "four public direct runs x189",
+      "shared_pump_219": "five previous cases x173",
+      "release_wheel_sha256": "ec7f24255f002dfcf5a575bfbd4988e34b6f80ac28be0c6ab1ddc09b2d926b97"
+    },
+    "B14": {
+      "state": "input_file_gate_accepted_BMI_rev06_G_consistency_and_filepreflight_passed_independentV_pending_publicdirect_commonheld",
+      "implementation": "Nash B14-I-*",
+      "verification": "Einstein B14-V-*",
+      "integration": "Coordinator only after differential source and signal/bytes checks",
+      "package": "B14-I-COMBINED-PACK-20261105-01 wheel 3a43ab7a141999204ae4251c66032af0afe4e59e4830e769c34f75e52d4255a2",
+      "runner": "Faraday private B14-RUNNER-I; actual update(double dt) ABI only, update_until stub refused",
+      "runner_verification": "Plato separate lifecycle; Einstein source/phase/array and combined fresh authoring",
+      "coordinator_file_gate": "B14-G-combined-inputs-01/evidence/verification.json",
+      "independent_file_gate": "B14-V-COMBINED-20261105-01/verification.json",
+      "public_short_route_dependency": "SHORT-CLOSE corrected composition required if using public run start; raw research direct execution cannot be relabelled public run",
+      "BMI_branch": "FaradayI/PlatoV completefourBMIrunner admission independentofSHORT-CLOSE; coordinator grant stillrequired; sixpublicdirectdependentcommonfix",
+      "coordinator_runner_file_preflight": "research/experiments/B14-RUNNER-G-file-preflight-01/verification.json",
+      "runner_rev03_review": "G reproduced preterminal readback OSError/mismatched-bytes escaping structured storage error; original failure preserved",
+      "runner_rev03_counterexample": "research/experiments/B14-RUNNER-G-storage-entry-01/verification.json",
+      "runner_rev04_review": "Frozen rev04 passes34 main independent tests and G file preflight, but supplemental forced path accepts5false confinement facts; no native approval; Faraday rev05 correction",
+      "runner_rev04_regression": "research/experiments/B14-RUNNER-G-storage-entry-02/verification.json",
+      "runner_rev04_file_preflight": "research/experiments/B14-RUNNER-G-rev04-preflight-01/verification.json",
+      "runner_rev04_forced_counterexamples": "research/experiments/B14-RUNNER-V-20261105-06/supplemental-observations-01.json",
+      "runner_current_candidate": {
+        "path": "research/experiments/B14-RUNNER-I-20261105-rev06-39dee5b4/freeze.json",
+        "sha256": "2641efa950a126bafefa11d7f44d50fa9c57a0cf35fb269d0cb03c08e6fb57fb",
+        "plan_sha256": "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f",
+        "state": "G5consistency_plus_filepreflight_passed_independentV_pending",
+        "native_authorized": false
+      },
+      "runner_rev05_G_contradictions": {
+        "path": "research/experiments/B14-RUNNER-G-rev05-consistency-01/verification.json",
+        "sha256": "e42b9a74e6c83e7896a82572127c60c80dd69966237910a4067fd7cbbb5473be",
+        "cases": 4,
+        "contradictions_accepted": 2,
+        "scope": "synthetic copied capturetime and optional trace exitcode; no new native defect claim"
+      },
+      "runner_rev06_handle_observation": {
+        "observed": "terminal errored exceeded retry limit 429; same handle explicitly resumed",
+        "agent": "01a1a56e-56d2-71c1-a236-f0c2d0c7d9a4",
+        "submission_id": "01a1a966-946e-72d3-80c2-3e9b6d15f09a",
+        "followup": "same handle wait timed out; no replacement writer",
+        "native_authorized": false
+      },
+      "runner_rev06_G": {
+        "consistency": "research/experiments/B14-RUNNER-G-rev06-consistency-01/verification.json",
+        "file_preflight": "research/experiments/B14-RUNNER-G-rev06-preflight-01/verification.json",
+        "candidate_prepared_files_unchanged": 113,
+        "pins_verified": 52,
+        "native_launches": 0
+      },
+      "runner_rev06_V_pause": "75 passed; final review unsealed; B14-RUNNER-V-20261105-09/CHECKPOINT.md"
+    },
+    "S07": {
+      "state": "editor_passed_new_composition_held_for_SHORT_CLOSE_rev03",
+      "implementation": "Archimedes S07-I-*",
+      "verification": "Lovelace S07-V-COMBINED-20261105-01 and unchanged seven-case oracle",
+      "integration": "Coordinator after wind drag data vs fixed wind and no-wind sensitivity; GUI export distinct",
+      "package": "S07-COMBINED-PACK-I-20261105-01 wheel 87d02495ad992eacc0edbbecd1ba16668c564dd86da51e8d6921e76e08bdd204",
+      "run_prep": "S07-RUN-PREP-I-20261105-01; proposed two-line persistence patch insufficient for terminal-failure contract",
+      "coordinator_file_gate": "S07-G-combined-editor-01/evidence/verification.json",
+      "independent_final": "S07-V-COMBINED-20261105-01/final-01/verification.json"
+    },
+    "SHORT-CLOSE": {
+      "depends_on": [
+        "original Job/retained member exit and collector evidence",
+        "current191 product base"
+      ],
+      "implementation": "Archimedes: private SHORT-CLOSE-I-* modules/patches/tests; original S07 candidate immutable",
+      "verification": "Plato: independent private receipt/persistence/terminal-order and failure-path checks; B14 lifecycle separate",
+      "integration": "Coordinator only: serialize runs.py with Raman B06-RUN-PROFILE, rebuild actual payload before admission",
+      "state": "rev04_offline_contract_accepted_clean_package_and_fixture_migration_authorized",
+      "evidence": [
+        "SHORT-CLOSE-G-reproducer-01/evidence/verification.json",
+        "SHORT-CLOSE-G-notifications-01/verification.json",
+        "S07-RUN-CLOSE-V-20261105-01/final-review-01.json",
+        "research/notes/verification/serial-close.md"
+      ],
+      "native_authorized": false,
+      "scope": "One shared strict notification predicate, short terminal barrier only; preserve family errors and raw bodies",
+      "candidate": "SHORT-CLOSE-I-20261105-rev04",
+      "coordinator_predicate_check": "SHORT-CLOSE-G-frozen-review-03/verification.json",
+      "candidate_identity_note": "Exact2254 two-line optional auxiliary image contradiction check; raw native227 unchanged.121component pass; fullV/package/native not yet approved.",
+      "candidate_freeze_sha256": "2254e8835cd8a70beabea1af2860db751b28dbea2fb60f06ccd773d4b6d198e1",
+      "rev03_coordinator_review": "research/experiments/SHORT-CLOSE-G-rev03-review-01/verification.json",
+      "native_failure": "SHORT-CLOSE-G-native-227-01/verification.json",
+      "release_only": "SHORT-CLOSE-G-native227-readback-01/verification.json",
+      "next": "Raman private clean common-only191 package plus explicit testfixture migration; Plato independent package/fixture V; G installed/native admission only after exactfreeze",
+      "independent_corpus": "research/experiments/SHORT-CLOSE-V-rev03-20261105-01/freeze.json",
+      "independent_corpus_sha256": "a552881986d8e8de917a20c12cf6d5c705fac209c18f48e4505898033b4203d9",
+      "independent_release_only": "research/experiments/SHORT-CLOSE-NATIVE-V-20261105-01/final-review-01.json",
+      "rev04_coordinator_review": "research/experiments/G-REVISION-REVIEW-20261105-01/verification.json",
+      "independent_component": {
+        "path": "research\\experiments\\SHORT-CLOSE-V-rev03-20261105-01\\replay-2254-component-01\\verification.json",
+        "sha256": "11482630c778f1af1ef756eee2f8f4775158f9741f102a1300bbe6a2afc638f0",
+        "cases": 121,
+        "failures": 0
+      },
+      "rev03_rejected_component": "research/experiments/SHORT-CLOSE-V-rev03-20261105-01/replay-e4a7-component-01/verification.json",
+      "coordinator_final": "SHORT-CLOSE-G-rev04-final-01/verification.json",
+      "independent_final": "research\\experiments\\SHORT-CLOSE-V-rev03-20261105-04\\final-review-01.json"
+    },
+    "B06-RUN-PROFILE": {
+      "depends_on": [
+        "accepted B06 root191/eedd and #225 raw inputs/results",
+        "original owned controller lifecycle",
+        "SHORT-CLOSE shared-code coordination"
+      ],
+      "implementation": "Raman: B06-RUN-PROFILE-I-* only",
+      "verification": "Mill: B06-V-public-run-01 preregistration and installed public candidate checks",
+      "integration": "Coordinator: direct and DIMR each separately accepted before root merge",
+      "state": "private_profile_preflight_and_24_new_boundaries_passed_common_composition_held_rev03",
+      "boundary_review": "research/experiments/B06-RUN-PROFILE-G-bounds-01/verification.json",
+      "native_authorized": false
+    },
+    "B06-PUBLIC-PROVENANCE": {
+      "depends_on": [
+        "B06-V-public-run-01 frozen four-case plan",
+        "actual manifest3 public direct and DIMR envelopes",
+        "unchanged170-variable225 references"
+      ],
+      "implementation": "Mill frozen203d adapter; corrections only in fresh revision after concrete independent findings",
+      "verification": "Faraday: B06-PROVENANCE-V-FAR-20261105-01 only; read-only original Einstein70tamper+6positive predeclared plan; Einstein nativeV priority, no duplicate B06 writer",
+      "integration": "Coordinator binds the final corrected runtime and actual public invocations; never normalize a public manifest into an invented research runner receipt",
+      "state": "adapter_frozen_independent_V_not_started_user_paused",
+      "native_authorized": false,
+      "root_edits_authorized": false,
+      "requirements": "research/experiments/B06-PROVENANCE-V-EIN-20261105-01/verification.json",
+      "frozen_adapter": {
+        "path": "research/experiments/B06-V-public-provenance-20261105-01/freeze.json",
+        "sha256": "203d9deffbcda0fa55e38f71ae365e3b95fb939deb5c40088936d214afc0805d"
+      }
+    },
+    "G18-PROPOSAL": {
+      "depends_on": [
+        "G12 section parser/direction",
+        "M0 G18 standalone interchange scope"
+      ],
+      "implementation": "Nash G18-PROPOSAL-I-* source+file+CLI policy proposal only",
+      "verification": "Lovelace G18-PROPOSAL-V-* independent contract/source review; later native approval separate",
+      "integration": "Coordinator; no root/native in proposal phase",
+      "state": "contract_accepted_for_implementation",
+      "native_authorized": false,
+      "evidence": "research/experiments/G18-PROPOSAL-G-20261105-01/verification.json"
+    },
+    "G18-TRANSFER": {
+      "depends_on": [
+        "G18 frozen contract d84c9744",
+        "G18 independentV f785adc2",
+        "G18 coordinator proposal audit"
+      ],
+      "implementation": "Nash private G18-TRANSFER-I-* only; standalone PLI section import/export",
+      "verification": "Lovelace private G18-TRANSFER-V-* independently tests frozen policy and literal bytes",
+      "integration": "Coordinator only; preserve existing G12, shared CLI/schema serialized after exact clean package checks",
+      "state": "independent_portable_file_gate_and_G_passed_native_merge_pending",
+      "native_authorized": false,
+      "root_edits_authorized": false,
+      "candidate": "G18-TRANSFER-I-20261105-rev02",
+      "wheel_sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+      "coordinator_file_gate": "research/experiments/G18-TRANSFER-G-installed-01/verification.json",
+      "evidence": "research/catalog/section-transfer-gate.json",
+      "docs": "Nash G18-DOCS-I, Lovelace independentdocsV; no rootwrites"
+    },
+    "G15-PROPOSAL": {
+      "depends_on": [
+        "M0 G15 file-format distinctions",
+        "pinned structure reader and accepted pump/weir file evidence"
+      ],
+      "implementation": "Nash: immutable G15 proposal01/rev02; private implementation awaits exactV/G contract gate",
+      "verification": "Lovelace: G15-PROPOSAL-V-20261105-01 only; independently derive preservation obligations before proposal review",
+      "integration": "Coordinator approves exact frozen contract before implementation; preserve entire G15 scope matrix including unsupported branches",
+      "state": "accepted_rev02_contract_only",
+      "native_authorized": false,
+      "root_edits_authorized": false,
+      "candidate": "G15-PROPOSAL-I-20261105-rev02",
+      "candidate_freeze_sha256": "4265b4fabad0679208a3cae5ebfe841e4b4f773297f72cc9380c8a26103de898",
+      "coordinator_review": "research/experiments/G-REVISION-REVIEW-20261105-01/verification.json",
+      "original_changes_required": "research/experiments/G15-PROPOSAL-V-20261105-01/review-01/verification.json",
+      "coordinator_final": "G15-PROPOSAL-G-final-01/verification.json",
+      "independent_final": "G15-PROPOSAL-V-20261105-01/final-03/verification.json"
+    },
+    "G18-NATIVE-PLAN": {
+      "depends_on": [
+        "frozenG18contract",
+        "independent literalPLI manual/public comparison"
+      ],
+      "verification": "Mill private G18-NATIVE-PLAN-V-*",
+      "state": "sixcase_inputs_numeric_reader_V_and_G_passed_runtime_pending",
+      "freeze_sha256": "fc3f3ba77a986a47db0999160c0e5de63bbf984ff192bcccfabea69179974bd7",
+      "coordinator_review": "research/experiments/G18-NATIVE-PLAN-G-final-01/verification.json",
+      "checks": "103 frozen artifacts rehashed; 60 input hashes and three exact pairs; 28 synthetic numerical checks; six native cases unrun",
+      "native_authorized": false,
+      "integration": "Coordinator only after G18fileV and correctedSHORT-CLOSE actualgate"
+    },
+    "G15-TRANSFER": {
+      "depends_on": [
+        "G15-PROPOSAL exact4265 + independent60c3 + G final"
+      ],
+      "implementation": "Nash: G15-TRANSFER-I-20261105-01; private structure_transfer modules and private CLI/schema patch only",
+      "verification": "Lovelace: G15-TRANSFER-V-20261105-01; literal manual bytes/graph/publication/installed command checks",
+      "integration": "Coordinator exclusively merges after I/V/G; native lease separately after science plan",
+      "state": "private_I1_implementation_and_independent_controls_dispatched",
+      "scope": "Full approved I1 inspect/geometry+hydraulic export/one-target import; all16G15branches retained for later gates",
+      "native_authorized": false,
+      "root_edits_authorized": false,
+      "independent_readiness": {
+        "freeze": "research/experiments/G15-TRANSFER-V-20261105-01/ready-01/freeze.json",
+        "sha256": "642653dd9a8cf1ad8d70b8633acaeda2cfc9d70f577c81aad825989f635ba66f",
+        "public_test_methods": 30,
+        "publication_test_methods": 11,
+        "actual_product_tests": 0
+      },
+      "readiness_G": "research/experiments/G15-TRANSFER-G-readiness-01/verification.json",
+      "handle_recovery": "Nash terminal429 observed20261105 then samehandle resumed, no replacementwriter"
+    },
+    "SHORT-CLOSE-PACK-REV04": {
+      "depends_on": [
+        "SHORT-CLOSE-G-rev04-final-01"
+      ],
+      "implementation": "Raman: SHORT-CLOSE-PACK-I-rev04-* private package and tests-only migration",
+      "verification": "Plato: fresh SHORT-CLOSE-PACK-V-rev04-* exact artifact/import/RECORD/testfixture review",
+      "integration": "Coordinator final installed checks then separate native grant",
+      "state": "common_only_package_V_and_G_accepted_native_and_root_pending_user_paused",
+      "root_edits_authorized": false,
+      "native_authorized": false,
+      "wheel_sha256": "f7eb645f48bf51cb6176970a749f09bc040472be5969b469892ac8b848a9586b",
+      "coordinator": "SHORT-CLOSE-PACK-G-rev04-01/verification.json",
+      "final_freeze": {
+        "path": "research/experiments/SHORT-CLOSE-PACK-I-rev04-20261105-01/freeze.json",
+        "sha256": "001c82139a632d34c05957f10bab3396e32df5289bad4c62efb374bb055462d6"
+      },
+      "coordinator_final_freeze": "research/experiments/SHORT-CLOSE-PACK-G-freeze-01/verification.json",
+      "coordinator_final": "research/experiments/SHORT-CLOSE-PACK-G-final-01/verification.json",
+      "independent_final": "research/experiments/SHORT-CLOSE-PACK-V-rev04-20261105-01/final-review-01.json"
+    },
+    "SHORT-CLOSE-NATIVE-REV04": {
+      "depends_on": [
+        "SHORT-CLOSE-PACK-REV04 exactV/G",
+        "prospective full-lifetime audit and explicit G lease"
+      ],
+      "implementation": "Archimedes: SHORT-CLOSE-NATIVE-I-rev04-20261105-01 only; bounded fresh replay adapter/plan",
+      "verification": "Einstein: SHORT-CLOSE-NATIVE-V-rev04-20261105-01 only; independent raw original-member/Job/collector/state audit",
+      "integration": "Coordinator reviews exact runtime, original reader scopes and all closures before new engine grant",
+      "state": "independent_auditor_and_adapter_preparation",
+      "native_authorized": false,
+      "root_edits_authorized": false,
+      "old_audit_scope_gap": "SHORT-CLOSE-NATIVE-G-admission-gap-01/verification.json",
+      "launch_bound": 12,
+      "concurrency_bound": 2,
+      "automatic_retries": 0,
+      "scientific_comparator": "independent existing191 variables; never merge with productverification",
+      "G_preparation_review": {
+        "state": "prospective_API_alignment_required_before_freeze",
+        "independent_observer": "Same independently live-captured retained query HANDLE; never relabel native Popen HANDLE or anyJob membership as exactprivateJob",
+        "join_required": "birth/image/control samples to original owner whole-lifetime/privateJob evidence; three survival phases and actual close",
+        "composition_tests": "Use exact V pure auditor with I adapter expectation case/family and observations; exercise failure cleanup with fake driver before native admission",
+        "native_authorized": false
+      },
+      "G_interface_probe": "research/experiments/SHORT-CLOSE-NATIVE-G-interface-01/verification-02.json",
+      "G_interface_probe_scope": "Prospective timestamp ordering and allowed-control-state interface mismatch with2positivecontrols; notnative defect; original G birth-type harness error retained"
+    },
+    "SHORT-CLOSE-CLI-FIXTURE": {
+      "depends_on": [
+        "exact f7eb installed common package",
+        "independent package V review sequenced first"
+      ],
+      "implementation": "Raman: SHORT-CLOSE-CLI-FIXTURE-I-20261105-01 private only",
+      "verification": "Plato separate V after package audit; coordinator final review",
+      "state": "author_frozen_3passed_1unchanged_expectation_failed_independent_review_pending_user_paused",
+      "scope": "tests/test_cli.py local Mock Job construction only; preserve assertions and expected outcomes; identify genuine producer regressions separately",
+      "native_authorized": false,
+      "root_edits_authorized": false,
+      "known_issue": "public code termination_unconfirmed replaced by short_cleanup_failed; do not silently change assertion",
+      "author_handoff": "research/experiments/SHORT-CLOSE-CLI-FIXTURE-I-20261105-01/HANDOFF.json"
+    }
+  },
+  "execution_policy": {
+    "state": "paused_by_explicit_user_request",
+    "reason": "quota protection; finish current package gate and Git backup only",
+    "resume_requires": "explicit user resume",
+    "new_native_authorized": false,
+    "new_nodes_authorized": false,
+    "checkpoint": "research/checkpoints/20261105-quota-pause/README.md"
+  }
+}

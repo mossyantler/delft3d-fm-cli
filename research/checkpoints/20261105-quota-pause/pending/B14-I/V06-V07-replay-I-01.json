@@ -1,0 +1,299 @@
+{
+  "state": "passed",
+  "methods": 42,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "V07_cases": 33,
+  "V07_unmet": [],
+  "source": {
+    "files.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\files.py",
+      "sha256": "c8ffce381fee3ba64f766bf8c21c350cb40e89e07ab58cf545d24df4ab3e2233",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906959,
+        "bytes": 4750,
+        "mtime_ns": 1793842715284080900,
+        "nlink": 1
+      }
+    },
+    "admission.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\admission.py",
+      "sha256": "6338602b4ddf2b201761a57b8f496e64645c000237c17b2a5e251920df37b0c9",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906960,
+        "bytes": 13773,
+        "mtime_ns": 1793842715285125300,
+        "nlink": 1
+      }
+    },
+    "worker.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\worker.py",
+      "sha256": "c12401b8bdac4276a45fb88b69864ddd26ae07415c4f1b9b5c91d3dca8a69226",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906961,
+        "bytes": 13958,
+        "mtime_ns": 1793842715285638200,
+        "nlink": 1
+      }
+    },
+    "protocol.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\protocol.py",
+      "sha256": "4d62402b5b767b03f0b573b96712e708801c48b59e7b724e12ac249a28f14ce4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906963,
+        "bytes": 5891,
+        "mtime_ns": 1793842715286765900,
+        "nlink": 1
+      }
+    },
+    "runner.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+      "sha256": "ca17478fd1e7aaec4fb2cd8a739f93ede94e5698cf98e90704cf49d054b923a3",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906964,
+        "bytes": 25802,
+        "mtime_ns": 1793842715287852200,
+        "nlink": 1
+      }
+    },
+    "ownership_guard.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\ownership_guard.py",
+      "sha256": "861db581649def0d2eb2954fcd6d67ad815cd88659683cb7000a826e3d33fc7c",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906965,
+        "bytes": 11212,
+        "mtime_ns": 1793842715288385300,
+        "nlink": 1
+      }
+    },
+    "lifecycle_gate.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\lifecycle_gate.py",
+      "sha256": "c7f5f713d97711d5d69799764b5ce8829cb4744a4efe2ac31f6d23785619be27",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906967,
+        "bytes": 10984,
+        "mtime_ns": 1793842738556271900,
+        "nlink": 1
+      }
+    }
+  },
+  "runtime": {
+    "dfm_cli/__init__.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\__init__.py",
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906988,
+        "bytes": 127,
+        "mtime_ns": 1793835447861758400,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/common.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\common.py",
+      "sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906980,
+        "bytes": 3773,
+        "mtime_ns": 1793835447862758800,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/diagnostics.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\diagnostics.py",
+      "sha256": "423db427b2c8827a42f289422ad1a96b88a90d623cd4493f419abdb02334ab7e",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906981,
+        "bytes": 5543,
+        "mtime_ns": 1793835447866758600,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/reviewed_natural.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\reviewed_natural.py",
+      "sha256": "237bea394875794cb53f595a2f3a07ccf28f51a636f53a93783166e4a8fa7cd4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906982,
+        "bytes": 12924,
+        "mtime_ns": 1793839382449497500,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906983,
+        "bytes": 18859,
+        "mtime_ns": 1793835447866758600,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_exit_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_exit_evidence.py",
+      "sha256": "7e0e51463b3749bb7464c432d08e66e691249a6f51f26167cb82af2b556b2a11",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906984,
+        "bytes": 14081,
+        "mtime_ns": 1793835447865758100,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_job.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job.py",
+      "sha256": "3c9c097aa195af2ab104e87884a5cc92557b317ff2df1495a48a63169e80c529",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906985,
+        "bytes": 38830,
+        "mtime_ns": 1793835447863758700,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_job_trace.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job_trace.py",
+      "sha256": "5b9e35b42496c842dab185280c2e2d21bcdc8628154cca493d3159af519280ff",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906986,
+        "bytes": 27078,
+        "mtime_ns": 1793835447864759000,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_job_trace_api.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job_trace_api.py",
+      "sha256": "6ed0fbc9e1fbaa5d27888edeed8c5fbf686d2ff314bcb198e845e33d46e9fcd6",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906987,
+        "bytes": 4052,
+        "mtime_ns": 1793835447865758100,
+        "nlink": 1
+      }
+    }
+  },
+  "prepared_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev06-39dee5b4-01\\plan.json",
+    "sha256": "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 3940649676255164,
+      "bytes": 339455,
+      "mtime_ns": 1793843554441829100,
+      "nlink": 1
+    }
+  },
+  "V06_source": {
+    "test_admission": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-06\\test_admission.py",
+      "sha256": "90b6228914daaadccc03ff0837de6697747415e8e3436c914f84aee6f0e89bfb",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 40532396648511513,
+        "bytes": 15277,
+        "mtime_ns": 1793840778045760900,
+        "nlink": 1
+      }
+    },
+    "test_protocol_abi": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-06\\test_protocol_abi.py",
+      "sha256": "a4c995b7cece7ac687a698c56b63a0ef792cb8a36ef944c1a20bda858316b92b",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 11540474047340824,
+        "bytes": 9711,
+        "mtime_ns": 1793840778045760900,
+        "nlink": 1
+      }
+    },
+    "test_case_failures": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-06\\test_case_failures.py",
+      "sha256": "5291b24ca5efc62f2e01c1dcb9810b808cdb2ff0d5606386b9233803ca5c0e15",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 5910974513127712,
+        "bytes": 7132,
+        "mtime_ns": 1793840778046784300,
+        "nlink": 1
+      }
+    },
+    "test_storage_entry": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-06\\test_storage_entry.py",
+      "sha256": "5ec29dd80d9570881d7fd0a29092861b8c38ff9a4f0a1667128ca3984c807ed4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 12666373954192496,
+        "bytes": 3405,
+        "mtime_ns": 1793840778046784300,
+        "nlink": 1
+      }
+    },
+    "test_entry_order": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-06\\test_entry_order.py",
+      "sha256": "061d350f110ef2eaac8c14b4d70abcbfd1db63461bb51d519d98e56e8502c645",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 6192449489848288,
+        "bytes": 2547,
+        "mtime_ns": 1793840673124835800,
+        "nlink": 1
+      }
+    },
+    "test_cli_and_forced": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-06\\test_cli_and_forced.py",
+      "sha256": "eec0b38e73fb7f8263a5cbf61bf680c515f24f80a4f4c353072c51e1bcc1ae3a",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 13792273859210828,
+        "bytes": 6239,
+        "mtime_ns": 1793840985594135100,
+        "nlink": 1
+      }
+    }
+  },
+  "V07_predecl": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-07\\predeclared-forced-controls.json",
+    "sha256": "93f2be8fc22f7b702f77a8d261bb1a665161841456ed24f82b4bc6fb63edae4b",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 13510798884325314,
+      "bytes": 18539,
+      "mtime_ns": 1793841201077130000,
+      "nlink": 1
+    }
+  },
+  "V08_consistency_source": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-V-20261105-08\\test_capture_consistency.py",
+    "sha256": "709795c8edfc16cee4cd339d0a81460c34384eb4342035c0d99b6631ea326f11",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 13510798884148580,
+      "bytes": 3160,
+      "mtime_ns": 1793842668156911000,
+      "nlink": 1
+    }
+  },
+  "independent_V_approval": false,
+  "native_started": false,
+  "real_Job_constructed": false,
+  "adaptations": [
+    "candidate loader/paths/plan rebound",
+    "temp location I-owned",
+    "V07 frozen mutations applied to unchanged V06 baseline factory"
+  ],
+  "test_log": "test_complete_natural_fixture_closes_once_keeps_nonterminal (test_admission.Full.test_complete_natural_fixture_closes_once_keeps_nonterminal) ... ok\ntest_nonzero_natural_exit_cannot_be_success (test_admission.Full.test_nonzero_natural_exit_cannot_be_success) ... ok\ntest_abnormal8_even_zero_code_cannot_be_computation_success (test_admission.Full.test_abnormal8_even_zero_code_cannot_be_computation_success) ... ok\ntest_close_failures_and_collector_failures_refuse (test_admission.Full.test_close_failures_and_collector_failures_refuse) ... ok\ntest_close_raise_must_not_be_qualified_success (test_admission.Full.test_close_raise_must_not_be_qualified_success) ... ok\ntest_capture_exception_still_closes_and_refuses (test_admission.Full.test_capture_exception_still_closes_and_refuses) ... ok\ntest_all_member_unknown_missing_borrowed_and_counts (test_admission.Full.test_all_member_unknown_missing_borrowed_and_counts) ... ok\ntest_pre_resume_root_birth_must_join_final_root (test_admission.Full.test_pre_resume_root_birth_must_join_final_root) ... ok\ntest_pre_resume_image_must_join_final_original_retained_image (test_admission.Full.test_pre_resume_image_must_join_final_original_retained_image) ... ok\ntest_prospective_confinement_facts_cannot_be_false (test_admission.Full.test_prospective_confinement_facts_cannot_be_false) ... ok\ntest_raw_notification_event_timestamp_must_match (test_admission.Full.test_raw_notification_event_timestamp_must_match) ... ok\ntest_forced_incomplete_evidence_closes_but_never_promotes (test_admission.Full.test_forced_incomplete_evidence_closes_but_never_promotes) ... ok\ntest_terminal_storage_failure_and_commit_ack (test_admission.Full.test_terminal_storage_failure_and_commit_ack) ... ok\ntest_terminal_dirty_readback_refuses (test_admission.Full.test_terminal_dirty_readback_refuses) ... ok\ntest_current_frozen_prepared_is_file_only_valid (test_admission.Full.test_current_frozen_prepared_is_file_only_valid) ... ok\ntest_exact_canonical_lease_no_owner_or_bool_substitution (test_admission.Full.test_exact_canonical_lease_no_owner_or_bool_substitution) ... ok\ntest_cancel_exact_nonce_case_plan_slot_no_cross_case_authority (test_admission.Full.test_cancel_exact_nonce_case_plan_slot_no_cross_case_authority) ... ok\ntest_direct_route_override_refuses (test_admission.Full.test_direct_route_override_refuses) ... ok\ntest_authored22frames_actual_clock_and_metadata_pass (test_protocol_abi.ProtocolABI.test_authored22frames_actual_clock_and_metadata_pass) ... ok\ntest_protocol_case_epoch_pid_digest_shape_type_codes_and_summary_refuse (test_protocol_abi.ProtocolABI.test_protocol_case_epoch_pid_digest_shape_type_codes_and_summary_refuse) ... ok\ntest_update_actual_argument_is_byvalue_double_point125_no_update_until (test_protocol_abi.ProtocolABI.test_update_actual_argument_is_byvalue_double_point125_no_update_until) ... ok\ntest_real_array_wrapper_detaches_bounded_buffer (test_protocol_abi.ProtocolABI.test_real_array_wrapper_detaches_bounded_buffer) ... ok\ntest_wrong_metadata_or_null_never_read_pointer (test_protocol_abi.ProtocolABI.test_wrong_metadata_or_null_never_read_pointer) ... ok\ntest_frozen_science_consumer_threshold_and_all_four_handoff (test_protocol_abi.ProtocolABI.test_frozen_science_consumer_threshold_and_all_four_handoff) ... ok\ntest_late_prelaunch_authority_refusal_closes_without_launch (test_case_failures.CaseFailures.test_late_prelaunch_authority_refusal_closes_without_launch) ... ok\ntest_launch_before_assignment_exception_closes_once (test_case_failures.CaseFailures.test_launch_before_assignment_exception_closes_once) ... ok\ntest_launch_after_assignment_exception_recovers_original_process_and_closes (test_case_failures.CaseFailures.test_launch_after_assignment_exception_recovers_original_process_and_closes) ... ok\ntest_running_persistence_exception_forces_original_owned_job_then_closes_once (test_case_failures.CaseFailures.test_running_persistence_exception_forces_original_owned_job_then_closes_once) ... ok\ntest_canonical_close_storage_failure_preserves_raw_receipt_in_returned_error (test_case_failures.CaseFailures.test_canonical_close_storage_failure_preserves_raw_receipt_in_returned_error) ... ok\ntest_initial_preterminal_read_error_preserves_original_raw_close (test_storage_entry.StorageEntry.test_initial_preterminal_read_error_preserves_original_raw_close) ... ok\ntest_initial_preterminal_mismatched_bytes_preserves_original_raw_close (test_storage_entry.StorageEntry.test_initial_preterminal_mismatched_bytes_preserves_original_raw_close) ... ok\ntest_lifecycle_invalid_receipt_still_refuses_without_storage_reclassification (test_storage_entry.StorageEntry.test_lifecycle_invalid_receipt_still_refuses_without_storage_reclassification) ... ok\ntest_invalid_lifecycle_refuses_before_canonical_storage_read (test_entry_order.EntryOrder.test_invalid_lifecycle_refuses_before_canonical_storage_read) ... ok\ntest_preterminal_boolean_zero_alias_is_unacknowledged_storage (test_entry_order.EntryOrder.test_preterminal_boolean_zero_alias_is_unacknowledged_storage) ... ok\ntest_actual_entry_storage_error_reaches_exact_CLI_exit5_with_raw_evidence (test_cli_and_forced.Supplemental.test_actual_entry_storage_error_reaches_exact_CLI_exit5_with_raw_evidence) ... ok\ntest_CLI_refusal_and_returned_failure_are_not_computation_success (test_cli_and_forced.Supplemental.test_CLI_refusal_and_returned_failure_are_not_computation_success) ... ok\ntest_qualified_legacy_force_fixture_stays_failure_lifetime_only (test_cli_and_forced.Supplemental.test_qualified_legacy_force_fixture_stays_failure_lifetime_only) ... ok\ntest_forced_route_cannot_bypass_failed_original_confinement (test_cli_and_forced.Supplemental.test_forced_route_cannot_bypass_failed_original_confinement) ... ok\ntest_baseline_and_matching_optional_trace_are_lifetime_only (test_capture_consistency.CaptureConsistency.test_baseline_and_matching_optional_trace_are_lifetime_only) ... ok\ntest_forced_copy_cannot_change_original_capture_time (test_capture_consistency.CaptureConsistency.test_forced_copy_cannot_change_original_capture_time) ... ok\ntest_supplied_optional_trace_cannot_contradict_original_exit_code (test_capture_consistency.CaptureConsistency.test_supplied_optional_trace_cannot_contradict_original_exit_code) ... ok\ntest_separate_exit_observation_times_need_not_be_equal (test_capture_consistency.CaptureConsistency.test_separate_exit_observation_times_need_not_be_equal) ... ok\n\n----------------------------------------------------------------------\nRan 42 tests in 42.377s\n\nOK\n"
+}

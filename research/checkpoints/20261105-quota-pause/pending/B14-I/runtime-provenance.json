@@ -1,0 +1,101 @@
+{
+  "__init__.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\__init__.py",
+    "source_sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+    "copy_sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+    "delta": "none"
+  },
+  "common.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\common.py",
+    "source_sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+    "copy_sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+    "delta": "none"
+  },
+  "windows_job.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\windows_job.py",
+    "source_sha256": "a5ef3e62b8610cd4a3d48fb15b9976243a7c8ed03fec1223f6440d731eb4ffac",
+    "copy_sha256": "3c9c097aa195af2ab104e87884a5cc92557b317ff2df1495a48a63169e80c529",
+    "delta": "owned pre-resume hook only"
+  },
+  "windows_job_trace.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\windows_job_trace.py",
+    "source_sha256": "5b9e35b42496c842dab185280c2e2d21bcdc8628154cca493d3159af519280ff",
+    "copy_sha256": "5b9e35b42496c842dab185280c2e2d21bcdc8628154cca493d3159af519280ff",
+    "delta": "none"
+  },
+  "windows_job_trace_api.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\windows_job_trace_api.py",
+    "source_sha256": "6ed0fbc9e1fbaa5d27888edeed8c5fbf686d2ff314bcb198e845e33d46e9fcd6",
+    "copy_sha256": "6ed0fbc9e1fbaa5d27888edeed8c5fbf686d2ff314bcb198e845e33d46e9fcd6",
+    "delta": "none"
+  },
+  "windows_exit_evidence.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\windows_exit_evidence.py",
+    "source_sha256": "7e0e51463b3749bb7464c432d08e66e691249a6f51f26167cb82af2b556b2a11",
+    "copy_sha256": "7e0e51463b3749bb7464c432d08e66e691249a6f51f26167cb82af2b556b2a11",
+    "delta": "none"
+  },
+  "diagnostics.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\diagnostics.py",
+    "source_sha256": "423db427b2c8827a42f289422ad1a96b88a90d623cd4493f419abdb02334ab7e",
+    "copy_sha256": "423db427b2c8827a42f289422ad1a96b88a90d623cd4493f419abdb02334ab7e",
+    "delta": "none"
+  },
+  "run_pump_lifecycle.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-I-COMBINED-PACK-20261105-01\\venv-run\\Lib\\site-packages\\dfm_cli\\run_pump_lifecycle.py",
+    "source_sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+    "copy_sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+    "delta": "none"
+  },
+  "reviewed_natural.py": {
+    "source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev02\\src\\dfm_cli\\run_pump_lifecycle.py",
+    "source_sha256": "03ab3dfb92ea99bc32c760221a51bc07d8ca0063e6174c7b9a4df334181841cb",
+    "copy_sha256": "237bea394875794cb53f595a2f3a07ccf28f51a636f53a93783166e4a8fa7cd4",
+    "delta": "Six pure function byte spans copied verbatim; only re/PureWindowsPath imports. NO shared launcher/storage/forced-shutdown code.",
+    "functions": {
+      "_token": {
+        "source_lines": [
+          42,
+          43
+        ],
+        "exact_source_bytes_sha256": "77cf277279cdff1b6bc2067dac6364f955f39d94aebfdab09246bb6abbd47470"
+      },
+      "_binding": {
+        "source_lines": [
+          46,
+          49
+        ],
+        "exact_source_bytes_sha256": "fb0222952d6b8b9839bba8ad267bcd926e5cc1775e45bb404be2b52267c76c42"
+      },
+      "_accounting": {
+        "source_lines": [
+          52,
+          57
+        ],
+        "exact_source_bytes_sha256": "e79b2eb5277acf484047e8b68303f9534a1284103a5d8ea08cf5a24b77b3a413"
+      },
+      "notifications_complete": {
+        "source_lines": [
+          60,
+          126
+        ],
+        "exact_source_bytes_sha256": "82257f7d54d9b25624d7a1944510b44da25f07a4e051f8ecf9161e2f2df4ac09"
+      },
+      "natural_exit": {
+        "source_lines": [
+          129,
+          192
+        ],
+        "exact_source_bytes_sha256": "a70a801f9797282cf6ed3f7b244570206fd3b20e912e598e86823da19c37d964"
+      },
+      "_close_assessment": {
+        "source_lines": [
+          252,
+          284
+        ],
+        "exact_source_bytes_sha256": "70ba953824526b502daec596969026005d90b3a9874c26a3f6674752cca49db3"
+      }
+    },
+    "review_sha256": "eb3d349505c38165071c3b96bfae6397d11a4f7e305d47b389a9207be44b9c3c"
+  }
+}

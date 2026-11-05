@@ -1,0 +1,102 @@
+{
+  "status": "FROZEN_IMPLEMENTATION_PORTABLE_INSTALLED_PASSED",
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "root_product_docs_tests_edits": false,
+  "held_exact_bytes": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\hold.json",
+    "sha256": "876e21a2cd463a1c2137cfc13430349535988f47e6541365de09640799cfb454",
+    "bytes": 5194
+  },
+  "wheel": {
+    "wheel": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\wheel\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+    "bytes": 815930,
+    "python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv\\Scripts\\python.exe",
+    "dfm": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv\\Scripts\\dfm.exe"
+  },
+  "candidate_payload_files": 196,
+  "base191_unchanged": 189,
+  "modified_base_proposal_only": [
+    "cli.py",
+    "section_orientation.py"
+  ],
+  "new_modules": [
+    "section_transfer.py",
+    "section_transfer_contract.py",
+    "section_transfer_graph.py",
+    "section_transfer_text.py",
+    "section_transfer_write.py"
+  ],
+  "I_checks": {
+    "portable_tests": 25,
+    "G12_public_regressions": 24,
+    "admission_subcases": 30,
+    "frozen_V_admission_replay_by_I": 33,
+    "literal_plans_public_subprocess": 7,
+    "receipt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\verification.json",
+      "sha256": "4319faf37d44303d6cf1194f8cf809a7b7fc83e9b062fcf43c9cd83059573d15",
+      "bytes": 1418
+    },
+    "test_log": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\portable-01.stderr.txt",
+      "sha256": "e1975716a5504a3d6745a91c36ec55551c4e0100f725bd070c5e2473ecb6dcd9",
+      "bytes": 3116
+    }
+  },
+  "independent_V": {
+    "receipt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\final-01\\verification.json",
+      "sha256": "b75d27aa091cac18b0a3f2b8094b1397a485a8c5a4594362a71084607cf58d0f",
+      "bytes": 9311
+    },
+    "freeze": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\final-01\\freeze.json",
+      "sha256": "ca6293f8d1b5916444b7d5446d718fb6dc9c1ed2cb830d99a2b1169ff2024fda",
+      "bytes": 8702
+    },
+    "acceptance": {
+      "G18_distinct_public_and_publication_tests": 39,
+      "external_parent_identity_controls": 2,
+      "exact_copied_G12_regressions": 24,
+      "skips": 0,
+      "independent_frozen_admission_subcases": 33,
+      "external_public_calls": 137,
+      "in_process_publication_calls": 38,
+      "qualification": "37 first-run passing G18 tests plus two corrected failed-harness checks in fresh folders. Original failed receipts remain failed; not relabelled."
+    },
+    "unresolved_portable_product_blockers": []
+  },
+  "G_supplemental_file_only_receipt": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-G-installed-01\\verification.json",
+    "sha256": "4510c016875356ad5ce46069da9e00d6a20f1783adbd08bd9b975a423768da4e",
+    "bytes": 888
+  },
+  "immutability": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\immutability-check.json",
+    "sha256": "7b3eae2cab0636e6e35d8dd85376eb30ead8971cc8bfa32d663e4b47abaa1ed8",
+    "bytes": 876
+  },
+  "native_plan_supplemental": {
+    "plan": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-native-plan-20261105-01\\plan.json",
+      "sha256": "3a1b9aa59a9b6dfb7796376f6c92a57fb9cba51c051c1fdf29a5bccd78e895ec",
+      "bytes": 19510
+    },
+    "preparation": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-native-plan-20261105-01\\preparation.json",
+      "sha256": "cdd9cb33359b186eedd67f5041b3b376790ce6f99a950f374da6296bdc2aca2e",
+      "bytes": 9729
+    },
+    "not_authoritative_over_independent_native_V": true
+  },
+  "limitations": [
+    "Windows portable/file-command qualification only; POSIX unexercised",
+    "No engine or GUI operation/scientific/CRS/datum validation",
+    "No global filesystem CAS/writer lock",
+    "No G12 or XYN numerical acceptance inheritance",
+    "Final independent native design, accepted common-short composition/pins and explicit lease required before any run"
+  ],
+  "original_failed_or_initial_artifacts_preserved": "G18-TRANSFER-I-20261105-01; V original findings/failures pinned independently"
+}

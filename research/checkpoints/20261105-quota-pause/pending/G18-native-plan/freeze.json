@@ -1,0 +1,523 @@
+{
+  "state": "prospective_G18_inputs_and_numeric_reader_frozen_native_unrun",
+  "files": [
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-G-inputs-01\\verification.json",
+      "bytes": 877,
+      "sha256": "b37108e6f46741254f59e2e3ef96f90806c5e1400c676acec4a587a3ce9224a4"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\external\\all.pli",
+      "bytes": 1560,
+      "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\external\\append.pli",
+      "bytes": 282,
+      "sha256": "5364f62e0a7e98deea88b0e8ad200085dd3708318018e6dbb8d3beea722b75fc"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\external\\replace.pli",
+      "bytes": 463,
+      "sha256": "df213f56eaadd387c9f44dc05b492f42176a467281207210fca46299c481a0bf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34.mdu",
+      "bytes": 28933,
+      "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34.wnd",
+      "bytes": 86,
+      "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_001.bc",
+      "bytes": 1304,
+      "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_001.pli",
+      "bytes": 745,
+      "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_bnd.ext",
+      "bytes": 262,
+      "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_crs.pli",
+      "bytes": 1560,
+      "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_drypoints_dry.xyz",
+      "bytes": 55,
+      "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_net.nc",
+      "bytes": 23984,
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_obs.xyn",
+      "bytes": 270,
+      "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\all_roundtrip\\f34_thd.pli",
+      "bytes": 1275,
+      "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34.mdu",
+      "bytes": 28933,
+      "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34.wnd",
+      "bytes": 86,
+      "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_001.bc",
+      "bytes": 1304,
+      "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_001.pli",
+      "bytes": 745,
+      "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_bnd.ext",
+      "bytes": 262,
+      "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_crs.pli",
+      "bytes": 1560,
+      "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_drypoints_dry.xyz",
+      "bytes": 55,
+      "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_net.nc",
+      "bytes": 23984,
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_obs.xyn",
+      "bytes": 270,
+      "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\baseline\\f34_thd.pli",
+      "bytes": 1275,
+      "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34.mdu",
+      "bytes": 28933,
+      "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34.wnd",
+      "bytes": 86,
+      "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_001.bc",
+      "bytes": 1304,
+      "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_001.pli",
+      "bytes": 745,
+      "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_bnd.ext",
+      "bytes": 262,
+      "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_crs.pli",
+      "bytes": 1783,
+      "sha256": "5e87b0a735be6fe36a54a8779c3617c693fbc06992b6f899fd2cdfbc2efb0d04"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_drypoints_dry.xyz",
+      "bytes": 55,
+      "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_net.nc",
+      "bytes": 23984,
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_obs.xyn",
+      "bytes": 270,
+      "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_append\\f34_thd.pli",
+      "bytes": 1275,
+      "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34.mdu",
+      "bytes": 28933,
+      "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34.wnd",
+      "bytes": 86,
+      "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_001.bc",
+      "bytes": 1304,
+      "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_001.pli",
+      "bytes": 745,
+      "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_bnd.ext",
+      "bytes": 262,
+      "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_crs.pli",
+      "bytes": 1560,
+      "sha256": "d366121b4a5aa5f0a846923591b0dec8637888b0adaf3f9d4a9e17ad8eb41ab9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_drypoints_dry.xyz",
+      "bytes": 55,
+      "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_net.nc",
+      "bytes": 23984,
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_obs.xyn",
+      "bytes": 270,
+      "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\manual_replace\\f34_thd.pli",
+      "bytes": 1275,
+      "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34.mdu",
+      "bytes": 28933,
+      "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34.wnd",
+      "bytes": 86,
+      "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_001.bc",
+      "bytes": 1304,
+      "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_001.pli",
+      "bytes": 745,
+      "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_bnd.ext",
+      "bytes": 262,
+      "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_crs.pli",
+      "bytes": 1783,
+      "sha256": "5e87b0a735be6fe36a54a8779c3617c693fbc06992b6f899fd2cdfbc2efb0d04"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_drypoints_dry.xyz",
+      "bytes": 55,
+      "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_net.nc",
+      "bytes": 23984,
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_obs.xyn",
+      "bytes": 270,
+      "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_append\\f34_thd.pli",
+      "bytes": 1275,
+      "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34.mdu",
+      "bytes": 28933,
+      "sha256": "ab28f4a8a5cf48591c53df1f301a0652f8765aae5f3f72500d0ed65310cc4618"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34.wnd",
+      "bytes": 86,
+      "sha256": "3ff478478f3990e3dca28f8e84e953ef848b5321af15c27977410faaf4bcdd79"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_001.bc",
+      "bytes": 1304,
+      "sha256": "e6b7bc543bcbeb255f30593012b78d5033b6129702aaea92e410de07d319325f"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_001.pli",
+      "bytes": 745,
+      "sha256": "fd954a2ed46d723514fcc174a7b1af449d1ea18c6c14b29d0ab3e93441dbf1a9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_bnd.ext",
+      "bytes": 262,
+      "sha256": "c8aecfd504254da57875675d32be8e0f46a7ea3f6187cb08f738e11d215563cf"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_crs.pli",
+      "bytes": 1560,
+      "sha256": "d366121b4a5aa5f0a846923591b0dec8637888b0adaf3f9d4a9e17ad8eb41ab9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_drypoints_dry.xyz",
+      "bytes": 55,
+      "sha256": "ae798fdef55b134731a97768cb71a19c1931f6d11b67a2e5df862afdb4a393f7"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_net.nc",
+      "bytes": 23984,
+      "sha256": "b0856c5f46f995e6bcfde7a5888353fe3f429d5556d5fcf77cce691c75d4496d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_obs.xyn",
+      "bytes": 270,
+      "sha256": "ab5f289b20ce0be1f570f38699478366672199c47af416efba147c0b189e84e3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\inputs\\public_replace\\f34_thd.pli",
+      "bytes": 1275,
+      "sha256": "c8f491464f6643cb3e4417149d94ec9db864c898fe01b07fc15f035f2fc04569"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\literal-expected\\append.pli",
+      "bytes": 1783,
+      "sha256": "5e87b0a735be6fe36a54a8779c3617c693fbc06992b6f899fd2cdfbc2efb0d04"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\literal-expected\\baseline.pli",
+      "bytes": 1560,
+      "sha256": "56738061b922fc74ead1fa0f5b61e5c42361d5c3985710be3b11e2801223effb"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\literal-expected\\replace.pli",
+      "bytes": 1560,
+      "sha256": "d366121b4a5aa5f0a846923591b0dec8637888b0adaf3f9d4a9e17ad8eb41ab9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\metadata-schema.json",
+      "bytes": 79282,
+      "sha256": "9780a7c7ee91d4ca0dd1bebcf56c939dccc91da5bea738e504ee6d49f11933b9"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\numeric-selfcheck-01\\verification.json",
+      "bytes": 3896,
+      "sha256": "dd267b1c609d04b2adb08a9f9a29ebb702f1fab0ceb599d37bc794739c344e34"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\numeric-selfcheck-02\\verification.json",
+      "bytes": 4241,
+      "sha256": "ed22000eee59e869b652eff94769a142853abdbe99e3aa21c2e29a00e2b78fff"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\numeric-selfcheck-03\\verification.json",
+      "bytes": 4241,
+      "sha256": "ed22000eee59e869b652eff94769a142853abdbe99e3aa21c2e29a00e2b78fff"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\numeric-selfcheck-04\\verification.json",
+      "bytes": 4395,
+      "sha256": "c7372201d130af3d620c3720ee86dcc8a8dc4bd07e0b5201b200c79c622259ab"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\plan.json",
+      "bytes": 14598,
+      "sha256": "bbcd59cbab5bdea4c2d78f5df12ff3545bd6b3b9f4f4cd1f47fd3ad3385c376d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\predeclared.json",
+      "bytes": 5132,
+      "sha256": "b89105f92b2b017c7cbc6ff138295cc8de60174fc5f81f0398c8acaf2df7dd4b"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\prepare.py",
+      "bytes": 9116,
+      "sha256": "65f9bc8049ec5eb9bf520a9701f09d14cc43f0f6bc537116c98d574357887d02"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-export-apply.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-export-apply.stdout.json",
+      "bytes": 14388,
+      "sha256": "f92eb232aa229a9da78d7909709abdfe84b50383ac302deb0a3f4c1ea78f1906"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-export-preview.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-export-preview.stdout.json",
+      "bytes": 13403,
+      "sha256": "d5d527c1d0a26161eef1d702aafb1a1b0159034e05ffc80d62701967ed21fb33"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-import-apply.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-import-apply.stdout.json",
+      "bytes": 16526,
+      "sha256": "30676e77ad0292bee0ea612111f4b3bea920fac94a091bdeffc2e0e90308525c"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-import-preview.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\all-import-preview.stdout.json",
+      "bytes": 16331,
+      "sha256": "922a4f6745b68ca2b28caa1a0228deed738ef996a862439b7404c0128877e20b"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\calls.json",
+      "bytes": 6091,
+      "sha256": "ab77980cf1ba9a7950ba72cd1b22557c624d6bd3c6dfc464cb68640758e94c1d"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_append-apply.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_append-apply.stdout.json",
+      "bytes": 16134,
+      "sha256": "ac57391eb06bdd66540e5d66bd96966bab0bef08e7eb9f12c18fbf20f60efadd"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_append-preview.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_append-preview.stdout.json",
+      "bytes": 15671,
+      "sha256": "64b354aa95f3e7b66c83bc880b6df699b88101270bf459a060b075c49519f4cc"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_replace-apply.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_replace-apply.stdout.json",
+      "bytes": 15687,
+      "sha256": "ace5ccde592266fc709a8a6758a352b0a4617b4bc00de05279592682fc5cc613"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_replace-preview.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\public-preparation\\public_replace-preview.stdout.json",
+      "bytes": 15224,
+      "sha256": "a4ebe484cd5b9e86ebba660168c742fdcacac66d7661532a627edb34a722b8c3"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\README.txt",
+      "bytes": 4084,
+      "sha256": "d8b05d7b948fd69ec70861c5a28d7de12cd7077dbeada532a1fc03a49d47f08e"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\science.py",
+      "bytes": 24130,
+      "sha256": "6150efd9333008c276edaafb1fee8ce05304bae1e1bd2589fff61d14d1232cb4"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\selfcheck.py",
+      "bytes": 11019,
+      "sha256": "035be228f9c094304ed0a815ba69935da4c141d0c47df9f8e11a642441569301"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\fm_statistical_output.f90.txt",
+      "bytes": 2342,
+      "sha256": "4607ecfee7d5890282db1517bca7c9611fc25c1fe9cf1f3a2dbd1119ead03e66"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\m_crspath.f90.txt",
+      "bytes": 3400,
+      "sha256": "8e22299a71ef3511e66ce6ef766004f8073136ee9ed3681d4c379ec11b93e9fd"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\m_monitoring_crosssections.f90.txt",
+      "bytes": 670,
+      "sha256": "5724441a30868c4501bb7a24828b4c2271d2f421206252af1147b268a72c0b58"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\m_update_values_on_cross_sections.f90.txt",
+      "bytes": 3235,
+      "sha256": "a07be4e888d2ce730cfc537b75329f4559e343c08b56b8ad35e0a340f47b6643"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-evidence.json",
+      "bytes": 4193,
+      "sha256": "c3e8f7b7b42ce0c19e5402f377cd4ca2e94e5700ebaba9a4585e7dae5d02c7fa"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\verification.json",
+      "bytes": 1227,
+      "sha256": "5aa9312e79ebfee0f3f107892ce6c5ae41b73a90bdcc9ac7023bd82b0d7865ae"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-PROPOSAL-I-20261105-01\\freeze.json",
+      "bytes": 8721,
+      "sha256": "d84c974418f9a03598708ee2b6213bf516178856435e726a26bd012b1d04f422"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\freeze.json",
+      "bytes": 159340,
+      "sha256": "1b32465fc6a507dd2863f384fb1d386bdf4f94e2eb871c699d32ba08b28fddc5"
+    }
+  ],
+  "plan_sha256": "bbcd59cbab5bdea4c2d78f5df12ff3545bd6b3b9f4f4cd1f47fd3ad3385c376d",
+  "native_launches": 0,
+  "root_writes": 0
+}

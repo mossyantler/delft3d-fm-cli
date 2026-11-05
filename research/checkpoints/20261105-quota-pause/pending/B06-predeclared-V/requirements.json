@@ -1,0 +1,95 @@
+{
+  "schema": "B06-PROVENANCE-V-EIN-independent-requirements-1",
+  "state": "predeclared_before_adapter_freeze_or_new_native",
+  "native_started": false,
+  "adapter_executed": false,
+  "scope": "Independent V of Mill adapter only in this folder. Science comes from frozen B06 observer/reference#225, never product/common math. No engines/GUI/root writes or inferred native grant. B14rev04 interfaceACK priority already delivered.",
+  "authoritative_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\predeclared.json",
+    "sha256": "a0d1b1ee759a911a935ff4833b9d43d1f1579bdf004b31205eb92aa547145034",
+    "bytes": 9343,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 19140298418486809,
+      "mtime_ns": 1793834665150087600,
+      "nlink": 1
+    }
+  },
+  "input_closure": [
+    "Exactly six active source/staged FM files per case, same expected bytes/content hashes, roles, reference edges and identity where captured. DIMR XML is a separate orchestration input; do not call it a seventh FM source file.",
+    "For set15/add15: replacement.bc active; original source.bc is inactive source-only, preserved unchanged and never staged/claimed consumed. noop5 legitimately has source.bc active. Never blanket-ban the filename independent of roles.",
+    "Known unbound other-object Forcing block inside activeBC remains inventoried; it is not a second SourceSink and may not be silently dropped or used to infer defaults. Unknown or ambiguous active grammar refuses.",
+    "Same-size/restoredmtime bytes, same-byte identity replacement, stale path edges, active/inactive alias, duplicates/traversal/links/reparse, output collisions and changes during read must not pass. All originals remain unchanged."
+  ],
+  "physical_references": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\references225.json",
+    "sha256": "2e5a762a31a64463c4303d027ab028ee2b62fd8108af4707a30e30c692aed4f2",
+    "bytes": 12091,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 27021597766381916,
+      "mtime_ns": 1793834435702639700,
+      "nlink": 1
+    }
+  },
+  "source_audit": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PROVENANCE-V-EIN-20261105-01\\source-audit.json",
+    "sha256": "c0fc4a78ae44fdc22fd6524773aba55de59df6a210edfb07b485e91c93106766",
+    "bytes": 95497,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 4785074606289090,
+      "mtime_ns": 1793841054380448900,
+      "nlink": 1
+    }
+  },
+  "minimum_matrix": [
+    {
+      "route": "direct",
+      "source_case": "point_set15",
+      "reference225": "point_set15"
+    },
+    {
+      "route": "direct",
+      "source_case": "pair_set15",
+      "reference225": "pair_set15"
+    },
+    {
+      "route": "dimr",
+      "source_case": "point_set15",
+      "reference225": "point_set15"
+    },
+    {
+      "route": "dimr",
+      "source_case": "pair_set15",
+      "reference225": "pair_set15"
+    }
+  ],
+  "coverage": "Missing/unallocated cases remain unobserved. C15 point/pair xdirect/DIMR is four separate jobs. No same-route C5/noop/add coverage invented from historical refs.",
+  "public_context": [
+    "Read original actual manifest3 (schema_version integer3, not bool), public protocol2 raw CLI stdout+service returncode, raw run-status output, invocation capture, paths and externally expected SHA records. Retain originals/full objects exactly; distinguish native stdout field from public JSON stdout capture.",
+    "Correlate canonical manifest run_id/profile_name=source-sink/route/owner/run_directory/source_mdu/staged_mdu/argv/cwd/installation/executable hash/input graph/output snapshots. run-status ok=true is successful reading, not proof of completed simulation.",
+    "New PublicContext may not be fabricated by reshaping a G13-PUMP-RUNNER-1 reference receipt, renaming keys or inventing source_sink_lifecycle/verified flags. Internal typed read-only projection must retain original raw provenance and never masquerade as a new native receipt.",
+    "Authenticity boundary explicit: file-only consistency cannot independently certify execution of arbitrary caller-written receipts. Require prospectively fixed public invocation/capture provenance and separate pinned lifecycle/admission evidence; absent provenance refuses public-execution claims."
+  ],
+  "routes": {
+    "direct": "actual dflowfm-cli.exe hash/path, argv [exe,--autostartstop,model.mdu], cwd actual run/model, exact staged MDU.",
+    "dimr": "actual dimr.exe hash/path argv [exe,dimr_config.xml], cwd runroot; XML original bytes/hash+identity and one matching control-start/component, library dflowfm,process0,workingDir model,inputFile actualmodel.mdu, known communicator. Preserve actual DFlowFM spelling; never fabricate dflowfm-cli child/argv or infer source revision.",
+    "kernel": "FM DLL hash separately bound to225 kernel for either route; DIMR executable/DLL and gdal/PROJ raw provenance retained separately. Version string does not substitute for payload hash."
+  },
+  "outputs_science": [
+    "Only actual manifest-listed/snapshotted case-owned outputs with explicit hashes/paths; reject missing/changed/outside/duplicate/borrowed references. Keep native diagnostics and native stdout/stderr separately from CLI JSON.",
+    "Compare ALL170 variables per case against matching225: HIS82/MAP36/RSTinitial26/RSTfinal26, all arrays/masks/dtypes/dims/ordered topology/varattrs. Only named global creation/UUID differences explicitly retained. No per-variable skip, nearest-cell or edge sign swap, epoch/time repair.",
+    "HIS/MAP121 actual CF records0..120s, RST0/120, explicit seconds since2001-01-01 00:00:00+00:00, calendar/units and no missing/duplicate/masked/nonfinite physical samples. All3station IDs/XY and48cells preserved.",
+    "BC concentration unit ppt; actual raw NC salinity unit1e-3. Preserve both strings/evidence; do not rewrite or waive raw variable units.",
+    "Point Q.1*120=12m3 added; pair transfers12m3 with globalnet0. Measured C15 stock+180ppt*m3; unchanged tolerances water.005m3/salt.05ppt*m3/Q1e-6/cumulative.0005/CFtime1e-6s. C5/C15 contrasts only if genuine matched controls observed; no new same-route C5 claim from C15-only minimum.",
+    "Frozen physical function bodies/extraction AST/byte provenance verified separately. context.output_pin may guard original public files but cannot substitute supplied arrays, change masks, convert units or relax math. Variable admitted forcing is static support, not this constant measured science."
+  ],
+  "runtime_admission": [
+    "Future observed-public approval requires separately expected corrected common/package/wheel/site payload pins, actual entrypoint/Python/runtime and selected engine identities, plus independent admission receipt. Do not assert latest root/old wheel equals approved runtime.",
+    "Known failed23f9 and held common ced356/b062 cannot acquire corrected-runtime/native approval via local success flags or arbitrary caller pin. Raw science/reference readback may remain available with explicit scope.",
+    "Preserve actual ownership/source_sink_lifecycle/normal_exit/job_close object and canonical bytes for separate V/G. No fabricated missing fields, coercion of bools to real kernel statuses, or reusing another run token/handle. This adapter V does not grant lifecycle/native authority."
+  ],
+  "negative_test_policy": "All tests execute only AFTER adapter immutable freeze/schema arrives, in new isolated subfolders/copies. No product/common imports as science oracle, no engine/GUI/surrogate native process. Expected refusals must preserve all inputs and avoid partial publication. Preserve unexpected errors as service/fixture/adapter issues, never count generic exceptions as semantic refusal.",
+  "remaining": "Adapter final callable/CLI/input/output schema, implementation pins and independent tests; corrected public runtime and lifecycle/native lease remain separate."
+}

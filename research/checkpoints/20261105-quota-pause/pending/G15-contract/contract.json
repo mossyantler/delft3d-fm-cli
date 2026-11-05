@@ -1,0 +1,158 @@
+{
+  "status": "PROPOSED_UNAPPROVED_NOT_IMPLEMENTED",
+  "version": "g15-structure-transfer-proposal-v2",
+  "source_revision": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "installed_engine_source_revision": "unknown",
+  "authoritative_details": "PROPOSAL.md; no current CLI/schema registration",
+  "commands": {
+    "inspect": "structure inspect MDU [--id FULL_ID]",
+    "export": "structure export MDU (--all|--id FULL_ID repeat) --representation geometry|hydraulic-bundle --out NEW_DIRECTORY [--apply --expect-sha256 HASH]",
+    "import": "Representation-specific forms import_geometry/import_hydraulic below; no generic geometry --all/append admission",
+    "import_geometry": "structure import MDU --source GEOMETRY_DIRECTORY --representation geometry --id TARGET_ID --mode replace-matching --coordinates model-xy-as-is --xy-unit m [--apply --expect-sha256 HASH]",
+    "import_hydraulic": "structure import MDU --source HYDRAULIC_BUNDLE_DIRECTORY --representation hydraulic-bundle (--all|--id FULL_ID repeat) --mode append|replace-matching --coordinates model-xy-as-is --xy-unit m --target-structure-file EXISTING_RELATIVE_INI --asset-map MAP.json [--height-unit m --vertical-datum LABEL] [--apply --expect-sha256 HASH]"
+  },
+  "identity": {
+    "selection": "Export/hydraulic: actual native source INI Structure.id. Geometry import: one explicitly requested actual target INI ID plus operator-declared route_id; never PLI header identity.",
+    "IDs": "CLI policy canonical printable ASCII1..255 bytes; source IDLEN256 recommendation distinct from G18MATR64",
+    "duplicates": "global exact/casefold collisions refused as policy",
+    "source_order": "Export/hydraulic: native StructureFile list order then physical block order. Geometry import: one explicitly selected operator route; no claimed native source order.",
+    "replacement_order": "destination slots"
+  },
+  "representations": {
+    "geometry": "One exact active single-block XY PLI per unique source file plus untrusted operator-routing geometry.json; no source INI, hydraulic/forcing properties or verified source ID/type/authenticity. Never concatenate locations or match/relabel PLI headers.",
+    "hydraulic-bundle": "CLI-owned index + selected raw native INI cores/General + supported exact geometry/forcing assets + raw source-context MDU; context is not complete model closure, not an observed GUI format or runnable model"
+  },
+  "INI_framing": {
+    "General": "one explicit General before structures; version3.01/type structure; first known global context version+type only, no synthesized defaults",
+    "core": "section header through LAST key/value record inclEOL; interior comments copied",
+    "file_owned": "prologue and trailing comments/blanks between cores/footer",
+    "projection": "General core plus selected raw cores; omitted file-owned trivia disclosed",
+    "replacement": "destination General/gaps/footer/non-target blocks exact; source/destination semantic context match",
+    "bridges": "explicit destination-first-EOL separator where required, record exact offsets/hex/hash"
+  },
+  "I1_eligibility": {
+    "kinds": [
+      "modern weir with scalar or root TIM crest",
+      "modern unstaged no-reduction scalar pump"
+    ],
+    "dimension": "planar locationFile transport; require explicit Kmx0; actual mesh topology/2D-vs1D validity not inferred without decoding",
+    "format": "one root3.01 StructureFile; MDU geometry/StructureFile value nonempty unquoted whitespace-free, explicit PathsRelativeToParent0, sole XY locationFile; same supported class on hydraulic replacement; NO whitespace/quote characters/semicolon in MDU StructureFile value",
+    "geometry_import": "ONE explicit --id TARGET_ID/replace-matching to actual existing unshared PLI role; route_id operator-declared, source native ID/type unavailable; --all/append refused; no hydraulic defaults",
+    "hydraulic_import": "one explicit existing declared INI only; append or replace-matching; no MDU or asset writes",
+    "assets": "explicit unambiguous asset-map to existing byte-identical assets; actual role/clock consumers rebound; path token remaps only; no implicit copies, deletes or rewrites",
+    "unknowns": "preserve all raw bytes; unknown selected/global keys or unresolved non-target edges block eligible transfer, never stripped"
+  },
+  "asset_map_proposal": {
+    "version": 1,
+    "assets": [
+      {
+        "source_path": "assets/crest.tim",
+        "target_path": "crest.tim"
+      }
+    ],
+    "rules": "bounded JSON no duplicate/unknown keys, unique logical mappings, ordinary contained targets, actual hash/identity/role/clock check; no inferred name matching"
+  },
+  "spatial": "Caller model-xy-as-is/m assertion; height m+explicit datum label when heights transferred. No CRS/axis/unit/vertical transformation or hidden mesh-snap. Actual datum metadata may remain unknown; sidecar assertions are not verified truth.",
+  "clock": "TIM native minute column with actual RefDate/TZone; source/destination absolute origins/coverage must match. BC own CF origin/ordered typed quantity+unit columns; Name binds structure ID. No native initialized0 used as authored knot.",
+  "parameter_unit_conventions": {
+    "capacity": "m3/s",
+    "crestLevel": "m",
+    "crestWidth": "m",
+    "gateLowerEdgeLevel": "m",
+    "gateOpeningWidth": "m",
+    "gateHeight": "m",
+    "orientation": null,
+    "pillarDiameter": "m",
+    "Cd": "dimensionless",
+    "qualification": "Convention separate from actual declared header units; scalar/TIM has no invented Unit header"
+  },
+  "path_rules": {
+    "spaces": "I1 refuses whitespace ONLY in MDU geometry/StructureFile value. Child location/forcing and external bundle/output paths may contain spaces subject to their own readers/safety/native bounds. Modern semicolon filename-space capability is deferred, not full native qualification.",
+    "native_bound": "ENTIRE StructureFile string<=255 ASCII bytes before tokenization, each ID/parameter/fixed-buffer effective filename<=255 including applicable prefix; no truncation",
+    "first_nesting": "root file+mode0 only; nested/multi/mode1 deferred due exact duplicate-resolve and last-basedir code",
+    "unsafe": "no absolute/UNC/device/ADS/navigation/reparse/hardlinks/input-output aliases; external source/out outside model, existing ordinary parent, absent output",
+    "counterpath": "Model2414-2425 no-semicolon branch calls strsplit then prop_file on tokens; string_module787-848 defaults to whitespace with quote handling. Modern Readstructures90-103 alone cannot qualify a single with-spaces.ini MDU reference. No native failure claimed, no delimiter/quote bypass.",
+    "I1_MDU_StructureFile": {
+      "one_root_ini": true,
+      "nonempty": true,
+      "whitespace_allowed": false,
+      "quote_characters_allowed": false,
+      "semicolon_allowed": false,
+      "no_quote_or_delimiter_bypass": true
+    },
+    "child_and_external_spaces": "Not globally prohibited: ordinary child location/forcing and external bundle/output paths may contain spaces subject to their own role-specific reader and all existing bounds/safety checks"
+  },
+  "scalar_discriminant": "exact whole finite normal scalar or zero vs unambiguous supported filename; refuse numeric-prefix filename ambiguity; REALTIME blocked as controller dependency",
+  "sharing": "read-only byte-identical assets may be shared only with all consumer edges bound; writable geometry/ID consumers must be exclusive or explicitly supported. Compound/controller/cross-profile effects cannot be ignored.",
+  "metadata": "All indices untrusted and strictly parsed, actual paths/assets/hashes re-read. Native SOURCE ID/type re-derived from INI only for hydraulic-bundle; geometry-only source ID/type absent, route_id is explicit operator routing. Actual TARGET ID/type/roles always from INI; actual PLI geometry independent of label. Applicable native quantity/clock graph re-derived. No stored eligibility/passed/authenticity receipt authority, extraction/escape or unlisted dependency bypass. No runtime source-file hashing.",
+  "Pillar_namespace": "Pillar labels/arrays are not proven Structure.id aliases; actual Structure ID namespace checked, unsupported Pillar interactions deferred/refused separately",
+  "location_separator_policy": "Modern XY reader directly reads numeric XY, without G18 missing-X behavior. Nonnumeric separators refused; finite -999/999.999 coordinates not automatically treated as native separators.",
+  "publication": {
+    "preview": "no writes",
+    "consent": "input_sha256 over stable policy/request/raw selectors+order/assertions/map/graph+bundle identity bytes/security/absence/complete intended bytes+operation digests",
+    "noop": "identical complete import target ->fullrecheck/no staging/inode+mtime churn; export never overwrites",
+    "I1": "reviewed one-existing-file ACL publisher with real snapshot/access/lategraph callback; raw commit/rollback/cleanup honest",
+    "export": "reviewed fresh-dir ownership adapter, exclusive commit, parent/security lateguards; retain final postcommit failures",
+    "I7": "separate new-asset/multi-file commit/recovery protocol; sequence of per-file atomic replaces is not global atomicity"
+  },
+  "limits": {
+    "graph_files": 512,
+    "graph_bytes": 2147483648,
+    "opaque_file_bytes": 268435456,
+    "text_file_bytes": 8388608,
+    "text_total_bytes": 67108864,
+    "future_INIs": 64,
+    "structures": 1024,
+    "selected_forcing_assets": 128,
+    "geometry_vertices": 100000,
+    "receipt_details": 256
+  },
+  "errors": {
+    "usage": 2,
+    "unsupported_data_paths": 3,
+    "collision_missing_match_stale_publication": 4
+  },
+  "evidence": {
+    "implemented": false,
+    "GUI_standalone": "not_observed",
+    "GUI_format_collision_save_behavior": "unknown",
+    "native": "not_performed",
+    "scientific": "not_performed",
+    "G13_G16_G18_approval_inherited": false
+  },
+  "V_predeclaration": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\predeclared-03\\freeze.json",
+    "sha256": "1795249b719c4ed63f4d617290262f7673ddceac7eeef675f36ee220989d0daa",
+    "bytes": 58832
+  },
+  "final_contract_approval": "independent V and G only",
+  "supersedes": {
+    "revision01_freeze": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\freeze.json",
+      "sha256": "e44e643b4745de7b795fbc19f4a38bb7b0c33c978d56ca9310545e2395fe926c",
+      "bytes": 20862
+    },
+    "delta": "Two admission clarifications in ADDENDUM.md; parent evidence unchanged"
+  },
+  "geometry_routing_proposal": {
+    "format": "dfm-structure-geometry-v1",
+    "routes": [
+      {
+        "route_id": "W_Main",
+        "asset_path": "assets/weir.pli"
+      }
+    ],
+    "schema": "Only format/routes and route_id/asset_path; strict bounded types, no duplicate JSON keys, unique exact/casefold-safe routes, one source asset per selected route, paths and listed assets verified; no source_type/verified_id/passed authority",
+    "geometry_import_request": "Exactly one --id TARGET_ID and mode replace-matching; --all/append refused in I1 geometry import. Selected route_id must exactly equal explicit target request.",
+    "actual_native_identity": "Target ID/type/location-file role and consumers re-derived from actual destination INI. Hydraulic source identity absent and unverified in geometry mode.",
+    "payload_geometry": "Actual source PLI label/count/ordered XY parsed independently of route_id; label never matched or rewritten to imply Structure.id.",
+    "consent": "All request/map/path/asset bytes, identities, raw geometry and target graph bound; altered routing requires new preview; no automatic target selection from metadata.",
+    "report": {
+      "source_native_id": null,
+      "source_native_type": null,
+      "source_identity_status": "not_present_unverified",
+      "routing_status": "operator_declared",
+      "target_identity_status": "rederived_from_actual_INI"
+    }
+  }
+}

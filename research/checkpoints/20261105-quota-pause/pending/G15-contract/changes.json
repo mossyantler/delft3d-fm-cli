@@ -1,0 +1,35 @@
+{
+  "base": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\freeze.json",
+    "sha256": "e44e643b4745de7b795fbc19f4a38bb7b0c33c978d56ca9310545e2395fe926c",
+    "bytes": 20862
+  },
+  "changed_contract_topics": [
+    "geometry-only operator routing vs native hydraulic source identity",
+    "I1 MDU StructureFile value whitespace/quote/semicolon refusal with reader-specific child/external paths"
+  ],
+  "revised_files": {
+    "PROPOSAL.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\PROPOSAL.md",
+      "sha256": "70c3028c2e792d9475f2415b2a4e3f43c32c1bbc5bdc0254a9561e541b92d322",
+      "bytes": 32865
+    },
+    "contract.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\contract.json",
+      "sha256": "88016f2fa2c3e6ea368cfdd2cd8f6ae64e2b89c6d0308eec57bb41a3dea78585",
+      "bytes": 12171
+    },
+    "coverage.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\coverage.json",
+      "sha256": "5f31ae85f23d18585b146231c093f1a5d34aeebcf691511d34716481c13df434",
+      "bytes": 6103
+    },
+    "ADDENDUM.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\ADDENDUM.md",
+      "sha256": "5c254b1a2d56aa6aec416f51a965ff1d81ae79b7c90f1979cc4750b6fc18a793",
+      "bytes": 4001
+    }
+  },
+  "inherited_evidence": "Original16 unique source blobs/33 manual fixtures retained by exact parent67 pin; new3 counterpath excerpts include new string_module blob",
+  "final_approval": "V/G pending; no implementation/native/GUI approval"
+}

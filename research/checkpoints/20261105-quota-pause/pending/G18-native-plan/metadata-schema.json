@@ -1,0 +1,2816 @@
+{
+  "history": {
+    "metadata_only_source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\natural-direct\\model\\output\\f34_his.nc",
+    "source_sha256": "76563935763a39f999d34cacef1ee19174721193925be47cb34548c585ce5862",
+    "dimensions": {
+      "time": 11,
+      "two": 2,
+      "name_len": 256,
+      "station": 5,
+      "station_geom_nNodes": 5,
+      "cross_section": 3,
+      "cross_section_geom_nNodes": 31
+    },
+    "variables": {
+      "time": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "standard_name": "time",
+          "bounds": "time_bds"
+        }
+      },
+      "time_bds": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "two"
+        ],
+        "attributes": {
+          "long_name": "Time interval for each point in time.",
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "standard_name": "time"
+        }
+      },
+      "timestep": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "long_name": "latest computational timestep size in each output interval",
+          "units": "s"
+        }
+      },
+      "projected_coordinate_system": {
+        "dtype": "int32",
+        "dimensions": [],
+        "attributes": {
+          "name": "Amersfoort / RD New",
+          "epsg": {
+            "dtype": "int32",
+            "value": 28992
+          },
+          "grid_mapping_name": "Unknown projected",
+          "longitude_of_prime_meridian": {
+            "dtype": "float64",
+            "value": 0.0
+          },
+          "semi_major_axis": {
+            "dtype": "float64",
+            "value": 6377397.155
+          },
+          "semi_minor_axis": {
+            "dtype": "float64",
+            "value": 6356078.962818189
+          },
+          "inverse_flattening": {
+            "dtype": "float64",
+            "value": 299.1528128
+          },
+          "proj4_params": "+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs",
+          "EPSG_code": "EPSG:28992",
+          "projection_name": "unknown",
+          "wkt": "PROJCS[\"Amersfoort / RD New\",\n    GEOGCS[\"Amersfoort\",\n        DATUM[\"Amersfoort\",\n            SPHEROID[\"Bessel 1841\",6377397.155,299.1528128,\n                AUTHORITY[\"EPSG\",\"7004\"]],\n            AUTHORITY[\"EPSG\",\"6289\"]],\n        PRIMEM[\"Greenwich\",0,\n            AUTHORITY[\"EPSG\",\"8901\"]],\n        UNIT[\"degree\",0.0174532925199433,\n            AUTHORITY[\"EPSG\",\"9122\"]],\n        AUTHORITY[\"EPSG\",\"4289\"]],\n    PROJECTION[\"Oblique_Stereographic\"],\n    PARAMETER[\"latitude_of_origin\",52.1561605555556],\n    PARAMETER[\"central_meridian\",5.38763888888889],\n    PARAMETER[\"scale_factor\",0.9999079],\n    PARAMETER[\"false_easting\",155000],\n    PARAMETER[\"false_northing\",463000],\n    UNIT[\"metre\",1,\n        AUTHORITY[\"EPSG\",\"9001\"]],\n    AXIS[\"Easting\",EAST],\n    AXIS[\"Northing\",NORTH],\n    AUTHORITY[\"EPSG\",\"28992\"]]",
+          "comment": "",
+          "value": "value is equal to EPSG code"
+        }
+      },
+      "station_name": {
+        "dtype": "|S1",
+        "dimensions": [
+          "station",
+          "name_len"
+        ],
+        "attributes": {
+          "cf_role": "timeseries_id",
+          "long_name": "name of observation station"
+        }
+      },
+      "station_geom": {
+        "dtype": "int32",
+        "dimensions": [],
+        "attributes": {
+          "geometry_type": "point",
+          "node_count": "station_geom_node_count",
+          "node_coordinates": "station_geom_node_coordx station_geom_node_coordy"
+        }
+      },
+      "station_geom_node_count": {
+        "dtype": "int32",
+        "dimensions": [
+          "station"
+        ],
+        "attributes": {
+          "long_name": "Count of nodes per observation station"
+        }
+      },
+      "station_geom_node_coordx": {
+        "dtype": "float64",
+        "dimensions": [
+          "station_geom_nNodes"
+        ],
+        "attributes": {
+          "long_name": "x-coordinate of observation station",
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "axis": "X"
+        }
+      },
+      "station_geom_node_coordy": {
+        "dtype": "float64",
+        "dimensions": [
+          "station_geom_nNodes"
+        ],
+        "attributes": {
+          "long_name": "y-coordinate of observation station",
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "axis": "Y"
+        }
+      },
+      "station_id": {
+        "dtype": "|S1",
+        "dimensions": [
+          "station",
+          "name_len"
+        ],
+        "attributes": {
+          "long_name": "id of station",
+          "cf_role": "timeseries_id"
+        }
+      },
+      "station_x_coordinate": {
+        "dtype": "float64",
+        "dimensions": [
+          "station"
+        ],
+        "attributes": {
+          "long_name": "x-coordinate",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "units": "m",
+          "standard_name": "projection_x_coordinate"
+        }
+      },
+      "station_y_coordinate": {
+        "dtype": "float64",
+        "dimensions": [
+          "station"
+        ],
+        "attributes": {
+          "long_name": "y-coordinate",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "units": "m",
+          "standard_name": "projection_y_coordinate"
+        }
+      },
+      "cross_section_name": {
+        "dtype": "|S1",
+        "dimensions": [
+          "cross_section",
+          "name_len"
+        ],
+        "attributes": {
+          "cf_role": "timeseries_id",
+          "long_name": "name of observation cross section"
+        }
+      },
+      "cross_section_geom": {
+        "dtype": "int32",
+        "dimensions": [],
+        "attributes": {
+          "geometry_type": "line",
+          "node_count": "cross_section_geom_node_count",
+          "node_coordinates": "cross_section_geom_node_coordx cross_section_geom_node_coordy"
+        }
+      },
+      "cross_section_geom_node_count": {
+        "dtype": "int32",
+        "dimensions": [
+          "cross_section"
+        ],
+        "attributes": {
+          "long_name": "Count of nodes per observation cross section"
+        }
+      },
+      "cross_section_geom_node_coordx": {
+        "dtype": "float64",
+        "dimensions": [
+          "cross_section_geom_nNodes"
+        ],
+        "attributes": {
+          "long_name": "x-coordinate of observation cross section",
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "axis": "X"
+        }
+      },
+      "cross_section_geom_node_coordy": {
+        "dtype": "float64",
+        "dimensions": [
+          "cross_section_geom_nNodes"
+        ],
+        "attributes": {
+          "long_name": "y-coordinate of observation cross section",
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "axis": "Y"
+        }
+      },
+      "bedlevel": {
+        "dtype": "float32",
+        "dimensions": [
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "bottom level",
+          "units": "m",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          }
+        }
+      },
+      "water_balance_total_volume": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_storage": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_volume_error": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_boundaries_in": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_boundaries_out": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_boundaries_total": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_exchange_with_1D_in": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_exchange_with_1D_out": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_exchange_with_1D_total": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_precipitation_total": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_evaporation": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_source_sink": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_groundwater_in": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_groundwater_out": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_groundwater_total": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_in": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_out": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_total": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_in_1D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_out_1D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_total_1D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_in_2D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_out_2D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_laterals_total_2D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_in": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_out": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_total": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_in_1D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_out_1D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_total_1D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_in_2D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_out_2D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_Qext_total_2D": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_total_volume_interception": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_evaporation_interception": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "water_balance_precipitation_on_ground": {
+        "dtype": "float32",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "coordinates": "",
+          "long_name": "",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "cell_methods": "time: point"
+        }
+      },
+      "waterlevel": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "water level",
+          "units": "m",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "sea_surface_height",
+          "cell_methods": "time: point"
+        }
+      },
+      "x_velocity": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "flow element center velocity vector, x-component",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "sea_water_x_velocity",
+          "cell_methods": "time: point"
+        }
+      },
+      "y_velocity": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "flow element center velocity vector, y-component",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "sea_water_y_velocity",
+          "cell_methods": "time: point"
+        }
+      },
+      "velocity_magnitude": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "velocity magnitude",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "sea_water_speed",
+          "cell_methods": "time: point"
+        }
+      },
+      "discharge_magnitude": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "average discharge magnitude",
+          "units": "m3 s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "water_volume_transport_in_river_channel",
+          "cell_methods": "time: point"
+        }
+      },
+      "viu": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "horizontal eddy viscosity (flowlink-averaged) at pressure point",
+          "units": "m2 s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "cell_methods": "time: point"
+        }
+      },
+      "tausx": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "Mean bottom shear stress vector, x-component",
+          "units": "Pa",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "mean_bottom_shear_stress vector, x-component",
+          "cell_methods": "time: point"
+        }
+      },
+      "tausy": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "Mean bottom shear stress vector, y-component",
+          "units": "Pa",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "mean_bottom_shear_stress vector, y-component",
+          "cell_methods": "time: point"
+        }
+      },
+      "windx": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "velocity of air on flow element center, x-component",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "x_wind",
+          "cell_methods": "time: point"
+        }
+      },
+      "windy": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "station"
+        ],
+        "attributes": {
+          "coordinates": "station_x_coordinate station_y_coordinate station_name",
+          "long_name": "velocity of air on flow element center, y-component",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "station_geom",
+          "standard_name": "y_wind",
+          "cell_methods": "time: point"
+        }
+      },
+      "cross_section_discharge": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "cross_section"
+        ],
+        "attributes": {
+          "coordinates": "cross_section_name",
+          "long_name": "Discharge through observation cross section",
+          "units": "m3 s-1",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "cross_section_geom",
+          "cell_methods": "time: point"
+        }
+      },
+      "cross_section_cumulative_discharge": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "cross_section"
+        ],
+        "attributes": {
+          "coordinates": "cross_section_name",
+          "long_name": "Cumulative volume transport through observation cross section",
+          "units": "m3",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "cross_section_geom",
+          "cell_methods": "time: point"
+        }
+      },
+      "cross_section_area": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "cross_section"
+        ],
+        "attributes": {
+          "coordinates": "cross_section_name",
+          "long_name": "Wet area of observation cross section",
+          "units": "m2",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "cross_section_geom",
+          "cell_methods": "time: point"
+        }
+      },
+      "cross_section_velocity": {
+        "dtype": "float32",
+        "dimensions": [
+          "time",
+          "cross_section"
+        ],
+        "attributes": {
+          "coordinates": "cross_section_name",
+          "long_name": "Space-averaged velocity through observation cross section",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float32",
+            "value": -999.0
+          },
+          "geometry": "cross_section_geom",
+          "cell_methods": "time: point"
+        }
+      }
+    },
+    "global_attribute_names": [
+      "institution",
+      "references",
+      "source",
+      "history",
+      "date_created",
+      "date_modified",
+      "Conventions",
+      "uuid",
+      "time_coverage_start",
+      "time_coverage_end",
+      "time_coverage_duration",
+      "time_coverage_resolution"
+    ]
+  },
+  "map": {
+    "metadata_only_source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\natural-direct\\model\\output\\f34_map.nc",
+    "source_sha256": "74561e7cf23a872c7cd210bbe7069972ef79ed72cb6d5b34ce50d6151e31e67d",
+    "dimensions": {
+      "nNetNode": 258,
+      "nNetLink": 479,
+      "nNetLinkPts": 2,
+      "nNetElem": 222,
+      "nBndLink": 70,
+      "nmesh2d_EnclosureInstance": 1,
+      "nmesh2d_EnclosurePoints": 71,
+      "nmesh2d_EnclosureParts": 1,
+      "nNetElemMaxNode": 4,
+      "nNetLinkContourPts": 4,
+      "nFlowElem": 222,
+      "nFlowElemMaxNode": 4,
+      "nFlowElemContourPts": 4,
+      "nFlowLink": 415,
+      "nFlowLinkPts": 2,
+      "time": 11
+    },
+    "variables": {
+      "mesh2d_enc_x": {
+        "dtype": "float64",
+        "dimensions": [
+          "nmesh2d_EnclosurePoints"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate",
+          "cf_role": "geometry_x_node"
+        }
+      },
+      "mesh2d_enc_y": {
+        "dtype": "float64",
+        "dimensions": [
+          "nmesh2d_EnclosurePoints"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate",
+          "cf_role": "geometry_y_node"
+        }
+      },
+      "mesh2d_enc_node_count": {
+        "dtype": "int32",
+        "dimensions": [
+          "nmesh2d_EnclosureInstance"
+        ],
+        "attributes": {
+          "long_name": "count of coordinates in each instance geometry"
+        }
+      },
+      "mesh2d_enc_part_node_count": {
+        "dtype": "int32",
+        "dimensions": [
+          "nmesh2d_EnclosureParts"
+        ],
+        "attributes": {
+          "long_name": "count of nodes in each geometry part"
+        }
+      },
+      "mesh2d_enc_interior_ring": {
+        "dtype": "int32",
+        "dimensions": [
+          "nmesh2d_EnclosureParts"
+        ],
+        "attributes": {
+          "long_name": "type of each geometry part"
+        }
+      },
+      "mesh2d_enclosure_container": {
+        "dtype": "float32",
+        "dimensions": [],
+        "attributes": {
+          "geometry_type": "multipolygon",
+          "node_count": "mesh2d_enc_node_count",
+          "node_coordinates": "mesh2d_enc_x mesh2d_enc_y",
+          "part_node_count": "mesh2d_enc_part_node_count",
+          "interior_ring": "mesh2d_enc_interior_ring"
+        }
+      },
+      "Mesh2D": {
+        "dtype": "int32",
+        "dimensions": [],
+        "attributes": {
+          "cf_role": "mesh_topology",
+          "node_coordinates": "NetNode_x NetNode_y",
+          "node_dimension": "nNetNode",
+          "edge_node_connectivity": "NetLink",
+          "edge_dimension": "nNetLink",
+          "topology_dimension": {
+            "dtype": "int32",
+            "value": 2
+          },
+          "face_node_connectivity": "NetElemNode",
+          "face_dimension": "nNetElem"
+        }
+      },
+      "NetNode_x": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetNode"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate"
+        }
+      },
+      "NetNode_y": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetNode"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate"
+        }
+      },
+      "projected_coordinate_system": {
+        "dtype": "int32",
+        "dimensions": [],
+        "attributes": {
+          "name": "Amersfoort / RD New",
+          "epsg": {
+            "dtype": "int32",
+            "value": 28992
+          },
+          "grid_mapping_name": "Unknown projected",
+          "longitude_of_prime_meridian": {
+            "dtype": "float64",
+            "value": 0.0
+          },
+          "semi_major_axis": {
+            "dtype": "float64",
+            "value": 6377397.155
+          },
+          "semi_minor_axis": {
+            "dtype": "float64",
+            "value": 6356078.962818189
+          },
+          "inverse_flattening": {
+            "dtype": "float64",
+            "value": 299.1528128
+          },
+          "proj4_params": "+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +units=m +no_defs",
+          "EPSG_code": "EPSG:28992",
+          "projection_name": "unknown",
+          "wkt": "PROJCS[\"Amersfoort / RD New\",\n    GEOGCS[\"Amersfoort\",\n        DATUM[\"Amersfoort\",\n            SPHEROID[\"Bessel 1841\",6377397.155,299.1528128,\n                AUTHORITY[\"EPSG\",\"7004\"]],\n            AUTHORITY[\"EPSG\",\"6289\"]],\n        PRIMEM[\"Greenwich\",0,\n            AUTHORITY[\"EPSG\",\"8901\"]],\n        UNIT[\"degree\",0.0174532925199433,\n            AUTHORITY[\"EPSG\",\"9122\"]],\n        AUTHORITY[\"EPSG\",\"4289\"]],\n    PROJECTION[\"Oblique_Stereographic\"],\n    PARAMETER[\"latitude_of_origin\",52.1561605555556],\n    PARAMETER[\"central_meridian\",5.38763888888889],\n    PARAMETER[\"scale_factor\",0.9999079],\n    PARAMETER[\"false_easting\",155000],\n    PARAMETER[\"false_northing\",463000],\n    UNIT[\"metre\",1,\n        AUTHORITY[\"EPSG\",\"9001\"]],\n    AXIS[\"Easting\",EAST],\n    AXIS[\"Northing\",NORTH],\n    AUTHORITY[\"EPSG\",\"28992\"]]",
+          "comment": "",
+          "value": "value is equal to EPSG code"
+        }
+      },
+      "NetNode_z": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetNode"
+        ],
+        "attributes": {
+          "units": "m",
+          "positive": "up",
+          "standard_name": "sea_floor_depth",
+          "long_name": "bed level at net nodes (flow element corners)",
+          "coordinates": "NetNode_x NetNode_y",
+          "mesh": "Mesh2D",
+          "location": "node"
+        }
+      },
+      "NetLink": {
+        "dtype": "int32",
+        "dimensions": [
+          "nNetLink",
+          "nNetLinkPts"
+        ],
+        "attributes": {
+          "standard_name": "netlink",
+          "long_name": "link between two netnodes",
+          "start_index": {
+            "dtype": "int32",
+            "value": 1
+          }
+        }
+      },
+      "NetLinkType": {
+        "dtype": "int32",
+        "dimensions": [
+          "nNetLink"
+        ],
+        "attributes": {
+          "long_name": "type of netlink",
+          "valid_range": {
+            "dtype": "int32",
+            "shape": [
+              2
+            ],
+            "values": [
+              1,
+              7
+            ]
+          },
+          "flag_values": {
+            "dtype": "int32",
+            "shape": [
+              6
+            ],
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7
+            ]
+          },
+          "flag_meanings": "link_between_1D_nodes link_between_2D_nodes embedded_1D2D_link longitudinal_1D2D_link vertically_stacked_1D2D_link roof_gutter_1D2D_link"
+        }
+      },
+      "NetElemNode": {
+        "dtype": "int32",
+        "dimensions": [
+          "nNetElem",
+          "nNetElemMaxNode"
+        ],
+        "attributes": {
+          "long_name": "mapping from net cell to net nodes (counterclockwise)",
+          "start_index": {
+            "dtype": "int32",
+            "value": 1
+          },
+          "_FillValue": {
+            "dtype": "int32",
+            "value": -2147483647
+          }
+        }
+      },
+      "NetElemLink": {
+        "dtype": "int32",
+        "dimensions": [
+          "nNetElem",
+          "nNetElemMaxNode"
+        ],
+        "attributes": {
+          "long_name": "mapping from net cell to its net links (counterclockwise)",
+          "short_name": "netcell()%LIN"
+        }
+      },
+      "NetLinkContour_x": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetLink",
+          "nNetLinkContourPts"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "list of x-contour points of momentum control volume surrounding each net/flow link",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "NetLinkContour_y": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetLink",
+          "nNetLinkContourPts"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "list of y-contour points of momentum control volume surrounding each net/flow link",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "NetLink_xu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of net link center (velocity point)"
+        }
+      },
+      "NetLink_yu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nNetLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of net link center (velocity point)"
+        }
+      },
+      "BndLink": {
+        "dtype": "int32",
+        "dimensions": [
+          "nBndLink"
+        ],
+        "attributes": {
+          "long_name": "netlinks that compose the net boundary"
+        }
+      },
+      "FlowElem_xcc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow element circumcenter",
+          "bounds": "FlowElemContour_x"
+        }
+      },
+      "FlowElem_ycc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow element circumcenter",
+          "bounds": "FlowElemContour_y"
+        }
+      },
+      "FlowElem_zcc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "standard_name": "bed_level",
+          "long_name": "bed level of flow element"
+        }
+      },
+      "FlowElem_bac": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "long_name": "flow element area",
+          "units": "m2",
+          "standard_name": "cell_area"
+        }
+      },
+      "FlowElem_xzw": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow element center of mass",
+          "bounds": "FlowElemContour_x"
+        }
+      },
+      "FlowElem_yzw": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow element center of mass",
+          "bounds": "FlowElemContour_y"
+        }
+      },
+      "FlowElemContour_x": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem",
+          "nFlowElemContourPts"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "list of x-coordinates forming flow element",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "FlowElemContour_y": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem",
+          "nFlowElemContourPts"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "list of y-coordinates forming flow element",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "FlowElem_bl": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "long_name": "Initial bed level at flow element circumcenter",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "ElemLink": {
+        "dtype": "int32",
+        "dimensions": [
+          "nNetLink",
+          "nNetLinkPts"
+        ],
+        "attributes": {
+          "standard_name": "elemlink",
+          "long_name": "flow nodes between/next to which link between two netnodes lies",
+          "start_index": {
+            "dtype": "int32",
+            "value": 1
+          }
+        }
+      },
+      "FlowLink": {
+        "dtype": "int32",
+        "dimensions": [
+          "nFlowLink",
+          "nFlowLinkPts"
+        ],
+        "attributes": {
+          "long_name": "link/interface between two flow elements"
+        }
+      },
+      "FlowLinkType": {
+        "dtype": "int32",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "type of flowlink",
+          "valid_range": {
+            "dtype": "int32",
+            "shape": [
+              2
+            ],
+            "values": [
+              1,
+              7
+            ]
+          },
+          "flag_values": {
+            "dtype": "int32",
+            "shape": [
+              6
+            ],
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              7
+            ]
+          },
+          "flag_meanings": "link_between_1D_nodes link_between_2D_nodes embedded_1D2D_link longitudinal_1D2D_link vertically_stacked_1D2D_link roof_gutter_1D2D_link"
+        }
+      },
+      "FlowLink_xu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow link center (velocity point)"
+        }
+      },
+      "FlowLink_yu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow link center (velocity point)"
+        }
+      },
+      "FlowLink_lonu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "degrees_east",
+          "standard_name": "longitude",
+          "long_name": "longitude"
+        }
+      },
+      "FlowLink_latu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "degrees_north",
+          "standard_name": "latitude",
+          "long_name": "latitude"
+        }
+      },
+      "time": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "standard_name": "time"
+        }
+      },
+      "timestep": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds",
+          "standard_name": "timestep"
+        }
+      },
+      "s1": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_surface_height",
+          "long_name": "water level",
+          "units": "m",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "s0": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_surface_height",
+          "long_name": "water level at previous timestep",
+          "units": "m",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "waterdepth": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "water depth",
+          "units": "m",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "numlimdt": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "number of times flow element was Courant limiting",
+          "units": "1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "taus": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "taucurrent",
+          "long_name": "taucurrent in flow element",
+          "units": "N m-2",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "unorm": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "normal component of sea_water_speed",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "u0": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "normal component of sea_water_speed at previous timestep",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "q1": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "flow flux",
+          "units": "m3 s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "viu": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "horizontal viscosity",
+          "units": "m2 s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "diu": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "horizontal diffusivity",
+          "units": "m2 s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          }
+        }
+      },
+      "ucx": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_water_x_velocity",
+          "long_name": "velocity on flow element center, x-component",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "ucy": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_water_y_velocity",
+          "long_name": "velocity on flow element center, y-component",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "czs": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "long_name": "Chezy roughness",
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "units": "m0.5s-1"
+        }
+      },
+      "windx": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "x_wind",
+          "long_name": "velocity of air on flow element center, x-component",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "windy": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "y_wind",
+          "long_name": "velocity of air on flow element center, y-component",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "windxu": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "velocity of air on flow links, x-component",
+          "standard_name": "x_velocity_wind",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "windyu": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "velocity of air on flow links, y-component",
+          "standard_name": "y_velocity_wind",
+          "units": "m s-1",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      }
+    },
+    "global_attribute_names": [
+      "institution",
+      "references",
+      "source",
+      "history",
+      "date_created",
+      "date_modified",
+      "Conventions",
+      "uuid"
+    ]
+  },
+  "restart_initial": {
+    "metadata_only_source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\natural-direct\\model\\output\\f34_19900805_000000_rst.nc",
+    "source_sha256": "6849869cd450d5c40aa70c0f26b9d0c5d213a1d986dabfe7e76e2c621666d219",
+    "dimensions": {
+      "nFlowLink": 415,
+      "nFlowLinkPts": 2,
+      "nFlowElem": 222,
+      "nFlowElemBnd": 13,
+      "nNetElem": 222,
+      "nNetNode": 258,
+      "nNetElemMaxNode": 4,
+      "nNetLink": 479,
+      "nNetLinkPts": 2,
+      "time": 1
+    },
+    "variables": {
+      "time": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "standard_name": "time"
+        }
+      },
+      "timestep": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds",
+          "standard_name": "timestep"
+        }
+      },
+      "s1": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_surface_height",
+          "long_name": "water level",
+          "units": "m",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "s0": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_surface_height",
+          "long_name": "water level at previous timestep",
+          "units": "m"
+        }
+      },
+      "taus": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "taucurrent",
+          "long_name": "taucurrent in flow element center",
+          "units": "N m-2",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "czs": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "Chezy roughness in flow element center",
+          "units": "m0.5s-1"
+        }
+      },
+      "FlowElem_bl": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "bed level at flow element circumcenter",
+          "units": "m"
+        }
+      },
+      "ucx": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_water_x_velocity",
+          "long_name": "velocity on flow element center, x-component",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "ucy": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_water_y_velocity",
+          "long_name": "velocity on flow element center, y-component",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "unorm": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "normal component of sea_water_speed",
+          "units": "m s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "u0": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "normal component of velocity through flow link at previous time t0",
+          "units": "m s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu"
+        }
+      },
+      "ucxq": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "long_name": "q-based cell center velocity, x-dir",
+          "units": "m s-1",
+          "coordinates": "FlowElem_xcc FlowElem_ycc"
+        }
+      },
+      "ucyq": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "long_name": "q-based cell center velocity, y-dir",
+          "units": "m s-1",
+          "coordinates": "FlowElem_xcc FlowElem_ycc"
+        }
+      },
+      "q1": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "standard_name": "discharge",
+          "long_name": "discharge through flow link at current time",
+          "units": "m3 s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu"
+        }
+      },
+      "qa": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "discharge used in advection",
+          "units": "m3 s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu"
+        }
+      },
+      "squ": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "cell center outcoming flux",
+          "units": "m3 s-1"
+        }
+      },
+      "sqi": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "cell center incoming flux",
+          "units": "m3 s-1"
+        }
+      },
+      "hu": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "flow depth at link",
+          "units": "m"
+        }
+      },
+      "fvcoro": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "Coriolis term Adams-Bashford",
+          "units": "m s-2"
+        }
+      },
+      "FlowElem_xzw": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow element center of mass"
+        }
+      },
+      "FlowElem_yzw": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow element center of mass"
+        }
+      },
+      "FlowElem_xcc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow element circumcenter"
+        }
+      },
+      "FlowElem_ycc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow element circumcenter"
+        }
+      },
+      "FlowLink_xu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow link center (velocity point)"
+        }
+      },
+      "FlowLink_yu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow link center (velocity point)"
+        }
+      },
+      "FlowElem_xbnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "units": "m",
+          "long_name": "x-coordinate of boundary points"
+        }
+      },
+      "FlowElem_ybnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "units": "m",
+          "long_name": "y-coordinate of boundary points"
+        }
+      },
+      "s0_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "water level at boundaries of previous timestep",
+          "units": "m"
+        }
+      },
+      "s1_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "water level at boundaries",
+          "units": "m"
+        }
+      },
+      "bl_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "bed level at boundaries",
+          "units": "m"
+        }
+      },
+      "sqi_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "cell center incoming flux at boundaries",
+          "units": "m3 s-1"
+        }
+      },
+      "squ_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "cell center outcoming flux at boundaries",
+          "units": "m3 s-1"
+        }
+      },
+      "ucxq_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "q-based cell center velocity, x-dir at boundaries",
+          "units": "m s-1"
+        }
+      },
+      "ucyq_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "q-based cell center velocity, y-dir at boundaries",
+          "units": "m s-1"
+        }
+      }
+    },
+    "global_attribute_names": [
+      "institution",
+      "references",
+      "source",
+      "history",
+      "date_created",
+      "date_modified",
+      "Conventions",
+      "uuid"
+    ]
+  },
+  "restart_final": {
+    "metadata_only_source": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-227-01\\natural-direct\\model\\output\\f34_19900805_001000_rst.nc",
+    "source_sha256": "6184f879f43fda518a42446f408c6efba9e92edc790cc1c80c87296d0c692eb7",
+    "dimensions": {
+      "nFlowLink": 415,
+      "nFlowLinkPts": 2,
+      "nFlowElem": 222,
+      "nFlowElemBnd": 13,
+      "nNetElem": 222,
+      "nNetNode": 258,
+      "nNetElemMaxNode": 4,
+      "nNetLink": 479,
+      "nNetLinkPts": 2,
+      "time": 1
+    },
+    "variables": {
+      "time": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds since 1990-08-05 00:00:00 +00:00",
+          "standard_name": "time"
+        }
+      },
+      "timestep": {
+        "dtype": "float64",
+        "dimensions": [
+          "time"
+        ],
+        "attributes": {
+          "units": "seconds",
+          "standard_name": "timestep"
+        }
+      },
+      "s1": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_surface_height",
+          "long_name": "water level",
+          "units": "m",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "s0": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_surface_height",
+          "long_name": "water level at previous timestep",
+          "units": "m"
+        }
+      },
+      "taus": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "taucurrent",
+          "long_name": "taucurrent in flow element center",
+          "units": "N m-2",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "czs": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "Chezy roughness in flow element center",
+          "units": "m0.5s-1"
+        }
+      },
+      "FlowElem_bl": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "bed level at flow element circumcenter",
+          "units": "m"
+        }
+      },
+      "ucx": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_water_x_velocity",
+          "long_name": "velocity on flow element center, x-component",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "ucy": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "standard_name": "sea_water_y_velocity",
+          "long_name": "velocity on flow element center, y-component",
+          "units": "m s-1",
+          "_FillValue": {
+            "dtype": "float64",
+            "value": -999.0
+          },
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "unorm": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "normal component of sea_water_speed",
+          "units": "m s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "grid_mapping": "projected_coordinate_system"
+        }
+      },
+      "u0": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "normal component of velocity through flow link at previous time t0",
+          "units": "m s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu"
+        }
+      },
+      "ucxq": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "long_name": "q-based cell center velocity, x-dir",
+          "units": "m s-1",
+          "coordinates": "FlowElem_xcc FlowElem_ycc"
+        }
+      },
+      "ucyq": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "long_name": "q-based cell center velocity, y-dir",
+          "units": "m s-1",
+          "coordinates": "FlowElem_xcc FlowElem_ycc"
+        }
+      },
+      "q1": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "standard_name": "discharge",
+          "long_name": "discharge through flow link at current time",
+          "units": "m3 s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu"
+        }
+      },
+      "qa": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "long_name": "discharge used in advection",
+          "units": "m3 s-1",
+          "coordinates": "FlowLink_xu FlowLink_yu"
+        }
+      },
+      "squ": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "cell center outcoming flux",
+          "units": "m3 s-1"
+        }
+      },
+      "sqi": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElem"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xcc FlowElem_ycc",
+          "long_name": "cell center incoming flux",
+          "units": "m3 s-1"
+        }
+      },
+      "hu": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "flow depth at link",
+          "units": "m"
+        }
+      },
+      "fvcoro": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowLink"
+        ],
+        "attributes": {
+          "coordinates": "FlowLink_xu FlowLink_yu",
+          "long_name": "Coriolis term Adams-Bashford",
+          "units": "m s-2"
+        }
+      },
+      "FlowElem_xzw": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow element center of mass"
+        }
+      },
+      "FlowElem_yzw": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow element center of mass"
+        }
+      },
+      "FlowElem_xcc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow element circumcenter"
+        }
+      },
+      "FlowElem_ycc": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElem"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow element circumcenter"
+        }
+      },
+      "FlowLink_xu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_x_coordinate",
+          "long_name": "x-coordinate of flow link center (velocity point)"
+        }
+      },
+      "FlowLink_yu": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowLink"
+        ],
+        "attributes": {
+          "units": "m",
+          "standard_name": "projection_y_coordinate",
+          "long_name": "y-coordinate of flow link center (velocity point)"
+        }
+      },
+      "FlowElem_xbnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "units": "m",
+          "long_name": "x-coordinate of boundary points"
+        }
+      },
+      "FlowElem_ybnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "units": "m",
+          "long_name": "y-coordinate of boundary points"
+        }
+      },
+      "s0_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "water level at boundaries of previous timestep",
+          "units": "m"
+        }
+      },
+      "s1_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "water level at boundaries",
+          "units": "m"
+        }
+      },
+      "bl_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "bed level at boundaries",
+          "units": "m"
+        }
+      },
+      "sqi_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "cell center incoming flux at boundaries",
+          "units": "m3 s-1"
+        }
+      },
+      "squ_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "cell center outcoming flux at boundaries",
+          "units": "m3 s-1"
+        }
+      },
+      "ucxq_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "q-based cell center velocity, x-dir at boundaries",
+          "units": "m s-1"
+        }
+      },
+      "ucyq_bnd": {
+        "dtype": "float64",
+        "dimensions": [
+          "time",
+          "nFlowElemBnd"
+        ],
+        "attributes": {
+          "coordinates": "FlowElem_xbnd FlowElem_ybnd",
+          "long_name": "q-based cell center velocity, y-dir at boundaries",
+          "units": "m s-1"
+        }
+      }
+    },
+    "global_attribute_names": [
+      "institution",
+      "references",
+      "source",
+      "history",
+      "date_created",
+      "date_modified",
+      "Conventions",
+      "uuid"
+    ]
+  }
+}

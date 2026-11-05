@@ -1,0 +1,22 @@
+{
+  "executed_after_install_plan": [
+    "producer116 full corrected lifecycle/cleanup/short/storage/negative checks",
+    "literal legacy49 current-schema constructors only",
+    "pump profile4 input/stage/default-route checks",
+    "serial exit14 independent raw ownership adversaries",
+    "fixture migration invariant checks"
+  ],
+  "additional_dependent_module": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\tests\\test_cli.py",
+    "sha256": "c75ec2d5d7a77351cd1b84d2364d1c35273a0beaa29e30ae32ec0822e5547143",
+    "legacy_Mock_Job_cases": [
+      "acknowledged cancel loses race",
+      "zero exit missing outputs",
+      "timeout owned process",
+      "unconfirmed cleanup"
+    ],
+    "observation": "These older local Mock Job factories do not construct original HANDLE/trace/close evidence. Do not silently supplement them or claim a literal full-root-suite pass; separate explicit fixture migration belongs to coordinator scope."
+  },
+  "full_root_suite_claimed": false,
+  "old_manifests_or_test_bytes_modified": false
+}

@@ -1,0 +1,40 @@
+{
+  "state": "COMMON_REV04_PACKAGE_AND_SCOPED_FIXTURE_GATE_ACCEPTED_NATIVE_PENDING",
+  "V_final_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\final-review-01.json",
+  "V_final_sha256": "79e274c7bc441d0d8b1e7c6782e59bb0a01baa369ebb935f68379a48e8a15007",
+  "V_artifact_pins_verified": 460,
+  "both_installed191_payloads_rechecked": true,
+  "wheel_sha256": "f7eb645f48bf51cb6176970a749f09bc040472be5969b469892ac8b848a9586b",
+  "package_freeze_sha256": "001c82139a632d34c05957f10bab3396e32df5289bad4c62efb374bb055462d6",
+  "independent_tests": {
+    "literal_migrated49": {
+      "tests": 49,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "focused18": {
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "frozen_component121": {
+      "cases": 121,
+      "failures": 0
+    }
+  },
+  "G_evidence": [
+    "SHORT-CLOSE-PACK-G-rev04-01/verification.json",
+    "SHORT-CLOSE-PACK-G-freeze-01/verification.json"
+  ],
+  "native_authorized": false,
+  "root_merged": false,
+  "remaining": [
+    "whole-lifetime adapter/reader composition",
+    "fresh bounded direct/DIMR191 native regression",
+    "four old test_cli synthetic fixture migration",
+    "full root regression before integration"
+  ],
+  "user_boundary": "pause after Git backup; no new native or implementation node"
+}

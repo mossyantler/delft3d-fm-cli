@@ -1,0 +1,2550 @@
+{
+  "state": "retained_requirements_sources_verified_only",
+  "native_started": false,
+  "adapter_executed": false,
+  "root_written": false,
+  "frozen_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\freeze.json",
+    "sha256": "ca94cd7493111c0b5c35d39bc23f8f8e2bc311766da1ed61d0ee37c4c1e5be73",
+    "bytes": 1481,
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 29836347533506958,
+      "mtime_ns": 1793834665661439600,
+      "nlink": 1
+    }
+  },
+  "plan_pins": {
+    "B06-V-public-run-01/input-closure.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\input-closure.json",
+      "sha256": "30430aec2df678033a1bb8dccb92f6594bfb9a2476cdbff41dbe22bedd562c4b",
+      "bytes": 16248,
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 50102545856655712,
+        "mtime_ns": 1793834435703639800,
+        "nlink": 1
+      }
+    },
+    "B06-V-public-run-01/predeclared.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\predeclared.json",
+      "sha256": "a0d1b1ee759a911a935ff4833b9d43d1f1579bdf004b31205eb92aa547145034",
+      "bytes": 9343,
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 19140298418486809,
+        "mtime_ns": 1793834665150087600,
+        "nlink": 1
+      }
+    },
+    "B06-V-public-run-01/README.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\README.md",
+      "sha256": "c60b0837eb285af15677e526fd07fcfd923816ec59be75501a72361c70e22177",
+      "bytes": 1691,
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 49258120926542143,
+        "mtime_ns": 1793834665150087600,
+        "nlink": 1
+      }
+    },
+    "B06-V-public-run-01/references225.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\references225.json",
+      "sha256": "2e5a762a31a64463c4303d027ab028ee2b62fd8108af4707a30e30c692aed4f2",
+      "bytes": 12091,
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 27021597766381916,
+        "mtime_ns": 1793834435702639700,
+        "nlink": 1
+      }
+    },
+    "B06-V-public-run-01/root-baseline-pins.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\root-baseline-pins.json",
+      "sha256": "aa473df2055678b15d426f2bbb6dbe0422a4a793733bde791dec3d88c2b6b3c6",
+      "bytes": 2435,
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 18577348465062246,
+        "mtime_ns": 1793834435706640100,
+        "nlink": 1
+      }
+    }
+  },
+  "source_input_cases": {
+    "point_noop5": {
+      "active": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_noop5\\model\\fixed_sections.pli",
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 6755399443226190,
+            "mtime_ns": 1793831876284200300,
+            "nlink": 1
+          }
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_noop5\\model\\mesh_net.nc",
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830288,
+            "mtime_ns": 1793831876280500900,
+            "nlink": 1
+          }
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_noop5\\model\\model.mdu",
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830289,
+            "mtime_ns": 1793831876277861100,
+            "nlink": 1
+          }
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_noop5\\model\\observations.xyn",
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830290,
+            "mtime_ns": 1793831876282193900,
+            "nlink": 1
+          }
+        },
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_noop5\\model\\source.bc",
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830291,
+            "mtime_ns": 1793831876289200900,
+            "nlink": 1
+          }
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_noop5\\model\\sources.ext",
+          "sha256": "36e78a4d485e139ee515010a6f5f4aa37f8b1cc08c2f12344743581f5b45aa54",
+          "bytes": 330,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830292,
+            "mtime_ns": 1793831876286201800,
+            "nlink": 1
+          }
+        }
+      },
+      "inactive_source_only": {},
+      "not_a_consumption_claim": []
+    },
+    "point_set15": {
+      "active": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\fixed_sections.pli",
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830302,
+            "mtime_ns": 1793831876284200300,
+            "nlink": 1
+          }
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\mesh_net.nc",
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830303,
+            "mtime_ns": 1793831876280500900,
+            "nlink": 1
+          }
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\model.mdu",
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830304,
+            "mtime_ns": 1793831876277861100,
+            "nlink": 1
+          }
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\observations.xyn",
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830305,
+            "mtime_ns": 1793831876282193900,
+            "nlink": 1
+          }
+        },
+        "replacement.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\replacement.bc",
+          "sha256": "22e195f23ac3e1279a5377c06b5c5188823ab844758472367548d6fcf7d2c577",
+          "bytes": 305,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4503599629540967,
+            "mtime_ns": 1793832497469411600,
+            "nlink": 1
+          }
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\sources.ext",
+          "sha256": "70b10622db93dda126771be4d517ef2c51b631711c936499edfd7b5270a19f7d",
+          "bytes": 340,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 5066549582962285,
+            "mtime_ns": 1793832498274478600,
+            "nlink": 1
+          }
+        }
+      },
+      "inactive_source_only": {
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\source.bc",
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830306,
+            "mtime_ns": 1793831876289200900,
+            "nlink": 1
+          }
+        }
+      },
+      "not_a_consumption_claim": [
+        "source.bc"
+      ]
+    },
+    "point_add15": {
+      "active": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\fixed_sections.pli",
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830323,
+            "mtime_ns": 1793831876284200300,
+            "nlink": 1
+          }
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\mesh_net.nc",
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830324,
+            "mtime_ns": 1793831876280500900,
+            "nlink": 1
+          }
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\model.mdu",
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830325,
+            "mtime_ns": 1793831876277861100,
+            "nlink": 1
+          }
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\observations.xyn",
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830326,
+            "mtime_ns": 1793831876282193900,
+            "nlink": 1
+          }
+        },
+        "replacement.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\replacement.bc",
+          "sha256": "22e195f23ac3e1279a5377c06b5c5188823ab844758472367548d6fcf7d2c577",
+          "bytes": 305,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830332,
+            "mtime_ns": 1793832499322989000,
+            "nlink": 1
+          }
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\sources.ext",
+          "sha256": "e9c649e3e62c02f706fd65e4c40313d2658a8bb6b44eba41e342130d96b68d2b",
+          "bytes": 313,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830339,
+            "mtime_ns": 1793832500109566600,
+            "nlink": 1
+          }
+        }
+      },
+      "inactive_source_only": {
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_add15\\model\\source.bc",
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830327,
+            "mtime_ns": 1793831876289200900,
+            "nlink": 1
+          }
+        }
+      },
+      "not_a_consumption_claim": [
+        "source.bc"
+      ]
+    },
+    "pair_noop5": {
+      "active": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_noop5\\model\\fixed_sections.pli",
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830345,
+            "mtime_ns": 1793831876313198800,
+            "nlink": 1
+          }
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_noop5\\model\\mesh_net.nc",
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830346,
+            "mtime_ns": 1793831876308200600,
+            "nlink": 1
+          }
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_noop5\\model\\model.mdu",
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830347,
+            "mtime_ns": 1793831876306201700,
+            "nlink": 1
+          }
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_noop5\\model\\observations.xyn",
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830348,
+            "mtime_ns": 1793831876310214600,
+            "nlink": 1
+          }
+        },
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_noop5\\model\\source.bc",
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830349,
+            "mtime_ns": 1793831876317199500,
+            "nlink": 1
+          }
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_noop5\\model\\sources.ext",
+          "sha256": "83a48c140d41a702eb5e0afa09dee91c089cd738a58f0cb3cc72c71c20efcf8d",
+          "bytes": 345,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830350,
+            "mtime_ns": 1793831876315200600,
+            "nlink": 1
+          }
+        }
+      },
+      "inactive_source_only": {},
+      "not_a_consumption_claim": []
+    },
+    "pair_set15": {
+      "active": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\fixed_sections.pli",
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830386,
+            "mtime_ns": 1793831876313198800,
+            "nlink": 1
+          }
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\mesh_net.nc",
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830387,
+            "mtime_ns": 1793831876308200600,
+            "nlink": 1
+          }
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\model.mdu",
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830388,
+            "mtime_ns": 1793831876306201700,
+            "nlink": 1
+          }
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\observations.xyn",
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830389,
+            "mtime_ns": 1793831876310214600,
+            "nlink": 1
+          }
+        },
+        "replacement.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\replacement.bc",
+          "sha256": "22e195f23ac3e1279a5377c06b5c5188823ab844758472367548d6fcf7d2c577",
+          "bytes": 305,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830395,
+            "mtime_ns": 1793832502459617700,
+            "nlink": 1
+          }
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\sources.ext",
+          "sha256": "ea0354669c4dce487d9acec4d0724a287ca01c8be4e5fb7b6e664edba2a591bb",
+          "bytes": 355,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830401,
+            "mtime_ns": 1793832503261589600,
+            "nlink": 1
+          }
+        }
+      },
+      "inactive_source_only": {
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\source.bc",
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830390,
+            "mtime_ns": 1793831876317199500,
+            "nlink": 1
+          }
+        }
+      },
+      "not_a_consumption_claim": [
+        "source.bc"
+      ]
+    },
+    "pair_add15": {
+      "active": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\fixed_sections.pli",
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8",
+          "bytes": 48,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830407,
+            "mtime_ns": 1793831876313198800,
+            "nlink": 1
+          }
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\mesh_net.nc",
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989",
+          "bytes": 6036,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830408,
+            "mtime_ns": 1793831876308200600,
+            "nlink": 1
+          }
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\model.mdu",
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6",
+          "bytes": 1231,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830409,
+            "mtime_ns": 1793831876306201700,
+            "nlink": 1
+          }
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\observations.xyn",
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0",
+          "bytes": 92,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830410,
+            "mtime_ns": 1793831876310214600,
+            "nlink": 1
+          }
+        },
+        "replacement.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\replacement.bc",
+          "sha256": "22e195f23ac3e1279a5377c06b5c5188823ab844758472367548d6fcf7d2c577",
+          "bytes": 305,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830416,
+            "mtime_ns": 1793832504311490800,
+            "nlink": 1
+          }
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\sources.ext",
+          "sha256": "6e90fc5c29460d8dace14ac4dc2b3af5a7c7c18a43a87092215c2ea8efdab0aa",
+          "bytes": 328,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830422,
+            "mtime_ns": 1793832505120355700,
+            "nlink": 1
+          }
+        }
+      },
+      "inactive_source_only": {
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_add15\\model\\source.bc",
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119",
+          "bytes": 628,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 4222124652830411,
+            "mtime_ns": 1793831876317199500,
+            "nlink": 1
+          }
+        }
+      },
+      "not_a_consumption_claim": [
+        "source.bc"
+      ]
+    }
+  },
+  "active_source_files": 36,
+  "inactive_source_only_files": 4,
+  "reference_cases225": {
+    "point_noop5": {
+      "private_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_noop5\\runner-receipt.json",
+        "sha256": "af3551c2718211657c685444c36f844343d1fa81a59c00e644e44fce99a56e52",
+        "bytes": 38917,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836836,
+          "mtime_ns": 1793833553511287700,
+          "nlink": 1
+        }
+      },
+      "qualified_readout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\point_noop5.json",
+        "sha256": "34b1cf6ca0038fc55350d434e4c2db97fb23ae6095f9d587eb3cb1d90f8ab955",
+        "bytes": 126355,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 13510798884288577,
+          "mtime_ns": 1793833632674818400,
+          "nlink": 1
+        }
+      },
+      "schema": "G13-PUMP-RUNNER-1",
+      "route": "research-direct-owned-job",
+      "argv": [
+        "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "--autostartstop",
+        "model.mdu"
+      ],
+      "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_noop5\\model",
+      "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "datasets": {
+        "history": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_noop5\\model\\output\\model_his.nc",
+            "sha256": "a8a504cf1341eea61190fc95f32b9ce58db94071473ad8af84c207a433b0a55b",
+            "bytes": 63892,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836843,
+              "mtime_ns": 1793833551420241500,
+              "nlink": 1
+            }
+          },
+          "variable_count": 82,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "salinity",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            3
+          ],
+          "all_variable_names": [
+            "time",
+            "time_bds",
+            "timestep",
+            "projected_coordinate_system",
+            "station_name",
+            "station_geom",
+            "station_geom_node_count",
+            "station_geom_node_coordx",
+            "station_geom_node_coordy",
+            "station_id",
+            "station_x_coordinate",
+            "station_y_coordinate",
+            "cross_section_name",
+            "cross_section_geom",
+            "cross_section_geom_node_count",
+            "cross_section_geom_node_coordx",
+            "cross_section_geom_node_coordy",
+            "source_sink_name",
+            "source_sink_geom",
+            "source_sink_geom_node_count",
+            "source_sink_geom_node_coordx",
+            "source_sink_geom_node_coordy",
+            "source_sink_x_coordinate",
+            "source_sink_y_coordinate",
+            "bedlevel",
+            "water_balance_total_volume",
+            "water_balance_storage",
+            "water_balance_volume_error",
+            "water_balance_boundaries_in",
+            "water_balance_boundaries_out",
+            "water_balance_boundaries_total",
+            "water_balance_exchange_with_1D_in",
+            "water_balance_exchange_with_1D_out",
+            "water_balance_exchange_with_1D_total",
+            "water_balance_precipitation_total",
+            "water_balance_evaporation",
+            "water_balance_source_sink",
+            "water_balance_groundwater_in",
+            "water_balance_groundwater_out",
+            "water_balance_groundwater_total",
+            "water_balance_laterals_in",
+            "water_balance_laterals_out",
+            "water_balance_laterals_total",
+            "water_balance_laterals_in_1D",
+            "water_balance_laterals_out_1D",
+            "water_balance_laterals_total_1D",
+            "water_balance_laterals_in_2D",
+            "water_balance_laterals_out_2D",
+            "water_balance_laterals_total_2D",
+            "water_balance_Qext_in",
+            "water_balance_Qext_out",
+            "water_balance_Qext_total",
+            "water_balance_Qext_in_1D",
+            "water_balance_Qext_out_1D",
+            "water_balance_Qext_total_1D",
+            "water_balance_Qext_in_2D",
+            "water_balance_Qext_out_2D",
+            "water_balance_Qext_total_2D",
+            "water_balance_total_volume_interception",
+            "water_balance_evaporation_interception",
+            "water_balance_precipitation_on_ground",
+            "source_sink_prescribed_discharge",
+            "source_sink_prescribed_salinity_increment",
+            "source_sink_current_discharge",
+            "source_sink_cumulative_volume",
+            "source_sink_discharge_average",
+            "waterlevel",
+            "x_velocity",
+            "y_velocity",
+            "velocity_magnitude",
+            "discharge_magnitude",
+            "viu",
+            "salinity",
+            "potential_density",
+            "tausx",
+            "tausy",
+            "cross_section_discharge",
+            "cross_section_cumulative_discharge",
+            "cross_section_area",
+            "cross_section_velocity",
+            "cross_section_salt",
+            "cross_section_cumulative_salt"
+          ]
+        },
+        "map": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_noop5\\model\\output\\model_map.nc",
+            "sha256": "dbbab73e0314d4ee9276daa95e9d4e38f80fe92fcd7826a5c0abe4e85f8ea4f8",
+            "bytes": 576260,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836844,
+              "mtime_ns": 1793833551420241500,
+              "nlink": 1
+            }
+          },
+          "variable_count": 36,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "mesh2d_sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            48
+          ],
+          "all_variable_names": [
+            "projected_coordinate_system",
+            "mesh2d",
+            "mesh2d_node_x",
+            "mesh2d_node_y",
+            "mesh2d_node_z",
+            "mesh2d_edge_x",
+            "mesh2d_edge_y",
+            "mesh2d_edge_nodes",
+            "mesh2d_face_nodes",
+            "mesh2d_edge_faces",
+            "mesh2d_face_x",
+            "mesh2d_face_y",
+            "mesh2d_face_x_bnd",
+            "mesh2d_face_y_bnd",
+            "mesh2d_edge_type",
+            "mesh2d_flowelem_ba",
+            "mesh2d_flowelem_bl",
+            "time",
+            "timestep",
+            "mesh2d_Numlimdt",
+            "mesh2d_s1",
+            "mesh2d_s0",
+            "mesh2d_vol1",
+            "mesh2d_waterdepth",
+            "mesh2d_u1",
+            "mesh2d_u0",
+            "mesh2d_ucx",
+            "mesh2d_ucy",
+            "mesh2d_ucmag",
+            "mesh2d_q1",
+            "mesh2d_viu",
+            "mesh2d_diu",
+            "mesh2d_tausx",
+            "mesh2d_tausy",
+            "mesh2d_taus",
+            "mesh2d_sa1"
+          ]
+        },
+        "restart_initial": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_noop5\\model\\output\\model_20010101_000000_rst.nc",
+            "sha256": "8db5fbd436ebafceb9a5f58c8c599d9dbaa0d063547e394dd1d4669521d50c5f",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836845,
+              "mtime_ns": 1793833551385253400,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        },
+        "restart_final": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_noop5\\model\\output\\model_20010101_000200_rst.nc",
+            "sha256": "e7db57f88900437356b2ab07084b1716fb8d6244c30ec2969b3848771a14f1d3",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836846,
+              "mtime_ns": 1793833551421285700,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        }
+      },
+      "public_run_evidence": false,
+      "scope": "Pinned historical physics/data reference only; never a future PublicContext or DIMR receipt."
+    },
+    "point_set15": {
+      "private_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\runner-receipt.json",
+        "sha256": "0c280e1a8e2897ea34293b0bf003860d5564a2ce38e9c0bf17c259c6569bb1b7",
+        "bytes": 40543,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836858,
+          "mtime_ns": 1793833561689062900,
+          "nlink": 1
+        }
+      },
+      "qualified_readout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\point_set15.json",
+        "sha256": "9bcaaa8b08fe87435b503a325e98ca44621769e66f596d3b8a0eff3caf111817",
+        "bytes": 126363,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 8444249303496790,
+          "mtime_ns": 1793833632741224100,
+          "nlink": 1
+        }
+      },
+      "schema": "G13-PUMP-RUNNER-1",
+      "route": "research-direct-owned-job",
+      "argv": [
+        "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "--autostartstop",
+        "model.mdu"
+      ],
+      "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model",
+      "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "datasets": {
+        "history": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_his.nc",
+            "sha256": "50e781319a45e11c06cd5aabe5a34a2427073d080a003a183e164bd87585174f",
+            "bytes": 63892,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836865,
+              "mtime_ns": 1793833559562343600,
+              "nlink": 1
+            }
+          },
+          "variable_count": 82,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "salinity",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            3
+          ],
+          "all_variable_names": [
+            "time",
+            "time_bds",
+            "timestep",
+            "projected_coordinate_system",
+            "station_name",
+            "station_geom",
+            "station_geom_node_count",
+            "station_geom_node_coordx",
+            "station_geom_node_coordy",
+            "station_id",
+            "station_x_coordinate",
+            "station_y_coordinate",
+            "cross_section_name",
+            "cross_section_geom",
+            "cross_section_geom_node_count",
+            "cross_section_geom_node_coordx",
+            "cross_section_geom_node_coordy",
+            "source_sink_name",
+            "source_sink_geom",
+            "source_sink_geom_node_count",
+            "source_sink_geom_node_coordx",
+            "source_sink_geom_node_coordy",
+            "source_sink_x_coordinate",
+            "source_sink_y_coordinate",
+            "bedlevel",
+            "water_balance_total_volume",
+            "water_balance_storage",
+            "water_balance_volume_error",
+            "water_balance_boundaries_in",
+            "water_balance_boundaries_out",
+            "water_balance_boundaries_total",
+            "water_balance_exchange_with_1D_in",
+            "water_balance_exchange_with_1D_out",
+            "water_balance_exchange_with_1D_total",
+            "water_balance_precipitation_total",
+            "water_balance_evaporation",
+            "water_balance_source_sink",
+            "water_balance_groundwater_in",
+            "water_balance_groundwater_out",
+            "water_balance_groundwater_total",
+            "water_balance_laterals_in",
+            "water_balance_laterals_out",
+            "water_balance_laterals_total",
+            "water_balance_laterals_in_1D",
+            "water_balance_laterals_out_1D",
+            "water_balance_laterals_total_1D",
+            "water_balance_laterals_in_2D",
+            "water_balance_laterals_out_2D",
+            "water_balance_laterals_total_2D",
+            "water_balance_Qext_in",
+            "water_balance_Qext_out",
+            "water_balance_Qext_total",
+            "water_balance_Qext_in_1D",
+            "water_balance_Qext_out_1D",
+            "water_balance_Qext_total_1D",
+            "water_balance_Qext_in_2D",
+            "water_balance_Qext_out_2D",
+            "water_balance_Qext_total_2D",
+            "water_balance_total_volume_interception",
+            "water_balance_evaporation_interception",
+            "water_balance_precipitation_on_ground",
+            "source_sink_prescribed_discharge",
+            "source_sink_prescribed_salinity_increment",
+            "source_sink_current_discharge",
+            "source_sink_cumulative_volume",
+            "source_sink_discharge_average",
+            "waterlevel",
+            "x_velocity",
+            "y_velocity",
+            "velocity_magnitude",
+            "discharge_magnitude",
+            "viu",
+            "salinity",
+            "potential_density",
+            "tausx",
+            "tausy",
+            "cross_section_discharge",
+            "cross_section_cumulative_discharge",
+            "cross_section_area",
+            "cross_section_velocity",
+            "cross_section_salt",
+            "cross_section_cumulative_salt"
+          ]
+        },
+        "map": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_map.nc",
+            "sha256": "1df4e4fd3f3c0062c47e6ad3b69f9b169f104f6133c2a99c38b0bdcba521f04e",
+            "bytes": 576260,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836866,
+              "mtime_ns": 1793833559563343100,
+              "nlink": 1
+            }
+          },
+          "variable_count": 36,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "mesh2d_sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            48
+          ],
+          "all_variable_names": [
+            "projected_coordinate_system",
+            "mesh2d",
+            "mesh2d_node_x",
+            "mesh2d_node_y",
+            "mesh2d_node_z",
+            "mesh2d_edge_x",
+            "mesh2d_edge_y",
+            "mesh2d_edge_nodes",
+            "mesh2d_face_nodes",
+            "mesh2d_edge_faces",
+            "mesh2d_face_x",
+            "mesh2d_face_y",
+            "mesh2d_face_x_bnd",
+            "mesh2d_face_y_bnd",
+            "mesh2d_edge_type",
+            "mesh2d_flowelem_ba",
+            "mesh2d_flowelem_bl",
+            "time",
+            "timestep",
+            "mesh2d_Numlimdt",
+            "mesh2d_s1",
+            "mesh2d_s0",
+            "mesh2d_vol1",
+            "mesh2d_waterdepth",
+            "mesh2d_u1",
+            "mesh2d_u0",
+            "mesh2d_ucx",
+            "mesh2d_ucy",
+            "mesh2d_ucmag",
+            "mesh2d_q1",
+            "mesh2d_viu",
+            "mesh2d_diu",
+            "mesh2d_tausx",
+            "mesh2d_tausy",
+            "mesh2d_taus",
+            "mesh2d_sa1"
+          ]
+        },
+        "restart_initial": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_20010101_000000_rst.nc",
+            "sha256": "f6880a5d0c3f42b64e2f34e3239826f9c7dabe89b319a6a2831891c456f9ad89",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836867,
+              "mtime_ns": 1793833559530629700,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        },
+        "restart_final": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_20010101_000200_rst.nc",
+            "sha256": "ab1d0f5cd74783f5c257b9312bd8ce750de2029a12cc942673afd56e01bf7131",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836868,
+              "mtime_ns": 1793833559564336000,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        }
+      },
+      "public_run_evidence": false,
+      "scope": "Pinned historical physics/data reference only; never a future PublicContext or DIMR receipt."
+    },
+    "point_add15": {
+      "private_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_add15\\runner-receipt.json",
+        "sha256": "61fa5bb86e64e8a97d57a4570545078bf97a58584346e086e1482dbc70896365",
+        "bytes": 40560,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836879,
+          "mtime_ns": 1793833572120689600,
+          "nlink": 1
+        }
+      },
+      "qualified_readout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\point_add15.json",
+        "sha256": "b29b54c46f10b79325a1a208a3a67513a1c4238456a15699dbaa1006f3293e98",
+        "bytes": 126364,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836951,
+          "mtime_ns": 1793833632803981800,
+          "nlink": 1
+        }
+      },
+      "schema": "G13-PUMP-RUNNER-1",
+      "route": "research-direct-owned-job",
+      "argv": [
+        "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "--autostartstop",
+        "model.mdu"
+      ],
+      "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_add15\\model",
+      "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "datasets": {
+        "history": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_add15\\model\\output\\model_his.nc",
+            "sha256": "32a0ab9a381addfd03bbde509f1d71bc2af0dfe1998219b917840c14ba8033ac",
+            "bytes": 63892,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836885,
+              "mtime_ns": 1793833569860144500,
+              "nlink": 1
+            }
+          },
+          "variable_count": 82,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "salinity",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            3
+          ],
+          "all_variable_names": [
+            "time",
+            "time_bds",
+            "timestep",
+            "projected_coordinate_system",
+            "station_name",
+            "station_geom",
+            "station_geom_node_count",
+            "station_geom_node_coordx",
+            "station_geom_node_coordy",
+            "station_id",
+            "station_x_coordinate",
+            "station_y_coordinate",
+            "cross_section_name",
+            "cross_section_geom",
+            "cross_section_geom_node_count",
+            "cross_section_geom_node_coordx",
+            "cross_section_geom_node_coordy",
+            "source_sink_name",
+            "source_sink_geom",
+            "source_sink_geom_node_count",
+            "source_sink_geom_node_coordx",
+            "source_sink_geom_node_coordy",
+            "source_sink_x_coordinate",
+            "source_sink_y_coordinate",
+            "bedlevel",
+            "water_balance_total_volume",
+            "water_balance_storage",
+            "water_balance_volume_error",
+            "water_balance_boundaries_in",
+            "water_balance_boundaries_out",
+            "water_balance_boundaries_total",
+            "water_balance_exchange_with_1D_in",
+            "water_balance_exchange_with_1D_out",
+            "water_balance_exchange_with_1D_total",
+            "water_balance_precipitation_total",
+            "water_balance_evaporation",
+            "water_balance_source_sink",
+            "water_balance_groundwater_in",
+            "water_balance_groundwater_out",
+            "water_balance_groundwater_total",
+            "water_balance_laterals_in",
+            "water_balance_laterals_out",
+            "water_balance_laterals_total",
+            "water_balance_laterals_in_1D",
+            "water_balance_laterals_out_1D",
+            "water_balance_laterals_total_1D",
+            "water_balance_laterals_in_2D",
+            "water_balance_laterals_out_2D",
+            "water_balance_laterals_total_2D",
+            "water_balance_Qext_in",
+            "water_balance_Qext_out",
+            "water_balance_Qext_total",
+            "water_balance_Qext_in_1D",
+            "water_balance_Qext_out_1D",
+            "water_balance_Qext_total_1D",
+            "water_balance_Qext_in_2D",
+            "water_balance_Qext_out_2D",
+            "water_balance_Qext_total_2D",
+            "water_balance_total_volume_interception",
+            "water_balance_evaporation_interception",
+            "water_balance_precipitation_on_ground",
+            "source_sink_prescribed_discharge",
+            "source_sink_prescribed_salinity_increment",
+            "source_sink_current_discharge",
+            "source_sink_cumulative_volume",
+            "source_sink_discharge_average",
+            "waterlevel",
+            "x_velocity",
+            "y_velocity",
+            "velocity_magnitude",
+            "discharge_magnitude",
+            "viu",
+            "salinity",
+            "potential_density",
+            "tausx",
+            "tausy",
+            "cross_section_discharge",
+            "cross_section_cumulative_discharge",
+            "cross_section_area",
+            "cross_section_velocity",
+            "cross_section_salt",
+            "cross_section_cumulative_salt"
+          ]
+        },
+        "map": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_add15\\model\\output\\model_map.nc",
+            "sha256": "3c6ec0dc1abe393206dd79617899292ed0e9829e4b0a4082074bb5b707b5289d",
+            "bytes": 576260,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836886,
+              "mtime_ns": 1793833569860144500,
+              "nlink": 1
+            }
+          },
+          "variable_count": 36,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "mesh2d_sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            48
+          ],
+          "all_variable_names": [
+            "projected_coordinate_system",
+            "mesh2d",
+            "mesh2d_node_x",
+            "mesh2d_node_y",
+            "mesh2d_node_z",
+            "mesh2d_edge_x",
+            "mesh2d_edge_y",
+            "mesh2d_edge_nodes",
+            "mesh2d_face_nodes",
+            "mesh2d_edge_faces",
+            "mesh2d_face_x",
+            "mesh2d_face_y",
+            "mesh2d_face_x_bnd",
+            "mesh2d_face_y_bnd",
+            "mesh2d_edge_type",
+            "mesh2d_flowelem_ba",
+            "mesh2d_flowelem_bl",
+            "time",
+            "timestep",
+            "mesh2d_Numlimdt",
+            "mesh2d_s1",
+            "mesh2d_s0",
+            "mesh2d_vol1",
+            "mesh2d_waterdepth",
+            "mesh2d_u1",
+            "mesh2d_u0",
+            "mesh2d_ucx",
+            "mesh2d_ucy",
+            "mesh2d_ucmag",
+            "mesh2d_q1",
+            "mesh2d_viu",
+            "mesh2d_diu",
+            "mesh2d_tausx",
+            "mesh2d_tausy",
+            "mesh2d_taus",
+            "mesh2d_sa1"
+          ]
+        },
+        "restart_initial": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_add15\\model\\output\\model_20010101_000000_rst.nc",
+            "sha256": "2cf7ce93aa774c7073078f8ba73b064e30743fb8ef7cfbcbb40928118f639dde",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836887,
+              "mtime_ns": 1793833569829496100,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        },
+        "restart_final": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_add15\\model\\output\\model_20010101_000200_rst.nc",
+            "sha256": "c6edca4881efae115d58e0664f2f7a20c7b0ea54b306b7932c25124086adb24b",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836888,
+              "mtime_ns": 1793833569861145300,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        }
+      },
+      "public_run_evidence": false,
+      "scope": "Pinned historical physics/data reference only; never a future PublicContext or DIMR receipt."
+    },
+    "pair_noop5": {
+      "private_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_noop5\\runner-receipt.json",
+        "sha256": "c8a3f675a0fc522a7abf9db265db548708c6be37f3e46ca19be33b73e3d4c916",
+        "bytes": 38876,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836897,
+          "mtime_ns": 1793833584657577300,
+          "nlink": 1
+        }
+      },
+      "qualified_readout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\pair_noop5.json",
+        "sha256": "92652c30036149fc34c2327ba40e3cc66bdaf16af2e8bdd430c9faa1e145f3cd",
+        "bytes": 126222,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836952,
+          "mtime_ns": 1793833632868131700,
+          "nlink": 1
+        }
+      },
+      "schema": "G13-PUMP-RUNNER-1",
+      "route": "research-direct-owned-job",
+      "argv": [
+        "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "--autostartstop",
+        "model.mdu"
+      ],
+      "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_noop5\\model",
+      "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "datasets": {
+        "history": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_noop5\\model\\output\\model_his.nc",
+            "sha256": "2298c25f79fc036dd6b6103b498b5930adadfe4944ec6a2baa3d81f13f6bd59b",
+            "bytes": 63924,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 5066549582968871,
+              "mtime_ns": 1793833582549881600,
+              "nlink": 1
+            }
+          },
+          "variable_count": 82,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "salinity",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            3
+          ],
+          "all_variable_names": [
+            "time",
+            "time_bds",
+            "timestep",
+            "projected_coordinate_system",
+            "station_name",
+            "station_geom",
+            "station_geom_node_count",
+            "station_geom_node_coordx",
+            "station_geom_node_coordy",
+            "station_id",
+            "station_x_coordinate",
+            "station_y_coordinate",
+            "cross_section_name",
+            "cross_section_geom",
+            "cross_section_geom_node_count",
+            "cross_section_geom_node_coordx",
+            "cross_section_geom_node_coordy",
+            "source_sink_name",
+            "source_sink_geom",
+            "source_sink_geom_node_count",
+            "source_sink_geom_node_coordx",
+            "source_sink_geom_node_coordy",
+            "source_sink_x_coordinate",
+            "source_sink_y_coordinate",
+            "bedlevel",
+            "water_balance_total_volume",
+            "water_balance_storage",
+            "water_balance_volume_error",
+            "water_balance_boundaries_in",
+            "water_balance_boundaries_out",
+            "water_balance_boundaries_total",
+            "water_balance_exchange_with_1D_in",
+            "water_balance_exchange_with_1D_out",
+            "water_balance_exchange_with_1D_total",
+            "water_balance_precipitation_total",
+            "water_balance_evaporation",
+            "water_balance_source_sink",
+            "water_balance_groundwater_in",
+            "water_balance_groundwater_out",
+            "water_balance_groundwater_total",
+            "water_balance_laterals_in",
+            "water_balance_laterals_out",
+            "water_balance_laterals_total",
+            "water_balance_laterals_in_1D",
+            "water_balance_laterals_out_1D",
+            "water_balance_laterals_total_1D",
+            "water_balance_laterals_in_2D",
+            "water_balance_laterals_out_2D",
+            "water_balance_laterals_total_2D",
+            "water_balance_Qext_in",
+            "water_balance_Qext_out",
+            "water_balance_Qext_total",
+            "water_balance_Qext_in_1D",
+            "water_balance_Qext_out_1D",
+            "water_balance_Qext_total_1D",
+            "water_balance_Qext_in_2D",
+            "water_balance_Qext_out_2D",
+            "water_balance_Qext_total_2D",
+            "water_balance_total_volume_interception",
+            "water_balance_evaporation_interception",
+            "water_balance_precipitation_on_ground",
+            "source_sink_prescribed_discharge",
+            "source_sink_prescribed_salinity_increment",
+            "source_sink_current_discharge",
+            "source_sink_cumulative_volume",
+            "source_sink_discharge_average",
+            "waterlevel",
+            "x_velocity",
+            "y_velocity",
+            "velocity_magnitude",
+            "discharge_magnitude",
+            "viu",
+            "salinity",
+            "potential_density",
+            "tausx",
+            "tausy",
+            "cross_section_discharge",
+            "cross_section_cumulative_discharge",
+            "cross_section_area",
+            "cross_section_velocity",
+            "cross_section_salt",
+            "cross_section_cumulative_salt"
+          ]
+        },
+        "map": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_noop5\\model\\output\\model_map.nc",
+            "sha256": "56813af91c29c16e44c86c28132007d27c1e9e5cdc292cf9e281f70052b57a72",
+            "bytes": 576260,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 5066549582968872,
+              "mtime_ns": 1793833582549881600,
+              "nlink": 1
+            }
+          },
+          "variable_count": 36,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "mesh2d_sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            48
+          ],
+          "all_variable_names": [
+            "projected_coordinate_system",
+            "mesh2d",
+            "mesh2d_node_x",
+            "mesh2d_node_y",
+            "mesh2d_node_z",
+            "mesh2d_edge_x",
+            "mesh2d_edge_y",
+            "mesh2d_edge_nodes",
+            "mesh2d_face_nodes",
+            "mesh2d_edge_faces",
+            "mesh2d_face_x",
+            "mesh2d_face_y",
+            "mesh2d_face_x_bnd",
+            "mesh2d_face_y_bnd",
+            "mesh2d_edge_type",
+            "mesh2d_flowelem_ba",
+            "mesh2d_flowelem_bl",
+            "time",
+            "timestep",
+            "mesh2d_Numlimdt",
+            "mesh2d_s1",
+            "mesh2d_s0",
+            "mesh2d_vol1",
+            "mesh2d_waterdepth",
+            "mesh2d_u1",
+            "mesh2d_u0",
+            "mesh2d_ucx",
+            "mesh2d_ucy",
+            "mesh2d_ucmag",
+            "mesh2d_q1",
+            "mesh2d_viu",
+            "mesh2d_diu",
+            "mesh2d_tausx",
+            "mesh2d_tausy",
+            "mesh2d_taus",
+            "mesh2d_sa1"
+          ]
+        },
+        "restart_initial": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_noop5\\model\\output\\model_20010101_000000_rst.nc",
+            "sha256": "e1a5bda79e4128c8f30f4442e598ef415ac6bbdc97946fdb3a835f1158d15057",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836906,
+              "mtime_ns": 1793833582517611400,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        },
+        "restart_final": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_noop5\\model\\output\\model_20010101_000200_rst.nc",
+            "sha256": "893541a27813aa113ffaa5de6ee9aed61a329821a3e48600aaf0c9503d6e5b09",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836907,
+              "mtime_ns": 1793833582549881600,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        }
+      },
+      "public_run_evidence": false,
+      "scope": "Pinned historical physics/data reference only; never a future PublicContext or DIMR receipt."
+    },
+    "pair_set15": {
+      "private_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\runner-receipt.json",
+        "sha256": "954d269f2bed59aebf3a0519294236547056705de2b7376d6c11240d5a9ba1b2",
+        "bytes": 40516,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836917,
+          "mtime_ns": 1793833598788495400,
+          "nlink": 1
+        }
+      },
+      "qualified_readout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\pair_set15.json",
+        "sha256": "f71ccc5bc1801741bc768151ca6f859456144d3c10d95d71635dd54834b4d389",
+        "bytes": 126221,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836953,
+          "mtime_ns": 1793833632929475300,
+          "nlink": 1
+        }
+      },
+      "schema": "G13-PUMP-RUNNER-1",
+      "route": "research-direct-owned-job",
+      "argv": [
+        "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "--autostartstop",
+        "model.mdu"
+      ],
+      "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model",
+      "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "datasets": {
+        "history": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_his.nc",
+            "sha256": "510ce4a55006be338739ec36f5fdafa5d04d3c7523c801a0792be391d923ae86",
+            "bytes": 63924,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836925,
+              "mtime_ns": 1793833596531661700,
+              "nlink": 1
+            }
+          },
+          "variable_count": 82,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "salinity",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            3
+          ],
+          "all_variable_names": [
+            "time",
+            "time_bds",
+            "timestep",
+            "projected_coordinate_system",
+            "station_name",
+            "station_geom",
+            "station_geom_node_count",
+            "station_geom_node_coordx",
+            "station_geom_node_coordy",
+            "station_id",
+            "station_x_coordinate",
+            "station_y_coordinate",
+            "cross_section_name",
+            "cross_section_geom",
+            "cross_section_geom_node_count",
+            "cross_section_geom_node_coordx",
+            "cross_section_geom_node_coordy",
+            "source_sink_name",
+            "source_sink_geom",
+            "source_sink_geom_node_count",
+            "source_sink_geom_node_coordx",
+            "source_sink_geom_node_coordy",
+            "source_sink_x_coordinate",
+            "source_sink_y_coordinate",
+            "bedlevel",
+            "water_balance_total_volume",
+            "water_balance_storage",
+            "water_balance_volume_error",
+            "water_balance_boundaries_in",
+            "water_balance_boundaries_out",
+            "water_balance_boundaries_total",
+            "water_balance_exchange_with_1D_in",
+            "water_balance_exchange_with_1D_out",
+            "water_balance_exchange_with_1D_total",
+            "water_balance_precipitation_total",
+            "water_balance_evaporation",
+            "water_balance_source_sink",
+            "water_balance_groundwater_in",
+            "water_balance_groundwater_out",
+            "water_balance_groundwater_total",
+            "water_balance_laterals_in",
+            "water_balance_laterals_out",
+            "water_balance_laterals_total",
+            "water_balance_laterals_in_1D",
+            "water_balance_laterals_out_1D",
+            "water_balance_laterals_total_1D",
+            "water_balance_laterals_in_2D",
+            "water_balance_laterals_out_2D",
+            "water_balance_laterals_total_2D",
+            "water_balance_Qext_in",
+            "water_balance_Qext_out",
+            "water_balance_Qext_total",
+            "water_balance_Qext_in_1D",
+            "water_balance_Qext_out_1D",
+            "water_balance_Qext_total_1D",
+            "water_balance_Qext_in_2D",
+            "water_balance_Qext_out_2D",
+            "water_balance_Qext_total_2D",
+            "water_balance_total_volume_interception",
+            "water_balance_evaporation_interception",
+            "water_balance_precipitation_on_ground",
+            "source_sink_prescribed_discharge",
+            "source_sink_prescribed_salinity_increment",
+            "source_sink_current_discharge",
+            "source_sink_cumulative_volume",
+            "source_sink_discharge_average",
+            "waterlevel",
+            "x_velocity",
+            "y_velocity",
+            "velocity_magnitude",
+            "discharge_magnitude",
+            "viu",
+            "salinity",
+            "potential_density",
+            "tausx",
+            "tausy",
+            "cross_section_discharge",
+            "cross_section_cumulative_discharge",
+            "cross_section_area",
+            "cross_section_velocity",
+            "cross_section_salt",
+            "cross_section_cumulative_salt"
+          ]
+        },
+        "map": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_map.nc",
+            "sha256": "d3ff536679572292b6fad9b0576ec66c422b171cf2c26d012b6b45de9096516e",
+            "bytes": 576260,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836926,
+              "mtime_ns": 1793833596531661700,
+              "nlink": 1
+            }
+          },
+          "variable_count": 36,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "mesh2d_sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            48
+          ],
+          "all_variable_names": [
+            "projected_coordinate_system",
+            "mesh2d",
+            "mesh2d_node_x",
+            "mesh2d_node_y",
+            "mesh2d_node_z",
+            "mesh2d_edge_x",
+            "mesh2d_edge_y",
+            "mesh2d_edge_nodes",
+            "mesh2d_face_nodes",
+            "mesh2d_edge_faces",
+            "mesh2d_face_x",
+            "mesh2d_face_y",
+            "mesh2d_face_x_bnd",
+            "mesh2d_face_y_bnd",
+            "mesh2d_edge_type",
+            "mesh2d_flowelem_ba",
+            "mesh2d_flowelem_bl",
+            "time",
+            "timestep",
+            "mesh2d_Numlimdt",
+            "mesh2d_s1",
+            "mesh2d_s0",
+            "mesh2d_vol1",
+            "mesh2d_waterdepth",
+            "mesh2d_u1",
+            "mesh2d_u0",
+            "mesh2d_ucx",
+            "mesh2d_ucy",
+            "mesh2d_ucmag",
+            "mesh2d_q1",
+            "mesh2d_viu",
+            "mesh2d_diu",
+            "mesh2d_tausx",
+            "mesh2d_tausy",
+            "mesh2d_taus",
+            "mesh2d_sa1"
+          ]
+        },
+        "restart_initial": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_20010101_000000_rst.nc",
+            "sha256": "fa6173ec4f1360244bc3266bbb9ec3affd1379f521e3070865e13b73940007ff",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836927,
+              "mtime_ns": 1793833596499667200,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        },
+        "restart_final": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_20010101_000200_rst.nc",
+            "sha256": "bb98f79fd36454ba360fe5481d8e42c64784a7868262a0edf5f9b767eb0467bd",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836928,
+              "mtime_ns": 1793833596533665000,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        }
+      },
+      "public_run_evidence": false,
+      "scope": "Pinned historical physics/data reference only; never a future PublicContext or DIMR receipt."
+    },
+    "pair_add15": {
+      "private_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_add15\\runner-receipt.json",
+        "sha256": "dc5a8994c60f67c21205c4575ddb3794cd6197ef2bf852b2e4480c9501b74706",
+        "bytes": 40520,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836938,
+          "mtime_ns": 1793833614988425300,
+          "nlink": 1
+        }
+      },
+      "qualified_readout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-native225-01\\pair_add15.json",
+        "sha256": "6e1584b7524c6f5fb006f20ff2339bfe625e25f07ffdc4ba201d37e1aee60761",
+        "bytes": 126221,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 4222124652836954,
+          "mtime_ns": 1793833632991210200,
+          "nlink": 1
+        }
+      },
+      "schema": "G13-PUMP-RUNNER-1",
+      "route": "research-direct-owned-job",
+      "argv": [
+        "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "--autostartstop",
+        "model.mdu"
+      ],
+      "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_add15\\model",
+      "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+      "datasets": {
+        "history": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_add15\\model\\output\\model_his.nc",
+            "sha256": "35bcb53d7ab6fcedbd02d6be0548819bd22c5acfaeaa24fb954686e5be45ccc5",
+            "bytes": 63924,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836945,
+              "mtime_ns": 1793833612852250700,
+              "nlink": 1
+            }
+          },
+          "variable_count": 82,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "salinity",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            3
+          ],
+          "all_variable_names": [
+            "time",
+            "time_bds",
+            "timestep",
+            "projected_coordinate_system",
+            "station_name",
+            "station_geom",
+            "station_geom_node_count",
+            "station_geom_node_coordx",
+            "station_geom_node_coordy",
+            "station_id",
+            "station_x_coordinate",
+            "station_y_coordinate",
+            "cross_section_name",
+            "cross_section_geom",
+            "cross_section_geom_node_count",
+            "cross_section_geom_node_coordx",
+            "cross_section_geom_node_coordy",
+            "source_sink_name",
+            "source_sink_geom",
+            "source_sink_geom_node_count",
+            "source_sink_geom_node_coordx",
+            "source_sink_geom_node_coordy",
+            "source_sink_x_coordinate",
+            "source_sink_y_coordinate",
+            "bedlevel",
+            "water_balance_total_volume",
+            "water_balance_storage",
+            "water_balance_volume_error",
+            "water_balance_boundaries_in",
+            "water_balance_boundaries_out",
+            "water_balance_boundaries_total",
+            "water_balance_exchange_with_1D_in",
+            "water_balance_exchange_with_1D_out",
+            "water_balance_exchange_with_1D_total",
+            "water_balance_precipitation_total",
+            "water_balance_evaporation",
+            "water_balance_source_sink",
+            "water_balance_groundwater_in",
+            "water_balance_groundwater_out",
+            "water_balance_groundwater_total",
+            "water_balance_laterals_in",
+            "water_balance_laterals_out",
+            "water_balance_laterals_total",
+            "water_balance_laterals_in_1D",
+            "water_balance_laterals_out_1D",
+            "water_balance_laterals_total_1D",
+            "water_balance_laterals_in_2D",
+            "water_balance_laterals_out_2D",
+            "water_balance_laterals_total_2D",
+            "water_balance_Qext_in",
+            "water_balance_Qext_out",
+            "water_balance_Qext_total",
+            "water_balance_Qext_in_1D",
+            "water_balance_Qext_out_1D",
+            "water_balance_Qext_total_1D",
+            "water_balance_Qext_in_2D",
+            "water_balance_Qext_out_2D",
+            "water_balance_Qext_total_2D",
+            "water_balance_total_volume_interception",
+            "water_balance_evaporation_interception",
+            "water_balance_precipitation_on_ground",
+            "source_sink_prescribed_discharge",
+            "source_sink_prescribed_salinity_increment",
+            "source_sink_current_discharge",
+            "source_sink_cumulative_volume",
+            "source_sink_discharge_average",
+            "waterlevel",
+            "x_velocity",
+            "y_velocity",
+            "velocity_magnitude",
+            "discharge_magnitude",
+            "viu",
+            "salinity",
+            "potential_density",
+            "tausx",
+            "tausy",
+            "cross_section_discharge",
+            "cross_section_cumulative_discharge",
+            "cross_section_area",
+            "cross_section_velocity",
+            "cross_section_salt",
+            "cross_section_cumulative_salt"
+          ]
+        },
+        "map": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_add15\\model\\output\\model_map.nc",
+            "sha256": "026bdfa3bc37de0eb078ae046f7ac788ab536a7fa118ddc9aba8f639893eaab1",
+            "bytes": 576260,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836946,
+              "mtime_ns": 1793833612852250700,
+              "nlink": 1
+            }
+          },
+          "variable_count": 36,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 121,
+          "raw_salinity_variable": "mesh2d_sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            121,
+            48
+          ],
+          "all_variable_names": [
+            "projected_coordinate_system",
+            "mesh2d",
+            "mesh2d_node_x",
+            "mesh2d_node_y",
+            "mesh2d_node_z",
+            "mesh2d_edge_x",
+            "mesh2d_edge_y",
+            "mesh2d_edge_nodes",
+            "mesh2d_face_nodes",
+            "mesh2d_edge_faces",
+            "mesh2d_face_x",
+            "mesh2d_face_y",
+            "mesh2d_face_x_bnd",
+            "mesh2d_face_y_bnd",
+            "mesh2d_edge_type",
+            "mesh2d_flowelem_ba",
+            "mesh2d_flowelem_bl",
+            "time",
+            "timestep",
+            "mesh2d_Numlimdt",
+            "mesh2d_s1",
+            "mesh2d_s0",
+            "mesh2d_vol1",
+            "mesh2d_waterdepth",
+            "mesh2d_u1",
+            "mesh2d_u0",
+            "mesh2d_ucx",
+            "mesh2d_ucy",
+            "mesh2d_ucmag",
+            "mesh2d_q1",
+            "mesh2d_viu",
+            "mesh2d_diu",
+            "mesh2d_tausx",
+            "mesh2d_tausy",
+            "mesh2d_taus",
+            "mesh2d_sa1"
+          ]
+        },
+        "restart_initial": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_add15\\model\\output\\model_20010101_000000_rst.nc",
+            "sha256": "d1ae8da740c74d6e3e1875376c6673c7eb48decdc7b0ba072bed33e0cfa458d9",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836947,
+              "mtime_ns": 1793833612821259200,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        },
+        "restart_final": {
+          "file": {
+            "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_add15\\model\\output\\model_20010101_000200_rst.nc",
+            "sha256": "0e8acfa950924d463a17e94ab39a5fd27be208bd2e7af04232465671e1ed9ad3",
+            "bytes": 17112,
+            "identity": {
+              "device": 15735799815185527221,
+              "inode": 4222124652836948,
+              "mtime_ns": 1793833612853300800,
+              "nlink": 1
+            }
+          },
+          "variable_count": 26,
+          "time_unit": "seconds since 2001-01-01 00:00:00 +00:00",
+          "time_count": 1,
+          "raw_salinity_variable": "sa1",
+          "raw_salinity_unit": "1e-3",
+          "raw_salinity_shape": [
+            1,
+            48
+          ],
+          "all_variable_names": [
+            "time",
+            "timestep",
+            "s1",
+            "s0",
+            "taus",
+            "czs",
+            "FlowElem_bl",
+            "ucx",
+            "ucy",
+            "unorm",
+            "u0",
+            "ucxq",
+            "ucyq",
+            "q1",
+            "qa",
+            "squ",
+            "sqi",
+            "hu",
+            "fvcoro",
+            "sa1",
+            "FlowElem_xzw",
+            "FlowElem_yzw",
+            "FlowElem_xcc",
+            "FlowElem_ycc",
+            "FlowLink_xu",
+            "FlowLink_yu"
+          ]
+        }
+      },
+      "public_run_evidence": false,
+      "scope": "Pinned historical physics/data reference only; never a future PublicContext or DIMR receipt."
+    }
+  },
+  "reference_files_checked": 36,
+  "public_schema_route_witnesses": {
+    "direct": {
+      "manifest": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\direct\\disabled0\\manifest.json",
+        "sha256": "24864d2b1804013284e6aa8927a7d1b919c9bcee51c67a6f370b72bac696e5ba",
+        "bytes": 29527,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 6473924466223383,
+          "mtime_ns": 1793795660825457400,
+          "nlink": 1
+        }
+      },
+      "scope": "Historical public SHORT schema/route specimen only, NOT B06/corrected-runtime/native-admission evidence.",
+      "public_fields": [
+        "schema_version",
+        "run_id",
+        "owner",
+        "created_at_utc",
+        "state",
+        "route",
+        "run_directory",
+        "software",
+        "timeout_seconds",
+        "profile",
+        "profile_name",
+        "simulation_progress",
+        "installation",
+        "source_mdu",
+        "inputs",
+        "validation",
+        "verification",
+        "limitations",
+        "updated_at_utc",
+        "proj_db_sha256",
+        "argv",
+        "working_directory",
+        "environment_overrides",
+        "environment_removed",
+        "executable_sha256",
+        "stdout",
+        "stderr",
+        "staged_mdu",
+        "pid",
+        "started_at_utc",
+        "ownership",
+        "returncode",
+        "finished_at_utc",
+        "diagnostics",
+        "runtime_versions",
+        "outputs",
+        "output_snapshots"
+      ],
+      "selected_fields": {
+        "schema_version": 3,
+        "run_id": "7d7e8d1be4554c258b76ca891f963f4d",
+        "state": "completed",
+        "route": "direct",
+        "profile_name": "short",
+        "run_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\direct\\disabled0",
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+          "--autostartstop",
+          "model.mdu"
+        ],
+        "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\direct\\disabled0\\model",
+        "executable_sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+        "source_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\cases\\disabled0\\model.mdu",
+        "staged_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\direct\\disabled0\\model\\model.mdu"
+      }
+    },
+    "dimr": {
+      "manifest": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\dimr\\disabled0\\manifest.json",
+        "sha256": "c87422a66630684c7914a3d49846294fa71f08f1484b7b247f791391e676e74f",
+        "bytes": 28734,
+        "identity": {
+          "device": 15735799815185527221,
+          "inode": 6192449489512848,
+          "mtime_ns": 1793795664092219100,
+          "nlink": 1
+        }
+      },
+      "scope": "Historical public SHORT schema/route specimen only, NOT B06/corrected-runtime/native-admission evidence.",
+      "public_fields": [
+        "schema_version",
+        "run_id",
+        "owner",
+        "created_at_utc",
+        "state",
+        "route",
+        "run_directory",
+        "software",
+        "timeout_seconds",
+        "profile",
+        "profile_name",
+        "simulation_progress",
+        "installation",
+        "source_mdu",
+        "inputs",
+        "validation",
+        "verification",
+        "limitations",
+        "updated_at_utc",
+        "proj_db_sha256",
+        "argv",
+        "working_directory",
+        "environment_overrides",
+        "environment_removed",
+        "executable_sha256",
+        "stdout",
+        "stderr",
+        "staged_mdu",
+        "pid",
+        "started_at_utc",
+        "ownership",
+        "returncode",
+        "finished_at_utc",
+        "diagnostics",
+        "runtime_versions",
+        "outputs",
+        "output_snapshots"
+      ],
+      "selected_fields": {
+        "schema_version": 3,
+        "run_id": "f701a2c1b8f649df8a9481fd6eb4ddd8",
+        "state": "completed",
+        "route": "dimr",
+        "profile_name": "short",
+        "run_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\dimr\\disabled0",
+        "argv": [
+          "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dimr.exe",
+          "dimr_config.xml"
+        ],
+        "working_directory": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\dimr\\disabled0",
+        "executable_sha256": "5880b1e6695f89f6cdb46b00b82f740056b7d8091cb21bd8cdd39d04e7b8ab64",
+        "source_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\cases\\disabled0\\model.mdu",
+        "staged_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\dimr\\disabled0\\model\\model.mdu"
+      },
+      "XML": {
+        "file": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\O02-G-cadence-tree-01\\runs\\dimr\\disabled0\\dimr_config.xml",
+          "sha256": "f0395b3fe1c22a3472d749010211193b0f1012beb78dac8015179e302ae5b770",
+          "bytes": 578,
+          "identity": {
+            "device": 15735799815185527221,
+            "inode": 5910974512802189,
+            "mtime_ns": 1793795663825499300,
+            "nlink": 1
+          }
+        },
+        "component_name": "DFlowFM",
+        "control_start_name": "DFlowFM",
+        "children": {
+          "library": "dflowfm",
+          "process": "0",
+          "mpiCommunicator": "DFM_COMM_DFMWORLD",
+          "workingDir": "model",
+          "inputFile": "model.mdu"
+        }
+      }
+    }
+  }
+}

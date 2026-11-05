@@ -1,0 +1,35 @@
+{
+  "file_only_validation": [
+    "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+    "validate",
+    "--prepared",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev06-39dee5b4-01",
+    "--expect-plan-sha256",
+    "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f"
+  ],
+  "future_four_only_NOT_AUTHORIZED": [
+    "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+    "-I",
+    "-B",
+    "-X",
+    "pycache_prefix=<ABSENT_FRESH_NATIVE_ROOT>/.no-controller-bytecode",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+    "execute-bmi",
+    "--prepared",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev06-39dee5b4-01",
+    "--expect-plan-sha256",
+    "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f",
+    "--out",
+    "<ABSENT_DIRECT_B14-RUNNER-I-native_ROOT>",
+    "--native-slot-granted",
+    "<COORDINATOR_GRANTED_SEQUENCE>",
+    "--lease-owner",
+    "B14-RUNNER-I"
+  ],
+  "acceptance": "All original lifetime/close/protocol/data/suite facts; Python exit0 alone insufficient",
+  "direct_six": "blocked_SHORT_CLOSE",
+  "native_authority": "NONE until fresh independent V/G plus explicit lease"
+}

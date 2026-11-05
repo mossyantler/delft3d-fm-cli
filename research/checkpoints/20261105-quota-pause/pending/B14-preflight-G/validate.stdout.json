@@ -1,0 +1,12 @@
+{
+  "state": "file_only_validated",
+  "case_count": 10,
+  "bmi_cases": 4,
+  "public_direct_admission": {
+    "state": "blocked_SHORT_CLOSE",
+    "corrected_composition_receipt": null,
+    "reason": "Combined194 is authoring evidence only. Actual public short terminal correction + fresh I/V composition required. No raw engine substitute."
+  },
+  "consumer_freeze": "0b7c26e8a5d04343e7ef305f8568bd3e836f1bb0e054a77ff819260b64096ee1",
+  "native_started": false
+}

@@ -1,0 +1,2377 @@
+{
+  "status": "FROZEN_IMPLEMENTATION_PORTABLE_INSTALLED_PASSED",
+  "wheel_sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+  "held_sha256": "876e21a2cd463a1c2137cfc13430349535988f47e6541365de09640799cfb454",
+  "files": {
+    "build-wheel.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\build-wheel.json",
+      "sha256": "f185980605cca6f79d93f1f5a233d85de419e73b0c77ebf0f50fa37768eb3844",
+      "bytes": 587
+    },
+    "build-wheel.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\build-wheel.stderr.txt",
+      "sha256": "3ca700fc2e172aed80f6067bb3947d8e4ca5edab582be16d74a19041205c6007",
+      "bytes": 182
+    },
+    "build-wheel.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\build-wheel.stdout.txt",
+      "sha256": "fc46e3c64adb0f52033656e929a4b68e3a2320728a28a8c40491685e7fa74d6d",
+      "bytes": 987
+    },
+    "build_private.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\build_private.py",
+      "sha256": "36c96934d37453611fa5d17ad7fe380cd541482fdf43cfdf4fb5f92ca9f3e448",
+      "bytes": 5232
+    },
+    "candidate196.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\candidate196.json",
+      "sha256": "f59c949bbfcc050f8c22f4fc2f5c37eed6a676c528a60e9a955b18238bdb900c",
+      "bytes": 26931
+    },
+    "check_release.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\check_release.py",
+      "sha256": "a35fd06053cce246d06dd181ac2987c10b70af59acef374c6c3c68a5f2322982",
+      "bytes": 8135
+    },
+    "create-venv.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\create-venv.json",
+      "sha256": "aa11edd653fefb405f8c3ca90e7b70663b099e7c0a5cb533bf469876ba92ec34",
+      "bytes": 381
+    },
+    "create-venv.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\create-venv.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "create-venv.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\create-venv.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "filedelta.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\filedelta.json",
+      "sha256": "dd331e96bea79f497ac58599516251f41326b6d7d74e8d731adaaf2e19998e39",
+      "bytes": 333
+    },
+    "HANDOFF.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\HANDOFF.md",
+      "sha256": "9e6859060a0cee16360eedf7320f9b69eb00c2941d0fa7d7257a121a178ff35e",
+      "bytes": 6491
+    },
+    "hold.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\hold.json",
+      "sha256": "876e21a2cd463a1c2137cfc13430349535988f47e6541365de09640799cfb454",
+      "bytes": 5194
+    },
+    "immutability-check.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\immutability-check.json",
+      "sha256": "7b3eae2cab0636e6e35d8dd85376eb30ead8971cc8bfa32d663e4b47abaa1ed8",
+      "bytes": 876
+    },
+    "install-wheel.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\install-wheel.json",
+      "sha256": "503636eb3c3413e277ab61a81fc506f8debd1f26df349beb524c2633d5bc7b4e",
+      "bytes": 512
+    },
+    "install-wheel.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\install-wheel.stderr.txt",
+      "sha256": "755b72d0f282ffe6c548f3f7ed70c3fdf531b181a0378f70841d1ea7f2fdfeca",
+      "bytes": 232
+    },
+    "install-wheel.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\install-wheel.stdout.txt",
+      "sha256": "9a973484cfa9fa4669734873fedfba950b3a81a105e195e43d46ddd1df0c6cee",
+      "bytes": 249
+    },
+    "installed-wheel.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\installed-wheel.json",
+      "sha256": "5020cc3a28ef5c29ceec34ce8e4f9e305f4c88d38e30cffd86039aa7bdf469ca",
+      "bytes": 546
+    },
+    "integration.patch": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\integration.patch",
+      "sha256": "d1bae9043df6f034d6306cb631311a7560160680fb7ddf455932612cd53129af",
+      "bytes": 2305
+    },
+    "package/src/dfm_cli/__init__.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\__init__.py",
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+      "bytes": 127
+    },
+    "package/src/dfm_cli/__main__.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "bytes": 48
+    },
+    "package/src/dfm_cli/bmi.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi.py",
+      "sha256": "4eb2be19f79fb4db44cfa1fa9bb355d9c38e39f1794088be1ec7ce35526dad95",
+      "bytes": 14694
+    },
+    "package/src/dfm_cli/bmi_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_contract.py",
+      "sha256": "b078b21844595576cc4479fa76ac7c6e22ea612617241b6865d937f27b9df764",
+      "bytes": 5671
+    },
+    "package/src/dfm_cli/bmi_diagnostics.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_diagnostics.py",
+      "sha256": "f430f994e3a70c1efb2828bddb4bc6082d1a272767a49c4dfeb2af23fea9ae3a",
+      "bytes": 1850
+    },
+    "package/src/dfm_cli/bmi_geometry.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_geometry.py",
+      "sha256": "f8ee9159ecf545e742516ea609bf627e7aac3a9fb62142b37a037023fef14d53",
+      "bytes": 2314
+    },
+    "package/src/dfm_cli/bmi_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_inputs.py",
+      "sha256": "80f69b384de1acc4e916e214950956212d6b1c2e53f5303e7b47e6067eaa95c4",
+      "bytes": 13395
+    },
+    "package/src/dfm_cli/bmi_native.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_native.py",
+      "sha256": "6829d057a7e0fa9d0fe100f0ccfe8a33c36aedf98a566a37ea30924b63b00d39",
+      "bytes": 4456
+    },
+    "package/src/dfm_cli/bmi_ownership.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_ownership.py",
+      "sha256": "7c2cc06213db4fb095c71d37dddc78e28449d7c42ec134c35769b86064830ce1",
+      "bytes": 6021
+    },
+    "package/src/dfm_cli/bmi_worker.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\bmi_worker.py",
+      "sha256": "5a2bc3121ef364ef5d5d4d410e44f9a8eb8d0f30360b8ac0302de8663f00ad68",
+      "bytes": 8142
+    },
+    "package/src/dfm_cli/boundary.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary.py",
+      "sha256": "0421eea3b7b7d2dedc00c98ec316e5714b7a7c6320ec9da9780b99375c615bca",
+      "bytes": 30902
+    },
+    "package/src/dfm_cli/boundary_coefficients.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_coefficients.py",
+      "sha256": "d7738da1ec36fe3fa273f3df42c2463b146c995bfc2e79297ba718c2da9220a3",
+      "bytes": 12928
+    },
+    "package/src/dfm_cli/boundary_coefficients_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_coefficients_contract.py",
+      "sha256": "c655ef1744f234789a3f8dc9b678fe13e6af8e36454245e86438891632908439",
+      "bytes": 3990
+    },
+    "package/src/dfm_cli/boundary_coefficients_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_coefficients_parse.py",
+      "sha256": "36970e1f81e92e5ea5f615b3a7fcf8c9e6ba7e9088f7d93c1278da3aa3efc7e6",
+      "bytes": 6327
+    },
+    "package/src/dfm_cli/boundary_export.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_export.py",
+      "sha256": "9877306f4d1d33886a56eb44e049bcd413d41de9e9501c01e5db530834d452b1",
+      "bytes": 15390
+    },
+    "package/src/dfm_cli/boundary_export_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_export_contract.py",
+      "sha256": "360234f5665970c72ac40133b00290093edd163a9bc731ed2ff4ad88762ddab7",
+      "bytes": 3582
+    },
+    "package/src/dfm_cli/boundary_export_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_export_graph.py",
+      "sha256": "53d5fbd4b9c8145350662dddfd2734bebfe47fc8559d68910e114da5a38e2a87",
+      "bytes": 16116
+    },
+    "package/src/dfm_cli/boundary_export_stage.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_export_stage.py",
+      "sha256": "80ae119ed4fa25df71e71e09cbab530f937852846d834b688c6303057b973fae",
+      "bytes": 7134
+    },
+    "package/src/dfm_cli/boundary_import.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_import.py",
+      "sha256": "6132c816558b0faa35dac02f30e856535ac5c142602ccb26b24d586128ff5af1",
+      "bytes": 17981
+    },
+    "package/src/dfm_cli/boundary_import_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_import_contract.py",
+      "sha256": "c24bfc44ed69534da838455bae31497f9e0137a9e12f942a590e909a862326de",
+      "bytes": 5433
+    },
+    "package/src/dfm_cli/boundary_import_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_import_graph.py",
+      "sha256": "0f46c35e8719a1685adacaf532e1fb06ee0f76ea9b0355b3620654cccc33df1e",
+      "bytes": 9675
+    },
+    "package/src/dfm_cli/boundary_import_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_import_parse.py",
+      "sha256": "9c8a8780dfbdbfadc6aada338c7c7209730e8e48a24f889bb2215d258e2a28ef",
+      "bytes": 9201
+    },
+    "package/src/dfm_cli/boundary_location_crs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_location_crs.py",
+      "sha256": "532bee3076c76a58a745aace2e41227656c0d49433787bbf71397744cf5c789b",
+      "bytes": 17851
+    },
+    "package/src/dfm_cli/boundary_location_projection.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_location_projection.py",
+      "sha256": "9f3286bf1137974d19422af684d06179e317f763a140bc9daf97a6389828780e",
+      "bytes": 22648
+    },
+    "package/src/dfm_cli/boundary_locations.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_locations.py",
+      "sha256": "8b76524feed69d8e15155b6a4f96106e71d51d7279124f1fcefef986cd21cd42",
+      "bytes": 22806
+    },
+    "package/src/dfm_cli/boundary_locations_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_locations_contract.py",
+      "sha256": "9beacdeb2edf20e5ae4e30a4cea7fbb92f9dff4e8454269c2cf84a4ccd89781c",
+      "bytes": 3648
+    },
+    "package/src/dfm_cli/boundary_locations_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_locations_graph.py",
+      "sha256": "376d867ae098ce8cd5f81b746e937171b6d323137424d251d68a807f5be15a38",
+      "bytes": 27439
+    },
+    "package/src/dfm_cli/boundary_locations_write.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_locations_write.py",
+      "sha256": "ed73c74bfdbc95633cff642a8a96818a4739be7e09c1f3f7404492bbc8dae19a",
+      "bytes": 5874
+    },
+    "package/src/dfm_cli/boundary_preview.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_preview.py",
+      "sha256": "2b90d9d178f8979c24d5c72d0ad05e51dd3261bd8d071be9115af5a97bb56e17",
+      "bytes": 15041
+    },
+    "package/src/dfm_cli/boundary_preview_eval.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_preview_eval.py",
+      "sha256": "80a242a16b859d3fa3c48e2fc44882b1baca6f1e782f6870c650e4601592f579",
+      "bytes": 13476
+    },
+    "package/src/dfm_cli/boundary_preview_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_preview_graph.py",
+      "sha256": "c7022551a96955b1f3992c96698e42c21db60dab30eaf843fce684a72b054321",
+      "bytes": 13050
+    },
+    "package/src/dfm_cli/boundary_series.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series.py",
+      "sha256": "f34e31a731e7f6f9ddd81cc135664eff4fefc7ad472d71b227716fbf5915ef36",
+      "bytes": 11422
+    },
+    "package/src/dfm_cli/boundary_series_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series_contract.py",
+      "sha256": "5b13ab5856077ed90a1772a2d59801f861edcaac3ed15058748dbef24952bd0b",
+      "bytes": 3083
+    },
+    "package/src/dfm_cli/boundary_series_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series_parse.py",
+      "sha256": "60f05314d7dd8e1e853425aee60a380a93d49ce1b4c218cbfd0555b42a36abb2",
+      "bytes": 9006
+    },
+    "package/src/dfm_cli/boundary_series_rows.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series_rows.py",
+      "sha256": "3961c71974022bb873cb897f85f3681ea316cd3d671b6cf1125fc33950f5c4a8",
+      "bytes": 8946
+    },
+    "package/src/dfm_cli/boundary_series_rows_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series_rows_contract.py",
+      "sha256": "eba0775a71fb39fd6ab107a8e446dd8cdb23392be8f32e2bf906d1303254cc6b",
+      "bytes": 3673
+    },
+    "package/src/dfm_cli/boundary_series_rows_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series_rows_parse.py",
+      "sha256": "a7932d1f6d586f97cd816f07e7d9cc7c140c7771d087235091f0bea8d22ca6f6",
+      "bytes": 4214
+    },
+    "package/src/dfm_cli/boundary_series_rows_plan.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_series_rows_plan.py",
+      "sha256": "d465a980f46912eb0462ec5d4535462358043989f9b7109262a1e6e871e23ad0",
+      "bytes": 3460
+    },
+    "package/src/dfm_cli/boundary_support.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_support.py",
+      "sha256": "9f51554714989c90dbde1d2d5840830e3377c95af110826ef81502676c67c376",
+      "bytes": 13109
+    },
+    "package/src/dfm_cli/boundary_support_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_support_contract.py",
+      "sha256": "cb501dcd5e0d5e7bbeab24281d99d46a423430d79c48d5dfba7782c84a05e017",
+      "bytes": 5727
+    },
+    "package/src/dfm_cli/boundary_support_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_support_parse.py",
+      "sha256": "3b779cba7fc48ee057c24447853ea4a0fac5f458b52bc8d5170b31b9eae8683a",
+      "bytes": 3759
+    },
+    "package/src/dfm_cli/boundary_support_write.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_support_write.py",
+      "sha256": "ac06d719ebc512be7d8cccd2a72cc4779ca54dc1986c090a1ffa53890bf593d2",
+      "bytes": 5333
+    },
+    "package/src/dfm_cli/boundary_vertical.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_vertical.py",
+      "sha256": "63d03cadd60f84d597fa0f7c71a9449acdda663f32bc9527d50b0c203068ec1c",
+      "bytes": 14168
+    },
+    "package/src/dfm_cli/boundary_vertical_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_vertical_graph.py",
+      "sha256": "3fa3c5602fbd93a6642db2146efa33b1f4e432a26df24cde9970d11f82c8b16c",
+      "bytes": 10499
+    },
+    "package/src/dfm_cli/boundary_vertical_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\boundary_vertical_parse.py",
+      "sha256": "bb22a0e2af97245ebab4416ade959d8c2ac2eb58e682ad8b07878073ff576436",
+      "bytes": 8352
+    },
+    "package/src/dfm_cli/checkpoint_schedule.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\checkpoint_schedule.py",
+      "sha256": "116750b1cf723372e06d0890a012187d6f05c0736315cf3a4dba95344214a036",
+      "bytes": 21860
+    },
+    "package/src/dfm_cli/cli.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\cli.py",
+      "sha256": "7ff3c88f59dccb0845d86804c0684ca0a33f5e96b5b8d819450fb6b304e4abc8",
+      "bytes": 26430
+    },
+    "package/src/dfm_cli/common.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\common.py",
+      "sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+      "bytes": 3773
+    },
+    "package/src/dfm_cli/coupling.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling.py",
+      "sha256": "cf320303f0ef5782b68f649b9b141915dc342e70f1231c3470ae6e4a771f67cf",
+      "bytes": 22569
+    },
+    "package/src/dfm_cli/coupling_common.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_common.py",
+      "sha256": "14f434d48ca9b7dc43a8a5b6dc4425d5c71b87a8a274cec29bdf0cee7b5a7904",
+      "bytes": 4121
+    },
+    "package/src/dfm_cli/coupling_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_contract.py",
+      "sha256": "84fab4314df24d1a77d70aa6d0c33da4077549400a3dcc887b09a5b4fb35b72d",
+      "bytes": 12000
+    },
+    "package/src/dfm_cli/coupling_diagnostics.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_diagnostics.py",
+      "sha256": "9fe249b3fec6bbbf10c1858a67ba1c67bd117200ddee19f495607c22bd11f45f",
+      "bytes": 4846
+    },
+    "package/src/dfm_cli/coupling_f152.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_f152.py",
+      "sha256": "873d7318108f5fd87488603c20306bd78f0e655f8ef9c871415903d98c7c8364",
+      "bytes": 6826
+    },
+    "package/src/dfm_cli/coupling_profiles.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_profiles.py",
+      "sha256": "2bfc7811b3faa7cffb56061a9d51c0158b666f05c675c08ce24ee9a189270755",
+      "bytes": 19491
+    },
+    "package/src/dfm_cli/coupling_references.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_references.py",
+      "sha256": "5ad9eef386d3eabbe9846ffd99845bbc70caf20cbc60279c7f8b712142d750b1",
+      "bytes": 2159
+    },
+    "package/src/dfm_cli/coupling_rr.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_rr.py",
+      "sha256": "a6811883473e8e01b2e0c46b4e66b95b18132a03d280bec1371be6cdcbc86b81",
+      "bytes": 12015
+    },
+    "package/src/dfm_cli/coupling_rtc.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_rtc.py",
+      "sha256": "87a754ac9035d777e8790302e57e6787a38649ae15d463c68403e1161c9c3e69",
+      "bytes": 18396
+    },
+    "package/src/dfm_cli/coupling_rtc_author.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_rtc_author.py",
+      "sha256": "53dbf3b622f1f7e460a861e9d5b4847bca3392ab06fc1425269f21b708d1cde8",
+      "bytes": 13377
+    },
+    "package/src/dfm_cli/coupling_rtc_csv.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_rtc_csv.py",
+      "sha256": "3889f9d4ae5c6346024e41be2a445122995c8da0cfe9e1bb609ec68f46e9531d",
+      "bytes": 6105
+    },
+    "package/src/dfm_cli/coupling_run.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_run.py",
+      "sha256": "631b8f4f67a8c8fade58da32d5c8eec409dd34862e40cd08caea664230c27de3",
+      "bytes": 21123
+    },
+    "package/src/dfm_cli/coupling_scalar.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_scalar.py",
+      "sha256": "456c4fb8980e2006b7deeee8dd3407b3abedecb1227e7755ef1d15aecd29f46a",
+      "bytes": 7464
+    },
+    "package/src/dfm_cli/coupling_time.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_time.py",
+      "sha256": "6d5686f35928061dddde3ac7566ce9d46f96ee249bf61287acba6a46848d110f",
+      "bytes": 6000
+    },
+    "package/src/dfm_cli/coupling_xml.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\coupling_xml.py",
+      "sha256": "2b6ec36545c50ed66a8420e97f10ddc14955c13cf08318b30fbf507097026b7c",
+      "bytes": 12391
+    },
+    "package/src/dfm_cli/create.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\create.py",
+      "sha256": "1f3ebd76f66efd16b4252559d9756399892fe6e25967970c1b6ff7fb4d98e248",
+      "bytes": 9429
+    },
+    "package/src/dfm_cli/create_mesh.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\create_mesh.py",
+      "sha256": "73d0c93a260682d2e67cd897e7dec236dc26cdf448a957eea8063948ef13f4de",
+      "bytes": 13614
+    },
+    "package/src/dfm_cli/create_spec.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\create_spec.py",
+      "sha256": "56d5705a684ed0f6da4dd3966cda67d786bf6acf452e107266380f7265a795e0",
+      "bytes": 15333
+    },
+    "package/src/dfm_cli/diagnostics.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\diagnostics.py",
+      "sha256": "423db427b2c8827a42f289422ad1a96b88a90d623cd4493f419abdb02334ab7e",
+      "bytes": 5543
+    },
+    "package/src/dfm_cli/fields.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\fields.py",
+      "sha256": "1c0b5d3b988eac71347c24b0d9e9e631a9198ca2678ac9ebc84a3a2c855e3068",
+      "bytes": 13630
+    },
+    "package/src/dfm_cli/fields_eligibility.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\fields_eligibility.py",
+      "sha256": "d557e7fc0f7eeb0fd0acd147f666f32ac6b67ade26307ef9bbcabf130baf8ec3",
+      "bytes": 10724
+    },
+    "package/src/dfm_cli/fields_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\fields_evidence.py",
+      "sha256": "b345c6899c1cd62dfb900383694dfce3f899efeee54497ddb9c4fc5244bda4ad",
+      "bytes": 6010
+    },
+    "package/src/dfm_cli/fields_registry.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\fields_registry.json",
+      "sha256": "d7b6f67ee06976f1b223fbc40fea6c55cc7057de2560565eecde0c702125315c",
+      "bytes": 162798
+    },
+    "package/src/dfm_cli/fm_model_identity.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\fm_model_identity.py",
+      "sha256": "03e38981cc277f69dd0419a872e813442fa2b235f8e710846323d3541518a94a",
+      "bytes": 8777
+    },
+    "package/src/dfm_cli/installation.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\installation.py",
+      "sha256": "7bf37a1f7f953fa86c13c78cf39e465705fea2287aef02200ec41ff1d19d1ad9",
+      "bytes": 2893
+    },
+    "package/src/dfm_cli/layers.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\layers.py",
+      "sha256": "d9e91e70b96909b6ce4e352a06da01ed038e2376bb6fcab2488e82ed58893ac0",
+      "bytes": 18930
+    },
+    "package/src/dfm_cli/layers_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\layers_inputs.py",
+      "sha256": "0852c95205df79e4d325ac33926ebc902f8dc9d7b7dd94062bfdd49896e9956a",
+      "bytes": 28462
+    },
+    "package/src/dfm_cli/layers_outputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\layers_outputs.py",
+      "sha256": "ad6be96faa5dae7a4af8d6cd3f51728f82fcd41fb4defab44d8ce7e988673aa1",
+      "bytes": 15748
+    },
+    "package/src/dfm_cli/layers_spec.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\layers_spec.py",
+      "sha256": "aeaf118c2ed32940c066ab8fbb4e393b55ee2474d371a2c28f0ae0ac667b8824",
+      "bytes": 11923
+    },
+    "package/src/dfm_cli/mesh.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\mesh.py",
+      "sha256": "5fd42bb44350d9070a50fc4538b4580759311b2a83c0d7476ea29a13e62253fc",
+      "bytes": 17394
+    },
+    "package/src/dfm_cli/mesh_geometry.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\mesh_geometry.py",
+      "sha256": "666a2f0d2c6be9bb966487d91f6521beecdc5770bf913d11ef4ae4ddd18b7402",
+      "bytes": 19530
+    },
+    "package/src/dfm_cli/mesh_refine.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\mesh_refine.py",
+      "sha256": "7fb039d91f4f6a58c09abc802534349f21a5c0a78e80c2d5c0596d5bde314454",
+      "bytes": 8166
+    },
+    "package/src/dfm_cli/mesh_spec.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\mesh_spec.py",
+      "sha256": "63c8e97bd891d6e3c12957d4f13ec2ba5df53559fb8b5c9683adecee735e6fa5",
+      "bytes": 15944
+    },
+    "package/src/dfm_cli/model.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\model.py",
+      "sha256": "2d909c24286b81101709396006e56d03174f201b1e9d784b4ea51aec0de57c9d",
+      "bytes": 16051
+    },
+    "package/src/dfm_cli/morph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\morph.py",
+      "sha256": "65efd09169d5acdce6cda2e659e0968fc3a075fcbeec4510c7997852b88f877a",
+      "bytes": 16939
+    },
+    "package/src/dfm_cli/morph_exchange.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\morph_exchange.py",
+      "sha256": "24cd4c1f1d7340db8c825a9c958f4df153b2df0d096f041358e7dad0e0d97a04",
+      "bytes": 21127
+    },
+    "package/src/dfm_cli/morph_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\morph_inputs.py",
+      "sha256": "7f78e9ddf8c6cc8a341ce644fa00320fffca31e1b1677799cc823b359aff02e0",
+      "bytes": 18329
+    },
+    "package/src/dfm_cli/morph_outputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\morph_outputs.py",
+      "sha256": "0de5f5ab9f4c3d2e6a1dab1f35d6b6eba94d1cc926a381053db915e306bdb962",
+      "bytes": 23015
+    },
+    "package/src/dfm_cli/morph_spec.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\morph_spec.py",
+      "sha256": "bc0b80844477c880efb9420da163805487c51048c3f49e9e35564065d72b6862",
+      "bytes": 11193
+    },
+    "package/src/dfm_cli/network.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\network.py",
+      "sha256": "157a837a20bf3492a00aa4a44af7f3a4806dd6921438420967b888b8269937e3",
+      "bytes": 19991
+    },
+    "package/src/dfm_cli/network_io.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\network_io.py",
+      "sha256": "3736a72a21288b2b9c6de171eabfc896f232f786e66f65a8a53c3bd9f8d928cb",
+      "bytes": 20017
+    },
+    "package/src/dfm_cli/network_spec.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\network_spec.py",
+      "sha256": "515201745f13c87f79e1eba3d4b50ec296ae3511f471ff453d6cbba0b2c41d88",
+      "bytes": 23251
+    },
+    "package/src/dfm_cli/observation.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation.py",
+      "sha256": "2cf7e92c621f29208f75f907092568616464ccdfda2ed3ca75cfc43376313838",
+      "bytes": 11278
+    },
+    "package/src/dfm_cli/observation_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_inputs.py",
+      "sha256": "6cfca2784962ddcf7bd481bc6647499ffeed724b61495748bfe0c5d4277a25ea",
+      "bytes": 12794
+    },
+    "package/src/dfm_cli/observation_mesh.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_mesh.py",
+      "sha256": "96836f85c0162098cefe43fdcfcbf1382d1c2d7327b537c8e778c3c992eac832",
+      "bytes": 3973
+    },
+    "package/src/dfm_cli/observation_mesh_reader.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_mesh_reader.py",
+      "sha256": "3c5b27eb1d9807c018327ca41b2971b50f74ed4bc20bd70b0ccfc082272fb7ec",
+      "bytes": 7125
+    },
+    "package/src/dfm_cli/observation_text.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_text.py",
+      "sha256": "aed49a93dae17abe016524d2751d2c0563742425013fd8f46294d71374f3a318",
+      "bytes": 9906
+    },
+    "package/src/dfm_cli/observation_transfer.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_transfer.py",
+      "sha256": "451df4da03b265011d5b56c04b29669ea8c1de6dc5804e6aca3cb2cacc1a1098",
+      "bytes": 11019
+    },
+    "package/src/dfm_cli/observation_transfer_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_transfer_contract.py",
+      "sha256": "0a39518ea26f7f7f3f298d9dd6a273bff1a4251a87da81614f7393be1dbd7044",
+      "bytes": 7870
+    },
+    "package/src/dfm_cli/observation_transfer_io.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_transfer_io.py",
+      "sha256": "a3e278f8a7b0085576c26a86f54ee2e72336e8406e556d2dfe3db9f70cd2aaa4",
+      "bytes": 6300
+    },
+    "package/src/dfm_cli/observation_transfer_mesh.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\observation_transfer_mesh.py",
+      "sha256": "d1480b59dabedc21569b369289a8b576773709d84232e2f5a539b872a55e1897",
+      "bytes": 6192
+    },
+    "package/src/dfm_cli/output_schedule.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\output_schedule.py",
+      "sha256": "46d0c4cbdb8d646d29a62cf1a427328adbc3ba4479a4d7ed171bd020b4cbf6d1",
+      "bytes": 5994
+    },
+    "package/src/dfm_cli/outputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\outputs.py",
+      "sha256": "c086f38e3b9f0a09b1c0ee7de49472a620e8ecfa48013f49a9a807c76a1e076d",
+      "bytes": 6785
+    },
+    "package/src/dfm_cli/parallel.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel.py",
+      "sha256": "c0d271271716f4d59c09b40cfbe814d878680b22d40feb7413b6f93c650c43f9",
+      "bytes": 24242
+    },
+    "package/src/dfm_cli/parallel_artifacts.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_artifacts.py",
+      "sha256": "222c0c110ada8814383a041983eecadf6957ec1e27fb59164c92360265333263",
+      "bytes": 13774
+    },
+    "package/src/dfm_cli/parallel_checkpoint.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_checkpoint.py",
+      "sha256": "6308f055150cf32461bc3c0d84c2993c4b1992cb64a15aed765814cb5d3db049",
+      "bytes": 26879
+    },
+    "package/src/dfm_cli/parallel_continuation.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_continuation.py",
+      "sha256": "d74bf2777b18433582aadc287a38f2143e976d9ec1b85ffd663237cdd8bbe0d3",
+      "bytes": 18215
+    },
+    "package/src/dfm_cli/parallel_continuation_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_continuation_evidence.py",
+      "sha256": "3bb671806e3018721032ae41f27215b0d4a9d169115b87a061b9bbd98a38118b",
+      "bytes": 11309
+    },
+    "package/src/dfm_cli/parallel_continuation_reader.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_continuation_reader.py",
+      "sha256": "0f2f72a4610df46333da01f195615658f9ad35d1144671ed7cb88e9b6323abad",
+      "bytes": 11114
+    },
+    "package/src/dfm_cli/parallel_continuation_tokens.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_continuation_tokens.py",
+      "sha256": "71b782a0e99fa5d698eda346e5cb64d0054dd965fc4c399570100de47766d217",
+      "bytes": 2095
+    },
+    "package/src/dfm_cli/parallel_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_contract.py",
+      "sha256": "acb42bd7a217b0637035929d64d2310ee462881d989ae1f26e5cdb9953aa91b2",
+      "bytes": 10029
+    },
+    "package/src/dfm_cli/parallel_geometry.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_geometry.py",
+      "sha256": "764cc7feef6372f5f1be314c39bb1635d0fe6995c7648ca64c857b66dadcbd67",
+      "bytes": 9440
+    },
+    "package/src/dfm_cli/parallel_ownership.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_ownership.py",
+      "sha256": "10f8c27c790b5335431493c64ad691844f4a2d941289e3f0a2b5c7732591fa27",
+      "bytes": 5835
+    },
+    "package/src/dfm_cli/parallel_provenance.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_provenance.py",
+      "sha256": "a15c2bae4486418f04a2092a2adac6a91491e6f2cec51f9f5b64e760db1fa5a9",
+      "bytes": 6062
+    },
+    "package/src/dfm_cli/parallel_worker.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\parallel_worker.py",
+      "sha256": "a4f67814d176c0e64f8a6eabd0a4974ee654c302235fbe5d1bc477c0713f5123",
+      "bytes": 12499
+    },
+    "package/src/dfm_cli/progress.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\progress.py",
+      "sha256": "5102c594513b463f417da01ff8e426037698ffb64e1dd3242ef83d7ae781da91",
+      "bytes": 10968
+    },
+    "package/src/dfm_cli/project.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\project.py",
+      "sha256": "e5f8b460662179ad501a7894a77edc489c231ca41f576982068e34dedcae378e",
+      "bytes": 30279
+    },
+    "package/src/dfm_cli/project_bridge_script.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\project_bridge_script.py",
+      "sha256": "55422871deb09603922bcdc71ad1fa9b18ac84389569d354a00a665a999abd06",
+      "bytes": 6171
+    },
+    "package/src/dfm_cli/project_files.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\project_files.py",
+      "sha256": "6b1f6c2860c67c4e68093c6522614e2661e396dca406565ac9023f82d5b20ab5",
+      "bytes": 21346
+    },
+    "package/src/dfm_cli/pump_commands.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_commands.py",
+      "sha256": "b5c06a36cf92b9b680610db5afa214fd64cc71a4e26b83b5c5bd458cd3fdcf57",
+      "bytes": 544
+    },
+    "package/src/dfm_cli/pump_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_contract.py",
+      "sha256": "0fd1d4b61968ece7b1fb03ea16cd62e423794d1cc2beeb58f70698ca1f38e0b6",
+      "bytes": 3340
+    },
+    "package/src/dfm_cli/pump_edit.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_edit.py",
+      "sha256": "175ac680913c94cb5b93722b8d109f46f4b567fce0db2eea0176b8e2b4ed53b7",
+      "bytes": 8860
+    },
+    "package/src/dfm_cli/pump_edit_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_edit_contract.py",
+      "sha256": "4703a0cdbf0ba5b41e6290a133f644e5d4887a62b0e439f3c837da9ca69ef446",
+      "bytes": 5458
+    },
+    "package/src/dfm_cli/pump_edit_security.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_edit_security.py",
+      "sha256": "17971818de906e3ca9db5ade1e83e2908f2afdcc491522a3c6871a81cf32c9e7",
+      "bytes": 10675
+    },
+    "package/src/dfm_cli/pump_edit_write.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_edit_write.py",
+      "sha256": "f1ad947d80c93495fcd6f6c5a41612da3234aea8030c6d90c1c0c7ca41e7dcda",
+      "bytes": 10574
+    },
+    "package/src/dfm_cli/pump_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_graph.py",
+      "sha256": "fb6a16d05cc49d567571932462f719999107209fe7841cf641db9df6836c5b78",
+      "bytes": 10013
+    },
+    "package/src/dfm_cli/pump_public.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_public.py",
+      "sha256": "7f50859a500ddd764e14743377543546beab85ad1c4af2e9b9d4565f3c9c2d10",
+      "bytes": 3939
+    },
+    "package/src/dfm_cli/pump_run_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_run_inputs.py",
+      "sha256": "d711b03dbf3d70a4ade4f14bd10618913b54543717abdf45ef291b335aa50368",
+      "bytes": 12746
+    },
+    "package/src/dfm_cli/pump_run_mesh.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_run_mesh.py",
+      "sha256": "f8dfb722195f0e2601841cbdc6a12293804807ec363b225a5eb6c4060be69300",
+      "bytes": 10729
+    },
+    "package/src/dfm_cli/pump_run_profile.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_run_profile.py",
+      "sha256": "d9f161674f2b2a660728e82d6593425272f672b6c0b6c3b1cbba784545b9aa4e",
+      "bytes": 7872
+    },
+    "package/src/dfm_cli/pump_text.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\pump_text.py",
+      "sha256": "311ef1f6e5b04995f9859d9950dbae9cff010871b12c63d4ddc337891d198360",
+      "bytes": 9488
+    },
+    "package/src/dfm_cli/restart.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart.py",
+      "sha256": "cf860869ef7ebad8e357acdd04dea1399311699d693e42b492c39235784cc28c",
+      "bytes": 21776
+    },
+    "package/src/dfm_cli/restart_compare.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_compare.py",
+      "sha256": "ee9cf3e34f46fdb9f4f22ab86c00083feddd66a5e2e52f6283f005d930c66108",
+      "bytes": 16816
+    },
+    "package/src/dfm_cli/restart_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_contract.py",
+      "sha256": "b34a7ca874687924a5f59db73c213ed6c8a3e6fc5455aa32ff739f1448b4444d",
+      "bytes": 8697
+    },
+    "package/src/dfm_cli/restart_dispatch.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_dispatch.py",
+      "sha256": "932ac04c0fd973f1bb09e633b89111807eec9ba0ef9d69d3a0616ade0f9694a3",
+      "bytes": 676
+    },
+    "package/src/dfm_cli/restart_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_evidence.py",
+      "sha256": "d87afcda0e0862426871d1e3ce660577349b3c3ab72bdc3c6b247c2e6928428e",
+      "bytes": 10344
+    },
+    "package/src/dfm_cli/restart_forecast.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_forecast.py",
+      "sha256": "240447694875420ae83403aa8397bdc18d3c4b772b2ca56b0b26530b68a77f1e",
+      "bytes": 11281
+    },
+    "package/src/dfm_cli/restart_forecast_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_forecast_contract.py",
+      "sha256": "39e1a011005f180bf8cb79e5cb6af27e2500198d0958be246fab4548ee42a145",
+      "bytes": 3126
+    },
+    "package/src/dfm_cli/restart_forecast_fields.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_forecast_fields.py",
+      "sha256": "b91140f6a800eaa5310149dbbf085eadc3352902a4668840a3dac15e7f17f29f",
+      "bytes": 10755
+    },
+    "package/src/dfm_cli/restart_forecast_rounding.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_forecast_rounding.py",
+      "sha256": "74cc126fef387e65cbec5f6532e6a72d9d54b398d57cc995a42a72044dffe206",
+      "bytes": 3163
+    },
+    "package/src/dfm_cli/restart_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_inputs.py",
+      "sha256": "bdc99d710ab1e8d4fe7a666bfbff01827a9e8f40b2ecd058ab13c8beceed014b",
+      "bytes": 16431
+    },
+    "package/src/dfm_cli/restart_join.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_join.py",
+      "sha256": "ce68560ff2d1a160bfc949a8074033a8753768c27afc1bca2a8e1cf52e079279",
+      "bytes": 4360
+    },
+    "package/src/dfm_cli/restart_policy.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\restart_policy.py",
+      "sha256": "2e1f2839e5c05d6c1feab11cbca6664d00d4f1931760af7bbed8f724cb3ed974",
+      "bytes": 6713
+    },
+    "package/src/dfm_cli/results.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\results.py",
+      "sha256": "91be1b21917d10c9c73f2fd2cf8b1bb807fe48af3c314c9662da4f432cf0c817",
+      "bytes": 36140
+    },
+    "package/src/dfm_cli/results_stations.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\results_stations.py",
+      "sha256": "cdb5eaf13be2784e8af370f08c8bc830e8eb5faa349344a5f0dba98d20bd37e8",
+      "bytes": 13028
+    },
+    "package/src/dfm_cli/results_stations_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\results_stations_contract.py",
+      "sha256": "8892d9e1692aa86e15306e88a1f71c6b500c271ab8f696b2c1f11caa0c14d633",
+      "bytes": 6145
+    },
+    "package/src/dfm_cli/results_stations_data.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\results_stations_data.py",
+      "sha256": "5b71ba98874c4412d6e7e073e825201114499bd159694f1309f626d45f3c2afd",
+      "bytes": 15939
+    },
+    "package/src/dfm_cli/results_stations_gis.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\results_stations_gis.py",
+      "sha256": "095e8caddbd2374b38c8c2eed30efea1a439c21701ba08f7a84af0403f8af2df",
+      "bytes": 7111
+    },
+    "package/src/dfm_cli/results_stations_io.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\results_stations_io.py",
+      "sha256": "45b0be2ecc50b82cc7c45dfc274cfc5014a6343e2146c1ad5173b7d3a6bdc34c",
+      "bytes": 10228
+    },
+    "package/src/dfm_cli/rr_f152.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152.py",
+      "sha256": "231f1a3375457dd56b5ceec2c3c94853eece95bb5ae703162435cae9ad9d1f7c",
+      "bytes": 13818
+    },
+    "package/src/dfm_cli/rr_f152_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_evidence.py",
+      "sha256": "70ba4eeb842e0b51cdd0b528522cc4d1fb14890eb6a004152b3a8b2a9f221a62",
+      "bytes": 5188
+    },
+    "package/src/dfm_cli/rr_f152_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_inputs.py",
+      "sha256": "6d1a204f18666ed4bf821269d36179562ae13f90a439953c1d293f916b1dd31a",
+      "bytes": 11787
+    },
+    "package/src/dfm_cli/rr_f152_inputs_rain.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_inputs_rain.py",
+      "sha256": "aaa84a40c7f7986e6f3353bedf83149790267cf477a45f4ee9a3721e6c48e5e6",
+      "bytes": 3599
+    },
+    "package/src/dfm_cli/rr_f152_inputs_structures.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_inputs_structures.py",
+      "sha256": "e69df071d8d9decb2d2f197c0ebee6be22a6b5ecc332265dd341d0308031b4f5",
+      "bytes": 7592
+    },
+    "package/src/dfm_cli/rr_f152_outputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_outputs.py",
+      "sha256": "0c6322603c1cb329b0f7c31124f5ece1941e2f387d2e766fcdfcdafc2f004bef",
+      "bytes": 8165
+    },
+    "package/src/dfm_cli/rr_f152_slots.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_slots.py",
+      "sha256": "017f7dbc249f20670a43606cd9e68b5087845e04179d559e37b82bf3598c7af8",
+      "bytes": 8383
+    },
+    "package/src/dfm_cli/rr_f152_source.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\rr_f152_source.py",
+      "sha256": "61c89cbff5d1217ef391de1891c49b61a25c2717a5c3736524b18affd90d4056",
+      "bytes": 17351
+    },
+    "package/src/dfm_cli/run_control.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\run_control.py",
+      "sha256": "d5ee8b69df821ac24328d8e5194abe8544fa2b584b53aee2d00850d44706eb6c",
+      "bytes": 10858
+    },
+    "package/src/dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+      "bytes": 18859
+    },
+    "package/src/dfm_cli/runs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\runs.py",
+      "sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b",
+      "bytes": 25538
+    },
+    "package/src/dfm_cli/section_orientation.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_orientation.py",
+      "sha256": "9184c33b34954a4d9d36541aeb03dfea7ee0c14b02b50b08b18b3d2564f44975",
+      "bytes": 6441
+    },
+    "package/src/dfm_cli/section_orientation_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_orientation_contract.py",
+      "sha256": "76666c219838ba154c26de8b84ed0c6168885fda41d2bf6d91b9a2d0183a980d",
+      "bytes": 4230
+    },
+    "package/src/dfm_cli/section_orientation_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_orientation_graph.py",
+      "sha256": "60761e93b19afc736bd15835f1e3b6cf30026e1988c9ae6f4b3cc49898860096",
+      "bytes": 4377
+    },
+    "package/src/dfm_cli/section_orientation_text.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_orientation_text.py",
+      "sha256": "ed177bf0a92d55e1fd0633f037565783b3abf9bf9b73a5aa1345d83b30b56dc4",
+      "bytes": 5115
+    },
+    "package/src/dfm_cli/section_transfer.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_transfer.py",
+      "sha256": "fd0d78ba0121a1633423bded978cef2351d468b13cf595ee11970f4060f06d2d",
+      "bytes": 9936
+    },
+    "package/src/dfm_cli/section_transfer_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_transfer_contract.py",
+      "sha256": "75ba299e6b7a4f25622b5790cbc8425adf0c743199d6a2da1e3932fb6f485460",
+      "bytes": 5447
+    },
+    "package/src/dfm_cli/section_transfer_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_transfer_graph.py",
+      "sha256": "514d1af0713add23a4a4cfad9bcfda9a6c3cc812a053ff8d49cefb9b32fab023",
+      "bytes": 5778
+    },
+    "package/src/dfm_cli/section_transfer_text.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_transfer_text.py",
+      "sha256": "cb8ded0729be6a8c032f5f3f77fc0ceb5106d4acd77fe11bed1722dd02e7eabc",
+      "bytes": 9958
+    },
+    "package/src/dfm_cli/section_transfer_write.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\section_transfer_write.py",
+      "sha256": "d8af6e7b53f596385545353ee2b398de15e342ca6370c76e0791ebf3698dfb9d",
+      "bytes": 8905
+    },
+    "package/src/dfm_cli/serial_profile.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\serial_profile.py",
+      "sha256": "0f0a425f386a29e8b6ffb5356948d73818343e3ac3122236431f82feb5352f76",
+      "bytes": 21060
+    },
+    "package/src/dfm_cli/source_sink.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\source_sink.py",
+      "sha256": "06b367096556de9c18480d2fc9f54d2b002a454e7ac6d114b2bf38dd401aa382",
+      "bytes": 5602
+    },
+    "package/src/dfm_cli/source_sink_author.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\source_sink_author.py",
+      "sha256": "d6c71ebbcd92aa0b5038385940ca311299d4d38fc278267990f187dcfe9e87f1",
+      "bytes": 21064
+    },
+    "package/src/dfm_cli/source_sink_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\source_sink_graph.py",
+      "sha256": "517c36c1bdc6a12ca5a1752e67a07d056ee602c231b6be793bb7d9b89b090503",
+      "bytes": 30509
+    },
+    "package/src/dfm_cli/source_sink_write.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\source_sink_write.py",
+      "sha256": "cf7328c3bd439ba6a6802595acf8aee1c6cbd4e2a34ff3028785e60388cc6ad3",
+      "bytes": 7417
+    },
+    "package/src/dfm_cli/water_quality.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality.py",
+      "sha256": "56f5bf240c054a42c81dacde96793e2e8b7db7402d842bfccca0babce16ee3e3",
+      "bytes": 16294
+    },
+    "package/src/dfm_cli/water_quality_compare.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_compare.py",
+      "sha256": "6a410b35a87d534ec6152280616acd1d3a16011334e90d5d5c9238b90c797713",
+      "bytes": 18188
+    },
+    "package/src/dfm_cli/water_quality_compare_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_compare_contract.py",
+      "sha256": "e7a0c35ecb92402d2eb6171fc1502647e9d82110910c1ebeba5edf5d232f0f6e",
+      "bytes": 4238
+    },
+    "package/src/dfm_cli/water_quality_compare_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_compare_inputs.py",
+      "sha256": "98e4fce0312c41e2bbbb4101f54a4b6581708d113e99e795572e2e6bba5d6441",
+      "bytes": 12026
+    },
+    "package/src/dfm_cli/water_quality_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_contract.py",
+      "sha256": "9178a731a3c82000b5edbcba72f0b475e6979c7f86effcd1756626b46d6c8223",
+      "bytes": 5594
+    },
+    "package/src/dfm_cli/water_quality_offline.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline.py",
+      "sha256": "4acdfb1e5580b8183a3135764a4e2d67bfaa1a48a7759f26ff40ee69ca25cdd9",
+      "bytes": 6741
+    },
+    "package/src/dfm_cli/water_quality_offline_binary.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_binary.py",
+      "sha256": "afc026902f9bdee422fb9435161e27dc09cd7ced571936a2306436ee6e93ace0",
+      "bytes": 10168
+    },
+    "package/src/dfm_cli/water_quality_offline_compare.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_compare.py",
+      "sha256": "d84f38f2d22e1a1c0c6993ed17282d88678efe6afb7fd52390c7338e9ce68dde",
+      "bytes": 11264
+    },
+    "package/src/dfm_cli/water_quality_offline_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_contract.py",
+      "sha256": "3fa967146aa853455e926c71175f9498d3bd3c25ce3d198bd42739bc5230f2b8",
+      "bytes": 11387
+    },
+    "package/src/dfm_cli/water_quality_offline_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_inputs.py",
+      "sha256": "ceb8d2c9c81bc7e8f54a55508ec806ed97e7f9b18a53716dd49f4ba9472176f8",
+      "bytes": 19897
+    },
+    "package/src/dfm_cli/water_quality_offline_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_lifecycle.py",
+      "sha256": "2261d3e0dbc87c21d4a49fdd932345f48866d2ab13748985669f3d5b356381d3",
+      "bytes": 6337
+    },
+    "package/src/dfm_cli/water_quality_offline_run.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_run.py",
+      "sha256": "732450d7fd680b2fe5032f93d9c375a4d4b86b40fa65c7fb2c443298b65d73be",
+      "bytes": 16268
+    },
+    "package/src/dfm_cli/water_quality_offline_workflow.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\water_quality_offline_workflow.py",
+      "sha256": "d54df36c11f306df757d065853a96ab384c7f7070409943124def95f76c5e5b6",
+      "bytes": 5199
+    },
+    "package/src/dfm_cli/weir_run_inputs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\weir_run_inputs.py",
+      "sha256": "34d71b15e05dd8ffb9399e3cc9794aae9807cf03537832f343b0fb734774cf5a",
+      "bytes": 14092
+    },
+    "package/src/dfm_cli/weir_run_profile.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\weir_run_profile.py",
+      "sha256": "3e47d132e2c80e79385d0075f48382f4b0a02288ce4b97adea656a2273f90cb5",
+      "bytes": 9879
+    },
+    "package/src/dfm_cli/weir_series.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\weir_series.py",
+      "sha256": "8cae70f5e4ecf6ea6eb4d9bfc2037493effa6301b5cfd961c1fea4d3e017dfd5",
+      "bytes": 15062
+    },
+    "package/src/dfm_cli/weir_series_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\weir_series_graph.py",
+      "sha256": "4d6880bf2363d9e6a68f6efd57ed4b0a110b5d345ea54c2062d60deedb8c06d9",
+      "bytes": 7209
+    },
+    "package/src/dfm_cli/weir_series_parse.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\weir_series_parse.py",
+      "sha256": "efcd69f7bfe6d24a9fa605e337ede35d1310084ee27b10d0489dd5e1e63681a7",
+      "bytes": 5159
+    },
+    "package/src/dfm_cli/weir_series_structure.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\weir_series_structure.py",
+      "sha256": "cf0e16eb576f5d703e5e22303e49ed4e174dc167493393692d474664b21cb009",
+      "bytes": 6183
+    },
+    "package/src/dfm_cli/windows_exit_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\windows_exit_evidence.py",
+      "sha256": "7e0e51463b3749bb7464c432d08e66e691249a6f51f26167cb82af2b556b2a11",
+      "bytes": 14081
+    },
+    "package/src/dfm_cli/windows_job.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\windows_job.py",
+      "sha256": "a5ef3e62b8610cd4a3d48fb15b9976243a7c8ed03fec1223f6440d731eb4ffac",
+      "bytes": 38712
+    },
+    "package/src/dfm_cli/windows_job_trace.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\windows_job_trace.py",
+      "sha256": "5b9e35b42496c842dab185280c2e2d21bcdc8628154cca493d3159af519280ff",
+      "bytes": 27078
+    },
+    "package/src/dfm_cli/windows_job_trace_api.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\windows_job_trace_api.py",
+      "sha256": "6ed0fbc9e1fbaa5d27888edeed8c5fbf686d2ff314bcb198e845e33d46e9fcd6",
+      "bytes": 4052
+    },
+    "package/src/dfm_cli/workflow_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\package\\src\\dfm_cli\\workflow_evidence.py",
+      "sha256": "8f891bc273c0fd265cbbd3da4bc2fd7290e03b7a04feba84d71e0ba2535442df",
+      "bytes": 3716
+    },
+    "portable-01.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\portable-01.json",
+      "sha256": "5c9bc0c602a48bbdec11c1278ab23110e564392d49324065c07c2066e57eea1e",
+      "bytes": 459
+    },
+    "portable-01.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\portable-01.stderr.txt",
+      "sha256": "e1975716a5504a3d6745a91c36ec55551c4e0100f725bd070c5e2473ecb6dcd9",
+      "bytes": 3116
+    },
+    "portable-01.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\portable-01.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "prepare_native_plan.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\prepare_native_plan.py",
+      "sha256": "f21dc6d05b0254c9021f89e4179f83db11177afaf90773a2456c8c2d4cea107f",
+      "bytes": 11149
+    },
+    "release-check-01/admission-ascii_header_64/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_64\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-ascii_header_64/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_64\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-ascii_header_64/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_64\\model\\sections.pli",
+      "sha256": "6087ca0521ed077f60c51492e49aa36c74f81945d3c4ba288c69bdfa9ed15619",
+      "bytes": 85
+    },
+    "release-check-01/admission-ascii_header_64.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_64.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-ascii_header_64.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_64.stdout.txt",
+      "sha256": "2bfd74dc93c76392b4b82f1b7b3e3b944c45a460c47bf3930f20abecb4a7a4e3",
+      "bytes": 5806
+    },
+    "release-check-01/admission-ascii_header_65/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_65\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-ascii_header_65/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_65\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-ascii_header_65/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_65\\model\\sections.pli",
+      "sha256": "6259330082abfe4a3e94953261fc212dcf28059aac6c834baeae83b34f2ef18e",
+      "bytes": 86
+    },
+    "release-check-01/admission-ascii_header_65.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_65.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-ascii_header_65.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-ascii_header_65.stdout.txt",
+      "sha256": "132c2905485b97fd7b5e624364119382fdf0c2332ba81ebe2376f8e2a48090e9",
+      "bytes": 264
+    },
+    "release-check-01/admission-bare_CR/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-bare_CR\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-bare_CR/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-bare_CR\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-bare_CR/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-bare_CR\\model\\sections.pli",
+      "sha256": "594c570de701d7493bd6a0e75e2b66f681ab04c02d98657b2f09321cf5d9c8ed",
+      "bytes": 26
+    },
+    "release-check-01/admission-bare_CR.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-bare_CR.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-bare_CR.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-bare_CR.stdout.txt",
+      "sha256": "1affa1a13235a605fe720082a495bbd386ba5f3bf782a130b7a76ce3f6837d4f",
+      "bytes": 162
+    },
+    "release-check-01/admission-BOM/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-BOM\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-BOM/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-BOM\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-BOM/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-BOM\\model\\sections.pli",
+      "sha256": "85a8823bb49bb4ed90b6533153e9dad71697bba0e65e9bc8ca147215bb51ff4b",
+      "bytes": 29
+    },
+    "release-check-01/admission-BOM.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-BOM.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-BOM.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-BOM.stdout.txt",
+      "sha256": "76b754725d502e2ca4469414a776cf12ae8dd315c9d83ef0096f5d0031a5294d",
+      "bytes": 155
+    },
+    "release-check-01/admission-coordinate_blank/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_blank\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-coordinate_blank/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_blank\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-coordinate_blank/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_blank\\model\\sections.pli",
+      "sha256": "78baf64b2d071c6d32b990cba23349413f0a18cb85e8d016354655bd0319ce2a",
+      "bytes": 27
+    },
+    "release-check-01/admission-coordinate_blank.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_blank.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-coordinate_blank.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_blank.stdout.txt",
+      "sha256": "5bd4531b4a7694dc973ca1abceafd17783ca129c6e8c096cbd96abb894ba838b",
+      "bytes": 165
+    },
+    "release-check-01/admission-coordinate_body_256/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_256\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-coordinate_body_256/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_256\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-coordinate_body_256/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_256\\model\\sections.pli",
+      "sha256": "1f7a64c079d16c6308e13daebab4ddaed65969ce6de2d65c6a1ee9bc45868362",
+      "bytes": 275
+    },
+    "release-check-01/admission-coordinate_body_256.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_256.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-coordinate_body_256.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_256.stdout.txt",
+      "sha256": "ef0a8243b55a6266010d559005c74cb6d2a829f66029d4b0a018e55a7f14a5b4",
+      "bytes": 5687
+    },
+    "release-check-01/admission-coordinate_body_257/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_257\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-coordinate_body_257/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_257\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-coordinate_body_257/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_257\\model\\sections.pli",
+      "sha256": "a003a89efcaa9ced5971b82d96e4e6e366d68b536e387f595ba6665500bdbb91",
+      "bytes": 276
+    },
+    "release-check-01/admission-coordinate_body_257.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_257.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-coordinate_body_257.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_body_257.stdout.txt",
+      "sha256": "8dbed0e4553c58713e7253d89e83b922aea1bb1be741cf87727e1c849dcb1648",
+      "bytes": 162
+    },
+    "release-check-01/admission-coordinate_inline_hash/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_inline_hash\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-coordinate_inline_hash/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_inline_hash\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-coordinate_inline_hash/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_inline_hash\\model\\sections.pli",
+      "sha256": "e1c25db8d1bc1dc816e74848e1128d9bc4ce9c3aca3f3213f579ab4505a4c4b9",
+      "bytes": 39
+    },
+    "release-check-01/admission-coordinate_inline_hash.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_inline_hash.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-coordinate_inline_hash.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-coordinate_inline_hash.stdout.txt",
+      "sha256": "5bd4531b4a7694dc973ca1abceafd17783ca129c6e8c096cbd96abb894ba838b",
+      "bytes": 165
+    },
+    "release-check-01/admission-count_body_256/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_256\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-count_body_256/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_256\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-count_body_256/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_256\\model\\sections.pli",
+      "sha256": "8fed05b100cc7b8b9d833f103b8b3f0f8dae9b6a987040c0915feb34c7094f4d",
+      "bytes": 279
+    },
+    "release-check-01/admission-count_body_256.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_256.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-count_body_256.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_256.stdout.txt",
+      "sha256": "b3295b802087d641f8fca853b6c65631faf3fb83a332da26d10bd49f30171d0c",
+      "bytes": 5622
+    },
+    "release-check-01/admission-count_body_257/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_257\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-count_body_257/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_257\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-count_body_257/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_257\\model\\sections.pli",
+      "sha256": "f6cc3f4ed5e11de9c181188d93ea59a0dc35cdde11aa771f9f99c40d43db93fb",
+      "bytes": 280
+    },
+    "release-check-01/admission-count_body_257.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_257.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-count_body_257.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-count_body_257.stdout.txt",
+      "sha256": "056cf64bad537f38be1ad514fee339cc19a3cda779fb4ab568a1a42159378a4a",
+      "bytes": 162
+    },
+    "release-check-01/admission-CRLF/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-CRLF\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-CRLF/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-CRLF\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-CRLF/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-CRLF\\model\\sections.pli",
+      "sha256": "85e2c5230ad1b36bba781d3b7c8932038287db8f671ad8230fc80cdbf3bc18a4",
+      "bytes": 30
+    },
+    "release-check-01/admission-CRLF.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-CRLF.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-CRLF.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-CRLF.stdout.txt",
+      "sha256": "1a268e938f2e3421e8f674f27a4dd4591fc54223295da9ee4e5c9b9ed7a8efef",
+      "bytes": 5485
+    },
+    "release-check-01/admission-duplicate_case_alias/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-duplicate_case_alias\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-duplicate_case_alias/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-duplicate_case_alias\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-duplicate_case_alias/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-duplicate_case_alias\\model\\sections.pli",
+      "sha256": "4d1ecdc3e011e7107e3b8021f98e1a313b8d6604ee1d70aae2e801dab6cffa8a",
+      "bytes": 52
+    },
+    "release-check-01/admission-duplicate_case_alias.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-duplicate_case_alias.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-duplicate_case_alias.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-duplicate_case_alias.stdout.txt",
+      "sha256": "4fc878d89c2dc6efc208455e5a4c0aee0bd1c2a3e68d4d64e19ad475d4efadd7",
+      "bytes": 167
+    },
+    "release-check-01/admission-float_collapsed_geometry/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-float_collapsed_geometry\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-float_collapsed_geometry/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-float_collapsed_geometry\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-float_collapsed_geometry/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-float_collapsed_geometry\\model\\sections.pli",
+      "sha256": "a9eb76ac2b046eab9ac1061f0f942b95e7fa633e78e5e538c568b46786c06735",
+      "bytes": 35
+    },
+    "release-check-01/admission-float_collapsed_geometry.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-float_collapsed_geometry.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-float_collapsed_geometry.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-float_collapsed_geometry.stdout.txt",
+      "sha256": "1f35fe5f2b9d5324ba2a3406303ec085c6f48e6079b1eac76d0db93e0cd8752c",
+      "bytes": 176
+    },
+    "release-check-01/admission-header_count_blank/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-header_count_blank\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-header_count_blank/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-header_count_blank\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-header_count_blank/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-header_count_blank\\model\\sections.pli",
+      "sha256": "be2b85125adb88f059776a4084734a77b3e2eb529571b1b8a5619e68236d663f",
+      "bytes": 27
+    },
+    "release-check-01/admission-header_count_blank.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-header_count_blank.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-header_count_blank.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-header_count_blank.stdout.txt",
+      "sha256": "27620bf132d019e29e948c8eebc599d86a344ee9f9a1477b77bd9b55ddaca40d",
+      "bytes": 161
+    },
+    "release-check-01/admission-indented_star/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-indented_star\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-indented_star/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-indented_star\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-indented_star/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-indented_star\\model\\sections.pli",
+      "sha256": "638c9633b5df9f8f82981821f9782f8386c09dd91b3b26c9fd92f7d281a5c1ea",
+      "bytes": 37
+    },
+    "release-check-01/admission-indented_star.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-indented_star.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-indented_star.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-indented_star.stdout.txt",
+      "sha256": "3a2762f4de5d458794923425da8d1b6c121d3098066c22c04b8a236fd2243e22",
+      "bytes": 209
+    },
+    "release-check-01/admission-name_internal_spaces_punctuation/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_internal_spaces_punctuation\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-name_internal_spaces_punctuation/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_internal_spaces_punctuation\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-name_internal_spaces_punctuation/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_internal_spaces_punctuation\\model\\sections.pli",
+      "sha256": "74bdf740be48f92861d0eb9fb2df5384df3cb55b025511f25bc966c86b65f527",
+      "bytes": 39
+    },
+    "release-check-01/admission-name_internal_spaces_punctuation.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_internal_spaces_punctuation.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-name_internal_spaces_punctuation.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_internal_spaces_punctuation.stdout.txt",
+      "sha256": "249f506774f113d291cf61db2c1754c8a0958f3d1bc1d100d6096fa32ffd1c7a",
+      "bytes": 5888
+    },
+    "release-check-01/admission-name_leading_space/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_leading_space\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-name_leading_space/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_leading_space\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-name_leading_space/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_leading_space\\model\\sections.pli",
+      "sha256": "5d3b03cfa2f2ea4b6bdac9016974972192e7384d3e87768c7ab2930d258ed79c",
+      "bytes": 27
+    },
+    "release-check-01/admission-name_leading_space.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_leading_space.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-name_leading_space.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_leading_space.stdout.txt",
+      "sha256": "3de8183e3120806473e4def00c2165d84b1d33b84adbe193916646306d2bc8cf",
+      "bytes": 205
+    },
+    "release-check-01/admission-name_tab/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_tab\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-name_tab/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_tab\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-name_tab/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_tab\\model\\sections.pli",
+      "sha256": "21a9a4867bd499897b85b3ccf33dd83e27f89d5b08f2709511daf039a54fd588",
+      "bytes": 27
+    },
+    "release-check-01/admission-name_tab.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_tab.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-name_tab.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_tab.stdout.txt",
+      "sha256": "66caea72b9a8aa74dcdf24efe92983b6d08bb5a0c3bc2dac9137218bff56a832",
+      "bytes": 206
+    },
+    "release-check-01/admission-name_trailing_space/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_trailing_space\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-name_trailing_space/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_trailing_space\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-name_trailing_space/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_trailing_space\\model\\sections.pli",
+      "sha256": "e58fbeb65c9c51c3cd9447baa3d2f544a42cb11d5a85e9a9a2bd0cfd4309a73b",
+      "bytes": 27
+    },
+    "release-check-01/admission-name_trailing_space.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_trailing_space.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-name_trailing_space.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-name_trailing_space.stdout.txt",
+      "sha256": "ffbc1dd16ee1fdad829a312f57f4741210c1025ad2941a0f14338664e338d53f",
+      "bytes": 205
+    },
+    "release-check-01/admission-NaN/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-NaN\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-NaN/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-NaN\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-NaN/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-NaN\\model\\sections.pli",
+      "sha256": "54c489a8feead16c717f5d7918a8d158835ad3381b01b2bd498e5c55eb1fb51e",
+      "bytes": 26
+    },
+    "release-check-01/admission-NaN.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-NaN.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-NaN.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-NaN.stdout.txt",
+      "sha256": "660350641703d5a8cbe0a359ac5c54daaea639d6fd716c84694199d4231b4ae3",
+      "bytes": 178
+    },
+    "release-check-01/admission-native_gap_comments/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-native_gap_comments\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-native_gap_comments/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-native_gap_comments\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-native_gap_comments/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-native_gap_comments\\model\\sections.pli",
+      "sha256": "87fc42b401bed8b49d4031fedcec2c3c36896bd38b3d4471248f96b8129314a4",
+      "bytes": 46
+    },
+    "release-check-01/admission-native_gap_comments.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-native_gap_comments.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-native_gap_comments.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-native_gap_comments.stdout.txt",
+      "sha256": "911e4852e593cb14846baf864a9ec860b102e182fb3c8adbfb746b0806a9c887",
+      "bytes": 5682
+    },
+    "release-check-01/admission-no_final_EOL/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-no_final_EOL\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-no_final_EOL/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-no_final_EOL\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-no_final_EOL/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-no_final_EOL\\model\\sections.pli",
+      "sha256": "03cf1f0204704702a6f04f2a68634b0d1ce15a0dd788d46d0d760e3dc7a64e80",
+      "bytes": 25
+    },
+    "release-check-01/admission-no_final_EOL.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-no_final_EOL.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-no_final_EOL.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-no_final_EOL.stdout.txt",
+      "sha256": "2c811ea737e2b713f9e59a778bafedffae09557b55fead9a4885b7714fbdc36c",
+      "bytes": 5589
+    },
+    "release-check-01/admission-normal_negative_zero/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-normal_negative_zero\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-normal_negative_zero/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-normal_negative_zero\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-normal_negative_zero/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-normal_negative_zero\\model\\sections.pli",
+      "sha256": "6cb3f547512344a6d5079626f17f69142ddbcda588f0cb4f4db933a89202a04c",
+      "bytes": 27
+    },
+    "release-check-01/admission-normal_negative_zero.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-normal_negative_zero.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-normal_negative_zero.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-normal_negative_zero.stdout.txt",
+      "sha256": "89eeeb1738e84d92b22e3d859d3fd05777dd6b0ca379d4d44d7c6ac59a90b65a",
+      "bytes": 5694
+    },
+    "release-check-01/admission-numeric_tabs/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-numeric_tabs\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-numeric_tabs/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-numeric_tabs\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-numeric_tabs/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-numeric_tabs\\model\\sections.pli",
+      "sha256": "cd5bdcd1bae071b061bbfb33e111aeb73cfe15043cbc2e47e74ae04cf5d38cdb",
+      "bytes": 26
+    },
+    "release-check-01/admission-numeric_tabs.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-numeric_tabs.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-numeric_tabs.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-numeric_tabs.stdout.txt",
+      "sha256": "6f9b5a9fa93a367d16115245494551e84a1e81ffd6edd057e24adeabd29151f7",
+      "bytes": 5589
+    },
+    "release-check-01/admission-overflow/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-overflow\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-overflow/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-overflow\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-overflow/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-overflow\\model\\sections.pli",
+      "sha256": "edc4e6b05a0869c2c6d918deafa73791b6dc105d994bf5af008d7276b0c8956d",
+      "bytes": 28
+    },
+    "release-check-01/admission-overflow.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-overflow.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-overflow.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-overflow.stdout.txt",
+      "sha256": "d1076aae18f218b02d94a4e24d47c7204606412199a3ab78fb03116019f5d578",
+      "bytes": 171
+    },
+    "release-check-01/admission-subnormal/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-subnormal\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-subnormal/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-subnormal\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-subnormal/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-subnormal\\model\\sections.pli",
+      "sha256": "e135f6d1265d4c9ca38fb8d6532d557fb95fdb134d7a35b78d716a25f1ff31fa",
+      "bytes": 29
+    },
+    "release-check-01/admission-subnormal.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-subnormal.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-subnormal.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-subnormal.stdout.txt",
+      "sha256": "d1076aae18f218b02d94a4e24d47c7204606412199a3ab78fb03116019f5d578",
+      "bytes": 171
+    },
+    "release-check-01/admission-third_column/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-third_column\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-third_column/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-third_column\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-third_column/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-third_column\\model\\sections.pli",
+      "sha256": "1fd06211dc52e2d2714e9e5f4f9733850d24b87e8f3cea927b9ad1f31a21c989",
+      "bytes": 32
+    },
+    "release-check-01/admission-third_column.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-third_column.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-third_column.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-third_column.stdout.txt",
+      "sha256": "c6adc3ad9820d62a6f20a4eef3914d458786933d2eff5a06de0c03d485ec1ca5",
+      "bytes": 163
+    },
+    "release-check-01/admission-Unicode_header/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Unicode_header\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-Unicode_header/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Unicode_header\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-Unicode_header/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Unicode_header\\model\\sections.pli",
+      "sha256": "87c8640c51d48ae61e17df19b7a6f01a85b1d88e36caa0b300d7ec53ad7b88e3",
+      "bytes": 27
+    },
+    "release-check-01/admission-Unicode_header.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Unicode_header.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-Unicode_header.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Unicode_header.stdout.txt",
+      "sha256": "76b754725d502e2ca4469414a776cf12ae8dd315c9d83ef0096f5d0031a5294d",
+      "bytes": 155
+    },
+    "release-check-01/admission-X_native_999999/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_999999\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-X_native_999999/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_999999\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-X_native_999999/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_999999\\model\\sections.pli",
+      "sha256": "5e07626a4fdbf8d206223662bf54264535ddbc82ad240557e7b6407633d35391",
+      "bytes": 30
+    },
+    "release-check-01/admission-X_native_999999.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_999999.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-X_native_999999.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_999999.stdout.txt",
+      "sha256": "d93669fcba8644431ee0cd39ad9720b897df64907adc253ed28eda6ecaed729d",
+      "bytes": 186
+    },
+    "release-check-01/admission-X_native_dmiss/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_dmiss\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-X_native_dmiss/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_dmiss\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-X_native_dmiss/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_dmiss\\model\\sections.pli",
+      "sha256": "db0d18a54f379a5d1f126508c7a3b90c8ad94356150ccb985f6b68d1e34fc848",
+      "bytes": 27
+    },
+    "release-check-01/admission-X_native_dmiss.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_dmiss.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-X_native_dmiss.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_native_dmiss.stdout.txt",
+      "sha256": "d93669fcba8644431ee0cd39ad9720b897df64907adc253ed28eda6ecaed729d",
+      "bytes": 186
+    },
+    "release-check-01/admission-X_rounds_to_native_999999/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_999999\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-X_rounds_to_native_999999/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_999999\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-X_rounds_to_native_999999/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_999999\\model\\sections.pli",
+      "sha256": "cc86d50f941c3ecb24c44adfd204451f1ba3509bfcb1658a15f0deabde2f9dda",
+      "bytes": 41
+    },
+    "release-check-01/admission-X_rounds_to_native_999999.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_999999.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-X_rounds_to_native_999999.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_999999.stdout.txt",
+      "sha256": "d93669fcba8644431ee0cd39ad9720b897df64907adc253ed28eda6ecaed729d",
+      "bytes": 186
+    },
+    "release-check-01/admission-X_rounds_to_native_dmiss/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_dmiss\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-X_rounds_to_native_dmiss/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_dmiss\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-X_rounds_to_native_dmiss/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_dmiss\\model\\sections.pli",
+      "sha256": "5b7ac4396113cdebb09213a0f79f24242d43dd82b2219f453782cf05d862436f",
+      "bytes": 42
+    },
+    "release-check-01/admission-X_rounds_to_native_dmiss.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_dmiss.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-X_rounds_to_native_dmiss.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-X_rounds_to_native_dmiss.stdout.txt",
+      "sha256": "d93669fcba8644431ee0cd39ad9720b897df64907adc253ed28eda6ecaed729d",
+      "bytes": 186
+    },
+    "release-check-01/admission-Y_not_native_separator/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Y_not_native_separator\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/admission-Y_not_native_separator/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Y_not_native_separator\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/admission-Y_not_native_separator/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Y_not_native_separator\\model\\sections.pli",
+      "sha256": "e48b2f8274c94ba405eae1d6f6e9b60eb322925b12399a29b42850f87fe910e4",
+      "bytes": 31
+    },
+    "release-check-01/admission-Y_not_native_separator.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Y_not_native_separator.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/admission-Y_not_native_separator.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\admission-Y_not_native_separator.stdout.txt",
+      "sha256": "9be48c697648b108ba92bc5da7575e67dfee5c0752f9ba0830c417142c7dfec6",
+      "bytes": 5724
+    },
+    "release-check-01/calls.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\calls.json",
+      "sha256": "90947bee6bd5a67d312904dd083cd5095e4b72fcf4636c6e85b73a748d6679f7",
+      "bytes": 39743
+    },
+    "release-check-01/candidate196-schema.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\candidate196-schema.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/candidate196-schema.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\candidate196-schema.stdout.txt",
+      "sha256": "cdbe5f8fe96aaeb2a0cf677227fe8c8660fb74052c1e145c7766ee56281f5089",
+      "bytes": 139725
+    },
+    "release-check-01/environment.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\environment.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/environment.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\environment.stdout.txt",
+      "sha256": "dbdd10a535029578c3f4e298fd9b2eef5510fb5220b2e68c824280766dca0377",
+      "bytes": 197
+    },
+    "release-check-01/literal-0-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-0-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-0-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-0-apply.stdout.txt",
+      "sha256": "bf52fa6c190a0a71c993f139b435e4fa0efc88a2813aefbfcc1f3f6fe9dcab22",
+      "bytes": 7522
+    },
+    "release-check-01/literal-0-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-0-oracle.json",
+      "sha256": "5b3fb589bba1c9bff9dd8e5481a9183ed4008415d66c2e13573920b369f7078e",
+      "bytes": 637
+    },
+    "release-check-01/literal-0-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-0-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-0-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-0-preview.stdout.txt",
+      "sha256": "50395b7ac06223e3cc5e0f4e8d75a75c97a3dda576cec63791163e3f6c42e675",
+      "bytes": 6469
+    },
+    "release-check-01/literal-1-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-1-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-1-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-1-apply.stdout.txt",
+      "sha256": "e24d0f6770069e2ead9e158b5006fd38d9947b6b9511f81de77143bed3e43de6",
+      "bytes": 7060
+    },
+    "release-check-01/literal-1-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-1-oracle.json",
+      "sha256": "659855b189ca1cc3d57fe6fe6012eeb969f7c714a6717e99b73b5175247bf784",
+      "bytes": 601
+    },
+    "release-check-01/literal-1-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-1-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-1-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-1-preview.stdout.txt",
+      "sha256": "01e5d6270cb4efccc4ac547eb29717e8099f4958a767f98393b87cb23c5b4dda",
+      "bytes": 6022
+    },
+    "release-check-01/literal-2-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-2-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-2-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-2-apply.stdout.txt",
+      "sha256": "1c7b0aea1b1ff193254229ff47d590a75840063d64b058a4f48ba6e5d0f6d619",
+      "bytes": 8349
+    },
+    "release-check-01/literal-2-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-2-oracle.json",
+      "sha256": "95b704368124efb33fe5c5e1ffe9bd6f7c1a57b5a48c7ff9b6b10a24554d0aba",
+      "bytes": 625
+    },
+    "release-check-01/literal-2-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-2-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-2-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-2-preview.stdout.txt",
+      "sha256": "c510c72a18f7e92fca00421c3c86911c8695289de5ad2f32d4cd35372ca645a6",
+      "bytes": 7886
+    },
+    "release-check-01/literal-3-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-3-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-3-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-3-apply.stdout.txt",
+      "sha256": "f1693aa0263e1c033e38781618b88ab976f7382156ec2cff2c97cd3d325f2e48",
+      "bytes": 8627
+    },
+    "release-check-01/literal-3-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-3-oracle.json",
+      "sha256": "cbd4c73a1962dc28e450eb5376f339e15879c221970041398e5099af644d563c",
+      "bytes": 642
+    },
+    "release-check-01/literal-3-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-3-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-3-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-3-preview.stdout.txt",
+      "sha256": "56df4502c2b3799777882aa26d119c2a04378cec31068a9a2b317c0c8db7b350",
+      "bytes": 8164
+    },
+    "release-check-01/literal-4-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-4-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-4-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-4-apply.stdout.txt",
+      "sha256": "4d047aa6c60e8f04c0816af5ff0cc5c9e7b47710074250e423922e94bc5baa55",
+      "bytes": 8563
+    },
+    "release-check-01/literal-4-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-4-oracle.json",
+      "sha256": "ecdfdbfb39a7d8e099a96ebf76374f14981aa276b55dd23ca59995b818162974",
+      "bytes": 694
+    },
+    "release-check-01/literal-4-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-4-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-4-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-4-preview.stdout.txt",
+      "sha256": "264175262a6cac29c30625345a6a7c3c04403a1ae4be65c5d0b911d2b69a0ec9",
+      "bytes": 8100
+    },
+    "release-check-01/literal-5-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-5-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-5-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-5-apply.stdout.txt",
+      "sha256": "5dfe47f420425dd30ded24406f5bed807abc8b704ae80f8c1707ecc3819aca9a",
+      "bytes": 8368
+    },
+    "release-check-01/literal-5-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-5-oracle.json",
+      "sha256": "60cf9aaae8a08760bb0002e0694d013876411cf08fcbf63c8543613661d5cda9",
+      "bytes": 674
+    },
+    "release-check-01/literal-5-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-5-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-5-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-5-preview.stdout.txt",
+      "sha256": "cdfcfc4013482b0f3f3252908dca5feff2e9bec759e6b9e167b62ee4e0f09a28",
+      "bytes": 7905
+    },
+    "release-check-01/literal-6-apply.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-6-apply.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-6-apply.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-6-apply.stdout.txt",
+      "sha256": "91b2aaa1ee468c384ae1cc411e15b604b9aabe01045f707b6fa37888b278b95d",
+      "bytes": 8805
+    },
+    "release-check-01/literal-6-oracle.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-6-oracle.json",
+      "sha256": "c74a6fb0cd3113b90fd54d55ac27959117ec741925dc9da4a5016cf9653c9624",
+      "bytes": 671
+    },
+    "release-check-01/literal-6-preview.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-6-preview.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/literal-6-preview.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-6-preview.stdout.txt",
+      "sha256": "b4b91656147ef34e40b45fa3050e62c88a72ee255707c30e1d1c769e27cf8160",
+      "bytes": 8342
+    },
+    "release-check-01/literal-all_export/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-all_export\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-all_export/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-all_export\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-all_export/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-all_export\\model\\sections.pli",
+      "sha256": "0e38ecac2383f91b39ea713e7fa0d6c1e5d006c40895f3d4fe09533d22e41684",
+      "bytes": 142
+    },
+    "release-check-01/literal-all_export/out.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-all_export\\out.pli",
+      "sha256": "0e38ecac2383f91b39ea713e7fa0d6c1e5d006c40895f3d4fe09533d22e41684",
+      "bytes": 142
+    },
+    "release-check-01/literal-append_before_footer/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_before_footer\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-append_before_footer/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_before_footer\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-append_before_footer/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_before_footer\\model\\sections.pli",
+      "sha256": "ac9ab5c7872276d48700f4a7e5d48ca587c61ae0ac7cbe853078d9209a428c6b",
+      "bytes": 168
+    },
+    "release-check-01/literal-append_before_footer/source.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_before_footer\\source.pli",
+      "sha256": "cb02aff405e950b913c98a3e0c2d45972e9e8190834820c602240a620b04695a",
+      "bytes": 103
+    },
+    "release-check-01/literal-append_missing_destination_EOF/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_destination_EOF\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-append_missing_destination_EOF/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_destination_EOF\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-append_missing_destination_EOF/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_destination_EOF\\model\\sections.pli",
+      "sha256": "b9b54fe68c1afd7838ad358515c6e25e536f1b9699a40a892595db6a0873f605",
+      "bytes": 85
+    },
+    "release-check-01/literal-append_missing_destination_EOF/source.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_destination_EOF\\source.pli",
+      "sha256": "cb02aff405e950b913c98a3e0c2d45972e9e8190834820c602240a620b04695a",
+      "bytes": 103
+    },
+    "release-check-01/literal-append_missing_source_EOF_before_footer/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_source_EOF_before_footer\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-append_missing_source_EOF_before_footer/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_source_EOF_before_footer\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-append_missing_source_EOF_before_footer/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_source_EOF_before_footer\\model\\sections.pli",
+      "sha256": "0a857ff6230a575dca20a4fabaea609902bcced43e595fb73c5138da998b424a",
+      "bytes": 169
+    },
+    "release-check-01/literal-append_missing_source_EOF_before_footer/source.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-append_missing_source_EOF_before_footer\\source.pli",
+      "sha256": "980eb0979caba5ba1a370fb523485667743d27b6f90304cd73bdd332d0caffac",
+      "bytes": 25
+    },
+    "release-check-01/literal-replace_one/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_one\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-replace_one/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_one\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-replace_one/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_one\\model\\sections.pli",
+      "sha256": "560ca007053530881755ffe38b7a94679fb8cd8d33c407920fcc62500a5529ad",
+      "bytes": 145
+    },
+    "release-check-01/literal-replace_one/source.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_one\\source.pli",
+      "sha256": "cb02aff405e950b913c98a3e0c2d45972e9e8190834820c602240a620b04695a",
+      "bytes": 103
+    },
+    "release-check-01/literal-replace_source_reversed_order/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_source_reversed_order\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-replace_source_reversed_order/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_source_reversed_order\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-replace_source_reversed_order/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_source_reversed_order\\model\\sections.pli",
+      "sha256": "a592475b8ea27cf671b59fcd79011b17239496417c61e20fbb7f277bdd2bbd75",
+      "bytes": 135
+    },
+    "release-check-01/literal-replace_source_reversed_order/source.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-replace_source_reversed_order\\source.pli",
+      "sha256": "e385be490885fbbd5b05fb6648488ba6e6804736540e9a5c6d5f6903f0adea7d",
+      "bytes": 76
+    },
+    "release-check-01/literal-selection_B_then_A/model/mesh.nc": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-selection_B_then_A\\model\\mesh.nc",
+      "sha256": "2c9a35c0c5efef4ae35bdbc5c57f74eff2c8db975b447fe0b249ef95d26f118f",
+      "bytes": 35
+    },
+    "release-check-01/literal-selection_B_then_A/model/model.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-selection_B_then_A\\model\\model.mdu",
+      "sha256": "2cc34b9939afa6415d2ff325cd7618b99ec63b26c506a1c93e9712d29d838d4f",
+      "bytes": 128
+    },
+    "release-check-01/literal-selection_B_then_A/model/sections.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-selection_B_then_A\\model\\sections.pli",
+      "sha256": "0e38ecac2383f91b39ea713e7fa0d6c1e5d006c40895f3d4fe09533d22e41684",
+      "bytes": 142
+    },
+    "release-check-01/literal-selection_B_then_A/out.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\literal-selection_B_then_A\\out.pli",
+      "sha256": "fcf55734442dd850ca78bd4360a18e8ae4fbb0a2d32b198d04f49ef0fe065102",
+      "bytes": 72
+    },
+    "release-check-01/root191-schema.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\root191-schema.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/root191-schema.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\root191-schema.stdout.txt",
+      "sha256": "fd1cb67a0c89ba28d351b7e8c0e9ccbaa812a391023d07ecaf2cc652aefd9c5b",
+      "bytes": 133643
+    },
+    "release-check-01/unchanged-G12-public.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\unchanged-G12-public.stderr.txt",
+      "sha256": "45a25ae3ec7d20ca1dc2e7f03150a5a24637fa1a6827e9f2599c4fc93781f56a",
+      "bytes": 4010
+    },
+    "release-check-01/unchanged-G12-public.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\unchanged-G12-public.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "release-check-01/verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\release-check-01\\verification.json",
+      "sha256": "4319faf37d44303d6cf1194f8cf809a7b7fc83e9b062fcf43c9cd83059573d15",
+      "bytes": 1418
+    },
+    "root191-after-build.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\root191-after-build.json",
+      "sha256": "42cdf0984eff4b0451da0f7bc3e9758bcb904051aeeebb0410c745503276c155",
+      "bytes": 26225
+    },
+    "root191-before.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\root191-before.json",
+      "sha256": "42cdf0984eff4b0451da0f7bc3e9758bcb904051aeeebb0410c745503276c155",
+      "bytes": 26225
+    },
+    "schema.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\schema.json",
+      "sha256": "e435113a4aa89eb6942669f89af61041fbf5402419911d2c6d294d6e30e94c51",
+      "bytes": 367
+    },
+    "schema.stderr.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\schema.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "schema.stdout.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\schema.stdout.txt",
+      "sha256": "cdbe5f8fe96aaeb2a0cf677227fe8c8660fb74052c1e145c7766ee56281f5089",
+      "bytes": 139725
+    },
+    "src/dfm_cli/section_transfer.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\src\\dfm_cli\\section_transfer.py",
+      "sha256": "fd0d78ba0121a1633423bded978cef2351d468b13cf595ee11970f4060f06d2d",
+      "bytes": 9936
+    },
+    "src/dfm_cli/section_transfer_contract.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\src\\dfm_cli\\section_transfer_contract.py",
+      "sha256": "75ba299e6b7a4f25622b5790cbc8425adf0c743199d6a2da1e3932fb6f485460",
+      "bytes": 5447
+    },
+    "src/dfm_cli/section_transfer_graph.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\src\\dfm_cli\\section_transfer_graph.py",
+      "sha256": "514d1af0713add23a4a4cfad9bcfda9a6c3cc812a053ff8d49cefb9b32fab023",
+      "bytes": 5778
+    },
+    "src/dfm_cli/section_transfer_text.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\src\\dfm_cli\\section_transfer_text.py",
+      "sha256": "cb8ded0729be6a8c032f5f3f77fc0ceb5106d4acd77fe11bed1722dd02e7eabc",
+      "bytes": 9958
+    },
+    "src/dfm_cli/section_transfer_write.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\src\\dfm_cli\\section_transfer_write.py",
+      "sha256": "d8af6e7b53f596385545353ee2b398de15e342ca6370c76e0791ebf3698dfb9d",
+      "bytes": 8905
+    },
+    "test_section_transfer.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\test_section_transfer.py",
+      "sha256": "0c8b08d3b51dc5a6451dfd28f01595e680a081301e4b4b08c56a9e863bf6cd41",
+      "bytes": 18796
+    },
+    "verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\verification.json",
+      "sha256": "2b791bfc5049f74237d34a30d77f730197a51744aa4116dde08b69094e2e3e79",
+      "bytes": 4915
+    },
+    "wheel/delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\wheel\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+      "sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+      "bytes": 815930
+    }
+  },
+  "independent_V": {
+    "receipt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\final-01\\verification.json",
+      "sha256": "b75d27aa091cac18b0a3f2b8094b1397a485a8c5a4594362a71084607cf58d0f",
+      "bytes": 9311
+    },
+    "freeze": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\final-01\\freeze.json",
+      "sha256": "ca6293f8d1b5916444b7d5446d718fb6dc9c1ed2cb830d99a2b1169ff2024fda",
+      "bytes": 8702
+    },
+    "acceptance": {
+      "G18_distinct_public_and_publication_tests": 39,
+      "external_parent_identity_controls": 2,
+      "exact_copied_G12_regressions": 24,
+      "skips": 0,
+      "independent_frozen_admission_subcases": 33,
+      "external_public_calls": 137,
+      "in_process_publication_calls": 38,
+      "qualification": "37 first-run passing G18 tests plus two corrected failed-harness checks in fresh folders. Original failed receipts remain failed; not relabelled."
+    },
+    "unresolved_portable_product_blockers": []
+  },
+  "native_launches": 0,
+  "GUI_launches": 0
+}

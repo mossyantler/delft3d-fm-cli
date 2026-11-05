@@ -1,0 +1,10 @@
+{
+  "root191_unchanged": true,
+  "root_test_bytes_unchanged": true,
+  "old49_red_receipt_unchanged": true,
+  "prior_packages_and_B06_holds_unchanged": true,
+  "historical_manifests_unchanged": "Required author116 read-only cases assert original bytes; no historical write API was used.",
+  "accepted_environment_installs": 0,
+  "root_writes": 0,
+  "native_launches": 0
+}

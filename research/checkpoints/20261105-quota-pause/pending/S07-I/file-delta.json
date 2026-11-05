@@ -1,0 +1,34 @@
+{
+  "base": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\baseline\\wheels\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "4dea0b64489fa8b45535395973fb5c28ba89646c380db975e7cb281f06853478",
+    "bytes": 801408
+  },
+  "wheel": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\wheels\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "87d02495ad992eacc0edbbecd1ba16668c564dd86da51e8d6921e76e08bdd204",
+    "bytes": 810740
+  },
+  "base_product_files": 191,
+  "product_files": 194,
+  "added_members": [
+    "dfm_cli/wind_drag.py",
+    "dfm_cli/wind_drag_graph.py",
+    "dfm_cli/wind_drag_text.py"
+  ],
+  "changed_members": [
+    "delft3d_fm_cli-0.4.0.dev1.dist-info/RECORD",
+    "dfm_cli/cli.py"
+  ],
+  "removed_members": [],
+  "unchanged_base_product_files": 190,
+  "changed_RECORD_rows": [
+    "dfm_cli/cli.py"
+  ],
+  "added_RECORD_rows": [
+    "dfm_cli/wind_drag.py",
+    "dfm_cli/wind_drag_graph.py",
+    "dfm_cli/wind_drag_text.py"
+  ],
+  "unmerged_inclusion": "Only current191 accepted source baseline plus frozen3S07; current CLI semantic insertion preserves source4/schema. Old187 CLI never copied."
+}

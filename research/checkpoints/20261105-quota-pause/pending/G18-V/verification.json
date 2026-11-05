@@ -1,0 +1,150 @@
+{
+  "state": "PASS_G18_TRANSFER_INDEPENDENT_PORTABLE_INSTALLED_ONLY",
+  "held_I_revision": "G18-TRANSFER-I-20261105-rev02",
+  "I_hold": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\hold.json",
+    "sha256": "876e21a2cd463a1c2137cfc13430349535988f47e6541365de09640799cfb454",
+    "bytes": 5194
+  },
+  "wheel_sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+  "installed_executable": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\clean-install-02\\venv\\Scripts\\dfm.exe",
+    "sha256": "98972d971ad0a40e3574c11e5be058d79b77633b9525532d168019452f7eac18",
+    "bytes": 108474
+  },
+  "installed_python": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\clean-install-02\\venv\\Scripts\\python.exe",
+    "sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14",
+    "bytes": 274424
+  },
+  "package_gate": {
+    "files": 196,
+    "unchanged_base": 189,
+    "modified_base": [
+      "cli.py",
+      "section_orientation.py"
+    ],
+    "new_modules": [
+      "section_transfer.py",
+      "section_transfer_contract.py",
+      "section_transfer_graph.py",
+      "section_transfer_text.py",
+      "section_transfer_write.py"
+    ],
+    "all98_old_commands_options_and_metadata_preserved": true,
+    "new_commands": 2,
+    "full_wheel_RECORD_and_clean_installed_payload_checked": true,
+    "no_NetCDF4_pyproj_dependency_in_clean_env": true,
+    "installed_direct_url_sha256_matches": true
+  },
+  "test_acceptance": {
+    "G18_distinct_public_and_publication_tests": 39,
+    "external_parent_identity_controls": 2,
+    "exact_copied_G12_regressions": 24,
+    "skips": 0,
+    "independent_frozen_admission_subcases": 33,
+    "external_public_calls": 137,
+    "in_process_publication_calls": 38,
+    "qualification": "37 first-run passing G18 tests plus two corrected failed-harness checks in fresh folders. Original failed receipts remain failed; not relabelled."
+  },
+  "raw_input_and_security": {
+    "original_f34_10_input_export_verified": true,
+    "literal_selected_all_append_replace_and_EOF_bytes": true,
+    "non_target_MDU_BOM_CRLF_comments_repeated_unknown_bytes_preserved": true,
+    "opaque_mesh_never_decoded": true,
+    "target_actual_DACL_SDDL_and_control_preserved": true,
+    "protected_DACL_readonly_admission_refused": true,
+    "target_source_other_graph_and_output_parent_actual_ACL_changes_stale": true,
+    "source_and_mesh_same_size_restored_mtime_and_same_bytes_changed_inode_stale": true,
+    "parent_identity_alone_stale_while_source_inode_bytes_mtime_security_preserved": true,
+    "security_scope": "All graph/source readonly fingerprints; strict writer target inherited NTFS ACL; output stage/output descriptor equality and parent security consent. No source ACL copy or broad directory ACL migration."
+  },
+  "publication_facts_checked": [
+    "Precommit deny/fsync leaves original target or absent output with exact owned cleanup",
+    "Commit-then-raise/readback failure reports real commit, import rollback restores bytes with metadata_restored:false",
+    "Fresh export postcommit final output retained on error",
+    "Actual winning destination is not overwritten",
+    "Foreign identical-byte target or stage identity never guessed owned or deleted",
+    "Consumed stage filename reused by foreign file survives",
+    "Unavailable commit observation remains unknown, never inferred false/true from existence",
+    "Full source/mesh changes after fsync stop publication",
+    "Actual parent DACL mutation after fsync stops publication with raw failure receipt"
+  ],
+  "preserved_findings_and_harness_corrections": {
+    "original_I_01_static_blocker": "Original14c5fd wheel archived: full Windows security raw bytes in JSON consent. Fixed public projection in heldrev02; actual installed import now passes.",
+    "clean-install-01": "Auditor LF-only METADATA assumption rejected legal CRLF; corrected exact semantic header reading before fresh clean install02.",
+    "acl-primitive-preflight-01": "Private SetFileSecurityW fixture mutator did not change protection; witness refused. Corrected SetNamedSecurityInfoW and independently observed/restored exact SDDL before product tests.",
+    "public-installed-01": "One malformed source fixture joined no-EOL core to next header. Actualdata3 correct; added explicit separator and reran only intended valid mixed-match/collision test =>pass.",
+    "faults-installed-01": "Parent-ACL injection initially fired in frontend planning, correctly no publication receipt. Scoped to export_new afterfsync and reran only intended late-guard test =>pass."
+  },
+  "evidence": {
+    "baseline-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\baseline-01\\verification.json",
+      "sha256": "c54f2cffd4ac85e85dd1c9d62ec55a493d87cd182adad7c4a5d59cc8709e0748",
+      "bytes": 28549
+    },
+    "clean-install-02": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\clean-install-02\\verification.json",
+      "sha256": "06b6d059fe0d09b7bf7ef737fd9bd235fc88b54b9ccf4334931f8063f8ebe3cc",
+      "bytes": 3075
+    },
+    "public-installed-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\public-installed-01\\verification.json",
+      "sha256": "5e30eb66319d675c475cf60f319854ad489dfab5beb39fd1416567f7a9f5a74d",
+      "bytes": 629
+    },
+    "public-corrected-02": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\public-corrected-02\\verification.json",
+      "sha256": "06d235adc7ed2c07e060ae17a5d3826877357e8e503285fe304f529665caf538",
+      "bytes": 716
+    },
+    "faults-installed-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\faults-installed-01\\verification.json",
+      "sha256": "410e8dae0cf8038c5f663b0a8cbda6b8de0cc922dd07591e9db79c11fdefc1e4",
+      "bytes": 1253
+    },
+    "faults-corrected-02": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\faults-corrected-02\\verification.json",
+      "sha256": "a0d19a9740c5fbfa6e06812c57d55f840886be7256571c1b12b182199b47b0bd",
+      "bytes": 1339
+    },
+    "parent-identity-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\parent-identity-01\\verification.json",
+      "sha256": "e7a2196ec3daae5feeb6d138f71f20f07b61d86692f7a4d258905e7368704d7f",
+      "bytes": 1328
+    },
+    "G12-regression-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\G12-regression-01\\verification.json",
+      "sha256": "930b75014516d0bad4fb18f28067172a2a967e2dbb115c13223a35e069d41cef",
+      "bytes": 595
+    },
+    "acl-primitive-preflight-02": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\acl-primitive-preflight-02\\verification.json",
+      "sha256": "b547c14c78c677cf65b00266631f1324e7fd153d4d9f13d092fac67329f30145",
+      "bytes": 1873
+    },
+    "staged-source-finding-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\staged-source-finding-01\\verification.json",
+      "sha256": "3d3ef6fa4071e350dd1c76bb1404965beeb2afca8f0670d263a85f3e70aa4d14",
+      "bytes": 705
+    }
+  },
+  "protected_prior_pins": {
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\final-01\\freeze.json": "f9b8970ef53f3c494f94318fe71068ac597bafee8bf4921500044d4d227aef73",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\oracle.py": "e793954596073a22b1608e8894fb212f925a1a59023273bd86eeb7511a49f2b4",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\verify_future.py": "1f13817438bae58bac09e0d52a64ea19acd6e66bc48739714818f448b12efaac",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-PROPOSAL-V-20261105-01\\predeclared-01\\freeze.json": "8e89f59d684825d150226e74227402aecab936fbc6a59dcc7ed914e28ff31ceb"
+  },
+  "limitations": [
+    "Portable Windows file/CLI verification only; POSIX ACL/filesystem publication not exercised",
+    "No global writer lock/CAS; bounded rechecks/no-clobber and owned cleanup as observed",
+    "No engine/GUI execution, no CRS/units/datum/geographic validity or scientific calibration claim",
+    "G12 tests establish regression only; orientation/XYN/GUI approvals not inherited",
+    "Future native plan belongs to separate G18-NATIVE-PLAN-V; exact replacement geometry must align beforefreeze/lease",
+    "This wheel retains baseline short runner; not native-admissible until accepted common-short composition, exact package/owner gate and explicit lease"
+  ],
+  "native_started": false,
+  "GUI_observed": false,
+  "root_product_docs_or_tests_writes": false,
+  "unresolved_product_blockers_in_portable_scope": []
+}

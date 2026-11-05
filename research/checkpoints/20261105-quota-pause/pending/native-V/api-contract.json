@@ -1,0 +1,129 @@
+{
+  "schema": "SHORT-CLOSE-NATIVE-V-raw-api-2",
+  "state": "prospective_v2_corrected_observer_semantics_code_tests_G_pending",
+  "native_authorized": false,
+  "pure_module": "raw_audit.py",
+  "callables": {
+    "audit_record": {
+      "signature": "audit_record(record:dict, expected:dict)->dict",
+      "expected_required": {
+        "route": "direct|dimr",
+        "argv": "EXACT native argv list strings; argv0 absolute selected native image",
+        "working_directory": "absolute Windows cwd exactly joined by PureWindowsPath; no filesystem normalization/query",
+        "run_directory": "absolute Windows public run root",
+        "executable_sha256": "expected actual selected executable SHA256",
+        "profile_name": "short"
+      },
+      "expected_optional": {
+        "run_id": "exact public UUID if prospectively captured; omit otherwise"
+      },
+      "pass_criterion": "audit_state==qualified_full_lifetime_close AND lifetime_passed is True AND actual_job_close_passed is True AND collector_close_passed is True. This does not assert correct public state, killed members, physics or new runtime admission.",
+      "output_required": [
+        "schema",
+        "audit_state",
+        "record_sha256",
+        "recorded_public_state",
+        "route",
+        "original_job_token",
+        "original_member_count",
+        "members",
+        "lifetime_passed",
+        "original_job_empty",
+        "actual_job_close_passed",
+        "collector_close_passed",
+        "notification_evidence",
+        "request_api_confirmed",
+        "raw_summary_flags",
+        "kill_attribution_claimed",
+        "physics_assessed",
+        "errors"
+      ],
+      "members": "All original retained members, never only job_pids_before: identity/image/role/capture provenance/exit proof/pre_request_category live_before_request or early_exited_before_request or not_applicable; live is an observation not causal kill proof.",
+      "forced_schema": "Original227 force schema has no serialized full notification trace. Full original HANDLE capture+identity+image+membership, exact final originalJob TotalProcesses=count, each exit+empty Job and real close are independently required. If any trace is supplied it is fully checked and cannot be ignored. Missing exported trace explicitly reported, never synthesized. Raw false prospective summary is retained, not an independent evidence substitute."
+    },
+    "assert_public_state": {
+      "signature": "assert_public_state(record:dict, expectation:dict)->dict",
+      "expectation_required": {
+        "family": "natural|bad-mesh|empty-bc|timeout|cancel|control",
+        "route": "direct|dimr",
+        "allow_natural_race": "strict bool"
+      },
+      "expectation_optional": {
+        "control_terminal_states": "predeclared allowed state list for controlled disposal; default completed"
+      },
+      "purpose": "Public-state assertions separate from lifetime audit. Natural races retain completed/failed state and stop_achieved=False; never label forced completed or promote227 historicalcleanup_failed."
+    },
+    "audit_control_survival": {
+      "signature": "audit_control_survival(target_record:dict, control_record:dict, observations:dict, expected_control:dict)->dict",
+      "observations_required": [
+        "schema=SHORT-CLOSE-NATIVE-V-control-observations-2",
+        "target_case_id",
+        "target_before",
+        "target_exit",
+        "control_before",
+        "control_after",
+        "control_pre_cleanup",
+        "control_final",
+        "target_observer_close",
+        "control_observer_close"
+      ],
+      "pass_criterion": "audit_state==independent_control_survival_confirmed AND passed is True AND control_lifetime_passed is True AND observer_same_handle_confirmed is True. No originalHANDLE membership/coverage is borrowed from observer.",
+      "snapshot_schema": {
+        "required_keys": [
+          "observer_id",
+          "pid",
+          "creation_time_100ns",
+          "image",
+          "state",
+          "in_a_job",
+          "observed_at_utc",
+          "monotonic_ns",
+          "source"
+        ],
+        "source": "independent_retained_Windows_query_and_synchronize_handle",
+        "observer_id": "UUIDfixed to SAME independently opened live QUERY_LIMITED_INFORMATION|SYNCHRONIZE HANDLE object; NOT nativePopen handle",
+        "in_a_job": "actual IsProcessInJob(handle,None) any-Job result ONLY; NOT exactprivateJob evidence",
+        "state": "existing pinned observer source maps actual WAIT_TIMEOUT258 to live / WAIT0 to exited; raw integer not exported and NEVER synthesized",
+        "optional_labels": "retain NOT_native_Popen/any_Job_only_NOT_exact_private_Job labels unchanged; no wrapper reinterpretation"
+      },
+      "close_schema": {
+        "api": "CloseHandle",
+        "handle_source": "independent_retained_observer_handle",
+        "observer_id": "same real observer object",
+        "identity": "same captured PID/birth",
+        "image": "same captured image",
+        "attempted": true,
+        "return_value": "actual nonzero int kernel result, notbool",
+        "return_type": "int",
+        "succeeded": true,
+        "observed_at_utc": "after same observer final exited sample"
+      },
+      "proof_joins": [
+        "control_before/control_after/control_pre_cleanup allLIVE SAMEobserver_id/birth/image; original live-captured independenthandle retained across samples",
+        "target_before LIVE and target_exit EXITED same targetobserver joined birth/image to originaltargetowner",
+        "control_final EXITED samecontrolobserver joined to controlfinal originalowner whole-lifetime retainedroot/privateJob and realclosure audit",
+        "EXACTdistinct runid/rundirectory/privateJob tokens and originalbirths from originalowner records; same route selected executable",
+        "any_Job query retained as auxiliary evidence only; privateJob truth from originalowner audit",
+        "all observerCloseHandle rawreturns required once per actualobject, no borrowedroot/Job cleanup claim",
+        "sample UTC/monotonic chronology bounds target actualstop/terminal and controlowncleanup; missingwindow explicit NOT_OBSERVED never forcedpass"
+      ],
+      "stronger_inaccessible_observations_required": false
+    }
+  },
+  "rules": [
+    "No product/CLI/common predicates imported or invoked",
+    "No engine/PID/GUI/process queries; pure JSON records only",
+    "No rawrecord mutation or synthesized flags",
+    "Active snapshots are not atomic with later per-HANDLE observations; roster equality with live subset is NOT required; unknown/missing members or irreversibly signalled->live chronological contradictions refuse",
+    "Root_handle/request-root snapshots are auxiliary observations, never replacements for full retained-member capture",
+    "Actual TerminateJobObject and CloseHandle return int/nonzero, not bool; close collector must be original/stopped/errorfree/notborrowed",
+    "Natural/failed closure and 600s/restart/numeric outputs are separate from forced lifetime closure",
+    "All original227states/bytes remain immutable; oldactiveclassifier scope deficiency is not labelled anoldbug",
+    "Producer12max2concurrent/oneattempt remains prospective; G review and exclusive lease required",
+    "V2 observer semantic correction is prospective and explicit. V1 remains superseded evidence, not a required API; no control checks are discarded."
+  ],
+  "supersedes": {
+    "file": "api-contract-v1-SUPERSEDED.json",
+    "reason": "V1 incorrectly demanded inaccessible original-launch HANDLE and exactprivateJob observations from an outsideCLI observer; only original owner lifetime gate can supply those."
+  }
+}

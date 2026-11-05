@@ -1,0 +1,16 @@
+{
+  "state": "frozen_independent_math_extracted_no_research_receipt_adapter",
+  "original_packet_freeze_sha256": "c5384ee812d9d229156e42b62f5cabe4dea35289fc134ad762948ddfd5ce8ac1",
+  "original_observations_sha256": "dc86a1f335576b1f3011f9c12592ae7cb60992e71c0d64a1bf920c67899e5316",
+  "old_and_new_numeric_body_ast_sha256": "69d13910ca4504cd799b011a7e2b2781d4e147c54455dc9144e9c1ca6dde3c80",
+  "only_excluded_original_provenance_statements": [
+    "record = receipt['post_inventory'].get(path.relative_to(model).as_posix())",
+    "need(record and record['path'] == str(path) and (record['sha256'] == sha(path)) and (record['identity']['device'] == path.stat().st_dev) and (record['identity']['inode'] == path.stat().st_ino), 'native output changed since terminal')"
+  ],
+  "replacement_statement": "context.verify_output(path)",
+  "raw_array_function_ASTs_exact": true,
+  "label_function_AST_exact": true,
+  "exact_function_AST_exact": true,
+  "thresholds_units_masks_topology_and_all_field_predicates_unchanged": true,
+  "native_launches": 0
+}

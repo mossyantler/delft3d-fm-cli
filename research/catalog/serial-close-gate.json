@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "node": "SHORT-CLOSE",
-  "state": "private_correction_pending",
+  "state": "package_scope_V_G_accepted_user_paused_native_and_error_code_compatibility_pending",
   "root_merged": false,
   "native_validated": false,
   "native_slot": {
     "owner": "idle",
-    "sequence": 226
+    "sequence": 228
   },
   "implementation": "Archimedes / gpt-6.1-sol high",
   "verification": "Plato / gpt-6.1-sol high",
@@ -27,6 +27,42 @@
     "implementation_design": {
       "path": "research/experiments/SHORT-CLOSE-I-20261105-design01/DESIGN.md",
       "sha256": "bc252c034f759d01413ad672505edc42b5762e19aebc0cfc00d7ced9fa834af9"
+    },
+    "final_candidate": {
+      "path": "research/experiments/SHORT-CLOSE-I-20261105-rev02/freeze.json",
+      "sha256": "ced356ad573df46b6eff867aaf291fcd6db05226c00ed73e98b0a719d9aa6a99"
+    },
+    "independent_final": {
+      "path": "research/experiments/SHORT-CLOSE-V-20261105-02/final-review-01.json",
+      "sha256": "eb3d349505c38165071c3b96bfae6397d11a4f7e305d47b389a9207be44b9c3c"
+    },
+    "coordinator_final_predicates": {
+      "path": "research/experiments/SHORT-CLOSE-G-frozen-review-03/verification.json",
+      "sha256": "106603cb18a29bbe1a2b95d53660eb5160e65a07fbea30158fa2dc59a70c2962"
+    },
+    "installed_G": {
+      "path": "research/experiments/SHORT-CLOSE-G-package-01/verification.json",
+      "sha256": "8da737f99a30fec208ae582a111841c8ae09cf60eaf80cc533ccfd48fc167cff"
+    },
+    "installed_V": {
+      "path": "research/experiments/SHORT-CLOSE-PACK-V-20261105-01/audit-02/verification.json",
+      "sha256": "819e90305d1fcccf76b6c25d6d9400684d5062abedbe40cf0ae2d19ca3337aa8"
+    },
+    "native227_failure": {
+      "path": "research/experiments/SHORT-CLOSE-G-native-227-01/verification.json",
+      "sha256": "f10bd275abc064a5af289965db9514c36b3fd6c41850c8390c4129808381d7d6"
+    },
+    "native227_release_only": {
+      "path": "research/experiments/SHORT-CLOSE-G-native227-readback-01/verification.json",
+      "sha256": "4a7955dcedf1fe50c9bf24247df4947622d39e20eff60e36d0e1f8982b60481b"
+    },
+    "native227_partial": {
+      "path": "research/experiments/SHORT-CLOSE-G-native227-readback-01/partial-outcomes.json",
+      "sha256": "38c547e70c4a7bcb8aefc64a449e7ff5025f08a2fa0984e14531672b5670a57b"
+    },
+    "independent_native227_release_only": {
+      "path": "research/experiments/SHORT-CLOSE-NATIVE-V-20261105-01/final-review-01.json",
+      "sha256": "64aa4076ec08414280c7a09d4e80cee930c36f164b09f16bc6543877a0e36ea0"
     }
   },
   "confirmed_defects": [
@@ -47,5 +83,32 @@
     "B14 public-short route if selected",
     "B06 shared source-sink run integration"
   ],
-  "scope_limit": "Fault injection and read-only raw-receipt mutation evidence only so far; no native failure or correction success is inferred."
+  "scope_limit": "Native2275direct cases retained: natural600s and two input failures; timeout/control cleanup_failed. Original5Job/10member closure confirmed independently of product acceptance. Seven planned cases and191route comparison not performed.",
+  "candidate_freeze_sha256": "e4a7e8c840ccad46be7f80d1662e08f4371c09c9987a356f56a1ffc6c43be681",
+  "current_candidate": "research/experiments/SHORT-CLOSE-I-20261105-rev03/freeze.json",
+  "rev03_coordinator_review": "research/experiments/SHORT-CLOSE-G-rev03-review-01/verification.json",
+  "rev03_independent_corpus": "research/experiments/SHORT-CLOSE-V-rev03-20261105-01/freeze.json",
+  "evidence_history_note": "Earlier final_candidate/independent_final/installed evidence above belongs to rev02, whose native227 failed. It is retained historical evidence, not rev03 acceptance.",
+  "current_revision04": {
+    "candidate": "research/experiments/SHORT-CLOSE-I-20261105-rev04/freeze.json",
+    "sha256": "2254e8835cd8a70beabea1af2860db751b28dbea2fb60f06ccd773d4b6d198e1",
+    "G_review": "research/experiments/G-REVISION-REVIEW-20261105-01/verification.json",
+    "independent_component": "research/experiments/SHORT-CLOSE-V-rev03-20261105-01/replay-2254-component-01/verification.json",
+    "scope": "Optional contradictory auxiliary image metadata rejected; no current producer defect or raw227 promotion claimed;121component only.",
+    "G_final": "research/experiments/SHORT-CLOSE-G-rev04-final-01/verification.json",
+    "independent_final": "research/experiments/SHORT-CLOSE-V-rev03-20261105-04/final-review-01.json",
+    "G_installed": "research/experiments/SHORT-CLOSE-PACK-G-rev04-01/verification.json",
+    "new_native_audit_gap": "research/experiments/SHORT-CLOSE-NATIVE-G-admission-gap-01/verification.json"
+  },
+  "final_package_freeze_G": {
+    "path": "research/experiments/SHORT-CLOSE-PACK-G-freeze-01/verification.json",
+    "sha256": "5ee38f9b0c98e76d8a2d088679e070aab19c2fb59b1b676c389cf709776771f0",
+    "verified_files": 484,
+    "native_authorized": false
+  },
+  "final_package_G": {
+    "path": "research/experiments/SHORT-CLOSE-PACK-G-final-01/verification.json",
+    "sha256": "0808771a10835db314aabc3ad1eed5de49a1f29c84a629284c65f882a002f115"
+  },
+  "known_unresolved_cli_test": "3 pass /1 failure after explicit fixture migration: termination_unconfirmed vs short_cleanup_failed"
 }

@@ -1,0 +1,163 @@
+{
+  "node": "SHORT-CLOSE-I-rev04",
+  "state": "private_correction_pending_V_G",
+  "owned_product_files": {
+    "src/dfm_cli/runs.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\runs.py",
+      "sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c",
+      "bytes": 25798,
+      "root_base_sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b",
+      "rev03_sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c"
+    },
+    "src/dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207",
+      "bytes": 49032,
+      "root_base_sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+      "rev03_sha256": "784a2cffc729c1cc4ddab10ab35b8b58666a27647f83f6cd0df142ffb04e6c43"
+    }
+  },
+  "artifact_files": {
+    "base-pins.json": {
+      "sha256": "e8b6da90940fcd15edd1cbe7b7b5a253759076871781a8e2df6f48a451a2609b",
+      "bytes": 183
+    },
+    "check-history/run-001/source-pins.json": {
+      "sha256": "b3d9585d53542095fde17e944f6ff7c54faa03bb3bf594d60f5e06ba0a99a53d",
+      "bytes": 1492
+    },
+    "check-history/run-001/tests.json": {
+      "sha256": "b9d410ef671c8e0f20a7d7ece795c35235279a647dbf26b57e168ba329f9277f",
+      "bytes": 254
+    },
+    "check-history/run-001/tests.log": {
+      "sha256": "c0de80c38667c07f4d418a9e28b8cad49a9062edd5a6eed1ffde9b99ebb8c35d",
+      "bytes": 18810
+    },
+    "checks/cleanup_fixtures.py": {
+      "sha256": "18acda01bf1b4debac840c1f04a51dfbee0006e199c9e8cd9f10d8832ecceb6a",
+      "bytes": 7241
+    },
+    "checks/pump_lifecycle_fixtures.py": {
+      "sha256": "2e831ba41b84a67117be9560dacbb11df0ff58e35a430c9deec555641ef65c49",
+      "bytes": 10919
+    },
+    "checks/short_fixtures.py": {
+      "sha256": "a9b5b02e69081f3d7f988bd226684bcebeda57b84a7a8e2902f9785c278c7456",
+      "bytes": 11040
+    },
+    "checks/test_canonical_gate.py": {
+      "sha256": "570c6f2ec3f00e371cb2a04a58c719fb7bfc77315f5d196cb4aee9f164a1eb4e",
+      "bytes": 3946
+    },
+    "checks/test_common_contract.py": {
+      "sha256": "8707ff59445da3d915f3af4aa429884078155ba6bba0a6aea6daa7f4b561b3d9",
+      "bytes": 8500
+    },
+    "checks/test_native_cleanup.py": {
+      "sha256": "9929ec8c48c3d2904f7b56516f844c6289fd2fe2a58a3bf7d32cf892714de661",
+      "bytes": 19555
+    },
+    "checks/test_optional_forced_binding.py": {
+      "sha256": "ef8180752662b498e9ba977d715b27ff1550c1782a1638c64615b21344330377",
+      "bytes": 2399
+    },
+    "checks/test_pump_close_attribution.py": {
+      "sha256": "cb39fc8b958568525462dc3db65c12dc42a9c50866f0eb949aae841e0c3be6c9",
+      "bytes": 8522
+    },
+    "checks/test_pump_run_lifecycle.py": {
+      "sha256": "af7fedb91ad64c43e645ed97988826a930cd5aff1980c74604429df5e9d0b41f",
+      "bytes": 8176
+    },
+    "checks/test_pump_terminal_publication.py": {
+      "sha256": "eab2faae0600dc964d9373aaa2273a10b9131c2e406013845ffe3f2143165dbf",
+      "bytes": 5669
+    },
+    "checks/test_short_close_contract.py": {
+      "sha256": "6a4eeb633cb0906224ead3af2923b23b2c3dae320677cf109a376d06553aff1f",
+      "bytes": 8612
+    },
+    "checks/test_weir_run_profile.py": {
+      "sha256": "c79460d56f22cea323a36e07f76c3b67f8d9656e0789d7d0dddebb4e9ae55ba6",
+      "bytes": 24587
+    },
+    "freeze_candidate.py": {
+      "sha256": "44f67543d393c0f1acef7a44b939ae3159c1031aa06839e0271b0f3feccf18c9",
+      "bytes": 4695
+    },
+    "HANDOFF.md": {
+      "sha256": "7d85f396b7883a8ea6e884e004e8952499a5bbcbd1f44f6ef9423ed3d86287e4",
+      "bytes": 2211
+    },
+    "prior-revision.json": {
+      "sha256": "128ad2dc10ae1330bc6616f79b877e68d1e1a10ea53ee37fc28bff75b08d72c1",
+      "bytes": 323
+    },
+    "rev03-to-rev04.patch": {
+      "sha256": "1ca13029dffad53d3eb78a6740171187a8cb824b64c6f7e3c641ab717b3eae77",
+      "bytes": 692
+    },
+    "root-dependency-sha256.json": {
+      "sha256": "d89bfe9ba6b4a17bcef5d5f0700e5858cd31d31eccdc7223776a1a225a82f034",
+      "bytes": 25459
+    },
+    "run_checks.py": {
+      "sha256": "f5ffca84423af1b71e1364c8eb9319c748f76c56d2f6b011d7593b92b9a30fad",
+      "bytes": 1989
+    },
+    "shared-integration.patch": {
+      "sha256": "c467be5d01e1403f06288671f83cf53b7e48634d6d703d641d15cca0d44e64e9",
+      "bytes": 44359
+    },
+    "short_lifecycle_gate.py": {
+      "sha256": "74e83ef150ddad15b570c37dec2449e22912ff50bd4882809afc226d1bcbd23f",
+      "bytes": 2580
+    },
+    "src/dfm_cli/run_pump_lifecycle.py": {
+      "sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207",
+      "bytes": 49032
+    },
+    "src/dfm_cli/runs.py": {
+      "sha256": "4e1d3c75a5fa5ddbcba2236388ef5248e6b4884c2e023f3b2cc66858456eb82c",
+      "bytes": 25798
+    },
+    "tests.json": {
+      "sha256": "b9d410ef671c8e0f20a7d7ece795c35235279a647dbf26b57e168ba329f9277f",
+      "bytes": 254
+    },
+    "tests.log": {
+      "sha256": "c0de80c38667c07f4d418a9e28b8cad49a9062edd5a6eed1ffde9b99ebb8c35d",
+      "bytes": 18810
+    },
+    "verification.json": {
+      "sha256": "1fad7719832fee7802497bfbf31a9472174a4fac1f20238724bf72e7db065fed",
+      "bytes": 2509
+    },
+    "candidate-source-tests.zip": {
+      "sha256": "0d54d7c5b1719d5cc1ed57f6bf816b6ac6d959cff98ca68c59b94b2d8bada92a",
+      "bytes": 90082
+    }
+  },
+  "archive": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-I-20261105-rev04\\candidate-source-tests.zip",
+    "sha256": "0d54d7c5b1719d5cc1ed57f6bf816b6ac6d959cff98ca68c59b94b2d8bada92a",
+    "bytes": 90082
+  },
+  "test_summary": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "failed_ids": [],
+    "error_ids": [],
+    "native_launches": 0,
+    "root_writes": false,
+    "scope": "Fake process/Job boundaries with actual private Run/start/save and portable file writes"
+  },
+  "prior_rev03_freeze_sha256": "e4a7e8c840ccad46be7f80d1662e08f4371c09c9987a356f56a1ffc6c43be681",
+  "packaging_authorized": false,
+  "native_authorized": false,
+  "root_writes": false,
+  "native_launches": 0
+}

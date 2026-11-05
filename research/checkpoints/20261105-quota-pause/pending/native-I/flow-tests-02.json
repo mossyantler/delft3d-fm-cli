@@ -1,0 +1,9 @@
+{
+  "tests": 6,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "native_launches": 0,
+  "FFI_calls": 0,
+  "scope": "Fake-driver disposal/control-flow only, NOT independent lifetime proof"
+}

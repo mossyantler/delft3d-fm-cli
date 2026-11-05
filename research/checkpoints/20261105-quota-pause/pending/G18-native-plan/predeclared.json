@@ -1,0 +1,82 @@
+{
+  "state": "frozen_prospective_design_native_unrun",
+  "plan_sha256": "bbcd59cbab5bdea4c2d78f5df12ff3545bd6b3b9f4f4cd1f47fd3ad3385c376d",
+  "kernel": {
+    "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+    "sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2",
+    "metadata_source": "SHORT-CLOSE-G-native-227-01/natural-direct/manifest.json selected binary metadata only; no solver field values consumed"
+  },
+  "G_input_check": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-G-inputs-01\\verification.json",
+    "sha256": "b37108e6f46741254f59e2e3ef96f90806c5e1400c676acec4a587a3ce9224a4"
+  },
+  "full_product_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\freeze.json",
+    "sha256": "1b32465fc6a507dd2863f384fb1d386bdf4f94e2eb871c699d32ba08b28fddc5"
+  },
+  "file_only_preparation": "8 held CLI export/import calls, no run command. Model9nontarget files byte-exact; pairs all10inputs exact. Allroundtrip remains no-op inode/mtime. External sources include file-owned star comments, excluded/disclosed from copied cores.",
+  "native_cases": "baseline,all_roundtrip,manual_append,public_append,manual_replace,public_replace; DIRECT only; allsixindividuallyunrun. Producer Boundary14/duplicateEntrance alternative explicitly retained separately.",
+  "measurements": {
+    "history_and_map_seconds": [
+      0,
+      60,
+      120,
+      180,
+      240,
+      300,
+      360,
+      420,
+      480,
+      540,
+      600
+    ],
+    "restart_seconds": [
+      0,
+      600
+    ],
+    "variables_per_case": {
+      "history": 68,
+      "map": 55,
+      "restart_initial": 34,
+      "restart_final": 34
+    },
+    "section_names_counts_geometry": "Literal PLI full IDs in file order and node-count/coordinate records exactly read back in native HIS; append ID G18_new_cut-A.1 (subset) with4vertices; reversed Entrance with8.",
+    "units": {
+      "cross_section_discharge": "m3 s-1",
+      "cross_section_cumulative_discharge": "m3",
+      "cross_section_velocity": "m s-1",
+      "cross_section_area": "m2"
+    }
+  },
+  "comparisons": {
+    "manual_public_pairs": "ALL191variable values/masks/dtypes/dimensions/variableattributes EXACT, zero tolerance. Only named global history/date_created/date_modified/uuid provenance differences allowed, recorded.",
+    "non_target_state": "Map+initial/finalrestart ALL variables EXACT vsnewbaseline forappend/reverse. History nonsectionvariables and existing/unselected section signals EXACT; append increases only sectiongeometrydimensions as declared.",
+    "reversal": "Target Q/cumulative/velocity negated vsbaseline at all11times; area unchanged. Section geometry roworder reversed. Eight*eps32*max(1,abs(left),abs(right)) native-unit roundoff bound, no other threshold/variable exemptions.",
+    "meaningful_signal": "max abs Entrance discharge over60..600 MUST exceed0.001m3/s; zero is failure/missingorientationevidence. No numerical amplitude predictions taken fromG12/227.",
+    "append": "Names/order4nodegeometry and finite clocked section signals required; original3signals unchanged. No unsupported new-section nonzero/discharge amplitude promise.",
+    "time_bounds": "CF regularaxis exact0..600/60and singleton restarts0/600, calendarsstandard/gregorian/prolepticgregorian. HIS interval upperbounds equaloutputtimes and lowerboundsordered,nonnegativeand<=upper; no coarse-history integration surrogate for cumulative."
+  },
+  "metadata_only227": "Retained natural-direct used only dimensions/names/dtypes/attributes and filehashes forschema68+55+34+34; no solver variable array data read/copied as oracle or synthetic input. Syntheticfields independently invented.",
+  "negative_control_receipt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\numeric-selfcheck-04\\verification.json",
+  "negative_control_counts": {
+    "total": 28,
+    "passed": 28,
+    "skips": 0
+  },
+  "runtime_admission": "Separate coordinator-frozen admission SHA must bind thisplan, accepted correctedcommonshortfreeze,wheel,actualdfmlauncher,and same nativekernel. Rev02failed227wheel23f9 explicitly refused. No product requires coordinator token; this is research/read-only evidence admission only. Full shared lifecycle V and newlease remain prerequisites.",
+  "runs_manifest_format": {
+    "cases": [
+      {
+        "case_id": "one exact plan case ID",
+        "run_directory": "absolute fresh publicrunfolder",
+        "public_result": {
+          "path": "retained actual publicJSON stdout",
+          "sha256": "actual digest"
+        }
+      }
+    ]
+  },
+  "scope": "New G18input/nativeobservations only. No GUI/XYN/G12acceptance inheritance, general geometry/CRS conversion, solvercalibration or scientific equivalence claim. No source/runtimebuild orlaunch authorized.",
+  "native_launches": 0,
+  "root_writes": 0
+}

@@ -1,0 +1,404 @@
+{
+  "state": "immutable-private-profile-held-for-reviewed-generic-notification-amendment-and-independent-gates",
+  "created_utc": "2026-11-04T23:40:28.295790+00:00",
+  "modules": [
+    {
+      "name": "cli.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\cli.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\cli.py",
+      "bytes": 26139,
+      "sha256": "85cb2c65044a696b2a30f4aaf586faba576d23df1463d883881e8d225e965884"
+    },
+    {
+      "name": "run_pump_lifecycle.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\run_pump_lifecycle.py",
+      "bytes": 19246,
+      "sha256": "7a3e45c42547453577a8cb86e1984041fa160ac60dea7e938200e415df78fc5a"
+    },
+    {
+      "name": "runs.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\runs.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\runs.py",
+      "bytes": 25323,
+      "sha256": "1501ba994c9f1985228f108cc6d50046a2bb54c14bd96def92cee31b17fb3f59"
+    },
+    {
+      "name": "source_sink_run_inputs.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\source_sink_run_inputs.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\source_sink_run_inputs.py",
+      "bytes": 14953,
+      "sha256": "1e971fa152a4d171b1197a5d9fa8c36494e44e55dd5ad441293cd6adc895bafd"
+    },
+    {
+      "name": "source_sink_run_profile.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\source_sink_run_profile.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\source_sink_run_profile.py",
+      "bytes": 13649,
+      "sha256": "4a6dfa379abc4b5da7fc0f0f2848c9c728c506d77d8632c4c879e1da74c29610"
+    }
+  ],
+  "base_wheel_sha256": "eedd753e1a5a8a6bdf7d798f7c551b1d467318ea162cc3cc3f84edfc73d8ea9d",
+  "installed_dfm": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Scripts\\dfm.exe",
+  "files": [
+    {
+      "path": "API-CONTRACT.txt",
+      "bytes": 7310,
+      "sha256": "dd46cfea25714eb00f65341a5c04effd43efd5cfea72f70e40033365ec921222"
+    },
+    {
+      "path": "AUTHOR-REPORT.json",
+      "bytes": 6331,
+      "sha256": "5275187f853f2489248e057b5370c6dbd5648279854cfa6e415d69692906a1e4"
+    },
+    {
+      "path": "base191-pins.json",
+      "bytes": 53323,
+      "sha256": "0909e3a68eae1e6cd51ccc859bc983f4b5af8b04e8e6173ccdc39f8e94c76d05"
+    },
+    {
+      "path": "candidate_cli.py",
+      "bytes": 413,
+      "sha256": "b5b75d7d3e08d043dd0dc9db2405cbb435e9c57d4fe074535fbb471453e63608"
+    },
+    {
+      "path": "checks-01/source_sink_author_tests.log",
+      "bytes": 8566,
+      "sha256": "4bb0cd7fea83c9e3b2c8a8bcad6865b95b78aa4b6c12018211aaeec61f7055ac"
+    },
+    {
+      "path": "checks-01/unchanged_existing_profiles.log",
+      "bytes": 8643,
+      "sha256": "83967b42ebe0ec3420cc12da463e0b3ca684589d485cb72171ff4a49d31861aa"
+    },
+    {
+      "path": "checks-01/verification.json",
+      "bytes": 3876,
+      "sha256": "a235fc8075d7e32835014fb5bd5d0c7e73af8abb451070499b8280cec42ec6b4"
+    },
+    {
+      "path": "checks-02/source_sink_author_tests.log",
+      "bytes": 5404,
+      "sha256": "c79cc5fce54508449a164c9a98e83e04b52aeb09d66cd7c74bb354a1a7a72de4"
+    },
+    {
+      "path": "checks-02/unchanged_existing_profiles.log",
+      "bytes": 8643,
+      "sha256": "59f5e2da869c5ca6f86a9a62361ecb2b17822b273c7dbfd713585ec6b9023fff"
+    },
+    {
+      "path": "checks-02/verification.json",
+      "bytes": 726,
+      "sha256": "8ae1f08ef62861b560e554c5dbc71273b0c33c83dfc52e2d550029fe80507558"
+    },
+    {
+      "path": "checks-03/unchanged_short_extended_exit.log",
+      "bytes": 5364,
+      "sha256": "0b7b11b3b30da04222951788d011af204a4cc38dbfef3e16f4e03e68214051f1"
+    },
+    {
+      "path": "checks-03/verification.json",
+      "bytes": 1872,
+      "sha256": "0c874f66bad9d3dea2433533a1e5cd39f588f688e66511ad4b8c40252cc0e44b"
+    },
+    {
+      "path": "checks-04/unchanged_short_extended_exit.log",
+      "bytes": 12229,
+      "sha256": "b3f6a79277281f4f36cb18970d13a2494e9d88cbe4ed6467e89bb100374051a6"
+    },
+    {
+      "path": "checks-04/verification.json",
+      "bytes": 555,
+      "sha256": "e199103831fd3cbd7269872857c08bf96017691f6fbb799932bee706b892abe0"
+    },
+    {
+      "path": "checks-05/source_sink_author_tests.log",
+      "bytes": 5794,
+      "sha256": "196a62cb921c2e77f75d7969bcaaf2e5bbc9cb4c83733eb51b5c30fd8e11fe39"
+    },
+    {
+      "path": "checks-05/unchanged_network.log",
+      "bytes": 2179,
+      "sha256": "a1ba1856e353d1f139ac036bc83d17680e523f8f4240a5be350cbf369eaefd3d"
+    },
+    {
+      "path": "checks-05/verification.json",
+      "bytes": 716,
+      "sha256": "adcaf2c2ef377249941233a237959ee6e734ef79097374f96ba59c2e632d4b4a"
+    },
+    {
+      "path": "freeze_candidate.py",
+      "bytes": 7101,
+      "sha256": "2f687a00d1faa10bac7dc7aae9f5cebf0b649a4bf58742ce8a90e1685c900386"
+    },
+    {
+      "path": "install_overlay.py",
+      "bytes": 4222,
+      "sha256": "00fd9ce91f845a604f81def51ce5e76be295c5acd0664fb5f87dbba5cacf6876"
+    },
+    {
+      "path": "installed-01/install-eedd.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "installed-01/install-eedd.stdout.log",
+      "bytes": 255,
+      "sha256": "0c3249d47b92ad0a605836753458fc5973e511183c7649077817cb111fe2067f"
+    },
+    {
+      "path": "installed-01/origins.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "installed-01/origins.stdout.log",
+      "bytes": 742,
+      "sha256": "9679091820b75e85b79bd67c36bcf2dffb96c141dac22fffbac35c6f566e8561"
+    },
+    {
+      "path": "installed-01/schema.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "installed-01/schema.stdout.log",
+      "bytes": 135820,
+      "sha256": "46a6e4a948a566434ae7d0bfc45b75bb577adb4fb6dfca4afac1399b500b9ded"
+    },
+    {
+      "path": "installed-01/venv.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "installed-01/venv.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "installed-01/verification.json",
+      "bytes": 3608,
+      "sha256": "f41b1150e8760ea7203757cee35ee2a90a63e13374537fb6b80a20d47a15213f"
+    },
+    {
+      "path": "installed-checks-01/source_sink_author_tests.log",
+      "bytes": 5794,
+      "sha256": "87e24d0c05be1837874350d024ab4e236c1b85f9f466c41885cd19f3bfa0daf3"
+    },
+    {
+      "path": "installed-checks-01/unchanged_existing_profiles.log",
+      "bytes": 8643,
+      "sha256": "4d45eff368c458a1b775be8b021010e7ea4ab7bbe161dd2eec6813f0b8a93dbf"
+    },
+    {
+      "path": "installed-checks-01/unchanged_network.log",
+      "bytes": 2179,
+      "sha256": "a62f9e5a66df54676c97e5b035c8b01a3adb7617313d756db3662ff76068b1ec"
+    },
+    {
+      "path": "installed-checks-01/unchanged_short_extended_exit.log",
+      "bytes": 12229,
+      "sha256": "6279e955245a4dd477794ab531066a70f17f59375b655e08eca0dae7589ca204"
+    },
+    {
+      "path": "installed-checks-01/verification.json",
+      "bytes": 1286,
+      "sha256": "d9be30ffc440c6d144604d7823cae4b7e16326573a484591ca1f05de77ce9d5c"
+    },
+    {
+      "path": "installed-payload-pins.json",
+      "bytes": 59537,
+      "sha256": "52cbf00581afbd8941e8c243cfb98b141842882ea6f0302024e83bbedb01b5b9"
+    },
+    {
+      "path": "native-proposal.json",
+      "bytes": 4441,
+      "sha256": "1610dff54ea7c46d822de764973c4c06f763b1368211fc2cc52a10c2d56e7ffe"
+    },
+    {
+      "path": "new-modules.patch",
+      "bytes": 29216,
+      "sha256": "ffa2211f8d04f45d566fb4abfdde8fe0ab3b592a5d05bdb3be354990fbb85f8e"
+    },
+    {
+      "path": "overlay/src/dfm_cli/cli.py",
+      "bytes": 26139,
+      "sha256": "85cb2c65044a696b2a30f4aaf586faba576d23df1463d883881e8d225e965884"
+    },
+    {
+      "path": "overlay/src/dfm_cli/run_pump_lifecycle.py",
+      "bytes": 19246,
+      "sha256": "7a3e45c42547453577a8cb86e1984041fa160ac60dea7e938200e415df78fc5a"
+    },
+    {
+      "path": "overlay/src/dfm_cli/runs.py",
+      "bytes": 25323,
+      "sha256": "1501ba994c9f1985228f108cc6d50046a2bb54c14bd96def92cee31b17fb3f59"
+    },
+    {
+      "path": "overlay/src/dfm_cli/source_sink_run_inputs.py",
+      "bytes": 14953,
+      "sha256": "1e971fa152a4d171b1197a5d9fa8c36494e44e55dd5ad441293cd6adc895bafd"
+    },
+    {
+      "path": "overlay/src/dfm_cli/source_sink_run_profile.py",
+      "bytes": 13649,
+      "sha256": "4a6dfa379abc4b5da7fc0f0f2848c9c728c506d77d8632c4c879e1da74c29610"
+    },
+    {
+      "path": "patch-reconstruction/src/dfm_cli/cli.py",
+      "bytes": 26332,
+      "sha256": "b48894ce2b707297405cc6d8e6fbf4014a5a1f38dfe151461b209532fb952d5a"
+    },
+    {
+      "path": "patch-reconstruction/src/dfm_cli/run_pump_lifecycle.py",
+      "bytes": 18859,
+      "sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f"
+    },
+    {
+      "path": "patch-reconstruction/src/dfm_cli/runs.py",
+      "bytes": 25538,
+      "sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b"
+    },
+    {
+      "path": "patch-reconstruction-02/src/dfm_cli/cli.py",
+      "bytes": 26139,
+      "sha256": "85cb2c65044a696b2a30f4aaf586faba576d23df1463d883881e8d225e965884"
+    },
+    {
+      "path": "patch-reconstruction-02/src/dfm_cli/run_pump_lifecycle.py",
+      "bytes": 19246,
+      "sha256": "7a3e45c42547453577a8cb86e1984041fa160ac60dea7e938200e415df78fc5a"
+    },
+    {
+      "path": "patch-reconstruction-02/src/dfm_cli/runs.py",
+      "bytes": 25323,
+      "sha256": "1501ba994c9f1985228f108cc6d50046a2bb54c14bd96def92cee31b17fb3f59"
+    },
+    {
+      "path": "patch-reconstruction-02/src/dfm_cli/source_sink_run_inputs.py",
+      "bytes": 14953,
+      "sha256": "1e971fa152a4d171b1197a5d9fa8c36494e44e55dd5ad441293cd6adc895bafd"
+    },
+    {
+      "path": "patch-reconstruction-02/src/dfm_cli/source_sink_run_profile.py",
+      "bytes": 13649,
+      "sha256": "4a6dfa379abc4b5da7fc0f0f2848c9c728c506d77d8632c4c879e1da74c29610"
+    },
+    {
+      "path": "patch-verification.json",
+      "bytes": 1091,
+      "sha256": "5ac4afad89fbfa1c30ccf605889d560b14ecc14dbdac5a1899c3bfd205972087"
+    },
+    {
+      "path": "prepare_integration.py",
+      "bytes": 4133,
+      "sha256": "d03ee0328900a951c520567b1cb8eeaed7c7c753ba6f29de18ce66f3a1603fae"
+    },
+    {
+      "path": "qualify_225_inputs.py",
+      "bytes": 4329,
+      "sha256": "5a4578702a43db6d8a4ded4275840d9b2f0fdf95667a64b159746a6a8c09700c"
+    },
+    {
+      "path": "retained225-admission.json",
+      "bytes": 8060,
+      "sha256": "95de83076ea6fde927bf9089f6aedc00f02fac4c14f9bdbaf901c7a2baae12be"
+    },
+    {
+      "path": "run_portable.py",
+      "bytes": 3785,
+      "sha256": "b15cf55d2289d26a8c6278bab10e92b16344b8236199d0c37a9a5f21c3c3b24a"
+    },
+    {
+      "path": "shared-base/cli.py",
+      "bytes": 26332,
+      "sha256": "b48894ce2b707297405cc6d8e6fbf4014a5a1f38dfe151461b209532fb952d5a"
+    },
+    {
+      "path": "shared-base/run_pump_lifecycle.py",
+      "bytes": 18859,
+      "sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f"
+    },
+    {
+      "path": "shared-base/runs.py",
+      "bytes": 25538,
+      "sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b"
+    },
+    {
+      "path": "shared-integration.patch",
+      "bytes": 5513,
+      "sha256": "c89032450238ee59f1dd770e155a6f3ab39cb4b5fd1cb1e5c851bff602630a1e"
+    },
+    {
+      "path": "tests/fixtures/pair/fixed_sections.pli",
+      "bytes": 48,
+      "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8"
+    },
+    {
+      "path": "tests/fixtures/pair/mesh_net.nc",
+      "bytes": 6036,
+      "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989"
+    },
+    {
+      "path": "tests/fixtures/pair/model.mdu",
+      "bytes": 1231,
+      "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6"
+    },
+    {
+      "path": "tests/fixtures/pair/observations.xyn",
+      "bytes": 92,
+      "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0"
+    },
+    {
+      "path": "tests/fixtures/pair/source.bc",
+      "bytes": 628,
+      "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119"
+    },
+    {
+      "path": "tests/fixtures/pair/sources.ext",
+      "bytes": 345,
+      "sha256": "83a48c140d41a702eb5e0afa09dee91c089cd738a58f0cb3cc72c71c20efcf8d"
+    },
+    {
+      "path": "tests/fixtures/point/fixed_sections.pli",
+      "bytes": 48,
+      "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8"
+    },
+    {
+      "path": "tests/fixtures/point/mesh_net.nc",
+      "bytes": 6036,
+      "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989"
+    },
+    {
+      "path": "tests/fixtures/point/model.mdu",
+      "bytes": 1231,
+      "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6"
+    },
+    {
+      "path": "tests/fixtures/point/observations.xyn",
+      "bytes": 92,
+      "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0"
+    },
+    {
+      "path": "tests/fixtures/point/source.bc",
+      "bytes": 628,
+      "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119"
+    },
+    {
+      "path": "tests/fixtures/point/sources.ext",
+      "bytes": 330,
+      "sha256": "36e78a4d485e139ee515010a6f5f4aa37f8b1cc08c2f12344743581f5b45aa54"
+    },
+    {
+      "path": "tests/test_source_sink_run_profile.py",
+      "bytes": 29706,
+      "sha256": "c8677863637084c36a722f763cb58d21e27392f2cc0259ba74f0b20fbd75665e"
+    }
+  ],
+  "installed_product_pins": "installed-payload-pins.json",
+  "portable_tests_passed": 171,
+  "root191_unchanged": true,
+  "native_launches": 0
+}

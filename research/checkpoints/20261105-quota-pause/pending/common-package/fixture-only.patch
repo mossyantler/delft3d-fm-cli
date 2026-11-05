@@ -1,0 +1,67 @@
+--- a/tests/pump_lifecycle_fixtures.py
++++ b/tests/pump_lifecycle_fixtures.py
+@@ -4,6 +4,7 @@
+ actual simulation are deliberately replaced; output science is not validated.
+ """
+ import copy
++from datetime import datetime, timedelta, timezone
+ from contextlib import ExitStack
+ import json
+ from pathlib import Path
+@@ -23,6 +24,11 @@
+             "original_handle_verified": True, "same_original_retained_handle": True, "trace_binding_verified": True}
+ 
+ 
++def _synthetic_observed_at(sequence):
++    """Independent synthetic sequence clock; never reads native evidence."""
++    return (datetime(2001, 1, 1, tzinfo=timezone.utc) + timedelta(seconds=sequence)).isoformat()
++
++
+ def normal_receipt(code=0):
+     members, events = [], []
+     for i, role in enumerate(("root", "descendant")):
+@@ -36,19 +42,20 @@
+                                  "exit_code_query": "captured", "exit_code": code if role == "root" else 0}})
+         for kind, message in (("NEW_PROCESS", 6), ("EXIT_PROCESS", 7)):
+             events.append({"sequence": len(events)+1, "type": kind, "pid": identity["pid"], "identity": identity,
+-                           "job_instance_token": TOKEN, "identity_source": "matched_same_retained_handle", "raw_message": message})
++                           "job_instance_token": TOKEN, "identity_source": "matched_same_retained_handle", "raw_message": message,
++                           "observed_at_utc": _synthetic_observed_at(len(events)+1)})
+     accounting = {"state": "captured", "job_instance_token": TOKEN, "after_member_exit_checks": True,
+                   "information_class": 1, "buffer_bytes": 48, "returned_bytes": 48, "handle_source": "original_private_job_handle",
+                   "values": {"TotalProcesses": 2, "ActiveProcesses": 0, "TotalTerminatedProcesses": 0}}
+     job_members = {"state": "captured", "job_instance_token": TOKEN, "pids": []}
+-    trace = {"state": "captured", "job": {"instance_token": TOKEN, "handle_source": "original_private_job_handle", **{k: True for k in
++    trace = {"state": "captured", "termination_attempted": False, "job": {"instance_token": TOKEN, "handle_source": "original_private_job_handle", **{k: True for k in
+              ("association_before_assignment", "assigned_before_resume", "collector_started_before_resume", "no_breakaway", "kill_on_close")}},
+              "members": members, "accounting": accounting, "root_identity": members[0]["identity"], "job_members": job_members,
+              "collection": {"state": "captured", "errors": [], "unavailable_members": [], "dropped_events": 0, "pending_events": 0,
+                             "ended_after_accounting": True, "events": events,
+-                            "notifications": [{"sequence": e["sequence"], "message": e["raw_message"], "pid": e["pid"], "job_instance_token": TOKEN} for e in events]},
++                            "notifications": [{"sequence": e["sequence"], "message": e["raw_message"], "pid": e["pid"], "job_instance_token": TOKEN, "observed_at_utc": e["observed_at_utc"]} for e in events]},
+              "all_owned_members_exit_confirmed": True, "retained_member_handle_count": 2, "confirmed_member_exit_count": 2, "unobserved_member_count": 0}
+-    return {"state": "captured", "member_trace": trace, "all_owned_members_exit_confirmed": True, "root_exit_confirmed": True, "job_empty": True,
++    return {"state": "captured", "termination_attempted": False, "member_trace": trace, "all_owned_members_exit_confirmed": True, "root_exit_confirmed": True, "job_empty": True,
+             "job_accounting": accounting, "job_members": job_members,
+             "root": {"identity": members[0]["identity"], "pid": 100, "handle_source": "original_subprocess.Popen._handle", "state": "signalled",
+                      "exit_confirmed": True, "wait_result": 0, "exit_code": code, "exit_code_query": {"state": "captured"}}}
+@@ -71,7 +78,7 @@
+             "handle_source": "original_private_job_handle", "borrowed_root_handle_closed": False,
+             "return_value": 1, "return_type": "int", "job_instance_token": TOKEN, "job_binding": binding(),
+             "collector_close": {"attempted": True, "state": "returned", "return_type": "dict", "return_value":
+-                                {"state": "closed", "collector_stopped": True, "errors": [], "borrowed_root_closed": False, "borrowed_job_closed": False}}}
++                                {"state": "closed", "termination_attempted": False, "collector_stopped": True, "errors": [], "borrowed_root_closed": False, "borrowed_job_closed": False}}}
+ 
+ 
+ class Scenario:
+--- a/tests/test_pump_close_attribution.py
++++ b/tests/test_pump_close_attribution.py
+@@ -20,7 +20,7 @@
+             "job_binding": {"handle_source": "original_private_job_handle", "job_instance_token": TOKEN,
+                             "original_handle_verified": True, "same_original_retained_handle": True, "trace_binding_verified": True},
+             "collector_close": {"attempted": True, "state": "returned", "return_type": "dict", "return_value":
+-                                {"state": "closed", "collector_stopped": True, "errors": [], "borrowed_root_closed": False, "borrowed_job_closed": False}}}
++                                {"state": "closed", "termination_attempted": False, "collector_stopped": True, "errors": [], "borrowed_root_closed": False, "borrowed_job_closed": False}}}
+ 
+ 
+ def unproven_stop():

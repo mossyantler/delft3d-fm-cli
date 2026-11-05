@@ -1,0 +1,11 @@
+{
+  "state": "PASSED_PROSPECTIVE_OFFLINE_CORPUS",
+  "cases": 121,
+  "failures": 0,
+  "actual_installed_helper": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\runtime-venv\\Lib\\site-packages\\dfm_cli\\run_pump_lifecycle.py",
+  "actual_helper_sha256": "49c4a6ed29b64b08342f15c76e05e4b4b7ee64379c1b237bd62d363781e68207",
+  "native_launches": 0,
+  "PID_queries": 0,
+  "original_states_reclassified": false,
+  "scope": "Installed wheel pure component; source/schema/unit/native scopes remain distinct."
+}

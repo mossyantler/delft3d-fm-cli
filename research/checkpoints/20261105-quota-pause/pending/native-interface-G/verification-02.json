@@ -1,0 +1,62 @@
+{
+  "state": "TWO_PROSPECTIVE_INTERFACE_MISMATCHES_WITH_POSITIVE_CONTROLS",
+  "raw_audit_snapshot_sha256": "4fe942842295d149e288ce5e4bd928d93eaa615fefb907b4c1b5ef0543e16176",
+  "outcomes": [
+    {
+      "case": "adapter_pre_call_observation",
+      "accepted": false,
+      "error": "Independent observer closed before final same-HANDLE sample"
+    },
+    {
+      "case": "post_call_observation_control",
+      "accepted": true
+    },
+    {
+      "case": "declared_control_states",
+      "allowed": [
+        "cancelled",
+        "completed",
+        "failed"
+      ],
+      "result": {
+        "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+        "passed": false,
+        "case_success": false,
+        "record_sha256": "9e2b39648fb6616b00f9d279cba671bbd83756b7cf2b24fa6d54e176d49d0966",
+        "recorded_state": "cancelled",
+        "stop_achieved": false,
+        "natural_race_observed": false,
+        "lifetime_proven_here": false,
+        "errors": [
+          {
+            "type": "EvidenceError",
+            "reason": "Control disposal must be prospectively declared"
+          }
+        ]
+      }
+    },
+    {
+      "case": "declared_control_states",
+      "allowed": [
+        "cancelled",
+        "completed"
+      ],
+      "result": {
+        "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+        "passed": true,
+        "case_success": true,
+        "record_sha256": "9e2b39648fb6616b00f9d279cba671bbd83756b7cf2b24fa6d54e176d49d0966",
+        "recorded_state": "cancelled",
+        "stop_achieved": false,
+        "natural_race_observed": false,
+        "lifetime_proven_here": false,
+        "errors": [],
+        "classification": "recorded_state_matches_declaration"
+      }
+    }
+  ],
+  "native_launches": 0,
+  "root_product_writes": 0,
+  "initial_harness_failure": "verification.json retained: initial G-only synthetic creation time used int instead of observed string; not candidate failure",
+  "scope": "Synthetic integration semantics only, no frozen candidate or native defect verdict."
+}

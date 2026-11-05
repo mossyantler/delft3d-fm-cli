@@ -1,0 +1,925 @@
+{
+  "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "basis": "Collected source registry plus exact retained file bytes; installed engine source revision unknown",
+  "source_registry": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\sources.lock.json",
+    "sha256": "a5c629bc9f8469dcd0c4afa3bdc99f62d185ff4d8bba74e74001c0ff509a47f6",
+    "bytes": 9598
+  },
+  "files": [
+    {
+      "path": "research/upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/m_wind.f90",
+      "sha256": "2e6ec28a7658f23f27fbf8c278e07b5f330a39e8e74a945cf8c54e917a5ec56b",
+      "bytes": 10314,
+      "excerpts": [
+        {
+          "start": 111,
+          "end": 114,
+          "lines": [
+            {
+              "number": 111,
+              "text": "   integer, parameter :: CD_TYPE_CONST = 1"
+            },
+            {
+              "number": 112,
+              "text": "   integer, parameter :: CD_TYPE_SMITHBANKE_2PT = 2"
+            },
+            {
+              "number": 113,
+              "text": "   integer, parameter :: CD_TYPE_SMITHBANKE_3PT = 3"
+            },
+            {
+              "number": 114,
+              "text": "   integer, parameter :: CD_TYPE_CHARNOCK1955 = 4"
+            }
+          ]
+        },
+        {
+          "start": 154,
+          "end": 168,
+          "lines": [
+            {
+              "number": 154,
+              "text": "      jaQext = 0 !< use Qin externally provided yes or no"
+            },
+            {
+              "number": 155,
+              "text": "      jawind = 0 !< use wind yes or no"
+            },
+            {
+              "number": 156,
+              "text": "      jastresstowind = 0 !< if jawindstressgiven==1, convert stress to wind yes/no 1/0"
+            },
+            {
+              "number": 157,
+              "text": "      ja_computed_airdensity = 0"
+            },
+            {
+              "number": 158,
+              "text": "      ! Remaining of variables is handled in reset_wind()"
+            },
+            {
+              "number": 159,
+              "text": "      call reset_wind()"
+            },
+            {
+              "number": 160,
+              "text": "   end subroutine default_wind"
+            },
+            {
+              "number": 161,
+              "text": ""
+            },
+            {
+              "number": 162,
+              "text": "   !> Resets only wind variables intended for a restart of flow simulation."
+            },
+            {
+              "number": 163,
+              "text": "   !! Upon loading of new model/MDU, call default_wind() instead."
+            },
+            {
+              "number": 164,
+              "text": "   subroutine reset_wind()"
+            },
+            {
+              "number": 165,
+              "text": "      air_pressure_available = .false. !< use air_pressure yes or no"
+            },
+            {
+              "number": 166,
+              "text": "      jaspacevarcharn = 0 !< use space varying Charnock coefficients"
+            },
+            {
+              "number": 167,
+              "text": "      jawindstressgiven = 0 !< wind stress given in meteo file"
+            },
+            {
+              "number": 168,
+              "text": "      ja_airdensity = 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90",
+      "sha256": "c1c44f7d2f7ecd00b7fa2e260ee5f7bad097f58b868e683fb9c5de1f8c0b0087",
+      "bytes": 258316,
+      "excerpts": [
+        {
+          "start": 1615,
+          "end": 1623,
+          "lines": [
+            {
+              "number": 1615,
+              "text": "      call prop_get(md_ptr, 'wind', 'ICdtyp', wind_drag_type)"
+            },
+            {
+              "number": 1616,
+              "text": "      if (wind_drag_type == CD_TYPE_CONST) then"
+            },
+            {
+              "number": 1617,
+              "text": "         call prop_get(md_ptr, 'wind', 'Cdbreakpoints', cdb, 1)"
+            },
+            {
+              "number": 1618,
+              "text": "      else if (wind_drag_type == CD_TYPE_SMITHBANKE_2PT) then"
+            },
+            {
+              "number": 1619,
+              "text": "         call prop_get(md_ptr, 'wind', 'Cdbreakpoints', cdb, 2)"
+            },
+            {
+              "number": 1620,
+              "text": "         call prop_get(md_ptr, 'wind', 'Windspeedbreakpoints', wdb, 2)"
+            },
+            {
+              "number": 1621,
+              "text": "         cdb(3) = cdb(2)"
+            },
+            {
+              "number": 1622,
+              "text": "         wdb(2) = max(wdb(2), wdb(1) + 0.1_dp)"
+            },
+            {
+              "number": 1623,
+              "text": "         wdb(3) = wdb(2) + 0.1_dp"
+            }
+          ]
+        },
+        {
+          "start": 1638,
+          "end": 1649,
+          "lines": [
+            {
+              "number": 1638,
+              "text": "      end if"
+            },
+            {
+              "number": 1639,
+              "text": "      call prop_get(md_ptr, 'wind', 'Relativewind', relativewind)"
+            },
+            {
+              "number": 1640,
+              "text": "      call prop_get(md_ptr, 'wind', 'Windhuorzwsbased', jawindhuorzwsbased)"
+            },
+            {
+              "number": 1641,
+              "text": "      call prop_get(md_ptr, 'wind', 'Windpartialdry', jawindpartialdry)"
+            },
+            {
+              "number": 1642,
+              "text": ""
+            },
+            {
+              "number": 1643,
+              "text": "      call prop_get(md_ptr, 'wind', 'Rhoair', rhoair)"
+            },
+            {
+              "number": 1644,
+              "text": "      call prop_get(md_ptr, 'wind', 'PavIni', PavIni)"
+            },
+            {
+              "number": 1645,
+              "text": "      call prop_get(md_ptr, 'wind', 'PavBnd', PavBnd)"
+            },
+            {
+              "number": 1646,
+              "text": "      call prop_get(md_ptr, 'wind', 'Stresstowind', jastresstowind)"
+            },
+            {
+              "number": 1647,
+              "text": "      call prop_get(md_ptr, 'wind', 'Wind_eachstep', update_wind_stress_each_time_step)"
+            },
+            {
+              "number": 1648,
+              "text": "      call prop_get(md_ptr, 'wind', 'computedAirdensity', ja_computed_airdensity)"
+            },
+            {
+              "number": 1649,
+              "text": "      call prop_get(md_ptr, 'Wind', 'rhoWaterInWindStress', rho_water_in_wind_stress)"
+            }
+          ]
+        },
+        {
+          "start": 2130,
+          "end": 2132,
+          "lines": [
+            {
+              "number": 2130,
+              "text": "      call prop_get(md_ptr, 'output', 'Wrimap_wind', jamapwind, success)"
+            },
+            {
+              "number": 2131,
+              "text": "      call prop_get(md_ptr, 'output', 'Wrimap_windstress', jamapwindstress, success)"
+            },
+            {
+              "number": 2132,
+              "text": "      call prop_get(md_ptr, 'output', 'Wrimap_airdensity', jamap_airdensity, success)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_kernel/compute/setcdwcoefficient.f90",
+      "sha256": "e5ca48ddfecd50e7176faef6da89f3a665da402c734d9b93627e90e3b9e9a396",
+      "bytes": 7279,
+      "excerpts": [
+        {
+          "start": 73,
+          "end": 81,
+          "lines": [
+            {
+              "number": 73,
+              "text": "      else if (wind_drag_type == CD_TYPE_SMITHBANKE_2PT) then"
+            },
+            {
+              "number": 74,
+              "text": ""
+            },
+            {
+              "number": 75,
+              "text": "         if (uwi <= wdb(1)) then"
+            },
+            {
+              "number": 76,
+              "text": "            cd10 = cdb(1)"
+            },
+            {
+              "number": 77,
+              "text": "         else if (uwi <= wdb(2)) then"
+            },
+            {
+              "number": 78,
+              "text": "            cd10 = cdb(1) + (uwi - wdb(1)) * (cdb(2) - cdb(1)) / (wdb(2) - wdb(1))"
+            },
+            {
+              "number": 79,
+              "text": "         else"
+            },
+            {
+              "number": 80,
+              "text": "            cd10 = cdb(2)"
+            },
+            {
+              "number": 81,
+              "text": "         end if"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_kernel/compute/setwindstress.f90",
+      "sha256": "ee5290147f9b8f65832faa94a4b510f5943106a260e14e5150f876ba6ba15f2d",
+      "bytes": 5930,
+      "excerpts": [
+        {
+          "start": 95,
+          "end": 142,
+          "lines": [
+            {
+              "number": 95,
+              "text": "      if (jawindstressgiven == 0 .or. jastresstowind == 1) then"
+            },
+            {
+              "number": 96,
+              "text": "         roa = rhoair"
+            },
+            {
+              "number": 97,
+              "text": "         row = rhomean"
+            },
+            {
+              "number": 98,
+              "text": "         wdsu = 0.0_dp"
+            },
+            {
+              "number": 99,
+              "text": "         numwav = 0"
+            },
+            {
+              "number": 100,
+              "text": "         do L = 1, lnx"
+            },
+            {
+              "number": 101,
+              "text": "            if (wx(L) /= 0.0_dp .or. wy(L) /= 0.0_dp .or. relativewind > 0) then ! only if some wind"
+            },
+            {
+              "number": 102,
+              "text": ""
+            },
+            {
+              "number": 103,
+              "text": "               wxL = wx(L)"
+            },
+            {
+              "number": 104,
+              "text": "               wyL = wy(L)"
+            },
+            {
+              "number": 105,
+              "text": "               if (relativewind > 0.0_dp) then"
+            },
+            {
+              "number": 106,
+              "text": "                  uL = relativewind * U1(Ltop(L))"
+            },
+            {
+              "number": 107,
+              "text": "                  vL = relativewind * v(Ltop(L))"
+            },
+            {
+              "number": 108,
+              "text": "                  uxL = uL * csu(L) - vL * snu(L)"
+            },
+            {
+              "number": 109,
+              "text": "                  uyL = uL * snu(L) + vL * csu(L)"
+            },
+            {
+              "number": 110,
+              "text": "                  wxL = wxL - uxL"
+            },
+            {
+              "number": 111,
+              "text": "                  wyL = wyL - uyL"
+            },
+            {
+              "number": 112,
+              "text": "               end if"
+            },
+            {
+              "number": 113,
+              "text": "               uwi = sqrt(wxL * wxL + wyL * wyL)"
+            },
+            {
+              "number": 114,
+              "text": "               if (jaspacevarcharn == 1) then"
+            },
+            {
+              "number": 115,
+              "text": "                  cdb(1) = wcharnock(L)"
+            },
+            {
+              "number": 116,
+              "text": "               end if"
+            },
+            {
+              "number": 117,
+              "text": "               call setcdwcoefficient(uwi, cdw, L)"
+            },
+            {
+              "number": 118,
+              "text": "               if (ice_modify_winddrag /= ICE_WINDDRAG_NONE) then"
+            },
+            {
+              "number": 119,
+              "text": "                  local_ice_area_fraction = 0.5_dp * (ice_area_fraction(ln(1, L)) + ice_area_fraction(ln(2, L)))"
+            },
+            {
+              "number": 120,
+              "text": "                  cdw = fm_ice_drag_effect(local_ice_area_fraction, cdw)"
+            },
+            {
+              "number": 121,
+              "text": "               end if"
+            },
+            {
+              "number": 122,
+              "text": "               if (temperature_model == TEMPERATURE_MODEL_COMPOSITE) then"
+            },
+            {
+              "number": 123,
+              "text": "                  cdwcof(L) = cdw"
+            },
+            {
+              "number": 124,
+              "text": "               end if"
+            },
+            {
+              "number": 125,
+              "text": "               if (rho_water_in_wind_stress /= RHO_MEAN) then"
+            },
+            {
+              "number": 126,
+              "text": "                  k = ln(2, L)"
+            },
+            {
+              "number": 127,
+              "text": "                  row = rho(ktop(k))"
+            },
+            {
+              "number": 128,
+              "text": "               end if"
+            },
+            {
+              "number": 129,
+              "text": "               if (ja_airdensity + ja_computed_airdensity > 0) then"
+            },
+            {
+              "number": 130,
+              "text": "                  k = ln(2, L)"
+            },
+            {
+              "number": 131,
+              "text": "                  roa = air_density(k)"
+            },
+            {
+              "number": 132,
+              "text": "               end if"
+            },
+            {
+              "number": 133,
+              "text": "               tuwi = roa * cdw * uwi"
+            },
+            {
+              "number": 134,
+              "text": "               if (jamapwindstress > 0) then"
+            },
+            {
+              "number": 135,
+              "text": "                  wdsu_x(L) = tuwi * wxL"
+            },
+            {
+              "number": 136,
+              "text": "                  wdsu_y(L) = tuwi * wyL"
+            },
+            {
+              "number": 137,
+              "text": "               end if"
+            },
+            {
+              "number": 138,
+              "text": "               if (kmx > 0) then"
+            },
+            {
+              "number": 139,
+              "text": "                  roro = roa / row"
+            },
+            {
+              "number": 140,
+              "text": "                  ustw(L) = sqrt(roro * cdw) * uwi"
+            },
+            {
+              "number": 141,
+              "text": "               end if"
+            },
+            {
+              "number": 142,
+              "text": "               wdsu(L) = tuwi * (wxL * csu(L) + wyL * snu(L)) / row"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_kernel/timespace/fm_external_forcings.f90",
+      "sha256": "ba4403464524b7a17071825fe89a03923e553f97a3d729c75dc74141f2f98621",
+      "bytes": 125600,
+      "excerpts": [
+        {
+          "start": 153,
+          "end": 156,
+          "lines": [
+            {
+              "number": 153,
+              "text": "      wx = 0.0_dp"
+            },
+            {
+              "number": 154,
+              "text": "      wy = 0.0_dp"
+            },
+            {
+              "number": 155,
+              "text": "      wdsu_x = 0.0_dp"
+            },
+            {
+              "number": 156,
+              "text": "      wdsu_y = 0.0_dp"
+            }
+          ]
+        },
+        {
+          "start": 1721,
+          "end": 1730,
+          "lines": [
+            {
+              "number": 1721,
+              "text": ""
+            },
+            {
+              "number": 1722,
+              "text": "      if (.not. allocated(wx)) then"
+            },
+            {
+              "number": 1723,
+              "text": "         allocate (wx(lnx), wy(lnx), wdsu(lnx), wdsu_x(lnx), wdsu_y(lnx), stat=ierr)"
+            },
+            {
+              "number": 1724,
+              "text": "         call aerr('wx(lnx), wy(lnx), wdsu(lnx), wdsu_x(lnx), wdsu_y(lnx)', ierr, lnx)"
+            },
+            {
+              "number": 1725,
+              "text": "         wx = 0.0_dp"
+            },
+            {
+              "number": 1726,
+              "text": "         wy = 0.0_dp"
+            },
+            {
+              "number": 1727,
+              "text": "         wdsu = 0.0_dp"
+            },
+            {
+              "number": 1728,
+              "text": "         wdsu_x = 0.0_dp"
+            },
+            {
+              "number": 1729,
+              "text": "         wdsu_y = 0.0_dp"
+            },
+            {
+              "number": 1730,
+              "text": "      end if"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_io/unstruc_netcdf.f90",
+      "sha256": "3c47581f1a5d2a46f493d9954b48acaff404a4d3340906f8dfe3171374ca820b",
+      "bytes": 1023060,
+      "excerpts": [
+        {
+          "start": 5828,
+          "end": 5854,
+          "lines": [
+            {
+              "number": 5828,
+              "text": "            if (jamapwind > 0) then"
+            },
+            {
+              "number": 5829,
+              "text": "               if (jsferic == 0) then"
+            },
+            {
+              "number": 5830,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windx, nc_precision, UNC_LOC_S, 'windx', 'x_wind', 'velocity of air on flow element center, x-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5831,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windy, nc_precision, UNC_LOC_S, 'windy', 'y_wind', 'velocity of air on flow element center, y-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5832,
+              "text": "                  ! Also wind on flow links"
+            },
+            {
+              "number": 5833,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windxu, nc_precision, UNC_LOC_U, 'windxu', 'x_wind', 'velocity of air on flow links, x-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5834,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windyu, nc_precision, UNC_LOC_U, 'windyu', 'y_wind', 'velocity of air on flow links, y-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5835,
+              "text": "               else"
+            },
+            {
+              "number": 5836,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windx, nc_precision, UNC_LOC_S, 'windx', 'eastward_wind', 'velocity of air on flow element center, x-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5837,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windy, nc_precision, UNC_LOC_S, 'windy', 'northward_wind', 'velocity of air on flow element center, y-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5838,
+              "text": "                  ! Also wind on flow links"
+            },
+            {
+              "number": 5839,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windxu, nc_precision, UNC_LOC_U, 'windxu', 'eastward_wind', 'velocity of air on flow links, x-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5840,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windyu, nc_precision, UNC_LOC_U, 'windyu', 'northward_wind', 'velocity of air on flow links, y-component', 'm s-1', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5841,
+              "text": "               end if"
+            },
+            {
+              "number": 5842,
+              "text": "            end if"
+            },
+            {
+              "number": 5843,
+              "text": "            if (jamapwindstress > 0) then"
+            },
+            {
+              "number": 5844,
+              "text": "               if (jsferic == 0) then"
+            },
+            {
+              "number": 5845,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windstressx, nc_precision, UNC_LOC_S, 'windstressx', &"
+            },
+            {
+              "number": 5846,
+              "text": "                                         'surface_downward_x_stress', 'wind stress on flow element center, x-component', 'N m-2', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5847,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windstressy, nc_precision, UNC_LOC_S, 'windstressy', &"
+            },
+            {
+              "number": 5848,
+              "text": "                                         'surface_downward_y_stress', 'wind stress on flow element center, y-component', 'N m-2', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5849,
+              "text": "               else"
+            },
+            {
+              "number": 5850,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windstressx, nc_precision, UNC_LOC_S, 'windstressx', &"
+            },
+            {
+              "number": 5851,
+              "text": "                                         'surface_downward_eastward_stress', 'wind stress on flow element center, x-component', 'N m-2', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5852,
+              "text": "                  ierr = unc_def_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windstressy, nc_precision, UNC_LOC_S, 'windstressy', &"
+            },
+            {
+              "number": 5853,
+              "text": "                                         'surface_downward_northward_stress', 'wind stress on flow element center, y-component', 'N m-2', jabndnd=jabndnd_)"
+            },
+            {
+              "number": 5854,
+              "text": "               end if"
+            }
+          ]
+        },
+        {
+          "start": 7635,
+          "end": 7646,
+          "lines": [
+            {
+              "number": 7635,
+              "text": "         if (jamapwind > 0) then"
+            },
+            {
+              "number": 7636,
+              "text": "            call linktonode2(wx, wy, windx, windy, ndxndxi)"
+            },
+            {
+              "number": 7637,
+              "text": "            ierr = unc_put_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windx, UNC_LOC_S, windx, jabndnd=jabndnd_)"
+            },
+            {
+              "number": 7638,
+              "text": "            ierr = unc_put_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windy, UNC_LOC_S, windy, jabndnd=jabndnd_)"
+            },
+            {
+              "number": 7639,
+              "text": "            ierr = unc_put_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windxu, UNC_LOC_U, wx, jabndnd=jabndnd_)"
+            },
+            {
+              "number": 7640,
+              "text": "            ierr = unc_put_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windyu, UNC_LOC_U, wy, jabndnd=jabndnd_)"
+            },
+            {
+              "number": 7641,
+              "text": "         end if"
+            },
+            {
+              "number": 7642,
+              "text": ""
+            },
+            {
+              "number": 7643,
+              "text": "         if (jamapwindstress > 0) then"
+            },
+            {
+              "number": 7644,
+              "text": "            call linktonode2(wdsu_x, wdsu_y, windx, windy, ndxndxi)"
+            },
+            {
+              "number": 7645,
+              "text": "            ierr = unc_put_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windstressx, UNC_LOC_S, windx, jabndnd=jabndnd_)"
+            },
+            {
+              "number": 7646,
+              "text": "            ierr = unc_put_var_map(mapids%ncid, mapids%id_tsp, mapids%id_windstressy, UNC_LOC_S, windy, jabndnd=jabndnd_)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/utils_lgpl/ec_module/packages/ec_module/src/ec_converter.f90",
+      "sha256": "d833fae4657d756238bd7be72ee4b06000d9986826acac4cd7941596fc3ae54d",
+      "bytes": 190257,
+      "excerpts": [
+        {
+          "start": 1518,
+          "end": 1546,
+          "lines": [
+            {
+              "number": 1518,
+              "text": "      ! ===== interpolation ====="
+            },
+            {
+              "number": 1519,
+              "text": "      select case (connection%converterPtr%interpolationType)"
+            },
+            {
+              "number": 1520,
+              "text": "      case (interpolate_timespace)"
+            },
+            {
+              "number": 1521,
+              "text": "         ! === linear interpolation in time ==="
+            },
+            {
+              "number": 1522,
+              "text": "         t0 = connection%sourceItemsPtr(1)%ptr%sourceT0FieldPtr%timesteps"
+            },
+            {
+              "number": 1523,
+              "text": "         t1 = connection%sourceItemsPtr(1)%ptr%sourceT1FieldPtr%timesteps"
+            },
+            {
+              "number": 1524,
+              "text": "         call time_weight_factors(a0, a1, timesteps, t0, t1)"
+            },
+            {
+              "number": 1525,
+              "text": "         ! determine windspeed at t=timesteps"
+            },
+            {
+              "number": 1526,
+              "text": "         windspeed0 = connection%sourceItemsPtr(1)%ptr%sourceT0FieldPtr%arr1dPtr(1)"
+            },
+            {
+              "number": 1527,
+              "text": "         windspeed1 = connection%sourceItemsPtr(1)%ptr%sourceT1FieldPtr%arr1dPtr(1)"
+            },
+            {
+              "number": 1528,
+              "text": "         windspeed = a0 * windspeed0 + a1 * windspeed1"
+            },
+            {
+              "number": 1529,
+              "text": "         ! determine winddirection at t=timesteps"
+            },
+            {
+              "number": 1530,
+              "text": "         winddirection0 = connection%sourceItemsPtr(1)%ptr%sourceT0FieldPtr%arr1dPtr(2)"
+            },
+            {
+              "number": 1531,
+              "text": "         winddirection1 = connection%sourceItemsPtr(1)%ptr%sourceT1FieldPtr%arr1dPtr(2)"
+            },
+            {
+              "number": 1532,
+              "text": "         winddirection = cyclic_interpolation(winddirection0, winddirection1, a0, a1)"
+            },
+            {
+              "number": 1533,
+              "text": "         ! === space conversion using nautical convention ==="
+            },
+            {
+              "number": 1534,
+              "text": "         winddirection = (270.0_dp - winddirection) * degrad"
+            },
+            {
+              "number": 1535,
+              "text": "         u => connection%targetItemsPtr(1)%ptr%targetFieldPtr%arr1dPtr"
+            },
+            {
+              "number": 1536,
+              "text": "         v => connection%targetItemsPtr(2)%ptr%targetFieldPtr%arr1dPtr"
+            },
+            {
+              "number": 1537,
+              "text": "         targetU = windspeed * cos(winddirection)"
+            },
+            {
+              "number": 1538,
+              "text": "         targetV = windspeed * sin(winddirection)"
+            },
+            {
+              "number": 1539,
+              "text": "         select case (connection%converterPtr%operandType)"
+            },
+            {
+              "number": 1540,
+              "text": "         case (operand_replace, operand_replace_if_value)"
+            },
+            {
+              "number": 1541,
+              "text": "            do i = 1, connection%targetItemsPtr(1)%ptr%elementSetPtr%nCoordinates"
+            },
+            {
+              "number": 1542,
+              "text": "               u(i) = targetU"
+            },
+            {
+              "number": 1543,
+              "text": "               v(i) = targetV"
+            },
+            {
+              "number": 1544,
+              "text": "            end do"
+            },
+            {
+              "number": 1545,
+              "text": "            connection%targetItemsPtr(1)%ptr%targetFieldPtr%timesteps = timesteps"
+            },
+            {
+              "number": 1546,
+              "text": "            connection%targetItemsPtr(2)%ptr%targetFieldPtr%timesteps = timesteps"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "research/upstream/Delft3D/src/utils_lgpl/ec_module/packages/ec_module/src/ec_provider.F90",
+      "sha256": "c5a3ffa61a8c6754e333539399f7dc7e221a3a2a539c0ea341b7fc71498f10f4",
+      "bytes": 200496,
+      "excerpts": [
+        {
+          "start": 3366,
+          "end": 3378,
+          "lines": [
+            {
+              "number": 3366,
+              "text": "   !> Set the TimeFrame's properties, based on a uni* file's header."
+            },
+            {
+              "number": 3367,
+              "text": "      !! Headerless column-based ASCII file."
+            },
+            {
+              "number": 3368,
+              "text": "      !! uniform: time[minute], wind_x[m s-1](, wind_y[m s-1])"
+            },
+            {
+              "number": 3369,
+              "text": "      !! unimagdir: time[minute], windspeed[m s-1], winddirection[degree]"
+            },
+            {
+              "number": 3370,
+              "text": "   function ecUniInitializeTimeFrame(fileReaderPtr) result(success)"
+            },
+            {
+              "number": 3371,
+              "text": "      logical :: success !< function status"
+            },
+            {
+              "number": 3372,
+              "text": "      type(tEcFileReader), pointer :: fileReaderPtr !< FileReader to initialize"
+            },
+            {
+              "number": 3373,
+              "text": "      !"
+            },
+            {
+              "number": 3374,
+              "text": "      success = .false."
+            },
+            {
+              "number": 3375,
+              "text": "      fileReaderPtr%tframe%ec_refdate = fileReaderPtr%tframe%k_refdate"
+            },
+            {
+              "number": 3376,
+              "text": "      ! Obtain the total number of timesteps in this file."
+            },
+            {
+              "number": 3377,
+              "text": "      rewind (unit=fileReaderPtr%fileHandle)"
+            },
+            {
+              "number": 3378,
+              "text": "      success = .true."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

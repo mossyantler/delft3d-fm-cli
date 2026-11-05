@@ -1,0 +1,232 @@
+{
+  "authority_files": {
+    "references225": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-run-01\\references225.json",
+      "bytes": 12091,
+      "sha256": "2e5a762a31a64463c4303d027ab028ee2b62fd8108af4707a30e30c692aed4f2"
+    },
+    "source_math_freeze": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-science-01\\freeze.json",
+      "bytes": 23880,
+      "sha256": "c5384ee812d9d229156e42b62f5cabe4dea35289fc134ad762948ddfd5ce8ac1"
+    },
+    "science_case_contract": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-install-science-01\\case-contract.json",
+      "bytes": 22596,
+      "sha256": "8c3cfb1f8e48a18c8893769a01896b98dfb1e06fbf6d0a0b69675cf2ef4d402a"
+    }
+  },
+  "references225": {
+    "point_set15": {
+      "native_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\runner-receipt.json",
+        "bytes": 40543,
+        "sha256": "0c280e1a8e2897ea34293b0bf003860d5564a2ce38e9c0bf17c259c6569bb1b7"
+      },
+      "native_stdout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\stdout.log",
+        "bytes": 7161,
+        "sha256": "c64125b998496712c1cce945679a0a736b2dce0351123e9b5aef751692d1d148"
+      },
+      "datasets": {
+        "history": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_his.nc",
+          "bytes": 63892,
+          "sha256": "50e781319a45e11c06cd5aabe5a34a2427073d080a003a183e164bd87585174f"
+        },
+        "map": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_map.nc",
+          "bytes": 576260,
+          "sha256": "1df4e4fd3f3c0062c47e6ad3b69f9b169f104f6133c2a99c38b0bdcba521f04e"
+        },
+        "restart_initial": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_20010101_000000_rst.nc",
+          "bytes": 17112,
+          "sha256": "f6880a5d0c3f42b64e2f34e3239826f9c7dabe89b319a6a2831891c456f9ad89"
+        },
+        "restart_final": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15\\model\\output\\model_20010101_000200_rst.nc",
+          "bytes": 17112,
+          "sha256": "ab1d0f5cd74783f5c257b9312bd8ce750de2029a12cc942673afd56e01bf7131"
+        }
+      }
+    },
+    "pair_set15": {
+      "native_receipt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\runner-receipt.json",
+        "bytes": 40516,
+        "sha256": "954d269f2bed59aebf3a0519294236547056705de2b7376d6c11240d5a9ba1b2"
+      },
+      "native_stdout": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\stdout.log",
+        "bytes": 7161,
+        "sha256": "1dce77cd5d97a8930c502f20d1f01d10ba5dfa7a7eaaea8fba4436c4ed54ff5a"
+      },
+      "datasets": {
+        "history": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_his.nc",
+          "bytes": 63924,
+          "sha256": "510ce4a55006be338739ec36f5fdafa5d04d3c7523c801a0792be391d923ae86"
+        },
+        "map": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_map.nc",
+          "bytes": 576260,
+          "sha256": "d3ff536679572292b6fad9b0576ec66c422b171cf2c26d012b6b45de9096516e"
+        },
+        "restart_initial": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_20010101_000000_rst.nc",
+          "bytes": 17112,
+          "sha256": "fa6173ec4f1360244bc3266bbb9ec3affd1379f521e3070865e13b73940007ff"
+        },
+        "restart_final": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15\\model\\output\\model_20010101_000200_rst.nc",
+          "bytes": 17112,
+          "sha256": "bb98f79fd36454ba360fe5481d8e42c64784a7868262a0edf5f9b767eb0467bd"
+        }
+      }
+    }
+  },
+  "science_cases": {
+    "point_set15": {
+      "case_id": "point_set15",
+      "kind": "point",
+      "operation": "set15",
+      "location": "inline",
+      "source_id": "intake-A.1",
+      "coordinates": [
+        [
+          "500095",
+          "5700015"
+        ]
+      ],
+      "Q_m3_s": "0.1",
+      "concentration_ppt": "15",
+      "ext_constituent_key": "salinityDelta",
+      "files": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\fixed_sections.pli",
+          "bytes": 48,
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8"
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\mesh_net.nc",
+          "bytes": 6036,
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989"
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\model.mdu",
+          "bytes": 1231,
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6"
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\observations.xyn",
+          "bytes": 92,
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0"
+        },
+        "replacement.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\replacement.bc",
+          "bytes": 305,
+          "sha256": "22e195f23ac3e1279a5377c06b5c5188823ab844758472367548d6fcf7d2c577"
+        },
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\source.bc",
+          "bytes": 628,
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119"
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\sources.ext",
+          "bytes": 340,
+          "sha256": "70b10622db93dda126771be4d517ef2c51b631711c936499edfd7b5270a19f7d"
+        }
+      },
+      "reference_key": "point_15"
+    },
+    "pair_set15": {
+      "case_id": "pair_set15",
+      "kind": "pair",
+      "operation": "set15",
+      "location": "inline",
+      "source_id": "intake-A.1",
+      "coordinates": [
+        [
+          "500025",
+          "5700015"
+        ],
+        [
+          "500095",
+          "5700015"
+        ]
+      ],
+      "Q_m3_s": "0.1",
+      "concentration_ppt": "15",
+      "ext_constituent_key": "salinityDelta",
+      "files": {
+        "fixed_sections.pli": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\fixed_sections.pli",
+          "bytes": 48,
+          "sha256": "d5386cec30a4e9a3f629e16ea2b5eb5b2100ef4eea330e2a65ddb6fd665949b8"
+        },
+        "mesh_net.nc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\mesh_net.nc",
+          "bytes": 6036,
+          "sha256": "900e3cb5a821f1e5ef7c9760e4850ee7382cdfbccf89eb0cb3116a1aa5d1e989"
+        },
+        "model.mdu": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\model.mdu",
+          "bytes": 1231,
+          "sha256": "8bbae4118ac529f37ad997724e5e6f88f7c80286083c02044fcdcf57aabd37c6"
+        },
+        "observations.xyn": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\observations.xyn",
+          "bytes": 92,
+          "sha256": "e2083d436f1f083b78a43f9c9447f82acea7f6ae042d3049755edb80d158b1b0"
+        },
+        "replacement.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\replacement.bc",
+          "bytes": 305,
+          "sha256": "22e195f23ac3e1279a5377c06b5c5188823ab844758472367548d6fcf7d2c577"
+        },
+        "source.bc": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\source.bc",
+          "bytes": 628,
+          "sha256": "67717a488e977e9ebbf5d68ced93da0509d10f116437b116f7189298b5958119"
+        },
+        "sources.ext": {
+          "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\sources.ext",
+          "bytes": 355,
+          "sha256": "ea0354669c4dce487d9acec4d0724a287ca01c8be4e5fb7b6e664edba2a591bb"
+        }
+      },
+      "reference_key": "pair_15"
+    }
+  },
+  "input_metadata": {
+    "vertical_datum": "synthetic local zero; no geodetic vertical datum realization",
+    "stations": [
+      {
+        "id": "donor_cell",
+        "xy_m": [
+          500025.0,
+          5700015.0
+        ],
+        "input_face_zero_based": 14
+      },
+      {
+        "id": "receiving_cell",
+        "xy_m": [
+          500095.0,
+          5700015.0
+        ],
+        "input_face_zero_based": 21
+      },
+      {
+        "id": "remote_cell",
+        "xy_m": [
+          500065.0,
+          5700035.0
+        ],
+        "input_face_zero_based": 42
+      }
+    ]
+  }
+}

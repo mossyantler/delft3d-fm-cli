@@ -1,0 +1,57 @@
+{
+  "state": "PORTABLE_READY_NATIVE_BLOCKED_SHORT_CLOSE",
+  "artifact_files": {
+    "review_combined.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\review_combined.py",
+      "sha256": "2d91136845fcb89e3ca1b3324999336ad72f22bb8fe9e48839366e6ef1d036c7",
+      "bytes": 6758
+    },
+    "run_source_regressions.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\run_source_regressions.py",
+      "sha256": "b638e1f8a4a83e23ac792ec8a07c48953ddc050a3b8f588b30db27a9c56ea2fe",
+      "bytes": 4203
+    },
+    "audit_route.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\audit_route.py",
+      "sha256": "b1890b21e7fee2ce9878e785d764c674311160fbbdd0cc50e6228cf6eac73253",
+      "bytes": 13606
+    },
+    "freeze_review.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\freeze_review.py",
+      "sha256": "c596b761d52ef338ed60ba9f4225f01b6ad33b844f59e636e9e0e2fb7f888f55",
+      "bytes": 4983
+    },
+    "payload-discovery-01\\verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\payload-discovery-01\\verification.json",
+      "sha256": "e855ee4c399ce5ac313480e97535acf4d57d8eb5e9efca1fb0cc088e1d862f96",
+      "bytes": 57707
+    },
+    "installed-file-tests-01\\verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\installed-file-tests-01\\verification.json",
+      "sha256": "2d2f9961f1991b8f553f15f0532d13fd4243adcc7eb08e3ae5f3e783c076481e",
+      "bytes": 386
+    },
+    "installed-source-regressions-05\\verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\installed-source-regressions-05\\verification.json",
+      "sha256": "e2a8b467f13e1cff1ba32f5c2e646deb2deac94c2103c4b74e789b20a816d73e",
+      "bytes": 11908
+    },
+    "readback-tests-01\\verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\readback-tests-01\\verification.json",
+      "sha256": "297f48e693c3579003bd7121df6f11e3facd7a644dabc4a7644b16bba3140a47",
+      "bytes": 291
+    },
+    "route-audit-02\\verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\route-audit-02\\verification.json",
+      "sha256": "254844b9fbbba8f34b2c0657ac4122e52392ab57ff3ff66ed99bd6c7d8385db6",
+      "bytes": 24404
+    },
+    "final-01\\verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\final-01\\verification.json",
+      "sha256": "0b4289d71701207e61c560895830046cd2ea22d9f8ec7e16a590713daf6ef1a0",
+      "bytes": 6775
+    }
+  },
+  "native_started": false,
+  "no_product_change_authorized": true
+}

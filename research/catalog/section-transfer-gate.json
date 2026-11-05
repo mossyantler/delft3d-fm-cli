@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "state": "private_installed_file_operations_passed_native_and_root_merge_pending",
+  "root_merged": false,
+  "native_validated": false,
+  "GUI_validated": false,
+  "candidate": "G18-TRANSFER-I-20261105-rev02",
+  "wheel_sha256": "63e4b869d5afd9305f9239236dacaa5604aee883cbb0e873971bc319837b0a7e",
+  "product_files": 196,
+  "unchanged_base_files": 189,
+  "existing_commands_preserved": 98,
+  "new_candidate_commands": [
+    "section export",
+    "section import"
+  ],
+  "evidence": {
+    "research/experiments/G18-TRANSFER-V-20261105-01/final-01/verification.json": {
+      "path": "research/experiments/G18-TRANSFER-V-20261105-01/final-01/verification.json",
+      "sha256": "b75d27aa091cac18b0a3f2b8094b1397a485a8c5a4594362a71084607cf58d0f"
+    },
+    "research/experiments/G18-TRANSFER-V-20261105-01/release-snapshot-01/verification.json": {
+      "path": "research/experiments/G18-TRANSFER-V-20261105-01/release-snapshot-01/verification.json",
+      "sha256": "8613744efe58b16aa374a63e777086db7effae0020948fb96b68698fba3f903a"
+    },
+    "research/experiments/G18-TRANSFER-G-installed-01/verification.json": {
+      "path": "research/experiments/G18-TRANSFER-G-installed-01/verification.json",
+      "sha256": "4510c016875356ad5ce46069da9e00d6a20f1783adbd08bd9b975a423768da4e"
+    }
+  },
+  "remaining": [
+    "corrected commonSHORT-CLOSE runtime",
+    "native directfile/result comparisons",
+    "coordinatorroot/doc/tests integration"
+  ],
+  "prospective_native_plan": {
+    "state": "independent_inputs_numeric_reader_and_coordinator_replay_passed",
+    "freeze_sha256": "fc3f3ba77a986a47db0999160c0e5de63bbf984ff192bcccfabea69179974bd7",
+    "coordinator_review": "research/experiments/G18-NATIVE-PLAN-G-final-01/verification.json",
+    "native_cases_completed": 0
+  },
+  "note": "Installed private candidate only; current root remains191/98."
+}

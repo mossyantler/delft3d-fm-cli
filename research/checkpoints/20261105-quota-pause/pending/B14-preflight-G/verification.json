@@ -1,0 +1,64 @@
+{
+  "state": "frozen_rev06_file_preflight_passed_full_V_and_G_admission_pending",
+  "freeze_sha256": "2641efa950a126bafefa11d7f44d50fa9c57a0cf35fb269d0cb03c08e6fb57fb",
+  "plan_sha256": "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f",
+  "freeze_record_occurrences_verified": 52,
+  "candidate_and_prepared_files_unchanged": 113,
+  "exact_reviewed_natural_functions": [
+    "_token",
+    "_binding",
+    "_accounting",
+    "notifications_complete",
+    "natural_exit",
+    "_close_assessment"
+  ],
+  "commands": {
+    "validate": {
+      "argv": [
+        "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+        "validate",
+        "--prepared",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev06-39dee5b4-01",
+        "--expect-plan-sha256",
+        "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f"
+      ],
+      "exit_code": 0,
+      "result": {
+        "state": "file_only_validated",
+        "case_count": 10,
+        "bmi_cases": 4,
+        "public_direct_admission": {
+          "state": "blocked_SHORT_CLOSE",
+          "corrected_composition_receipt": null,
+          "reason": "Combined194 is authoring evidence only. Actual public short terminal correction + fresh I/V composition required. No raw engine substitute."
+        },
+        "consumer_freeze": "0b7c26e8a5d04343e7ef305f8568bd3e836f1bb0e054a77ff819260b64096ee1",
+        "native_started": false
+      }
+    },
+    "public-direct-admission": {
+      "argv": [
+        "C:\\Users\\minyeop\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+        "public-direct-admission",
+        "--prepared",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev06-39dee5b4-01",
+        "--expect-plan-sha256",
+        "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f"
+      ],
+      "exit_code": 3,
+      "result": {
+        "state": "refused",
+        "type": "ValueError",
+        "message": "Public direct routes blocked: corrected SHORT-CLOSE composition and fresh I/V runtime pins required; authoring3a43 is insufficient"
+      }
+    }
+  },
+  "native_launches": 0,
+  "scope": "Read-only source/prepared input checks; no native lifecycle, BMI data or scientific acceptance. Four BMI diagnostics require separate full review; six public direct routes stay blocked."
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "audit_kind": "gui_console_workflow_inventory_consistency",
-  "checked_at_utc": "2026-11-04T23:31:06.207757+00:00",
+  "checked_at_utc": "2026-11-05T00:04:54.961352+00:00",
   "status": "passed",
   "scope": "Table structure, pinned source locations, local links and registered command names. This does not re-run GUI, console, solver or numerical comparisons.",
   "inventory": {

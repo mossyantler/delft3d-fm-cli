@@ -1,0 +1,165 @@
+{
+  "state": "full_scope_inventory_no_G15_branch_approved",
+  "rows": [
+    {
+      "family": "pump",
+      "format_or_branch": "PLI/PLIZ",
+      "direction_or_role": "import/export",
+      "basis": "manual107",
+      "obligation": "Geometry menu documented; hydraulic column/roundtrip mapping unmeasured",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "pump",
+      "format_or_branch": "Shapefile",
+      "direction_or_role": "import/export",
+      "basis": "manual107",
+      "obligation": "Sidecars/field map/CRS unsupported unless separately implemented",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "pump",
+      "format_or_branch": "modern StructureFile INI",
+      "direction_or_role": "engine input",
+      "basis": "Readstructures.readPump",
+      "obligation": "Source route exists; GUI standalone INI menu not established by107",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "pump",
+      "format_or_branch": "staged/reduction/REALTIME/BC",
+      "direction_or_role": "control variants",
+      "basis": "Readstructures934..1107",
+      "obligation": "Separate visible control branches, no scalar-only generalization",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "weir",
+      "format_or_branch": "PLI",
+      "direction_or_role": "import/export",
+      "basis": "manual108..109",
+      "obligation": "Geometry cannot establish crest/width/coefficient/control preservation",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "weir",
+      "format_or_branch": "structure data file",
+      "direction_or_role": "import/export",
+      "basis": "manual108..109",
+      "obligation": "Exact format/version and linked files require mapping; candidate scope not preselected",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "weir",
+      "format_or_branch": "Shapefile",
+      "direction_or_role": "export documented",
+      "basis": "manual109",
+      "obligation": "Do not invent documented import or field semantics",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "weir",
+      "format_or_branch": "TIM/BC/CSV",
+      "direction_or_role": "dynamic references/adjacent G16",
+      "basis": "source+manual108",
+      "obligation": "TIM/BC closure belongs to hydraulic claim; CSV editor G16 acceptance not inherited",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "gate/sluice",
+      "format_or_branch": "PLI",
+      "direction_or_role": "import/export",
+      "basis": "manual109",
+      "obligation": "Geometry vs opening/crest controls separate",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "gate/sluice",
+      "format_or_branch": "structure data file",
+      "direction_or_role": "import/export",
+      "basis": "manual109",
+      "obligation": "Multiple controls and horizontal/vertical opening retained or unsupported",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "gate/sluice",
+      "format_or_branch": "Shapefile",
+      "direction_or_role": "not established by requested pages",
+      "basis": "manual109",
+      "obligation": "Visible unverified branch, no implicit capability",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "bridge pillars",
+      "format_or_branch": "PLIZ",
+      "direction_or_role": "import/export",
+      "basis": "manual110",
+      "obligation": "X/Y/diameter/Cd; auxiliary diameter marker, not elevation",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "bridge pillars",
+      "format_or_branch": "Shapefile",
+      "direction_or_role": "import/export",
+      "basis": "manual110",
+      "obligation": "Explicit unsupported sidecar/schema branch",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "bridge pillars",
+      "format_or_branch": "1D/2D vs3D",
+      "direction_or_role": "manual dimensional scope",
+      "basis": "manual110",
+      "obligation": "Manual says1D/2D only; no3D pillar claim",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "all structures",
+      "format_or_branch": "branchId/chainage1D",
+      "direction_or_role": "network topology",
+      "basis": "Readstructures231..255",
+      "obligation": "Separate unknown/unimplemented branch; no XY inference",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "all structures",
+      "format_or_branch": "inline XY vs locationFile/polylineFile",
+      "direction_or_role": "geometry alternatives",
+      "basis": "Readstructures244..274",
+      "obligation": "Priority/alias/version semantics not flattened",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "all structures",
+      "format_or_branch": "legacy version1 / modern2/3.01",
+      "direction_or_role": "format routes",
+      "basis": "Readstructures83..180",
+      "obligation": "No silent conversion/default normalization; type-specific constraints",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "compound",
+      "format_or_branch": "logical ID references",
+      "direction_or_role": "StructureFile",
+      "basis": "Readstructures332..383",
+      "obligation": "Member order/count/namespace/cycle/shared consumers remain visible",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "other native types",
+      "format_or_branch": "universalWeir/culvert/orifice/generalStructure/dambreak/longCulvert/bridge",
+      "direction_or_role": "engine source",
+      "basis": "Readstructures278..315",
+      "obligation": "Outside initial GUI menu scope yet visible unsupported routes; bridge != pillar",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    },
+    {
+      "family": "fixed weirs",
+      "format_or_branch": "FixedWeirFile PLIZ",
+      "direction_or_role": "different role",
+      "basis": "unstruc_model",
+      "obligation": "Fixed bathymetric/weir role is not adjustable weir StructureFile",
+      "G15_status": "unimplemented_or_unverified_before_I_contract"
+    }
+  ]
+}

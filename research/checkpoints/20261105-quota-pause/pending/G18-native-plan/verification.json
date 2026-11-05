@@ -1,0 +1,24 @@
+{
+  "state": "prospective_G18_inputs_and_numeric_reader_frozen_native_unrun",
+  "plan_sha256": "bbcd59cbab5bdea4c2d78f5df12ff3545bd6b3b9f4f4cd1f47fd3ad3385c376d",
+  "predeclared_sha256": "b89105f92b2b017c7cbc6ff138295cc8de60174fc5f81f0398c8acaf2df7dd4b",
+  "reader_sha256": "6150efd9333008c276edaafb1fee8ce05304bae1e1bd2589fff61d14d1232cb4",
+  "selfcheck_sha256": "035be228f9c094304ed0a815ba69935da4c141d0c47df9f8e11a642441569301",
+  "numeric_receipt_sha256": "c7372201d130af3d620c3720ee86dcc8a8dc4bd07e0b5201b200c79c622259ab",
+  "checks_passed": 28,
+  "G_input_receipt": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-G-inputs-01\\verification.json",
+    "sha256": "b37108e6f46741254f59e2e3ef96f90806c5e1400c676acec4a587a3ce9224a4"
+  },
+  "case_count": 6,
+  "input_file_pins": 60,
+  "exact_pairs": 3,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "root_writes": 0,
+  "outstanding": [
+    "Corrected common short runtime source/clean wheel acceptance and public invocation provenance",
+    "New explicit coordinator native lease",
+    "All six actual native results and independent raw comparisons; zero routes/cases inherited fromG12/XYN/227"
+  ]
+}

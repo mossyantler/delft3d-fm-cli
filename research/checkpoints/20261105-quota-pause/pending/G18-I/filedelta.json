@@ -1,0 +1,16 @@
+{
+  "base_files": 191,
+  "candidate_files": 196,
+  "unchanged_base": 189,
+  "modified": [
+    "cli.py",
+    "section_orientation.py"
+  ],
+  "added": [
+    "section_transfer.py",
+    "section_transfer_contract.py",
+    "section_transfer_graph.py",
+    "section_transfer_text.py",
+    "section_transfer_write.py"
+  ]
+}

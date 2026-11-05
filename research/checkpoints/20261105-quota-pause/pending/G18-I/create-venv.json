@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\.venv\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "venv",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv"
+  ],
+  "cwd": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02",
+  "returncode": 0
+}

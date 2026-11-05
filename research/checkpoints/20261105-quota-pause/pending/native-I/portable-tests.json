@@ -1,0 +1,10 @@
+{
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "native_launches": 0,
+  "FFI_calls": 0,
+  "root_writes": false,
+  "not_independent_V_approval": true
+}

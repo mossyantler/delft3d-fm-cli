@@ -1,0 +1,8 @@
+{
+  "basis": "Independent V helper copied read-only from own accepted G18 evidence; only fixture ownership prefix changed, no product parser/security helper reused",
+  "source_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\win_file_acl.py",
+  "source_sha256": "2eb39933c88370c9fa7ab797e53e4cc0ff9f7cb00c9f953750d7441faf5c2e46",
+  "new_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\win_file_acl.py",
+  "new_sha256": "e2e113e10ac6c813b870af9da050838fb0ec9c59f434f33dc2318f8eac8e5b1f",
+  "root_or_product_writes": false
+}

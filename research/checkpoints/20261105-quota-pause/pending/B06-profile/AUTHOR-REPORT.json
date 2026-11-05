@@ -1,0 +1,100 @@
+{
+  "state": "immutable-private-profile-held-for-reviewed-generic-notification-amendment-and-independent-gates",
+  "profile": "source-sink",
+  "routes": [
+    "direct",
+    "dimr"
+  ],
+  "new_modules": [
+    {
+      "name": "source_sink_run_inputs.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\source_sink_run_inputs.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\source_sink_run_inputs.py",
+      "bytes": 14953,
+      "sha256": "1e971fa152a4d171b1197a5d9fa8c36494e44e55dd5ad441293cd6adc895bafd"
+    },
+    {
+      "name": "source_sink_run_profile.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\source_sink_run_profile.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\source_sink_run_profile.py",
+      "bytes": 13649,
+      "sha256": "4a6dfa379abc4b5da7fc0f0f2848c9c728c506d77d8632c4c879e1da74c29610"
+    }
+  ],
+  "shared_modules": [
+    {
+      "name": "cli.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\cli.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\cli.py",
+      "bytes": 26139,
+      "sha256": "85cb2c65044a696b2a30f4aaf586faba576d23df1463d883881e8d225e965884"
+    },
+    {
+      "name": "run_pump_lifecycle.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\run_pump_lifecycle.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\run_pump_lifecycle.py",
+      "bytes": 19246,
+      "sha256": "7a3e45c42547453577a8cb86e1984041fa160ac60dea7e938200e415df78fc5a"
+    },
+    {
+      "name": "runs.py",
+      "overlay_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\overlay\\src\\dfm_cli\\runs.py",
+      "installed_path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Lib\\site-packages\\dfm_cli\\runs.py",
+      "bytes": 25323,
+      "sha256": "1501ba994c9f1985228f108cc6d50046a2bb54c14bd96def92cee31b17fb3f59"
+    }
+  ],
+  "patches": [
+    {
+      "patch": "shared-integration.patch",
+      "sha256": "c89032450238ee59f1dd770e155a6f3ab39cb4b5fd1cb1e5c851bff602630a1e",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "patch": "new-modules.patch",
+      "sha256": "ffa2211f8d04f45d566fb4abfdde8fe0ab3b592a5d05bdb3be354990fbb85f8e",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "installed_dfm": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Scripts\\dfm.exe",
+  "installed_python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-01\\venv\\Scripts\\python.exe",
+  "base_wheel_sha256": "eedd753e1a5a8a6bdf7d798f7c551b1d467318ea162cc3cc3f84edfc73d8ea9d",
+  "installed_payloads": 193,
+  "installation_scope": "Existing application venv via explicit trailing .pth; not a fresh dependency installation. Product package origins checked private, no editable-root product imports.",
+  "portable_tests": {
+    "passed": 171,
+    "new_source": 33,
+    "existing": 138,
+    "skips": 0,
+    "receipt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\installed-checks-01\\verification.json"
+  },
+  "retained225": {
+    "static_case_route_admissions": 12,
+    "unchanged_input_files": 40,
+    "pure_process_join_checks": 6,
+    "receipt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\retained225-admission.json"
+  },
+  "closure": "Existing guarded lifecycle persists raw original Job.close() receipt in ownership.job_close and assessed source_sink_lifecycle before terminal state. Incomplete exit/close proof refuses completed.",
+  "shared_dependency": "Current191 runs.py bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b. S07/SHORT-CLOSE proposal not included. Coordinator must compose semantic hunks and rerun both gates.",
+  "notification_amendment": "Coordinator requests ONE reusable generic normal-notification predicate owned by SHORT-CLOSE-I with Plato V. Current five module bytes remain held unchanged; source-only helper must be replaced/delegated only in a separately reviewed amendment. This freeze does not accept the remaining pump/weir shared predicate gap.",
+  "native_proposal": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-RUN-PROFILE-I-20261105-01\\native-proposal.json",
+  "native_status": "No lease, no launches. Four point/pair C15 x direct/DIMR proposed, no inherited scientific equivalence.",
+  "historical_failures": [
+    "checks-01: three author test-fixture/oracle failures (CRLF, incomplete checkpoint metadata, dictionary aliasing); retained untouched.",
+    "checks-03: two research-module import failures in private test bootstrap; fixed invocation in checks-04."
+  ],
+  "root191_unchanged": true,
+  "root_writes": 0,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "limitations": [
+    "No release wheel built; private overlay installation, optional dependencies reused as disclosed.",
+    "Input/staging qualification and CF completion are not a 170-variable scientific comparator.",
+    "Static time-varying/reordered-column admission has no inherited native qualification.",
+    "Only measured geometry and explicit closed MDU settings; general model/PLI/coupling/3D admission refused."
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "state": "UNADMITTED_PLANNING_INPUT_UNTIL_G_AND_LEASE",
+  "source_freeze_sha256": "2254e8835cd8a70beabea1af2860db751b28dbea2fb60f06ccd773d4b6d198e1",
+  "wheel": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\dist\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "f7eb645f48bf51cb6176970a749f09bc040472be5969b469892ac8b848a9586b",
+    "bytes": 807421
+  },
+  "runtime_python": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\python.exe",
+  "runtime_dfm": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\dfm.exe",
+  "launcher": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\dfm.exe",
+    "sha256": "a1eb0d84386b88fa7ae9a2d64bb53490a10241a551b7d335d0c4115f8ce06cbf",
+    "bytes": 108484,
+    "embedded_entry_sha256": "2bc51d327b1ed66955c791428517dc761b8c3ad63b1681afe5630a14fec2af0d",
+    "python_sha256": "0b471133e110cfb53a061cad528ce8e517d7b9ac41a0a396c39ad795a487fc14"
+  },
+  "payload_pin_file": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\installed-product-pins.json",
+  "payload_pin_sha256": "99b4df1d10e5d407a6532371597a349db437e54b20c8b25979f3e1b64eea5445",
+  "origin_receipt_sha256": "f764bdc9040e1861492c7e13174bad63e82dbe19a81897627c45409a77000e37",
+  "dependency_wheel_lock_sha256": "fa8a93714d3146d6f4f1e454c02effae1fd7c1a6830f89d52d8602ec5f776283",
+  "required_before_any_launch": [
+    "Independent package V and G package admission",
+    "Rehash exact191installed bytes, launcher/interpreter, selected executable+libraries and original/staged model graph",
+    "Explicit coordinator native lease/plan/case/route binding; idle slot is not permission",
+    "Actual manifest3 ownership.normal_exit/job_close/short_lifecycle, no research/public receipt relabeling"
+  ],
+  "derived_cleanup_path": "ownership.<family>_lifecycle.exit_evidence.native_cleanup_evidence",
+  "raw_fields_not_rewritten": true,
+  "no_B06_or_other_new_profile": true,
+  "native_authorization": false,
+  "lease": null,
+  "native_launches": 0
+}

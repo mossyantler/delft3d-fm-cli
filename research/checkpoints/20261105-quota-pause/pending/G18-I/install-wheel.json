@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\venv\\Scripts\\python.exe",
+    "-I",
+    "-m",
+    "pip",
+    "install",
+    "--no-deps",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02\\wheel\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl"
+  ],
+  "cwd": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-I-20261105-rev02",
+  "returncode": 0
+}

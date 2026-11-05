@@ -1,0 +1,132 @@
+{
+  "state": "PORTABLE_READY_NATIVE_BLOCKED_SHORT_CLOSE",
+  "combined_payload_files": 194,
+  "preserved_current_root_files": 191,
+  "actual_public_commands": 100,
+  "preserved_B06_commands": [
+    "source inspect",
+    "source add",
+    "source set",
+    "source forcing-create"
+  ],
+  "candidate_wheel": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\wheels\\delft3d_fm_cli-0.4.0.dev1-py3-none-any.whl",
+    "sha256": "87d02495ad992eacc0edbbecd1ba16668c564dd86da51e8d6921e76e08bdd204",
+    "bytes": 810740
+  },
+  "candidate_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-COMBINED-PACK-I-20261105-01\\freeze.json",
+    "sha256": "d6cb98803c6c6582547c7d2db99232ea91fbdf19428e220023745790e5a2121b",
+    "bytes": 79051
+  },
+  "independent_evidence": {
+    "payload-discovery-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\payload-discovery-01\\verification.json",
+      "sha256": "e855ee4c399ce5ac313480e97535acf4d57d8eb5e9efca1fb0cc088e1d862f96",
+      "bytes": 57707,
+      "state": "passed_independent_combined194_bytes_and_discovery"
+    },
+    "installed-file-tests-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\installed-file-tests-01\\verification.json",
+      "sha256": "2d2f9961f1991b8f553f15f0532d13fd4243adcc7eb08e3ae5f3e783c076481e",
+      "bytes": 386,
+      "state": "passed"
+    },
+    "installed-source-regressions-05": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\installed-source-regressions-05\\verification.json",
+      "sha256": "e2a8b467f13e1cff1ba32f5c2e646deb2deac94c2103c4b74e789b20a816d73e",
+      "bytes": 11908,
+      "state": "passed"
+    },
+    "readback-tests-01": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\readback-tests-01\\verification.json",
+      "sha256": "297f48e693c3579003bd7121df6f11e3facd7a644dabc4a7644b16bba3140a47",
+      "bytes": 291,
+      "state": "passed"
+    },
+    "route-audit-02": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\route-audit-02\\verification.json",
+      "sha256": "254844b9fbbba8f34b2c0657ac4122e52392ab57ff3ff66ed99bd6c7d8385db6",
+      "bytes": 24404,
+      "state": "passed_independent_preflight_NATIVE_HOLD_SHORT_CLOSE_DESIGN_REQUIRED"
+    }
+  },
+  "checks": {
+    "installed_editor_tests": 8,
+    "actual_editor_calls": 26,
+    "installed_B06_tests": 30,
+    "raw_readback_tests": 4,
+    "independent_staged_cases": 7,
+    "independent_bound_inputs": 56,
+    "file_only_missing_boolean_close_refusals": 14,
+    "historical_only_lifecycle_adversaries": 26
+  },
+  "historical_failed_attempts_preserved": {
+    "installed-source-regressions-01": "Harness blanket WinDLL guard rejected legitimate file ACL APIs; 16 failures/1 error retained.",
+    "installed-source-regressions-02": "Harness omitted GetSecurityDescriptorSacl from file API allowlist; 16 failures/1 error retained.",
+    "installed-source-regressions-03": "Harness omitted reviewed boundary_support_write.parent_guard caller; 1 failure/11 errors retained.",
+    "installed-source-regressions-04": "Harness omitted SetFileSecurityW required for exact DACL restoration; 6 errors retained.",
+    "route-audit-01": "Harness used absent executable key; corrected to hash actual stage argv[0]."
+  },
+  "native_prohibition": {
+    "no_lease": true,
+    "engine_launches": 0,
+    "new_Job_objects": 0,
+    "root_product_writes": 0,
+    "launch_guard_weakened": false,
+    "file_API_scope": [
+      "advapi32.ConvertSecurityDescriptorToStringSecurityDescriptorW",
+      "advapi32.GetFileSecurityW",
+      "advapi32.GetSecurityDescriptorControl",
+      "advapi32.GetSecurityDescriptorDacl",
+      "advapi32.GetSecurityDescriptorSacl",
+      "advapi32.SetFileSecurityW",
+      "advapi32.SetSecurityDescriptorControl",
+      "kernel32.CloseHandle",
+      "kernel32.CreateFileW",
+      "kernel32.GetVolumeInformationByHandleW",
+      "kernel32.LocalFree",
+      "kernel32.ReplaceFileW"
+    ],
+    "allowed_child_scope": "One fixed Python -m dfm_cli source inspect read-only probe; no native run command"
+  },
+  "science": {
+    "oracle": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\oracle.py",
+      "sha256": "e793954596073a22b1608e8894fb212f925a1a59023273bd86eeb7511a49f2b4",
+      "bytes": 9268
+    },
+    "reader": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\verify_future.py",
+      "sha256": "1f13817438bae58bac09e0d52a64ea19acd6e66bc48739714818f448b12efaac",
+      "bytes": 8995
+    },
+    "predeclared": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\prepared-01\\predeclared.json",
+      "sha256": "189977e521ab0aa2e4d33b230350a42242b79de57572e11a2c992721d429f1bf",
+      "bytes": 11062
+    },
+    "original_freeze": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\final-01\\freeze.json",
+      "sha256": "704cc9faaa0aad580680efee62dfbb539022594be948ab42836502d1013b3036",
+      "bytes": 6125
+    },
+    "predictions_tolerances_and_time_zero_unchanged": true,
+    "actual_installed_stress_observed": false,
+    "future_reader_command": "python-with-netCDF4-numpy -I -B C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\verify_future.py --runs ACTUAL_RUNS_JSON --out FRESH_S07_V_DIRECTORY"
+  },
+  "native_hold": {
+    "current_runs_sha256": "bacd65e607cfc7dcf5e24a40e0040db62e7a9cb992914843aa846e7e0f55f54b",
+    "bug": "Short publishes completed inside try before original Job close in finally; raw close discarded; terminal save errors re-enter fail/terminate.",
+    "persistence_only_patch": "Rejected/superseded. Frozen proposal is historical only and not adopted.",
+    "required": [
+      "Confirm actual original Job and collector closure before completed publication",
+      "Preserve actual raw failed/unknown close result",
+      "Terminal publication exceptions must not re-enter terminate or overwrite a committed terminal result",
+      "SHORT-CLOSE-I fault tests and independent Plato review",
+      "Fresh rebuilt combined package and exact-source review",
+      "Concrete fresh native argv/output binding and explicit coordinator lease"
+    ]
+  },
+  "ready_scope": "Combined bytes/discovery/editor/B06 regression and independent raw reader/input preflight only; no native acceptance or slot."
+}

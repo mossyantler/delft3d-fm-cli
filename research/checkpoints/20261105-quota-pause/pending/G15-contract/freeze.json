@@ -1,0 +1,110 @@
+{
+  "status": "FROZEN_REVISION02_PROPOSAL_NOT_APPROVED",
+  "parent01_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\freeze.json",
+    "sha256": "e44e643b4745de7b795fbc19f4a38bb7b0c33c978d56ca9310545e2395fe926c",
+    "bytes": 20862
+  },
+  "files": {
+    "ADDENDUM.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\ADDENDUM.md",
+      "sha256": "5c254b1a2d56aa6aec416f51a965ff1d81ae79b7c90f1979cc4750b6fc18a793",
+      "bytes": 4001
+    },
+    "changes.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\changes.json",
+      "sha256": "cd03091e84f8eddd6836dd54a834a98dc644b8188b2f1c65af194c0924322131",
+      "bytes": 1814
+    },
+    "contract.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\contract.json",
+      "sha256": "88016f2fa2c3e6ea368cfdd2cd8f6ae64e2b89c6d0308eec57bb41a3dea78585",
+      "bytes": 12171
+    },
+    "counterpath-source.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\counterpath-source.json",
+      "sha256": "29d2f4e600fa69189be63bd18311cb7f93e8b4dcd3151f476d0cd25a7027bb67",
+      "bytes": 3147
+    },
+    "coverage.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\coverage.json",
+      "sha256": "5f31ae85f23d18585b146231c093f1a5d34aeebcf691511d34716481c13df434",
+      "bytes": 6103
+    },
+    "finalize_revision.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\finalize_revision.py",
+      "sha256": "0a0491b312927505a6ec6dd0e495607b9ca9000ab0c16bfcaf495a8cb3dfe30f",
+      "bytes": 4765
+    },
+    "fixtures/child-spaces.ini": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\fixtures\\child-spaces.ini",
+      "sha256": "4c039f6861ebefd1a8c821fb9c457e4d0af9ec09148eb4fd4414b8e7f614e690",
+      "bytes": 151
+    },
+    "fixtures/geometry-case-alias.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\fixtures\\geometry-case-alias.json",
+      "sha256": "3e6cb7601b316fdd93094c93bf6ac4a5ae8d3ca8aa9c5a5bd2d670b890ed1a75",
+      "bytes": 213
+    },
+    "fixtures/geometry-forged-identity.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\fixtures\\geometry-forged-identity.json",
+      "sha256": "8382cd239c9259dab86e83380fb7d37da0c86d05163d4fb6a6806fcee496d953",
+      "bytes": 239
+    },
+    "fixtures/geometry-routing.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\fixtures\\geometry-routing.json",
+      "sha256": "ec0568c2bd981457f3604877bb3da0f4e94eb9f204943eeaffce657e5487f9c5",
+      "bytes": 154
+    },
+    "fixtures/location.pli": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\fixtures\\location.pli",
+      "sha256": "94f4c612742ea129a1f6794d8ea77c6bc335c2cca60297dc374ff918ea66bc00",
+      "bytes": 40
+    },
+    "fixtures/single-root-whitespace.mdu": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\fixtures\\single-root-whitespace.mdu",
+      "sha256": "ac100195ad9ff313ac4ff4f59296c98b60b59d051ce1ed71f0c3b5587cb01ff2",
+      "bytes": 75
+    },
+    "parent-binding.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\parent-binding.json",
+      "sha256": "a37f0bf94d2063595aac8083cf8de7b1320837e2fde1c9c604e3f57183acf171",
+      "bytes": 482
+    },
+    "PROPOSAL.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\PROPOSAL.md",
+      "sha256": "70c3028c2e792d9475f2415b2a4e3f43c32c1bbc5bdc0254a9561e541b92d322",
+      "bytes": 32865
+    },
+    "revise.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\revise.py",
+      "sha256": "c77ffcb16f85c7023fc2056fb68cdab108cca714a68885c92606dec036c19bb5",
+      "bytes": 15336
+    },
+    "source-anchors/Readstructures.f90.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\source-anchors\\Readstructures.f90.txt",
+      "sha256": "aeb5a0853a54b6fbfdb59d6e665db853c7591c40962448204f71189a8f33df62",
+      "bytes": 2201
+    },
+    "source-anchors/string_module.f90.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\source-anchors\\string_module.f90.txt",
+      "sha256": "14afd7cc00920d48485beb52e338ddbc69ddde5ab1abdc2d021b397c4924465f",
+      "bytes": 2765
+    },
+    "source-anchors/unstruc_model.f90.txt": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\source-anchors\\unstruc_model.f90.txt",
+      "sha256": "137962cb67d2b9e46205657c1567e7f8da5b29640d2e32e7752eff49906706a2",
+      "bytes": 1495
+    },
+    "verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\verification.json",
+      "sha256": "6dcd72e499f099c1ca72c7d430eada1eb835b35fad83e4ecfa21be6f6d2b27a6",
+      "bytes": 1042
+    }
+  },
+  "root_edits": false,
+  "implemented": false,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "final_approval": "V and G only"
+}

@@ -1,0 +1,207 @@
+{
+  "commands": [
+    "source inspect",
+    "source add",
+    "source set",
+    "source forcing-create"
+  ],
+  "parameters": {
+    "source inspect": [
+      {
+        "name": "mdu",
+        "options": [],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "id",
+        "options": [
+          "--id"
+        ],
+        "required": false,
+        "type": "str",
+        "help": "Exact EXT source ID",
+        "default": null
+      }
+    ],
+    "source add": [
+      {
+        "name": "mdu",
+        "options": [],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "spec",
+        "options": [
+          "--spec"
+        ],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "apply",
+        "options": [
+          "--apply"
+        ],
+        "required": false,
+        "type": "flag",
+        "help": null,
+        "default": false
+      },
+      {
+        "name": "expect_sha256",
+        "options": [
+          "--expect-sha256"
+        ],
+        "required": false,
+        "type": "str",
+        "help": null,
+        "default": null
+      }
+    ],
+    "source set": [
+      {
+        "name": "mdu",
+        "options": [],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "id",
+        "options": [
+          "--id"
+        ],
+        "required": true,
+        "type": "str",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "spec",
+        "options": [
+          "--spec"
+        ],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "apply",
+        "options": [
+          "--apply"
+        ],
+        "required": false,
+        "type": "flag",
+        "help": null,
+        "default": false
+      },
+      {
+        "name": "expect_sha256",
+        "options": [
+          "--expect-sha256"
+        ],
+        "required": false,
+        "type": "str",
+        "help": null,
+        "default": null
+      }
+    ],
+    "source forcing-create": [
+      {
+        "name": "spec",
+        "options": [
+          "--spec"
+        ],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "out",
+        "options": [
+          "--out"
+        ],
+        "required": true,
+        "type": "Path",
+        "help": null,
+        "default": null
+      },
+      {
+        "name": "apply",
+        "options": [
+          "--apply"
+        ],
+        "required": false,
+        "type": "flag",
+        "help": null,
+        "default": false
+      },
+      {
+        "name": "expect_sha256",
+        "options": [
+          "--expect-sha256"
+        ],
+        "required": false,
+        "type": "str",
+        "help": null,
+        "default": null
+      }
+    ]
+  },
+  "schema": {
+    "commands": [
+      "source inspect",
+      "source add",
+      "source set",
+      "source forcing-create"
+    ],
+    "profile": "2D UTC inline1or2XY, zero-momentum discharge+salinityDelta linearBC authoring; other source forms inspection-only",
+    "one_target": "add/set edits EXT only; forcing-create authors one fresh BC; separate consent each step",
+    "selection": "Exact source ID; BC Name matches source ID, not PLI label/support suffix",
+    "geometry": "Inspectinline/PLI; writeinline1or2XY only. PLI/z/momentum/other point counts are inspection-only. No coordinate conversion or successful native snap implied.",
+    "units": "Explicit discharge/constituent units; no density, chemical or vertical datum conversion",
+    "absolute_vs_delta": "Absolute keys remain inspection-only and are not authored. Never auto-aliased. Explicit remove_constituents + new salinityDelta is a reviewable correction, not a claim of physical equivalence.",
+    "PLI": "Preserved inventory and native REAPOL compatibility reported separately. #/semicolon header normalization never implied; unsupported serialization blocks authoring.",
+    "edit_eligibility": "WriteBC references to strict ordered linear discharge/salinityDelta timeseries withUTC coverage. EXT constants/realtime/constantBC/unknowns inspect only; candidate must pass complete profile before writing.",
+    "preview_hash": "Action, ID, request path+bytes, full supported graph byte hashes+identities, target, candidate EXT bytes, access controls",
+    "text_validation": "Decoded JSON keys/values and emitted identifier/name/unit/quantity/reference/scalar texts reject Unicode C* and Zl/Zp, unsafe INI delimiters and edge whitespace before staging. No normalization; printable international labels preserved.",
+    "graph": "Streamed mesh/ancillary content revalidated before atomic publication; no timestamps-only proof",
+    "native": "No engine or GUI execution, no hydraulic/salt response claim",
+    "source": {
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "coordinates": "fm_external_forcings_init.f90:965-1081",
+      "discharge_and_Delta": "fm_external_forcings_init.f90:1083-1215 (Delta suffix is actually read)",
+      "BC_binding": "fm_external_forcings.f90:1349-1460 (objid Name; sourcesink_<property> quantity)",
+      "manual": "D-Flow FM User Manual2026.02 sections7.4.10-11 PDF137-141; C5.1.4/C5.3 PDF450-453; C6.2.4 PDF460-461",
+      "contradiction": "Manual permits absolute property spelling; pinned init path only queries Delta. Installed behavior unproven.",
+      "PLI_reader": "reapol_nampli.f90:78-92 (only column1 star or blank before label); numeric rows:125-171",
+      "runtime_meaning": "Slot215 is separately owned native evidence; completion, unused-key warnings, reader rejection and measured transport remain separate. This command never launches or measures a solver."
+    },
+    "limits": {
+      "text_bytes": 8388608,
+      "tokens": 200000,
+      "lines": 50000,
+      "sources": 256,
+      "rows": 20000,
+      "columns": 32,
+      "coordinates": 256,
+      "excerpt_rows": 8,
+      "request_bytes": 1048576,
+      "files": 128
+    }
+  },
+  "unchanged": true,
+  "base_commands": 98,
+  "combined_commands": 100
+}

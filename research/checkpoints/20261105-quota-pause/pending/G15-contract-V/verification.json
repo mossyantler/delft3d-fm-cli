@@ -1,0 +1,129 @@
+{
+  "state": "ACCEPTED_SOURCE_FILE_CLI_PROPOSAL_REV02_ONLY",
+  "verdict": "No unresolved independent source/contract objection to bounded I1 proposal on exact rev02. Final coordinator decision separate. No product/native/GUI or fullG15 acceptance.",
+  "pins": {
+    "V_predeclared03": {
+      "freeze": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\predeclared-03\\freeze.json",
+        "sha256": "1795249b719c4ed63f4d617290262f7673ddceac7eeef675f36ee220989d0daa",
+        "bytes": 58832
+      },
+      "declared_files_checked": 167
+    },
+    "I_original01": {
+      "freeze": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-01\\freeze.json",
+        "sha256": "e44e643b4745de7b795fbc19f4a38bb7b0c33c978d56ca9310545e2395fe926c",
+        "bytes": 20862
+      },
+      "declared_files_checked": 67
+    },
+    "V_original_findings": {
+      "freeze": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\review-01\\freeze.json",
+        "sha256": "761d6c2624cac1c20f89fb78c82a83bfcf4083e76199b1db867f224f21431f5e",
+        "bytes": 2912
+      },
+      "declared_files_checked": 9
+    },
+    "I_revision02": {
+      "freeze": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\freeze.json",
+        "sha256": "4265b4fabad0679208a3cae5ebfe841e4b4f773297f72cc9380c8a26103de898",
+        "bytes": 5968
+      },
+      "declared_files_checked": 19
+    }
+  },
+  "independent_before_I_conclusions": true,
+  "V_obligations_reviewed": 23,
+  "V_adverse_tiny_fixtures": 43,
+  "V_scope_rows": 20,
+  "V_fixture_selfchecks_previously_passed": 10,
+  "I_original01_files_retained": 67,
+  "I_rev02_files_checked": 19,
+  "I_scope_rows_retained": 16,
+  "findings_resolved": [
+    "F01",
+    "F02"
+  ],
+  "unresolved_source_contract_findings": [],
+  "full_graph_asset_map_publication_G18_reader_reviews": "Detailed per-obligation review and scope-review retained, with actual future implementation gates explicitly pending.",
+  "protected_prior_checks": [
+    {
+      "pin": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\final-01\\freeze.json",
+        "sha256": "ca6293f8d1b5916444b7d5446d718fb6dc9c1ed2cb830d99a2b1169ff2024fda",
+        "bytes": 8702
+      },
+      "unchanged": true,
+      "referenced_files": 28
+    },
+    {
+      "pin": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-DOCS-V-20261105-01\\final-02\\freeze.json",
+        "sha256": "affaa74c4b6842045e6d28b24631a2fc1eaab54b16a7212feaee06de87142043",
+        "bytes": 3753
+      },
+      "unchanged": true,
+      "referenced_files": 12
+    },
+    {
+      "pin": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\final-01\\freeze.json",
+        "sha256": "f9b8970ef53f3c494f94318fe71068ac597bafee8bf4921500044d4d227aef73",
+        "bytes": 3104
+      },
+      "unchanged": true,
+      "referenced_files": 10
+    },
+    {
+      "pin": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\oracle.py",
+        "sha256": "e793954596073a22b1608e8894fb212f925a1a59023273bd86eeb7511a49f2b4",
+        "bytes": 9268
+      },
+      "unchanged": true
+    },
+    {
+      "pin": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\verify_future.py",
+        "sha256": "1f13817438bae58bac09e0d52a64ea19acd6e66bc48739714818f448b12efaac",
+        "bytes": 8995
+      },
+      "unchanged": true
+    }
+  ],
+  "remaining_gates": [
+    "No G15 transfer implementation, public JSON/schema, product parser, publication adapter or installed package has been accepted by this review.",
+    "Before I1 product acceptance: full typed actual MDU graph incl unselected references/compound/logical consumers/unknown grammars/output destinations; strict bundle and asset-map no-path/role/clock/hash authority shortcuts.",
+    "Before I1 product acceptance: actual no-op identity/mtime, request/all-source stale handling, same-byte new identities, aliases/reparse/hardlinks, ACL changes and final parent/output races.",
+    "Before I1 product acceptance: honest stage/replace/readback/rollback/cleanup facts and reviewed one-file API integration plus separate exclusive new-directory export adapter.",
+    "New assets, new MDU refs or multiple targets remain I7; no loop of atomic file replaces promoted to global atomicity.",
+    "TIM authored clock/native initialization and all hydraulic quantities remain source/file evidence until independently predeclared native readback under future exclusive lease.",
+    "Gates, staged/realtime pumps, pillars, pump PLIZ, SHP, 1D, mixed/3D topology, legacy/other types, compounds/multi-INIs and GUI standalone behavior remain explicit deferred/unsupported matrix rows."
+  ],
+  "no_product_parser_as_oracle": true,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "common_runtime_used": false,
+  "root_or_product_edits": false,
+  "retained_receipt_harness_failures": [
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-01\\failure.json",
+      "sha256": "850035f959a13415bf7cb866bb5adb16ddf5a8bc2d1ecf426a19444e34dce6ba",
+      "bytes": 429
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-02\\failure.json",
+      "sha256": "0564be9f45be808ebacc6f5187d7ad0ad3d19dad4adfd98c4c9cdfc6bc485315",
+      "bytes": 585
+    }
+  ],
+  "receipt_harness_correction": "S07 pinned freeze uses artifact_files with identical full hash/size checks; all16 coverage IDs retained and exact reviewed W2D/P2D/GROUP qualification additions checked, not falsely reported as byte-unchanged. No contract obligation weakened.",
+  "harness": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\finalize_review.py",
+    "sha256": "06332d82debfb9e3b79a1e40f0a02c9940f58e224397d7fa1c6dc0384fcb79a7",
+    "bytes": 14248
+  }
+}

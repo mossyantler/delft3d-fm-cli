@@ -1,0 +1,7 @@
+{
+  "state": "V_CHECKER_MODULE_NAME_ERROR_RETAINED",
+  "initial_probe": "V-clean-origins.stdout/stderr + installed_probe-initial.py",
+  "cause": "The candidate imports progress AS simulation_progress. V incorrectly treated the alias as a module name.",
+  "correction": "Probe actual dfm_cli.progress. Existing fresh V runtime/wheel remain unchanged; no product or package repair/rebuild.",
+  "continuation": "resume_runtime_audit.py rehashes full frozen packet, existing fresh V installation, dependency wheels and root; preserves initial output logs."
+}

@@ -1,5 +1,12 @@
 # Agent guide
 
+## User-requested checkpoint
+
+Work is paused at the user's request for quota protection (2026-11-05).
+Read [RESUME.md](RESUME.md) and its checkpoint before continuing. Pending code
+under `research/checkpoints/` is not accepted product code. Do not start further
+implementation, agents or native experiments until the user explicitly resumes.
+
 ## Purpose and current phase
 
 Build an AI-friendly Delft3D Flexible Mesh CLI for creating model input files,

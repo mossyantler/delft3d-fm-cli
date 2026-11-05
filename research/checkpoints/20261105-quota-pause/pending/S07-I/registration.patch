@@ -1,0 +1,26 @@
+--- a/src/dfm_cli/cli.py
++++ b/src/dfm_cli/cli.py
+@@ -11,13 +11,13 @@
+ from . import installation, model, runs
+ from . import bmi, coupling, fields, layers, mesh, morph, network, parallel, project, results, water_quality
+ from . import boundary_export, boundary_import, boundary_locations, boundary_series, boundary_series_rows, rr_f152, water_quality_offline_workflow
+-from . import boundary_preview, boundary_vertical, weir_series
++from . import boundary_preview, boundary_vertical, weir_series, wind_drag
+ from . import boundary_support, fm_model_identity, observation, observation_transfer, section_orientation, pump_public, pump_commands, pump_edit_contract
+ from . import boundary_coefficients, results_stations
+ 
+ from . import source_sink
+ 
+-COMMAND_MODULES = {"mesh": mesh, "network": network, "layers": layers, "morph": morph, "coupling": coupling, "bmi": bmi, "water-quality": water_quality, "waq-offline": water_quality_offline_workflow, "rr-f152": rr_f152, "parallel": parallel, "project": project, "results": results, "observation": observation, "section": section_orientation, "pump": pump_commands, "weir": weir_series}
++COMMAND_MODULES = {"mesh": mesh, "network": network, "layers": layers, "morph": morph, "coupling": coupling, "bmi": bmi, "water-quality": water_quality, "waq-offline": water_quality_offline_workflow, "rr-f152": rr_f152, "parallel": parallel, "project": project, "results": results, "observation": observation, "section": section_orientation, "pump": pump_commands, "weir": weir_series, "wind": wind_drag}
+ 
+ COMMAND_MODULES["source"] = source_sink
+ 
+@@ -140,6 +140,7 @@
+                 "pump_inspection": pump_public.contract(),
+                 "pump_edit": pump_edit_contract.contract(),
+                 "weir_series": weir_series.contract(),
++                "wind_drag": wind_drag.contract(),
+                 "pump_run_profile": {"name": "pump-scalar", "routes": ["direct"], "required_inputs": 6, "maximum_duration_seconds": 120,
+                                      "limits": list(runs.pump_run_profile.LIMITATIONS)},
+                 "fm_model_identity": fm_model_identity.contract(),

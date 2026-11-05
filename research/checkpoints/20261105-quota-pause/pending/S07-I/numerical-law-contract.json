@@ -1,0 +1,158 @@
+{
+  "contract": "smith-banke-two-breakpoints-numerical-source-supplement-v1",
+  "kind": "Explanatory contract supplement; product/schema behavior and frozen S07 module bytes unchanged",
+  "editor_contract": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-I-20261105-01\\contract-final.json",
+    "sha256": "bb777220f24707795136587b136397706ccdb02e29516a8d3b803339ff530e98",
+    "bytes": 2882
+  },
+  "source_evidence": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-PACK-I-20261105-01\\numerical-source-evidence.json",
+    "sha256": "9d5198e56d29d059e88e48e9913a7d94cc37020459a24fb9917dc6287fe16e0e",
+    "bytes": 31590
+  },
+  "editor_schema_exposure": "Installed schema wind_drag equals the acknowledged frozen I contract exactly; this supplement is a separate evidence artifact, not a new schema field",
+  "coefficient_law": {
+    "selector": "Existing explicit [wind] ICdtyp=2 (CD_TYPE_SMITHBANKE_2PT)",
+    "inputs": {
+      "c1,c2": "Declared Cdbreakpoints[1,2], dimensionless",
+      "b1,b2": "Declared Windspeedbreakpoints[1,2], m/s",
+      "U": "Nonnegative effective wind speed passed into setcdwcoefficient, m/s"
+    },
+    "source_reader": "b2_effective=max(b2,b1+0.1_dp); cdb(3)=c2; wdb(3)=b2_effective+0.1_dp",
+    "editor_admission": "Refuses if b2-b1 < 0.1 exactly or binary64 b2 <= b1 or b2 < b1+0.1; never edits or clamps speed implicitly",
+    "piecewise": [
+      {
+        "when": "U <= b1",
+        "Cd": "c1"
+      },
+      {
+        "when": "b1 < U <= b2_effective",
+        "Cd": "c1 + (U-b1)*(c2-c1)/(b2_effective-b1)"
+      },
+      {
+        "when": "U > b2_effective",
+        "Cd": "c2"
+      }
+    ],
+    "interpolation": "Linear between anchors, constant endpoint values outside; no factor of 1000, percent conversion, radians inference or additional drag-law evaluation",
+    "equal_coefficients": "c1=c2 yields that same dimensionless Cd for every nonnegative U in this branch",
+    "implementation_scope": "The editor changes declared numeric tokens only. It does not evaluate a wind time series, forecast stress, or certify native input validity."
+  },
+  "conditional_stress_law": {
+    "velocity_route": "jawindstressgiven=0; no provided-stress conversion. wxL=wx,wyL=wy when Relativewind=0",
+    "effective_wind": "If Relativewind>0 the source subtracts relativewind times the top-layer water velocity in Cartesian components before computing U=hypot(wxL,wyL)",
+    "no_modifier_equations": {
+      "U": "sqrt(wxL*wxL+wyL*wyL)",
+      "tau_x": "rho_air*Cd(U)*U*wxL",
+      "tau_y": "rho_air*Cd(U)*U*wyL",
+      "magnitude": "rho_air*Cd(U)*U*U"
+    },
+    "units": {
+      "wind": "m/s",
+      "rho_air": "kg/m3",
+      "Cd": "dimensionless",
+      "tau": "N/m2 = Pa"
+    },
+    "required_assumptions": [
+      "Fixed Rhoair=1.2 for the illustrative numbers; no spatial/computed air density overriding it",
+      "Relativewind=0; no positive relative-water-velocity correction",
+      "No ice drag modifier, no stress-input conversion, no coefficient/spatial override or different drag law",
+      "Cartesian frame and correctly bound magnitude/direction windxy uniMagDir with operand O and valid time coverage",
+      "Actual retained primitive wind and stress outputs must be checked at their actual recorded phase/time; no inference from process completion"
+    ],
+    "overrides": "setwindstress optionally applies ice modification and spatial/computed air density; editor inspection alone does not establish their absence",
+    "zero_wind": "Under these assumptions U=0 gives tau_x=tau_y=0 for both coefficient tables. Source allocation and forcing update reset primitive stress arrays; fresh controls must independently check every recorded frame, masks and phase."
+  },
+  "wind_provider_assumptions": {
+    "bound_provider": "[Meteo] quantity=windxy, forcingFileType=uniMagDir; candidate refuses alternative Meteo providers",
+    "columns": "Headerless time[minute], speed[m/s], nautical direction[degree]",
+    "clock": "ecUniInitializeTimeFrame uses configured model reference date; 0..2 minutes spans 0..120 seconds only with the matching explicit model reference/time settings",
+    "conversion": "angle=(270-direction)*pi/180; wx=speed*cos(angle); wy=speed*sin(angle)",
+    "example": "direction225 gives +x,+y; it does not produce two negative components",
+    "interpolation": "For interpolate_timespace, magnitude is linearly interpolated and direction uses cyclic interpolation; identical endpoint records give the steady input in their covered interval",
+    "editor_limit": "WND leaf bytes are opaque and retained; the editor does not parse their units, reference date or direction. Independent validation owns these checks."
+  },
+  "primitive_output_contract": {
+    "MDU_output_fields": [
+      "Wrimap_wind=1",
+      "Wrimap_windstress=1"
+    ],
+    "semantic_suffixes": [
+      "windx",
+      "windy",
+      "windstressx",
+      "windstressy"
+    ],
+    "declared_units": {
+      "windx/windy": "m s-1",
+      "windstressx/windstressy": "N m-2"
+    },
+    "storage": "Writer maps link wind/stress vectors through linktonode2 to cell-centered map output; identify actual variable names, dimensions, units, masks and coordinate frame from the recorded file",
+    "substitutions_forbidden": [
+      "bed stress",
+      "water-density-normalized wdsu",
+      "link-normal acceleration or stress projection",
+      "a log assertion in place of raw primitive outputs"
+    ],
+    "phase_gate": "No native initialization/update/output phase or tolerance is established by this package check. Independent V must predeclare and then inspect actual clocks and complete recorded arrays, including initial/zero-control frames."
+  },
+  "illustrative_predictions": {
+    "kind": "Source-based arithmetic predictions, not observed native results and not the independently authored V oracle",
+    "cases": [
+      {
+        "case": "baseline",
+        "coefficients": [
+          0.001,
+          0.003
+        ],
+        "speed_breakpoints_m_s": [
+          5.0,
+          15.0
+        ],
+        "wind_speed_m_s": 10.0,
+        "direction_degrees": 225.0,
+        "wind_x_m_s": 7.0710678118654755,
+        "wind_y_m_s": 7.0710678118654755,
+        "coefficient": 0.002,
+        "stress_magnitude_N_m2": 0.24,
+        "stress_x_N_m2": 0.1697056274847714,
+        "stress_y_N_m2": 0.1697056274847714
+      },
+      {
+        "case": "first_coefficient_changed",
+        "coefficients": [
+          0.002,
+          0.003
+        ],
+        "speed_breakpoints_m_s": [
+          5.0,
+          15.0
+        ],
+        "wind_speed_m_s": 10.0,
+        "direction_degrees": 225.0,
+        "wind_x_m_s": 7.0710678118654755,
+        "wind_y_m_s": 7.0710678118654755,
+        "coefficient": 0.0025,
+        "stress_magnitude_N_m2": 0.3,
+        "stress_x_N_m2": 0.21213203435596426,
+        "stress_y_N_m2": 0.21213203435596426
+      }
+    ],
+    "only_input_mutation": "First declared coefficient .001 -> .002; second .003 and anchors5/15 unchanged",
+    "fresh_zero_wind_controls": {
+      "baseline_stress_x_y_magnitude": [
+        0,
+        0,
+        0
+      ],
+      "changed_stress_x_y_magnitude": [
+        0,
+        0,
+        0
+      ]
+    },
+    "nonzero_midpoint_change": "Cd .002 -> .0025 and tau magnitude .24 -> .30 Pa; +25% under the stated conditions"
+  },
+  "native_verification": "Not performed. This supplement grants no native lease and does not replace scientific V or coordinator authorization."
+}

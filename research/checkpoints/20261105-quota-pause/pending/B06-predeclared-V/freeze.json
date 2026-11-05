@@ -1,0 +1,11 @@
+{
+  "schema": "B06-PROVENANCE-V-EIN-prereview-freeze-1",
+  "scope": "Frozen independent requirements only. No adapter acceptance/native grant.",
+  "files": {
+    "derive_requirements.py": "72d001b2f0c516a7b4d42beedda3a173b5ce6e364a80f34fc418ed0c3ddfef50",
+    "requirements.json": "7d3e209fd4af4acf54b5c6bb920a5a7687deeda4c132f193603fa1cef5872f8c",
+    "tamper-plan.json": "d3909d6575f2855cf1691311742b8d373bdba3e5813add7d782a4e03327f5db3",
+    "source-audit.json": "c0fc4a78ae44fdc22fd6524773aba55de59df6a210edfb07b485e91c93106766",
+    "verification.json": "51aea10b3ef58ae01899b5b44180752c092d89716a3287c9c9091133e6a45ee3"
+  }
+}

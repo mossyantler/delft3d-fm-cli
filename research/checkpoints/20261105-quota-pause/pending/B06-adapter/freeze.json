@@ -1,0 +1,131 @@
+{
+  "schema": "b06-public-provenance-freeze-v1",
+  "state": "frozen_adapter_candidate_pending_Einstein_and_G",
+  "implementation": {
+    "API.md": {
+      "bytes": 13551,
+      "sha256": "c6b3d1c460e9a86fefd68921ca34e2bf3813fec7ae2e72212aeee315f04c67e0"
+    },
+    "exact.py": {
+      "bytes": 769,
+      "sha256": "6b67aa8969b1d4308a0276580f6528c029df7bef128120f65d1750c0a5be5524"
+    },
+    "extract_oracle.py": {
+      "bytes": 5851,
+      "sha256": "c7a010cea11d610e761388245cd175cdd4ab67e8e7666a61272b8eaa75235723"
+    },
+    "finalize.py": {
+      "bytes": 8765,
+      "sha256": "66ebeec130056316b1b036cf7818a5967660248455c199d843f1c10b0b948456"
+    },
+    "math-extraction.json": {
+      "bytes": 1061,
+      "sha256": "c1261ac330b2040fd2a586e02777c3672f2fd23480dc9a79ac10680cf11f6cca"
+    },
+    "observations.py": {
+      "bytes": 9237,
+      "sha256": "226ca028ae944e915d8cbce175385af65741320cb309bca137041a2bd897d38b"
+    },
+    "protocol.json": {
+      "bytes": 4883,
+      "sha256": "c186fdbaffde822bb5ba403c2e8c163b260f6a6b1682f2aae1c352274f212026"
+    },
+    "provenance.py": {
+      "bytes": 43296,
+      "sha256": "996a313ddc8bcae34cfc9982d04df308783da1b6c748dc814c712321c57f6f34"
+    },
+    "raw_arrays.py": {
+      "bytes": 6423,
+      "sha256": "47397030274f6fd52666b405ec8207ce1616070987efefb54e05645764fe5bc9"
+    },
+    "reference-contracts.json": {
+      "bytes": 10588,
+      "sha256": "b8dc87493019bbd71c77b3d664d0371e1d5390de96123e8ea2dc20577115a77d"
+    },
+    "science.py": {
+      "bytes": 10429,
+      "sha256": "5dbb62ba4c617b3fa7003166f46ae2497b99e9a3a90ec9067c5064d47c95f9d9"
+    },
+    "selfcheck.py": {
+      "bytes": 19745,
+      "sha256": "7afb0f94df289768c5bfbdabaaf6f1d5c7d8f05bc9054e81840c84dedd18e32a"
+    },
+    "synthetic.py": {
+      "bytes": 18565,
+      "sha256": "c43fc6637f73cfeda2f7827a3a322d448780fc427026139518b0d0e9a72c0ea9"
+    },
+    "predeclared.json": {
+      "bytes": 3979,
+      "sha256": "755e959f43a314e5346581042e0c2baaf4a3acdeff46e71bcc4538d60f10bda9"
+    },
+    "schema-witness.json": {
+      "bytes": 1695,
+      "sha256": "09e500ee44460ba57b25c5ee56212cb264ad19544044a1c551407d59fd18c4bb"
+    }
+  },
+  "evidence": [
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-provenance-20261105-01\\verification.json",
+      "bytes": 9422,
+      "sha256": "ad2b808df7d48f36152d623a7092c02361f0e821bdfd47284bea254ab8ac17c3",
+      "identity": [
+        15735799815185527221,
+        4222124652987964,
+        9422,
+        1793843867735780700,
+        1
+      ]
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-provenance-20261105-01\\selfcheck-final-01\\verification.json",
+      "bytes": 26868,
+      "sha256": "059433fc2270a168a99874b33899b50cfc3b04e8340d316220df7d841f5b035a",
+      "identity": [
+        15735799815185527221,
+        3940649676277307,
+        26868,
+        1793843867530226600,
+        1
+      ]
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-provenance-20261105-01\\selfcheck-01\\verification.json",
+      "bytes": 17212,
+      "sha256": "73dd80705f1ec6ba3dcbf24b2489d0d415eb95c41561e92a385b081e31a24cf2",
+      "identity": [
+        15735799815185527221,
+        3940649676173161,
+        17212,
+        1793842071892689500,
+        1
+      ]
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-V-public-provenance-20261105-01\\selfcheck-01\\executed-selfcheck.py",
+      "bytes": 14365,
+      "sha256": "f808b76cabc6ab835334473dd909060754e3a35e7d9a95fcd4ba1622b224b791",
+      "identity": [
+        15735799815185527221,
+        16044073674731391,
+        14365,
+        1793842033882861400,
+        1
+      ]
+    }
+  ],
+  "independent_preregistered_review": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PROVENANCE-V-EIN-20261105-01\\freeze.json",
+    "bytes": 643,
+    "sha256": "14ff2efcd1b7749e12943e836a02dd10b234268eb245503f7704222da27702bd",
+    "identity": [
+      15735799815185527221,
+      4785074606292837,
+      643,
+      1793841054408799800,
+      1
+    ]
+  },
+  "native_launches": 0,
+  "observed_native_admission": null,
+  "review_policy": "No author edits after freeze; reviewer writes only its own independent directory; coordinator G final review required."
+}

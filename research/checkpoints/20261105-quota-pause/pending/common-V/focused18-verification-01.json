@@ -1,0 +1,18 @@
+{
+  "state": "PASSED_INDEPENDENT_INSTALLED_focused18",
+  "tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "failure_details": [],
+  "error_details": [],
+  "actual_origins": {
+    "dfm_cli": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\runtime-venv\\Lib\\site-packages\\dfm_cli\\__init__.py",
+    "dfm_cli.runs": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\runtime-venv\\Lib\\site-packages\\dfm_cli\\runs.py",
+    "dfm_cli.run_pump_lifecycle": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\runtime-venv\\Lib\\site-packages\\dfm_cli\\run_pump_lifecycle.py"
+  },
+  "native_engine_launches": 0,
+  "PID_queries": 0,
+  "forbidden_calls": [],
+  "scope": "Installed product only. No author116 as V oracle. Research parser tests are legacy compatibility, NOT full-lifetime native admission. No full-root-suite claim."
+}

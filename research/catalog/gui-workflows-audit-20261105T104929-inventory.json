@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "audit_kind": "gui_console_workflow_inventory_consistency",
+  "checked_at_utc": "2026-11-05T01:49:50.650512+00:00",
+  "status": "passed",
+  "scope": "Table structure, pinned source locations, local links and registered command names. This does not re-run GUI, console, solver or numerical comparisons.",
+  "inventory": {
+    "path": "research/notes/collection/gui-workflows.md",
+    "operations": 82,
+    "groups": {
+      "P": 12,
+      "G": 18,
+      "S": 7,
+      "B": 14,
+      "O": 4,
+      "R": 11,
+      "V": 6,
+      "X": 10
+    },
+    "required_columns": [
+      "operation",
+      "files",
+      "engine",
+      "cli",
+      "evidence"
+    ],
+    "duplicate_or_missing_ids": []
+  },
+  "engine_source": {
+    "repository": "Deltares/Delft3D",
+    "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+    "reference_locations": 110,
+    "files": 28,
+    "all_locations_exist": true,
+    "sampled_entry_point_tokens": [
+      {
+        "reference": "mdu",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90",
+        "line": 673,
+        "expected_token": "subroutine readMDUFile"
+      },
+      {
+        "reference": "extnew",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90",
+        "line": 1887,
+        "expected_token": "ExtForceFileNew"
+      },
+      {
+        "reference": "bnd",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_kernel/timespace/fm_external_forcings_init.f90",
+        "line": 278,
+        "expected_token": "locationFile"
+      },
+      {
+        "reference": "signal",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_kernel/timespace/fm_external_forcings_init.f90",
+        "line": 289,
+        "expected_token": "forcingFile"
+      },
+      {
+        "reference": "bc",
+        "path": "src/utils_lgpl/ec_module/packages/ec_module/src/ec_bcreader.f90",
+        "line": 496,
+        "expected_token": "case ('TIMESERIES')"
+      },
+      {
+        "reference": "harm",
+        "path": "src/utils_lgpl/ec_module/packages/ec_module/src/ec_bcreader.f90",
+        "line": 867,
+        "expected_token": "BC_FUNC_ASTRO"
+      },
+      {
+        "reference": "his",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90",
+        "line": 1941,
+        "expected_token": "HisInterval"
+      },
+      {
+        "reference": "hisnc",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_io/unc_write_his.F90",
+        "line": 84,
+        "expected_token": "subroutine unc_write_his"
+      },
+      {
+        "reference": "mapnc",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_io/unstruc_netcdf.f90",
+        "line": 5222,
+        "expected_token": "subroutine unc_write_map"
+      },
+      {
+        "reference": "dimr",
+        "path": "src/engines_gpl/dimr/packages/dimr/src/dimr_exe.cpp",
+        "line": 126,
+        "expected_token": "lib_initialize"
+      },
+      {
+        "reference": "bi",
+        "path": "src/engines_gpl/dflowfm/packages/dflowfm_lib/src/unstruc_bmi.F90",
+        "line": 233,
+        "expected_token": "function initialize"
+      }
+    ],
+    "installed_binary_commit": "unknown"
+  },
+  "cli": {
+    "version": "0.4.0.dev1",
+    "protocol_version": 2,
+    "registered_commands": 98,
+    "matched_inventory_commands": 80,
+    "matched_commands": [
+      "bmi inspect",
+      "bmi session",
+      "boundary coefficients",
+      "boundary export",
+      "boundary function-set",
+      "boundary import",
+      "boundary inspect",
+      "boundary preview",
+      "boundary series-inspect",
+      "boundary series-rows",
+      "boundary series-set",
+      "boundary set",
+      "boundary support",
+      "boundary vertical-inspect",
+      "boundary vertical-set",
+      "coupling inspect",
+      "coupling plan",
+      "coupling prepare",
+      "coupling rtc-pair",
+      "coupling run",
+      "coupling validate",
+      "layers create",
+      "layers inspect",
+      "layers verify",
+      "mesh build",
+      "mesh inspect",
+      "model create",
+      "model field-set",
+      "model fields",
+      "model inspect",
+      "model set",
+      "model validate",
+      "morph compare",
+      "morph create",
+      "morph inspect",
+      "morph verify",
+      "network create",
+      "network inspect",
+      "network validate",
+      "observation add",
+      "observation export",
+      "observation import",
+      "observation inspect",
+      "observation move",
+      "parallel cancel",
+      "parallel compare",
+      "parallel merge",
+      "parallel partition",
+      "parallel plan",
+      "parallel run",
+      "project export",
+      "project import",
+      "pump inspect",
+      "pump set",
+      "restart compare",
+      "restart prepare",
+      "results compare",
+      "results inspect",
+      "results map",
+      "results series",
+      "results stations",
+      "rr-f152 inspect",
+      "rr-f152 prepare",
+      "run cancel",
+      "run start",
+      "run status",
+      "section inspect",
+      "section reverse",
+      "source add",
+      "source forcing-create",
+      "source inspect",
+      "source set",
+      "waq-offline compare",
+      "waq-offline run",
+      "water-quality compare",
+      "water-quality inspect",
+      "water-quality prepare",
+      "weir series-export",
+      "weir series-import",
+      "weir series-inspect"
+    ],
+    "unmatched_command_tokens": [],
+    "schema_response_sha256": "fd1cb67a0c89ba28d351b7e8c0e9ccbaa812a391023d07ecaf2cc652aefd9c5b",
+    "note": "Membership checks cover command names, not option semantics or execution parity. Counts are not a GUI coverage percentage."
+  },
+  "local_links": {
+    "documents": [
+      "research/notes/collection/gui-workflows.md",
+      "ROADMAP.md"
+    ],
+    "missing": [],
+    "inventory_explicit_anchors_checked": true
+  },
+  "selected_row_query": {
+    "argv": [
+      ".venv/Scripts/python.exe",
+      "-m",
+      "research.workflows.collection.gui_workflows",
+      "P04",
+      "B02",
+      "R02"
+    ],
+    "ids": [
+      "P04",
+      "B02",
+      "R02"
+    ],
+    "passed": true
+  },
+  "input_sha256": {
+    "research/notes/collection/gui-workflows.md": "2329720b8b306c1b901779738c92ffa8c760e0397d4d11ea5dd277b6b4f5b388",
+    "ROADMAP.md": "7e5137a3b5492cc0d7cd5e27b6d6337351f5df6160c8ac8c29ffe4cd6023e5c6",
+    "AGENTS.md": "aa207e6d583f9d8a4ddf0f414da7068583a984327346fbfcb7d2a1478a65a147",
+    "research/workflows/collection/gui_workflows.py": "35d52fe732d28c6cd34e44b787db8270e2b184dc1d104f17ab280808552b6caf",
+    "research/sources.lock.json": "a5c629bc9f8469dcd0c4afa3bdc99f62d185ff4d8bba74e74001c0ff509a47f6"
+  },
+  "reproduce": {
+    "command": ".venv/Scripts/python.exe research/experiments/M0-G-workflow-audit-20261105-01/audit.py",
+    "working_directory": "repository root",
+    "requires": [
+      "collected pinned Delft3D checkout",
+      "local evidence linked by the inventory and roadmap",
+      "application venv"
+    ],
+    "script_sha256": "e73f8749b0e1e237ee97f8fbaadd4482ef1bbb068dce9e0e6c618a7a9e3d4660"
+  },
+  "not_established": [
+    "exhaustive runtime coverage of every GUI menu and plugin",
+    "GUI or console file changes for unobserved rows",
+    "installed engine/source commit equivalence",
+    "new engine simulations or numerical equivalence",
+    "scientific validity"
+  ]
+}

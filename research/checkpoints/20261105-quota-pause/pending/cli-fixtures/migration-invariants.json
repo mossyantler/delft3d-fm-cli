@@ -1,0 +1,223 @@
+{
+  "methods": {
+    "Workspace.setUp": {
+      "original_ast_sha256": "0491e1b786b75e0c32f30a52153734c96dabb7d4d6e2c86fa6b7494632612c8d",
+      "migrated_ast_sha256": "0491e1b786b75e0c32f30a52153734c96dabb7d4d6e2c86fa6b7494632612c8d",
+      "assertion_calls": 0,
+      "assertion_ast_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "Workspace.cli": {
+      "original_ast_sha256": "c6f7d601ac275e0ec92f124778faf56eadbb48d0708a4f9a78120cf59db7330b",
+      "migrated_ast_sha256": "c6f7d601ac275e0ec92f124778faf56eadbb48d0708a4f9a78120cf59db7330b",
+      "assertion_calls": 0,
+      "assertion_ast_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_edit_preserves_bom_crlf_comments_unknown_precision_and_unrelated_repetitions": {
+      "original_ast_sha256": "4384ef1bb736e4a580c7434078c7fb0a5b0051dbc8eaebe5c6d0a1890d5c3b43",
+      "migrated_ast_sha256": "4384ef1bb736e4a580c7434078c7fb0a5b0051dbc8eaebe5c6d0a1890d5c3b43",
+      "assertion_calls": 2,
+      "assertion_ast_sha256": "20590cc6cdfcb9bfe75d90069ab6a4fc847ff6312257f9cc47414d5f17b1e5a2",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_repeated_target_is_refused_without_writing": {
+      "original_ast_sha256": "68e6bc6b7609bc80186bd2b311b5f1aee39c92fa006cd706abf7b8c91be9a131",
+      "migrated_ast_sha256": "68e6bc6b7609bc80186bd2b311b5f1aee39c92fa006cd706abf7b8c91be9a131",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "95b897889ee528c7d01c59f7ed160e7f4ecbe44f9960432aec97216b080d3fab",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_stale_preview_and_missing_hash_cannot_write": {
+      "original_ast_sha256": "aacab40c5ec98bc8d8efc0e465f1398803df33fb927f2e1f4146a937cacf03fe",
+      "migrated_ast_sha256": "aacab40c5ec98bc8d8efc0e465f1398803df33fb927f2e1f4146a937cacf03fe",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "d26384f07440d690e2936328cf6156a2c02ab17a545a47d73c44c5288934b890",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_windowed_interval_cannot_be_silently_replaced": {
+      "original_ast_sha256": "b722491d6eb11d3bea1d8eccd8ce370217555147c498789597cec0efbf856cf1",
+      "migrated_ast_sha256": "b722491d6eb11d3bea1d8eccd8ce370217555147c498789597cec0efbf856cf1",
+      "assertion_calls": 1,
+      "assertion_ast_sha256": "1e9b931ecf3d1203c7844d7a7cac4cf58dc93348f4e2a291c28cded6217c196a",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_edit_rejects_nonfinite_negative_and_newline_values": {
+      "original_ast_sha256": "bda061d9c500bb0e8b498671ae73408d51a94ea43cc5b9139c18ded713cf9f34",
+      "migrated_ast_sha256": "bda061d9c500bb0e8b498671ae73408d51a94ea43cc5b9139c18ded713cf9f34",
+      "assertion_calls": 1,
+      "assertion_ast_sha256": "1e9b931ecf3d1203c7844d7a7cac4cf58dc93348f4e2a291c28cded6217c196a",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_nested_parent_paths_preserve_repeated_bc_bytes": {
+      "original_ast_sha256": "90b1ed642b0e98dd70b9115af4e822624147908c18412198ce78bb948fb9d744",
+      "migrated_ast_sha256": "90b1ed642b0e98dd70b9115af4e822624147908c18412198ce78bb948fb9d744",
+      "assertion_calls": 4,
+      "assertion_ast_sha256": "87678944e37d60649446036f2fb6e900c8b06bd4a707506fdb07fb5d7e16fb91",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_parent_reference_can_reach_sibling_inside_mdu_root": {
+      "original_ast_sha256": "945f254bfd8fd829e5a2f8ecc33174eec8688265e9676e9c00d5645dd680c59a",
+      "migrated_ast_sha256": "945f254bfd8fd829e5a2f8ecc33174eec8688265e9676e9c00d5645dd680c59a",
+      "assertion_calls": 1,
+      "assertion_ast_sha256": "5f2fdd77fdc9ef958966b8e9cda4a8375189a0cf0623e63b46d955b65bd5d506",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_missing_unknown_and_legacy_inputs_block_validation": {
+      "original_ast_sha256": "809e945e7b259b76350af4fc09d2bbbaf3a8ced04bf73fa9f065ec54f6d7aaf8",
+      "migrated_ast_sha256": "809e945e7b259b76350af4fc09d2bbbaf3a8ced04bf73fa9f065ec54f6d7aaf8",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "cfe1390d7c920718f69fda98030b625021c223773207915ca1fdfbbf50d6c9a5",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_cross_root_absolute_and_drive_relative_paths_are_rejected": {
+      "original_ast_sha256": "058f0bdca928fa584dacacb0236ed554284c5e2e14c8bd44259e49a827c4a942",
+      "migrated_ast_sha256": "058f0bdca928fa584dacacb0236ed554284c5e2e14c8bd44259e49a827c4a942",
+      "assertion_calls": 1,
+      "assertion_ast_sha256": "1e9b931ecf3d1203c7844d7a7cac4cf58dc93348f4e2a291c28cded6217c196a",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_date_precedence_and_validation_levels_are_explicit": {
+      "original_ast_sha256": "e2e10f794e988cdc4f9c0b7fd65115b0d3e05ad9904d8b5dc266bb2398e2ede5",
+      "migrated_ast_sha256": "e2e10f794e988cdc4f9c0b7fd65115b0d3e05ad9904d8b5dc266bb2398e2ede5",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "adb70868d13eae29cfb2a48dd991ee75fe886445e9c61d9086906d126d3f27bf",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_usage_missing_files_and_unsupported_commands_return_json": {
+      "original_ast_sha256": "709ac0586fa127b4961451f3fb71aaa8ed72bbdf2cead8a271f2c3d02fc0adc4",
+      "migrated_ast_sha256": "709ac0586fa127b4961451f3fb71aaa8ed72bbdf2cead8a271f2c3d02fc0adc4",
+      "assertion_calls": 2,
+      "assertion_ast_sha256": "7eec3fff5228f0ded1f1ee5c4bd4c4d1a950287fae0abd9760374e08143c4844",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_discovery_does_not_claim_native_capability_from_a_version": {
+      "original_ast_sha256": "e3de08d658b13641ca8b087d6c07a7662b720f0e3cea07e3ed21cd171d0261bd",
+      "migrated_ast_sha256": "e3de08d658b13641ca8b087d6c07a7662b720f0e3cea07e3ed21cd171d0261bd",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "1a2862d1e0d80af9dd2f081bc4ebd830c796c0e2a5cb3f82ad77a0d7ae4ef423",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_explicit_install_and_environment_selection_override_ambiguous_discovery": {
+      "original_ast_sha256": "9b5743205cda6362df2c17f0757f07b633db4c3961b6d35132643b460f989010",
+      "migrated_ast_sha256": "9b5743205cda6362df2c17f0757f07b633db4c3961b6d35132643b460f989010",
+      "assertion_calls": 2,
+      "assertion_ast_sha256": "51c578865187bef1c8a9af0621323a12372f23f9dee88b7bdf8ca2ef6bfb69dd",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "ModelTests.test_profile_rejects_long_runs_and_non_utc_without_rewriting": {
+      "original_ast_sha256": "7791e2ee3ac65c4940e26233b9f328a35011658bc6433662bdf2e131c4301265",
+      "migrated_ast_sha256": "7791e2ee3ac65c4940e26233b9f328a35011658bc6433662bdf2e131c4301265",
+      "assertion_calls": 2,
+      "assertion_ast_sha256": "de8509b7d447ab68b72c98b069e05ee08d6858e4bee188dd923911960956070d",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "OutputVerification.files": {
+      "original_ast_sha256": "ebe145d3c0cf5e449f703ca332b253bb7c88cd8750fe2f225de7b60acab75a09",
+      "migrated_ast_sha256": "ebe145d3c0cf5e449f703ca332b253bb7c88cd8750fe2f225de7b60acab75a09",
+      "assertion_calls": 0,
+      "assertion_ast_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "OutputVerification.test_cf_units_decoded_and_final_restart_checked": {
+      "original_ast_sha256": "d775ad293834ca7185508e472723bf3140463b083fa69e995bd353242c11ddc6",
+      "migrated_ast_sha256": "d775ad293834ca7185508e472723bf3140463b083fa69e995bd353242c11ddc6",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "e9fbfbb925defb81e1e75b9b0352d40a4a227af0e98f20da792bd2037e684d95",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "OutputVerification.test_partial_nonfinite_and_missing_outputs_never_count_as_complete": {
+      "original_ast_sha256": "762f992f49d4cf5da806d3818828eb243fdb8a75491c9e1223af0ad56bacaca5",
+      "migrated_ast_sha256": "762f992f49d4cf5da806d3818828eb243fdb8a75491c9e1223af0ad56bacaca5",
+      "assertion_calls": 4,
+      "assertion_ast_sha256": "798ede9235e4e8acf3d918af42929eb55b4936fc2fa795fe331fc6dff9baf08d",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "OutputVerification.test_acknowledged_cancel_losing_race_to_natural_exit_verifies_outputs": {
+      "original_ast_sha256": "90817af15257221bc5accd99ec2f9e626bc0102a3c6e4edb40cdbea15db56086",
+      "migrated_ast_sha256": "fb1a68d0749c69a3286805ee087d62ad63cac8bd9d5b97f0d7fb35465ca33f2d",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "b867057d2490b1c1127abc8e7e187f39d132348aa9f111df6748bf632b1052da",
+      "assertions_identical": true,
+      "body_identical": false
+    },
+    "OutputVerification.test_zero_exit_missing_outputs_fails_manifest_and_preserves_source": {
+      "original_ast_sha256": "3434cc2f7dcf5724d65c7997ad949a6d8ac76e0ab95e14131e7ba0c1f693473d",
+      "migrated_ast_sha256": "16b89838886b581e1633adee664058dad4b8f3ac0b5c1f3684697702d164a9cb",
+      "assertion_calls": 4,
+      "assertion_ast_sha256": "6323fbe89476ab379b71a7cdaff7d593a248510c91ad65746ad8b0f28cfcea6c",
+      "assertions_identical": true,
+      "body_identical": false
+    },
+    "OutputVerification.test_timeout_records_failure_and_cleanup_targets_owned_process": {
+      "original_ast_sha256": "c5f7e15314acf593c539712a2f9e516075192f013214557df403d59a8a0c8c09",
+      "migrated_ast_sha256": "4d9b520c5a47754ff29125457abfe6050fd1785be7aff8fb2603a40dc42d9e3e",
+      "assertion_calls": 5,
+      "assertion_ast_sha256": "32ffc3faf05e302e77ec2e20764a2f803d1e5df3addb441a90790ae905db84f6",
+      "assertions_identical": true,
+      "body_identical": false
+    },
+    "FailureDiagnostics.test_unconfirmed_cleanup_is_not_reported_as_a_successful_stop": {
+      "original_ast_sha256": "433902356e35fc582d8c81a9366720c510f55a96b24b97924aecb41c63fcba57",
+      "migrated_ast_sha256": "4f76f3e500f18c76a1257a989b9ee26acb23c748bb6a47ddbed38e1c00a5d325",
+      "assertion_calls": 4,
+      "assertion_ast_sha256": "435b8361e1a2ff0f642b0c9fd863c3d3a424ba93d87794da833cfdbfbe8e4b8d",
+      "assertions_identical": true,
+      "body_identical": false
+    },
+    "FailureDiagnostics.test_primary_error_skips_placeholder_and_keeps_context": {
+      "original_ast_sha256": "5437432e35f6adb196088422a50d8aa729f0034a6e5a4d84601edc2c837dd940",
+      "migrated_ast_sha256": "5437432e35f6adb196088422a50d8aa729f0034a6e5a4d84601edc2c837dd940",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "ab0d3a91578bc9769f5cbe4859c9180dac0af5103770f227655eefe1677fd338",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "FailureDiagnostics.test_cancel_refuses_terminal_stale_and_foreign_records": {
+      "original_ast_sha256": "68726a1dea0e943720563a7270a04ea5dfbf33eda5a81be2c4da2554651643b1",
+      "migrated_ast_sha256": "68726a1dea0e943720563a7270a04ea5dfbf33eda5a81be2c4da2554651643b1",
+      "assertion_calls": 3,
+      "assertion_ast_sha256": "e921d14f2688cc20c988366e24552f20a10b7dceb8d7f4720dab81b73d526406",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "FailureDiagnostics.test_stale_cancel_request_is_not_applied": {
+      "original_ast_sha256": "928eadd353716c59dddafc66979c3e1b20914f9a757db43adb74f15ca0cf47f5",
+      "migrated_ast_sha256": "928eadd353716c59dddafc66979c3e1b20914f9a757db43adb74f15ca0cf47f5",
+      "assertion_calls": 1,
+      "assertion_ast_sha256": "fb8e4de08a6e82d0731ec6a6d70138cd9e618180bfaecedcb06cd13960450b92",
+      "assertions_identical": true,
+      "body_identical": true
+    },
+    "FailureDiagnostics.test_lost_owner_is_observed_without_rewriting_manifest": {
+      "original_ast_sha256": "3b8b03967834ad11a8b1ce493f82f47e17e05702e91b0a9930b1be4194b88941",
+      "migrated_ast_sha256": "3b8b03967834ad11a8b1ce493f82f47e17e05702e91b0a9930b1be4194b88941",
+      "assertion_calls": 2,
+      "assertion_ast_sha256": "a377d2c6ac899fdf9cf5d5c5276f9c1e9c8eaab4f8121f781b054ec790ec8853",
+      "assertions_identical": true,
+      "body_identical": true
+    }
+  },
+  "only_four_method_setups_changed": true,
+  "original_sha256": "c75ec2d5d7a77351cd1b84d2364d1c35273a0beaa29e30ae32ec0822e5547143",
+  "migrated_sha256": "05d9f7703612da75d2e1de73729c29144c1140417ba8a8709a9d60567d6b57bd"
+}

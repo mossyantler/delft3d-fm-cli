@@ -1,0 +1,119 @@
+{
+  "I_rows_retained": [
+    {
+      "id": "W2D",
+      "mechanism": "Modern simple weir, root XY PLI + scalar or TIM crest; hydraulic INI; GUI PLI/structure/SHP export",
+      "initial_disposition": "I1 target: geometry + hydraulic bundle export, guarded one-file import",
+      "next_gate": "Independent literal file/clock/consumer/publication cases; later native pair"
+    },
+    {
+      "id": "P2D",
+      "mechanism": "Modern scalar unstaged pump, XY PLI + orientation/capacity; GUI PLI(Z)/SHP both ways",
+      "initial_disposition": "I1 target: as above, explicit no geographic-sign guarantee",
+      "next_gate": "Same preservation gates; independent fixed-coordinate native flow if run later"
+    },
+    {
+      "id": "WTBC",
+      "mechanism": "Weir/pump declared BC or pump TIM",
+      "initial_disposition": "I2 typed full BC/TIM import, do not fake suffix/units",
+      "next_gate": "Quantity/object/column/CF origin and shared-block cases; later receiver proof"
+    },
+    {
+      "id": "G2D",
+      "mechanism": "Gate/sluice, modern gate/orifice/generalstructure + vertical/horizontal motion fields",
+      "initial_disposition": "I3 deferred, never label as simple weir",
+      "next_gate": "Explicit native class map, every hydraulic/control field, PLI/INI matched cases"
+    },
+    {
+      "id": "PTRIGGER",
+      "mechanism": "Staged/reduction-table/realtime pump, trigger levels and controlSide",
+      "initial_disposition": "I3 deferred",
+      "next_gate": "Tables/counts/negative-capacity restrictions/controller closure and bounded native response"
+    },
+    {
+      "id": "PIL12",
+      "mechanism": "PillarFile PLIZ4 x,y,diameter,Cd, auxiliary -999; manual1D/2D",
+      "initial_disposition": "I4 separate role-specific importer/exporter",
+      "next_gate": "Sentinel/4-column preservation, ID grouping, dragging/topology native controls"
+    },
+    {
+      "id": "PIL3D",
+      "mechanism": "Manual says pillar3D unavailable",
+      "initial_disposition": "Explicit unsupported; retained row",
+      "next_gate": "New authoritative reader/manual and runtime evidence before any support claim"
+    },
+    {
+      "id": "PPLIZ",
+      "mechanism": "Pump geometry PLIZ including extra Z/attributes",
+      "initial_disposition": "I4 deferred, not truncated to XY",
+      "next_gate": "Actual GUI/native Z schema and preservation, no assumed elevation semantics"
+    },
+    {
+      "id": "SHP",
+      "mechanism": "Pump/pillar SHP both directions; weir SHP export; gate SHP not inferred",
+      "initial_disposition": "I5 distinct GIS interchange",
+      "next_gate": "Real GUI files, SHP/SHX/DBF/PRJ/CPG schema, geometry/Z/units/CRS/ID mapping and complete sidecars"
+    },
+    {
+      "id": "D1",
+      "mechanism": "BranchId+chainage and explicit inline XY alternatives, 1D/native networks",
+      "initial_disposition": "I6 deferred",
+      "next_gate": "Branch/chainage maps, actual topology/CRS/units and CrossDef/CrossLoc closure; not a2D PLI rename"
+    },
+    {
+      "id": "MODEL3D",
+      "mechanism": "Layered/mixed models using hydraulic weir/pump/gate data",
+      "initial_disposition": "I6 deferred; Kmx is not topology proof",
+      "next_gate": "Actual dimensionality, elevation/layer/control interpretation and raw receiver evidence; no2D-file-to3D approval"
+    },
+    {
+      "id": "LEG",
+      "mechanism": "Unversioned/v1 kernel polylineFile, v2/v3 fallback, legacy EXT/TIM/CMP, fixed-weir geometry",
+      "initial_disposition": "I6 explicit import refusal, inspection distinction",
+      "next_gate": "Version/type/forcing catalogue; no automatic format upgrade. FixedWeirFile base X/Y/Z,4/5 and Baseline9/10-column variants are not generic adjustable-weir INI geometry"
+    },
+    {
+      "id": "OTHER",
+      "mechanism": "Universalweir/culvert/bridge/dambreak/longCulvert/generalstructure",
+      "initial_disposition": "I6 deferred, visible inventory",
+      "next_gate": "Per-type cross-section/table/native parameter grammar; bridge shift exactly preserved"
+    },
+    {
+      "id": "GROUP",
+      "mechanism": "Compound members, cross-INIs, shared geometry/forcing and external controllers",
+      "initial_disposition": "I2/I6 staged expansion; unsafe mutation refused",
+      "next_gate": "Full consumer closure, explicit all-consumer handling, duplicate/dangling/cycle and path-mode cases"
+    },
+    {
+      "id": "MULTI",
+      "mechanism": "New assets, new StructureFile/MDU ref or multiple existing target writes",
+      "initial_disposition": "I7 transaction dependency",
+      "next_gate": "Reviewed fresh collection or durable multi-file transaction and failure recovery evidence"
+    },
+    {
+      "id": "GUI",
+      "mechanism": "Actual standalone project-tree operation and property/save/export results",
+      "initial_disposition": "Separate observed-workflow gate after file work",
+      "next_gate": "Fresh owned GUI projects/controls, format/name-collision/save/reopen/export tracing; no parity inferred"
+    }
+  ],
+  "I_rows": 16,
+  "V_rows": 20,
+  "coverage_review": "All branches retained; G2D includes sluice class mapping unresolved, PIL12/PIL3D separate, SHP route direction qualified, D1/inline/legacy/other types/compound/multifile/GUI deferred. No I1==fullG15 claim.",
+  "G18_reader_differences": [
+    "Structure.id is not PLI header",
+    "Modern XY first block consumed; concatenated blocks unsafe",
+    "Modern read does not implement G18 missing-X sentinel splitting",
+    "IDLEN256 versus G18 MATR64 unrelated",
+    "PLI trailing columns conservative refusal; pillar four columns not XYZ/elevation",
+    "Root StructureFile early whitespace split must be considered separately from semicolon list reader"
+  ],
+  "implementation_gates_still_required": [
+    "typed whole-model declared graph closure, including consumers/unknowns/output destinations",
+    "strict untrusted bundle/geometry/asset-map parsing and actual target reparse",
+    "real no-op/late race/same-byte-new-identity/ACL/stage/final fault tests",
+    "actual reviewed one-file import adapter and new-directory export adapter",
+    "installed public CLI/schema/JSON tests",
+    "separately predeclared native and GUI evidence under future leases"
+  ]
+}

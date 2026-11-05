@@ -1,0 +1,33 @@
+{
+  "state": "PASSED_ACTUAL_I_AND_V_LAUNCHER_BINDINGS_SCHEMA",
+  "records": {
+    "V": {
+      "embedded_python_shebang": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\runtime-venv\\Scripts\\python.exe",
+      "observed_shebang_lines": [
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-V-rev04-20261105-01\\runtime-venv\\Scripts\\python.exe"
+      ],
+      "launcher_sha256": "440dbf3419b6f2ffd941a7e09772d081f7e45334663f835ace6b9d7bb1eafd88",
+      "commands": 98,
+      "protocol": 2,
+      "manifest": 3,
+      "critical_imports": 10,
+      "other_python_resolvers": 189,
+      "native_extension_origins": 22
+    },
+    "I": {
+      "embedded_python_shebang": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\python.exe",
+      "observed_shebang_lines": [
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\build-01\\runtime-venv\\Scripts\\python.exe"
+      ],
+      "launcher_sha256": "a1eb0d84386b88fa7ae9a2d64bb53490a10241a551b7d335d0c4115f8ce06cbf",
+      "commands": 98,
+      "protocol": 2,
+      "manifest": 3,
+      "critical_imports": 10,
+      "other_python_resolvers": 189,
+      "native_extension_origins": 22
+    }
+  },
+  "cwd_scope": "Private ignoredresearch subdirectory, not physical externalcheckout. Isolated import surface excludes liveROOT/ROOTsrc/acceptedenv.",
+  "native_engine_launches": 0
+}

@@ -1,0 +1,60 @@
+{
+  "state": "ACCEPTED_SOURCE_FILE_CLI_PROPOSAL_REV02_ONLY",
+  "files": {
+    "I-rev02-ADDENDUM.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\I-rev02-ADDENDUM.md",
+      "sha256": "5c254b1a2d56aa6aec416f51a965ff1d81ae79b7c90f1979cc4750b6fc18a793",
+      "bytes": 4001
+    },
+    "I-rev02-contract.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\I-rev02-contract.json",
+      "sha256": "88016f2fa2c3e6ea368cfdd2cd8f6ae64e2b89c6d0308eec57bb41a3dea78585",
+      "bytes": 12171
+    },
+    "I-rev02-coverage.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\I-rev02-coverage.json",
+      "sha256": "5f31ae85f23d18585b146231c093f1a5d34aeebcf691511d34716481c13df434",
+      "bytes": 6103
+    },
+    "I-rev02-PROPOSAL.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\I-rev02-PROPOSAL.md",
+      "sha256": "70c3028c2e792d9475f2415b2a4e3f43c32c1bbc5bdc0254a9561e541b92d322",
+      "bytes": 32865
+    },
+    "obligation-review.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\obligation-review.json",
+      "sha256": "be7530ae6b731404419fa572f96b7b022ba0474b75b3636bced1db617bf89f92",
+      "bytes": 15380
+    },
+    "REVIEW.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\REVIEW.md",
+      "sha256": "8226897a34169238e318fc95adb3f6b80a6bc2dfa73eb3c6dc8f05c86b1e7688",
+      "bytes": 1666
+    },
+    "revision-delta.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\revision-delta.json",
+      "sha256": "d19a919a0d4459f83347a3b834b86779174d7bf49b56a1ae3809030fb6793ad6",
+      "bytes": 2055
+    },
+    "V-independent-scope-review.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\V-independent-scope-review.json",
+      "sha256": "35244b6da7f3ad96ca62143babbf0550f6a9acf4448d51d29e20cc90a11a290b",
+      "bytes": 6211
+    },
+    "V-predeclared-scope-matrix.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\V-predeclared-scope-matrix.json",
+      "sha256": "1d1e729acb9fcf3a772702349d93708afed2bca7308bedb38cefec07fb5f3774",
+      "bytes": 6583
+    },
+    "verification.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\verification.json",
+      "sha256": "982f6bfa23dc26897f4a0853ad18e827c3fac4e87b24aa969566dfb4aad34ba2",
+      "bytes": 6306
+    }
+  },
+  "harness": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\finalize_review.py",
+    "sha256": "06332d82debfb9e3b79a1e40f0a02c9940f58e224397d7fa1c6dc0384fcb79a7",
+    "bytes": 14248
+  }
+}

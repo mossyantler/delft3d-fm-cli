@@ -1,0 +1,78 @@
+{
+  "status": "static_only_no_native_failure_claim",
+  "sources": {
+    "src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90": {
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "blob_sha256": "0b7c71bd277bca2793900591f4077f310e8756dfa4b80610ed68822cdf0a4f62",
+      "local_sha256": "c1c44f7d2f7ecd00b7fa2e260ee5f7bad097f58b868e683fb9c5de1f8c0b0087",
+      "ranges": [
+        [
+          2411,
+          2430
+        ]
+      ],
+      "excerpt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\source-anchors\\unstruc_model.f90.txt",
+        "sha256": "137962cb67d2b9e46205657c1567e7f8da5b29640d2e32e7752eff49906706a2",
+        "bytes": 1495
+      },
+      "read_argv": [
+        "git",
+        "-C",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D",
+        "show",
+        "5a4649830b1e5072caf019fb4850bbdefd9ad431:src/engines_gpl/dflowfm/packages/dflowfm_kernel/src/dflowfm_data/unstruc_model.f90"
+      ]
+    },
+    "src/utils_lgpl/deltares_common/packages/deltares_common/src/string_module.f90": {
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "blob_sha256": "91a7d1e44fe7cec048d4845bb5ca26fd60e46ff6e90e20cb53d17cd5f07ff357",
+      "local_sha256": "880689926e59105c2d6d6e963adf91110855a7f4773a89e924bc6fd66f4f9d72",
+      "ranges": [
+        [
+          787,
+          848
+        ]
+      ],
+      "excerpt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\source-anchors\\string_module.f90.txt",
+        "sha256": "14afd7cc00920d48485beb52e338ddbc69ddde5ab1abdc2d021b397c4924465f",
+        "bytes": 2765
+      },
+      "read_argv": [
+        "git",
+        "-C",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D",
+        "show",
+        "5a4649830b1e5072caf019fb4850bbdefd9ad431:src/utils_lgpl/deltares_common/packages/deltares_common/src/string_module.f90"
+      ]
+    },
+    "src/utils_gpl/flow1d/packages/flow1d_io/src/Readstructures.f90": {
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "blob_sha256": "1d1beaed7aca95f895f07618169a8af3278d843271a427cb2f38b6b0a77ab08c",
+      "local_sha256": "4ede5d23e95312f5340846e04af3359488cd8d75a47220f014ed51cac61f4761",
+      "ranges": [
+        [
+          90,
+          103
+        ],
+        [
+          260,
+          274
+        ]
+      ],
+      "excerpt": {
+        "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-I-20261105-rev02\\source-anchors\\Readstructures.f90.txt",
+        "sha256": "aeb5a0853a54b6fbfdb59d6e665db853c7591c40962448204f71189a8f33df62",
+        "bytes": 2201
+      },
+      "read_argv": [
+        "git",
+        "-C",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D",
+        "show",
+        "5a4649830b1e5072caf019fb4850bbdefd9ad431:src/utils_gpl/flow1d/packages/flow1d_io/src/Readstructures.f90"
+      ]
+    }
+  }
+}

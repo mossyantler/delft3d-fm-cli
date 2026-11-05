@@ -1,0 +1,35 @@
+{
+  "state": "TESTS_ONLY_MIGRATION_READY_FOR_REVIEW_WITH_ONE_UNCHANGED_EXPECTATION_RED",
+  "author_not_independent_V": true,
+  "baseline": "baseline-02/verification.json",
+  "final_installed_replay": "installed-final-01/verification.json",
+  "baseline_result": "3 failures + 1 error / 4",
+  "migrated_result": "3 passed, 1 failed / 4; no skips/expectedFailure",
+  "patch": "fixture-only.patch",
+  "patch_sha256": "ed136d50bd4dd889a227fd2c0e31832315ec11278a5692c9635b1e49c13fdf17",
+  "original_tests": "original/test_cli.py",
+  "original_AST": "original/test_cli.ast.json",
+  "assertion_invariants": "migration-invariants.json",
+  "effects": "effect-audit.json",
+  "blocker": "unconfirmed cleanup public code is short_cleanup_failed; original termination_unconfirmed assertion retained.",
+  "package_immutable": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-PACK-I-rev04-20261105-01\\freeze.json",
+  "wheel_sha256": "f7eb645f48bf51cb6176970a749f09bc040472be5969b469892ac8b848a9586b",
+  "apply_scope_if_later_approved": [
+    "tests/test_cli.py (four fixture setups plus helper import)",
+    "tests/cli_job_fixtures.py (new test-only helper)"
+  ],
+  "unrelated_method_ASTs_identical": 23,
+  "all27_method_assertion_ASTs_identical": true,
+  "receipt_mutation_repair": false,
+  "product_changes": false,
+  "root_changes": false,
+  "native_launches": 0,
+  "GUI_launches": 0,
+  "limits": [
+    "Four synthetic orchestration tests only; no whole-root-suite or native acceptance.",
+    "Normal HANDLE capture and original Job close are explicitly synthetic callbacks; no Windows HANDLE exit proof obtained.",
+    "baseline-01 is retained harness-overblock, not a product failure; baseline-02 is corrected untouched replay.",
+    "migrated-01 is retained CRLF constructor insertion bug in private preparation; not product failure.",
+    "migrated-02/03 are intermediate author replays; only installed-final-01 binds final frozen migration."
+  ]
+}

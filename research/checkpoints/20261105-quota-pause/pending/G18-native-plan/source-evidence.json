@@ -1,0 +1,80 @@
+{
+  "engine_source_commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+  "installed_source_revision": "not_inferred_from_suite",
+  "anchors": [
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D\\src\\engines_gpl\\dflowfm\\packages\\dflowfm_kernel\\src\\dflowfm_utils\\m_crspath.f90",
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "sha256": "b3606a60e85e998e548c25f53ddd3c9a5aabb9b50ae3c9a1a854827e39d98eda",
+      "git_blob_sha256": "35386e333a59c7f2713a4e60fb6ad32a4d37fbf493d70c23408168190134904d",
+      "ranges": [
+        [
+          245,
+          311
+        ]
+      ],
+      "excerpt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\m_crspath.f90.txt",
+      "excerpt_sha256": "8e22299a71ef3511e66ce6ef766004f8073136ee9ed3681d4c379ec11b93e9fd"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D\\src\\engines_gpl\\dflowfm\\packages\\dflowfm_kernel\\src\\dflowfm_kernel\\prepost\\m_update_values_on_cross_sections.f90",
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "sha256": "9d8432480ac1bc46627b92142f8e01db64add37448cb231e35e2d2e89eef68a1",
+      "git_blob_sha256": "e4169cb2699fbdf2d202ee2e37a3ff9a2500933381c8b8366142522f26859978",
+      "ranges": [
+        [
+          45,
+          88
+        ],
+        [
+          137,
+          156
+        ],
+        [
+          216,
+          225
+        ]
+      ],
+      "excerpt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\m_update_values_on_cross_sections.f90.txt",
+      "excerpt_sha256": "a07be4e888d2ce730cfc537b75329f4559e343c08b56b8ad35e0a340f47b6643"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D\\src\\engines_gpl\\dflowfm\\packages\\dflowfm_kernel\\src\\dflowfm_data\\fm_statistical_output.f90",
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "sha256": "32c2be0008f04a18927e86b1afcb92f4be7ad7c6fad15b0af9f4935f8a866a84",
+      "git_blob_sha256": "556580848d95b1ebac4fe61cc0f8816a46c8b0c73d65a06578f46c2f0229dd31",
+      "ranges": [
+        [
+          367,
+          383
+        ],
+        [
+          1635,
+          1653
+        ]
+      ],
+      "excerpt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\fm_statistical_output.f90.txt",
+      "excerpt_sha256": "4607ecfee7d5890282db1517bca7c9611fc25c1fe9cf1f3a2dbd1119ead03e66"
+    },
+    {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\upstream\\Delft3D\\src\\engines_gpl\\dflowfm\\packages\\dflowfm_kernel\\src\\dflowfm_kernel\\prepost\\m_monitoring_crosssections.f90",
+      "commit": "5a4649830b1e5072caf019fb4850bbdefd9ad431",
+      "sha256": "3a36efca82b84341e3412d829e2cf98ee45b8c6a6799a20e93b61544c7adce5a",
+      "git_blob_sha256": "e6e12057b6d0c8c11dc74b7818dfbc1fa6c43a5b69d4290d6e77a723469042af",
+      "ranges": [
+        [
+          292,
+          308
+        ]
+      ],
+      "excerpt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-NATIVE-PLAN-V-20261105-01\\source-anchors\\m_monitoring_crosssections.f90.txt",
+      "excerpt_sha256": "5724441a30868c4501bb7a24828b4c2271d2f421206252af1147b268a72c0b58"
+    }
+  ],
+  "manual": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\manuals\\D-Flow_FM_User_Manual.pdf",
+    "sha256": "77751bb8769fb92f33cbf5b36133e2507a9b810f5b3e1e9275cc0010eabed374",
+    "reference": "2026.02 UM section7.4.2.3, printed73/PDF99: direction depends vertex order; standalone import/export context menu documented, no liveGUI claim"
+  },
+  "interpretation": "Source assigns crossed-link sign for rightward transport through directed path, sums signed q1, computes signed cumulative and Q/area. Reversal hypotheses conditional on unchanged crossed-link set and finite nonzero transport; native test can falsify them. Area unsigned. No geographic/CRS/GUI inference."
+}

@@ -1,0 +1,267 @@
+[
+  {
+    "id": "ID01",
+    "frozen_requirement": "Structure ID is authoritative; name and PLI label separate; preserve exact ordering and occurrence identity.",
+    "review": "satisfied_prospectively_after_revision02",
+    "explanation": "Identity/source-order/replacement-order sections separate Name/PLI labels. Geometry-only metadata cannot rederive source hydraulic ID/type from PLI; F01 required.",
+    "independent_fixture_ids": [
+      "scalar_weir_label_not_id",
+      "same_display_name_distinct_ids"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run",
+    "original_review": "needs_clarification",
+    "resolution": "Resolved F01 in rev02: route_id explicitly operator-declared; one requested exact target; actual target identity/type/consumer role from native INI. Geometry source native ID/type null and unverified. Hydraulic source ID/type from raw INI only."
+  },
+  {
+    "id": "ID02",
+    "frozen_requirement": "Collision policy explicit across every StructureFile and source/target namespace; do not silently skip/rename/normalize.",
+    "review": "satisfied_prospectively",
+    "explanation": "Exact full canonical ASCII ID, global exact/casefold collision policy, no guessing/rename; source order and destination slots explicit. Deferred multi-INI does not authorize hidden duplicates.",
+    "independent_fixture_ids": [
+      "duplicate_id_across_structure_files",
+      "case_alias_ids",
+      "unicode_normalization_alias_ids"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "REF01",
+    "frozen_requirement": "Location/TIM/BC sharing and all incoming/outgoing roles exposed; selected-only changes cannot silently mutate unselected consumers.",
+    "review": "satisfied_prospectively",
+    "explanation": "All incoming/outgoing roles bound; read-only shared assets conditional on full consumers; writable geometry exclusive. Unsupported compound/controller/other-model consumers refuse.",
+    "independent_fixture_ids": [
+      "shared_location_two_ids",
+      "shared_tim"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "REF02",
+    "frozen_requirement": "Deduplicate only with declared identity/hash+role mapping; same basenames with different bytes never overwrite.",
+    "review": "satisfied_prospectively",
+    "explanation": "Asset-map explicit logical source/target paths; targets ordinary existing byte-identical files. No basename flattening, copying, deletions or guessed match.",
+    "independent_fixture_ids": [
+      "same_basename_different_child"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "REF03",
+    "frozen_requirement": "Compound structureIds are logical graph edges, including missing/cycles/count/order and indirect consumers.",
+    "review": "satisfied_by_refusal",
+    "explanation": "Compound/native ID consumers inventoried; unproven cycles/count/order/consumer updates refuse, GROUP retained. No attempt to update compound IDs.",
+    "independent_fixture_ids": [
+      "compound_consumer",
+      "compound_missing_or_cycle"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "UNK01",
+    "frozen_requirement": "Preserve raw unknown non-path occurrences/comments/precision/BOM/EOL/order or refuse; no dictionary drop or generic INI rewrite.",
+    "review": "satisfied_by_preservation_or_refusal",
+    "explanation": "Raw core framing and destination gaps/footer/General/non-target bytes; unknown selected/global semantics refuse rather than drop. Unrelated repeats separate from critical duplicates.",
+    "independent_fixture_ids": [
+      "unknown_nonpath_repeated_fields"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "UNK02",
+    "frozen_requirement": "Duplicate critical/version/location/hydraulic fields and repeated target MDU key refuse ambiguity; unrelated repeat preservation separate.",
+    "review": "satisfied_prospectively",
+    "explanation": "Duplicate IDs/critical fields/General/location declarations refuse. One explicit General and known version/type only, no generic dict round trip.",
+    "independent_fixture_ids": [
+      "duplicate_critical_field"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "UNK03",
+    "frozen_requirement": "Unknown path/container/forcing grammar blocks claimed dependency closure; a byte hash is not proof a container has no children.",
+    "review": "satisfied_by_refusal",
+    "explanation": "Supported typed edges required; unknown reference-bearing keys/containers or unresolved non-target dependencies block complete/writable claim. Opaque NC hash not topology proof.",
+    "independent_fixture_ids": [
+      "unknown_reference_field",
+      "unknown_value_looks_like_path"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "FOR01",
+    "frozen_requirement": "Geometry-only exports disclose hydraulic/control loss; no rehydration to guessed defaults or equivalents.",
+    "review": "satisfied_prospectively",
+    "explanation": "Geometry export explicitly omits hydraulics/control; geometry import one existing PLI only, no new structure/default reconstruction. Native source geometry same under distinct crest counterexample retained.",
+    "independent_fixture_ids": [
+      "same_geometry_different_crest"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "FOR02",
+    "frozen_requirement": "Distinguish scalar, TIM, BC and REALTIME; preserve property lexeme, object ID/quantity links and complete child bytes.",
+    "review": "satisfied_prospectively",
+    "explanation": "Whole-token scalar/file distinction; root TIM only for weir in I1. BC/object-ID/quantity linkage and REALTIME explicit deferred, not boundary suffix. Raw children retained.",
+    "independent_fixture_ids": [
+      "tim_complete",
+      "missing_tim",
+      "tim_uppercase_suffix",
+      "realtime_control",
+      "bc_object_id_not_pli_support",
+      "bc_wrong_name_origin_and_units"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "FOR03",
+    "frozen_requirement": "Clock/origin/units/interpolation/time-zero/coverage not inferred; no implicit extension/sort/dedupe/constant conversion.",
+    "review": "satisfied_prospectively",
+    "explanation": "TIM minute/actual RefDate/TZone origins and coverage, BC CF origin/typed units later. No t0 substitution/normalizing/deduplication/extension/hidden constant conversion.",
+    "independent_fixture_ids": [
+      "tim_complete",
+      "tim_incomplete_coverage",
+      "tim_duplicate_or_reordered_knots",
+      "bc_object_id_not_pli_support",
+      "bc_wrong_name_origin_and_units"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "PATH01",
+    "frozen_requirement": "Resolve explicit PathsRelativeToParent and per-format bases; nested/multiple structure forcing base TODO requires proof or refusal.",
+    "review": "satisfied_prospectively_after_revision02",
+    "explanation": "Root3.01 mode0 only defers nested/double-resolve/multiple-base issue. But unquoted whitespace in one MDU StructureFile splits in an earlier kernel strsplit call; F02 required.",
+    "independent_fixture_ids": [
+      "nested_path_mode_0",
+      "nested_path_mode_1",
+      "semicolon_list_with_spaces"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run",
+    "original_review": "needs_clarification",
+    "resolution": "Resolved F02 in rev02: no whitespace/quotes/semicolon in I1 MDU StructureFile entry. Child/external paths retain role-specific semantics; modern semicolon filename-space support and nested/multi-mode cases remain deferred. No new runtime failure claim."
+  },
+  {
+    "id": "PATH02",
+    "frozen_requirement": "No implicit path rewriting/flattening, source/output aliasing, escape/reparse/hardlink or output overwrite.",
+    "review": "satisfied_prospectively",
+    "explanation": "Contained ordinary paths, no abs/UNC/ADS/navigation/reparse/hardlink/aliases. Explicit existing asset-map only; no output overwrite, output external absent destination.",
+    "independent_fixture_ids": [
+      "same_basename_different_child",
+      "path_parent_escape",
+      "path_absolute_drive",
+      "path_UNC",
+      "path_ADS"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "GEO01",
+    "frozen_requirement": "Raw coordinate order/number of columns/placement mode preserved; modern location reader differs from observation PLI reader.",
+    "review": "satisfied_prospectively",
+    "explanation": "Modern location reader FIRST XY block and ignored PLI label distinguished from G18. One exact PLI per unique source; two columns only conservative profile, no concatenation/reversal/snap.",
+    "independent_fixture_ids": [
+      "scalar_weir_label_not_id",
+      "multiple_location_modes",
+      "one_dimensional_structure",
+      "modern_location_multiblock",
+      "location_extra_column"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "GEO02",
+    "frozen_requirement": "CRS/XY axes/unit/vertical datum not guessed; PLIZ column meaning is family-specific.",
+    "review": "satisfied_prospectively",
+    "explanation": "Caller model-xy-as-is/m and height/datum assertions explicitly not compatibility proof. PLIZ/pillar diameter/Cd meanings distinct and deferred; no unit/axis/datum transform.",
+    "independent_fixture_ids": [
+      "same_geometry_different_crest",
+      "modern_location_multiblock",
+      "location_extra_column",
+      "pillar_four_columns"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "HYD01",
+    "frozen_requirement": "Preserve complete selected hydraulic state incl omitted/default-sensitive fields, name-independentID, staged arrays/control parameters or refuse.",
+    "review": "satisfied_by_preservation_or_refusal",
+    "explanation": "Selected raw hydraulic cores/absence preserved; type-compatible replacement; staged/reduction/controller/unknown selected fields refuse. General semantic context checked, defaults never invented.",
+    "independent_fixture_ids": [
+      "same_geometry_omitted_width",
+      "pump_geometry_not_capacity_orientation",
+      "pump_staged_reduction",
+      "gate_multiple_controls",
+      "legacy_version1",
+      "version2_bridge",
+      "field_specific_units"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "WRITE01",
+    "frozen_requirement": "Export new file/bundle must have explicit no-clobber/closure semantics; import mutation unit/atomicity and every written reference explicit.",
+    "review": "satisfied_prospectively",
+    "explanation": "Geometry modifies one existing PLI; hydraulic modifies one existing declared INI only. Export fresh exclusive directory requires reviewed adapter; no current publisher approval inferred.",
+    "independent_fixture_ids": [],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "WRITE02",
+    "frozen_requirement": "Single-file service does not establish multi-file transaction; preserve raw partial commit/rollback/readback/cleanup and foreign artifacts.",
+    "review": "satisfied_prospectively",
+    "explanation": "I7 remains separate. Per-file replace loop not global transaction; stage/readback/commit/rollback/cleanup/foreign owner facts required. No new assets hidden in I1.",
+    "independent_fixture_ids": [],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "HASH01",
+    "frozen_requirement": "Request/mode/selection/source+full graph bytes/identities/roles/parents/security/output absence bound; no-op rechecks full scope.",
+    "review": "satisfied_prospectively",
+    "explanation": "Request/assertions/order/map/full target graph/unselected/source bytes/roles/identity/security/output absence/intended digests bound; real late graph callback; no-op full recheck/no inode/mtime churn.",
+    "independent_fixture_ids": [],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "SCOPE01",
+    "frozen_requirement": "Every unsupported family/format/dimension/version remains in discoverable matrix; one initial branch never certifies fullG15.",
+    "review": "satisfied_prospectively",
+    "explanation": "All 16 I rows remain, mapped to 20 independent rows; no fullG15 support, absent proposed CLI not discoverable current implementation. First increment only modern XY simple weir/rootTIM and scalar pump.",
+    "independent_fixture_ids": [
+      "one_dimensional_structure",
+      "pump_staged_reduction",
+      "gate_multiple_controls",
+      "pillar_four_columns",
+      "legacy_version1",
+      "version2_bridge",
+      "incomplete_shapefile"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "EVID01",
+    "frozen_requirement": "Separate manual menu claim, static native reader, existing parser limits, proposed CLI, portable edits, native outputs and GUI observations.",
+    "review": "satisfied_prospectively",
+    "explanation": "Manual GUI menus/source pin/installed engine unknown/parser limits/proposed transfer distinct. Native, scientific and live GUI not performed; G13/G16/G18 approval not inherited.",
+    "independent_fixture_ids": [],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "EVID02",
+    "frozen_requirement": "Pure source/file work must not depend on blocked common runtime; no native/GUI/runner or historicalgate promotion.",
+    "review": "satisfied_prospectively",
+    "explanation": "Source/file proposal independent of blocked common runtime; no building, GUI, engine or root edits. Later publication/runtime gates are prospective dependencies only.",
+    "independent_fixture_ids": [],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  },
+  {
+    "id": "HYD02",
+    "frozen_requirement": "Quantity units belong to each field/type, not a generic numeric helper. Existing pump scalar metadata m3/s cannot label weir crest level or pillar diameter.",
+    "review": "satisfied_prospectively",
+    "explanation": "Field/type-specific conventions: capacity m3/s; crest fields m; orientation no unit; pillar diameter m/Cd dimensionless. Scalar/TIM no invented header.",
+    "independent_fixture_ids": [
+      "pump_geometry_not_capacity_orientation",
+      "field_specific_units"
+    ],
+    "qualification": "contract text assessment only; no candidate implementation exists to run"
+  }
+]

@@ -1,0 +1,71 @@
+{
+  "state": "READY_FOR_EXACT_PRIVATE_CANDIDATE_PRODUCT_ACCEPTANCE_PENDING",
+  "pins": {
+    "independent_native_byte_semantic_expectations": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\predeclared-02\\freeze.json",
+      "sha256": "b872cad7bcca9ede4c12d1726d6639c716df092e74e0650916f7d01f995ba60b",
+      "bytes": 81333
+    },
+    "manual_serialized_format": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\serialized-predeclared-01\\freeze.json",
+      "sha256": "c5fd20610dfa76fcbb202d94caab07615d673a8c110b50d0fc78c9782a2059e9",
+      "bytes": 48218
+    },
+    "accepted_proposal_V": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-PROPOSAL-V-20261105-01\\final-03\\freeze.json",
+      "sha256": "60c317d678dc0f5ad18e60d9bfa2d7bccad80e2003419116770698ed2548b313",
+      "bytes": 3201
+    }
+  },
+  "obligations": 23,
+  "carried_manual_adverse_fixtures": 43,
+  "retained_G15_scope_rows": 16,
+  "prospective_case_groups": 48,
+  "written_public_test_methods": 30,
+  "written_actual_shared_publisher_fault_methods": 11,
+  "independent_oracle_selfchecks_passed": 10,
+  "actual_product_tests_run": 0,
+  "manual_serialized_bundle_cases": 3,
+  "actual_file_ACL_witness": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\acl-witness-preflight-01\\verification.json",
+    "sha256": "2e65c16a47cbe3c7da4e92e254dc852118b100347a9ec53b0f71e7b7a084ee83",
+    "bytes": 1894
+  },
+  "accepted_base_only_install": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\accepted-base-01\\verification.json",
+    "sha256": "d3571042abcb76eefb0c5d717a1506b18b5c06d46078e163885188b59e11d94a",
+    "bytes": 29849
+  },
+  "actual_base_schema": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\accepted-base-01\\schema.json",
+    "sha256": "f073aec41f99c2f783353464f5123689fc0f716b37dbe8d2efbe48d5d9363831",
+    "bytes": 186279
+  },
+  "accepted191_installed_bytes_rechecked": true,
+  "old_public_commands": 98,
+  "candidate_implementation_or_outputs_read": false,
+  "protected_prior_G18_S07_pins_exact": {
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-TRANSFER-V-20261105-01\\final-01\\freeze.json": "ca6293f8d1b5916444b7d5446d718fb6dc9c1ed2cb830d99a2b1169ff2024fda",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G18-DOCS-V-20261105-01\\final-02\\freeze.json": "affaa74c4b6842045e6d28b24631a2fc1eaab54b16a7212feaee06de87142043",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-COMBINED-20261105-01\\final-01\\freeze.json": "f9b8970ef53f3c494f94318fe71068ac597bafee8bf4921500044d4d227aef73",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\oracle.py": "e793954596073a22b1608e8894fb212f925a1a59023273bd86eeb7511a49f2b4",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\S07-V-20261105-01\\verify_future.py": "1f13817438bae58bac09e0d52a64ea19acd6e66bc48739714818f448b12efaac"
+  },
+  "native_or_GUI_launches": 0,
+  "root_or_product_edits": false,
+  "new_common_runtime_composition": false,
+  "full_G15_approval": false,
+  "I1_product_approval": false,
+  "blocking_external_dependency": "Producer has not provided an exact private candidate source/wheel freeze yet; tests remain prospective until it arrives.",
+  "pending": [
+    "exact new candidate static/dependency review",
+    "fresh clean installed public commands and unchanged98 schemas",
+    "actual adapter fault/race/ACL/publication and exclusive-dir checks",
+    "independent final I1 contract scope verdict"
+  ],
+  "harness": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\freeze_readiness.py",
+    "sha256": "b3f75b324e2d94993fe7469ac79d0caf573b92ceb34b7d85f464ce93b99eab3a",
+    "bytes": 7525
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "state": "TESTS_ONLY_CONSTRUCTION_BEFORE_FAULT_MUTATIONS",
+  "test_methods": 49,
+  "all_literal_method_bodies_and_assertions_unchanged": true,
+  "method_body_sha256": {
+    "pump_lifecycle_fixtures.py": {},
+    "test_pump_close_attribution.py": {
+      "PumpCloseAttributionTests.test_successful_close_is_separate_from_unproven_lifetime": "1b11c70b693203e674e36ac7a482348d8536b41d4911704ccc8a0556f700e4cb",
+      "PumpCloseAttributionTests.test_runner_retains_cleanup_failed_and_original_timeout_reason": "22988fa7ea3d32e76015aeb8712e7a69ea81922d323bcd0411103b0f59df7c73",
+      "PumpCloseAttributionTests.test_reassessment_reuses_original_close_without_second_operation": "f8b79e8badbc83cbfa6be4b59a1901c9313baab7866e8b86f8c8373f1ebe959a",
+      "PumpCloseAttributionTests.test_true_close_failure_does_not_erase_clean_collector_fact": "8d2fc0f466205dcff31761c0fdc3ab69beac48d4ad31076f7606037b8b4f7055",
+      "PumpCloseAttributionTests.test_collector_failure_does_not_erase_actual_job_close_fact": "e9d8d5887b25a1258fc752021d5106a54035a22f5308c6cdb6cf181171098284",
+      "PumpCloseAttributionTests.test_self_consistent_foreign_token_does_not_bind_original_job": "9f0c9625a9b187109413007c215db3d06546feffd154d38dfebf84ec20c08227",
+      "PumpCloseAttributionTests.test_unknown_original_trace_token_cannot_prove_close": "7ba3e105ee2101c0b42a8fbaf947030c985bf57d9d2ab081c2b72d366eb54468",
+      "PumpCloseAttributionTests.test_unknown_bool_and_foreign_source_remain_unconfirmed": "49d17bc790b8b4bfddc5960fa169debcd87954e5b1235b66f3f14fde6e021d20"
+    },
+    "test_pump_run_lifecycle.py": {
+      "PumpRunLifecycleTests.test_pump_registration_preserves_existing_families": "209d540464c42ba0b271b4f5168ef019fcc09217407a7abceb1a7d5131190f45",
+      "PumpRunLifecycleTests.test_route_refused_before_input_reader_install_or_destination": "330da54aa745e8f71439ab607246f789238c462571421b0e019d73b54c36a542",
+      "PumpRunLifecycleTests.test_tracing_from_birth_hook_adjacent_to_launch_and_close_before_completed": "aefc59400684edea62a0d65b734f0c389a1301850061165e3cb6995cc1b6ce53",
+      "PumpRunLifecycleTests.test_prelaunch_refusal_never_launches_and_closes_unlaunched_job": "6c427a3c02889b649cbe3119fb99975564782ce4c8c6f746ae9fc06a69a4320d",
+      "PumpRunLifecycleTests.test_verified_natural_exit_not_terminated_for_native_or_output_failure": "87abd3289d381920cb3d6e8de797bfe4ee432a9a045a25535f6cf6aa503592ea",
+      "PumpRunLifecycleTests.test_timeout_cancel_and_interrupt_preserve_separate_forced_receipt": "0e3a7e680bf4004ef879d4b1d2268a3b731fea4806da62b7d25526635d5a496f",
+      "PumpRunLifecycleTests.test_close_failure_preserves_original_stop_reason": "5e2bec04e59cd32aa0f9015447ef25d96acb4fc1a25edfed8392784934a04726",
+      "PumpRunLifecycleTests.test_unknown_forced_member_coverage_never_becomes_completed": "07ae202efe8a719fa44a77872f268341588e15a0c87cb6d82f80ca690c93fbc7",
+      "PumpRunLifecycleTests.test_unknown_close_or_collector_result_never_becomes_completed": "2bb80b27d87b6dbb1afda5449052bea97cc171f84eab8ddaac7652b1ef0f5ca5",
+      "PumpRunLifecycleTests.test_close_raise_retains_original_receipt_without_retry": "2cb5953ba369027349d9d6866f2fdaa042e12ad702dec0e2534544fb8705d11c"
+    },
+    "test_pump_terminal_publication.py": {
+      "PumpTerminalPublicationTests.test_normal_persisted_exact_image": "1f87e1fc750fd4431e00ab0455005dc3be89871248dda06906f8e7c4d0051e04",
+      "PumpTerminalPublicationTests.test_exact_commit_then_error_acknowledged_once": "44622d83da41aa4bf19a39852b40aa73547dd1ffab1e66e95f49442498c1df1d",
+      "PumpTerminalPublicationTests.test_precommit_error_refuses_and_preserves_previous": "e56ee78d180d12d337440ff25b5da60b22c320d3e44259ec650a03162b29d297",
+      "PumpTerminalPublicationTests.test_foreign_lookalikes_refused_and_entire_bytes_preserved": "a8734ca59dbb3a6dd7249e9c7a6002fa6b7ee9039bea53ee98d15a2fd828c108",
+      "PumpTerminalPublicationTests.test_corrupt_or_trailing_data_not_matching_commit": "4096297f5052af3a1dc1722fc59b51b0ea0a4d68671e6e2b9fe9bfa2ff5b2790",
+      "PumpTerminalPublicationTests.test_failed_terminal_reason_preserved_after_exact_commit": "9142f3feb7244020048b57170d802cccbfc71382adf1f2b128221deec06a1da8"
+    },
+    "test_weir_run_profile.py": {
+      "WeirProfile.test_positive_real_graph_and_staging": "01bdf4c2296ffc637a12ae5c1137e6868db6e61024e6f9e53a15c3bc27d2a762",
+      "WeirProfile.test_each_missing_input_refused": "45e34d466d685ede4ad0442f562dd11ac33e649937cf0657c5392cc4ac52f0c1",
+      "WeirProfile.test_each_source_byte_change_refused_at_prelaunch": "27ba29e33993b5e73fbff68819a20d8e51feebc978c32e40feb336314794a958",
+      "WeirProfile.test_each_staged_byte_change_refused": "caf844e6d72f8efa88745ddb6403fa107d41abe102376a1092be2ec0b48fbfd9",
+      "WeirProfile.test_same_bytes_replaced_source_and_stage_identity": "10f4cd83ce992e0bb90d66d7508d257d885b5970a5d505a2800df41318057fb2",
+      "WeirProfile.test_missing_capture_and_manifest_tamper": "50aa5e0f0869bd474f7b3ef65ccff172de3a15a46b2aa51d999eed60cc927792",
+      "WeirProfile.test_extra_staged_input_refused": "04181bfe4a78d5fd914d248d187cec86ea639450b4a6bcf5dc08dfa9d9dfa204",
+      "WeirProfile.test_parent_replaced_same_files_refused": "6048cef9278645aeacf8862f963f432a9a6e2e2975890d2758c4b39f59274aea",
+      "WeirProfile.test_hardlink_tim_refused": "41b7ce40b2052195a733872d9e6a39ce95b494631927dc2abd218c2c34d078d2",
+      "WeirProfile.test_reference_escape_and_shared_tim_refused": "ad84c7838d6146e22d5244a33af3815afceef67ded3e3a07ef68e7528c2ee94a",
+      "WeirProfile.test_tim_constants_collision_clock_and_height_refused": "21ce4a40d866ceab987802af9cce0810c2d3130f43b905d8ffcd13c8f7c6c83a",
+      "WeirProfile.test_negative_scope_settings_boundary_and_mesh": "ba78706bb12f1efc319794a5153222bedc19e249b75f5f09d7dc8134938f5336",
+      "WeirProfile.test_real_registered_cli_and_early_route_refusal": "85119e0c3cbdfffedaf548ecd6db05349653f079523b7c27afb26fa868737bca",
+      "WeirProfile.test_actual_prepare_stage_without_execute": "7cc40dce5532ded7f5ebdc92eb0b4707fe6c2fd035bd64711cad22a6cfc2d6de",
+      "WeirProfile.test_existing_pump_metadata_policy_unchanged": "f0bc011c8631c7076c74a735bac70497eb2cb30b70a20acdead2517a697dbf19",
+      "WeirSharedLifecycle.test_actual_guarded_family_normal_and_uncovered_member": "5fa6b6e73d45fd2c6cd68c0ef96265599e620b87190b7fe1d22734cef3e4617e",
+      "WeirSharedLifecycle.test_weir_timeout_cancel_interrupt_and_native_failure": "5858b8c3dedca6351b15fb3063b47865a8eb3bc14a26a7ead1b82b7cf5e9edb5",
+      "WeirSharedLifecycle.test_weir_failed_proof_close_and_member_namespace_including_nested_causes": "74ffb8b0a07552c91a9a92a402b3e5eeda45b881d23f0aeba610aa54c9ef84d8",
+      "WeirSharedLifecycle.test_exact_pump_labels_remain_compatible": "ed2cf02f546885f45b89ee79739d9058a4853d5dc5faea40d9513eb691e624be",
+      "WeirInputErrorContext.test_nested_parser_causes_are_weir_and_source_facts_unchanged": "1b2f2649d6b3b1856b90203579f5d18c70d1a10a33836e053eea846d6fee2711",
+      "WeirInputErrorContext.test_public_invalid_mesh_station_and_duplicate_fields_have_no_pump_code": "66e53dae6c918be8f10a227f67f08e94549bb239d70626c943f99fd3ebcab1b6",
+      "WeirSharedCFVerification.test_requested_121_samples_and_final120": "d200199f4f0ef2c3ae9f7c20d4bedf73163ca9a5146069ebd33813243c10bf5f",
+      "WeirSharedCFVerification.test_changed_cadence_missing_or_masked_time_refused": "24f8f6d54d03ef72dc2305ac5c2c99be41073d6aadfa78fd2c19d7d635eb6428",
+      "WeirSharedCFVerification.test_wrong_time_origin_and_missing_final_restart_refused": "d92a47c1a42a9e1259e4957db70d3ab663d090bfa9bb15f587d51b16fb41411c",
+      "WeirSharedCFVerification.test_default_require_final_does_not_certify_full_checkpoint_schedule": "08c2bafc01c5c30342bf54f686faa3bebcd2216f3444dc95e8d71b6eeeb4d169"
+    }
+  },
+  "changed_files": {
+    "pump_lifecycle_fixtures.py": {
+      "base_sha256": "28ad0a1baaf3fcfa67d31337eda79cf922820cd2fcae6896ab361d366e6985c8",
+      "staged_sha256": "b84850361bd42940106d807613b9a7a47c15577eb3cf4e70fff8614c6b86a885"
+    },
+    "test_pump_close_attribution.py": {
+      "base_sha256": "03336a43d87911388ecbbc69505f48ee35d801e5e8fd415d60f77c11b23d66af",
+      "staged_sha256": "f649196d8a812cfdf5ae26a1e1ccd439d44d920959c1867cfa086e21e864e7b5"
+    }
+  },
+  "legacy_unproven_stop_dictionary_unchanged": true,
+  "legacy_unproven_stop_dictionary_sha256": "344cdbae15dbc5f307661c821683a5965eda763d4b9d030bcc77e57717916fde",
+  "normal_raw_trace_false_flags": true,
+  "event_notice_matching_new_synthetic_times": true,
+  "collector_false_in_both_close_factories": true,
+  "normalizes_native_or_mutated_negative": false,
+  "root_test_writes": 0,
+  "historical_manifest_writes": 0,
+  "Plato_receipt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-V-rev03-20261105-04\\portable-schema-verification-01.json",
+  "old_red_receipt": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-V-rev03-20261105-03\\portable-verification-01.json"
+}

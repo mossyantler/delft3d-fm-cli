@@ -1,0 +1,42 @@
+{
+  "state": "PROSPECTIVE_INTERFACE_MISMATCHES_OBSERVED_NOT_NATIVE_FAILURE",
+  "source_snapshot_sha256": {
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-NATIVE-V-rev04-20261105-01\\raw_audit.py": "4fe942842295d149e288ce5e4bd928d93eaa615fefb907b4c1b5ef0543e16176",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-NATIVE-I-rev04-20261105-01\\public_driver.py": "71009b5e193558675564c05a9d8fe60b23da3ed99927c51b1130e8312195c5eb",
+    "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-NATIVE-I-rev04-20261105-01\\replay_adapter.py": "47ac5221a7467109e4e12571a69cc21d97ced147ef2e284ac161ccce7542c1f4"
+  },
+  "outcomes": [
+    {
+      "case": "adapter_pre_call_observation",
+      "accepted": false,
+      "error": "Missing/invalid PID and original creation time"
+    },
+    {
+      "case": "post_call_observation_control",
+      "accepted": false,
+      "error": "Missing/invalid PID and original creation time"
+    },
+    {
+      "case": "adapter_declared_control_states",
+      "result": {
+        "schema": "SHORT-CLOSE-NATIVE-V-state-1",
+        "passed": false,
+        "case_success": false,
+        "record_sha256": "9e2b39648fb6616b00f9d279cba671bbd83756b7cf2b24fa6d54e176d49d0966",
+        "recorded_state": "cancelled",
+        "stop_achieved": false,
+        "natural_race_observed": false,
+        "lifetime_proven_here": false,
+        "errors": [
+          {
+            "type": "EvidenceError",
+            "reason": "Control disposal must be prospectively declared"
+          }
+        ]
+      }
+    }
+  ],
+  "native_launches": 0,
+  "root_product_writes": 0,
+  "scope": "Synthetic source-declared timestamp ordering and control expectation only; candidates still mutable, not a frozen final verdict."
+}

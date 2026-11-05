@@ -1,0 +1,110 @@
+{
+  "state": "proposal-only-no-launch-authorization",
+  "minimum_matrix": [
+    {
+      "case_id": "point_set15_direct",
+      "input_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\model.mdu",
+      "route": "direct",
+      "profile": "source-sink",
+      "reference_225": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15",
+      "native_status": "unallocated_not_launched",
+      "future_command_shape": [
+        "dfm",
+        "run",
+        "start",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\model.mdu",
+        "--profile",
+        "source-sink",
+        "--route",
+        "direct",
+        "--install",
+        "<coordinator-selected-suite>",
+        "--out",
+        "<fresh-run-root>",
+        "--timeout",
+        "120"
+      ],
+      "acceptance_owner": "Mill independent gate; 170 arrays/units/masks/attrs/time vs225, original Job/CloseHandle proof",
+      "launch_authorized": false
+    },
+    {
+      "case_id": "point_set15_dimr",
+      "input_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\model.mdu",
+      "route": "dimr",
+      "profile": "source-sink",
+      "reference_225": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\point_set15",
+      "native_status": "unallocated_not_launched",
+      "future_command_shape": [
+        "dfm",
+        "run",
+        "start",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\point_set15\\model\\model.mdu",
+        "--profile",
+        "source-sink",
+        "--route",
+        "dimr",
+        "--install",
+        "<coordinator-selected-suite>",
+        "--out",
+        "<fresh-run-root>",
+        "--timeout",
+        "120"
+      ],
+      "acceptance_owner": "Mill independent gate; 170 arrays/units/masks/attrs/time vs225, original Job/CloseHandle proof",
+      "launch_authorized": false
+    },
+    {
+      "case_id": "pair_set15_direct",
+      "input_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\model.mdu",
+      "route": "direct",
+      "profile": "source-sink",
+      "reference_225": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15",
+      "native_status": "unallocated_not_launched",
+      "future_command_shape": [
+        "dfm",
+        "run",
+        "start",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\model.mdu",
+        "--profile",
+        "source-sink",
+        "--route",
+        "direct",
+        "--install",
+        "<coordinator-selected-suite>",
+        "--out",
+        "<fresh-run-root>",
+        "--timeout",
+        "120"
+      ],
+      "acceptance_owner": "Mill independent gate; 170 arrays/units/masks/attrs/time vs225, original Job/CloseHandle proof",
+      "launch_authorized": false
+    },
+    {
+      "case_id": "pair_set15_dimr",
+      "input_mdu": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\model.mdu",
+      "route": "dimr",
+      "profile": "source-sink",
+      "reference_225": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-RUNNER-I-native-225-01\\pair_set15",
+      "native_status": "unallocated_not_launched",
+      "future_command_shape": [
+        "dfm",
+        "run",
+        "start",
+        "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B06-PUBLIC-G-inputs-01\\pair_set15\\model\\model.mdu",
+        "--profile",
+        "source-sink",
+        "--route",
+        "dimr",
+        "--install",
+        "<coordinator-selected-suite>",
+        "--out",
+        "<fresh-run-root>",
+        "--timeout",
+        "120"
+      ],
+      "acceptance_owner": "Mill independent gate; 170 arrays/units/masks/attrs/time vs225, original Job/CloseHandle proof",
+      "launch_authorized": false
+    }
+  ],
+  "additional_scope": "No inherited noop/add/C5 or DIMR scientific coverage from flags."
+}

@@ -1,0 +1,17 @@
+{
+  "first_serialization_freeze_unchanged": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\G15-TRANSFER-V-20261105-01\\serialized-predeclared-01\\freeze.json",
+    "sha256": "c5fd20610dfa76fcbb202d94caab07615d673a8c110b50d0fc78c9782a2059e9",
+    "bytes": 48218
+  },
+  "additional_public_cases_prospective_before_candidate_code_read": [
+    "numericID positive vs known compound and unknown scalar-valued control consumer",
+    "ordinary inheritedACL successful preservation and real readonly target refusal",
+    "actual parentDACL change afterpreview",
+    "unselected map stale uses VALID JSON whitespace change to test consent rather than malformedJSON parsing order"
+  ],
+  "publisher_fault_test_basis": "exact unchanged accepted191 pump_edit_write API, independent byte/family/identity expectations; newG15 adapter not yet inspected",
+  "public_methods": 30,
+  "publication_fault_methods": 11,
+  "all_are_written_not_run_against_candidate": true
+}

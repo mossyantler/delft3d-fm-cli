@@ -1,0 +1,40 @@
+{
+  "state": "REJECTED_REV05_ADDITIONAL_CAPTURE_AND_OPTIONAL_TRACE_CONTRADICTIONS",
+  "candidate_freeze_sha256": "513b693f2b186f7b7c463cb485cc2197f1969baf7f4a858a2c93109d9130d067",
+  "terminal_plan02_sha256": "b988939aef2b0ec0ac231a456175a530296576ba9719214f2306acf9ec7eee9b",
+  "independent_V06_methods": 38,
+  "independent_frozen_V07_cases": 33,
+  "main_passed": 71,
+  "main_failures": 0,
+  "supplemental_methods": 4,
+  "supplemental_failed_assertions": 2,
+  "errors": 0,
+  "findings": [
+    "Copied original retained captured_at_utc can contradict source trace and still qualify. Immutable acquisition data must match.",
+    "Supplied optional forced trace exit_code999 can contradict required original member exit_code1 and still qualify. This optional field is not current producer output."
+  ],
+  "positive_controls": [
+    "baselinecode8/nonzero remains lifetimeonly",
+    "matching optional trace allowed",
+    "different later exit observation timestamps allowed; do not require equality"
+  ],
+  "native_launches": 0,
+  "PID_queries": 0,
+  "source_unchanged": true,
+  "pins": {
+    "capture-consistency-01.json": "0f9915d80c6db0767f20545583733713c767692ff5dde85e07a107a9069cb775",
+    "capture-consistency-tests-01.txt": "732d13c7598ffc6a26af0f5bd3536bbf3f9a5dce0aeb506ef57c33220fb8de7d",
+    "run_review.py": "51d7fe72b8fd38b01478743f248595cfa7c7edd23195acc589927be43d1ecb21",
+    "tests-01.txt": "e598f5b4e9cde86a2f4bfb4d951c7a45d405852de0b27fc310b8d80bda748aaf",
+    "test_admission.py": "4c2b80ee9848e51e3744601169ba2c3f31c39b3d8a4910737ca919cfb704475b",
+    "test_capture_consistency.py": "709795c8edfc16cee4cd339d0a81460c34384eb4342035c0d99b6631ea326f11",
+    "test_case_failures.py": "5291b24ca5efc62f2e01c1dcb9810b808cdb2ff0d5606386b9233803ca5c0e15",
+    "test_cli_and_forced.py": "6417e27f936a8cb68a27b2a269f5848e81a91739c13933e2dddd823d868db73b",
+    "test_entry_order.py": "e6542204e1346f0780b2f0d6bc45d461e4e22754a6cb69c54087ce9a846d0445",
+    "test_predeclared_force.py": "b0488f4b593da5835bc7a716c0f54e2d3e8ebb4fb27c5020a07312bf72399ec0",
+    "test_protocol_abi.py": "a4c995b7cece7ac687a698c56b63a0ef792cb8a36ef944c1a20bda858316b92b",
+    "test_storage_entry.py": "5ec29dd80d9570881d7fd0a29092861b8c38ff9a4f0a1667128ca3984c807ed4",
+    "verification-01.json": "4763f577dc95f3bb4fb4c51a33f0ac6157fd486277dad86656a38f90bddea560"
+  },
+  "scope": "No native grant or common force adoption. PackageVcriticalpriority; newB14rev06needs ownfreeze."
+}

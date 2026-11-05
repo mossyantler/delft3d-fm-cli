@@ -1,0 +1,637 @@
+{
+  "schema": "B14-runner-I-terminal-freeze-6",
+  "state": "immutable_capture_optional_member_consistency_PRIVATE_REVIEW_ONLY",
+  "immutable": true,
+  "revision": "B14-RUNNER-I-20261105-rev06-39dee5b4",
+  "source": {
+    "files.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\files.py",
+      "sha256": "c8ffce381fee3ba64f766bf8c21c350cb40e89e07ab58cf545d24df4ab3e2233",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906959,
+        "bytes": 4750,
+        "mtime_ns": 1793842715284080900,
+        "nlink": 1
+      }
+    },
+    "admission.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\admission.py",
+      "sha256": "6338602b4ddf2b201761a57b8f496e64645c000237c17b2a5e251920df37b0c9",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906960,
+        "bytes": 13773,
+        "mtime_ns": 1793842715285125300,
+        "nlink": 1
+      }
+    },
+    "worker.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\worker.py",
+      "sha256": "c12401b8bdac4276a45fb88b69864ddd26ae07415c4f1b9b5c91d3dca8a69226",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906961,
+        "bytes": 13958,
+        "mtime_ns": 1793842715285638200,
+        "nlink": 1
+      }
+    },
+    "protocol.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\protocol.py",
+      "sha256": "4d62402b5b767b03f0b573b96712e708801c48b59e7b724e12ac249a28f14ce4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906963,
+        "bytes": 5891,
+        "mtime_ns": 1793842715286765900,
+        "nlink": 1
+      }
+    },
+    "runner.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+      "sha256": "ca17478fd1e7aaec4fb2cd8a739f93ede94e5698cf98e90704cf49d054b923a3",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906964,
+        "bytes": 25802,
+        "mtime_ns": 1793842715287852200,
+        "nlink": 1
+      }
+    },
+    "ownership_guard.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\ownership_guard.py",
+      "sha256": "861db581649def0d2eb2954fcd6d67ad815cd88659683cb7000a826e3d33fc7c",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906965,
+        "bytes": 11212,
+        "mtime_ns": 1793842715288385300,
+        "nlink": 1
+      }
+    },
+    "lifecycle_gate.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\lifecycle_gate.py",
+      "sha256": "c7f5f713d97711d5d69799764b5ce8829cb4744a4efe2ac31f6d23785619be27",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906967,
+        "bytes": 10984,
+        "mtime_ns": 1793842738556271900,
+        "nlink": 1
+      }
+    }
+  },
+  "runtime": {
+    "dfm_cli/__init__.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\__init__.py",
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906988,
+        "bytes": 127,
+        "mtime_ns": 1793835447861758400,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/common.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\common.py",
+      "sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906980,
+        "bytes": 3773,
+        "mtime_ns": 1793835447862758800,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/diagnostics.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\diagnostics.py",
+      "sha256": "423db427b2c8827a42f289422ad1a96b88a90d623cd4493f419abdb02334ab7e",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906981,
+        "bytes": 5543,
+        "mtime_ns": 1793835447866758600,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/reviewed_natural.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\reviewed_natural.py",
+      "sha256": "237bea394875794cb53f595a2f3a07ccf28f51a636f53a93783166e4a8fa7cd4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906982,
+        "bytes": 12924,
+        "mtime_ns": 1793839382449497500,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906983,
+        "bytes": 18859,
+        "mtime_ns": 1793835447866758600,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_exit_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_exit_evidence.py",
+      "sha256": "7e0e51463b3749bb7464c432d08e66e691249a6f51f26167cb82af2b556b2a11",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906984,
+        "bytes": 14081,
+        "mtime_ns": 1793835447865758100,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_job.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job.py",
+      "sha256": "3c9c097aa195af2ab104e87884a5cc92557b317ff2df1495a48a63169e80c529",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906985,
+        "bytes": 38830,
+        "mtime_ns": 1793835447863758700,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_job_trace.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job_trace.py",
+      "sha256": "5b9e35b42496c842dab185280c2e2d21bcdc8628154cca493d3159af519280ff",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906986,
+        "bytes": 27078,
+        "mtime_ns": 1793835447864759000,
+        "nlink": 1
+      }
+    },
+    "dfm_cli/windows_job_trace_api.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job_trace_api.py",
+      "sha256": "6ed0fbc9e1fbaa5d27888edeed8c5fbf686d2ff314bcb198e845e33d46e9fcd6",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906987,
+        "bytes": 4052,
+        "mtime_ns": 1793835447865758100,
+        "nlink": 1
+      }
+    }
+  },
+  "all_artifacts": {
+    "admission.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\admission.py",
+      "sha256": "6338602b4ddf2b201761a57b8f496e64645c000237c17b2a5e251920df37b0c9",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906960,
+        "bytes": 13773,
+        "mtime_ns": 1793842715285125300,
+        "nlink": 1
+      }
+    },
+    "commands.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\commands.json",
+      "sha256": "90d9da16428f0047017b9319f7ba719aa53600e3423e399506437af1e87ab427",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 6473924466659499,
+        "bytes": 1524,
+        "mtime_ns": 1793843759210339600,
+        "nlink": 1
+      }
+    },
+    "files.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\files.py",
+      "sha256": "c8ffce381fee3ba64f766bf8c21c350cb40e89e07ab58cf545d24df4ab3e2233",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906959,
+        "bytes": 4750,
+        "mtime_ns": 1793842715284080900,
+        "nlink": 1
+      }
+    },
+    "HANDOFF.md": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\HANDOFF.md",
+      "sha256": "41ff95f383d2d1f1414eed73f57fc9932bead4b3c72ef83c93ad579aeb006ac7",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906975,
+        "bytes": 21225,
+        "mtime_ns": 1793843510604645700,
+        "nlink": 1
+      }
+    },
+    "lifecycle_gate.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\lifecycle_gate.py",
+      "sha256": "c7f5f713d97711d5d69799764b5ce8829cb4744a4efe2ac31f6d23785619be27",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906967,
+        "bytes": 10984,
+        "mtime_ns": 1793842738556271900,
+        "nlink": 1
+      }
+    },
+    "member-consistency.diff": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\member-consistency.diff",
+      "sha256": "1ded43531c8c5506d13b1d5cc1d962f340fd57a3692448d8889572e1f7d1cb59",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 22799473115877545,
+        "bytes": 4495,
+        "mtime_ns": 1793843759208760000,
+        "nlink": 1
+      }
+    },
+    "ownership_guard.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\ownership_guard.py",
+      "sha256": "861db581649def0d2eb2954fcd6d67ad815cd88659683cb7000a826e3d33fc7c",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906965,
+        "bytes": 11212,
+        "mtime_ns": 1793842715288385300,
+        "nlink": 1
+      }
+    },
+    "protocol.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\protocol.py",
+      "sha256": "4d62402b5b767b03f0b573b96712e708801c48b59e7b724e12ac249a28f14ce4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906963,
+        "bytes": 5891,
+        "mtime_ns": 1793842715286765900,
+        "nlink": 1
+      }
+    },
+    "replay_V06_V07.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\replay_V06_V07.py",
+      "sha256": "e9dea74d7f5911ecf3b71d910d7241e9f658f22356617bec9112c4709bed7ad0",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906977,
+        "bytes": 5258,
+        "mtime_ns": 1793843509989230100,
+        "nlink": 1
+      }
+    },
+    "revision.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\revision.json",
+      "sha256": "735d12fc58d2d9e2027782bf2b1c7e928d97e95f93dc1cbe11dc5c6bdc714336",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 5629499536527532,
+        "bytes": 3577,
+        "mtime_ns": 1793843759305814600,
+        "nlink": 1
+      }
+    },
+    "runner.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runner.py",
+      "sha256": "ca17478fd1e7aaec4fb2cd8a739f93ede94e5698cf98e90704cf49d054b923a3",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906964,
+        "bytes": 25802,
+        "mtime_ns": 1793842715287852200,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/__init__.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\__init__.py",
+      "sha256": "39c82f41ccf61a24af169dad4499e7e8b0128642830633db6b98e977b28dfbf3",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906988,
+        "bytes": 127,
+        "mtime_ns": 1793835447861758400,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/common.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\common.py",
+      "sha256": "acc8359889e96c1c4f00840f434c0c0d230fee2830d3e1e7834361b6ef9a776d",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906980,
+        "bytes": 3773,
+        "mtime_ns": 1793835447862758800,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/diagnostics.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\diagnostics.py",
+      "sha256": "423db427b2c8827a42f289422ad1a96b88a90d623cd4493f419abdb02334ab7e",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906981,
+        "bytes": 5543,
+        "mtime_ns": 1793835447866758600,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/reviewed_natural.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\reviewed_natural.py",
+      "sha256": "237bea394875794cb53f595a2f3a07ccf28f51a636f53a93783166e4a8fa7cd4",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906982,
+        "bytes": 12924,
+        "mtime_ns": 1793839382449497500,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/run_pump_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\run_pump_lifecycle.py",
+      "sha256": "0c0b06c995d4c56720d7767556ed50b6c372b6dc2cfc3adca36eb05da405502f",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906983,
+        "bytes": 18859,
+        "mtime_ns": 1793835447866758600,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/windows_exit_evidence.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_exit_evidence.py",
+      "sha256": "7e0e51463b3749bb7464c432d08e66e691249a6f51f26167cb82af2b556b2a11",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906984,
+        "bytes": 14081,
+        "mtime_ns": 1793835447865758100,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/windows_job.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job.py",
+      "sha256": "3c9c097aa195af2ab104e87884a5cc92557b317ff2df1495a48a63169e80c529",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906985,
+        "bytes": 38830,
+        "mtime_ns": 1793835447863758700,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/windows_job_trace.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job_trace.py",
+      "sha256": "5b9e35b42496c842dab185280c2e2d21bcdc8628154cca493d3159af519280ff",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906986,
+        "bytes": 27078,
+        "mtime_ns": 1793835447864759000,
+        "nlink": 1
+      }
+    },
+    "runtime/dfm_cli/windows_job_trace_api.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime\\dfm_cli\\windows_job_trace_api.py",
+      "sha256": "6ed0fbc9e1fbaa5d27888edeed8c5fbf686d2ff314bcb198e845e33d46e9fcd6",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906987,
+        "bytes": 4052,
+        "mtime_ns": 1793835447865758100,
+        "nlink": 1
+      }
+    },
+    "runtime-provenance.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\runtime-provenance.json",
+      "sha256": "87a3f32b108fd48ba856d65eb89aff808f20fc5f407151a061c271f545714757",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906974,
+        "bytes": 5167,
+        "mtime_ns": 1793842715293675900,
+        "nlink": 1
+      }
+    },
+    "selfcheck-01.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\selfcheck-01.json",
+      "sha256": "b06611443750862268c8e99938dca13dc81c883fc5b528b9d327c2a2eecf0330",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 3940649676258528,
+        "bytes": 10262,
+        "mtime_ns": 1793843569538006600,
+        "nlink": 1
+      }
+    },
+    "selfcheck.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\selfcheck.py",
+      "sha256": "5652de7c7cbabc2d994b9c91d9e6e0137aec682be9f9c9e66c637bc5064a7e46",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906973,
+        "bytes": 2443,
+        "mtime_ns": 1793842868983990000,
+        "nlink": 1
+      }
+    },
+    "test_deadlines.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\test_deadlines.py",
+      "sha256": "eadbd600dcac10dc1a7ff03c6ea6a65dae632a6cd9e8121c082315e795575cf0",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906969,
+        "bytes": 8672,
+        "mtime_ns": 1793842715291018400,
+        "nlink": 1
+      }
+    },
+    "test_forced.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\test_forced.py",
+      "sha256": "38541a3c0de4365a680d0ee8ec720604e29b099034cd76d7035472dbbf40ff85",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906971,
+        "bytes": 7432,
+        "mtime_ns": 1793842715292084800,
+        "nlink": 1
+      }
+    },
+    "test_lifecycle.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\test_lifecycle.py",
+      "sha256": "83cd34cd376478ff6441a71c3e28bb727805ee0c8441c37305b50b95932cb110",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906970,
+        "bytes": 10132,
+        "mtime_ns": 1793842715291551800,
+        "nlink": 1
+      }
+    },
+    "test_member_consistency.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\test_member_consistency.py",
+      "sha256": "a7e1947ce39c7ea82abf05ecd6575adc838bc5e50b8df3df80914aee2d836af6",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4503599629611147,
+        "bytes": 3665,
+        "mtime_ns": 1793842868982938500,
+        "nlink": 1
+      }
+    },
+    "test_private.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\test_private.py",
+      "sha256": "d1179c12d9a3660c60fd5d92cbebe487b0991f31ca1f297e682e78358af77b5e",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906968,
+        "bytes": 20334,
+        "mtime_ns": 1793842715290488800,
+        "nlink": 1
+      }
+    },
+    "V06-V07-observations-I-01.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\V06-V07-observations-I-01.json",
+      "sha256": "e4692f2fd71a3e85fdc0344b2ff1e4e7d7d16c08ce29df485840e45fdd7c678a",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 7599824373500357,
+        "bytes": 1139000,
+        "mtime_ns": 1793843650721874200,
+        "nlink": 1
+      }
+    },
+    "V06-V07-replay-I-01.json": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\V06-V07-replay-I-01.json",
+      "sha256": "47bd95cb0a1999a98796854bf488c3a7951bb48b1c39406c69201b81ff84d8ed",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 33495522228577339,
+        "bytes": 18227,
+        "mtime_ns": 1793843650695876400,
+        "nlink": 1
+      }
+    },
+    "worker.py": {
+      "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\worker.py",
+      "sha256": "c12401b8bdac4276a45fb88b69864ddd26ae07415c4f1b9b5c91d3dca8a69226",
+      "identity": {
+        "device": 15735799815185527221,
+        "inode": 4222124652906961,
+        "bytes": 13958,
+        "mtime_ns": 1793842715285638200,
+        "nlink": 1
+      }
+    }
+  },
+  "prepared_plan": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-prepared-20261105-rev06-39dee5b4-01\\plan.json",
+    "sha256": "15e9acca4f1d9c436d8ee1ff02132ed76d4172bf298752e70fc87f93d291005f",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 3940649676255164,
+      "bytes": 339455,
+      "mtime_ns": 1793843554441829100,
+      "nlink": 1
+    }
+  },
+  "selfcheck": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\selfcheck-01.json",
+    "sha256": "b06611443750862268c8e99938dca13dc81c883fc5b528b9d327c2a2eecf0330",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 3940649676258528,
+      "bytes": 10262,
+      "mtime_ns": 1793843569538006600,
+      "nlink": 1
+    }
+  },
+  "I_replay": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\V06-V07-replay-I-01.json",
+    "sha256": "47bd95cb0a1999a98796854bf488c3a7951bb48b1c39406c69201b81ff84d8ed",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 33495522228577339,
+      "bytes": 18227,
+      "mtime_ns": 1793843650695876400,
+      "nlink": 1
+    }
+  },
+  "selfcheck_summary": {
+    "tests": 73,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "native_entry_attempts": []
+  },
+  "I_replay_summary": {
+    "V06_plus_V08_methods": 42,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "V07_cases": 33,
+    "V07_unmet": [],
+    "independent_V_approval": false
+  },
+  "held_original_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev05-0daab520\\freeze.json",
+    "sha256": "513b693f2b186f7b7c463cb485cc2197f1969baf7f4a858a2c93109d9130d067",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 5066549583015822,
+      "bytes": 25897,
+      "mtime_ns": 1793842125295112100,
+      "nlink": 1
+    }
+  },
+  "revision_report": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\B14-RUNNER-I-20261105-rev06-39dee5b4\\revision.json",
+    "sha256": "735d12fc58d2d9e2027782bf2b1c7e928d97e95f93dc1cbe11dc5c6bdc714336",
+    "identity": {
+      "device": 15735799815185527221,
+      "inode": 5629499536527532,
+      "bytes": 3577,
+      "mtime_ns": 1793843759305814600,
+      "nlink": 1
+    }
+  },
+  "case_order": [
+    "bmi2001-a0-control",
+    "bmi2001-a0-m2",
+    "bmi2026-a0-control",
+    "bmi2026-a0-m2",
+    "epoch2001-a0-control",
+    "epoch2001-manual-a0-m2",
+    "epoch2001-public-a0-m2",
+    "epoch2026-a0-control",
+    "epoch2026-manual-a0-m2",
+    "epoch2026-public-a0-m2"
+  ],
+  "prospective_four_only": [
+    "bmi2001-a0-control",
+    "bmi2001-a0-m2",
+    "bmi2026-a0-control",
+    "bmi2026-a0-m2"
+  ],
+  "public_direct_admission": {
+    "state": "blocked_SHORT_CLOSE",
+    "corrected_composition_receipt": null,
+    "reason": "Combined194 is authoring evidence only. Actual public short terminal correction + fresh I/V composition required. No raw engine substitute."
+  },
+  "consumer_freeze_sha256": "0b7c26e8a5d04343e7ef305f8568bd3e836f1bb0e054a77ff819260b64096ee1",
+  "contract_sha256": "299246ecb561b886348c560df6a1420573a71476fdbb8df05dfd6277188cb88e",
+  "no_common_rev04_adopted": true,
+  "independent_review": "NEW_Plato_full_review_source_ACK_and_G_pending",
+  "native_started": false,
+  "Job_constructed": false,
+  "root_product_changed": false,
+  "dispatch_changed": false,
+  "native_lease": null,
+  "remaining_blockers": [
+    "New independent full V review of exact REV06",
+    "Coordinator admission and explicit native lease",
+    "Six public direct jobs remain blocked pending separately accepted composition"
+  ]
+}

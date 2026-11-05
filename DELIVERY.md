@@ -1,5 +1,33 @@
 # 로드맵 공정표
 
+**사용자 요청으로 중단(2026-11-05).** 이번 경계는 [공용 패키지 최종 검수](research/experiments/SHORT-CLOSE-PACK-G-final-01/verification.json)까지다. 독립 검수 자료 460개와 두 설치본의 제품 191파일을 대조했다. 실제 엔진 재시험·제품 병합은 미완료다. [재개 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 미병합 코드와 작업자별 중단 상태를 보관한다. 기존 CLI fixture 이관은 4건 중 3건 통과, 공개 오류 코드 호환성 차이 1건이 남아 있다. 아래의 ‘진행 중’ 기록은 중단 직전 상태이며 명시적인 재개 요청 전에는 계속 실행하지 않는다.
+
+**B14 후보 6의 통합 회귀 통과, 독립 검수 대기.** [다섯 합성 검사](research/experiments/B14-RUNNER-G-rev06-consistency-01/verification.json)에서 원래 멤버의 확보 시각과 종료 코드 모순을 거부했고, 이후 관찰 시각만 다른 정상 기록은 허용했다. [파일 사전 검사](research/experiments/B14-RUNNER-G-rev06-preflight-01/verification.json)는 동결 참조 52개와 후보·준비 입력 113파일의 불변을 확인했다. 네 BMI 진단의 실제 실행은 아직 없으며, 공개 direct 여섯 사례는 공용 실행 수정 통합이 선행한다. Faraday의 구현본은 동결했고 Plato가 독립 검수한다.
+
+**B06 판독기 독립 검수 병행.** Mill의 공개 manifest 판독기 `203d9def`가 동결됐다. Faraday는 별도 `B06-PROVENANCE-V-FAR-20261105-01`에서 Einstein이 미리 정한 오류 사례 70개·정상 대조 6개를 기준으로 검수한다. Einstein은 공용 실행의 네이티브 기록 판독기에 집중한다. [통합자의 연결 시험](research/experiments/SHORT-CLOSE-NATIVE-G-interface-01/verification-02.json)에서는 관찰 핸들 닫기 시각과 대조군 허용 상태의 명세 불일치를 두 정상 대조군과 함께 확인했다. 실제 엔진 실패로 집계하지 않으며, 실행기와 판독기를 합친 합성 시험 후 네이티브 실행 여부를 판정한다.
+
+**최종 패키지 동결 대조 완료.** [동결본 통합 검사](research/experiments/SHORT-CLOSE-PACK-G-freeze-01/verification.json)에서 최종 `001c` 자료 484개의 해시·크기를 확인하고 앞서 검수한 `f7eb` 설치 wheel과 연결했다. Plato의 별도 설치 검수는 진행 중이다. Raman은 기존 `test_cli.py`의 네 합성 Job 사례를 별도 폴더에서 먼저 재현한 뒤, 단언을 유지하는 테스트 입력 변경을 준비한다. 실제 엔진 재시험과 제품 병합은 아직 승인하지 않았다.
+
+**검증 준비의 연결 기준.** 새 재현 실행기의 외부 관찰 핸들은 실행 소유자의 최초 핸들과 다르다. 두 핸들을 같은 것으로 표기하지 않고, 생존 중 확보한 관찰 핸들을 계속 보유하면서 PID·생성 시각·실행 파일을 소유자 기록과 대조하도록 Archimedes와 Einstein의 명세를 맞추고 있다. 일반 Job 소속 조회를 특정 소유 Job의 증거로 바꾸지 않는다. G15는 [독립 시험 준비 대조](research/experiments/G15-TRANSFER-G-readiness-01/verification.json)에서 동결 파일 16개와 공개 명령 시험 30개·저장 오류 시험 11개를 확인했다. 실제 후보의 통과 판정은 별도다.
+
+**공용 종료 후보 4 설치 패키지 검수.** [통합자의 설치 검사](research/experiments/SHORT-CLOSE-PACK-G-rev04-01/verification.json)에서 191파일 중 두 실행 모듈만 바뀌고 189파일은 기존 승인본과 같음을 확인했다. wheel RECORD 195항목, 실제 설치 경로, 공개 명령 98개와 JSON 프로토콜 2도 확인했다. 기존 테스트 단언과 구형 거부 사례를 유지한 합성 입력 변경이며, 작성자의 설치 검사 116·49·18개는 통과했다(중복 가능해 합산하지 않음). 최종 패키지 동결 대조는 완료했고 Plato의 독립 검수가 남아 있다. 현재 제품은 기존 191파일 그대로다.
+
+**새 엔진 회귀의 독립 판독 준비.** [기존 검증기의 범위 대조](research/experiments/SHORT-CLOSE-NATIVE-G-admission-gap-01/verification.json)에서 중지 직전 활성 멤버만 확인하는 분류기는 먼저 끝난 자식의 최초 생존 확보 근거를 지운 반례도 통과했다. 이는 기존 분류기의 명시된 범위이며 전체 수명 검증으로 확대할 수 없다. Archimedes는 별도 재현 실행기, Einstein은 제품 판정기를 사용하지 않는 원시 기록 판독기를 준비한다. 최대 12실행·동시 2개·재시도 없음, direct/DIMR 600초와 191변수 비교, 같은 실행 파일을 쓰는 대조군 생존 및 모든 원래 Job·멤버·수집기 닫기를 각각 검수한다. 패키지·판독기·계획의 통합 검수 전까지 새 실행은 없다.
+
+**B14 후보 5 통합 반례.** [통합자의 합성 검사](research/experiments/B14-RUNNER-G-rev05-consistency-01/verification.json)에서 같은 원래 멤버의 복사된 캡처 시각 불일치와 선택적 추가 trace의 종료 코드 모순이 승인됐다. 대조군 두 개는 통과했다. 추가 trace는 현재 생산자가 쓰는 필드가 아니므로 실제 엔진 결함으로 서술하지 않는다. Faraday는 별도 후보 6을 준비하고, Plato가 독립 검수한다.
+
+**B06 추가 입력 경계와 공개 실행 기록 판독.** Mill의 신규 정적 검사 24개가 통과했고 [통합자 검수](research/experiments/B06-RUN-PROFILE-G-bounds-01/verification.json)에서 동결 자료 180개를 대조했다. 121/122개 시각 경계, 이진수로 합쳐지는 서로 다른 시각, 값·파일 크기 상한, 비활성 블록, 격자 범위와 출력 이름 충돌을 확인했다. 이는 공용 실행 수정이나 수치 결과 승인에 포함되지 않는다. 다음 판독기는 Mill의 `B06-V-public-provenance-20261105-01`, 독립 검증은 Einstein의 `B06-PROVENANCE-V-EIN-20261105-01`에서 준비한다. 공개 manifest 3의 실제 direct/DIMR 인자·XML·입력·출력을 원래 형식으로 확인하고 #225의 170변수 비교와 연결한다. 실제 네 실행 및 제품 병합은 여전히 미완료다.
+
+**공용 종료 판정의 독립 사전 사례 확정.** Plato의 [121개 사례 동결본](research/experiments/SHORT-CLOSE-V-rev03-20261105-01/freeze.json)은 기대 승인 23개·거부 98개로 구성됐다. 원래 #227 실패 기록, 먼저 종료된 root와 살아 있는 자식, 살아 있는/종료된 자식의 혼합, 보조 핸들이 원래 증거를 대신할 수 없는 경우를 포함한다. 준비 검사 7개 통과는 수정 구현의 통과를 뜻하지 않는다. Archimedes의 자체 112개 검사 통과 기록과 별개로, 최종 구현 동결본에 독립 판독기를 적용해야 한다.
+
+**B14 후보 4의 저장 오류 회귀 통과.** [같은 두 오류를 새 코드에 주입](research/experiments/B14-RUNNER-G-storage-entry-02/verification.json)해 둘 다 `EvidenceStorageError`와 원래 종료 근거를 반환하는 것을 확인했다. 원래 디스크 기록은 유지됐고 정리 재시도는 없었다. 후보 3의 실패 자료는 보존한다. 이 검사는 저장 경계 두 경우에 한정되며 최종 동결본과 독립 전체 검수가 끝나기 전에는 네이티브 실행을 승인하지 않는다.
+
+**B14 후보 3의 추가 저장 오류 경로.** 통합자가 [최종 상태 기록 직전 재읽기 실패 두 경우](research/experiments/B14-RUNNER-G-storage-entry-01/verification.json)를 재현했다. 저장된 비종료 기록을 재확인할 때 읽기 오류 또는 바이트 불일치가 생기면 일반 예외가 나와 구조화된 오류에서 원래 종료 근거가 빠진다. 기존 디스크 기록은 유지됐고 정리 재시도·네이티브 실행은 없었다. Faraday가 이 경계를 수정하고 Plato가 독립 재검수한다. 작성자가 이전 29개 검사를 재실행해 통과한 결과만으로 새 후보를 승인하지 않는다.
+
+**G15 구조물 교환 계약 승인, 파일 구현 착수.** [수정 계약의 최종 검수](research/experiments/G15-PROPOSAL-G-final-01/verification.json)에서 독립 검증자의 23개 의무·16개 범위 행과 두 수정 사항을 확인했다. 형상 메타데이터의 사용자 지정 연결과 실제 INI 구조물 ID를 구분하며, 단일 StructureFile 이름은 두 엔진 판독 경로의 차이를 반영한다. Nash는 `G15-TRANSFER-I-20261105-01`, Lovelace는 `G15-TRANSFER-V-20261105-01`만 소유한다. 첫 구현은 구조물 조회, 형상·수리 속성 묶음 내보내기와 기존 한 파일 가져오기다. 기존 자산의 명시적 연결·공유 참조·단위·시계·비대상 바이트를 검증하며, 새 파일을 동반한 다중 쓰기는 별도 단계로 남긴다. 공개 제품 병합·엔진·GUI 검증과 전체 G15 승인은 아직 없다.
+
+**G18 수치 검증 준비 승인(실행 전).** Mill의 독립 입력·판독기 동결본을 [통합자가 재검수](research/experiments/G18-NATIVE-PLAN-G-final-01/verification.json)했다. 동결 파일 103개, 입력 지문 60개와 세 쌍의 바이트 일치, 합성 수치 오류 검사 28개를 확인했다. 기존 제품 191파일은 eedd 설치 패키지와 동일하다. 여섯 실제 계산은 미실행이며 공용 종료 판정 수정·설치 검수·새 실행 임대를 선행해야 한다. 이 승인은 계산 결과나 GUI 동등성 승인이 아니다.
+
 각 구현(I)과 독립 검증(V)은 서로 다른 GPT-6.1 Sol / high 에이전트에 배정한다. 마지막 G(통합 검수)는 오케스트레이터가 맡는다. 이 표의 선행 조건은 **통합 승인** 기준이다. 공개 계약이 정해지면 독립 파일의 구현·검증 준비는 병행할 수 있다. 완료 표시는 실제 검수와 재현 근거가 생긴 뒤 붙인다.
 
 **G06 공개 편집·MDU 식별자 통합 승인:** [설치 wheel](research/experiments/PKG-G-G06-MDU-02/verification.json)에서 관측점 4 × 120초, f34 direct/DIMR 600초·191변수, [E009/E011 실패·중단·대조군 생존](research/experiments/MDU-ID-G-E009-E011-158-01/verification.json)을 확인했다. [전체 회귀 및 수정 모듈 재실행](research/experiments/CLI-G-G06-MDU-regression-157-01/verification.json): 1,296개 중 4개는 식별자가 빠진 합성 MPI 테스트 입력 때문에 실패했다. 해당 입력만 수정한 뒤 같은 설치본의 MPI 모듈 37개 전부 통과. 최초 수집 이후 추가한 관측점 테스트 19개도 별도 통과. 이 기록은 두 번째 전체 실행을 뜻하지 않는다.
@@ -100,7 +128,7 @@ B04 내보내기의 선행 노드는 B01(위치·신호 식별)과 B09(지원점
 | B11-COEFF · B01/B03, M0 속성표 | Archimedes: 두 경계선의 시계열에서 한 선의 배율 또는 오프셋만 바꾼 파일과 동등한 수동 신호 작성 | Mill: 독립 원자료 판독기로 원래 자료·유효 신호·양쪽 선과 history/map 비교. GUI exporter는 별도 | [8개 모델 원자료](research/notes/verification/boundary-coefficients.md)로 다섯 등가쌍의 값·마스크, 배율·오프셋의 실제 수위 반응 확인. GUI는 별도 |
 | B11-PUBLIC · B11-COEFF | Nash: 전용 BC 파서·절대 계수 보존 편집 | Einstein: 별도 공개 명령·거부/보존 대조군 50건 | [설치본에서 3개 편집본과 수동 모델을 120초/159변수 대조](research/notes/verification/boundary-coefficients.md). 최종 wheel의 파일 편집도 승인 |
 | G11-ASSIGN · G11-DRY | Faraday: 별도 준비 폴더의 `results stations` 후보 | Plato: 별도 원자료 대조·결측과 형상 불일치·읽기 제한 | [설치본 재현](research/experiments/G11-ASSIGN-G-installed-02/verification.json) 29건: 정상·판정 불가·거부, 파일 보존 확인. CLI 실행 결과 판독 승인; GUI 추정은 미검증 |
-| CRS-IO · G10-GEOM, B04-CRS | Lovelace: CRS 입력을 확인할 때 상한 전체를 할당하지 않는 판독기 | Raman: 동일 바이트·해시·교체 거부와 메모리 전후 측정 | [128점, 48/4,096셀 할당 최고치 감소](research/notes/verification/spatial-transfer.md)와 기존 교체·지문 거부 검수 통과 | 
+| CRS-IO · G10-GEOM, B04-CRS | Lovelace: CRS 입력을 확인할 때 상한 전체를 할당하지 않는 판독기 | Raman: 동일 바이트·해시·교체 거부와 메모리 전후 측정 | [128점, 48/4,096셀 할당 최고치 감소](research/notes/verification/spatial-transfer.md)와 기존 교체·지문 거부 검수 통과 |
 | G13-PUMP · G07, G13 작업표 | Archimedes: `replay/pump_orientation.py` 및 새 모델 3개. 제품 파일 접근 없음 | Mill: `verification/verify_pump_orientation.py`와 독립 물수지·방향 판정 | [#175 실제 3회, 독립·통합자 원자료 대조](research/notes/verification/pump-orientation.md). 용량 0 정지 확인; 위치선 반전으로 양수 방향이 뒤집힌다는 예측과 4링크의 총 1 m³/s 예측은 기각 |
 | G13-RUNNER · G13 입력·판정 기준 고정 | Nash: 펌프 실험 전용 복사·소유 프로세스 실행기 | Einstein: 실행 허가·경로·입력 변조·종료 증거의 독립 검사 | #175에서 3회 모두 원본 6파일 보존, 자연 종료 코드 0, 소유 Job 비움·종료 확인. 연구 실행기 범위만 검수 |
 | G13-PUBLIC · G13-PUMP | Faraday: 별도 폴더에서 펌프 조회·선 반전 후보 | Plato: 별도 모델로 목표 바이트·원복·다른 소비자 보존/거부 확인 | 위치선 반전을 양수 방향 반전으로 공개하는 안은 #175로 기각. 조회 전용 기능은 아래 별도 노드 |
@@ -170,11 +198,55 @@ B14의 입력 편집 후보는 187파일 기반의 별도 wheel에서 독립 32�
 | --- | --- | --- | --- |
 | SHORT-CLOSE · 원래 Job/멤버 종료 근거 | Archimedes: 별도 `SHORT-CLOSE-I-*`에서 공용 실행 변경 제안·테스트. 기존 S07 패키지는 보존. | Plato: 종료 실패·예외·기록 실패와 완료 게시 순서를 독립 검사. S07의 물리 검증은 Lovelace가 유지. | 통합자: `runs.py` 변경을 B06-RUN-PROFILE과 직렬 병합. 실제 종료 반환과 수집기 종료 확인 전 완료 판정을 허용하지 않음. 수정 패키지와 bounded 회귀를 통과한 뒤 S07 실행 허용. |
 
-네이티브 임대는 #226 해제 상태다. B14 실행기 구현·독립 검토와 S07 공용 종료 수정은 파일 작업으로 병행하며, 다음 임대는 통합자의 실제 코드·입력·판독기 검수 후 하나에만 부여한다. 후보를 만드는 일과 실행 허가는 구분한다.
+네이티브 임대는 #228 해제 상태다. #227의 수정 후보 2는 다섯 사례 뒤 종료 판정 회귀로 멈췄으며, 원래 Job 5개·멤버 10개 종료와 실제 닫기를 확인한 뒤 임대를 반환했다. B14 실행기와 G18 구현은 파일 작업으로 병행하며, 다음 임대는 통합자의 새 코드·입력·판독기 검수 후 하나에만 부여한다. 후보를 만드는 일과 실행 허가는 구분한다.
 
 [SHORT-CLOSE 결함 재현과 수정 계약](research/notes/verification/serial-close.md): 통합자의 닫기 실패·예외 3건과 원시 알림 변형 2건, 독립 검증자의 19개 오류 주입 검사를 근거로 사후 JSON 저장만 하는 제안을 반려했다. 공용 알림 판독기는 한 번만 수정하고 B06과 공유한다. [S07 설치 편집의 통합 검수](research/experiments/S07-G-combined-editor-01/evidence/verification.json)는 세 숫자 변경·복사·원위치 적용의 8입력 보존을, [B14 두 기준일의 통합 검수](research/experiments/B14-G-combined-inputs-01/evidence/verification.json)는 수동 입력과 8파일 일치를 통과했다. 이 두 입력 검수는 엔진 결과 승인과 구별한다.
 
-G18 관측 단면 단독 가져오기·내보내기는 Nash가 `G18-PROPOSAL-I-*`에서 기존 단면 판독과 고정 소스를 바탕으로 계약을 준비한다. 공개 코드 구현과 독립 검증자 배정은 계약 검토 후 진행하며, G12 방향 반전이나 관측점 XYN 교환의 승인을 그대로 적용하지 않는다.
+G18 관측 단면 단독 가져오기·내보내기는 [계약 통합 검수](research/experiments/G18-PROPOSAL-G-20261105-01/verification.json)를 통과했다. 고정 제안의 55개 파일과 소스 5개를 다시 대조했고, Lovelace의 독립 계약 검수를 확인했다. Nash는 `G18-TRANSFER-I-*`에서 구현하고 Lovelace는 `G18-TRANSFER-V-*`에서 독립 검증한다. 두 작업자는 각자 실험 폴더만 쓰며 기존 G12와 루트 코드는 수정하지 않는다. 단독 PLI export/import의 선택·이름 충돌·append/replace·좌표 선언·바이트 보존·동의 해시·게시 실패를 검증한 뒤 통합자가 CLI/schema를 합친다. 실제 엔진 및 GUI 단독 교환은 별도 단계이며 G12나 XYN 교환의 승인을 전용하지 않는다.
+
+**SHORT-CLOSE 수정 후보 2.** [정확한 동결본 통합자 재검사](research/experiments/SHORT-CLOSE-G-frozen-review-03/verification.json)는 36개 파일의 해시, 원래 pump/weir 종료 기록 9건, 잘못된 알림·타입·시각·종료 플래그 거부와 비정상 종료 코드 8의 구분을 통과했다. 코드 8의 수명 종료 근거가 충분해도 계산 성공으로 승격하지 않는다. 후보 2는 강제 종료에 선택적으로 붙은 trace도 원래 요청의 Job과 동일한 PID/생성 시각 집합에 연결한다. 구현자 93개 검사와 독립 오류 주입 검수, Raman의 깨끗한 191파일 설치 패키지 및 통합자의 설치 코드 93개 검사는 통과했다. 이후 실제 엔진 회귀 #227에서 아래 문제가 발견되어 제품 병합과 후속 결합 패키지 승인을 보류했다.
+
+**후속 실제 회귀 #227: 후보 2 병합 보류.** 독립 오류 주입·설치 검수와 통합자의 실제 설치 93개 검사 뒤, `23f9daa7…` 패키지로 12개 예정 사례 중 5개를 실행했다. direct 정상은 600초·최종 restart, 잘못된 망과 빈 BC는 실제 `failed`를 기록했다. 타임아웃 대상과 대조군 정리는 이미 종료된 자식의 이미지 재조회 실패 때문에 `cleanup_failed`가 됐다. [원자료와 판정 차이](research/notes/verification/serial-close.md)에 기록했으며 의도한 취소 사례와 DIMR는 실행하지 않았다. 원래 보유 핸들 10개와 Job/수집기 5개 닫기를 확인해 임대만 해제했다. 후보 3의 구현은 Archimedes, 독립 검증은 Plato다. 수명 종료 근거와 이번 요청에 의한 강제 종료 귀속을 분리하되 근거 없는 PID를 받아들이지 않는다. Raman의 B06 및 Einstein의 B14 결합 패키지, Archimedes의 S07 결합 패키지는 이 수정에 의존하며 현재 루트 191파일은 그대로 유지한다.
+
+**현재 병행 작업의 합류 조건.** 모든 제품 변경은 사설 후보 폴더에서 준비하고 루트·공용 CLI는 통합자만 수정한다. 네이티브 실행은 아래 어느 분기든 하나의 독점 임대를 사용한다. 대기 중인 분기를 이유로 별도 입력·판독 검증까지 중단하지 않는다.
+
+```mermaid
+flowchart LR
+    C[SHORT-CLOSE 후보 4 오프라인 승인] --> PK[공용 모듈 두 개만 패키징]
+    PK --> PV[독립 설치 및 테스트 입력 검수]
+    PV --> NG[통합자 설치 및 실행 계획 검수]
+    NR[Arch 재현 실행기] --> NV[Einstein 전체 소유 종료 검증]
+    NV --> NG
+    NG --> CG[실제 회귀와 원시 결과 대조]
+    CG --> B06[B06 공개 실행 비교]
+    CG --> S07[S07 풍응력 7사례]
+    CG --> BD[B14 공개 direct 6사례]
+    GI[G18 파일 구현] --> GV[G18 독립 파일 검증]
+    GV --> GG[통합자 바이트 및 보존 검수]
+    GP[G18 독립 수치 계획] --> GN[G18 실제 입력과 결과 대조]
+    GG --> GN
+    CG --> GN
+    BI[B14 BMI 실행기] --> BV[독립 소유권 및 프로토콜 검수]
+    BV --> BG[통합자 검수 후 BMI 4진단]
+    BG --> BA[B14 전체 합류 검수]
+    BD --> BA
+    TC[G15 파일 계약 승인] --> TI[Nash 구조물 교환 구현]
+    TI --> TV[Lovelace 독립 파일 검증]
+    TV --> TG[통합자 공개 명령 및 보존 검수]
+    TG --> TP[G15 엔진 및 GUI 별도 계획]
+```
+
+G18 구현은 Nash, 파일·게시 검증은 Lovelace, 후속 엔진 입력·결과의 독립 계획은 Mill이 맡는다. [통합자의 설치 명령 12회](research/experiments/G18-TRANSFER-G-installed-01/verification.json)는 f34의 전체/선택 내보내기, 원위치 무변경 가져오기, 새 단면 추가, 줄바꿈·꼬리 주석 보존, 충돌·오래된 동의 거부를 통과했다. 후보 196파일 중 기존 189파일은 같다. 파일 검수만으로 GUI나 계산 결과를 승인하지 않는다. Mill은 기준/전체 왕복, 수동/공개 append, 수동/공개 replace의 여섯 사례를 사전 준비하며 실제 실행은 공용 종료 수정 이후다.
+
+[G18 파일 작업 최종 검수](research/notes/verification/section-transfer.md)는 독립 G18 검사 39개·부모 식별자 2개·기존 G12 회귀 24개를 통과했다. 통합자가 최종 동결본 469파일과 기존 루트 191파일의 불변도 다시 확인했다. 후보의 입력 편집만 승인한 상태이며 실제 엔진·GUI 동등성·루트 병합은 별도다. Nash/Lovelace는 사용 예와 병합용 문서·회귀 테스트를 별도 폴더에서 준비한다.
+
+B14의 네 BMI 진단은 Faraday의 별도 실행기와 Einstein의 동결된 수치 판독을 사용한다. Plato의 전체 소유권·프로토콜 검수 뒤 통합자가 별도 임대를 판단할 수 있다. 이는 공개 `short` 여섯 실행과 다른 분기이며 네 진단만으로 B14 전체를 승인하지 않는다. 현재 진행 중인 검수에는 실행 권한이 포함되지 않는다.
+
+**B14 실행기 후보 2 반려.** [독립 전체 검수](research/experiments/B14-RUNNER-V-20261105-04/final-review-01.json)의 29개 검사에서 11개 단언이 실패했다. 비정상 알림을 정상 계산으로 받아들이는 경로, 닫기 예외 무시, 원래 시작 핸들과 마지막 root의 연결 누락, 격리·시각 모순, 저장 실패 시 원시 닫기 근거 누락을 고쳐야 한다. 시간 제한 검사 11개와 [통합자의 파일 전용 10사례 검사](research/experiments/B14-RUNNER-G-file-preflight-01/verification.json)는 통과했지만 전체 실행 승인으로 전용하지 않는다. Faraday는 새 후보 3을 준비하고 Plato가 독립 재검수한다. 새 네이티브 실행은 없다.
+
+**G18 엔진 대조 입력 준비.** [통합자 입력 대조](research/experiments/G18-NATIVE-PLAN-G-inputs-01/verification.json)에서 여섯 사례의 60파일 지문과 세 쌍의 정확한 바이트 일치를 확인했다. replace는 Entrance의 기존 좌표 8행만 역순으로 바꾸고, append는 두 번째 단면의 좌표 0·2·4·6행으로 별도 이름의 단면을 추가한다. 모든 사례에서 다른 9입력은 같고 최종 시각은 600초다. Mill의 최종 판독기·동결본 및 수정된 실행 패키지 확인 전에는 실행하지 않는다.
+
+SHORT-CLOSE 후보 3은 #227의 두 프로세스 형태나 오류 31만 통과시키는 예외를 만들지 않는다. 통합자가 원래 실행기의 코드를 대조해 이미 끝난 root, 살아 있는 자식과 먼저 끝난 자식의 혼합, 보조 정리 핸들이 생기는 경로를 확인했다. Archimedes는 멤버별 원래 수명 근거를 확인하는 구현을, Plato는 대응 합성 반례를 병행한다. 보조 핸들은 누락된 원래 멤버 근거를 채우지 못하며 원시 기록의 false·unknown 값은 그대로 남긴다.
 
 **B06 수동 입력 대조 #223 완료, 제품 병합은 보류.** Faraday의 실행기와 Plato의 독립 종료 검수, Mill의 입력·수치 검증을 분리했다. 첫 실행기는 손상된 종료 증거 17건을 잘못 받아들여 거부했다. 수정본은 독립 37개·작성자 27개 검사 뒤 실행했다. [열 사례의 120초 결과](research/notes/verification/source-sink.md#native-223)와 원래 Job 10개·멤버 20개의 종료를 통합자가 다시 읽었다. `salinityDelta`의 제한된 효과와 PLI/좌표 등가성만 확인했고 절대 농도 키의 실패는 유지했다. 공개 편집 후보 1의 NUL 쓰기 오류는 실제 파일로 재현했다. Raman의 수정 후보 2는 설치 명령으로 잘못된 텍스트 거부·전 파일 보존을 독립 검증한 뒤, 공개 명령이 만든 입력을 별도 엔진 대조해야 한다. GUI export는 이 결과로 승인하지 않는다. 실행 뒤 추가된 두 오류 검사는 판정기의 역방향 알림 연결 누락을 드러냈다. [#223 원본의 사후 대조](research/experiments/B06-PLI-G-readback-223-01/bidirectional-verification.json)는 40개 알림·식별 이벤트의 일대일 대응을 통과했다. 실행 후보의 이력은 유지하고 후속 실행기에는 해당 수정을 포함한다.
 
