@@ -217,6 +217,37 @@ and experiment outputs are excluded by `.gitignore`; do not add them wholesale.
 Record upstream revisions and local artifact hashes when acquiring new references.
 Treat upstream research checkouts as references and avoid incidental edits there.
 
+### Git checkpoints for task nodes
+
+Every completed agent work node, including implementation (I), independent
+verification (V), integration (G), and documentation/research nodes, MUST have
+at least one non-empty Git commit before it is reported complete. Include the
+node ID in the commit subject, for example `fix(SHORT-CLOSE-I): verify closure
+before completion`. Keep each node's changes separate; one bulk commit must not
+substitute for commits for several completed nodes.
+
+In the shared checkout, the coordinator serializes staging, commits and pushes.
+Agents submit their node ID, owned paths, patch and validation results; they must
+not manipulate the shared index concurrently. An explicitly assigned isolated
+worktree may commit on its own branch. Commit only the node's reviewed files.
+For ignored local experiments, commit a small portable findings/provenance index
+with evidence references instead of force-adding raw artifacts or making an
+empty commit. A committed candidate is not automatically accepted product code.
+
+Minimum workflow for each node:
+
+1. Inspect `git status --short` and `git diff -- <node-owned-paths>`. Check that
+   any staged changes belong to this node; preserve other workers' changes.
+2. Run the checks appropriate to the node and review their actual results.
+3. Stage explicit paths with `git add -- <node-owned-paths>`, inspect
+   `git diff --cached`, and commit with `<type>(<node-id>): <concrete change>`.
+4. Report the node ID, commit hash and validation scope in its handoff or
+   [delivery graph](DELIVERY.md). Do not mark the node complete without its commit.
+5. After integration approval, fetch the selected remote, check the branch and
+   upstream, and push the approved commits with `git push origin <branch>`.
+   Verify the remote branch SHA matches the intended local commit. Keep pushes
+   fast-forward; do not rewrite published history to combine node checkpoints.
+
 The current environment is Windows/PowerShell with Python 3.12. From the root:
 
 ```powershell
