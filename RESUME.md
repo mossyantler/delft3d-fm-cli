@@ -30,9 +30,25 @@ Herdr에서 명시적으로 재개했다. Claude Code Sonnet 5.5 high도 서브�
 독립 노드 커밋은 `SHORT-CLOSE-COMPAT-RUNTIME-V`의 `1a1e5b6`과
 `SHORT-CLOSE-COMPAT-PACK-V`의 `1f0acbd`다. 이는 합성·설치 검수 범위의 승인이다.
 
-다음 공정은 중단 체크포인트의 `native-I`/`native-V`를 새 후보 폴더로 이어받아
-실행기·독립 판독기의 정확한 API와 동결본을 확정하고 합성 연결 검증을 하는 일이다.
-자연 종료·초기화 오류·먼저 끝난 자식과 살아 있는 멤버의 혼합·최초 확보 누락 거부,
-대조군 생존·오류 시 모든 소유 실행 정리를 확인한다. 실행 시간과 별도 정리 시간의
-한계도 일치시켜야 한다. 그 검수 뒤에만 새 네이티브 슬롯을 부여한다.
-이번 재개에서 실제 엔진 회귀는 0회이며 제품 소스는 기존 승인본 그대로다.
+**이어서 진행한 오프라인 공정.** 독립 판독기 `NATIVE-READER-I`는 `46175a4`,
+코디네이터의 독립 검증 `NATIVE-READER-V`는 `bcc8c16`이다.
+[판독기 동결본](research/proposals/short-close-native-reader/HANDOFF.md)은
+`980c9d91…`, 소스는 `ddf31bae…`다. 기존 107개를 포함한 작성자 215개 사례와
+[별도 검증 19건](research/proposals/short-close-native-reader-review/verification.json)을 통과했다.
+API는 raw-api-2를 유지하며 manifest 3, 원래 핸들 확보·종료, 실제 Job/수집기 닫기,
+관찰 객체별 UTC/monotonic 순서를 구분한다. 모든 관찰 사례는 합성이다.
+
+첫 실행기 `5225b23`의 독립 검수 `66ea221`은
+[48개 검사로 일곱 결함을 재현](research/proposals/short-close-native-adapter-review/HANDOFF.md)했다.
+검사가 통과했다는 뜻은 결함 재현에 성공했다는 뜻이며 이 후보는 실행 허가용으로 반려했다.
+원시 대조군 최종 묶음 저장 수정 `36aa833`과 정리 경로 수정 `a546eb6`을 각각 별도
+후보로 보존했다. 현재 최종 검수 대상은
+[실행기 후보 3](research/proposals/short-close-native-adapter-v3/README.md), 동결 `daffc237…`다.
+자체 검사 29건·정확한 판독기 연결 13건·파일/허가 연결 22건이 통과했고,
+Sonnet이 기존 독립 하네스로 일곱 수정 사항을 재검수한다.
+
+다음 게이트는 후보 3의 독립 검수와 코디네이터의 정확한 패키지·실행기·판독기 합류 검수다.
+그 뒤에만 새로운 독점 임대로 direct/DIMR의 12사례(최대 동시 소유 실행 2개),
+600초·최종 restart·원본 191변수 대조를 실행한다. 600초는 실행 예약 제한이며
+클라이언트 준비·요청·소유자 종료 대기·최종 정리는 각자 별도 제한을 가진다.
+현재 실제 엔진 회귀는 0회, 슬롯은 여전히 `idle228`이며 제품 소스는 기존 승인본 그대로다.
