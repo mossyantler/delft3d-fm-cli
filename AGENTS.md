@@ -35,6 +35,15 @@ proposals. Update this guide when implementation or development commands change.
 
 ## Start here
 
+The common `short` lifetime/terminal gate is integrated from the separately
+verified e32bf84f wheel; see [SHORT-CLOSE evidence](research/notes/verification/serial-close.md).
+Keep raw original-member, original-Job and collector close receipts before a
+terminal publication, and preserve the legacy short-only `termination_unconfirmed`
+code when lifetime alone is unproven and actual close is confirmed. Pump/weir
+retain their family error codes. Native trial #231 passed the twelve-case f34
+short direct/single-FM DIMR replay; #229 remains rejected. This does not approve
+pending B06/S07/B14 products or broaden the default physical profile.
+
 For B13 input replay use the [portable three-case preparation](research/notes/verification/layers.md#portable-b13). Keep the historical #203 producer and independent numerical reader at their pinned paths.
 
 For B12, `boundary preview` reads only the MDU/new EXT/PLI/BC input graph.

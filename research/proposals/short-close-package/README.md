@@ -29,4 +29,8 @@ protocol-2, manifest-3 contract. Independent installed-code testing is retained
 in [Sonnet's evidence](../short-close-compat-review/EVIDENCE.md), node
 `SHORT-CLOSE-COMPAT-PACK-V` commit `1f0acbd`. That verifier compared 190 Python
 payloads and exercised the installed functions without overlays. Broader native
-execution and product integration remain pending.
+execution and product integration were pending at that package checkpoint.
+The later [native #231 and root integration](../../notes/verification/serial-close.md)
+accepted these exact two modules after separate gates. The preparation commands
+above target the historical base; use ordinary repository packaging for the
+integrated source rather than rerunning that historical preparation against it.

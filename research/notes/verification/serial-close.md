@@ -1,16 +1,67 @@
 # 짧은 직렬 실행의 종료 기록 보강
 
-2026-11-05, **후보 4 오프라인 계약 승인·설치 패키지 검수 중 — 제품 병합과 새 엔진 회귀는 미승인**. 구현은 Archimedes, 독립 검증은 Plato, 공용 파일 통합과 실제 실행 임대는 오케스트레이터가 담당한다. [공정표](../../../DELIVERY.md)의 SHORT-CLOSE 노드다.
+2026-11-05, **공용 종료 모듈 두 개 제품 반영**. 개별 I/V·설치 검수, 정확한 실행기/판독기
+합류, 실제 엔진 회귀와 원시 자료 독립 재판독을 거쳤다. 아래 초기 결함·반려·#227 실패는
+역사 기록이며 현재 승인과 구별한다. [공정표](../../../DELIVERY.md)의 SHORT-CLOSE 노드다.
 
-## 현재 후보와 실제 재시험 조건
+## 현재 구현과 검수
 
-[후보 4 오프라인 최종 검수](../../experiments/SHORT-CLOSE-G-rev04-final-01/verification.json)와 [깨끗한 설치 패키지 검사](../../experiments/SHORT-CLOSE-PACK-G-rev04-01/verification.json)는 서로 다른 관문이다. 설치본은 191파일 중 두 모듈만 교체했으며 현재 제품 파일과 과거 #227 실패 기록은 바꾸지 않았다. 작성자 설치 검사 116·49·18개는 통과했지만 최종 동결본의 독립 패키지 검수와 새 실제 엔진 결과는 아직 없다.
+검증한 wheel `e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6`와
+제품 191파일이 일치한다. `runs.py`와 `run_pump_lifecycle.py` 두 파일만 바꾸며 189파일은
+기존 승인본을 보존했다. 원래 멤버의 수명 종료, 양방향 알림 대응, 원래 Job·수집기 닫기
+영수증을 최종 상태 게시 전에 보관한다. 실제 닫기나 저장 실패를 성공으로 처리하지 않으며
+게시 실패 때문에 이미 닫힌 원래 Job을 다시 종료하지 않는다.
 
-기존 재현 판독기의 강제 종료 분류는 활성 멤버 집합에 한정된다. [누락 반례](../../experiments/SHORT-CLOSE-NATIVE-G-admission-gap-01/verification.json)처럼 이미 끝난 자식의 최초 확보 근거가 없어도 그 분류는 통과할 수 있다. 다음 재현은 별도 독립 판독기로 전체 원래 보유 멤버·Job·수집기 닫기를 확인하고, 살아 있던 멤버와 요청 전에 종료된 멤버를 구별한다. 제품의 파생 판정이나 원시 요약 플래그만으로 통과시키지 않는다. 아래 후보 2의 실패와 해제 전용 검수는 과거 사실로 보존한다.
+`short`의 수명 근거만 부족하고 실제 닫기가 확인됐을 때는 기존 공개 오류
+`termination_unconfirmed`를 유지한다. 상태는 `cleanup_failed`다. 실제 Job/수집기 닫기
+실패·불확실성은 `short_cleanup_failed`가 우선하며 pump/weir는 각 가족 오류 코드를 유지한다.
+[전체 회귀와 제품 동일성 기록](../../proposals/short-close-native-gates/root-verification.json),
+[독립 통합 검수](../../proposals/short-close-root-review/VERIFICATION.json)를 참조한다.
+CLI의 명령 98개·프로토콜 2·manifest 3과 기본 모델 프로필은 유지한다.
 
-## 확인한 문제
+<a id="native231"></a>
+## 실제 회귀 #231
 
-S07의 공개 `run start --profile short` 준비에서 현재 `runs.start`는 `completed`를 저장한 뒤 `finally`에서 `OwnedJob.close()`를 호출하고 반환을 버리는 것으로 확인됐다. 같은 원래 Job의 실제 닫기 결과와 수집기 종료를 최종 상태에 반영할 수 없는 순서다.
+실행기는 [후보 6](../../proposals/short-close-native-adapter-v6/README.md) 동결 `53a1db83…`,
+별도 원시 판독기는 동결 `980c9d91…`, 사전 계획은 `d5427cb0…`를 사용했다.
+원래 관찰 소스와 독립 수치 판독기의 고정 경로·해시는 유지했다. [정확한 오프라인 합류 검수](../../proposals/short-close-native-gates/composition-review231.json)
+후 새 임대 231·새 폴더에 사례별 한 번씩 실행했다. 최대 동시 소유 실행은 2개다.
+
+| 경로별 사례 | 공개 상태 | 독립 판독 |
+| --- | --- | --- |
+| 정상 | `completed` | 원래 전체 수명·Job·수집기 닫기, CF history/map 0–600초와 최종 restart |
+| 잘못된 mesh / 빈 BC | 각각 `failed` | 실제 입력 오류 진단과 원래 전체 닫기 |
+| timeout / cancel | `timed_out` / `cancelled` | 원래 전체 닫기와 별도 같은 실행 파일 대조군의 생존 |
+| 대조군 정리 | `cancelled` | 생존 관찰 뒤 명시적 정리와 원래 전체 닫기 |
+
+[독립 사후 판독 37항목](../../proposals/short-close-native231-review/RELEASE_VERDICT.md)
+`3851697`은 Job·수집기 12개, 보유 멤버 종료 24개, 관찰 핸들 12개, 공개 클라이언트
+16개의 종료/닫기와 네 대조군 원시 묶음을 확인했다. 원본 NetCDF 네 쌍을 다시 읽어
+restart 34+34, history 68, map 55개의 **191변수**가 값·mask·단위·차원까지 같음을 확인했다.
+[해제와 합류 승인](../../proposals/short-close-native-gates/release231.json) `2af0673` 이후
+슬롯은 `idle232`다. 해제 상태는 다음 실행의 허가가 아니다.
+
+범위는 f34 2D UTC cold-start `short` 600초, direct FM 및 단일 FM DIMR다. 강제 종료의
+인과 귀속·정상 마무리·사용 가능한 restart, 보정/물리 타당성, 다른 모델·CRS·MPI·결합·GUI
+동등성을 새로 입증하지 않는다. B06·B14·S07 등 미병합 제품은 별도 관문을 유지한다.
+
+## 실제 회귀 #229와 실행기 보완
+
+첫 재개 실행은 direct 여섯 사례 뒤 대조군 두 관찰이 같은 monotonic tick을 가져 거부됐다.
+당시 Python 3.12 `GetTickCount64()` 해상도는 15.625ms였다. 원래 trial `NOT_ACCEPTED`와
+192파일을 보존하며, DIMR·191변수 비교는 하지 않았다. [해제 전용 독립 검수](../../proposals/short-close-native229-review/RELEASE_VERDICT.md)
+`152dfe4`는 여섯 원래 Job·수집기와 멤버 12개, 관찰 핸들 6개·클라이언트 8개의 종료를
+확인했으며 원래 trial을 승인하지 않았다.
+
+같은 보유 관찰 핸들에서 다음 실제 tick을 얻는 제한된 재관찰을 추가했다. 정식 임대와
+허가의 해시·경로·출력 폴더도 정확히 연결했다. 원시 시각을 만들거나 판독 조건을 낮추지
+않았다. [독립 시계/허가 검수](../../proposals/short-close-native-clock-auth-review/VERIFICATION.json)
+`ed1456b`는 54건과 기존 일곱 결함 재현 대조를 통과했다. 수정은 연구 실행기/허가에 한정되며
+같은 wheel·판독기·모델 입력으로 새 #231을 실행했다.
+
+## 확인한 문제 (수정 전)
+
+S07의 공개 `run start --profile short` 준비에서 수정 전 `runs.start`는 `completed`를 저장한 뒤 `finally`에서 `OwnedJob.close()`를 호출하고 반환을 버리는 것으로 확인됐다. 같은 원래 Job의 실제 닫기 결과와 수집기 종료를 최종 상태에 반영할 수 없는 순서다.
 
 | 재현 | 관찰 결과 | 근거의 범위 |
 | --- | --- | --- |
@@ -28,7 +79,7 @@ S07의 공개 `run start --profile short` 준비에서 현재 `runs.start`는 `c
 
 공용 알림 판독 수정은 pump/weir/source-sink가 함께 사용할 하나의 구현으로 검수한다. 기존 가족별 오류 코드·근거 이름은 유지한다. B06-RUN-PROFILE의 실행 전 검증과 source-sink 프로필 등록은 별도 변경이며 공용 `runs.py` 병합은 통합자만 수행한다.
 
-## 다음 검수
+## 후보 2의 검수 이력
 
 수정 후보 2의 [독립 검수](../../experiments/SHORT-CLOSE-V-20261105-02/final-review-01.json)는 현재 계약에 맞춘 오류 주입 19개와 추가 22개, 알림 6개·강제 종료 연결 5개·원본 기록 판독 12개를 통과했다. 구형 sidecar 제안용 테스트의 실패 기록은 삭제하지 않았으며, 원시 반환을 manifest에 보관하는 계약에 맞춰 바꾼 주입 위치와 기대 경로 5개를 명시했다. 기존 네이티브 기록은 수정하지 않았다.
 

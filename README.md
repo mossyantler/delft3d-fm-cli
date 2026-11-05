@@ -216,6 +216,13 @@ resumes with stdin closed. Timeout and cancellation terminate that job, includin
 its descendants. Exit confirmation uses retained member handles and an empty job
 membership list. No process-name kill or arbitrary recorded-PID kill is used.
 
+For the default `short` profile, completion also requires the original retained
+members' exit evidence, original Job accounting, the actual Job close and collector
+close before publishing the terminal manifest. Missing or contradictory closure
+evidence yields `cleanup_failed`. A storage failure does not repeat the native
+stop/close. [The twelve-case direct/DIMR replay and independent raw readback](research/notes/verification/serial-close.md#native231)
+cover the copied f34 600-second fixture and route equality of 191 variables.
+
 `run cancel` checks the controller PID and creation time, writes a request matching
 the run ID, and optionally waits 0..30 seconds. The live controller performs the
 forced stop. `cancellation_applied=false` means the command has not observed a
