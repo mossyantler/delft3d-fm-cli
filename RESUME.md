@@ -36,7 +36,7 @@ Herdr에서 명시적으로 재개했다. Claude Code Sonnet 5.5 high도 서브�
 `980c9d91…`, 소스는 `ddf31bae…`다. 기존 107개를 포함한 작성자 215개 사례와
 [별도 검증 19건](research/proposals/short-close-native-reader-review/verification.json)을 통과했다.
 API는 raw-api-2를 유지하며 manifest 3, 원래 핸들 확보·종료, 실제 Job/수집기 닫기,
-관찰 객체별 UTC/monotonic 순서를 구분한다. 모든 관찰 사례는 합성이다.
+관찰 객체별 UTC/monotonic 순서를 구분한다. 대조군 관찰 묶음은 모두 합성이다.
 
 첫 실행기 `5225b23`의 독립 검수 `66ea221`은
 [48개 검사로 일곱 결함을 재현](research/proposals/short-close-native-adapter-review/HANDOFF.md)했다.
@@ -44,11 +44,15 @@ API는 raw-api-2를 유지하며 manifest 3, 원래 핸들 확보·종료, 실�
 원시 대조군 최종 묶음 저장 수정 `36aa833`과 정리 경로 수정 `a546eb6`을 각각 별도
 후보로 보존했다. 현재 최종 검수 대상은
 [실행기 후보 3](research/proposals/short-close-native-adapter-v3/README.md), 동결 `daffc237…`다.
-자체 검사 29건·정확한 판독기 연결 13건·파일/허가 연결 22건이 통과했고,
-Sonnet이 기존 독립 하네스로 일곱 수정 사항을 재검수한다.
+자체 검사 29건·정확한 판독기 연결 13건·파일/허가 연결 22건을 독립 재실행했고,
+[최종 독립 검수](research/proposals/short-close-native-adapter-final-review/HANDOFF.md)
+`98eb5e7`의 48건도 통과했다. 일곱 수정 요구는 첫 후보에서 모두 실패하고 후보 3에서
+모두 통과한다. 독립 검수 동결은 `33848a44…`다.
 
-다음 게이트는 후보 3의 독립 검수와 코디네이터의 정확한 패키지·실행기·판독기 합류 검수다.
-그 뒤에만 새로운 독점 임대로 direct/DIMR의 12사례(최대 동시 소유 실행 2개),
+[코디네이터 오프라인 합류 검수](research/proposals/short-close-native-gates/composition-review.json)는
+정확한 후보·판독기·독립 검수 동결, 체크포인트 343파일·기존 제품 191파일·설치 191파일,
+준비 입력 40개와 선택한 엔진 파일을 확인했다. 이 영수증 자체는 실행 허가가 아니다.
+다음 단계는 새 독점 임대와 정확한 실행 허가로 direct/DIMR의 12사례(최대 동시 소유 실행 2개),
 600초·최종 restart·원본 191변수 대조를 실행한다. 600초는 실행 예약 제한이며
 클라이언트 준비·요청·소유자 종료 대기·최종 정리는 각자 별도 제한을 가진다.
 현재 실제 엔진 회귀는 0회, 슬롯은 여전히 `idle228`이며 제품 소스는 기존 승인본 그대로다.

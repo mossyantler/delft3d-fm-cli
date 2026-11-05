@@ -37,8 +37,12 @@ API·동결본·오류 정리 합성 연결 검수이고, 기존 `idle228`을 �
 핸들 정리와 원래 판독 소스 역할 연결 수정 I `a546eb6`은 별도 후보·커밋이다.
 현재 [후보 3](research/proposals/short-close-native-adapter-v3/README.md)의 동결
 `daffc237…`에 자체 29건, 판독기 연결 13건, 파일/허가 22건이 통과했다.
-Sonnet은 기존 독립 하네스를 사용해 이 최종 후보만 재검수한다. 새 네이티브 실행,
-제품 병합 및 G 실행 허가는 아직 없으며 `idle228`을 허가로 사용하지 않는다.
+Sonnet의 [최종 독립 검수](research/proposals/short-close-native-adapter-final-review/HANDOFF.md)
+`98eb5e7`은 48건을 통과했고, 일곱 수정 요구 모두 첫 후보에서 실패·후보 3에서 통과했다.
+독립 검수 동결은 `33848a44…`다. [통합자의 오프라인 합류 검수](research/proposals/short-close-native-gates/composition-review.json)는
+정확한 소스·패키지·판독기 동결과 체크포인트 343·기존 제품 191·설치 191·입력 40파일을
+대조했다. 새 네이티브 실행·제품 병합은 아직 없으며 이 오프라인 영수증과 `idle228`
+자체는 실행 허가가 아니다. 실제 실행에는 별도 새 임대와 정확한 G 허가를 사용한다.
 
 **사용자 요청으로 중단(2026-11-05).** 이번 경계는 [공용 패키지 최종 검수](research/experiments/SHORT-CLOSE-PACK-G-final-01/verification.json)까지다. 독립 검수 자료 460개와 두 설치본의 제품 191파일을 대조했다. 실제 엔진 재시험·제품 병합은 미완료다. [재개 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 미병합 코드와 작업자별 중단 상태를 보관한다. 기존 CLI fixture 이관은 4건 중 3건 통과, 공개 오류 코드 호환성 차이 1건이 남아 있다. 아래의 ‘진행 중’ 기록은 중단 직전 상태이며 명시적인 재개 요청 전에는 계속 실행하지 않는다.
 
