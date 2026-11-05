@@ -1,0 +1,179 @@
+{
+  "adapter_freeze_sha256": "481029ee17637b49a2518e4b62bee9071cd0cfcd0ba4751ae2144a6dce85c0fe",
+  "adapter_mutation_sensitivity": {
+    "final_run_V3": {
+      "caught": 10,
+      "folder": "SHORT-CLOSE-NATIVE-ADAPTER-V-20261105-03",
+      "mutations": 10,
+      "result_sha256": "38f6e63679d68bff3797c4a17a219c0787be8b058a558373d81f41db4c626c33"
+    },
+    "first_run_V2": {
+      "folder": "SHORT-CLOSE-NATIVE-ADAPTER-V-20261105-02",
+      "note": "two survivors exposed gaps in the review suite itself (no end-to-end public JSON/exit mismatch test; stop_achieved gate redundant under the real reader); both closed before review-08",
+      "result_sha256": "26ce6adf3934d80b5b0afb981450b1661bdc77e0177403de7f1998ca30365f7d",
+      "survived": [
+        "drop_stop_achieved_gate",
+        "protocol_not_checked"
+      ]
+    }
+  },
+  "author_checks_independently_rerun_in_fresh_V_dirs": {
+    "admission-01": {
+      "passed": true,
+      "tests_or_cases": 20,
+      "verification_sha256": "2654ef58343869769f5246c7e078becd111e2d508950b556a7f675812b2939f8"
+    },
+    "composition-01": {
+      "passed": true,
+      "tests_or_cases": 13,
+      "verification_sha256": "d3f6be24335ec8ee44ec94b7f014631e4e25b04e169c79cc29dfe47bd864aa6c"
+    },
+    "run-checks-01": {
+      "passed": true,
+      "tests_or_cases": 21,
+      "verification_sha256": "f742b551119a932669405e8df99cf1c02908c166a8e709ec98b136b0f7352a8e"
+    }
+  },
+  "final_review_run": {
+    "admission_refusal_reasons": {
+      "audit_module_other_name": "ValueError: Independent frozen auditor binding differs",
+      "auditor_api": "ValueError: Unknown independent audit API",
+      "auditor_freeze_other_copy": "ValueError: Independent frozen auditor binding differs",
+      "concurrency_1": "ValueError: Bound/retry mismatch",
+      "contract_relocated_copy": "ValueError: Runtime contract/package binding differs",
+      "direct_exe_swapped": "ValueError: Wrong native engines",
+      "engine_file_dropped": "ValueError: Selected native executable/library missing from pins: lib/gdal.dll",
+      "engine_hash_wrong": "ValueError: Pinned file hash mismatch: C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+      "exists": "ValueError: Destination must be absent: C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-rev04-REVIEW-PROBE-e273ae8f",
+      "extra_dependency": "ValueError: Only pinned observer and independent raw-output reader required",
+      "idle": "ValueError: Exact coordinator native owner required; idle/substrings are not grants",
+      "kernel_root_outside_install": "ValueError: Native kernels outside declared selected installation",
+      "launch_cap_13": "ValueError: Bound/retry mismatch",
+      "launch_cap_float": "ValueError: Bound/retry mismatch",
+      "nested": "ValueError: Native output must be fresh direct approved experiment child",
+      "owner_substring": "ValueError: Exact coordinator native owner required; idle/substrings are not grants",
+      "package_freeze_other": "ValueError: Only exact compatibility package freeze admitted",
+      "prefix": "ValueError: Native output must be fresh direct approved experiment child",
+      "prepared-01": "ValueError: Plan does not join exact adapter freeze",
+      "retry_true": "ValueError: Bound/retry mismatch",
+      "review_native_true": "ValueError: Offline composition G review required; it is not a native lease",
+      "review_state_admitted": "ValueError: Offline composition G review required; it is not a native lease",
+      "review_wrong_adapter": "ValueError: G review does not join this exact composition",
+      "review_wrong_plan": "ValueError: G review does not join this exact composition",
+      "review_wrong_reader": "ValueError: G review does not join this exact composition",
+      "review_wrong_wheel": "ValueError: G review does not join this exact composition",
+      "run_root_other": "ValueError: G admission must bind exact fresh output directory",
+      "sequence_bool": "ValueError: Current matching fresh lease sequence required",
+      "sequence_mismatch": "ValueError: Current matching fresh lease sequence required",
+      "sequence_string": "ValueError: Current matching fresh lease sequence required",
+      "state_draft": "ValueError: Explicit G admission required"
+    },
+    "errors": 0,
+    "failures": 0,
+    "findings_reproduced": {
+      "test_defect_cancel_flag_set_before_delivery": {
+        "id": "F3",
+        "severity": "MEDIUM",
+        "summary": "Active.cancel() sets 'cancelled' before delivery; a failed delivery is never retried by disposal"
+      },
+      "test_defect_dependency_roles_not_bound_to_canonical_paths": {
+        "id": "F7",
+        "severity": "LOW",
+        "summary": "Admission hash-pins research_dependencies but never binds which file fills the observer / raw_output_reader role"
+      },
+      "test_defect_go_marks_started_before_delivery": {
+        "id": "F6",
+        "severity": "LOW",
+        "summary": "Warm.go() marks the command started before the 'go' line is written; a broken pipe leaves command_started=True"
+      },
+      "test_defect_pre_go_failure_treated_as_live_owner": {
+        "id": "F2",
+        "severity": "MEDIUM",
+        "summary": "A pre-go failure disposes an UNSTARTED warm client as if it were a live owner: waits the full 110 s, sends a spurious `run cancel`, then reports a missing manifest and overwrites the primary stop state"
+      },
+      "test_defect_snapshot_failure_leaks_observer_handle": {
+        "id": "F4",
+        "severity": "LOW",
+        "summary": "close_observer() snapshots before closing; a snapshot exception leaves the observer HANDLE open forever"
+      },
+      "test_defect_survival_bundle_not_preserved": {
+        "id": "F1",
+        "severity": "MEDIUM",
+        "summary": "The exact survival input bundle is never persisted; a refused audit loses control_pre_cleanup/control_final"
+      },
+      "test_defect_transient_manifest_oserror_escapes_polling": {
+        "id": "F5",
+        "severity": "LOW",
+        "summary": "A transient OSError while polling manifest.json escapes sample()/finish() and aborts a live case"
+      }
+    },
+    "folder": "research/experiments/SHORT-CLOSE-NATIVE-ADAPTER-V-20261105-01/review-08",
+    "skips": 0,
+    "tests": 48,
+    "verification_sha256": "703affb0475dd6675a84f4b7565b537e715f9c30a32bcdde6c6cbc46cb60d4dd"
+  },
+  "native_authorized": false,
+  "native_launches": 0,
+  "node": "NATIVE-ADAPTER-V",
+  "not_validated": [
+    "any native/GUI/Job/FFI/process behaviour",
+    "real observer snapshots (fake kernel32; the pinned RetainedProcess class itself ran)",
+    "real installed CLI behaviour (scripted fake public CLI)",
+    "DIMR route against a real record (metadata copies of direct records)",
+    "V2 receipt-fix freeze 1001d570 and the V3 corrections (not reviewed here)"
+  ],
+  "preserved_iterations": {
+    "review-01": {
+      "errors": 4,
+      "failures": 2,
+      "tests": 37,
+      "verification_sha256": "34e6718767e1ef372f79e271cc71b36dff0043cec3f559867cf6301f98713384"
+    },
+    "review-02": {
+      "errors": 0,
+      "failures": 1,
+      "tests": 36,
+      "verification_sha256": "f55619815ff3289e363c3e099f832389ba5389492fbd5271f78bce77588c4aa1"
+    },
+    "review-03": {
+      "errors": 0,
+      "failures": 5,
+      "tests": 37,
+      "verification_sha256": "46888ff670dd419a93da65cbbfdd126594e1b7159c32f6f800b5cd12850d1588"
+    },
+    "review-04": {
+      "errors": 0,
+      "failures": 1,
+      "tests": 37,
+      "verification_sha256": "7362a436367ae8ecb91ceb6b6e4fd9b0506e2a4bbebc9afc2e11f05ef93b92a7"
+    },
+    "review-05": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 37,
+      "verification_sha256": "1cc2078989568825e0a94a4dc912a4da77f2b4bebfc484afd31b9b7b2fdc3635"
+    },
+    "review-06": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 45,
+      "verification_sha256": "7dc54a9d029519d1f9dbb2158e9b4ff807e3b34f0a59ac5b850c8c45a35f6881"
+    },
+    "review-07": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 46,
+      "verification_sha256": "fbc4d9369ecfa4943bb987979c167682e2df8f09f6e20fc5860220500f2fb1e9"
+    },
+    "review-08": {
+      "errors": 0,
+      "failures": 0,
+      "tests": 48,
+      "verification_sha256": "703affb0475dd6675a84f4b7565b537e715f9c30a32bcdde6c6cbc46cb60d4dd"
+    }
+  },
+  "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+  "reviewed": "V1",
+  "schema": "SHORT-CLOSE-NATIVE-ADAPTER-V1-verification-1",
+  "verdict": "REJECTED_FOR_G_GRANT_AS_IS: seven reproduced defects (3 MEDIUM, 4 LOW); no native authority exists or was granted"
+}
