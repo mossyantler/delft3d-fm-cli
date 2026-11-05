@@ -1,0 +1,117 @@
+{
+  "node": "NATIVE-CLOCK-OFFLINE-G",
+  "state": "reviewed_offline_only",
+  "native_authorized": false,
+  "adapter_freeze_sha256": "53a1db831f37b6a09b925711cd0beb19f0dd8b325e0d26f6f4436fd6776e82e5",
+  "reader_freeze_sha256": "980c9d910e5a443326776d7fde3186db42ce61c1b5295243ac29441dc855dd62",
+  "predeclared_sha256": "d5427cb066def06b7291c419ee8f5030d973a52e5e78f6be56146d78339a1913",
+  "wheel_sha256": "e32bf84fe092b1ea5a68db6f2405cd6566d27dd4b1131a498d6871f5bb53b3e6",
+  "independent_final_review": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\proposals\\short-close-native-clock-auth-review\\VERIFICATION.json",
+    "sha256": "2fd9e408653facc962bb66b1b634278445717d61878a360332e0508a7b3ffb10",
+    "bytes": 12195
+  },
+  "independent_final_review_freeze": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\proposals\\short-close-native-clock-auth-review\\freeze.json",
+    "sha256": "10bb3cbd425143aad70f129c96c2ec72f2dfa7f6c1b83dd89e8920b04b1a31cf",
+    "bytes": 1041
+  },
+  "independent_reader_review": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\proposals\\short-close-native-reader-review\\verification.json",
+    "sha256": "b6347f841c12e058ceb33742c6f311a786f673aab57a7dac888e74a840817a16",
+    "bytes": 3467
+  },
+  "checkpoint_files_verified": 343,
+  "accepted_root_files_unchanged": 191,
+  "installed_payloads_verified": 191,
+  "prepared_input_files_verified": 40,
+  "prior_dispatch": {
+    "path": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\roadmap-coordinator-20261104\\dispatch.json",
+    "sha256": "df973d4b99e333132879790bfc3cce9c20674549d60817e464f408545ab820f6",
+    "bytes": 55743
+  },
+  "prior_slot": {
+    "rule": "One owner at a time; confirm released before transfer, always use a fresh folder.",
+    "owner": "idle",
+    "sequence": 230,
+    "next_candidates": [
+      "E014/P08/E007 live exports require supported separate disposable guest",
+      "No native slot required for public field eligibility inspect/preview",
+      "No new launches in a previously released slot"
+    ],
+    "grant": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-NATIVE-G-20261105-01\\admitted-grant.json",
+    "grant_sha256": "552ebe0a9b987d2d5d3ef63b5540bb8862cde2a2b9d072af4d583222a9659171",
+    "run_root": "C:\\Users\\minyeop\\project\\delft3d-fm-cli\\research\\experiments\\SHORT-CLOSE-G-native-rev04-229-20261105-01",
+    "granted_at_utc": "2026-11-05T12:17:26.957977+00:00",
+    "prior_lease_sequence": 229,
+    "release_reason": "six original owners/members/Jobs/collectors and observer/client receipts confirmed; trial remains NOT_ACCEPTED",
+    "released_at_utc": "2026-11-05T12:29:30.102133+00:00",
+    "release_review_sha256": "251cd1af0988558559e959b4168e02a3e23f1e7c3b6c4aa0db2f20917cb74b6d"
+  },
+  "selected_installation": {
+    "root": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ",
+    "kernels": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64",
+    "product": {
+      "applicationName": "Delft3D FM Suite",
+      "publicReleaseVersion": "2026.02",
+      "distributionName": "OpenHMWQ"
+    },
+    "binaries": {
+      "bin/dflowfm-cli.exe": {
+        "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dflowfm-cli.exe",
+        "exists": true,
+        "sha256": "78697b0646d2cd66c890fde7fa62e1b804c96f914a8b2cad679bee08411addd2"
+      },
+      "bin/dimr.exe": {
+        "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\bin\\dimr.exe",
+        "exists": true,
+        "sha256": "5880b1e6695f89f6cdb46b00b82f740056b7d8091cb21bd8cdd39d04e7b8ab64"
+      },
+      "lib/dflowfm.dll": {
+        "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\lib\\dflowfm.dll",
+        "exists": true,
+        "sha256": "ca6de0b6d900a51ece33140b4666ca97d6875d8e60cac31e91ad072800f1df99"
+      },
+      "lib/dimr.dll": {
+        "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\lib\\dimr.dll",
+        "exists": true,
+        "sha256": "4ab97270b982513f97623b54a208a2235b4f8e21224b5ca897add7884a822dc1"
+      },
+      "lib/gdal.dll": {
+        "path": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\plugins\\DeltaShell.Dimr\\kernels\\x64\\lib\\gdal.dll",
+        "exists": true,
+        "sha256": "7a7b2b4e2562efb3e482c19b4331a53748c773839a2181e5b7019f283cd930b1"
+      }
+    },
+    "proj_data": "C:\\Program Files\\Deltares\\Delft3D FM Suite 2026.02 OpenHMWQ\\bin\\gdal\\share",
+    "capabilities": {
+      "direct_binary_present": true,
+      "dimr_binary_present": true,
+      "validated_reference": "E004/E008: 2026.02 OpenHMWQ, f34 short serial; other versions unverified"
+    },
+    "engine_version": null,
+    "source_revision": null,
+    "limitations": [
+      "Presence/hash inspection only; no native execution or complete DLL dependency resolution"
+    ]
+  },
+  "native_launches": 0,
+  "planned_next_scope": {
+    "cases": 12,
+    "max_concurrent_native_owners": 2,
+    "attempts_each": 1,
+    "routes": [
+      "direct",
+      "dimr"
+    ],
+    "gates": [
+      "all original member lifetimes",
+      "original Job and collector close",
+      "actual public state",
+      "independent same-executable control survival",
+      "600s clocks and final restart",
+      "191 raw variable direct/DIMR comparison"
+    ]
+  },
+  "limit": "This offline review grants no native authority. A new exact admitted grant and current exclusive canonical lease are required."
+}
