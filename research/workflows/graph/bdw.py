@@ -44,17 +44,24 @@ SAFE_ENV = {
 WORKER_COMMANDS = {
     "show", "list", "ready", "blocked", "graph", "dep", "search", "query", "count", "status",
     "where", "info", "context", "version", "help", "history", "children", "comments", "stale",
-    "types", "statuses", "schema", "lint",
+    "types", "statuses", "schema", "lint", "human",
 }
-WORKER_SUBCOMMANDS = {"dep": {"tree", "list", "cycles"}, "graph": {"check"}, "comments": set()}
+WORKER_SUBCOMMANDS = {"dep": {"tree", "list", "cycles"}, "graph": {"check"}, "comments": set(),
+                      "human": {"list", "stats"}}
 # Coordinator: the worker set plus graph writes. Sync, remotes, init, integrations,
 # deletion and maintenance commands stay unavailable (INTENT §10).
 COORDINATOR_COMMANDS = WORKER_COMMANDS | {
     "create", "update", "close", "reopen", "note", "comment", "label", "tag", "assign", "priority",
     "link", "supersede", "duplicate", "defer", "undefer", "set-state", "state", "epic", "export", "q",
+    "gate",
 }
 COORDINATOR_SUBCOMMANDS = {"dep": {"add", "remove", "tree", "list", "cycles", "relate", "unrelate"},
-                           "graph": {"check"}}
+                           "graph": {"check"},
+                           "human": {"list", "stats", "respond", "dismiss"},
+                           "gate": {"create", "list", "show", "check", "resolve"}}
+# Commands whose subcommand must be named explicitly and be on the allowlist: a bare
+# command, an unknown subcommand or add-waiter/discover is refused (GRAPH-OPS-P3-DISPATCH C1).
+STRICT_SUBCOMMAND_COMMANDS = {"human", "gate"}
 DENIED_FLAGS = {
     "--reinit-local", "--discard-remote", "--force", "--destroy-token", "--global", "--shared-server",
     "--server", "--db", "--database", "--directory", "-C", "--dolt-auto-commit", "--from-jsonl",
@@ -132,6 +139,8 @@ def check_args(args: list[str], role: str) -> None:
         if positional and args[1].startswith("-"):
             raise Refused(f"put the '{cmd}' subcommand or ID directly after '{cmd}', before any flag")
         first = positional[0] if positional else None
+        if cmd in STRICT_SUBCOMMAND_COMMANDS and first not in subs:
+            raise Refused(f"'{(cmd + ' ' + (first or '')).strip()}' is not allowed for role {role}")
         if first in KNOWN_SUBCOMMANDS.get(cmd, set()) and first not in subs:
             raise Refused(f"'{cmd} {first}' is not allowed for role {role}")
         if role != "coordinator" and cmd == "dep" and first not in subs:
@@ -144,6 +153,8 @@ KNOWN_SUBCOMMANDS = {
     "dep": {"add", "cycles", "list", "relate", "remove", "tree", "unrelate"},
     "graph": {"check"},
     "comments": {"add"},
+    "human": {"dismiss", "list", "respond", "stats"},
+    "gate": {"add-waiter", "check", "create", "discover", "list", "resolve", "show"},
 }
 
 
