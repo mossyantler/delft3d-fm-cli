@@ -333,6 +333,7 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
     worktree = main.parent / f"{main.name}-wt" / code
     created = prepare_worktree(main, worktree, base)
     new_pane = None
+    submit_retry = None  # set once the prompt stage is reached; carried into a failure's JSON
     try:
         split = herdr(environ, cwd, "pane", "split", caller_pane, "--direction", "right", "--cwd", str(worktree),
                       "--no-focus")
@@ -382,6 +383,8 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         if created:
             cleanup["worktree"] = remove_worktree(main, worktree, base)[1]
         exc.cleanup = cleanup
+        if submit_retry is not None:
+            exc.submit_retry = submit_retry
         raise
     return {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"],
             "submit_retry": submit_retry}
@@ -674,7 +677,8 @@ def main(argv: list[str] | None = None) -> int:
               file=sys.stderr)
         return 2
     except Failure as exc:
-        print(json.dumps({"error": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {})}),
+        print(json.dumps({"error": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {}),
+                          **({"submit_retry": exc.submit_retry} if hasattr(exc, "submit_retry") else {})}),
               file=sys.stderr)
         return 2
 

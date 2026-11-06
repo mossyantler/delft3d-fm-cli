@@ -751,6 +751,7 @@ class Integration(unittest.TestCase):
         self.assertEqual(r.stdout, "")
         err = json.loads(r.stderr)
         self.assertIn("did not start a turn", err["error"])
+        self.assertIs(err["submit_retry"], True)  # Enter was pressed before giving up (C5.1)
         self.assertEqual(len(self.herdr_calls("agent", "send-keys")), 1)  # Enter once, never more
         closes = self.herdr_calls("pane", "close")
         self.assertEqual(len(closes), 1)
