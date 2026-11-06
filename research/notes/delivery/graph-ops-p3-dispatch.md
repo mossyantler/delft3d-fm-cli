@@ -64,3 +64,25 @@ Output is one JSON object on stdout.
 
 The author tests under `research/workflows/graph/test_dispatch.py`, the extended `test_bdw.py` and the frozen
 verifiers pass, `python -m compileall -q research/workflows` is clean, and each C1–C3 clause has a test.
+
+## C4. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **Herdr protocol** is the installed Herdr 0.9.5 CLI. Calls:
+   `pane split <pane> --direction right|down --cwd <dir> --no-focus` → `result.pane.pane_id`;
+   `agent start <name> --kind <kind> --pane <pane> [--timeout MS] -- <agent args>` → `result.agent`;
+   `agent prompt <name> <text>`; `agent get <name>` → `result.agent.agent_status` and
+   `result.agent.agent_session.value`; `pane close <pane>`. Errors are JSON on stderr with exit 1. The caller
+   pane is `HERDR_PANE_ID`. **The session id can be `null` right after `agent start`.** `start` reads it again
+   with `agent get` after the prompt and records `null` with a reason only if it is still missing.
+   Codex model and effort go after `--` as `--model <id> -c model_reasoning_effort=<level>`. Claude gets
+   `--model <id> --effort <level> --permission-mode bypassPermissions`.
+2. **Metadata keys** are the author's choice as long as every value named in C2 is present and documented in
+   the module docstring. V checks the values, not the spelling.
+3. **Exit codes:** success is exit 0 with exactly one JSON object on stdout. Every refusal or failure is exit 2
+   with one JSON object on stderr that has a `refused` or `error` key.
+4. **Recovery:** binding only as written in C2. Anything further is diagnostic.
+5. **Transcripts:** malformed lines are skipped and counted. Timestamps are ISO 8601 UTC. `wall_seconds` is a
+   number. Cached input is reported separately and not added into input.
+6. **Paths:** the packet is resolved (symlinks and junctions followed) and must lie inside the main checkout's
+   `research/experiments/`. The task code must match `^[A-Z0-9][A-Z0-9-]*$`, or `start` refuses. An agent is
+   live when `agent get` succeeds and its pane id equals the recorded one.
