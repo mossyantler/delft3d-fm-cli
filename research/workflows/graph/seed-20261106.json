@@ -1,0 +1,81 @@
+{
+ "description": "GRAPH-OPS Phase 2 seed: active epics from DELIVERY.md (2026-11-06) and the 20261105 checkpoint. Closed tasks cite evidence the coordinator located; accepted history before this date stays in research/notes/delivery/history-to-20261106.md.",
+ "epics": [
+  {"code": "SHORT-CLOSE", "title": "SHORT-CLOSE · 공용 short 종료 처리", "status": "closed",
+   "tasks": [
+    {"code": "SHORT-CLOSE-ROOT-G", "role": "G", "title": "제품 통합 승인 df447d8", "status": "closed",
+     "evidence": ["commit df447d8", "research/proposals/short-close-root-review/REVIEW.md", "research/proposals/short-close-native231-review/RELEASE_VERDICT.md"]}
+   ]},
+  {"code": "GRAPH-OPS", "title": "GRAPH-OPS · Beads 기반 공정 관리 전환", "status": "open",
+   "tasks": [
+    {"code": "GRAPH-OPS-P0P1", "role": "G", "title": "Phase 0 현황 점검·Phase 1 격리 시험 보고, 사용자 승인 2026-11-06", "status": "closed",
+     "evidence": ["commit 0ef1214", "research/notes/delivery/graph-ops-phase0-1.md"]},
+    {"code": "GRAPH-OPS-BDW-I", "role": "I", "title": "bdw 래퍼 구현", "status": "closed", "deps": ["GRAPH-OPS-P0P1"],
+     "evidence": ["commit aec83cb", "research/workflows/graph/bdw.py"]},
+    {"code": "GRAPH-OPS-BDW-V", "role": "V-Run", "title": "bdw 독립 검증 (Codex gpt-6.1-sol high)", "status": "closed", "deps": ["GRAPH-OPS-BDW-I"],
+     "evidence": ["research/workflows/verification/verify_bdw.py", "research/experiments/GRAPH-OPS-BDW-V-20261106-01/verification.json"]},
+    {"code": "GRAPH-OPS-BDW-G", "role": "G", "title": "bdw 통합 검수", "status": "closed", "deps": ["GRAPH-OPS-BDW-V"],
+     "evidence": ["research/notes/delivery/graph-ops-phase2.md"]},
+    {"code": "GRAPH-OPS-P2-MIGRATE-G", "role": "G", "title": "공정 이관과 DELIVERY 교차 검수", "status": "open", "deps": ["GRAPH-OPS-BDW-G"]},
+    {"code": "GRAPH-OPS-P3", "role": "I", "title": "Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험)", "status": "open", "deps": ["GRAPH-OPS-P2-MIGRATE-G"]}
+   ]},
+  {"code": "B06", "title": "B06 · 취·방류 (Source/Sink)", "status": "open",
+   "tasks": [
+    {"code": "B06-READER-I", "role": "I", "title": "공개 기록 판독기 Mill 203d9def 동결", "status": "closed",
+     "evidence": ["research/checkpoints/20261105-quota-pause/pending/B06-adapter/freeze.json"]},
+    {"code": "B06-READER-V-Plan", "role": "V-Plan", "title": "Einstein 사전 명세 오류 70·정상 6", "status": "closed",
+     "evidence": ["research/checkpoints/20261105-quota-pause/pending/B06-predeclared-V/requirements.json"]},
+    {"code": "B06-READER-V-Run", "role": "V-Run", "title": "판독기 독립 검수 (작성자 82통과는 근거 아님)", "status": "open", "deps": ["B06-READER-I", "B06-READER-V-Plan"]},
+    {"code": "B06-READER-G", "role": "G", "title": "판독기 통합 검수", "status": "open", "deps": ["B06-READER-V-Run"]},
+    {"code": "B06-RUN-PROFILE-I", "role": "I", "title": "현재 191파일 기준 새 구성·공개 실행 프로필", "status": "open", "deps": ["B06-READER-G", "SHORT-CLOSE-ROOT-G"]},
+    {"code": "B06-RUN-PROFILE-V-Plan", "role": "V-Plan", "title": "#225 6입력·170변수 사전 기준 (Mill)", "status": "open"},
+    {"code": "B06-RUN-PROFILE-V-Run", "role": "V-Run", "title": "direct/DIMR 공개 실행 대조", "status": "open", "lease": true, "deps": ["B06-RUN-PROFILE-I", "B06-RUN-PROFILE-V-Plan"]},
+    {"code": "B06-RUN-PROFILE-G", "role": "G", "title": "B06 실행 프로필 통합·루트 병합", "status": "open", "deps": ["B06-RUN-PROFILE-V-Run"]}
+   ]},
+  {"code": "B14", "title": "B14 · 분조 일괄 지정", "status": "open",
+   "tasks": [
+    {"code": "B14-RUNNER-I", "role": "I", "title": "BMI 실행기 후보 6 2641efa9 동결", "status": "closed",
+     "evidence": ["research/checkpoints/20261105-quota-pause/pending/B14-I/freeze.json", "research/experiments/B14-RUNNER-G-rev06-consistency-01/verification.json", "research/experiments/B14-RUNNER-G-rev06-preflight-01/verification.json"]},
+    {"code": "B14-RUNNER-V-Plan", "role": "V-Plan", "title": "독립 검사 75건 (Plato)", "status": "closed",
+     "evidence": ["research/checkpoints/20261105-quota-pause/pending/B14-V09/CHECKPOINT.md"]},
+    {"code": "B14-RUNNER-V-Run", "role": "V-Run", "title": "실행기 독립 최종 검수·판정 봉인", "status": "open", "deps": ["B14-RUNNER-I", "B14-RUNNER-V-Plan"]},
+    {"code": "B14-RUNNER-G", "role": "G", "title": "실행기 통합 검수", "status": "open", "deps": ["B14-RUNNER-V-Run"]},
+    {"code": "B14-BMI-V-Run", "role": "V-Run", "title": "BMI 4진단 실제 실행 (4진단만으로 B14 승인 아님)", "status": "open", "lease": true, "deps": ["B14-RUNNER-G"]},
+    {"code": "B14-PUBLIC-I", "role": "I", "title": "현재 191파일 기준 새 구성", "status": "open", "deps": ["SHORT-CLOSE-ROOT-G"]},
+    {"code": "B14-PUBLIC-V-Run", "role": "V-Run", "title": "공개 direct 6사례", "status": "open", "lease": true, "deps": ["B14-PUBLIC-I"]},
+    {"code": "B14-G", "role": "G", "title": "B14 전체 합류 검수", "status": "open", "deps": ["B14-BMI-V-Run", "B14-PUBLIC-V-Run"]}
+   ]},
+  {"code": "S07", "title": "S07 · 풍속별 항력 계수", "status": "open",
+   "tasks": [
+    {"code": "S07-EDITOR-G", "role": "G", "title": "설치 편집 통합 검수 (8입력 보존)", "status": "closed",
+     "evidence": ["research/experiments/S07-G-combined-editor-01/evidence/verification.json"]},
+    {"code": "S07-V-Plan", "role": "V-Plan", "title": "풍응력 7사례 판독 기준 (Lovelace)", "status": "closed",
+     "evidence": ["research/checkpoints/20261105-quota-pause/pending/S07-V/freeze.json"]},
+    {"code": "S07-I", "role": "I", "title": "현재 191파일 기준 새 구성", "status": "open", "deps": ["SHORT-CLOSE-ROOT-G", "S07-EDITOR-G"]},
+    {"code": "S07-V-Run", "role": "V-Run", "title": "풍응력 7사례 엔진 검수", "status": "open", "lease": true, "deps": ["S07-I", "S07-V-Plan"]},
+    {"code": "S07-G", "role": "G", "title": "S07 통합 검수", "status": "open", "deps": ["S07-V-Run"]}
+   ]},
+  {"code": "G15", "title": "G15 · 구조물 교환", "status": "open",
+   "tasks": [
+    {"code": "G15-Contract", "role": "Contract", "title": "수정 계약 승인 (23의무·16범위)", "status": "closed",
+     "evidence": ["research/experiments/G15-PROPOSAL-G-final-01/verification.json"]},
+    {"code": "G15-V-Plan", "role": "V-Plan", "title": "공개 30·저장 오류 11 시험 준비 (Lovelace)", "status": "closed", "deps": ["G15-Contract"],
+     "evidence": ["research/experiments/G15-TRANSFER-G-readiness-01/verification.json"]},
+    {"code": "G15-I", "role": "I", "title": "정확한 후보 확정·동결 (package-02 이후 추가분 포함)", "status": "open", "deps": ["G15-Contract"]},
+    {"code": "G15-V-Run", "role": "V-Run", "title": "독립 설치 검수", "status": "open", "deps": ["G15-I", "G15-V-Plan"]},
+    {"code": "G15-G", "role": "G", "title": "G15 파일 기능 통합 검수", "status": "open", "deps": ["G15-V-Run"]},
+    {"code": "G15-ENGINE-Contract", "role": "Contract", "title": "엔진·GUI 검증 별도 계획", "status": "open", "deps": ["G15-G"]}
+   ]},
+  {"code": "G18", "title": "G18 · 관측 단면 교환", "status": "open",
+   "tasks": [
+    {"code": "G18-FILE-G", "role": "G", "title": "파일 작업 최종 검수 (입력 편집만)", "status": "closed",
+     "evidence": ["research/notes/verification/section-transfer.md"]},
+    {"code": "G18-NATIVE-V-Plan", "role": "V-Plan", "title": "수치 검증 계획·입력 동결 (Mill)", "status": "closed",
+     "evidence": ["research/experiments/G18-NATIVE-PLAN-G-final-01/verification.json"]},
+    {"code": "G18-NATIVE-I", "role": "I", "title": "현재 191파일 기준 새 구성", "status": "open", "deps": ["SHORT-CLOSE-ROOT-G", "G18-FILE-G"]},
+    {"code": "G18-NATIVE-V-Run", "role": "V-Run", "title": "6사례 실행·Mill 독립 대조", "status": "open", "lease": true, "deps": ["G18-NATIVE-I", "G18-NATIVE-V-Plan"]},
+    {"code": "G18-G", "role": "G", "title": "G18 루트 병합 통합 검수", "status": "open", "deps": ["G18-NATIVE-V-Run"]}
+   ]}
+ ],
+ "expected_ready": ["GRAPH-OPS-P2-MIGRATE-G", "B06-READER-V-Run", "B06-RUN-PROFILE-V-Plan", "B14-RUNNER-V-Run", "B14-PUBLIC-I", "S07-I", "G15-I", "G18-NATIVE-I"]
+}
