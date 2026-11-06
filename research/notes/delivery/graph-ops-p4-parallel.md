@@ -25,6 +25,20 @@ unblock later work. Builds on `research/workflows/graph/dispatch.py` (Contracts 
   7. Choosing ready tasks is manual. No command starts every dispatchable ready task.
 - **Beads dependencies are correct where they exist.** I and V-Plan block V-Run, and V-Run blocks G.
 
+## P0. Live-trial amendment to C5 (DISPATCH-LIVE-002, observed 2026-11-06)
+
+A Codex agent split into a pane about 30 columns wide did start its turn: the screen showed `Working (0s • esc to interr…`,
+and the session id went from null to a value. Herdr still reported `agent_status: idle` with an unchanged
+`state_change_seq`, so C5.1 falsely failed the start and closed the pane. At 61 columns the same start passed.
+
+1. **Split direction.** `start` reads `pane layout --pane <caller>` and finds the caller's `rect.width`.
+   It splits `right` when the width is at least 120 columns and `down` otherwise. When the layout call fails,
+   it splits `down`. `metadata.dispatch.split_direction` records the choice.
+2. **More turn evidence for C5.1.** A turn has also started when either of these holds:
+   - the agent session id was null before the prompt and is non-null in a later `agent get`;
+   - `agent read <name> --source visible` contains `esc to interr` or `Working (`.
+   The rest of C5.1 is unchanged: the Enter retry, the failure, the cleanup and `submit_retry`.
+
 ## P1. Ownership and resources on `start`
 
 `start` gains these options:
@@ -129,7 +143,7 @@ fake Herdr and fixture transcripts only. All text that dispatch writes for agent
 
 ## Done when
 
-- `research/workflows/graph/test_dispatch.py` covers every P1–P6 clause with the fake Herdr. The existing
+- `research/workflows/graph/test_dispatch.py` covers every P0–P6 clause with the fake Herdr. The existing
   `test_bdw`, `test_dispatch` and `test_dashboard` pass, and `python -m compileall -q research/workflows` is clean.
 - The committed verifiers `verify_dispatch.py`, `verify_codefix.py` and `verify_livefix.py` still pass as
   regressions. If a regression case contradicts P2 or P5, for example a fixture receipt with a made-up
