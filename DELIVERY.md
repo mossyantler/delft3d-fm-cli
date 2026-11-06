@@ -4,7 +4,8 @@
 이 문서에는 승인 기준점, 공정 규칙, 최근 승인 기록, 그리고 Beads에서 생성한 스냅숏만 남긴다.
 2026-11-06 이전의 단계별 서술 기록은 [공정 기록](research/notes/delivery/history-to-20261106.md)에 원문 그대로 있다.
 
-- **조회(누구나):** `python -m research.workflows.graph.bdw ready --json --exclude-type epic`, `... show <id>`, `... blocked`
+- **조회(누구나):** `python -m research.workflows.graph.bdw ready --json --exclude-type epic`, `... show <id>`, `... blocked`.
+  대시보드는 `python -m research.workflows.graph.dashboard pages` 뒤 `preview`(http://127.0.0.1:9000) 또는 `tui`. 읽기 전용 사본만 본다.
 - **갱신(코디네이터만):** `DFM_BD_ROLE=coordinator`로 bdw를 통해서만 한다. 작업자는 결과 영수증을 제출한다.
 - **기록 방식:** G Task를 닫을 때 근거를 `--reason`에 남기고, 아래 「최근 승인」에 한 줄을 더한다.
   스냅숏은 `python -m research.workflows.graph.seed report`로 다시 만든다. 손으로 고치지 않는다.
@@ -25,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-BACKUP-G 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-VIEWER-G 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -61,7 +62,21 @@
 | G18 | G18-NATIVE-V-Run: 6사례 실행·Mill 독립 대조 (임대) | Blocked | `dfm-vbl.4` |
 | G18 | G18-G: G18 루트 병합 통합 검수 | Blocked | `dfm-vbl.5` |
 | GRAPH-OPS | GRAPH-OPS-P0P1: Phase 0 현황 점검·Phase 1 격리 시험 보고, 사용자 승인 2026-11-06 | ✓ | `dfm-fmc.1` |
+| GRAPH-OPS | GRAPH-OPS-VIEWER-I: bv 0.25.2 로컬 대시보드 (JSONL 사본, 읽기 전용) | ✓ | `dfm-fmc.10` |
+| GRAPH-OPS | GRAPH-OPS-VIEWER-V: 뷰어 독립 검증 (작업 공간·저장소 불변) | ✓ | `dfm-fmc.11` |
+| GRAPH-OPS | GRAPH-OPS-VIEWER-G: 뷰어 통합 검수 | ✓ | `dfm-fmc.12` |
+| GRAPH-OPS | HUMAN-20261106-01: Phase 0·1 보고 승인과 Phase 2 진행 | ✓ | `dfm-fmc.13` |
+| GRAPH-OPS | HUMAN-20261106-02: BEADS_DIR 위치 | ✓ | `dfm-fmc.14` |
+| GRAPH-OPS | HUMAN-20261106-03: bd 래퍼(bdw) 작성 | ✓ | `dfm-fmc.15` |
+| GRAPH-OPS | HUMAN-20261106-04: bd 사용 통계 전역 설정 | ✓ | `dfm-fmc.16` |
+| GRAPH-OPS | HUMAN-20261106-05: 코디네이터 세션 모델 | ✓ | `dfm-fmc.17` |
+| GRAPH-OPS | HUMAN-20261106-06: Beads 백업 방식 | ✓ | `dfm-fmc.18` |
+| GRAPH-OPS | HUMAN-20261106-07: beads.role | ✓ | `dfm-fmc.19` |
 | GRAPH-OPS | GRAPH-OPS-BDW-I: bdw 래퍼 구현 | ✓ | `dfm-fmc.2` |
+| GRAPH-OPS | HUMAN-20261106-08: 공정 대시보드 방식 | ✓ | `dfm-fmc.20` |
+| GRAPH-OPS | HUMAN-20261106-09: GitHub 푸시 | ✓ | `dfm-fmc.21` |
+| GRAPH-OPS | HUMAN-20261106-10: VIEWER-V 지시서 모호성 (소유 폴더의 임시 저장소에서 실행 여부) | ✓ | `dfm-fmc.22` |
+| GRAPH-OPS | HUMAN-20261106-11: human 노드 방식 | ✓ | `dfm-fmc.23` |
 | GRAPH-OPS | GRAPH-OPS-BDW-V: bdw 독립 검증 (Codex gpt-6.1-sol high) | ✓ | `dfm-fmc.3` |
 | GRAPH-OPS | GRAPH-OPS-BDW-G: bdw 통합 검수 | ✓ | `dfm-fmc.4` |
 | GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
@@ -91,6 +106,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-VIEWER-G | `git log --grep GRAPH-OPS-VIEWER` | 로컬 bv 대시보드(사용자 결정). 독립 검증 3회차 PASS 224건, 앞선 두 회차 결함 4건 수정 |
 | GRAPH-OPS-BACKUP-G | `git log --grep GRAPH-OPS-BACKUP-G` | [백업 방식·복원 확인](research/notes/delivery/graph-ops-backup.md), 실제 백업 두 사본 복원 일치 |
 | GRAPH-OPS-COORD-MODEL | `e7783f6` | 코디네이터 세션 모델 Sol 또는 Opus high (사용자 결정) |
 | GRAPH-OPS-P2-MIGRATE-G | `git log --grep GRAPH-OPS-P2-MIGRATE-G` | [Beads 이관·교차 검수](research/notes/delivery/graph-ops-phase2.md) |

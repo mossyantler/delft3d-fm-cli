@@ -33,6 +33,11 @@ in your own environment; every other caller is read-only. Do not call `bd.exe`
 directly. [DELIVERY.md](DELIVERY.md) keeps approval records and a snapshot from
 `python -m research.workflows.graph.seed report`. Nobody edits a status by hand.
 
+**Dashboard (read-only):** `python -m research.workflows.graph.dashboard pages`, then `... preview`
+(http://127.0.0.1:9000, Ctrl+C stops) or `... tui`. bv 0.25.2 reads only a copy in
+`<main checkout>-beads/dashboard/source/`: a fresh export for the coordinator, the export committed at HEAD
+for anyone else. bv runs without bd on PATH, without Beads variables and without hooks, so its edits go nowhere.
+
 Not authorized by INTENT or by this file: product code changes, native runs,
 unapproved merges, remote sync. Each needs its own explicit approval.
 

@@ -11,6 +11,8 @@
    [COORDINATOR.md](COORDINATOR.md)도 읽는다.
 2. 실행 가능한 작업을 확인한다: `python -m research.workflows.graph.bdw ready --json --exclude-type epic`.
    자세한 내용은 `... show <id>`로 본다. 승인 기준점은 [공정표](DELIVERY.md)에 있다.
+   한눈에 보려면 `python -m research.workflows.graph.dashboard pages` 뒤 `... preview`로
+   http://127.0.0.1:9000 을 연다(읽기 전용, Ctrl+C로 종료). 터미널에서는 `... tui`.
 3. 실제 상태를 대조한다: `git status --short`, 현재 브랜치와 원격 SHA, 살아 있는 Herdr 세션
    (`herdr agent list`), 작업 worktree의 변경, 진행 중인 네이티브 프로세스, 슬롯 상태(`idle232`),
    `In Progress`인 Beads Task. 세션이 끝났다는 이유로 작업을 처음부터 다시 시작하지 않는다.
