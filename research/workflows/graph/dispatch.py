@@ -12,9 +12,31 @@ From the main checkout or any worktree of this repository:
 Every subcommand except ``show`` refuses unless ``DFM_BD_ROLE=coordinator``. All Beads
 access goes through bdw. Herdr is called through ``DFM_HERDR_EXE`` (default ``herdr``).
 Transcripts for ``collect`` come from ``DFM_CODEX_HOME`` / ``DFM_CLAUDE_HOME`` (default
-``~/.codex`` / ``~/.claude``). Output is one JSON object on stdout; a policy refusal is
-JSON on stderr with exit code 2, any other failure JSON on stderr with exit code 1.
-Dispatch never commits, pushes or edits the main checkout.
+``~/.codex`` / ``~/.claude``). Success is exit 0 with one JSON object on stdout. Every
+refusal or failure is exit 2 with one JSON object on stderr that has a ``refused`` or an
+``error`` key (a failed ``start`` adds a ``cleanup`` key). Dispatch never commits, pushes
+or edits the main checkout.
+
+Beads metadata written (every key is a plain JSON value; other keys are preserved):
+
+``metadata.dispatch`` (written by ``start``, completed by ``stop``)
+    agent (Herdr agent name), pane_id, kind, model and effort (as requested), session_id
+    (Herdr's agent session id, re-read after the prompt; null with session_id_note when
+    Herdr still had none), worktree (path), base_sha, packet (path relative to the main
+    checkout), packet_sha256, started_at (UTC ISO 8601), attempt (1, 2, ...),
+    permission_mode (claude only), ended_at (set by ``stop``).
+``metadata.dispatch_history``
+    list of earlier ``dispatch`` records, oldest first.
+``metadata.receipt`` (``collect``)
+    path, sha256, outcome, verdict, candidate_sha, collected_at.
+``metadata.metrics`` (``collect``)
+    attempt, agent, kind, requested_model, requested_effort, collected_at, usage (null when
+    no transcript was found) and usage_unavailable_reason. ``usage`` holds source, transcript,
+    tokens (input_tokens, cached_input_tokens, cache_write_tokens, output_tokens,
+    reasoning_tokens, total_tokens where present; cached input is reported separately and is
+    not added into input), models, wall_seconds (number or null), first_timestamp and
+    last_timestamp (UTC ISO 8601), malformed_lines (skipped transcript lines) and, for Claude,
+    messages_counted.
 """
 from __future__ import annotations
 
@@ -24,6 +46,7 @@ import json
 import os
 import re
 import subprocess
+import time
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,14 +56,14 @@ from research.workflows.graph import bdw
 REPO_ROOT = Path(__file__).resolve().parents[3]
 KINDS = ("claude", "codex")
 AGENT_NAME = re.compile(r"[a-z][a-z0-9_-]{0,31}")
-TASK_CODE = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
+TASK_CODE = re.compile(r"[A-Z0-9][A-Z0-9-]*")
 BLOCKING_DEPENDENCIES = {"blocks", "conditional-blocks", "waits-for"}
 SETTLED = {"idle", "done"}
 HERDR_TIMEOUT = 240
 
 
 class Failure(Exception):
-    """An external step failed (bd, git or Herdr); reported as JSON with exit code 1."""
+    """An external step failed (bd, git or Herdr); reported as JSON on stderr with exit code 2."""
 
 
 # ---------------------------------------------------------------- helpers
@@ -138,25 +161,37 @@ def agent_info(reply: dict) -> dict:
     session = agent.get("agent_session") or {}
     return {"status": agent.get("agent_status"),
             "session_id": session.get("value") if isinstance(session, dict) else None,
-            "agent": agent}
+            "pane_id": agent.get("pane_id"), "agent": agent}
 
 
-def live_agent(environ: dict[str, str], cwd: Path, pane_id: str) -> dict | None:
-    """The agent hosted by the pane, or None when Herdr answers that there is none."""
+def live_agent(environ: dict[str, str], cwd: Path, rec: dict) -> dict | None:
+    """The recorded agent when Herdr still has it in the recorded pane, else None.
+
+    Live means ``agent get <name>`` succeeds and its pane id equals the recorded one (C4.6).
+    A structured Herdr error means "no such agent"; an unreachable Herdr is a failure.
+    """
     try:
-        return agent_info(herdr(environ, cwd, "agent", "get", pane_id))
+        info = agent_info(herdr(environ, cwd, "agent", "get", rec["agent"]))
     except HerdrError as exc:
         if exc.structured:
             return None
         raise
+    return info if info["pane_id"] == rec["pane_id"] else None
+
+
+def read_session(environ: dict[str, str], cwd: Path, name: str, attempts: int = 6) -> dict:
+    """Read the agent state; the session id can be null early, so poll briefly for it."""
+    info = agent_info(herdr(environ, cwd, "agent", "get", name))
+    for _ in range(attempts - 1):
+        if info["session_id"]:
+            break
+        time.sleep(1.0)
+        info = agent_info(herdr(environ, cwd, "agent", "get", name))
+    return info
 
 
 def recorded_agent_is_live(environ: dict[str, str], cwd: Path, rec: dict) -> bool:
-    info = live_agent(environ, cwd, rec["pane_id"])
-    if info is None:
-        return False
-    # An unknown recorded session cannot prove the agent is gone, so it counts as live.
-    return rec.get("session_id") is None or info["session_id"] in (None, rec["session_id"])
+    return bool(rec.get("pane_id") and rec.get("agent")) and live_agent(environ, cwd, rec) is not None
 
 
 # ---------------------------------------------------------------- worktree
@@ -270,9 +305,7 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         herdr(environ, cwd, "agent", "start", name, "--kind", a.kind, "--pane", new_pane, "--",
               *agent_args(a.kind, a.model, a.effort))
         herdr(environ, cwd, "agent", "prompt", name, prompt_text(packet))
-        herdr(environ, cwd, "agent", "wait", name, "--until", "working", "--until", "blocked",
-              "--until", "done", "--timeout", "30000")
-        info = agent_info(herdr(environ, cwd, "agent", "get", name))
+        info = read_session(environ, cwd, name)
         fresh_meta = metadata_of(get_issue(a.id, environ, cwd))
         old = fresh_meta.get("dispatch")
         history = list(fresh_meta.get("dispatch_history") or [])
@@ -283,13 +316,15 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
                   "session_id": info["session_id"], "worktree": str(worktree), "base_sha": base,
                   "packet": packet.relative_to(main.resolve()).as_posix(), "packet_sha256": sha256_of(packet),
                   "started_at": now(), "attempt": attempt}
+        if not info["session_id"]:
+            record["session_id_note"] = "Herdr reported no agent session id after the prompt"
         if a.kind == "claude":
             record["permission_mode"] = "bypassPermissions"
         fresh_meta["dispatch"] = record
         if history:
             fresh_meta["dispatch_history"] = history
         write_metadata(a.id, fresh_meta, environ, cwd, ["--status", "in_progress", "--assignee", ""])
-    except BaseException:
+    except BaseException as exc:
         cleanup = {}
         if new_pane:
             try:
@@ -299,7 +334,7 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
                 cleanup["pane_close_failed"] = str(exc)
         if created:
             cleanup["worktree"] = remove_worktree(main, worktree, base)[1]
-        print(json.dumps({"cleanup": cleanup}), file=sys.stderr)
+        exc.cleanup = cleanup
         raise
     return {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"]}
 
@@ -313,24 +348,25 @@ def cmd_show(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
     out = {"id": a.id, "task_code": meta.get("task_code"), "status": issue.get("status"), "dispatch": rec,
            "dispatch_history": meta.get("dispatch_history") or [], "receipt": meta.get("receipt"),
            "metrics": meta.get("metrics"), "live": None}
-    if isinstance(rec, dict) and rec.get("pane_id"):
+    if isinstance(rec, dict) and rec.get("pane_id") and rec.get("agent"):
         try:
-            info = live_agent(environ, cwd, rec["pane_id"])
+            info = live_agent(environ, cwd, rec)
         except Failure as exc:
             out["live_error"] = str(exc)
         else:
             if info is None:
-                out["live_error"] = "the recorded pane hosts no agent"
+                out["live_error"] = "Herdr has no such agent in the recorded pane"
             else:
                 out["live"] = {"status": info["status"], "session_id": info["session_id"],
-                               "matches_recorded_session": info["session_id"] == rec.get("session_id"),
+                               "matches_recorded_session": bool(rec.get("session_id")) and info["session_id"] == rec["session_id"],
                                "agent": info["agent"]}
     return out
 
 
 # ---------------------------------------------------------------- collect
 
-def iter_json_lines(path: Path):
+def iter_json_lines(path: Path, skipped: list[int]):
+    """Yield the JSON objects of a transcript; malformed lines are skipped and counted in skipped[0]."""
     with path.open("r", encoding="utf-8", errors="replace") as f:
         for line in f:
             line = line.strip()
@@ -339,32 +375,39 @@ def iter_json_lines(path: Path):
             try:
                 obj = json.loads(line)
             except ValueError:
+                skipped[0] += 1
                 continue
             if isinstance(obj, dict):
                 yield obj
+            else:
+                skipped[0] += 1
 
 
 def parse_time(value) -> datetime | None:
     if not isinstance(value, str):
         return None
     try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+        t = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError:
         return None
+    return t if t.tzinfo else t.replace(tzinfo=timezone.utc)
 
 
 def wall_time(stamps: list[datetime]) -> tuple[float | None, str | None, str | None]:
     if not stamps:
         return None, None, None
     first, last = min(stamps), max(stamps)
-    return (last - first).total_seconds(), first.isoformat(), last.isoformat()
+    def utc(t: datetime) -> str:
+        return t.astimezone(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+    return (last - first).total_seconds(), utc(first), utc(last)
 
 
 def codex_usage(path: Path) -> dict:
     last = None
     models: list[str] = []
     stamps = []
-    for obj in iter_json_lines(path):
+    skipped = [0]
+    for obj in iter_json_lines(path, skipped):
         t = parse_time(obj.get("timestamp"))
         if t:
             stamps.append(t)
@@ -385,7 +428,7 @@ def codex_usage(path: Path) -> dict:
     usage = {names[k]: v for k, v in last.items() if k in names and isinstance(v, int)}
     seconds, first, last_t = wall_time(stamps)
     return {"source": "codex", "transcript": str(path), "tokens": usage, "models": models,
-            "wall_seconds": seconds, "first_timestamp": first, "last_timestamp": last_t}
+            "malformed_lines": skipped[0], "wall_seconds": seconds, "first_timestamp": first, "last_timestamp": last_t}
 
 
 def claude_usage(path: Path) -> dict:
@@ -393,7 +436,8 @@ def claude_usage(path: Path) -> dict:
     models: list[str] = []
     stamps = []
     anonymous = 0
-    for obj in iter_json_lines(path):
+    skipped = [0]
+    for obj in iter_json_lines(path, skipped):
         t = parse_time(obj.get("timestamp"))
         if t:
             stamps.append(t)
@@ -427,7 +471,8 @@ def claude_usage(path: Path) -> dict:
                 totals[names[k]] = totals.get(names[k], 0) + v
     seconds, first, last_t = wall_time(stamps)
     return {"source": "claude", "transcript": str(path), "tokens": totals, "models": models,
-            "messages_counted": len(per_message), "wall_seconds": seconds, "first_timestamp": first,
+            "messages_counted": len(per_message), "malformed_lines": skipped[0],
+            "wall_seconds": seconds, "first_timestamp": first,
             "last_timestamp": last_t}
 
 
@@ -511,14 +556,11 @@ def cmd_stop(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
     rec = meta.get("dispatch")
     if not isinstance(rec, dict) or not rec.get("pane_id"):
         raise bdw.Refused(f"{a.id} has no recorded dispatch")
-    info = live_agent(environ, cwd, rec["pane_id"])
+    info = live_agent(environ, cwd, rec)
     pane_closed, pane_note = False, None
     if info is None:
-        pane_note = "the recorded pane hosts no agent; nothing was closed"
-    elif not rec.get("session_id"):
-        raise bdw.Refused("no agent session id was recorded, so the agent in the pane cannot be confirmed as "
-                          "the dispatched one; the pane was left open")
-    elif info["session_id"] != rec["session_id"]:
+        pane_note = "Herdr has no such agent in the recorded pane; nothing was closed"
+    elif rec.get("session_id") and info["session_id"] and info["session_id"] != rec["session_id"]:
         pane_note = "the recorded pane hosts a different agent session; it was left open"
     elif info["status"] not in SETTLED:
         raise bdw.Refused(f"the recorded agent is {info['status']}, not idle or done; nothing was changed")
@@ -579,11 +621,13 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(result, indent=1, ensure_ascii=False))
         return 0
     except bdw.Refused as exc:
-        print(json.dumps({"refused": str(exc)}), file=sys.stderr)
+        print(json.dumps({"refused": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {})}),
+              file=sys.stderr)
         return 2
     except Failure as exc:
-        print(json.dumps({"error": str(exc)}), file=sys.stderr)
-        return 1
+        print(json.dumps({"error": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {})}),
+              file=sys.stderr)
+        return 2
 
 
 if __name__ == "__main__":

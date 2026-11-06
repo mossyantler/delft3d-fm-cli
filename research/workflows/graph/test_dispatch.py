@@ -61,7 +61,9 @@ elif args[:2] == ["agent", "start"]:
     if fail == "agent_start":
         error("agent not ready")
     pane = args[args.index("--pane") + 1]
-    state["agents"][args[2]] = {"pane": pane, "session": f"sess-{args[2]}", "status": "idle"}
+    null_session = os.environ.get("FAKE_HERDR_SESSION") in ("after_prompt", "never")
+    state["agents"][args[2]] = {"pane": pane, "session": None if null_session else f"sess-{args[2]}",
+                                "status": "idle"}
     save()
     print(json.dumps({"result": {"agent": {"agent_status": "idle"}}}))
 elif args[:2] == ["agent", "prompt"]:
@@ -69,6 +71,8 @@ elif args[:2] == ["agent", "prompt"]:
         error("prompt failed")
     name, a = find(args[2])
     a["status"] = "working"
+    if os.environ.get("FAKE_HERDR_SESSION") == "after_prompt":
+        a["session"] = f"sess-{name}"
     save()
     print(json.dumps({"result": {"submitted": True}}))
 elif args[:2] == ["agent", "wait"]:
@@ -155,6 +159,9 @@ class Transcripts(unittest.TestCase):
                                            "reasoning_tokens": 12, "total_tokens": 330})
             self.assertEqual(u["models"], ["gpt-6.1-sol"])
             self.assertEqual(u["wall_seconds"], 390.0)
+            self.assertEqual(u["malformed_lines"], 1)  # skipped and counted
+            self.assertEqual((u["first_timestamp"], u["last_timestamp"]),
+                             ("2026-11-06T10:00:00.000Z", "2026-11-06T10:06:30.000Z"))
 
     def test_claude_counts_each_message_once(self):
         with tempfile.TemporaryDirectory() as d:
@@ -167,6 +174,8 @@ class Transcripts(unittest.TestCase):
             self.assertEqual(u["models"], ["claude-sonnet-5-5"])
             self.assertEqual(u["messages_counted"], 3)
             self.assertEqual(u["wall_seconds"], 180.0)
+            self.assertEqual(u["malformed_lines"], 0)
+            self.assertIsInstance(u["wall_seconds"], float)
 
     def test_missing_transcript_is_a_reason_not_an_error(self):
         with tempfile.TemporaryDirectory() as d:
@@ -227,7 +236,7 @@ class Integration(unittest.TestCase):
                               env=env, capture_output=True, text=True, encoding="utf-8")
 
     def task(self, code, **meta):
-        out = self.bdw(["create", f"{code}: title", "--silent", "--parent", self.epic, "--metadata",
+        out = self.bdw(["create", f"Task {code}", "--silent", "--parent", self.epic, "--metadata",
                         json.dumps({"task_code": code, **meta})], "coordinator")
         self.assertEqual(out.returncode, 0, out.stderr)
         return out.stdout.split()[0]
@@ -448,12 +457,15 @@ class Integration(unittest.TestCase):
 
     # -- C2 start failures leave nothing behind
     def test_failed_steps_close_the_new_pane_and_write_nothing(self):
-        for step in ("agent_start", "prompt", "wait"):
+        for step in ("agent_start", "prompt"):
             code = f"T-FAIL-{step.upper().replace('_', '')}"
             tid = self.task(code)
             self.clear_log()
             r = self.start(tid, code, FAKE_HERDR_FAIL=step)
-            self.assertEqual(r.returncode, 1, (step, r.stdout, r.stderr))
+            self.assertEqual(r.returncode, 2, (step, r.stdout, r.stderr))
+            err = json.loads(r.stderr)  # exactly one JSON object
+            self.assertIn("error", err)
+            self.assertEqual(r.stdout, "")
             closes = self.herdr_calls("pane", "close")
             self.assertEqual(len(closes), 1, step)
             self.assertRegex(closes[0][2], r"^w1:p\d+$")
@@ -466,10 +478,61 @@ class Integration(unittest.TestCase):
         tid = self.task(code)
         self.clear_log()
         r = self.start(tid, code, FAKE_HERDR_FAIL="split")
-        self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
+        self.assertEqual(r.returncode, 2, r.stdout + r.stderr)
+        self.assertIn("error", json.loads(r.stderr))
         self.assertEqual(self.herdr_calls("pane", "close"), [])
         self.assertEqual(self.herdr_calls("agent", "start"), [])
         self.assertFalse(self.worktree(code).exists())
+
+    # -- C4: session id may be null right after agent start
+    def test_session_id_is_read_again_after_the_prompt(self):
+        code = "T-SESSION-LATE"
+        tid = self.task(code)
+        r = self.start(tid, code, FAKE_HERDR_SESSION="after_prompt")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        d = self.meta(tid)["dispatch"]
+        self.assertEqual(d["session_id"], f"sess-{dispatch.default_name(code)}")
+        self.assertNotIn("session_id_note", d)
+        order = [c["argv"][:2] for c in self.herdr_log()]
+        self.assertLess(order.index(["agent", "prompt"]), order.index(["agent", "get"]))
+        self.assertNotIn(["agent", "wait"], order)
+
+    def test_session_id_still_missing_is_recorded_null_with_a_reason(self):
+        code = "T-SESSION-NONE"
+        tid = self.task(code)
+        r = self.start(tid, code, FAKE_HERDR_SESSION="never")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        d = self.meta(tid)["dispatch"]
+        self.assertIsNone(d["session_id"])
+        self.assertIn("no agent session id", d["session_id_note"])
+        # without a session id the same agent in the same pane is still the recorded one: stop works
+        self.set_agent(dispatch.default_name(code), status="idle")
+        out = json.loads(self.dispatch(["stop", tid]).stdout)
+        self.assertTrue(out["pane_closed"])
+
+    def test_task_code_must_be_upper_case_digits_and_hyphens(self):
+        for code in ("bad_code", "lower-case", "-LEADING", "HAS SPACE"):
+            tid = self.task(code)
+            self.clear_log()
+            r = self.start(tid, code)
+            self.assertEqual(r.returncode, 2, (code, r.stdout, r.stderr))
+            self.assertIn("task_code", json.loads(r.stderr)["refused"])
+            self.assertEqual(self.herdr_log(), [])
+
+    def test_agent_in_another_pane_is_not_the_recorded_agent(self):
+        code = "T-PANE-MOVED"
+        tid = self.task(code)
+        self.assertEqual(self.start(tid, code).returncode, 0)
+        self.set_agent(dispatch.default_name(code), pane="w9:p9", status="idle")
+        shown = json.loads(self.dispatch(["show", tid]).stdout)
+        self.assertIsNone(shown["live"])
+        n = len(self.herdr_calls("pane", "close"))
+        out = json.loads(self.dispatch(["stop", tid]).stdout)
+        self.assertFalse(out["pane_closed"])
+        self.assertEqual(len(self.herdr_calls("pane", "close")), n)
+        # a dead recorded agent no longer blocks a new start
+        r = self.start(tid, code)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
 
     # -- C2 show
     def test_show_reports_live_state_and_a_vanished_pane(self):
