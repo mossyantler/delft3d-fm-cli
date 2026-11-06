@@ -10,6 +10,7 @@ local path) and are skipped without it.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import subprocess
@@ -39,8 +40,19 @@ def save():
     state_file.write_text(json.dumps(state))
 
 
-def error(message):
-    print(json.dumps({"error": {"code": "fake", "message": message}}), file=sys.stderr)
+def error(message, code="fake"):
+    print(json.dumps({"error": {"code": code, "message": message}}), file=sys.stderr)
+    sys.exit(1)
+
+
+# FAKE_HERDR_FAIL=server_down: every call fails with server_not_running; "other_error": with an error code that is
+# not agent_not_found; "garbage": with output that is not JSON (Contract P8.5)
+if fail == "server_down":
+    error("server is not running", "server_not_running")
+if fail == "other_error":
+    error("something else", "internal_error")
+if fail == "garbage":
+    print("segmentation fault", file=sys.stderr)
     sys.exit(1)
 
 
@@ -65,13 +77,16 @@ elif args[:2] == ["agent", "start"]:
     state["agents"][args[2]] = {"pane": pane, "session": None if null_session else f"sess-{args[2]}",
                                 "status": "idle", "seq": 1, "completion": 0}
     save()
-    print(json.dumps({"result": {"agent": {"agent_status": "idle", "state_change_seq": 1, "completion_seq": 0}}}))
+    reply = {"agent_status": "idle", "state_change_seq": 1, "completion_seq": 0,
+             "agent_session": {"value": f"sess-{args[2]}"} if not null_session else None}
+    print(json.dumps({"result": {"agent": reply}}))
 elif args[:2] == ["agent", "prompt"]:
     if fail == "prompt":
         error("prompt failed")
     name, a = find(args[2])
     # FAKE_HERDR_SUBMIT: "" the prompt starts a turn; "enter" only Enter starts it; "never" nothing starts it;
-    # "seq_only" the prompt grows state_change_seq but the status stays idle (Contract C5.1)
+    # "seq_only" the prompt grows state_change_seq but the status stays idle (Contract C5.1);
+    # "screen_only" nothing moves but the visible screen shows the turn (Contract P0.2)
     mode = os.environ.get("FAKE_HERDR_SUBMIT", "")
     if mode == "":
         a["status"] = "working"
@@ -80,12 +95,14 @@ elif args[:2] == ["agent", "prompt"]:
         a["seq"] += 1
     if os.environ.get("FAKE_HERDR_SESSION") == "after_prompt":
         a["session"] = f"sess-{name}"
+    if mode == "screen_only":  # the screen shows a running turn, Herdr's status and sequence do not move (P0.2)
+        a["screen"] = "Working (0s • esc to interr…"
     save()
     print(json.dumps({"result": {"submitted": True}}))
 elif args[:2] == ["agent", "send-keys"]:
     name, a = find(args[2])
     if a is None:
-        error("no agent for " + args[2])
+        error("no agent for " + args[2], "agent_not_found")
     if args[3:] == ["enter"] and os.environ.get("FAKE_HERDR_SUBMIT", "") == "enter":
         a["status"] = "working"
         a["seq"] += 1
@@ -98,11 +115,27 @@ elif args[:2] == ["agent", "wait"]:
 elif args[:2] == ["agent", "get"]:
     name, a = find(args[2])
     if a is None:
-        error("no agent for " + args[2])
+        error("no agent for " + args[2], "agent_not_found")
     session = {"value": a["session"]} if a["session"] else None
     print(json.dumps({"result": {"agent": {"agent_status": a["status"], "agent_session": session, "name": name,
                                            "pane_id": a["pane"], "state_change_seq": a["seq"],
                                            "completion_seq": a["completion"]}}}))
+elif args[:2] == ["agent", "read"]:
+    name, a = find(args[2])
+    if a is None:
+        error("no agent for " + args[2], "agent_not_found")
+    print(json.dumps({"result": {"read": {"text": a.get("screen", "> ")}}}))
+elif args[:2] == ["agent", "list"]:
+    print(json.dumps({"result": {"agents": [{"name": n, "pane_id": a["pane"], "agent_status": a["status"]}
+                                            for n, a in state["agents"].items()]}}))
+elif args[:2] == ["pane", "layout"]:
+    # FAKE_HERDR_WIDTH: the caller pane's width; unset makes the call fail (P0.1)
+    width = os.environ.get("FAKE_HERDR_WIDTH")
+    if not width:
+        error("layout unavailable")
+    print(json.dumps({"result": {"layout": {"panes": [
+        {"pane_id": "w1:p9", "rect": {"x": 0, "y": 0, "width": 999, "height": 50}},
+        {"pane_id": args[args.index("--pane") + 1], "rect": {"x": 0, "y": 0, "width": int(width), "height": 50}}]}}}))
 elif args[:2] == ["pane", "close"]:
     for name in [n for n, a in state["agents"].items() if a["pane"] == args[2]]:
         del state["agents"][name]
@@ -208,8 +241,14 @@ class Transcripts(unittest.TestCase):
             self.assertRegex(dispatch.default_name(code), dispatch.AGENT_NAME.pattern)
 
 
-@unittest.skipUnless(Path(os.environ.get("DFM_BD_EXE", DEFAULT_EXE)).is_file(), "pinned bd binary not present")
-class Integration(unittest.TestCase):
+NEEDS_BD = unittest.skipUnless(Path(os.environ.get("DFM_BD_EXE", DEFAULT_EXE)).is_file(),
+                               "pinned bd binary not present")
+
+
+class IntegrationBase:
+    """A throwaway Git repository, Beads workspace and fake Herdr, shared by the tests of one subclass."""
+    extra_env: dict = {}
+
     @classmethod
     def setUpClass(cls):
         cls._tmp = tempfile.TemporaryDirectory()
@@ -226,6 +265,7 @@ class Integration(unittest.TestCase):
                        DFM_HERDR_EXE=str(cls.launcher), DFM_CODEX_HOME=str(cls.codex_home),
                        DFM_CLAUDE_HOME=str(cls.claude_home), FAKE_HERDR_DIR=str(cls.fake_dir),
                        HERDR_ENV="1", HERDR_PANE_ID="w1:p1", GIT_CEILING_DIRECTORIES=str(cls.base.parent))
+        cls.env.update(cls.extra_env)
         r = cls.bdw(["init-workspace"], "coordinator")
         assert r.returncode == 0, r.stdout + r.stderr
         cls.epic = cls.bdw(["create", "epic", "--silent", "-t", "epic", "--metadata",
@@ -307,6 +347,20 @@ class Integration(unittest.TestCase):
 
     def clear_log(self):
         (self.fake_dir / "log.jsonl").unlink(missing_ok=True)
+
+    def receipt(self, code, **fields):
+        p = self.base / f"receipt-{code}.json"
+        p.write_text(json.dumps({"task_code": code, "outcome": "completed", "verdict": "PASS", **fields}))
+        return p
+
+    def comment_count(self, tid):
+        return self.issue(tid)["comment_count"]
+
+
+@NEEDS_BD
+class Integration(IntegrationBase, unittest.TestCase):
+    # Contract P2.1 would stop these C2-C5 cases, which leave many active dispatches in one workspace.
+    extra_env = {"DFM_DISPATCH_MAX_PARALLEL": "1000"}
 
     # -- C2 role gate
     def test_every_subcommand_but_show_needs_coordinator(self):
@@ -580,14 +634,6 @@ class Integration(unittest.TestCase):
         self.assertIn("live_error", gone)
 
     # -- C2 collect
-    def receipt(self, code, **fields):
-        p = self.base / f"receipt-{code}.json"
-        p.write_text(json.dumps({"task_code": code, "outcome": "completed", "verdict": "pass", **fields}))
-        return p
-
-    def comment_count(self, tid):
-        return self.issue(tid)["comment_count"]
-
     def test_collect_claude_and_codex_usage(self):
         for kind, code in (("claude", "T-COLLECT-CLAUDE"), ("codex", "T-COLLECT-CODEX")):
             tid = self.task(code)
@@ -607,7 +653,7 @@ class Integration(unittest.TestCase):
             self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
             meta = self.meta(tid)
             self.assertEqual(meta["receipt"]["sha256"], dispatch.sha256_of(receipt))
-            self.assertEqual((meta["receipt"]["outcome"], meta["receipt"]["verdict"]), ("completed", "pass"))
+            self.assertEqual((meta["receipt"]["outcome"], meta["receipt"]["verdict"]), ("completed", "PASS"))
             usage = meta["metrics"]["usage"]
             self.assertEqual(usage["source"], kind)
             if kind == "claude":
@@ -804,6 +850,791 @@ class Integration(unittest.TestCase):
         src = Path(dispatch.__file__).read_text(encoding="utf-8")
         self.assertNotIn("bd.exe", src)
         self.assertIn("research.workflows.graph.bdw", src)
+
+
+class Policy(unittest.TestCase):
+    """Contract P0.2, P1, P2 and P5 rules that need neither Beads nor Herdr."""
+
+    def test_owned_paths_are_normalized_or_refused(self):
+        self.assertEqual(dispatch.normalize_owned("research\\workflows/graph"), "research/workflows/graph")
+        self.assertEqual(dispatch.normalize_owned("a"), "a")
+        for bad in ("", "../x", "a/../b", "/abs", "\\abs", "C:/x", "c:\\x", "a//b", "a/", "a\\", "./a", "a/./b",
+                    "//a", "a/..", "a\\\\b"):
+            with self.assertRaises(dispatch.Refusal, msg=repr(bad)) as ctx:
+                dispatch.normalize_owned(bad)
+            self.assertEqual(ctx.exception.reason, "bad_owns")
+
+    def test_overlap_means_equal_or_directory_prefix_in_either_direction(self):
+        o = dispatch.paths_overlap
+        self.assertTrue(o("research/workflows/graph", "research/workflows/graph/dispatch.py"))
+        self.assertTrue(o("research/workflows/graph/dispatch.py", "research/workflows/graph"))
+        self.assertTrue(o("research/a", "research/a"))
+        self.assertFalse(o("Research/A", "research/a"))  # case-sensitive (P8.2)
+        self.assertFalse(o("research/a", "research/ab"))
+        self.assertFalse(o("research/ab", "research/a"))
+        self.assertFalse(o("src", "research"))
+
+    def test_max_parallel_order_and_validation(self):
+        def ns(value=None):
+            return argparse.Namespace(max_parallel=value)
+        self.assertEqual(dispatch.max_parallel(ns(), {}), 2)
+        self.assertEqual(dispatch.max_parallel(ns(), {"DFM_DISPATCH_MAX_PARALLEL": "5"}), 5)
+        self.assertEqual(dispatch.max_parallel(ns("3"), {"DFM_DISPATCH_MAX_PARALLEL": "5"}), 3)
+        for bad in ("0", "-1", "1.5", "x", "2 3"):
+            for args, env in ((ns(bad), {}), (ns(), {"DFM_DISPATCH_MAX_PARALLEL": bad})):
+                with self.assertRaises(dispatch.Refusal) as ctx:
+                    dispatch.max_parallel(args, env)
+                self.assertEqual(ctx.exception.reason, "limit")
+
+    def test_model_and_effort_policy(self):
+        def check(model="m", effort="high", approved=None):
+            return dispatch.check_start_policy(argparse.Namespace(model=model, effort=effort, approved=approved, owns=[]))
+        for effort in ("low", "medium", "high"):
+            self.assertEqual(check(effort=effort), [])
+        for effort in ("xhigh", "max", "HIGH", ""):
+            with self.assertRaises(dispatch.Refusal):
+                check(effort=effort)
+        for model in ("gpt-6-astra", "claude-OPUS-5-5", "x-Astra-y"):
+            with self.assertRaises(dispatch.Refusal):
+                check(model=model)
+            for bad in ("HUMAN-1-2", "human-20261106-1", "HUMAN-20261106-", "HUMAN-20261106-1x", "x"):
+                with self.assertRaises(dispatch.Refusal):
+                    check(model=model, approved=bad)
+            check(model=model, approved="HUMAN-20261106-17")
+        check(model="claude-sonnet-5-5")  # an ordinary model needs no approval
+
+    def test_receipt_failure_rules(self):
+        f = dispatch.receipt_failure
+        self.assertIsNone(f({"verdict": "PASS", "outcome": "completed"}))
+        self.assertIsNone(f({"outcome": "completed"}))  # an implementer's receipt has no verdict
+        self.assertIsNone(f({}))
+        self.assertTrue(f({"verdict": "REJECT"}))
+        self.assertTrue(f({"verdict": "pass"}))
+        self.assertTrue(f({"verdict": "PASS", "outcome": "Failed 3 of 9"}))
+        self.assertTrue(f({"outcome": "REJECTED"}))
+
+    def test_refusal_json_has_a_reason_and_the_message_starts_with_it(self):
+        import contextlib
+        import io
+        err = io.StringIO()
+        with contextlib.redirect_stderr(err), mock.patch.dict(
+                dispatch.COMMANDS, {"show": mock.Mock(side_effect=dispatch.Refusal("native_busy", "x"))}):
+            self.assertEqual(dispatch.main(["show", "x"]), 2)
+        out = json.loads(err.getvalue())
+        self.assertEqual(out["reason"], "native_busy")
+        self.assertTrue(out["refused"].startswith("native_busy"))
+
+    def test_screen_markers_and_unreadable_screen(self):
+        def run(stdout, code=0):
+            return mock.Mock(returncode=code, stdout=stdout)
+        seen = dispatch.screen_shows_turn
+        with mock.patch.object(subprocess, "run", return_value=run("Working (0s \u2022 esc to interr\u2026")):
+            self.assertTrue(seen({}, Path("."), "a"))
+        with mock.patch.object(subprocess, "run", return_value=run("x Working (3s)")):
+            self.assertTrue(seen({}, Path("."), "a"))
+        with mock.patch.object(subprocess, "run", return_value=run("press esc to interrupt")):
+            self.assertTrue(seen({}, Path("."), "a"))
+        with mock.patch.object(subprocess, "run", return_value=run("> ready")):
+            self.assertFalse(seen({}, Path("."), "a"))
+        with mock.patch.object(subprocess, "run", return_value=run("Working (", code=1)):
+            self.assertFalse(seen({}, Path("."), "a"))
+        with mock.patch.object(subprocess, "run", side_effect=OSError("gone")):
+            self.assertFalse(seen({}, Path("."), "a"))
+
+
+@NEEDS_BD
+class Parallel(IntegrationBase, unittest.TestCase):
+    """Contract P0-P6 against a fresh workspace with the default limit of 2 and the fake Herdr."""
+    SUBMIT = {"DFM_DISPATCH_SUBMIT_SECONDS": "1"}
+
+    # -- helpers
+    def retire(self, tid):
+        self.bdw(["close", tid, "--reason", "test cleanup"], "coordinator")
+
+    def make(self, code, **meta):
+        tid = self.task(code, **meta)
+        self.packet(code)
+        self.addCleanup(self.retire, tid)
+        return tid
+
+    def launch(self, code, args=(), kind="claude", **env):
+        tid = self.make(code)
+        r = self.start(tid, code, kind=kind, args=list(args), **env)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        return tid, json.loads(r.stdout)
+
+    def refused(self, r, reason):
+        self.assertEqual(r.returncode, 2, r.stdout + r.stderr)
+        self.assertEqual(r.stdout, "")
+        err = json.loads(r.stderr)
+        self.assertEqual(err.get("reason"), reason, err)
+        self.assertTrue(err["refused"].startswith(reason), err)
+        return err
+
+    def assert_nothing_started(self, tid, code):
+        self.assertEqual(self.herdr_calls("pane", "split"), [])
+        self.assertEqual(self.herdr_calls("agent", "start"), [])
+        self.assertFalse(self.worktree(code).exists())
+        self.assertEqual(self.issue(tid)["status"], "open")
+        self.assertNotIn("dispatch", self.meta(tid))
+
+    def packet_rel(self, code):
+        return self.packet(code).relative_to(self.repo).as_posix()
+
+    def plan(self, code, **extra):
+        return {"packet": self.packet_rel(code), "kind": "claude", "model": "m-1", "effort": "high", **extra}
+
+    def planned(self, code, priority=2, **extra):
+        tid = self.task(code, plan=self.plan(code, **extra))
+        self.assertEqual(self.bdw(["update", tid, "--priority", str(priority)], "coordinator").returncode, 0)
+        self.addCleanup(self.retire, tid)
+        return tid
+
+    def collect(self, tid, code, **fields):
+        return self.dispatch(["collect", tid, "--receipt", str(self.receipt(code, **fields))])
+
+    def depends(self, node, blocker):
+        self.assertEqual(self.bdw(["dep", "add", node, blocker], "coordinator").returncode, 0)
+
+    def close(self, tid):
+        self.assertEqual(self.bdw(["close", tid, "--reason", "done"], "coordinator").returncode, 0)
+
+    def stop(self, tid, code):
+        self.set_agent(dispatch.default_name(code), status="done")
+        self.assertEqual(self.dispatch(["stop", tid]).returncode, 0)
+
+    # -- P0.1 split direction
+    def test_split_right_at_120_columns_and_down_below(self):
+        for width, expected in (("200", "right"), ("120", "right"), ("119", "down"), ("30", "down")):
+            code = f"T-WIDTH-{width}"
+            tid, out = self.launch(code, FAKE_HERDR_WIDTH=width)
+            split = self.herdr_calls("pane", "split")[-1]
+            self.assertEqual(split[split.index("--direction") + 1], expected, width)
+            self.assertEqual(out["dispatch"]["split_direction"], expected)
+            self.assertEqual(self.meta(tid)["dispatch"]["split_direction"], expected)
+            layout = self.herdr_calls("pane", "layout")[-1]
+            self.assertEqual(layout, ["pane", "layout", "--pane", "w1:p1"])  # the caller's pane, not another one
+            self.retire(tid)
+
+    def test_split_down_when_the_layout_call_fails(self):
+        tid, out = self.launch("T-WIDTH-FAIL")  # FAKE_HERDR_WIDTH unset: pane layout fails
+        split = self.herdr_calls("pane", "split")[-1]
+        self.assertEqual(split[split.index("--direction") + 1], "down")
+        self.assertEqual(out["dispatch"]["split_direction"], "down")
+
+    # -- P0.2 more turn evidence
+    def test_a_session_id_that_appears_after_the_prompt_is_a_turn(self):
+        tid, out = self.launch("T-EVID-SESSION", FAKE_HERDR_SUBMIT="never", FAKE_HERDR_SESSION="after_prompt",
+                               **self.SUBMIT)
+        self.assertIs(out["submit_retry"], False)
+        self.assertEqual(self.herdr_calls("agent", "send-keys"), [])
+        self.assertEqual(self.meta(tid)["dispatch"]["session_id"], "sess-t-evid-session")
+
+    def test_a_running_screen_is_a_turn(self):
+        tid, out = self.launch("T-EVID-SCREEN", FAKE_HERDR_SUBMIT="screen_only", **self.SUBMIT)
+        self.assertIs(out["submit_retry"], False)
+        self.assertEqual(self.herdr_calls("agent", "send-keys"), [])
+        self.assertIn(["agent", "read", "t-evid-screen", "--source", "visible"], self.herdr_calls("agent", "read"))
+        self.assertEqual(self.issue(tid)["status"], "in_progress")
+
+    def test_no_evidence_still_retries_once_and_fails_with_cleanup(self):
+        code = "T-EVID-NONE"
+        tid = self.make(code)
+        r = self.start(tid, code, FAKE_HERDR_SUBMIT="never", **self.SUBMIT)
+        self.assertEqual(r.returncode, 2, r.stdout + r.stderr)
+        err = json.loads(r.stderr)
+        self.assertIs(err["submit_retry"], True)
+        self.assertEqual(len(self.herdr_calls("agent", "send-keys")), 1)
+        self.assertEqual(len(self.herdr_calls("pane", "close")), 1)
+        self.assertNotIn("dispatch", self.meta(tid))
+
+    # -- P1 ownership and resources recorded
+    def test_owns_native_and_approved_are_recorded(self):
+        tid, out = self.launch("T-P1", ["--owns", "src\\b", "--owns", "src/a", "--owns", "docs/x.md",
+                                        "--owns", "src/b", "--native", "--approved", "HUMAN-20261106-17"])
+        d = self.meta(tid)["dispatch"]
+        self.assertEqual(d["owned_paths"], ["docs/x.md", "src/a", "src/b"])  # sorted, normalized, no duplicates
+        self.assertIs(d["native"], True)
+        self.assertEqual(d["approved"], "HUMAN-20261106-17")
+        self.assertEqual(out["dispatch"]["owned_paths"], d["owned_paths"])
+
+    def test_defaults_are_empty_false_and_null(self):
+        tid, _ = self.launch("T-P1-DEFAULT")
+        d = self.meta(tid)["dispatch"]
+        self.assertEqual((d["owned_paths"], d["native"], d["approved"]), ([], False, None))
+
+    def test_bad_owned_paths_refuse_before_any_side_effect(self):
+        code = "T-P1-BAD"
+        tid = self.make(code)
+        for bad in ("../x", "/abs", "C:/x", "a//b", "a/", "", "a/../b"):
+            self.clear_log()
+            self.refused(self.start(tid, code, args=["--owns", bad]), "bad_owns")
+            self.assert_nothing_started(tid, code)
+
+    # -- P2.1 limit
+    def test_limit_defaults_to_two_and_refuses_the_third(self):
+        self.launch("T-LIM-A")
+        self.launch("T-LIM-B")
+        code = "T-LIM-C"
+        c = self.make(code)
+        self.clear_log()
+        err = self.refused(self.start(c, code), "limit")
+        self.assertIn("limit is 2", err["refused"])
+        self.assert_nothing_started(c, code)
+        # a higher flag allows it; the flag beats the environment
+        r = self.start(c, code, args=["--max-parallel", "3"], DFM_DISPATCH_MAX_PARALLEL="1")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+
+    def test_limit_from_the_environment_and_invalid_values(self):
+        self.launch("T-LIMENV-A")
+        code = "T-LIMENV-B"
+        b = self.make(code)
+        self.clear_log()
+        self.refused(self.start(b, code, DFM_DISPATCH_MAX_PARALLEL="1"), "limit")
+        for bad in ("0", "-1", "1.5", "two"):
+            self.refused(self.start(b, code, args=["--max-parallel", bad]), "limit")
+            self.refused(self.start(b, code, DFM_DISPATCH_MAX_PARALLEL=bad), "limit")
+        self.assert_nothing_started(b, code)
+
+    def test_ended_and_closed_nodes_do_not_count(self):
+        a, _ = self.launch("T-FREE-A")
+        b, _ = self.launch("T-FREE-B")
+        code = "T-FREE-C"
+        c = self.make(code)
+        self.refused(self.start(c, code), "limit")
+        self.stop(a, "T-FREE-A")  # ended_at is set: a is no longer active
+        self.assertEqual(self.start(c, code).returncode, 0)
+        self.close(b)  # a closed node is not in progress
+        d, _ = self.launch("T-FREE-D")  # c and d are active; b is closed and a has ended
+        self.assertEqual(self.issue(d)["status"], "in_progress")
+
+    # -- P2.2 ownership
+    def test_ownership_conflict_names_the_other_node_and_both_paths(self):
+        a, _ = self.launch("T-OWN-A", ["--owns", "research/workflows/graph"])
+        code = "T-OWN-B"
+        b = self.make(code)
+        self.clear_log()
+        err = self.refused(self.start(b, code, args=["--owns", "research/workflows/graph/dispatch.py"]),
+                           "ownership_conflict")
+        self.assertIn(a, err["refused"])
+        self.assertIn("research/workflows/graph/dispatch.py", err["refused"])
+        self.assertIn("'research/workflows/graph'", err["refused"])
+        self.assert_nothing_started(b, code)
+        self.refused(self.start(b, code, args=["--owns", "research/workflows/graph"]), "ownership_conflict")  # equal
+        self.refused(self.start(b, code, args=["--owns", "research/workflows/other", "--owns",
+                                               "research/workflows/graph/x"]), "ownership_conflict")
+        ok = self.start(b, code, args=["--owns", "research/workflows/graphs", "--owns", "src/x"])
+        self.assertEqual(ok.returncode, 0, ok.stdout + ok.stderr)  # a sibling name is not a prefix
+
+    def test_a_file_owner_blocks_its_directories_and_a_prefix_name_does_not_conflict(self):
+        self.launch("T-OWN2-A", ["--owns", "research/workflows/graph/dispatch.py", "--owns", "research/a"])
+        code = "T-OWN2-B"
+        b = self.make(code)
+        self.refused(self.start(b, code, args=["--owns", "research/workflows/graph"]), "ownership_conflict")
+        self.refused(self.start(b, code, args=["--owns", "research"]), "ownership_conflict")
+        self.assertEqual(self.start(b, code, args=["--owns", "research/ab"]).returncode, 0)  # research/a vs research/ab
+
+    def test_no_owned_paths_never_conflict_and_ended_owners_are_released(self):
+        a, _ = self.launch("T-OWN3-A", ["--owns", "p/q"])
+        self.launch("T-OWN3-N", ["--max-parallel", "9"])  # owns nothing
+        code = "T-OWN3-B"
+        b = self.make(code)
+        self.refused(self.start(b, code, args=["--owns", "p/q", "--max-parallel", "9"]), "ownership_conflict")
+        self.stop(a, "T-OWN3-A")
+        self.assertEqual(self.start(b, code, args=["--owns", "p/q", "--max-parallel", "9"]).returncode, 0)
+
+    # -- P2.3 native
+    def test_second_native_dispatch_is_refused(self):
+        a, _ = self.launch("T-NAT-A", ["--native"])
+        code = "T-NAT-B"
+        b = self.make(code)
+        self.clear_log()
+        err = self.refused(self.start(b, code, args=["--native"]), "native_busy")
+        self.assertIn(a, err["refused"])
+        self.assert_nothing_started(b, code)
+        self.assertEqual(self.start(b, code).returncode, 0)  # a non-native dispatch is fine
+        self.stop(a, "T-NAT-A")
+        c_code = "T-NAT-C"
+        c = self.make(c_code)
+        self.assertEqual(self.start(c, c_code, args=["--native"]).returncode, 0)
+
+    # -- P2.4 model policy
+    def test_effort_and_restricted_models(self):
+        code = "T-POL"
+        tid = self.make(code)
+
+        def attempt(model="m-1", effort="high", extra=()):
+            self.clear_log()
+            return self.dispatch(["start", tid, "--packet", str(self.packet(code)), "--kind", "claude", "--model",
+                                  model, "--effort", effort, *extra])
+        for effort in ("xhigh", "max", "extreme"):
+            self.refused(attempt(effort=effort), "model_policy")
+        for model in ("gpt-6-astra", "claude-OPUS-5-5"):
+            self.refused(attempt(model=model), "model_policy")
+            self.refused(attempt(model=model, extra=["--approved", "HUMAN-1-2"]), "model_policy")
+            self.refused(attempt(model=model, extra=["--approved", "approval"]), "model_policy")
+        self.assert_nothing_started(tid, code)
+        r = attempt(model="gpt-6-astra", effort="low", extra=["--approved", "HUMAN-20261106-17"])
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(self.meta(tid)["dispatch"]["approved"], "HUMAN-20261106-17")
+
+    # -- P2.5 predecessor evidence
+    def finished_predecessor(self, code, receipt=None):
+        tid, _ = self.launch(code, ["--max-parallel", "9"])
+        if receipt is not None:
+            self.assertEqual(self.collect(tid, code, **receipt).returncode, 0)
+        self.close(tid)
+        return tid
+
+    def test_dispatched_predecessor_without_a_receipt_is_refused(self):
+        dep = self.finished_predecessor("T-PRE-A")
+        code = "T-PRE-X"
+        x = self.make(code)
+        self.depends(x, dep)
+        self.clear_log()
+        err = self.refused(self.start(x, code), "missing_receipt")
+        self.assertIn(dep, err["refused"])
+        self.assert_nothing_started(x, code)
+
+    def test_failed_predecessors_are_refused_and_good_ones_pass(self):
+        cases = {"T-PRE-REJECT": ({"verdict": "REJECT", "outcome": "completed"}, "failed_predecessor"),
+                 "T-PRE-OUTFAIL": ({"outcome": "tests FAILED"}, "failed_predecessor"),
+                 "T-PRE-OUTREJ": ({"verdict": "PASS", "outcome": "Rejected by G"}, "failed_predecessor"),
+                 "T-PRE-PASS": ({"verdict": "PASS", "outcome": "completed"}, None),
+                 "T-PRE-NOVERDICT": ({"outcome": "completed"}, None)}
+        for dep_code, (receipt, reason) in cases.items():
+            dep = self.finished_predecessor(dep_code, receipt)
+            code = dep_code + "-X"
+            x = self.make(code)
+            self.depends(x, dep)
+            self.clear_log()
+            r = self.start(x, code, args=["--max-parallel", "9"])
+            if reason:
+                self.refused(r, reason)
+                self.assert_nothing_started(x, code)
+            else:
+                self.assertEqual(r.returncode, 0, (dep_code, r.stdout, r.stderr))
+                self.retire(x)
+
+    def test_a_predecessor_that_was_never_dispatched_is_judged_by_status_alone(self):
+        dep = self.task("T-PRE-PLAIN")
+        code = "T-PRE-PLAIN-X"
+        x = self.make(code)
+        self.depends(x, dep)
+        r = self.start(x, code)
+        self.assertEqual(r.returncode, 2, r.stdout)
+        self.assertIn("open blockers", json.loads(r.stderr)["refused"])  # as before P2
+        self.close(dep)
+        self.assertEqual(self.start(x, code).returncode, 0)
+
+    # -- P3 fill
+    def fill(self, args=(), role="coordinator", **env):
+        return self.dispatch(["fill", *args], role=role, **env)
+
+    def fill_out(self, args=(), **env):
+        r = self.fill(args, **env)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        return json.loads(r.stdout)
+
+    def test_fill_starts_by_priority_then_id_until_the_limit(self):
+        low = self.planned("T-FILL-LOW", priority=3)
+        first, second = self.planned("T-FILL-P1A", priority=1), self.planned("T-FILL-P1B", priority=1)
+        bare = self.make("T-FILL-BARE")
+        self.clear_log()
+        out = self.fill_out()
+        self.assertEqual((out["limit"], out["active_before"]), (2, 0))
+        ids = [s["id"] for s in out["started"]]
+        self.assertEqual(ids, sorted([first, second], key=dispatch.natural_key))
+        skipped = {s["id"]: s["reason"] for s in out["skipped"]}
+        self.assertTrue(skipped[low].startswith("limit"))
+        self.assertEqual(skipped[bare], "no_plan")
+        for tid in ids:
+            self.assertEqual(self.issue(tid)["status"], "in_progress")
+            self.assertEqual(self.meta(tid)["dispatch"]["model"], "m-1")
+        self.assertEqual(self.issue(low)["status"], "open")
+        self.assertNotIn("dispatch", self.meta(low))
+        # one after another: each prompt is sent before the next agent starts, and fill never waits for a worker
+        order = [x["argv"][:2] for x in self.herdr_log() if x["argv"][:2] in (["agent", "start"], ["agent", "prompt"])]
+        self.assertEqual(order, [["agent", "start"], ["agent", "prompt"]] * 2)
+        self.assertEqual(self.herdr_calls("agent", "wait"), [])
+        # a second fill has nothing left to start
+        again = self.fill_out()
+        self.assertEqual((again["started"], again["active_before"]), ([], 2))
+
+    def test_fill_uses_the_plan_and_the_flag_limit(self):
+        self.planned("T-FILL-ARGS", priority=0, owns=["a/b"], native=True, name="planned-name", effort="low",
+                     approved="HUMAN-20261106-17", model="gpt-6-astra", kind="codex")
+        out = self.fill_out(["--max-parallel", "5"])
+        self.assertEqual(out["limit"], 5)
+        (started,) = [s for s in out["started"] if s["task_code"] == "T-FILL-ARGS"]
+        d = started["dispatch"]
+        self.assertEqual((d["agent"], d["kind"], d["model"], d["effort"], d["native"], d["owned_paths"], d["approved"]),
+                         ("planned-name", "codex", "gpt-6-astra", "low", True, ["a/b"], "HUMAN-20261106-17"))
+
+    def test_fill_reports_a_refusal_and_goes_on_with_the_next_task(self):
+        a = self.planned("T-FILLC-A", priority=0, owns=["shared/dir"])
+        b = self.planned("T-FILLC-B", priority=0, owns=["shared/dir/file"])
+        c = self.planned("T-FILLC-C", priority=0, owns=["other"])
+        out = self.fill_out(["--max-parallel", "9"])
+        started = {s["id"] for s in out["started"]}
+        skipped = {s["id"]: s["reason"] for s in out["skipped"]}
+        first, second = sorted([a, b], key=dispatch.natural_key)
+        self.assertIn(first, started)
+        self.assertIn(c, started)
+        self.assertTrue(skipped[second].startswith("ownership_conflict"), skipped)
+        self.assertEqual(self.issue(second)["status"], "open")
+
+    def test_fill_failed_workers_are_skipped_with_their_cleanup(self):
+        a = self.planned("T-FILLF-A", priority=0)
+        b = self.planned("T-FILLF-B", priority=0)
+        self.clear_log()
+        out = self.fill_out(["--max-parallel", "9"], FAKE_HERDR_FAIL="agent_start")
+        self.assertEqual(out["started"], [])
+        skipped = {s["id"]: s for s in out["skipped"]}
+        for tid in (a, b):
+            self.assertIn("agent not ready", skipped[tid]["reason"])
+            self.assertIn("pane_closed", skipped[tid]["cleanup"])
+            self.assertEqual(self.issue(tid)["status"], "open")
+        self.assertEqual(len(self.herdr_calls("pane", "close")), 2)
+
+    def test_fill_applies_the_start_preflight(self):
+        tid = self.planned("T-FILLP-ASTRA", priority=0, model="gpt-6-astra")
+        out = self.fill_out(["--max-parallel", "9"])
+        (entry,) = [s for s in out["skipped"] if s["id"] == tid]
+        self.assertTrue(entry["reason"].startswith("model_policy"), entry)
+        bad = self.task("T-FILLP-BADPLAN", plan={"packet": "x"})
+        self.addCleanup(self.retire, bad)
+        out = self.fill_out(["--max-parallel", "9"])
+        (entry,) = [s for s in out["skipped"] if s["id"] == bad]
+        self.assertTrue(entry["reason"].startswith("bad_plan"), entry)
+
+    def test_fill_never_restarts_a_node_with_an_unended_dispatch(self):
+        stale = {"agent": "ghost", "pane_id": "w1:p99", "attempt": 1}
+        tid = self.task("T-FILLS", plan=self.plan("T-FILLS"), dispatch=stale)  # open, but an attempt was left behind
+        self.addCleanup(self.retire, tid)
+        self.clear_log()
+        out = self.fill_out(["--max-parallel", "9"])
+        (entry,) = [s for s in out["skipped"] if s["id"] == tid]
+        self.assertTrue(entry["reason"].startswith("active_dispatch"), entry)
+        self.assertEqual([s for s in out["started"] if s["id"] == tid], [])
+        self.assertEqual(self.herdr_calls("pane", "split"), [])
+        self.assertEqual(self.meta(tid)["dispatch"], stale)
+
+    def test_fill_dry_run_writes_nothing(self):
+        a = self.planned("T-DRY-A", priority=0, owns=["d/x"])
+        b = self.planned("T-DRY-B", priority=0, owns=["d/x/y"])
+        c = self.planned("T-DRY-C", priority=1)
+        before = {t: self.issue(t) for t in (a, b, c)}
+        self.clear_log()
+        out = self.fill_out(["--dry-run"])
+        self.assertIs(out["dry_run"], True)
+        self.assertEqual((out["limit"], out["active_before"]), (2, 0))
+        started = [s["id"] for s in out["started"]]
+        first = min(a, b, key=dispatch.natural_key)
+        self.assertEqual(len(started), 2)  # the planned conflict is predicted, then the limit
+        self.assertIn(first, started)
+        self.assertIn(c, started)
+        self.assertEqual({t: self.issue(t) for t in (a, b, c)}, before)
+        self.assertEqual(self.herdr_calls("agent"), [])
+        self.assertEqual(self.herdr_calls("pane", "split"), [])
+        self.assertFalse(any(self.worktree(code).exists() for code in ("T-DRY-A", "T-DRY-B", "T-DRY-C")))
+        # P8.3: a real fill starts exactly what the dry run reported, with the same skip reasons
+        real = self.fill_out()
+        self.assertEqual([s["id"] for s in real["started"]], started)
+        self.assertEqual({s["id"]: s["reason"].split(":")[0] for s in real["skipped"] if s["id"] in (a, b, c)},
+                         {s["id"]: s["reason"].split(":")[0] for s in out["skipped"] if s["id"] in (a, b, c)})
+
+    def test_fill_dry_run_projects_native_use_and_slots(self):
+        n1 = self.planned("T-DRYN-A", priority=0, native=True)
+        n2 = self.planned("T-DRYN-B", priority=0, native=True)
+        plain = self.planned("T-DRYN-C", priority=0)
+        out = self.fill_out(["--dry-run", "--max-parallel", "9"])
+        first, second = sorted([n1, n2], key=dispatch.natural_key)
+        started = [s["id"] for s in out["started"]]
+        self.assertIn(first, started)
+        self.assertIn(plain, started)
+        self.assertNotIn(second, started)
+        (entry,) = [s for s in out["skipped"] if s["id"] == second]
+        self.assertTrue(entry["reason"].startswith("native_busy"), entry)
+
+    def test_fill_needs_the_coordinator_role(self):
+        for role in (None, "worker"):
+            r = self.fill(role=role)
+            self.assertEqual(r.returncode, 2)
+            self.assertIn("refused", json.loads(r.stderr))
+        self.assertEqual(self.herdr_log(), [])
+
+    # -- P4 status and reconcile
+    def comments(self, tid):
+        return self.issue(tid)["comment_count"]
+
+    def status(self, role="worker", **env):
+        r = self.dispatch(["status"], role=role, **env)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        return {row["id"]: row for row in json.loads(r.stdout)["dispatches"]}
+
+    def test_status_lists_active_dispatches_for_any_role_without_writing(self):
+        a, _ = self.launch("T-ST-A", ["--owns", "s/a", "--native"])
+        b, _ = self.launch("T-ST-B", kind="codex")
+        ended, _ = self.launch("T-ST-ENDED", ["--max-parallel", "9"])
+        self.stop(ended, "T-ST-ENDED")
+        before = {t: self.issue(t) for t in (a, b)}
+        self.clear_log()
+        for role in (None, "worker", "coordinator"):
+            rows = self.status(role=role)
+            self.assertEqual(set(rows), {a, b})
+        row = rows[a]
+        d = self.meta(a)["dispatch"]
+        self.assertEqual((row["task_code"], row["agent"], row["kind"], row["pane_id"], row["session_id"]),
+                         ("T-ST-A", "t-st-a", "claude", d["pane_id"], d["session_id"]))
+        self.assertEqual((row["worktree"], row["model"], row["started_at"], row["attempt"]),
+                         (d["worktree"], "m-1", d["started_at"], 1))
+        self.assertEqual((row["owned_paths"], row["native"], row["receipt_collected"], row["live"]),
+                         (["s/a"], True, False, True))
+        self.assertEqual((rows[b]["kind"], rows[b]["native"], rows[b]["owned_paths"]), ("codex", False, []))
+        self.assertEqual({t: self.issue(t) for t in (a, b)}, before)
+        self.assertTrue(all(c["argv"][:2] == ["agent", "get"] for c in self.herdr_log()))  # reads only
+
+    def test_status_receipt_flag_and_live_values(self):
+        a, _ = self.launch("T-ST2-A")
+        b, _ = self.launch("T-ST2-B")
+        self.assertEqual(self.collect(a, "T-ST2-A").returncode, 0)
+        self.drop_agent("t-st2-b")
+        rows = self.status()
+        self.assertEqual((rows[a]["receipt_collected"], rows[a]["live"]), (True, True))
+        self.assertEqual((rows[b]["receipt_collected"], rows[b]["live"]), (False, False))
+        self.set_agent("t-st2-a", pane="w9:p9")  # the agent moved to another pane: not the recorded one
+        self.assertIs(self.status()[a]["live"], False)
+        unreachable = self.status(DFM_HERDR_EXE=str(self.base / "no-such-herdr.exe"))
+        self.assertIsNone(unreachable[a]["live"])
+        self.assertIsNone(unreachable[b]["live"])
+
+    def test_only_agent_not_found_means_not_live(self):
+        a, _ = self.launch("T-OUT-A")
+        for fail in ("server_down", "other_error", "garbage"):
+            self.assertIsNone(self.status(FAKE_HERDR_FAIL=fail)[a]["live"], fail)
+        self.drop_agent("t-out-a")
+        self.assertIs(self.status()[a]["live"], False)  # agent_not_found
+        for fail in ("server_down", "other_error", "garbage"):
+            before, comments = self.meta(a), self.comments(a)
+            r = self.dispatch(["reconcile"], FAKE_HERDR_FAIL=fail)
+            self.assertEqual(r.returncode, 2, (fail, r.stdout, r.stderr))
+            self.assertIn("error", json.loads(r.stderr))
+            self.assertEqual((self.meta(a), self.comments(a)), (before, comments), fail)
+
+    def reconcile(self, **env):
+        return self.dispatch(["reconcile"], **env)
+
+    def reconcile_out(self, **env):
+        r = self.reconcile(**env)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        return json.loads(r.stdout)
+
+    def test_reconcile_writes_nothing_for_a_live_agent(self):
+        a, _ = self.launch("T-RC-LIVE")
+        before, comments = self.meta(a), self.comments(a)
+        out = self.reconcile_out()
+        self.assertIn(a, out["live"])
+        self.assertEqual([r for r in out["reviewed"] if r["id"] == a], [])
+        self.assertEqual((self.meta(a), self.comments(a)), (before, comments))
+
+    def test_reconcile_marks_a_missing_agent_for_review(self):
+        a, _ = self.launch("T-RC-A")
+        b, _ = self.launch("T-RC-B")
+        self.assertEqual(self.collect(b, "T-RC-B").returncode, 0)
+        self.drop_agent("t-rc-a")
+        self.drop_agent("t-rc-b")
+        (self.worktree("T-RC-B") / "dirty.txt").write_text("x")
+        n_a, n_b = self.comments(a), self.comments(b)
+        self.clear_log()
+        out = self.reconcile_out()
+        reviews = {r["id"]: r["review"] for r in out["reviewed"]}
+        ra, rb = reviews[a], reviews[b]
+        self.assertEqual((ra["state"], ra["worktree_exists"], ra["worktree_dirty"]), ("needs_review", True, False))
+        self.assertEqual((rb["state"], rb["worktree_exists"], rb["worktree_dirty"]), ("finished", True, True))
+        for review in (ra, rb):
+            self.assertTrue(review["reason"])
+            self.assertTrue(review["detected_at"].endswith("Z"))
+        for tid, review, n in ((a, ra, n_a), (b, rb, n_b)):
+            issue = self.issue(tid)
+            d = dispatch.metadata_of(issue)["dispatch"]
+            self.assertEqual(d["review"], review)
+            self.assertNotIn("ended_at", d)
+            self.assertEqual(issue["status"], "in_progress")
+            self.assertEqual(issue["comment_count"], n + 1)
+        self.assertTrue(all(c["argv"][:2] in (["agent", "get"], ["agent", "list"]) for c in self.herdr_log()))
+        self.assertTrue(self.worktree("T-RC-A").exists())  # nothing is removed or started
+
+    def test_a_missing_worktree_is_recorded(self):
+        a, _ = self.launch("T-RC-NOWT")
+        self.drop_agent("t-rc-nowt")
+        subprocess.run(["git", "worktree", "remove", "--force", str(self.worktree("T-RC-NOWT"))], cwd=self.repo,
+                       check=True, capture_output=True)
+        out = self.reconcile_out()
+        (entry,) = [r for r in out["reviewed"] if r["id"] == a]
+        self.assertEqual((entry["review"]["worktree_exists"], entry["review"]["worktree_dirty"]), (False, None))
+
+    def test_reconcile_twice_gives_the_same_result_and_no_second_comment(self):
+        a, _ = self.launch("T-RC-TWICE")
+        self.drop_agent("t-rc-twice")
+        first = self.reconcile_out()
+        meta, comments = self.meta(a), self.comments(a)
+        second = self.reconcile_out()
+        self.assertEqual(second, first)
+        self.assertEqual((self.meta(a), self.comments(a)), (meta, comments))
+        # a changed state is recorded again, with one more comment
+        (self.worktree("T-RC-TWICE") / "later.txt").write_text("x")
+        third = self.reconcile_out()
+        (entry,) = [r for r in third["reviewed"] if r["id"] == a]
+        self.assertIs(entry["review"]["worktree_dirty"], True)
+        self.assertEqual(self.comments(a), comments + 1)
+
+    def test_reconcile_with_an_unreachable_herdr_writes_nothing(self):
+        a, _ = self.launch("T-RC-DOWN")
+        self.drop_agent("t-rc-down")
+        before, comments = self.meta(a), self.comments(a)
+        r = self.reconcile(DFM_HERDR_EXE=str(self.base / "no-such-herdr.exe"))
+        self.assertEqual(r.returncode, 2, r.stdout + r.stderr)
+        self.assertIn("error", json.loads(r.stderr))
+        self.assertEqual((self.meta(a), self.comments(a)), (before, comments))
+
+    def test_reconcile_reports_untracked_nodes_and_unrecorded_agents(self):
+        a, _ = self.launch("T-RC-REP")
+        untracked = self.make("T-RC-UNTRACKED")
+        self.assertEqual(self.bdw(["update", untracked, "--status", "in_progress"], "coordinator").returncode, 0)
+        ended, _ = self.launch("T-RC-ENDED", ["--max-parallel", "9"])
+        self.stop(ended, "T-RC-ENDED")
+        state_file = self.fake_dir / "state.json"
+        state = json.loads(state_file.read_text())
+        state["agents"]["stranger"] = {"pane": "w7:p7", "session": "s", "status": "idle", "seq": 1, "completion": 0}
+        state_file.write_text(json.dumps(state))
+        out = self.reconcile_out()
+        ids = [u["id"] for u in out["untracked_in_progress"]]
+        self.assertIn(untracked, ids)
+        self.assertIn(ended, ids)  # in progress, but its dispatch has ended
+        self.assertNotIn(a, ids)
+        names = [x["name"] for x in out["unrecorded_agents"]]
+        self.assertIn("stranger", names)
+        self.assertNotIn("t-rc-rep", names)
+        self.assertEqual(self.issue(untracked)["status"], "in_progress")  # report only
+
+    def test_reconcile_needs_the_coordinator_role(self):
+        r = self.dispatch(["reconcile"], role="worker")
+        self.assertEqual(r.returncode, 2)
+        self.assertIn("refused", json.loads(r.stderr))
+
+    # -- P5 fan-in checks in collect
+    def head(self, path):
+        return subprocess.run(["git", "rev-parse", "HEAD"], cwd=path, capture_output=True, text=True).stdout.strip()
+
+    def refused_collect(self, tid, code, **fields):
+        before, comments = self.meta(tid), self.comments(tid)
+        r = self.collect(tid, code, **fields)
+        self.assertEqual(r.returncode, 2, (fields, r.stdout, r.stderr))
+        self.assertEqual(r.stdout, "")
+        self.assertIn("refused", json.loads(r.stderr))
+        self.assertEqual((self.meta(tid), self.comments(tid)), (before, comments))  # nothing was written
+
+    def test_collect_checks_the_candidate_commit(self):
+        code = "T-COL-SHA"
+        tid, out = self.launch(code)
+        base = out["dispatch"]["base_sha"]
+        wt = self.worktree(code)
+        (wt / "w.txt").write_text("w")
+        subprocess.run([*GIT, "add", "w.txt"], cwd=wt, check=True)
+        subprocess.run([*GIT, "commit", "-q", "-m", "work"], cwd=wt, check=True)
+        work = self.head(wt)
+        orphan = subprocess.run([*GIT, "commit-tree", f"{base}^{{tree}}", "-m", "unrelated"], cwd=self.repo,
+                                capture_output=True, text=True, check=True).stdout.strip()
+        for bad in ("f" * 40, "not-a-sha", "--all", 12345, "", orphan):
+            self.refused_collect(tid, code, candidate_sha=bad)
+        self.assertEqual(self.collect(tid, code, candidate_sha=base).returncode, 0)  # equal to the base
+        self.assertEqual(self.collect(tid, code, candidate_sha=work).returncode, 0)  # a descendant
+        self.assertEqual(self.meta(tid)["receipt"]["candidate_sha"], work)
+        self.assertEqual(self.collect(tid, code, candidate_sha=None).returncode, 0)  # null is allowed
+
+    def test_collect_checks_the_evidence_list(self):
+        code = "T-COL-EVID"
+        tid, _ = self.launch(code)
+        (self.base / "ev-here.txt").write_text("e")  # receipts are written in self.base
+        self.refused_collect(tid, code, evidence=["ev-here.txt", "ev-missing.txt"])
+        self.refused_collect(tid, code, evidence=[""])
+        self.refused_collect(tid, code, evidence=[7])
+        self.assertEqual(self.collect(tid, code, evidence=["ev-here.txt", str(self.base / "ev-here.txt")]).returncode, 0)
+        self.assertEqual(self.collect(tid, code, evidence=[]).returncode, 0)
+        self.assertEqual(self.collect(tid, code, evidence="not-a-list").returncode, 0)  # only a list is checked
+
+    def test_collect_checks_the_verdict_and_records_a_reject(self):
+        code = "T-COL-VERDICT"
+        tid, _ = self.launch(code)
+        for bad in ("pass", "reject", "MAYBE", "", 1):
+            self.refused_collect(tid, code, verdict=bad)
+        self.assertEqual(self.collect(tid, code, verdict="REJECT", outcome="rejected").returncode, 0)
+        self.assertEqual(self.meta(tid)["receipt"]["verdict"], "REJECT")
+        self.assertEqual(self.collect(tid, code, verdict="PASS").returncode, 0)
+        self.assertEqual(self.meta(tid)["receipt"]["verdict"], "PASS")
+
+    # -- P6 gate
+    def gate(self, node, role="worker"):
+        r = self.dispatch(["gate", node], role=role)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)  # exit 0 whether ok or not
+        return json.loads(r.stdout)
+
+    def test_gate_is_ok_only_when_every_dependency_is_closed_with_a_valid_receipt(self):
+        g = self.make("T-GATE-G")
+        self.assertIs(self.gate(g)["ok"], True)  # no dependencies
+        plain = self.task("T-GATE-PLAIN")
+        i_node, _ = self.launch("T-GATE-I")
+        v_plan, _ = self.launch("T-GATE-VPLAN")
+        for dep in (plain, i_node, v_plan):
+            self.depends(g, dep)
+        before = self.issue(g)
+        self.clear_log()
+        out = self.gate(g)
+        self.assertIs(out["ok"], False)
+        reasons = {r["dependency"]: r for r in out["reasons"]}
+        self.assertEqual(set(reasons), {plain, i_node, v_plan})  # one reason per dependency
+        self.assertTrue(all(r["code"] == "not_closed" for r in reasons.values()))
+        for dep in (plain, i_node, v_plan):
+            self.close(dep)
+        # closed, but the dispatched ones have no receipt
+        out = self.gate(g, role=None)
+        self.assertEqual({r["dependency"]: r["code"] for r in out["reasons"]},
+                         {i_node: "missing_receipt", v_plan: "missing_receipt"})
+        # a failed receipt keeps the gate closed; valid ones open it
+        self.assertEqual(self.collect(i_node, "T-GATE-I", outcome="completed").returncode, 0)
+        self.assertEqual(self.collect(v_plan, "T-GATE-VPLAN", verdict="REJECT").returncode, 0)
+        out = self.gate(g)
+        self.assertEqual({r["dependency"]: r["code"] for r in out["reasons"]}, {v_plan: "failed_predecessor"})
+        self.assertEqual(self.collect(v_plan, "T-GATE-VPLAN", verdict="PASS").returncode, 0)
+        out = self.gate(g)
+        self.assertIs(out["ok"], True)
+        self.assertEqual(out["reasons"], [])
+        self.assertEqual(self.issue(g)["status"], before["status"])  # read-only
+        self.assertEqual(self.herdr_calls("agent", "prompt"), [])
+
+    def test_gate_for_a_mock_contract_graph(self):
+        contract = self.make("T-MOCK-CONTRACT")
+        i_node, v_plan = self.make("T-MOCK-I"), self.make("T-MOCK-VPLAN")
+        v_run, g = self.make("T-MOCK-VRUN"), self.make("T-MOCK-G")
+        self.depends(i_node, contract)
+        self.depends(v_plan, contract)
+        self.depends(v_run, i_node)
+        self.depends(v_run, v_plan)
+        self.depends(g, v_run)
+        self.assertIs(self.gate(v_run)["ok"], False)
+        for code, tid, receipt in (("T-MOCK-CONTRACT", contract, {}), ("T-MOCK-I", i_node, {}),
+                                   ("T-MOCK-VPLAN", v_plan, {"verdict": "PASS"})):
+            r = self.start(tid, code, args=["--max-parallel", "9"])
+            self.assertEqual(r.returncode, 0, (code, r.stdout, r.stderr))
+            self.assertEqual(self.collect(tid, code, **receipt).returncode, 0)
+            self.close(tid)
+        self.assertIs(self.gate(v_run)["ok"], True)
+        self.assertEqual(self.start(v_run, "T-MOCK-VRUN").returncode, 0)
+        self.assertIs(self.gate(g)["ok"], False)  # V-Run is still running
+        self.assertEqual(self.collect(v_run, "T-MOCK-VRUN", verdict="PASS").returncode, 0)
+        self.close(v_run)
+        self.assertIs(self.gate(g)["ok"], True)
 
 
 class Entry(unittest.TestCase):
