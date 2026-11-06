@@ -43,8 +43,11 @@ and the session id went from null to a value. Herdr still reported `agent_status
    Enter retry, and the agent sat idle asking for the path. The same text sent later to the running agent arrived whole.
    After the turn has started, `start` looks up the agent's transcript by session id (the lookup `collect` uses) for up
    to the submit budget. It compares the first user prompt there with the prompt it sent, ignoring leading and
-   trailing whitespace. For Codex that is the first `event_msg` of type `user_message`. For Claude it is the first
-   `type: user` line whose content is text and not a tool result. `metadata.dispatch.prompt_received` records the
+   trailing whitespace. For Codex (0.167.0, observed) that is the first line with `type: event_msg`,
+   `payload.type: item_completed` and `payload.item.type: UserMessage`; its text is the `text` of the
+   `payload.item.content` entries of type `text`, joined. Do not use `response_item` messages: the first user ones carry
+   AGENTS.md and the environment. For Claude it is the first `type: user` line whose `message.content` is a string,
+   or else its first `text` block, not a tool result. `metadata.dispatch.prompt_received` records the
    result:
    - true when the two match;
    - false when they differ;
