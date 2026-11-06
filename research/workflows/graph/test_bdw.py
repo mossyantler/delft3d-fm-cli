@@ -184,6 +184,29 @@ class Integration(unittest.TestCase):
             self.assertEqual(subprocess.run(["git", "ls-remote", "origin", "refs/dolt/*"], cwd=repo,
                                             capture_output=True, text=True).stdout, "")
 
+            # backup-sync: Dolt backup outside both trees, JSONL export inside the checkout.
+            dest = Path(d) / "offsite"
+            env["DFM_BEADS_BACKUP"] = str(dest)
+            self.assertEqual(bdw_cli(["backup-sync"]).returncode, 2)  # worker refused
+            self.assertEqual(bdw_cli(["backup-sync", "--force"], "coordinator").returncode, 2)
+            self.assertEqual(bdw_cli(["backup"], "coordinator").returncode, 2)  # raw backup stays blocked
+            env["DFM_BEADS_BACKUP"] = str(repo / "inside")
+            self.assertEqual(bdw_cli(["backup-sync"], "coordinator").returncode, 2)  # never inside the checkout
+            env["DFM_BEADS_BACKUP"] = str(dest)
+            synced = bdw_cli(["backup-sync"], "coordinator")
+            self.assertEqual(synced.returncode, 0, synced.stdout + synced.stderr)
+            receipt = json.loads(synced.stdout)
+            self.assertEqual(receipt["jsonl_issues"], 1)
+            self.assertTrue((dest / "manifest").is_file())
+            jsonl = repo / bdw.JSONL_REL
+            self.assertNotIn(b"\r\n", jsonl.read_bytes())
+            self.assertEqual(json.loads(jsonl.read_text(encoding="utf-8").splitlines()[0])["title"], "task one")
+            status = subprocess.run(["git", "status", "--porcelain", "-uall"], cwd=repo, capture_output=True,
+                                    text=True).stdout.split()
+            self.assertEqual(status, ["??", bdw.JSONL_REL.as_posix()])
+            self.assertEqual(head, subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo,
+                                                  capture_output=True, text=True).stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

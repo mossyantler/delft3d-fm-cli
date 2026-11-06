@@ -4,7 +4,13 @@ From any checkout or worktree of this repository:
 
     python -m research.workflows.graph.bdw paths            # derived locations, no bd call
     python -m research.workflows.graph.bdw init-workspace   # coordinator, once per machine
+    python -m research.workflows.graph.bdw backup-sync      # coordinator, after each G closure
     python -m research.workflows.graph.bdw <command> [args]  # e.g. ready --json --exclude-type epic
+
+``backup-sync`` writes two copies: a full Dolt backup into
+``DFM_BEADS_BACKUP`` (default ``%OneDrive%/<main checkout name>-beads-backup``) and
+the issue export ``research/notes/delivery/beads-state.jsonl`` in the main
+checkout, which the coordinator commits with the node.
 
 Role comes from the environment: ``DFM_BD_ROLE=coordinator`` may write; any other
 value, or none, is a read-only worker. Every call pins the bd binary by SHA-256,
@@ -234,6 +240,61 @@ def init_workspace(cwd: Path, environ: dict[str, str], extra: list[str]) -> int:
     return 0 if ok else 1
 
 
+JSONL_REL = Path("research") / "notes" / "delivery" / "beads-state.jsonl"
+
+
+def backup_dest(paths: Paths, environ: dict[str, str]) -> Path:
+    explicit = environ.get("DFM_BEADS_BACKUP")
+    if explicit:
+        dest = Path(explicit)
+    else:
+        onedrive = environ.get("OneDrive") or environ.get("OneDriveConsumer")
+        if not onedrive:
+            raise Refused("no backup destination: set DFM_BEADS_BACKUP or sign in to OneDrive")
+        dest = Path(onedrive) / f"{paths.main.name}-beads-backup"
+    dest = dest.resolve()
+    for inside in (paths.main, paths.beads_dir.parent):
+        if dest == inside or inside in dest.parents:
+            raise Refused(f"backup destination {dest} must be outside {inside}")
+    return dest
+
+
+def backup_sync(cwd: Path, environ: dict[str, str], extra: list[str]) -> int:
+    if extra:
+        raise Refused(f"backup-sync takes no arguments; got {extra}")
+    if role_of(environ) != "coordinator":
+        raise Refused("backup-sync requires DFM_BD_ROLE=coordinator")
+    paths = derive_paths(cwd, environ)
+    verify_exe(paths.bd_exe)
+    if not paths.beads_dir.is_dir():
+        raise Refused(f"shared workspace {paths.beads_dir} does not exist")
+    dest = backup_dest(paths, environ)
+    dest.mkdir(parents=True, exist_ok=True)
+    jsonl = paths.main / JSONL_REL
+    jsonl.parent.mkdir(parents=True, exist_ok=True)
+    env = child_env(paths, "coordinator", environ)
+    steps = []
+    for args in (["backup", "init", str(dest)], ["backup", "sync"], ["export", "-o", str(jsonl)],
+                 ["count", "--json"]):
+        p = subprocess.run([str(paths.bd_exe), "--sandbox", *args], cwd=paths.main, env=env,
+                           capture_output=True, text=True, encoding="utf-8", errors="replace")
+        steps.append({"args": args, "exit": p.returncode, "stdout": p.stdout.strip()[-1000:],
+                      "stderr": p.stderr.strip()[-1000:]})
+        if p.returncode:
+            break
+    ok = len(steps) == 4 and all(s["exit"] == 0 for s in steps)
+    lines = 0
+    if ok:
+        raw = jsonl.read_bytes().replace(b"\r\n", b"\n")
+        jsonl.write_bytes(raw)
+        lines = sum(1 for line in raw.splitlines() if line.strip())
+        ok = lines == json.loads(steps[3]["stdout"])["count"]
+    print(json.dumps({"ok": ok, "dolt_backup": str(dest), "jsonl": str(jsonl), "jsonl_issues": lines,
+                      "jsonl_sha256": hashlib.sha256(jsonl.read_bytes()).hexdigest() if jsonl.is_file() else None,
+                      "steps": steps}, indent=1, ensure_ascii=False))
+    return 0 if ok else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     environ = dict(os.environ)
@@ -246,6 +307,8 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if argv[:1] == ["init-workspace"]:
             return init_workspace(cwd, environ, argv[1:])
+        if argv[:1] == ["backup-sync"]:
+            return backup_sync(cwd, environ, argv[1:])
         return run_bd(cwd, argv, environ)
     except Refused as exc:
         print(json.dumps({"refused": str(exc)}), file=sys.stderr)
