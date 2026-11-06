@@ -56,7 +56,7 @@ from research.workflows.graph import bdw
 REPO_ROOT = Path(__file__).resolve().parents[3]
 KINDS = ("claude", "codex")
 AGENT_NAME = re.compile(r"[a-z][a-z0-9_-]{0,31}")
-TASK_CODE = re.compile(r"[A-Z0-9][A-Z0-9-]*")
+TASK_CODE = re.compile(r"[A-Za-z0-9][A-Za-z0-9-]*")  # Contract C4.6 as amended: codes such as B06-READER-V-Run
 BLOCKING_DEPENDENCIES = {"blocks", "conditional-blocks", "waits-for"}
 SETTLED = {"idle", "done"}
 HERDR_TIMEOUT = 240
