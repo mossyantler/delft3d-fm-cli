@@ -21,8 +21,9 @@ evidence. These responsibilities never overlap.
 | 0 Inventory | Done. [Phase 0/1 report](research/notes/delivery/graph-ops-phase0-1.md) |
 | 1 Beads trial | Done. `bd` 1.3.1 at `research/tools/beads/1.3.1/bd.exe`; 15/15 checks in `research/experiments/GRAPH-OPS-P1-20261106-01/verification.json` |
 | 2 Migrate graph | Done 2026-11-06 (user-approved). [Phase 2 record](research/notes/delivery/graph-ops-phase2.md): bdw I/V/G, workspace init, 46-issue seed (7 epics, 39 tasks), DELIVERY cross-check |
-| 3 Herdr integration | In progress. Dispatch tool approved ([record](research/notes/delivery/graph-ops-p3-dispatch.md#g-record)); next: real pilot task and interruption-recovery test (Beads `GRAPH-OPS-P3`) |
-| 4–5 | Blocked on 3. |
+| 3 Herdr integration | Done 2026-11-06. [Record](research/notes/delivery/graph-ops-p3-dispatch.md#phase-3-close-coordinator-2026-11-06): dispatch tool, CODEFIX, recovery trial, LIVEFIX (C5), B06 reader pilot |
+| 4 Isolation and parallel work | In progress. [Contract](research/notes/delivery/graph-ops-p4-parallel.md) (Beads `GRAPH-OPS-P4`) |
+| 5 | Blocked on 4. |
 
 Beads is the single source of truth for active state and dependencies. Read and
 write it only through **bdw**:

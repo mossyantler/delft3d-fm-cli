@@ -26,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-P3-DISPATCH-G 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-P3 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -36,9 +36,9 @@
 | --- | --- | --- | --- |
 | B06 | B06-READER-I: 공개 기록 판독기 Mill 203d9def 동결 | ✓ | `dfm-985.1` |
 | B06 | B06-READER-V-Plan: Einstein 사전 명세 오류 70·정상 6 | ✓ | `dfm-985.2` |
-| B06 | B06-READER-V-Run: 판독기 독립 검수 (작성자 82통과는 근거 아님) | Ready | `dfm-985.3` |
-| B06 | B06-READER-G: 판독기 통합 검수 | Blocked | `dfm-985.4` |
-| B06 | B06-RUN-PROFILE-I: 현재 191파일 기준 새 구성·공개 실행 프로필 | Blocked | `dfm-985.5` |
+| B06 | B06-READER-V-Run: 판독기 독립 검수 (작성자 82통과는 근거 아님) | ✓ | `dfm-985.3` |
+| B06 | B06-READER-G: 판독기 통합 검수 | ✓ | `dfm-985.4` |
+| B06 | B06-RUN-PROFILE-I: 현재 191파일 기준 새 구성·공개 실행 프로필 | Ready | `dfm-985.5` |
 | B06 | B06-RUN-PROFILE-V-Plan: #225 6입력·170변수 사전 기준 (Mill) | Ready | `dfm-985.6` |
 | B06 | B06-RUN-PROFILE-V-Run: direct/DIMR 공개 실행 대조 (임대) | Blocked | `dfm-985.7` |
 | B06 | B06-RUN-PROFILE-G: B06 실행 프로필 통합·루트 병합 | Blocked | `dfm-985.8` |
@@ -88,9 +88,27 @@
 | GRAPH-OPS | GRAPH-OPS-P3-DISPATCH-V: independent verification of dispatch and the allowlist | ✓ | `dfm-fmc.31` |
 | GRAPH-OPS | GRAPH-OPS-P3-DISPATCH-G: integration review of dispatch | ✓ | `dfm-fmc.32` |
 | GRAPH-OPS | GRAPH-OPS-P3-SMOKE: live dispatch smoke test (G of GRAPH-OPS-P3-DISPATCH) | ✓ | `dfm-fmc.33` |
+| GRAPH-OPS | HUMAN-20261106-17: Push P3-DISPATCH and start the pilot | ✓ | `dfm-fmc.34` |
+| GRAPH-OPS | GRAPH-OPS-P3-CODEFIX-I: accept existing mixed-case task codes in dispatch | ✓ | `dfm-fmc.35` |
+| GRAPH-OPS | GRAPH-OPS-P3-CODEFIX-V: verify the task-code amendment | ✓ | `dfm-fmc.36` |
+| GRAPH-OPS | GRAPH-OPS-P3-CODEFIX-G: integrate the task-code amendment | ✓ | `dfm-fmc.37` |
+| GRAPH-OPS | HUMAN-20261106-18: Finish Phase 3 | ✓ | `dfm-fmc.38` |
+| GRAPH-OPS | GRAPH-OPS-P3-RECOVERY: interruption and recovery trial with dispatch | ✓ | `dfm-fmc.39` |
 | GRAPH-OPS | GRAPH-OPS-BDW-G: bdw 통합 검수 | ✓ | `dfm-fmc.4` |
+| GRAPH-OPS | GRAPH-OPS-P3-RECOVERY-T: recovery trial task (three staged files) | ✓ | `dfm-fmc.40` |
+| GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-I: confirm the prompt started a turn; mark interrupted attempts | ✓ | `dfm-fmc.41` |
+| GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-V: verify Contract C5 | ✓ | `dfm-fmc.42` |
+| GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-G: integrate Contract C5 | ✓ | `dfm-fmc.43` |
+| GRAPH-OPS | HUMAN-20261106-19: Codex quota policy | ✓ | `dfm-fmc.44` |
+| GRAPH-OPS | GRAPH-OPS-P4: Phase 4: parallel multi-agent orchestration (isolation, ownership, fan-in gates) | Blocked | `dfm-fmc.45` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-I: implement Contract P1-P6 in dispatch | in_progress | `dfm-fmc.46` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-V-Plan: cases and verifier from Contract P1-P6 | in_progress | `dfm-fmc.47` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-V-Run: verify frozen candidate | Blocked | `dfm-fmc.48` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-G: integrate and live-trial Tests A-E | Blocked | `dfm-fmc.49` |
 | GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
-| GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | Ready | `dfm-fmc.6` |
+| GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-SMOKE-C: live C5 check with Claude | ✓ | `dfm-fmc.50` |
+| GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-SMOKE-X: live C5 check with Codex | ✓ | `dfm-fmc.51` |
+| GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | ✓ | `dfm-fmc.6` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-I: bdw backup-sync (OneDrive Dolt + Git JSONL) | ✓ | `dfm-fmc.7` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-V: backup-sync 독립 검증·복원 대조 | ✓ | `dfm-fmc.8` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-G: 백업 통합 검수·첫 실제 백업 | ✓ | `dfm-fmc.9` |
@@ -116,6 +134,9 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-P3 (Phase 3) | `4156e61` | [Phase 3 마감](research/notes/delivery/graph-ops-p3-dispatch.md#phase-3-close-coordinator-2026-11-06). C5 독립 검증 2회차 PASS 27건, Claude·Codex 실제 시험 통과 |
+| B06-READER-G | 실험 폴더(`freeze.json` `74789de6…937d`) | 판독기 rev2 독립 검증 PASS 76/76. 판독·기록 계층만 승인, 실제 엔진 실행 없음 |
+| GRAPH-OPS-P3-CODEFIX-G | `1e4b316` | 대소문자 섞인 작업 코드 허용(C4.6 개정) |
 | GRAPH-OPS-P3-DISPATCH-G | `09de210` (merge of `641c887`) | [dispatch 도구 승인](research/notes/delivery/graph-ops-p3-dispatch.md#g-record). 독립 검증 2회차 PASS 282건, 실제 Herdr 시험 통과 |
 | GRAPH-OPS-VIEWER-G | `git log --grep GRAPH-OPS-VIEWER` | 로컬 bv 대시보드(사용자 결정). 독립 검증 3회차 PASS 224건, 앞선 두 회차 결함 4건 수정 |
 | GRAPH-OPS-BACKUP-G | `git log --grep GRAPH-OPS-BACKUP-G` | [백업 방식·복원 확인](research/notes/delivery/graph-ops-backup.md), 실제 백업 두 사본 복원 일치 |

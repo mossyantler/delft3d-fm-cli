@@ -136,3 +136,48 @@ G approves `641c887` (merged in `09de210`). Beads `dfm-fmc.30`–`.32`, smoke `d
    `ended_at`, the history entry gets `interrupted: true` and `interrupted_detected_at`. Its other fields stay
    unchanged.
 3. Everything else in C1–C4 is unchanged, and the committed verifiers still apply as regressions.
+
+## Phase 3 close (coordinator, 2026-11-06)
+
+Beads `GRAPH-OPS-P3` (`dfm-fmc.6`) is closed. Its parts, in order:
+
+- **CODEFIX:** C4.6 now accepts mixed-case codes. I `8969631`, V `c737719`, G merge `1e4b316`.
+- **RECOVERY** (`dfm-fmc.39`/`.40`):
+  - The pane was killed mid-task. Recovery followed the COORDINATOR order, and attempt 2 skipped the finished step.
+  - Two findings came out of it: DISPATCH-LIVE-001 (a prompt left unsubmitted) and an interrupted attempt that was
+    not marked. Both went to LIVEFIX.
+- **LIVEFIX (C5):**
+  - I `990ddcd`/`4a104e8`. V round 1 REJECT 23/27 (LIVEFIX-V-001: `submit_retry` missing from the failure JSON).
+  - I rev2 `18a9191`. V round 2 PASS 27/27. Verifier `9f0ba1d`, G merge `4156e61`, byte-identical.
+  - Live check: Claude passed. Codex passed in a 61-column pane.
+  - In a pane about 30 columns wide, Codex worked while Herdr reported `idle` with no `state_change_seq`
+    change, so C5 failed it falsely. This is DISPATCH-LIVE-002, carried to
+    [Phase 4 Contract P0](graph-ops-p4-parallel.md#p0-live-trial-amendment-to-c5-dispatch-live-002-observed-2026-11-06).
+- **B06 reader pilot**, the first real task through dispatch:
+  - V-Plan was Einstein's 70 cases plus 6 positive controls. V-Run round 1 on rev1 was REJECT, with
+    `B06-EIN-053` raising a bare `ValueError`. I rev2 (Codex) fixed it with a five-line change in `science.py`.
+  - V-Run round 2 was PASS 76/76, plus 25 extra probes, with the originals unchanged.
+  - G approved rev2 (`freeze.json` `74789de6…937d`) for the reader and provenance layer only.
+    O-1 to O-4 and the `EXP` configuration are carried as notes for the first observed-native collection.
+- **Parallel runs already observed:** I ∥ V-Plan (`dispatch-i` and `dispatch-v`); LIVEFIX-V (Codex) ∥ B06 V-Run (Claude);
+  P4 V-Plan (Codex) ∥ LIVEFIX-I rev2 (Claude).
+
+Usage from `collect` (Codex `input` includes cached input; Claude `input` excludes it):
+
+| Node | Model | Wall | Input | Cached read | Cache write | Output |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| B06 V-Run (2 rounds) | claude-sonnet-5-5 | 6,877 s | 204 | 24,111,386 | 329,072 | 162,369 |
+| LIVEFIX-V (2 rounds) | gpt-6.1-sol | 5,759 s | 20,222,189 | 20,081,920 | 0 | 80,695 (42,284 reasoning) |
+| LIVEFIX-I rev2 | claude-sonnet-5-5 | 539 s | 32 | 1,030,806 | 46,176 | 4,129 |
+| RECOVERY-T | claude-sonnet-5-5 | 213 s | 12 | 312,558 | 34,441 | 1,106 |
+| LIVEFIX-SMOKE-C | claude-sonnet-5-5 (low) | 18 s | 8 | 241,361 | 34,169 | 937 |
+| LIVEFIX-SMOKE-X | gpt-6.1-sol (low) | 22 s | 93,164 | 80,128 | 0 | 405 |
+
+The smoke rows give the fixed cost of a trivial worker: about 240 K cached-read tokens for Claude and 93 K input
+tokens for Codex. Codex weekly usage stood at 92 %.
+
+Follow-ups:
+- Claude's session id stays null when the prompt was not submitted. The coordinator filled it in by hand for
+  `dfm-fmc.41`. With C5 the turn starts reliably, so it should normally be present.
+- A settle helper is still needed for waiting on a worker: receipt plus screen check.
+- `test_dispatch` takes about 250–400 s.
