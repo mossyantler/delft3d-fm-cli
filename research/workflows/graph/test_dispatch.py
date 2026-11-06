@@ -510,14 +510,24 @@ class Integration(unittest.TestCase):
         out = json.loads(self.dispatch(["stop", tid]).stdout)
         self.assertTrue(out["pane_closed"])
 
-    def test_task_code_must_be_upper_case_digits_and_hyphens(self):
-        for code in ("bad_code", "lower-case", "-LEADING", "HAS SPACE"):
+    def test_task_code_must_be_letters_digits_and_hyphens(self):
+        for code in ("bad_code", "-LEADING", "HAS SPACE", "dot.code", "../UP", "T-Ä"):
             tid = self.task(code)
             self.clear_log()
             r = self.start(tid, code)
             self.assertEqual(r.returncode, 2, (code, r.stdout, r.stderr))
             self.assertIn("task_code", json.loads(r.stderr)["refused"])
             self.assertEqual(self.herdr_log(), [])
+
+    def test_mixed_case_task_code_starts(self):
+        # Contract C4.6 as amended (GRAPH-OPS-P3-CODEFIX): the graph's own codes mix case.
+        code = "B06-READER-V-Run"
+        tid = self.task(code)
+        r = self.start(tid, code)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        d = json.loads(r.stdout)["dispatch"]
+        self.assertEqual(d["agent"], "b06-reader-v-run")
+        self.assertEqual(Path(d["worktree"]).name, code)
 
     def test_agent_in_another_pane_is_not_the_recorded_agent(self):
         code = "T-PANE-MOVED"
