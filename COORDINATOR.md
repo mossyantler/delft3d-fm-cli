@@ -4,6 +4,11 @@ Agent summary of [INTENT.md](INTENT.md). If they conflict, INTENT wins. Edit bot
 together. Read the root [AGENTS.md](AGENTS.md) first. This file is for the
 coordinator. Workers read their Task Packet, not this file.
 
+**Coordinator session model:** GPT-6.1 Sol `high` or Claude Opus 5.5 `high`
+(user decision 2026-11-06, INTENT §5.1 and `coordinator_session`). Opus is
+approved only for this session. Workers you assign still follow the model
+policy below.
+
 **Beads** records what must be done. **Herdr** runs the agents. **Git worktrees**
 isolate their changes. The **validation gate** checks completion criteria.
 **G** decides acceptance. GitHub and artifact storage hold the reproducible

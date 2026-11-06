@@ -245,7 +245,7 @@ Coordinator는 원칙적으로 전체 공정표 대신 `bd ready`와 해당 작�
 
 ### 5.1 Coordinator Agent
 
-기존 Herdr 안에 중앙 Coordinator 역할을 GPT 6.1 sol high로 둔다.
+기존 Herdr 안에 중앙 Coordinator 역할을 둔다. Coordinator 세션 모델은 GPT-6.1 Sol high 또는 Claude Opus 5.5 high다(2026-11-06 사용자 결정, 6.8 YAML의 `coordinator_session`). Opus를 Coordinator로 쓰는 것은 사용자가 승인한 예외이며, Coordinator가 배정하는 작업에 프리미엄 모델을 기본으로 쓴다는 뜻이 아니다.
 
 별도 Python Coordinator 서버나 새로운 LLM 프레임워크를 만들지 않는다.
 
@@ -538,6 +538,10 @@ model_policy:
     approved_deep_review:   [opus, astra]
 
   # 역할 -> 풀 + effort (동일 모델이라도 effort는 역할별로 다름)
+  # Coordinator 세션 자체의 모델 (2026-11-06 사용자 결정). opus는 premium_policy의
+  # default_assignment: false에 대한 승인된 예외로, 이 세션에만 적용한다.
+  coordinator_session: {candidates: [sol, opus], effort: high, approved_by_user: "2026-11-06"}
+
   role_defaults:
     log_classification:      {pool: extraction_and_summary, effort: low_or_medium}
     code_doc_search:         {pool: extraction_and_summary, effort: medium}   # Luna는 medium/high
