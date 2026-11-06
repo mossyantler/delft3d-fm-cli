@@ -248,7 +248,10 @@ def backup_dest(paths: Paths, environ: dict[str, str]) -> Path:
     if explicit:
         dest = Path(explicit)
     else:
-        onedrive = environ.get("OneDrive") or environ.get("OneDriveConsumer")
+        # Windows environment names are case-insensitive and os.environ copies
+        # them upper-cased (ONEDRIVE), so match without case (found at BACKUP-G).
+        upper = {k.upper(): v for k, v in environ.items()}
+        onedrive = upper.get("ONEDRIVE") or upper.get("ONEDRIVECONSUMER")
         if not onedrive:
             raise Refused("no backup destination: set DFM_BEADS_BACKUP or sign in to OneDrive")
         dest = Path(onedrive) / f"{paths.main.name}-beads-backup"

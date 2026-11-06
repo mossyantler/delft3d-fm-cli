@@ -120,6 +120,17 @@ class Paths(unittest.TestCase):
                 self.assertRaises(bdw.Refused):
             bdw.derive_paths(Path(d), {})
 
+    def test_default_backup_destination_from_real_environment_names(self):
+        p = bdw.Paths(Path("C:/x/proj").resolve(), Path("C:/x/proj-beads/.beads").resolve(), Path("bd.exe"))
+        for env in ({"ONEDRIVE": "C:/od"}, {"OneDrive": "C:/od"}, {"ONEDRIVECONSUMER": "C:/od"},
+                    dict(os.environ, ONEDRIVE="C:/od") if os.name == "nt" else {"ONEDRIVE": "C:/od"}):
+            env = {k: v for k, v in env.items() if k.upper() != "DFM_BEADS_BACKUP"}
+            self.assertEqual(bdw.backup_dest(p, env), (Path("C:/od") / "proj-beads-backup").resolve())
+        with self.assertRaises(bdw.Refused):
+            bdw.backup_dest(p, {})
+        with self.assertRaises(bdw.Refused):
+            bdw.backup_dest(p, {"DFM_BEADS_BACKUP": "C:/x/proj/inside"})
+
     def test_hash_mismatch_refused(self):
         with tempfile.TemporaryDirectory() as d:
             fake = Path(d) / "bd.exe"
