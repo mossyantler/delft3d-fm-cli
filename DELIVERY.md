@@ -33,7 +33,7 @@
 
 | Epic | 현재 후보·근거 | 다음 노드 (Ready 우선) | 선행 관문 |
 | --- | --- | --- | --- |
-| GRAPH-OPS · 공정 관리 전환 | [INTENT](INTENT.md), [COORDINATOR](COORDINATOR.md) | **Ready:** Phase 0 현황 점검, Phase 1 격리된 Beads 시험 → 사용자 보고 | 없음. Phase 2 이관은 보고 승인 후 |
+| GRAPH-OPS · 공정 관리 전환 | Phase 0·1 완료: [보고](research/notes/delivery/graph-ops-phase0-1.md), bd 1.3.1 격리 시험 15/15 통과 | 사용자 승인 → Phase 2: `BEADS_DIR`·래퍼 결정과 독립 검증 → 실제 이관 → DELIVERY와 교차 검수 | 보고서 §7의 선행 조건 |
 | B06 · 취·방류 | 공개 기록 판독기 Mill `203d9def` 동결. 작성자 82통과는 독립 근거가 아니다. [#225 공개 입력](research/notes/verification/source-sink.md#public-225) | **Ready:** `B06-PROVENANCE-V`. Einstein이 미리 정한 오류 70·정상 6 사례로 독립 검수 → G. 이어서 `B06-RUN-PROFILE-I` 새 구성 → #225의 6입력·170변수와 direct/DIMR 대조 | SHORT-CLOSE-ROOT-G ✓. 실제 실행은 새 임대 필요 |
 | B14 · 분조 일괄 지정 | 실행기 후보 6 `2641efa9`, 계획 `15e9acca`. G 합성 5건·파일 사전검사 통과. V 75건 통과, 최종 판정 미봉인 | **Ready:** 독립 최종 검수 → G. 이후 BMI 4진단(별도 임대), 새 구성의 공개 direct 6사례, 전체 합류 검수 | SHORT-CLOSE-ROOT-G ✓. 4진단만으로 B14 전체를 승인하지 않는다 |
 | S07 · 풍속별 항력 계수 | [설치 편집 통합 검수](research/experiments/S07-G-combined-editor-01/evidence/verification.json): 8입력 보존 | 새 구성 → 풍응력 7사례 엔진 검수(Lovelace 판독) | SHORT-CLOSE-ROOT-G ✓. 입력 검수와 엔진 승인은 별개 |
@@ -52,7 +52,7 @@ flowchart LR
     RG --> GN[G18 실제 6사례·독립 대조]
     GF[G18 파일 작업 ✓] --> GN
     TC[G15 계약 ✓] --> TI[G15 후보 동결] --> TV[독립 설치 검수] --> TG[G15 G] --> TP[G15 엔진·GUI 계획]
-    P0[GRAPH-OPS Phase 0·1] --> P2[Phase 2 Beads 이관]
+    P0[GRAPH-OPS Phase 0·1 ✓] --> PA[사용자 승인] --> P2[Phase 2 Beads 이관]
 ```
 
 ## 공정 규칙
@@ -70,6 +70,9 @@ flowchart LR
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-P0P1 | `git log --grep GRAPH-OPS-P0P1` | [Phase 0·1 보고](research/notes/delivery/graph-ops-phase0-1.md). 이관 승인이 아니다 |
+| GRAPH-OPS-DOC | `04aba08` | 에이전트 지침 분리, 공정표 현재판 전환 |
+| GRAPH-OPS-INTENT | `19cbd35` | INTENT.md 등록 |
 | SHORT-CLOSE-ROOT-DOC | `607c61c` | 재개 문서와 다음 관문 기록 |
 | SHORT-CLOSE-ROOT-G | `df447d8` | 제품 통합. 종료 모듈 두 개 반영 |
 | SHORT-CLOSE-ROOT-V | `0ceb728` | [통합 독립 검수 27항목](research/proposals/short-close-root-review/REVIEW.md) |

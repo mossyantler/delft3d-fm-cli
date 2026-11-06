@@ -18,6 +18,7 @@ digests. Downloading a tool is separate from exercising it.
 | netCDF4 / numpy / cftime | Read CF time axes, masks, metadata and numerical output | Pinned research venv; E004/E008 final times and 191-variable route comparisons verified |
 | PowerShell/CIM | Installed processes, ancestry and loaded application modules | Scoped process capture exercised |
 | Codex Windows Computer Use | Visual inspection and reversible GUI navigation | Live window inspected; accessibility tree unavailable in this view |
+| [Beads](https://github.com/gastownhall/beads) `bd` 1.3.1 (`c1c4b642a`) | Task graph for the coordinator (GRAPH-OPS) | Local `research/tools/beads/1.3.1/bd.exe`, SHA-256 `ac5b6011…a7be7a4`; release zip `48cd82e1…5e666af76` matched the release `checksums.txt`. Trial only: [Phase 0/1 report](../delivery/graph-ops-phase0-1.md) |
 
 The ILSpy GUI archive was verified against the SHA-256 digest returned by its
 official GitHub release metadata. No global .NET installation was required.

@@ -13,9 +13,9 @@ evidence. These responsibilities never overlap.
 
 | Phase | Status, 2026-11-06 |
 | --- | --- |
-| 0 Inventory | Open. Observed: Herdr 0.9.5, `HERDR_ENV=1`; `bd` not installed; INTENT.md not yet committed. |
-| 1 Beads trial | Open. Scratch directory only: `bd init --quiet --skip-agents --skip-hooks`, then `bd doctor`, `bd ready --json`, `bd graph check`. |
-| 2 Migrate graph | Blocked on 0–1 and on a user review of the Phase 0/1 report (INTENT §15). |
+| 0 Inventory | Done. [Phase 0/1 report](research/notes/delivery/graph-ops-phase0-1.md) |
+| 1 Beads trial | Done. `bd` 1.3.1 at `research/tools/beads/1.3.1/bd.exe`; 15/15 checks in `research/experiments/GRAPH-OPS-P1-20261106-01/verification.json` |
+| 2 Migrate graph | Blocked on user approval of that report and on its §7 preconditions. |
 | 3–5 | Blocked on 2. |
 
 Until Phase 2 closes, the active graph is the [DELIVERY.md](DELIVERY.md) board,
@@ -28,7 +28,7 @@ unapproved merges, remote sync. Each needs its own explicit approval.
 
 ## Coordinator loop
 
-1. `bd ready --json`, then `bd show <id>` for the candidate only. Never load the
+1. `bd ready --json --exclude-type epic`, then `bd show <id>` for the candidate only. Never load the
    whole graph or long histories.
 2. Confirm the Contract and prerequisite G approvals. Confirm the evidence exists
    at the cited commit or path.
@@ -59,8 +59,17 @@ confirm a result, leave the task open and record why.
 - Statuses: Open, In Progress, Blocked, Deferred, Closed. Acceptance is expressed
   as a closed G task with its evidence. I or V being closed is not Epic
   acceptance.
-- Useful commands: `bd ready --json`, `bd ready --explain`, `bd blocked`,
-  `bd show`, `bd dep tree`, `bd dep cycles`, `bd graph check`.
+- Useful commands: `bd ready --json --exclude-type epic` (otherwise epics with no
+  dependencies appear as ready), `bd ready --explain`, `bd blocked`, `bd show`,
+  `bd dep tree`, `bd dep cycles`, `bd graph check`. `bd doctor` does not support
+  embedded mode. Epics stay open after their children close, so acceptance is
+  the closed G task.
+- Safe invocation (Phase 1 evidence): `BEADS_DIR` outside the working tree, the
+  same path in every pane, global `--sandbox`, and `BD_DISABLE_METRICS=1`,
+  `BD_NO_INSTALL_HOOKS=1`, `BD_NO_REMOTE_ADOPT=1`, `BD_NON_INTERACTIVE=1`.
+  Workers add `--readonly`. Running `bd init` inside the working tree commits
+  `.beads/`, `.gitignore` and **whatever is already staged**. Init records git
+  origin as `sync.remote`, so `bd sync` and `bd dolt push` need explicit approval.
 - Storage: Dolt embedded mode with you as single writer. All worktrees of the
   repository share one Beads workspace. No per-worktree database, no extra
   SQLite. Consider Dolt server mode only when concurrent writers become
@@ -152,13 +161,17 @@ integration + rework + tools.
 3. Claude example:
    `herdr agent start <name> --kind claude --pane <pane> -- --model <verified-id> --effort <level>`.
    Observed on 2026-11-05: Claude Code 2.1.318 accepted `claude-sonnet-5-5`
-   `--effort high`. Re-verify on each machine.
+   `--effort high`. Re-verify on each machine. Always pass `--model`: this
+   machine's Claude default is the `opus` alias, which is premium. The Codex
+   default is `gpt-6.1-sol` `high`.
 4. Confirm the startup banner and a first response, and confirm that CLI
    defaults, environment variables or fallback did not override the requested
    model. If a model is unavailable, stop and report it.
 5. Execution log for every start: requested and actual model ID, requested and
    applied effort, runner and version, auth/billing mode, any fallback.
 6. Every Claude assignment tells the worker to read `AGENTS.md` explicitly.
+7. After the Beads cutover, every pane gets the same `BEADS_DIR`, and workers
+   get the read-only wrapper.
 
 ## Isolation and ownership
 
