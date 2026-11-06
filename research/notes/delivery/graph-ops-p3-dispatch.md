@@ -84,7 +84,9 @@ verifiers pass, `python -m compileall -q research/workflows` is clean, and each 
 5. **Transcripts:** malformed lines are skipped and counted. Timestamps are ISO 8601 UTC. `wall_seconds` is a
    number. Cached input is reported separately and not added into input.
 6. **Paths:** the packet is resolved (symlinks and junctions followed) and must lie inside the main checkout's
-   `research/experiments/`. The task code must match `^[A-Z0-9][A-Z0-9-]*$`, or `start` refuses. An agent is
+   `research/experiments/`. The task code must match `^[A-Za-z0-9][A-Za-z0-9-]*$`, or `start` refuses
+   (amended 2026-11-06, GRAPH-OPS-P3-CODEFIX: the graph's own codes such as `B06-READER-V-Run` mix case;
+   the original upper-case-only rule refused 10 open nodes). An agent is
    live when `agent get` succeeds and its pane id equals the recorded one.
 
 ## G record
