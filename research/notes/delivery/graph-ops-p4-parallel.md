@@ -38,6 +38,19 @@ and the session id went from null to a value. Herdr still reported `agent_status
    - the agent session id was null before the prompt and is non-null in a later `agent get`;
    - `agent read <name> --source visible` contains `esc to interr` or `Working (`.
    The rest of C5.1 is unchanged: the Enter retry, the failure, the cleanup and `submit_retry`.
+3. **Prompt received (DISPATCH-LIVE-003, observed 2026-11-07).** A Codex 0.167.0 agent started by `fill` got only
+   the first 84 characters of the prompt (`... read and execute the task packet at`). C5.1 still saw a turn after the
+   Enter retry, and the agent sat idle asking for the path. The same text sent later to the running agent arrived whole.
+   After the turn has started, `start` looks up the agent's transcript by session id (the lookup `collect` uses) for up
+   to the submit budget. It compares the first user prompt there with the prompt it sent, ignoring leading and
+   trailing whitespace. For Codex that is the first `event_msg` of type `user_message`. For Claude it is the first
+   `type: user` line whose content is text and not a tool result. `metadata.dispatch.prompt_received` records the
+   result:
+   - true when the two match;
+   - false when they differ;
+   - null, with `prompt_check_note`, when no transcript or prompt is found.
+   False does not fail the start and closes nothing. The output adds `"warning": "prompt_truncated"`, and `status`
+   shows `prompt_received`. The coordinator decides what to do; dispatch never sends the prompt again.
 
 ## P1. Ownership and resources on `start`
 
@@ -156,6 +169,9 @@ answer is in `ok`. The coordinator runs `gate` before starting or closing a G no
 6. **Reconcile:**
    - `worktree_dirty` is null when the worktree does not exist.
    - An unchanged state keeps the stored `review` record, including `detected_at`, and adds no comment.
+7. **Stored verdicts (compatibility).** `collect` before P5 stored `metadata.receipt.verdict: null` when a receipt had no
+   `verdict`, so a stored null or a missing key both mean no verdict in P2.5 and P6. `collect` stops explicit nulls at
+   intake (P5, P4-V-001). Records already in the graph stay valid without being collected again.
 
 ## Safety
 
