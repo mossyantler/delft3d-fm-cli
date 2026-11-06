@@ -51,9 +51,13 @@ unapproved merges, remote sync. Each needs its own explicit approval.
 7. Run the deterministic gate (Python/CLI), never an LLM, for checks code can
    decide.
 8. On failure, route it by type (see Failure and recovery).
-9. After G approval, close the Beads task with its evidence in `--reason`, add a
-   line to DELIVERY.md「최근 승인」, regenerate the snapshot, and push the approved
-   commits.
+9. After G approval:
+   - close the Beads task with its evidence in `--reason`;
+   - add a line to DELIVERY.md「최근 승인」 and regenerate the snapshot;
+   - run `bdw backup-sync` and commit the refreshed
+     `research/notes/delivery/beads-state.jsonl` with the node
+     ([backup and restore](research/notes/delivery/graph-ops-backup.md));
+   - push the approved commits.
 10. Return to step 1.
 
 Close a task only on evidence you have checked yourself. When you cannot
@@ -78,15 +82,22 @@ confirm a result, leave the task open and record why.
   `create "<CODE>: <title>" --parent <epic> --metadata '{"task_code":"<CODE>"}' -l role:<role>[,needs-lease]`,
   then `dep add <blocked> <blocker>`. `doctor` does not support embedded mode.
   Epics stay open after their children close, so acceptance is the closed G task.
+- Record which worker holds a task with a label or note, and **never as the
+  `--assignee`**. bd treats an assignee as a claim, and then refuses to let anyone
+  else, the coordinator included, update or close the task. If a claim was left
+  behind by a session that has ended, release it with
+  `bd --sandbox unclaim <id> --if-assignee <name>` and record why.
 - What bdw enforces (Phase 1 and BDW-V evidence): pinned bd 1.3.1 SHA-256, the
   out-of-tree workspace, `--sandbox`, metrics/hooks/remote adoption off, and
   `--readonly` plus a read allowlist for workers. Init, sync, dolt, vc, config,
   delete, integrations and caller-supplied `--sandbox/--readonly/--actor` are
   refused for every role. It is a tool policy, not a security boundary. Running
   `bd init` inside the working tree would commit `.beads/`, `.gitignore` and
-  **whatever is already staged**. Coordinator writes print a harmless
-  `beads.role not configured` warning, because `.git/config` is deliberately
-  kept unchanged.
+  **whatever is already staged**. `beads.role` is set to `maintainer` in local
+  `.git/config` by user decision on 2026-11-06. It only affects bd's issue
+  routing, which this project does not use, and it is unrelated to
+  coordinator/worker permissions. On a new machine, run
+  `git config --local beads.role maintainer` once.
 - Storage: Dolt embedded mode with you as single writer. All worktrees of the
   repository share one Beads workspace. No per-worktree database, no extra
   SQLite. Consider Dolt server mode only when concurrent writers become

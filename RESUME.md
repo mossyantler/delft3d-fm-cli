@@ -32,8 +32,12 @@
 - Codex CLI 0.166.0: 기본 `gpt-6.1-sol` high. V 작업에서 시작 배너로 확인했다.
 - Claude Code 2.1.318: 기본값이 별칭 `opus`라서 작업자를 시작할 때 `--model`을 반드시 지정한다.
 - `bd` 1.3.1은 `research/tools/beads/1.3.1/`에 있고(PATH에는 없음), bdw를 통해서만 쓴다.
-- Beads 작업 공간은 `C:\Users\minyeop\project\delft3d-fm-cli-beads\.beads`다. 백업과 원격 동기화는 아직 없다.
-  이 디렉터리를 잃으면 [이관 영수증](research/notes/delivery/beads-seed-20261106.json)과 이후 기록으로 재구성해야 한다.
+- Beads 작업 공간은 `C:\Users\minyeop\project\delft3d-fm-cli-beads\.beads`다. 백업은 두 가지다:
+  `%OneDrive%\delft3d-fm-cli-beads-backup`의 전체 Dolt 백업과 Git의 `research/notes/delivery/beads-state.jsonl`.
+  둘 다 G를 닫을 때마다 `bdw backup-sync`로 갱신한다. 작업 공간을 잃었을 때는
+  [복원 절차](research/notes/delivery/graph-ops-backup.md#복원-절차-작업-공간을-잃었을-때)를 따른다.
+- `beads.role`은 로컬 `.git/config`에 `maintainer`로 설정했다(bd의 이슈 라우팅에만 쓰이며 권한과 무관).
+  새 컴퓨터에서는 `git config --local beads.role maintainer`를 한 번 실행한다.
 
 다른 컴퓨터나 새 세션에서는 환경을 다시 확인한다. 공유 Git의 staging·commit·push와 네이티브 임대는
 코디네이터가 순서대로 처리한다.

@@ -8,6 +8,7 @@
 - **갱신(코디네이터만):** `DFM_BD_ROLE=coordinator`로 bdw를 통해서만 한다. 작업자는 결과 영수증을 제출한다.
 - **기록 방식:** G Task를 닫을 때 근거를 `--reason`에 남기고, 아래 「최근 승인」에 한 줄을 더한다.
   스냅숏은 `python -m research.workflows.graph.seed report`로 다시 만든다. 손으로 고치지 않는다.
+  그다음 `bdw backup-sync`로 OneDrive Dolt 백업과 `research/notes/delivery/beads-state.jsonl`을 갱신하고, 이 둘을 같은 노드로 커밋한다.
 
 ## 승인 기준점
 
@@ -24,7 +25,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-06 이관 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-BACKUP-G 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -65,6 +66,9 @@
 | GRAPH-OPS | GRAPH-OPS-BDW-G: bdw 통합 검수 | ✓ | `dfm-fmc.4` |
 | GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
 | GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | Ready | `dfm-fmc.6` |
+| GRAPH-OPS | GRAPH-OPS-BACKUP-I: bdw backup-sync (OneDrive Dolt + Git JSONL) | ✓ | `dfm-fmc.7` |
+| GRAPH-OPS | GRAPH-OPS-BACKUP-V: backup-sync 독립 검증·복원 대조 | ✓ | `dfm-fmc.8` |
+| GRAPH-OPS | GRAPH-OPS-BACKUP-G: 백업 통합 검수·첫 실제 백업 | ✓ | `dfm-fmc.9` |
 | S07 | S07-EDITOR-G: 설치 편집 통합 검수 (8입력 보존) | ✓ | `dfm-lo0.1` |
 | S07 | S07-V-Plan: 풍응력 7사례 판독 기준 (Lovelace) | ✓ | `dfm-lo0.2` |
 | S07 | S07-I: 현재 191파일 기준 새 구성 | Ready | `dfm-lo0.3` |
@@ -87,6 +91,8 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-BACKUP-G | `git log --grep GRAPH-OPS-BACKUP-G` | [백업 방식·복원 확인](research/notes/delivery/graph-ops-backup.md), 실제 백업 두 사본 복원 일치 |
+| GRAPH-OPS-COORD-MODEL | `e7783f6` | 코디네이터 세션 모델 Sol 또는 Opus high (사용자 결정) |
 | GRAPH-OPS-P2-MIGRATE-G | `git log --grep GRAPH-OPS-P2-MIGRATE-G` | [Beads 이관·교차 검수](research/notes/delivery/graph-ops-phase2.md) |
 | GRAPH-OPS-BDW-G | `a8d47db` (V) | [bdw 래퍼 승인](research/notes/delivery/graph-ops-phase2.md#bdw-래퍼-i--v--g), 독립 검증 64/64 |
 | GRAPH-OPS-P0P1 | `0ef1214` | [Phase 0·1 보고](research/notes/delivery/graph-ops-phase0-1.md). 이관 승인이 아니다 |
