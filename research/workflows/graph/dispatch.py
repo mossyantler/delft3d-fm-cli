@@ -423,7 +423,8 @@ def codex_usage(path: Path) -> dict:
     if last is None:
         raise LookupError("the transcript has no token_count event")
     names = {"input_tokens": "input_tokens", "cached_input_tokens": "cached_input_tokens",
-             "cache_creation_input_tokens": "cache_write_tokens", "output_tokens": "output_tokens",
+             "cache_write_input_tokens": "cache_write_tokens", "cache_creation_input_tokens": "cache_write_tokens",
+             "output_tokens": "output_tokens",
              "reasoning_output_tokens": "reasoning_tokens", "total_tokens": "total_tokens"}
     usage = {names[k]: v for k, v in last.items() if k in names and isinstance(v, int)}
     seconds, first, last_t = wall_time(stamps)

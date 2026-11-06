@@ -120,7 +120,7 @@ def codex_fixture(path: Path, session: str):
                 "reasoning_output_tokens": 4, "total_tokens": 110}}}},
         {"timestamp": "2026-11-06T10:05:00.000Z", "type": "event_msg", "payload": {
             "type": "token_count", "info": {"total_token_usage": {
-                "input_tokens": 300, "cached_input_tokens": 120, "output_tokens": 30,
+                "input_tokens": 300, "cached_input_tokens": 120, "cache_write_input_tokens": 7, "output_tokens": 30,
                 "reasoning_output_tokens": 12, "total_tokens": 330}}}},
         {"timestamp": "2026-11-06T10:06:30.000Z", "type": "event_msg", "payload": {"type": "agent_message"}},
     ]
@@ -155,8 +155,8 @@ class Transcripts(unittest.TestCase):
             found = dispatch.find_transcript("codex", "abc123", {"DFM_CODEX_HOME": d})
             self.assertEqual(found, f)
             u = dispatch.codex_usage(f)
-            self.assertEqual(u["tokens"], {"input_tokens": 300, "cached_input_tokens": 120, "output_tokens": 30,
-                                           "reasoning_tokens": 12, "total_tokens": 330})
+            self.assertEqual(u["tokens"], {"input_tokens": 300, "cached_input_tokens": 120, "cache_write_tokens": 7,
+                                           "output_tokens": 30, "reasoning_tokens": 12, "total_tokens": 330})
             self.assertEqual(u["models"], ["gpt-6.1-sol"])
             self.assertEqual(u["wall_seconds"], 390.0)
             self.assertEqual(u["malformed_lines"], 1)  # skipped and counted
@@ -584,6 +584,7 @@ class Integration(unittest.TestCase):
                 self.assertEqual(usage["models"], ["claude-sonnet-5-5"])
             else:
                 self.assertEqual(usage["tokens"]["reasoning_tokens"], 12)
+                self.assertEqual(usage["tokens"]["cache_write_tokens"], 7)  # DISPATCH-V-001
                 self.assertEqual(usage["models"], ["gpt-6.1-sol"])
             self.assertEqual(meta["metrics"]["requested_model"], "m-1")
             self.assertEqual(self.issue(tid)["status"], "in_progress")  # collect never changes the status
