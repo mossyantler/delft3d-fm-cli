@@ -107,7 +107,8 @@ coupled work is listed in the [experiment index](notes/experiments.md) and the
 
 - `workflows/{collection,replay,verification}/` hold the canonical tools. Run them
   as modules from the root: `python -m research.workflows.<group>.<name>`. Old
-  `scripts/` paths forward to the same modules.
+  `scripts/` paths forward to the same modules. `workflows/graph/` holds the
+  coordinator's Beads tooling (bdw, seed).
 - `notes/` holds findings: `collection/` for inventory and capability,
   `replay/` for controlled experiments, `verification/` for gates.
   [`notes/delivery/`](notes/delivery/history-to-20261106.md) archives the

@@ -39,10 +39,11 @@ Contract → I ∥ V-Plan → V-Run → G. What unblocks the next stage is the r
   starts or messages other agents. When a worker finds new work, it asks the
   coordinator to create a node.
 
-**Graph state, 2026-11-06:** active node state and dependencies are moving to
-Beads (`bd`) under the INTENT phases. Until the coordinator records the
-cutover in DELIVERY.md, the active graph is the
-[DELIVERY.md](DELIVERY.md) board. Each status lives in exactly one place.
+**Graph state:** since 2026-11-06, Beads holds active node state and
+dependencies. Read it with
+`python -m research.workflows.graph.bdw show <id>` (or `ready --json --exclude-type epic`)
+from any checkout or worktree. Only the coordinator writes. Each status lives in
+exactly one place.
 
 ## Guardrails
 

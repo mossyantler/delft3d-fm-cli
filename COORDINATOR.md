@@ -15,21 +15,27 @@ evidence. These responsibilities never overlap.
 | --- | --- |
 | 0 Inventory | Done. [Phase 0/1 report](research/notes/delivery/graph-ops-phase0-1.md) |
 | 1 Beads trial | Done. `bd` 1.3.1 at `research/tools/beads/1.3.1/bd.exe`; 15/15 checks in `research/experiments/GRAPH-OPS-P1-20261106-01/verification.json` |
-| 2 Migrate graph | Blocked on user approval of that report and on its §7 preconditions. |
-| 3–5 | Blocked on 2. |
+| 2 Migrate graph | Done 2026-11-06 (user-approved). [Phase 2 record](research/notes/delivery/graph-ops-phase2.md): bdw I/V/G, workspace init, 46-issue seed (7 epics, 39 tasks), DELIVERY cross-check |
+| 3 Herdr integration | Ready: Beads `GRAPH-OPS-P3` |
+| 4–5 | Blocked on 3. |
 
-Until Phase 2 closes, the active graph is the [DELIVERY.md](DELIVERY.md) board,
-and you are its only writer. After cutover, Beads is the single source of truth
-for active state and dependencies. DELIVERY.md then keeps approval records and
-reports generated from Beads, and nobody edits a status by hand in both places.
+Beads is the single source of truth for active state and dependencies. Read and
+write it only through **bdw**:
+`python -m research.workflows.graph.bdw <bd command>`. bdw works from any
+checkout or worktree and derives the shared workspace
+`<main checkout>-beads/.beads` by itself. Writes require `DFM_BD_ROLE=coordinator`
+in your own environment; every other caller is read-only. Do not call `bd.exe`
+directly. [DELIVERY.md](DELIVERY.md) keeps approval records and a snapshot from
+`python -m research.workflows.graph.seed report`. Nobody edits a status by hand.
 
 Not authorized by INTENT or by this file: product code changes, native runs,
 unapproved merges, remote sync. Each needs its own explicit approval.
 
 ## Coordinator loop
 
-1. `bd ready --json --exclude-type epic`, then `bd show <id>` for the candidate only. Never load the
-   whole graph or long histories.
+1. `bdw ready --json --exclude-type epic`, then `bdw show <id>` for the candidate
+   only. Never load the whole graph or long histories. Here `bdw` stands for
+   `python -m research.workflows.graph.bdw`.
 2. Confirm the Contract and prerequisite G approvals. Confirm the evidence exists
    at the cited commit or path.
 3. Check for conflicts in owned paths, shared files, Git operations and native or
@@ -40,7 +46,9 @@ unapproved merges, remote sync. Each needs its own explicit approval.
 7. Run the deterministic gate (Python/CLI), never an LLM, for checks code can
    decide.
 8. On failure, route it by type (see Failure and recovery).
-9. After G approval, close the Beads task and push the approved commits.
+9. After G approval, close the Beads task with its evidence in `--reason`, add a
+   line to DELIVERY.md「최근 승인」, regenerate the snapshot, and push the approved
+   commits.
 10. Return to step 1.
 
 Close a task only on evidence you have checked yourself. When you cannot
@@ -59,17 +67,21 @@ confirm a result, leave the task open and record why.
 - Statuses: Open, In Progress, Blocked, Deferred, Closed. Acceptance is expressed
   as a closed G task with its evidence. I or V being closed is not Epic
   acceptance.
-- Useful commands: `bd ready --json --exclude-type epic` (otherwise epics with no
-  dependencies appear as ready), `bd ready --explain`, `bd blocked`, `bd show`,
-  `bd dep tree`, `bd dep cycles`, `bd graph check`. `bd doctor` does not support
-  embedded mode. Epics stay open after their children close, so acceptance is
-  the closed G task.
-- Safe invocation (Phase 1 evidence): `BEADS_DIR` outside the working tree, the
-  same path in every pane, global `--sandbox`, and `BD_DISABLE_METRICS=1`,
-  `BD_NO_INSTALL_HOOKS=1`, `BD_NO_REMOTE_ADOPT=1`, `BD_NON_INTERACTIVE=1`.
-  Workers add `--readonly`. Running `bd init` inside the working tree commits
-  `.beads/`, `.gitignore` and **whatever is already staged**. Init records git
-  origin as `sync.remote`, so `bd sync` and `bd dolt push` need explicit approval.
+- Useful commands (all through bdw): `ready --json --exclude-type epic` (otherwise
+  epics with no dependencies appear as ready), `ready --explain`, `blocked`,
+  `show`, `dep tree`, `dep cycles`, `graph check`. New task:
+  `create "<CODE>: <title>" --parent <epic> --metadata '{"task_code":"<CODE>"}' -l role:<role>[,needs-lease]`,
+  then `dep add <blocked> <blocker>`. `doctor` does not support embedded mode.
+  Epics stay open after their children close, so acceptance is the closed G task.
+- What bdw enforces (Phase 1 and BDW-V evidence): pinned bd 1.3.1 SHA-256, the
+  out-of-tree workspace, `--sandbox`, metrics/hooks/remote adoption off, and
+  `--readonly` plus a read allowlist for workers. Init, sync, dolt, vc, config,
+  delete, integrations and caller-supplied `--sandbox/--readonly/--actor` are
+  refused for every role. It is a tool policy, not a security boundary. Running
+  `bd init` inside the working tree would commit `.beads/`, `.gitignore` and
+  **whatever is already staged**. Coordinator writes print a harmless
+  `beads.role not configured` warning, because `.git/config` is deliberately
+  kept unchanged.
 - Storage: Dolt embedded mode with you as single writer. All worktrees of the
   repository share one Beads workspace. No per-worktree database, no extra
   SQLite. Consider Dolt server mode only when concurrent writers become
@@ -170,8 +182,8 @@ integration + rework + tools.
 5. Execution log for every start: requested and actual model ID, requested and
    applied effort, runner and version, auth/billing mode, any fallback.
 6. Every Claude assignment tells the worker to read `AGENTS.md` explicitly.
-7. After the Beads cutover, every pane gets the same `BEADS_DIR`, and workers
-   get the read-only wrapper.
+7. Workers read their task with bdw (no extra environment needed). Never set
+   `DFM_BD_ROLE` in a worker's pane.
 
 ## Isolation and ownership
 

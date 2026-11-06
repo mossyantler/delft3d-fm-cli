@@ -1,14 +1,13 @@
 # 공정표
 
-활성 공정의 **현재판**이다. 2026-11-06 이전의 단계별 서술 기록은
-[공정 기록](research/notes/delivery/history-to-20261106.md)에 원문 그대로 보존했다.
-과거 판단의 근거가 필요하면 그 문서를 노드 ID로 검색한다.
+**2026-11-06부터 활성 공정의 상태와 의존성은 Beads가 단일 원본이다**([이관 기록](research/notes/delivery/graph-ops-phase2.md)).
+이 문서에는 승인 기준점, 공정 규칙, 최근 승인 기록, 그리고 Beads에서 생성한 스냅숏만 남긴다.
+2026-11-06 이전의 단계별 서술 기록은 [공정 기록](research/notes/delivery/history-to-20261106.md)에 원문 그대로 있다.
 
-- **갱신자:** 코디네이터 하나([COORDINATOR.md](COORDINATOR.md)). 작업자는 결과 영수증만 제출한다.
-- **상태의 단일 원본:** Beads 이관(INTENT Phase 2) 전까지는 이 문서다. 이관을 마치면
-  활성 상태·의존성은 Beads만 갱신한다. 이 문서에는 승인 기준점과 Beads에서 만든 보고만 남긴다.
-- **기록 방식:** 노드가 닫히면 아래 표의 행을 고치고 「최근 승인」에 한 줄을 더한다.
-  상세 판단은 해당 검증 노트나 실험 영수증에 쓰고 여기에는 링크만 둔다.
+- **조회(누구나):** `python -m research.workflows.graph.bdw ready --json --exclude-type epic`, `... show <id>`, `... blocked`
+- **갱신(코디네이터만):** `DFM_BD_ROLE=coordinator`로 bdw를 통해서만 한다. 작업자는 결과 영수증을 제출한다.
+- **기록 방식:** G Task를 닫을 때 근거를 `--reason`에 남기고, 아래 「최근 승인」에 한 줄을 더한다.
+  스냅숏은 `python -m research.workflows.graph.seed report`로 다시 만든다. 손으로 고치지 않는다.
 
 ## 승인 기준점
 
@@ -25,35 +24,53 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 Epic
+## 활성 공정 스냅숏 (Beads, 2026-11-06 이관 직후)
 
-모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품을
-기반으로 한 결합 wheel을 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는
-[중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)와 그 `dispatch.json`에 있다.
+모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
+승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
+「(임대)」 Task는 Ready가 되어도 실행 허가가 아니다.
 
-| Epic | 현재 후보·근거 | 다음 노드 (Ready 우선) | 선행 관문 |
+| Epic | Task | 상태 | Beads ID |
 | --- | --- | --- | --- |
-| GRAPH-OPS · 공정 관리 전환 | Phase 0·1 완료: [보고](research/notes/delivery/graph-ops-phase0-1.md), bd 1.3.1 격리 시험 15/15 통과 | 사용자 승인 → Phase 2: `BEADS_DIR`·래퍼 결정과 독립 검증 → 실제 이관 → DELIVERY와 교차 검수 | 보고서 §7의 선행 조건 |
-| B06 · 취·방류 | 공개 기록 판독기 Mill `203d9def` 동결. 작성자 82통과는 독립 근거가 아니다. [#225 공개 입력](research/notes/verification/source-sink.md#public-225) | **Ready:** `B06-PROVENANCE-V`. Einstein이 미리 정한 오류 70·정상 6 사례로 독립 검수 → G. 이어서 `B06-RUN-PROFILE-I` 새 구성 → #225의 6입력·170변수와 direct/DIMR 대조 | SHORT-CLOSE-ROOT-G ✓. 실제 실행은 새 임대 필요 |
-| B14 · 분조 일괄 지정 | 실행기 후보 6 `2641efa9`, 계획 `15e9acca`. G 합성 5건·파일 사전검사 통과. V 75건 통과, 최종 판정 미봉인 | **Ready:** 독립 최종 검수 → G. 이후 BMI 4진단(별도 임대), 새 구성의 공개 direct 6사례, 전체 합류 검수 | SHORT-CLOSE-ROOT-G ✓. 4진단만으로 B14 전체를 승인하지 않는다 |
-| S07 · 풍속별 항력 계수 | [설치 편집 통합 검수](research/experiments/S07-G-combined-editor-01/evidence/verification.json): 8입력 보존 | 새 구성 → 풍응력 7사례 엔진 검수(Lovelace 판독) | SHORT-CLOSE-ROOT-G ✓. 입력 검수와 엔진 승인은 별개 |
-| G15 · 구조물 교환 | [계약 승인](research/experiments/G15-PROPOSAL-G-final-01/verification.json). 후보 package-02 작성자 17건 통과, 이후 추가분은 미검증·미동결 | 정확한 후보 동결 → 독립 설치 검수(준비된 공개 30·저장 오류 11) → G. 엔진·GUI는 별도 계획 | 16개 범위와 미지원 항목 유지 |
-| G18 · 관측 단면 교환 | [파일 작업 최종 검수](research/notes/verification/section-transfer.md) 통과(입력 편집만). [수치 계획 승인](research/experiments/G18-NATIVE-PLAN-G-final-01/verification.json), 6사례 미실행 | 새 구성 → 임대 → 6사례 실행과 Mill 독립 대조 → 루트 병합 G | SHORT-CLOSE-ROOT-G ✓. GUI 동등성은 승인 범위 밖 |
-
-```mermaid
-flowchart LR
-    RG[SHORT-CLOSE-ROOT-G df447d8 ✓] --> B06R[B06 새 구성·공개 실행 비교]
-    B06P[B06-PROVENANCE-V 독립 판독기 검수] --> B06R
-    RG --> S07[S07 새 구성·풍응력 7사례]
-    RG --> BD[B14 새 구성·공개 direct 6사례]
-    BV[B14 실행기 후보 6 독립 최종 검수] --> BG[B14 G 후 BMI 4진단]
-    BG --> BA[B14 전체 합류 검수]
-    BD --> BA
-    RG --> GN[G18 실제 6사례·독립 대조]
-    GF[G18 파일 작업 ✓] --> GN
-    TC[G15 계약 ✓] --> TI[G15 후보 동결] --> TV[독립 설치 검수] --> TG[G15 G] --> TP[G15 엔진·GUI 계획]
-    P0[GRAPH-OPS Phase 0·1 ✓] --> PA[사용자 승인] --> P2[Phase 2 Beads 이관]
-```
+| B06 | B06-READER-I: 공개 기록 판독기 Mill 203d9def 동결 | ✓ | `dfm-985.1` |
+| B06 | B06-READER-V-Plan: Einstein 사전 명세 오류 70·정상 6 | ✓ | `dfm-985.2` |
+| B06 | B06-READER-V-Run: 판독기 독립 검수 (작성자 82통과는 근거 아님) | Ready | `dfm-985.3` |
+| B06 | B06-READER-G: 판독기 통합 검수 | Blocked | `dfm-985.4` |
+| B06 | B06-RUN-PROFILE-I: 현재 191파일 기준 새 구성·공개 실행 프로필 | Blocked | `dfm-985.5` |
+| B06 | B06-RUN-PROFILE-V-Plan: #225 6입력·170변수 사전 기준 (Mill) | Ready | `dfm-985.6` |
+| B06 | B06-RUN-PROFILE-V-Run: direct/DIMR 공개 실행 대조 (임대) | Blocked | `dfm-985.7` |
+| B06 | B06-RUN-PROFILE-G: B06 실행 프로필 통합·루트 병합 | Blocked | `dfm-985.8` |
+| B14 | B14-RUNNER-I: BMI 실행기 후보 6 2641efa9 동결 | ✓ | `dfm-jtm.1` |
+| B14 | B14-RUNNER-V-Plan: 독립 검사 75건 (Plato) | ✓ | `dfm-jtm.2` |
+| B14 | B14-RUNNER-V-Run: 실행기 독립 최종 검수·판정 봉인 | Ready | `dfm-jtm.3` |
+| B14 | B14-RUNNER-G: 실행기 통합 검수 | Blocked | `dfm-jtm.4` |
+| B14 | B14-BMI-V-Run: BMI 4진단 실제 실행 (4진단만으로 B14 승인 아님) (임대) | Blocked | `dfm-jtm.5` |
+| B14 | B14-PUBLIC-I: 현재 191파일 기준 새 구성 | Ready | `dfm-jtm.6` |
+| B14 | B14-PUBLIC-V-Run: 공개 direct 6사례 (임대) | Blocked | `dfm-jtm.7` |
+| B14 | B14-G: B14 전체 합류 검수 | Blocked | `dfm-jtm.8` |
+| G15 | G15-Contract: 수정 계약 승인 (23의무·16범위) | ✓ | `dfm-h9c.1` |
+| G15 | G15-V-Plan: 공개 30·저장 오류 11 시험 준비 (Lovelace) | ✓ | `dfm-h9c.2` |
+| G15 | G15-I: 정확한 후보 확정·동결 (package-02 이후 추가분 포함) | Ready | `dfm-h9c.3` |
+| G15 | G15-V-Run: 독립 설치 검수 | Blocked | `dfm-h9c.4` |
+| G15 | G15-G: G15 파일 기능 통합 검수 | Blocked | `dfm-h9c.5` |
+| G15 | G15-ENGINE-Contract: 엔진·GUI 검증 별도 계획 | Blocked | `dfm-h9c.6` |
+| G18 | G18-FILE-G: 파일 작업 최종 검수 (입력 편집만) | ✓ | `dfm-vbl.1` |
+| G18 | G18-NATIVE-V-Plan: 수치 검증 계획·입력 동결 (Mill) | ✓ | `dfm-vbl.2` |
+| G18 | G18-NATIVE-I: 현재 191파일 기준 새 구성 | Ready | `dfm-vbl.3` |
+| G18 | G18-NATIVE-V-Run: 6사례 실행·Mill 독립 대조 (임대) | Blocked | `dfm-vbl.4` |
+| G18 | G18-G: G18 루트 병합 통합 검수 | Blocked | `dfm-vbl.5` |
+| GRAPH-OPS | GRAPH-OPS-P0P1: Phase 0 현황 점검·Phase 1 격리 시험 보고, 사용자 승인 2026-11-06 | ✓ | `dfm-fmc.1` |
+| GRAPH-OPS | GRAPH-OPS-BDW-I: bdw 래퍼 구현 | ✓ | `dfm-fmc.2` |
+| GRAPH-OPS | GRAPH-OPS-BDW-V: bdw 독립 검증 (Codex gpt-6.1-sol high) | ✓ | `dfm-fmc.3` |
+| GRAPH-OPS | GRAPH-OPS-BDW-G: bdw 통합 검수 | ✓ | `dfm-fmc.4` |
+| GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
+| GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | Ready | `dfm-fmc.6` |
+| S07 | S07-EDITOR-G: 설치 편집 통합 검수 (8입력 보존) | ✓ | `dfm-lo0.1` |
+| S07 | S07-V-Plan: 풍응력 7사례 판독 기준 (Lovelace) | ✓ | `dfm-lo0.2` |
+| S07 | S07-I: 현재 191파일 기준 새 구성 | Ready | `dfm-lo0.3` |
+| S07 | S07-V-Run: 풍응력 7사례 엔진 검수 (임대) | Blocked | `dfm-lo0.4` |
+| S07 | S07-G: S07 통합 검수 | Blocked | `dfm-lo0.5` |
+| SHORT-CLOSE | SHORT-CLOSE-ROOT-G: 제품 통합 승인 df447d8 | ✓ | `dfm-nh0.1` |
 
 ## 공정 규칙
 
@@ -70,7 +87,9 @@ flowchart LR
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
-| GRAPH-OPS-P0P1 | `git log --grep GRAPH-OPS-P0P1` | [Phase 0·1 보고](research/notes/delivery/graph-ops-phase0-1.md). 이관 승인이 아니다 |
+| GRAPH-OPS-P2-MIGRATE-G | `git log --grep GRAPH-OPS-P2-MIGRATE-G` | [Beads 이관·교차 검수](research/notes/delivery/graph-ops-phase2.md) |
+| GRAPH-OPS-BDW-G | `a8d47db` (V) | [bdw 래퍼 승인](research/notes/delivery/graph-ops-phase2.md#bdw-래퍼-i--v--g), 독립 검증 64/64 |
+| GRAPH-OPS-P0P1 | `0ef1214` | [Phase 0·1 보고](research/notes/delivery/graph-ops-phase0-1.md). 이관 승인이 아니다 |
 | GRAPH-OPS-DOC | `04aba08` | 에이전트 지침 분리, 공정표 현재판 전환 |
 | GRAPH-OPS-INTENT | `19cbd35` | INTENT.md 등록 |
 | SHORT-CLOSE-ROOT-DOC | `607c61c` | 재개 문서와 다음 관문 기록 |
