@@ -82,6 +82,19 @@ confirm a result, leave the task open and record why.
   `create "<CODE>: <title>" --parent <epic> --metadata '{"task_code":"<CODE>"}' -l role:<role>[,needs-lease]`,
   then `dep add <blocked> <blocker>`. `doctor` does not support embedded mode.
   Epics stay open after their children close, so acceptance is the closed G task.
+- **Human nodes** record every decision that belongs to the user: phase
+  transitions, premium calls, native runs, merges, pushes, remote sync, tool
+  installs, and any other question the coordinator cannot settle.
+  - Before the step, create
+    `HUMAN-<yyyymmdd>-<nn>: <question>` under the epic with labels `human,role:human`
+    and metadata `{"task_code","kind":"user_decision"}`, then
+    `dep add <step> <human-node>`. The step cannot become Ready until the user
+    decides.
+  - Ask the user in chat. Record the verbatim decision in metadata `answer` and in
+    the close `--reason`, then close the node (user decision 2026-11-06,
+    `HUMAN-20261106-11`).
+  - If a worker asks the user directly, record that answer the same way.
+  - Pending decisions: `bdw list --label human` (open only).
 - Record which worker holds a task with a label or note, and **never as the
   `--assignee`**. bd treats an assignee as a claim, and then refuses to let anyone
   else, the coordinator included, update or close the task. If a claim was left
