@@ -86,3 +86,37 @@ verifiers pass, `python -m compileall -q research/workflows` is clean, and each 
 6. **Paths:** the packet is resolved (symlinks and junctions followed) and must lie inside the main checkout's
    `research/experiments/`. The task code must match `^[A-Z0-9][A-Z0-9-]*$`, or `start` refuses. An agent is
    live when `agent get` succeeds and its pane id equals the recorded one.
+
+## G record
+
+G approves `641c887` (merged in `09de210`). Beads `dfm-fmc.30`–`.32`, smoke `dfm-fmc.33`.
+
+- **I:** Claude Sonnet 5.5 high in pane `dispatch-i`, worktree branch `wt/GRAPH-OPS-P3-DISPATCH-I`. Rounds: `be88d93`, then `641c887`.
+  The worker's open questions were answered by the coordinator: frozen-verifier pins, transcript shapes, `pane_id` location.
+- **V:** Codex gpt-6.1-sol high in pane `dispatch-v`, run in parallel with I for V-Plan. V-Plan listed six
+  ambiguities, which C4 answered.
+  - V-Run on `be88d93`: REJECT 281/282. DISPATCH-V-001: Codex `cache_write_input_tokens` was dropped. The cause
+    was that the coordinator gave the real transcript keys to V only, not to I.
+  - V-Run rev2 on `641c887` with the verifier unchanged: PASS 282/282. The author suite exceeded the
+    verifier's own 180 s limit and passed 25/25 in 250 s.
+- **G checks:**
+  - The merged files are byte-identical to `641c887`. The author tests pass on main.
+  - Live run against the real Herdr session: `start` (14 s), `show` (worker role), `collect` (real Claude
+    transcript), `stop` (pane closed, worktree removed).
+  - `collect` and `stop` also worked on the two hand-recorded sessions (I and V).
+- **Measured usage** (from `collect`; Codex `input` includes cached input, Claude `input` excludes it):
+
+| Node | Model | Wall (transcript span) | Input (uncached) | Cached read | Cache write | Output |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| DISPATCH-I (2 rounds) | claude-sonnet-5-5 | 6,934 s | 159 | 11,115,542 | 174,370 | 82,600 |
+| DISPATCH-V (Plan + 2 runs) | gpt-6.1-sol | 7,109 s | 120,276 | 11,247,872 | 0 | 99,445 (46,109 reasoning) |
+| P3-SMOKE (trivial) | claude-sonnet-5-5 | 18 s | 8 | 234,266 | 31,800 | 581 |
+
+  The smoke row shows the fixed cost of one Claude worker turn cycle: about 32 K tokens of context
+  written to cache, then read back on each turn. Wall spans include idle time between rounds.
+  Codex weekly usage stood at 91 % after V. No savings claim yet: Phase 5 compares similar tasks.
+- **Follow-ups:**
+  - `test_dispatch` takes about 250 s.
+  - `bdw create --silent` output once failed to yield the id inside a shell pipeline.
+  - Settled-state detection needs the receipt file plus a screen check, because idle agents can still have
+    background work.

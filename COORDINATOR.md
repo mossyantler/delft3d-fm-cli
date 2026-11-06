@@ -21,7 +21,7 @@ evidence. These responsibilities never overlap.
 | 0 Inventory | Done. [Phase 0/1 report](research/notes/delivery/graph-ops-phase0-1.md) |
 | 1 Beads trial | Done. `bd` 1.3.1 at `research/tools/beads/1.3.1/bd.exe`; 15/15 checks in `research/experiments/GRAPH-OPS-P1-20261106-01/verification.json` |
 | 2 Migrate graph | Done 2026-11-06 (user-approved). [Phase 2 record](research/notes/delivery/graph-ops-phase2.md): bdw I/V/G, workspace init, 46-issue seed (7 epics, 39 tasks), DELIVERY cross-check |
-| 3 Herdr integration | Ready: Beads `GRAPH-OPS-P3` |
+| 3 Herdr integration | In progress. Dispatch tool approved ([record](research/notes/delivery/graph-ops-p3-dispatch.md#g-record)); next: real pilot task and interruption-recovery test (Beads `GRAPH-OPS-P3`) |
 | 4–5 | Blocked on 3. |
 
 Beads is the single source of truth for active state and dependencies. Read and
@@ -198,6 +198,22 @@ integration + rework + tools.
   seen IDs or prices are not verified settings.
 
 ## Starting agents
+
+Use **dispatch** for every assignment (coordinator only):
+
+```powershell
+python -m research.workflows.graph.dispatch start <id> --packet research/experiments/<run>/TASK.md `
+    --kind claude|codex --model <verified-id> --effort <level> [--name <agent>]
+python -m research.workflows.graph.dispatch show <id>         # any role
+python -m research.workflows.graph.dispatch collect <id> --receipt <file>
+python -m research.workflows.graph.dispatch stop <id>
+```
+
+`start` creates `<main>-wt/<CODE>`, splits a pane, starts the agent, sends the packet and
+records pane, session and model in the node. `collect` stores the receipt and the
+transcript's token usage. `stop` closes the pane and removes a clean worktree. An agent
+that is `idle` or `done` may still have background work: wait for the receipt file and
+for the screen to show no running shell before you collect. The steps below still apply.
 
 1. Confirm `HERDR_ENV=1`. In Herdr, use the herdr skill (INTENT §15.11
    authorizes it). Outside Herdr, built-in subagents are allowed under the same

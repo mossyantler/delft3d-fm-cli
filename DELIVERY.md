@@ -26,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-VIEWER-G 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-P3-DISPATCH-G 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -77,7 +77,17 @@
 | GRAPH-OPS | HUMAN-20261106-09: GitHub 푸시 | ✓ | `dfm-fmc.21` |
 | GRAPH-OPS | HUMAN-20261106-10: VIEWER-V 지시서 모호성 (소유 폴더의 임시 저장소에서 실행 여부) | ✓ | `dfm-fmc.22` |
 | GRAPH-OPS | HUMAN-20261106-11: human 노드 방식 | ✓ | `dfm-fmc.23` |
+| GRAPH-OPS | HUMAN-20261106-12: GitHub 푸시 (VIEWER 완료분) | ✓ | `dfm-fmc.24` |
+| GRAPH-OPS | DUPLICATE of dfm-fmc.24 (created twice by a coordinator script error) | ✓ | `dfm-fmc.25` |
+| GRAPH-OPS | HUMAN-20261106-13: Start Phase 3 (GRAPH-OPS-P3) | ✓ | `dfm-fmc.26` |
+| GRAPH-OPS | HUMAN-20261106-14: Agent language | ✓ | `dfm-fmc.27` |
+| GRAPH-OPS | HUMAN-20261106-15: Models for GRAPH-OPS-P3-DISPATCH | ✓ | `dfm-fmc.28` |
+| GRAPH-OPS | HUMAN-20261106-16: Permission mode for Claude workers in Herdr panes | ✓ | `dfm-fmc.29` |
 | GRAPH-OPS | GRAPH-OPS-BDW-V: bdw 독립 검증 (Codex gpt-6.1-sol high) | ✓ | `dfm-fmc.3` |
+| GRAPH-OPS | GRAPH-OPS-P3-DISPATCH-I: dispatch tool and bdw human/gate allowlist | ✓ | `dfm-fmc.30` |
+| GRAPH-OPS | GRAPH-OPS-P3-DISPATCH-V: independent verification of dispatch and the allowlist | ✓ | `dfm-fmc.31` |
+| GRAPH-OPS | GRAPH-OPS-P3-DISPATCH-G: integration review of dispatch | ✓ | `dfm-fmc.32` |
+| GRAPH-OPS | GRAPH-OPS-P3-SMOKE: live dispatch smoke test (G of GRAPH-OPS-P3-DISPATCH) | ✓ | `dfm-fmc.33` |
 | GRAPH-OPS | GRAPH-OPS-BDW-G: bdw 통합 검수 | ✓ | `dfm-fmc.4` |
 | GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
 | GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | Ready | `dfm-fmc.6` |
@@ -106,6 +116,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-P3-DISPATCH-G | `09de210` (merge of `641c887`) | [dispatch 도구 승인](research/notes/delivery/graph-ops-p3-dispatch.md#g-record). 독립 검증 2회차 PASS 282건, 실제 Herdr 시험 통과 |
 | GRAPH-OPS-VIEWER-G | `git log --grep GRAPH-OPS-VIEWER` | 로컬 bv 대시보드(사용자 결정). 독립 검증 3회차 PASS 224건, 앞선 두 회차 결함 4건 수정 |
 | GRAPH-OPS-BACKUP-G | `git log --grep GRAPH-OPS-BACKUP-G` | [백업 방식·복원 확인](research/notes/delivery/graph-ops-backup.md), 실제 백업 두 사본 복원 일치 |
 | GRAPH-OPS-COORD-MODEL | `e7783f6` | 코디네이터 세션 모델 Sol 또는 Opus high (사용자 결정) |
