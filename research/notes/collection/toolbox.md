@@ -19,6 +19,7 @@ digests. Downloading a tool is separate from exercising it.
 | PowerShell/CIM | Installed processes, ancestry and loaded application modules | Scoped process capture exercised |
 | Codex Windows Computer Use | Visual inspection and reversible GUI navigation | Live window inspected; accessibility tree unavailable in this view |
 | [Beads](https://github.com/gastownhall/beads) `bd` 1.3.1 (`c1c4b642a`) | Task graph for the coordinator (GRAPH-OPS) | Local `research/tools/beads/1.3.1/bd.exe`, SHA-256 `ac5b6011…a7be7a4`; release zip `48cd82e1…5e666af76` matched the release `checksums.txt`. Trial only: [Phase 0/1 report](../delivery/graph-ops-phase0-1.md) |
+| [beads_viewer](https://github.com/Dicklesworthstone/beads_viewer) `bv` 0.25.2 | Local Beads dashboard (static pages, TUI) | Local `research/tools/bv/0.25.2/bv.exe`, SHA-256 `6ed65731…b381e1`; release zip `0378af76…01b5a` matched the release `checksums.txt`. Reads only a JSONL copy via `research/workflows/graph/dashboard.py` |
 
 The ILSpy GUI archive was verified against the SHA-256 digest returned by its
 official GitHub release metadata. No global .NET installation was required.
