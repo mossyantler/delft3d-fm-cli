@@ -65,7 +65,8 @@ Beads metadata written (every key is a plain JSON value; other keys are preserve
     (its attempt was interrupted) is stored with ``interrupted: true`` and
     ``interrupted_detected_at`` (Contract C5.2); its other fields stay unchanged.
 ``metadata.receipt`` (``collect``)
-    path, sha256, outcome, verdict, candidate_sha, collected_at.
+    path, sha256, outcome, verdict, candidate_sha, collected_at. ``verdict`` is recorded only when the
+    receipt has the key (an explicit null is refused by ``collect``); an omitted verdict stays absent.
 ``metadata.metrics`` (``collect``)
     attempt, agent, kind, requested_model, requested_effort, collected_at, usage (null when
     no transcript was found) and usage_unavailable_reason. ``usage`` holds source, transcript,
@@ -212,11 +213,11 @@ def active_dispatches(environ: dict[str, str], cwd: Path, issues: list[dict] | N
 def receipt_failure(receipt: dict) -> str | None:
     """Why a collected receipt counts as a failure (Contract P2.5), else None.
 
-    A ``verdict`` other than PASS fails; so does an ``outcome`` that contains fail or reject. A receipt
-    without a verdict (an implementer's receipt) is judged by its outcome alone.
+    A ``verdict`` key that is present with any value other than PASS (null included) fails; so does an
+    ``outcome`` that contains fail or reject. A receipt that omits the key (an implementer's receipt) is
+    judged by its outcome alone.
     """
-    verdict = receipt.get("verdict")
-    if verdict is not None and verdict != "PASS":
+    if "verdict" in receipt and (verdict := receipt["verdict"]) != "PASS":
         return f"receipt verdict is {verdict!r}, not 'PASS'"
     outcome = receipt.get("outcome")
     if isinstance(outcome, str) and re.search(r"fail|reject", outcome, re.IGNORECASE):
@@ -821,8 +822,7 @@ def check_receipt(receipt: dict, receipt_path: Path, rec: dict, main: Path) -> N
             target = (receipt_path.parent / entry) if isinstance(entry, str) and entry else None
             if target is None or not target.exists():
                 raise Refusal("missing_evidence", f"evidence entry {entry!r} does not exist")
-    verdict = receipt.get("verdict")
-    if verdict is not None and verdict not in VERDICTS:
+    if "verdict" in receipt and (verdict := receipt["verdict"]) not in VERDICTS:
         raise Refusal("bad_verdict", f"verdict {verdict!r} is not one of {', '.join(VERDICTS)}")
 
 
@@ -846,8 +846,10 @@ def cmd_collect(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> di
     check_receipt(receipt, receipt_path, rec, bdw.derive_paths(cwd, environ).main)
     usage, reason = usage_for(rec, environ)
     receipt_rec = {"path": str(receipt_path), "sha256": sha256_of(receipt_path),
-                   "outcome": receipt.get("outcome"), "verdict": receipt.get("verdict"),
+                   "outcome": receipt.get("outcome"),
                    "candidate_sha": receipt.get("candidate_sha"), "collected_at": now()}
+    if "verdict" in receipt:
+        receipt_rec["verdict"] = receipt["verdict"]
     metrics = {"attempt": rec.get("attempt"), "agent": rec.get("agent"), "kind": rec.get("kind"),
                "requested_model": rec.get("model"), "requested_effort": rec.get("effort"),
                "usage": usage, "usage_unavailable_reason": reason, "collected_at": receipt_rec["collected_at"]}

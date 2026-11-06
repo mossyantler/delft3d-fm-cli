@@ -348,10 +348,21 @@ class IntegrationBase:
     def clear_log(self):
         (self.fake_dir / "log.jsonl").unlink(missing_ok=True)
 
+    OMIT = object()  # as a receipt field value: leave that key out of the receipt file
+
     def receipt(self, code, **fields):
         p = self.base / f"receipt-{code}.json"
-        p.write_text(json.dumps({"task_code": code, "outcome": "completed", "verdict": "PASS", **fields}))
+        body = {"task_code": code, "outcome": "completed", "verdict": "PASS", **fields}
+        p.write_text(json.dumps({k: v for k, v in body.items() if v is not self.OMIT}))
         return p
+
+    def store_explicit_null_verdict(self, tid):
+        """Write metadata.receipt.verdict = null directly, as an older or hand-edited record would hold it."""
+        meta = self.meta(tid)
+        meta["receipt"]["verdict"] = None
+        r = self.bdw(["update", tid, "--metadata", json.dumps(meta)], "coordinator")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("verdict", self.meta(tid)["receipt"])
 
     def comment_count(self, tid):
         return self.issue(tid)["comment_count"]
@@ -908,6 +919,8 @@ class Policy(unittest.TestCase):
         self.assertIsNone(f({"verdict": "PASS", "outcome": "completed"}))
         self.assertIsNone(f({"outcome": "completed"}))  # an implementer's receipt has no verdict
         self.assertIsNone(f({}))
+        self.assertTrue(f({"verdict": None}))  # an explicit null is a failure (P4-V-001)
+        self.assertTrue(f({"verdict": None, "outcome": "completed"}))
         self.assertTrue(f({"verdict": "REJECT"}))
         self.assertTrue(f({"verdict": "pass"}))
         self.assertTrue(f({"verdict": "PASS", "outcome": "Failed 3 of 9"}))
@@ -1197,11 +1210,12 @@ class Parallel(IntegrationBase, unittest.TestCase):
         self.assert_nothing_started(x, code)
 
     def test_failed_predecessors_are_refused_and_good_ones_pass(self):
+        OMIT = self.OMIT
         cases = {"T-PRE-REJECT": ({"verdict": "REJECT", "outcome": "completed"}, "failed_predecessor"),
                  "T-PRE-OUTFAIL": ({"outcome": "tests FAILED"}, "failed_predecessor"),
                  "T-PRE-OUTREJ": ({"verdict": "PASS", "outcome": "Rejected by G"}, "failed_predecessor"),
                  "T-PRE-PASS": ({"verdict": "PASS", "outcome": "completed"}, None),
-                 "T-PRE-NOVERDICT": ({"outcome": "completed"}, None)}
+                 "T-PRE-NOVERDICT": ({"outcome": "completed", "verdict": OMIT}, None)}
         for dep_code, (receipt, reason) in cases.items():
             dep = self.finished_predecessor(dep_code, receipt)
             code = dep_code + "-X"
@@ -1215,6 +1229,16 @@ class Parallel(IntegrationBase, unittest.TestCase):
             else:
                 self.assertEqual(r.returncode, 0, (dep_code, r.stdout, r.stderr))
                 self.retire(x)
+
+    def test_a_stored_explicit_null_verdict_fails_the_predecessor_check(self):
+        dep = self.finished_predecessor("T-PRE-NULL", {"outcome": "completed"})
+        self.store_explicit_null_verdict(dep)
+        code = "T-PRE-NULL-X"
+        x = self.make(code)
+        self.depends(x, dep)
+        self.clear_log()
+        self.refused(self.start(x, code), "failed_predecessor")
+        self.assert_nothing_started(x, code)
 
     def test_a_predecessor_that_was_never_dispatched_is_judged_by_status_alone(self):
         dep = self.task("T-PRE-PLAIN")
@@ -1567,12 +1591,20 @@ class Parallel(IntegrationBase, unittest.TestCase):
     def test_collect_checks_the_verdict_and_records_a_reject(self):
         code = "T-COL-VERDICT"
         tid, _ = self.launch(code)
-        for bad in ("pass", "reject", "MAYBE", "", 1):
+        for bad in ("pass", "reject", "MAYBE", "", 1, None):  # None: an explicit "verdict": null (P4-V-001)
             self.refused_collect(tid, code, verdict=bad)
         self.assertEqual(self.collect(tid, code, verdict="REJECT", outcome="rejected").returncode, 0)
         self.assertEqual(self.meta(tid)["receipt"]["verdict"], "REJECT")
         self.assertEqual(self.collect(tid, code, verdict="PASS").returncode, 0)
         self.assertEqual(self.meta(tid)["receipt"]["verdict"], "PASS")
+
+    def test_collect_accepts_an_omitted_verdict_and_does_not_record_one(self):
+        code = "T-COL-NOVERDICT"
+        tid, _ = self.launch(code)
+        self.assertEqual(self.collect(tid, code, verdict=self.OMIT).returncode, 0)
+        rec = self.meta(tid)["receipt"]
+        self.assertNotIn("verdict", rec)
+        self.assertEqual(rec["outcome"], "completed")
 
     # -- P6 gate
     def gate(self, node, role="worker"):
@@ -1602,7 +1634,7 @@ class Parallel(IntegrationBase, unittest.TestCase):
         self.assertEqual({r["dependency"]: r["code"] for r in out["reasons"]},
                          {i_node: "missing_receipt", v_plan: "missing_receipt"})
         # a failed receipt keeps the gate closed; valid ones open it
-        self.assertEqual(self.collect(i_node, "T-GATE-I", outcome="completed").returncode, 0)
+        self.assertEqual(self.collect(i_node, "T-GATE-I", outcome="completed", verdict=self.OMIT).returncode, 0)
         self.assertEqual(self.collect(v_plan, "T-GATE-VPLAN", verdict="REJECT").returncode, 0)
         out = self.gate(g)
         self.assertEqual({r["dependency"]: r["code"] for r in out["reasons"]}, {v_plan: "failed_predecessor"})
@@ -1612,6 +1644,18 @@ class Parallel(IntegrationBase, unittest.TestCase):
         self.assertEqual(out["reasons"], [])
         self.assertEqual(self.issue(g)["status"], before["status"])  # read-only
         self.assertEqual(self.herdr_calls("agent", "prompt"), [])
+
+    def test_gate_treats_a_stored_explicit_null_verdict_as_a_failure(self):
+        g = self.make("T-GATE-NULL-G")
+        dep, _ = self.launch("T-GATE-NULL")
+        self.depends(g, dep)
+        self.assertEqual(self.collect(dep, "T-GATE-NULL", verdict=self.OMIT).returncode, 0)
+        self.close(dep)
+        self.assertIs(self.gate(g)["ok"], True)  # omission is valid
+        self.store_explicit_null_verdict(dep)
+        out = self.gate(g)
+        self.assertIs(out["ok"], False)
+        self.assertEqual({r["dependency"]: r["code"] for r in out["reasons"]}, {dep: "failed_predecessor"})
 
     def test_gate_for_a_mock_contract_graph(self):
         contract = self.make("T-MOCK-CONTRACT")
