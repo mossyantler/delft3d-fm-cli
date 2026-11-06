@@ -17,6 +17,10 @@ refusal or failure is exit 2 with one JSON object on stderr that has a ``refused
 ``error`` key (a failed ``start`` adds a ``cleanup`` key). Dispatch never commits, pushes
 or edits the main checkout.
 
+``start`` checks that the prompt began a turn (Contract C5.1): it polls ``agent get`` for up to
+``DFM_DISPATCH_SUBMIT_SECONDS`` (default 30), presses Enter once with ``agent send-keys <name> enter``
+when nothing started, and polls again. The JSON output has ``submit_retry`` (true when Enter was needed).
+
 Beads metadata written (every key is a plain JSON value; other keys are preserved):
 
 ``metadata.dispatch`` (written by ``start``, completed by ``stop``)
@@ -26,7 +30,9 @@ Beads metadata written (every key is a plain JSON value; other keys are preserve
     checkout), packet_sha256, started_at (UTC ISO 8601), attempt (1, 2, ...),
     permission_mode (claude only), ended_at (set by ``stop``).
 ``metadata.dispatch_history``
-    list of earlier ``dispatch`` records, oldest first.
+    list of earlier ``dispatch`` records, oldest first. A record that never got an ``ended_at``
+    (its attempt was interrupted) is stored with ``interrupted: true`` and
+    ``interrupted_detected_at`` (Contract C5.2); its other fields stay unchanged.
 ``metadata.receipt`` (``collect``)
     path, sha256, outcome, verdict, candidate_sha, collected_at.
 ``metadata.metrics`` (``collect``)
@@ -60,6 +66,8 @@ TASK_CODE = re.compile(r"[A-Za-z0-9][A-Za-z0-9-]*")  # Contract C4.6 as amended:
 BLOCKING_DEPENDENCIES = {"blocks", "conditional-blocks", "waits-for"}
 SETTLED = {"idle", "done"}
 HERDR_TIMEOUT = 240
+SUBMIT_SECONDS = 30.0  # Contract C5.1; DFM_DISPATCH_SUBMIT_SECONDS overrides it (tests)
+TURN_STATES = {"working", "blocked", "done"}
 
 
 class Failure(Exception):
@@ -159,7 +167,8 @@ def herdr(environ: dict[str, str], cwd: Path, *args: str) -> dict:
 def agent_info(reply: dict) -> dict:
     agent = (reply.get("result") or {}).get("agent") or {}
     session = agent.get("agent_session") or {}
-    return {"status": agent.get("agent_status"),
+    seq = agent.get("state_change_seq")
+    return {"status": agent.get("agent_status"), "state_change_seq": seq if isinstance(seq, int) else None,
             "session_id": session.get("value") if isinstance(session, dict) else None,
             "pane_id": agent.get("pane_id"), "agent": agent}
 
@@ -188,6 +197,34 @@ def read_session(environ: dict[str, str], cwd: Path, name: str, attempts: int = 
         time.sleep(1.0)
         info = agent_info(herdr(environ, cwd, "agent", "get", name))
     return info
+
+
+def submit_seconds(environ: dict[str, str]) -> float:
+    try:
+        return max(0.0, float(environ["DFM_DISPATCH_SUBMIT_SECONDS"]))
+    except (KeyError, ValueError):
+        return SUBMIT_SECONDS
+
+
+def wait_for_turn(environ: dict[str, str], cwd: Path, name: str, baseline: int | None, budget: float) -> bool:
+    """Poll ``agent get`` until a turn has started (C5.1) or the budget is spent.
+
+    A turn has started when the status is working, blocked or done, or when ``state_change_seq``
+    grew past the baseline (the value before the prompt, else the first value seen here).
+    """
+    deadline = time.monotonic() + budget
+    interval = min(1.0, max(0.05, budget / 10))
+    seen = baseline
+    while True:
+        info = agent_info(herdr(environ, cwd, "agent", "get", name))
+        seq = info["state_change_seq"]
+        if info["status"] in TURN_STATES or (seq is not None and seen is not None and seq > seen):
+            return True
+        if seen is None:
+            seen = seq
+        if time.monotonic() >= deadline:
+            return False
+        time.sleep(interval)
 
 
 def recorded_agent_is_live(environ: dict[str, str], cwd: Path, rec: dict) -> bool:
@@ -296,21 +333,32 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
     worktree = main.parent / f"{main.name}-wt" / code
     created = prepare_worktree(main, worktree, base)
     new_pane = None
+    submit_retry = None  # set once the prompt stage is reached; carried into a failure's JSON
     try:
         split = herdr(environ, cwd, "pane", "split", caller_pane, "--direction", "right", "--cwd", str(worktree),
                       "--no-focus")
         new_pane = ((split.get("result") or {}).get("pane") or {}).get("pane_id")
         if not new_pane:
             raise Failure(f"herdr pane split returned no pane id: {split}")
-        herdr(environ, cwd, "agent", "start", name, "--kind", a.kind, "--pane", new_pane, "--",
-              *agent_args(a.kind, a.model, a.effort))
+        started = herdr(environ, cwd, "agent", "start", name, "--kind", a.kind, "--pane", new_pane, "--",
+                        *agent_args(a.kind, a.model, a.effort))
+        baseline = agent_info(started)["state_change_seq"]
         herdr(environ, cwd, "agent", "prompt", name, prompt_text(packet))
+        budget = submit_seconds(environ)
+        submit_retry = False
+        if not wait_for_turn(environ, cwd, name, baseline, budget):
+            herdr(environ, cwd, "agent", "send-keys", name, "enter")
+            submit_retry = True
+            if not wait_for_turn(environ, cwd, name, baseline, budget):
+                raise Failure(f"the prompt did not start a turn within {budget:g} s, even after pressing Enter "
+                              f"(DISPATCH-LIVE-001); agent {name} in pane {new_pane}")
         info = read_session(environ, cwd, name)
         fresh_meta = metadata_of(get_issue(a.id, environ, cwd))
         old = fresh_meta.get("dispatch")
         history = list(fresh_meta.get("dispatch_history") or [])
         if isinstance(old, dict):
-            history.append(old)
+            history.append(old if old.get("ended_at") else
+                           {**old, "interrupted": True, "interrupted_detected_at": now()})
         attempt = (int(old.get("attempt", len(history))) if isinstance(old, dict) else 0) + 1
         record = {"agent": name, "pane_id": new_pane, "kind": a.kind, "model": a.model, "effort": a.effort,
                   "session_id": info["session_id"], "worktree": str(worktree), "base_sha": base,
@@ -335,8 +383,11 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         if created:
             cleanup["worktree"] = remove_worktree(main, worktree, base)[1]
         exc.cleanup = cleanup
+        if submit_retry is not None:
+            exc.submit_retry = submit_retry
         raise
-    return {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"]}
+    return {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"],
+            "submit_retry": submit_retry}
 
 
 # ---------------------------------------------------------------- show
@@ -626,7 +677,8 @@ def main(argv: list[str] | None = None) -> int:
               file=sys.stderr)
         return 2
     except Failure as exc:
-        print(json.dumps({"error": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {})}),
+        print(json.dumps({"error": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {}),
+                          **({"submit_retry": exc.submit_retry} if hasattr(exc, "submit_retry") else {})}),
               file=sys.stderr)
         return 2
 

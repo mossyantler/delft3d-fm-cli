@@ -63,18 +63,34 @@ elif args[:2] == ["agent", "start"]:
     pane = args[args.index("--pane") + 1]
     null_session = os.environ.get("FAKE_HERDR_SESSION") in ("after_prompt", "never")
     state["agents"][args[2]] = {"pane": pane, "session": None if null_session else f"sess-{args[2]}",
-                                "status": "idle"}
+                                "status": "idle", "seq": 1, "completion": 0}
     save()
-    print(json.dumps({"result": {"agent": {"agent_status": "idle"}}}))
+    print(json.dumps({"result": {"agent": {"agent_status": "idle", "state_change_seq": 1, "completion_seq": 0}}}))
 elif args[:2] == ["agent", "prompt"]:
     if fail == "prompt":
         error("prompt failed")
     name, a = find(args[2])
-    a["status"] = "working"
+    # FAKE_HERDR_SUBMIT: "" the prompt starts a turn; "enter" only Enter starts it; "never" nothing starts it;
+    # "seq_only" the prompt grows state_change_seq but the status stays idle (Contract C5.1)
+    mode = os.environ.get("FAKE_HERDR_SUBMIT", "")
+    if mode == "":
+        a["status"] = "working"
+        a["seq"] += 1
+    elif mode == "seq_only":
+        a["seq"] += 1
     if os.environ.get("FAKE_HERDR_SESSION") == "after_prompt":
         a["session"] = f"sess-{name}"
     save()
     print(json.dumps({"result": {"submitted": True}}))
+elif args[:2] == ["agent", "send-keys"]:
+    name, a = find(args[2])
+    if a is None:
+        error("no agent for " + args[2])
+    if args[3:] == ["enter"] and os.environ.get("FAKE_HERDR_SUBMIT", "") == "enter":
+        a["status"] = "working"
+        a["seq"] += 1
+    save()
+    print(json.dumps({"result": {"sent": args[3:]}}))
 elif args[:2] == ["agent", "wait"]:
     if fail == "wait":
         error("timeout")
@@ -85,7 +101,8 @@ elif args[:2] == ["agent", "get"]:
         error("no agent for " + args[2])
     session = {"value": a["session"]} if a["session"] else None
     print(json.dumps({"result": {"agent": {"agent_status": a["status"], "agent_session": session, "name": name,
-                                           "pane_id": a["pane"]}}}))
+                                           "pane_id": a["pane"], "state_change_seq": a["seq"],
+                                           "completion_seq": a["completion"]}}}))
 elif args[:2] == ["pane", "close"]:
     for name in [n for n, a in state["agents"].items() if a["pane"] == args[2]]:
         del state["agents"][name]
@@ -420,7 +437,11 @@ class Integration(unittest.TestCase):
         self.assertEqual(second.returncode, 0, second.stdout + second.stderr)
         meta = self.meta(tid)
         self.assertEqual(meta["dispatch"]["attempt"], 2)
-        self.assertEqual(meta["dispatch_history"], [first])
+        # C5.2: the first attempt never got an ended_at, so its history entry is marked interrupted
+        (entry,) = meta["dispatch_history"]
+        self.assertIs(entry.pop("interrupted"), True)
+        self.assertTrue(entry.pop("interrupted_detected_at").endswith("Z"))
+        self.assertEqual(entry, first)
 
     def test_worktree_conflicts_are_refused(self):
         # dirty worktree
@@ -684,6 +705,100 @@ class Integration(unittest.TestCase):
         out = json.loads(self.dispatch(["stop", tid]).stdout)
         self.assertFalse(out["worktree_removed"])
         self.assertTrue(wt.exists())
+
+    # -- C5.1: the prompt must start a turn (DISPATCH-LIVE-001)
+    SUBMIT = {"DFM_DISPATCH_SUBMIT_SECONDS": "1"}
+
+    def submit_start(self, code, mode, kind="claude"):
+        tid = self.task(code)
+        self.clear_log()
+        r = self.start(tid, code, kind=kind, FAKE_HERDR_SUBMIT=mode, **self.SUBMIT)
+        return tid, r
+
+    def test_submit_success_needs_no_retry(self):
+        tid, r = self.submit_start("T-SUBMIT-OK", "")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertIs(json.loads(r.stdout)["submit_retry"], False)
+        self.assertEqual(self.herdr_calls("agent", "send-keys"), [])
+        self.assertEqual(self.issue(tid)["status"], "in_progress")
+
+    def test_submit_seq_growth_counts_as_a_started_turn(self):
+        tid, r = self.submit_start("T-SUBMIT-SEQ", "seq_only")
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertIs(json.loads(r.stdout)["submit_retry"], False)
+        self.assertEqual(self.herdr_calls("agent", "send-keys"), [])
+
+    def test_submit_retry_presses_enter_once_and_succeeds(self):
+        for kind in ("claude", "codex"):
+            code = f"T-SUBMIT-RETRY-{kind.upper()}"
+            tid, r = self.submit_start(code, "enter", kind=kind)
+            self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+            out = json.loads(r.stdout)
+            self.assertIs(out["submit_retry"], True)
+            self.assertEqual(out["agent_status"], "working")
+            keys = self.herdr_calls("agent", "send-keys")
+            self.assertEqual(keys, [["agent", "send-keys", dispatch.default_name(code), "enter"]])
+            order = [c["argv"][:2] for c in self.herdr_log()]
+            self.assertLess(order.index(["agent", "prompt"]), order.index(["agent", "send-keys"]))
+            self.assertEqual(self.herdr_calls("pane", "close"), [])
+            self.assertEqual(self.issue(tid)["status"], "in_progress")
+            self.assertEqual(self.meta(tid)["dispatch"]["session_id"], f"sess-{dispatch.default_name(code)}")
+
+    def test_submit_failure_cleans_up(self):
+        code = "T-SUBMIT-NEVER"
+        tid, r = self.submit_start(code, "never")
+        self.assertEqual(r.returncode, 2, r.stdout + r.stderr)
+        self.assertEqual(r.stdout, "")
+        err = json.loads(r.stderr)
+        self.assertIn("did not start a turn", err["error"])
+        self.assertIs(err["submit_retry"], True)  # Enter was pressed before giving up (C5.1)
+        self.assertEqual(len(self.herdr_calls("agent", "send-keys")), 1)  # Enter once, never more
+        closes = self.herdr_calls("pane", "close")
+        self.assertEqual(len(closes), 1)
+        self.assertEqual(err["cleanup"]["pane_closed"], closes[0][2])
+        self.assertEqual(err["cleanup"]["worktree"], "removed")
+        state = json.loads((self.fake_dir / "state.json").read_text())
+        self.assertNotIn(dispatch.default_name(code), state["agents"])
+        self.assertFalse(self.worktree(code).exists())
+        self.assertEqual(self.issue(tid)["status"], "open")
+        self.assertNotIn("dispatch", self.meta(tid))
+
+    def test_submit_failure_keeps_a_reused_worktree(self):
+        code = "T-SUBMIT-REUSE"
+        tid = self.task(code)
+        self.assertEqual(self.start(tid, code).returncode, 0)
+        self.drop_agent(dispatch.default_name(code))
+        before = self.meta(tid)
+        r = self.start(tid, code, FAKE_HERDR_SUBMIT="never", **self.SUBMIT)
+        self.assertEqual(r.returncode, 2, r.stdout + r.stderr)
+        self.assertTrue(self.worktree(code).exists())  # only a worktree this start created is removed
+        self.assertEqual(self.meta(tid), before)
+
+    # -- C5.2: interrupted attempts are marked
+    def test_interrupted_attempt_is_marked_but_an_ended_one_is_not(self):
+        code = "T-INTERRUPT"
+        tid = self.task(code)
+        name = dispatch.default_name(code)
+        self.assertEqual(self.start(tid, code).returncode, 0)
+        first = self.meta(tid)["dispatch"]
+        self.assertNotIn("ended_at", first)
+        self.drop_agent(name)
+        self.assertEqual(self.start(tid, code).returncode, 0)
+        (entry,) = self.meta(tid)["dispatch_history"]
+        self.assertIs(entry["interrupted"], True)
+        self.assertTrue(entry["interrupted_detected_at"].endswith("Z"))
+        self.assertEqual({k: v for k, v in entry.items() if k not in ("interrupted", "interrupted_detected_at")}, first)
+        # attempt 2 is stopped properly, so attempt 3 finds an ended_at and adds no marker
+        self.set_agent(name, status="done")
+        self.assertEqual(self.dispatch(["stop", tid]).returncode, 0)
+        second = self.meta(tid)["dispatch"]
+        self.assertIn("ended_at", second)
+        self.assertEqual(self.start(tid, code).returncode, 0)
+        history = self.meta(tid)["dispatch_history"]
+        self.assertEqual(len(history), 2)
+        self.assertEqual(history[1], second)
+        self.assertNotIn("interrupted", history[1])
+        self.assertEqual(self.meta(tid)["dispatch"]["attempt"], 3)
 
     def test_dispatch_never_uses_bd_outside_bdw(self):
         src = Path(dispatch.__file__).read_text(encoding="utf-8")
