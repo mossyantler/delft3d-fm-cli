@@ -34,10 +34,17 @@ class Env(unittest.TestCase):
             plain.mkdir()
             (plain / "bdiff.exe").write_bytes(b"")
             (plain / "bd").mkdir()  # a directory named bd is not a tracker
-            env = dashboard.viewer_env({"PATH": os.pathsep.join([str(tools), *scripts, str(plain), str(Path(d) / "gone")]), "BEADS_DIR": "x",
+            quoted = Path(d) / "quoted tools"  # VIEWER-V2-001: judged unquoted
+            quoted.mkdir()
+            (quoted / "bd.exe").write_bytes(b"")
+            path = os.pathsep.join([str(tools), *scripts, f'"{quoted}"', f'"{plain}"',
+                                    "relative-tools",  # VIEWER-V2-002: would resolve against bv's cwd
+                                    str(Path(d) / "gone"), ""])
+            env = dashboard.viewer_env({"Path": path, "PATH": str(tools), "BEADS_DIR": "x",
                                         "BEADS_DB": "y", "BD_ACTOR": "z", "BV_UPDATE_USE_TOKEN": "1",
                                         "DFM_BD_ROLE": "coordinator", "HOME": "h"})
-            self.assertEqual(env["PATH"], os.pathsep.join([str(plain), str(Path(d) / "gone")]))
+            self.assertEqual([k for k in env if k.upper() == "PATH"], ["PATH"])
+            self.assertEqual(env["PATH"], str(plain))
             for key in ("BEADS_DIR", "BEADS_DB", "BD_ACTOR", "BV_UPDATE_USE_TOKEN", "DFM_BD_ROLE"):
                 self.assertNotIn(key, env)
             self.assertEqual(env["BV_NO_UPDATE_CHECK"], "1")

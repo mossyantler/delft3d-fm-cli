@@ -32,12 +32,24 @@ BV_SHA256 = "6ed65731cbee1a4407b360aa0ff00bfe72f7cf13a524bf66c75c6a7db8b381e1"
 TRACKER_STEMS = ("bd", "br")  # any extension: bd.exe, bd.cmd, br.bat, bd.ps1, ... (VIEWER-V-001)
 
 
-def holds_tracker(entry: str) -> bool:
+def safe_path_entry(entry: str) -> str | None:
+    """The entry to keep, unquoted, or None.
+
+    Keep only what can be checked as bv will see it: an absolute directory that can be
+    listed and holds no file named bd/br with any extension. Quoted entries are judged
+    unquoted (VIEWER-V2-001); relative ones would resolve against bv's cwd, so they are
+    dropped (VIEWER-V2-002), as are entries that cannot be listed.
+    """
+    entry = entry.strip().strip('"').strip()
+    if not entry or not Path(entry).is_absolute():
+        return None
     try:
         with os.scandir(entry) as it:
-            return any(Path(e.name).stem.lower() in TRACKER_STEMS and e.is_file() for e in it)
+            if any(Path(e.name).stem.lower() in TRACKER_STEMS and e.is_file() for e in it):
+                return None
     except OSError:
-        return False
+        return None
+    return entry
 
 
 def bv_exe(main: Path, environ: dict[str, str]) -> Path:
@@ -53,9 +65,9 @@ def bv_exe(main: Path, environ: dict[str, str]) -> Path:
 def viewer_env(environ: dict[str, str]) -> dict[str, str]:
     """Environment without Beads/bv settings and without any PATH entry holding a tracker CLI."""
     env = {k: v for k, v in environ.items() if not k.upper().startswith(("BD_", "BEADS_", "BV_", "DFM_"))}
-    path_key = next((k for k in env if k.upper() == "PATH"), "PATH")
-    entries = [p for p in env.get(path_key, "").split(os.pathsep) if p and not holds_tracker(p)]
-    env[path_key] = os.pathsep.join(entries)
+    raw = [env.pop(k) for k in [k for k in env if k.upper() == "PATH"]]
+    kept = (safe_path_entry(p) for value in raw for p in value.split(os.pathsep))
+    env["PATH"] = os.pathsep.join(p for p in kept if p)
     env["BV_NO_UPDATE_CHECK"] = "1"
     return env
 
