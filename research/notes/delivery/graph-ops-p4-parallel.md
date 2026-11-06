@@ -136,6 +136,27 @@ answer is in `ok`. The coordinator runs `gate` before starting or closing a G no
 - Native runs still need the coordinator's review and the lease. P2.3 only stops two native dispatches.
 - I and V stay separate sessions, and V uses a different vendor where possible.
 
+## P8. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **Output shapes** are the author's choice, as in C4.2, as long as every value named in P1–P6 is present and the module
+   docstring documents it. `gate` gives `reasons` as a list of `{dependency, reason}`.
+2. **Owned paths.** Backslashes become `/`. Then refuse every one of these instead of stripping it: an absolute path,
+   a `..` part, a `.` part, an empty part (this includes a leading, trailing or doubled `/`), and the empty string.
+   Duplicates collapse to one. Comparison is case-sensitive.
+3. **`fill --dry-run`** reports exactly what a real `fill` would start. Each later task is checked against the slots,
+   ownership and native use that the earlier projected starts would take. No cross-process locking is required,
+   because there is a single coordinator.
+4. **What counts as a failure** (P2.5, P6) is one of these: a receipt `verdict` that is present and is not `PASS`,
+   or an `outcome` that contains `fail` or `reject`. A receipt without a `verdict` is not a failure, for example an
+   I receipt with `outcome: completed`. When several checks fail, any one refusal may be reported.
+5. **Herdr outage** (observed on 0.9.5):
+   - A missing agent gives exit 1 and stderr `{"error":{"code":"agent_not_found",...}}`. That means not live.
+   - A missing server gives `{"error":{"code":"server_not_running",...}}`.
+   - Any error other than `agent_not_found`, non-JSON output, or a failure to execute means Herdr is unreachable.
+6. **Reconcile:**
+   - `worktree_dirty` is null when the worktree does not exist.
+   - An unchanged state keeps the stored `review` record, including `detected_at`, and adds no comment.
+
 ## Safety
 
 Contract C3 still applies. Tests and verification use throwaway repositories, throwaway Beads workspaces, a
