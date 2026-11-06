@@ -77,6 +77,31 @@ class Policy(unittest.TestCase):
                      ["dep", "add", "a", "b"], ["update", "dfm-1", "--status", "in_progress"], ["note", "dfm-1", "x"]):
             bdw.check_args(args, "coordinator")
 
+    def test_human_and_gate_allowlist(self):
+        # GRAPH-OPS-P3-DISPATCH C1
+        for args in (["human", "list"], ["human", "list", "--json"], ["human", "stats"], ["human", "stats", "--json"]):
+            bdw.check_args(args, "worker")
+            bdw.check_args(args, "coordinator")
+        for args in (["human", "respond", "dfm-1", "-r", "ok"], ["human", "dismiss", "dfm-1"],
+                     ["gate", "create", "--blocks", "dfm-1"], ["gate", "list"], ["gate", "show", "dfm-g"],
+                     ["gate", "check"], ["gate", "resolve", "dfm-g"], ["gate", "list", "--json"]):
+            bdw.check_args(args, "coordinator")
+        for args in (["human", "respond", "dfm-1"], ["human", "dismiss", "dfm-1"], ["gate", "list"],
+                     ["gate", "create", "--blocks", "dfm-1"], ["gate", "show", "x"], ["gate", "check"],
+                     ["gate", "resolve", "x"], ["gate"], ["gate", "add-waiter", "g", "w"]):
+            self.refused(args, "worker")
+        for role in ("worker", "coordinator"):
+            for args in (["human"], ["human", "--json"], ["human", "--help"], ["human", "bogus"],
+                         ["human", "--json", "list"], ["human", "--status", "list"],
+                         ["gate", "add-waiter", "g", "w"], ["gate", "discover"], ["gate", "discover", "g"],
+                         ["gate", "bogus"], ["gate", "--json", "list"], ["gate", "--help"]):
+                if role == "worker" and args[0] == "human" and args[1:2] in (["list"], ["stats"]):
+                    continue
+                self.refused(args, role)
+        self.refused(["gate"], "coordinator")
+        self.refused(["human"], "coordinator")
+        self.refused(["human", "list", "--readonly=false"], "worker")
+
     def test_role_from_environment_only(self):
         self.assertEqual(bdw.role_of({}), "worker")
         self.assertEqual(bdw.role_of({"DFM_BD_ROLE": "Coordinator"}), "worker")
