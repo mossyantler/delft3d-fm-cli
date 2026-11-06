@@ -53,6 +53,8 @@ DENIED_FLAGS = {
     "--reinit-local", "--discard-remote", "--force", "--destroy-token", "--global", "--shared-server",
     "--server", "--db", "--database", "--directory", "-C", "--dolt-auto-commit", "--from-jsonl",
     "--remote", "--proxied-server", "--external",
+    # The wrapper owns these; a caller value (even "--readonly=false") is refused (BDW-V-001/002).
+    "--sandbox", "--readonly", "--actor",
 }
 
 
@@ -119,11 +121,17 @@ def check_args(args: list[str], role: str) -> None:
     subs = (COORDINATOR_SUBCOMMANDS if role == "coordinator" else WORKER_SUBCOMMANDS).get(cmd)
     if subs is not None:
         positional = [a for a in args[1:] if not a.startswith("-")]
+        # A flag value before the subcommand could hide it (BDW-V-002): the first
+        # positional must come immediately after the command.
+        if positional and args[1].startswith("-"):
+            raise Refused(f"put the '{cmd}' subcommand or ID directly after '{cmd}', before any flag")
         first = positional[0] if positional else None
         if first in KNOWN_SUBCOMMANDS.get(cmd, set()) and first not in subs:
             raise Refused(f"'{cmd} {first}' is not allowed for role {role}")
         if role != "coordinator" and cmd == "dep" and first not in subs:
             raise Refused("workers may only run 'dep tree', 'dep list' or 'dep cycles'")
+        if role != "coordinator" and cmd == "comments" and "add" in positional:
+            raise Refused("workers may only read comments")
 
 
 KNOWN_SUBCOMMANDS = {
@@ -162,14 +170,28 @@ def _git(cwd: Path, *args: str) -> str:
     return p.stdout
 
 
+def git_config_file(main: Path) -> Path:
+    return main / ".git" / "config"
+
+
 def git_state(main: Path) -> dict:
     return {"head": _git(main, "rev-parse", "HEAD").strip(),
+            "config_sha256": hashlib.sha256(git_config_file(main).read_bytes()).hexdigest(),
+            "hooks": sorted(p.name for p in (main / ".git" / "hooks").iterdir())
+            if (main / ".git" / "hooks").is_dir() else [],
             "status": _git(main, "status", "--porcelain", "-uall").splitlines(),
             "staged": _git(main, "diff", "--cached", "--name-only").splitlines(),
             "origin_dolt_refs": _git(main, "ls-remote", "origin", "refs/dolt/*").splitlines()}
 
 
-def init_workspace(cwd: Path, environ: dict[str, str]) -> int:
+def local_config(main: Path) -> set[str]:
+    p = subprocess.run(["git", "config", "--local", "--list"], cwd=main, capture_output=True, text=True)
+    return set(p.stdout.splitlines())
+
+
+def init_workspace(cwd: Path, environ: dict[str, str], extra: list[str]) -> int:
+    if extra:
+        raise Refused(f"init-workspace takes no arguments; got {extra}")  # BDW-V-003
     if role_of(environ) != "coordinator":
         raise Refused("init-workspace requires DFM_BD_ROLE=coordinator")
     paths = derive_paths(cwd, environ)
@@ -179,6 +201,8 @@ def init_workspace(cwd: Path, environ: dict[str, str]) -> int:
     before = git_state(paths.main)
     if before["staged"]:
         raise Refused(f"staged changes present; init-workspace refuses to run next to them: {before['staged']}")
+    config_bytes = git_config_file(paths.main).read_bytes()
+    config_before = local_config(paths.main)
     paths.beads_dir.parent.mkdir(parents=True, exist_ok=True)
     env = child_env(paths, "coordinator", environ)
     steps = []
@@ -189,6 +213,15 @@ def init_workspace(cwd: Path, environ: dict[str, str]) -> int:
                            capture_output=True, text=True, encoding="utf-8", errors="replace")
         steps.append({"args": args, "exit": p.returncode, "stdout": p.stdout.strip()[-2000:],
                       "stderr": p.stderr.strip()[-2000:]})
+    # bd init writes beads.role=maintainer into .git/config (BDW-V-004). It only
+    # silences a bd diagnostic, so restore the exact original bytes when that key
+    # is the sole local-config change; any other change is reported as a failure.
+    config_added = sorted(local_config(paths.main) - config_before)
+    config_removed = sorted(config_before - local_config(paths.main))
+    config_restored = False
+    if config_added and all(k.startswith("beads.role=") for k in config_added) and not config_removed:
+        git_config_file(paths.main).write_bytes(config_bytes)
+        config_restored = True
     after = git_state(paths.main)
     sync_remote = steps[2]["stdout"]
     ok = (steps[0]["exit"] == 0 and steps[1]["exit"] == 0 and before == after
@@ -196,7 +229,8 @@ def init_workspace(cwd: Path, environ: dict[str, str]) -> int:
           and (sync_remote == "" or "not set" in sync_remote.lower()))
     print(json.dumps({"ok": ok, "beads_dir": str(paths.beads_dir), "bd_sha256": BD_SHA256,
                       "git_unchanged": before == after, "origin_dolt_refs": after["origin_dolt_refs"],
-                      "sync_remote": sync_remote, "steps": steps}, indent=1, ensure_ascii=False))
+                      "sync_remote": sync_remote, "git_config_added_by_bd": config_added,
+                      "git_config_restored": config_restored, "steps": steps}, indent=1, ensure_ascii=False))
     return 0 if ok else 1
 
 
@@ -211,7 +245,7 @@ def main(argv: list[str] | None = None) -> int:
                               "bd_exe": str(p.bd_exe), "beads_dir_exists": p.beads_dir.is_dir()}, indent=1))
             return 0
         if argv[:1] == ["init-workspace"]:
-            return init_workspace(cwd, environ)
+            return init_workspace(cwd, environ, argv[1:])
         return run_bd(cwd, argv, environ)
     except Refused as exc:
         print(json.dumps({"refused": str(exc)}), file=sys.stderr)

@@ -62,6 +62,16 @@ class Policy(unittest.TestCase):
                          ["create", "x", "--dolt-auto-commit=off"], ["--json", "ready"], []):
                 self.refused(args, role)
 
+    def test_wrapper_owned_flags_and_hidden_subcommands_refused(self):
+        # Regressions for GRAPH-OPS-BDW-V defects 001/002.
+        for role in ("worker", "coordinator"):
+            for args in (["help", "--sandbox=false"], ["ready", "--sandbox"], ["help", "--readonly=false"],
+                         ["list", "--readonly"], ["show", "x", "--actor", "me"], ["dep", "--json", "add", "a", "b"]):
+                self.refused(args, role)
+        for args in (["comments", "--actor", "v", "add", "x", "t"], ["comments", "x", "add", "t"],
+                     ["comments", "--json", "add", "x", "t"]):
+            self.refused(args, "worker")
+
     def test_coordinator_writes_allowed(self):
         for args in (["create", "x", "--parent", "dfm-1"], ["close", "dfm-1", "--reason", "G"],
                      ["dep", "add", "a", "b"], ["update", "dfm-1", "--status", "in_progress"], ["note", "dfm-1", "x"]):
@@ -104,7 +114,10 @@ class Paths(unittest.TestCase):
                 bdw.derive_paths(repo, {"BEADS_DIR": str(Path(d) / "other")})
 
     def test_outside_git_refused(self):
-        with tempfile.TemporaryDirectory() as d, self.assertRaises(bdw.Refused):
+        # TEMP may itself sit inside a repository; stop Git's discovery at the temp dir.
+        with tempfile.TemporaryDirectory() as d, \
+                mock.patch.dict(os.environ, {"GIT_CEILING_DIRECTORIES": str(Path(d).resolve().parent)}), \
+                self.assertRaises(bdw.Refused):
             bdw.derive_paths(Path(d), {})
 
     def test_hash_mismatch_refused(self):
@@ -134,13 +147,18 @@ class Integration(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             repo = make_repo(Path(d))
             head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo, capture_output=True, text=True).stdout
+            config = (repo / ".git" / "config").read_bytes()
             code, _, err = self.call(repo, ["init-workspace"])
             self.assertEqual(code, 2, err)  # worker cannot initialize
+            code, _, err = self.call(repo, ["init-workspace", "--discard-remote"], "coordinator")
+            self.assertEqual(code, 2, err)  # BDW-V-003: no arguments accepted
+            self.assertFalse((Path(d) / "proj-beads" / ".beads").exists())
             code, out, err = self.call(repo, ["init-workspace"], "coordinator")
             receipt = json.loads(out)
             self.assertEqual(code, 0, out + err)
             self.assertTrue(receipt["git_unchanged"])
             self.assertEqual(receipt["origin_dolt_refs"], [])
+            self.assertEqual((repo / ".git" / "config").read_bytes(), config)  # BDW-V-004
             self.assertEqual(head, subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo,
                                                   capture_output=True, text=True).stdout)
             code, _, _ = self.call(repo, ["init-workspace"], "coordinator")
