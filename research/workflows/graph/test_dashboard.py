@@ -24,12 +24,20 @@ class Env(unittest.TestCase):
             tools = Path(d) / "tools"
             tools.mkdir()
             (tools / "bd.exe").write_bytes(b"")
+            scripts = []
+            for name in ("bd.cmd", "BR.BAT", "bd.ps1", "br"):  # VIEWER-V-001: command scripts count too
+                s = Path(d) / f"s-{name}"
+                s.mkdir()
+                (s / name).write_bytes(b"")
+                scripts.append(str(s))
             plain = Path(d) / "plain"
             plain.mkdir()
-            env = dashboard.viewer_env({"PATH": os.pathsep.join([str(tools), str(plain)]), "BEADS_DIR": "x",
+            (plain / "bdiff.exe").write_bytes(b"")
+            (plain / "bd").mkdir()  # a directory named bd is not a tracker
+            env = dashboard.viewer_env({"PATH": os.pathsep.join([str(tools), *scripts, str(plain), str(Path(d) / "gone")]), "BEADS_DIR": "x",
                                         "BEADS_DB": "y", "BD_ACTOR": "z", "BV_UPDATE_USE_TOKEN": "1",
                                         "DFM_BD_ROLE": "coordinator", "HOME": "h"})
-            self.assertEqual(env["PATH"], str(plain))
+            self.assertEqual(env["PATH"], os.pathsep.join([str(plain), str(Path(d) / "gone")]))
             for key in ("BEADS_DIR", "BEADS_DB", "BD_ACTOR", "BV_UPDATE_USE_TOKEN", "DFM_BD_ROLE"):
                 self.assertNotIn(key, env)
             self.assertEqual(env["BV_NO_UPDATE_CHECK"], "1")
@@ -48,6 +56,17 @@ class Env(unittest.TestCase):
                 self.assertEqual(dashboard.main(argv), 2)
 
 
+    def test_worker_refused_without_committed_export(self):
+        with tempfile.TemporaryDirectory() as d:
+            repo = make_repo(Path(d))
+            committed = repo / bdw.JSONL_REL
+            committed.parent.mkdir(parents=True)
+            committed.write_bytes(b"{}\n")  # present in the working tree only
+            env = {k: v for k, v in os.environ.items() if not k.upper().startswith(("BD_", "BEADS_", "DFM_"))}
+            with mock.patch.object(dashboard, "bv_exe", return_value=DEFAULT_BV), self.assertRaises(bdw.Refused):
+                dashboard.prepare(repo, env)
+
+
 @unittest.skipUnless(DEFAULT_BV.is_file(), "pinned bv binary not present")
 class Integration(unittest.TestCase):
     def test_worker_pages_from_committed_export_only(self):
@@ -59,6 +78,10 @@ class Integration(unittest.TestCase):
                                              "priority": 2, "issue_type": "task",
                                              "created_at": "2026-11-06T00:00:00Z",
                                              "updated_at": "2026-11-06T00:00:00Z"}) + "\n", encoding="utf-8")
+            subprocess.run([*GIT, "add", bdw.JSONL_REL.as_posix()], cwd=repo, check=True)
+            subprocess.run([*GIT, "commit", "-q", "-m", "export"], cwd=repo, check=True)
+            # VIEWER-V-002: an uncommitted edit must not reach the dashboard.
+            committed.write_text(committed.read_text(encoding="utf-8") * 2, encoding="utf-8")
             before = committed.read_bytes()
             head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo, capture_output=True, text=True).stdout
             env = {k: v for k, v in os.environ.items() if not k.upper().startswith(("BD_", "BEADS_", "DFM_"))}
@@ -73,9 +96,13 @@ class Integration(unittest.TestCase):
             self.assertTrue((root / "site" / "index.html").is_file())
             self.assertFalse((Path(d) / "proj-beads" / ".beads").exists())  # no tracker workspace created
             self.assertEqual(committed.read_bytes(), before)
+            source = Path(info["source"]).read_bytes()
+            self.assertEqual(source, subprocess.run(["git", "show", f"HEAD:{bdw.JSONL_REL.as_posix()}"], cwd=repo,
+                                                    capture_output=True).stdout)
+            self.assertNotEqual(source, before)
             self.assertEqual(subprocess.run(["git", "status", "--porcelain", "-uall"], cwd=repo,
                                             capture_output=True, text=True).stdout.split(),
-                             ["??", bdw.JSONL_REL.as_posix()])
+                             ["M", bdw.JSONL_REL.as_posix()])
             self.assertEqual(head, subprocess.run(["git", "rev-parse", "HEAD"], cwd=repo,
                                                   capture_output=True, text=True).stdout)
 

@@ -11,8 +11,9 @@ bv only ever reads a **copy** of the issue export, placed in
 repository and outside the Dolt workspace. bv runs from that directory without bd on
 PATH or any Beads variables, so its edit-save path has no writable tracker to use.
 The source is a fresh ``bdw export`` when ``DFM_BD_ROLE=coordinator``; anyone else
-gets the committed ``research/notes/delivery/beads-state.jsonl``, which reflects the
-last ``backup-sync``. Hooks and bv's update check are off.
+gets ``research/notes/delivery/beads-state.jsonl`` as committed at the main checkout's
+HEAD (never the working-tree file), which reflects the last ``backup-sync``.
+Hooks and bv's update check are off.
 """
 from __future__ import annotations
 
@@ -28,7 +29,15 @@ from research.workflows.graph import bdw
 
 BV_VERSION = "0.25.2"
 BV_SHA256 = "6ed65731cbee1a4407b360aa0ff00bfe72f7cf13a524bf66c75c6a7db8b381e1"
-TRACKER_EXES = ("bd.exe", "bd", "br.exe", "br")
+TRACKER_STEMS = ("bd", "br")  # any extension: bd.exe, bd.cmd, br.bat, bd.ps1, ... (VIEWER-V-001)
+
+
+def holds_tracker(entry: str) -> bool:
+    try:
+        with os.scandir(entry) as it:
+            return any(Path(e.name).stem.lower() in TRACKER_STEMS and e.is_file() for e in it)
+    except OSError:
+        return False
 
 
 def bv_exe(main: Path, environ: dict[str, str]) -> Path:
@@ -45,8 +54,7 @@ def viewer_env(environ: dict[str, str]) -> dict[str, str]:
     """Environment without Beads/bv settings and without any PATH entry holding a tracker CLI."""
     env = {k: v for k, v in environ.items() if not k.upper().startswith(("BD_", "BEADS_", "BV_", "DFM_"))}
     path_key = next((k for k in env if k.upper() == "PATH"), "PATH")
-    entries = [p for p in env.get(path_key, "").split(os.pathsep)
-               if p and not any((Path(p) / name).is_file() for name in TRACKER_EXES)]
+    entries = [p for p in env.get(path_key, "").split(os.pathsep) if p and not holds_tracker(p)]
     env[path_key] = os.pathsep.join(entries)
     env["BV_NO_UPDATE_CHECK"] = "1"
     return env
@@ -65,11 +73,14 @@ def prepare(cwd: Path, environ: dict[str, str]) -> tuple[Path, Path, dict]:
             raise bdw.Refused(f"bdw export failed: {p.stderr.strip() or p.stdout.strip()}")
         origin = "fresh bdw export"
     else:
-        committed = paths.main / bdw.JSONL_REL
-        if not committed.is_file():
-            raise bdw.Refused(f"{committed} not found; the coordinator runs bdw backup-sync")
-        shutil.copyfile(committed, source)
-        origin = f"committed {bdw.JSONL_REL.as_posix()}"
+        # The blob at the main checkout's HEAD, not the working-tree file (VIEWER-V-002).
+        rel = bdw.JSONL_REL.as_posix()
+        p = subprocess.run(["git", "--no-optional-locks", "show", f"HEAD:{rel}"], cwd=paths.main,
+                           capture_output=True)
+        if p.returncode:
+            raise bdw.Refused(f"{rel} is not committed at HEAD of {paths.main}; the coordinator runs bdw backup-sync")
+        source.write_bytes(p.stdout)
+        origin = f"committed HEAD:{rel}"
     info = {"source": str(source), "origin": origin,
             "issues": sum(1 for line in source.read_text(encoding="utf-8").splitlines() if line.strip()),
             "bv": str(exe)}
