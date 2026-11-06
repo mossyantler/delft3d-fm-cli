@@ -218,6 +218,11 @@ integration + rework + tools.
 6. Every Claude assignment tells the worker to read `AGENTS.md` explicitly.
 7. Workers read their task with bdw (no extra environment needed). Never set
    `DFM_BD_ROLE` in a worker's pane.
+8. Language (HUMAN-20261106-14): only the coordinator, which faces the user, writes
+   Korean, and only to the user. Task Packets, prompts, worker replies, reviews and
+   receipts are English.
+9. Claude workers in Herdr panes start with `--permission-mode bypassPermissions`
+   (HUMAN-20261106-16). The packet's owned paths are the write scope, and V and G check it.
 
 ## Isolation and ownership
 
