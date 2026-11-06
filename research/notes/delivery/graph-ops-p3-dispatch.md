@@ -122,3 +122,17 @@ G approves `641c887` (merged in `09de210`). Beads `dfm-fmc.30`–`.32`, smoke `d
   - `bdw create --silent` output once failed to yield the id inside a shell pipeline.
   - Settled-state detection needs the receipt file plus a screen check, because idle agents can still have
     background work.
+
+## C5. Live-trial amendments (GRAPH-OPS-P3-LIVEFIX, from GRAPH-OPS-P3-RECOVERY)
+
+1. **The prompt must start a turn (DISPATCH-LIVE-001).** In the live trial `start` returned ok while the packet
+   prompt sat unsubmitted in Claude Code's input box. After sending the prompt, `start` polls `agent get` for up
+   to 30 s (configurable for tests through `DFM_DISPATCH_SUBMIT_SECONDS`). A turn has started when
+   `agent_status` is `working`, `blocked` or `done`, or when `state_change_seq` grew. If nothing has started,
+   `start` sends `agent send-keys <name> enter` once and polls again. If still nothing has started, `start` fails
+   with exit 2 and the C2 cleanup: no `in_progress`, no `metadata.dispatch`, pane closed, and a new worktree removed.
+   The JSON output records whether the retry was needed (`submit_retry: true|false`).
+2. **Interrupted attempts are marked.** When `start` makes attempt N > 1 and the previous record has no
+   `ended_at`, the history entry gets `interrupted: true` and `interrupted_detected_at`. Its other fields stay
+   unchanged.
+3. Everything else in C1–C4 is unchanged, and the committed verifiers still apply as regressions.
