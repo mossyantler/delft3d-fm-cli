@@ -81,6 +81,12 @@ Acceptance:
    context. The position is the one `registration.patch` gives: the `"wind_drag"` schema entry directly after
    `"weir_series"`. It does not require the entry to be adjacent to the B06 line. This was the coordinator's
    wording, not a candidate defect.
+4. **Fixture operand (native attempt 1, S07-R4-WINDXY-OPERAND).** The installed engine (1.2.184) rejects
+   `operand = override` in the predeclared EXT `[Meteo]` block (`Unsupported operand 'o' for quantity 'windxy'`);
+   GUI exports write `operand=O`. For the R4 runs, every case's EXT uses `operand = O` instead. No other byte,
+   prediction or tolerance changes, and V records the new input hashes before the first launch. The S07 editor
+   does not read `operand`, so this is a V-fixture correction, not a candidate change (user approval
+   `HUMAN-20261108-02`).
 
 ## Done when
 
