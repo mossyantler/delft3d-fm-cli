@@ -27,6 +27,13 @@ or edits the main checkout.
 when nothing started, and polls again. The JSON output has ``submit_retry`` (true when Enter was needed).
 A turn has also started (Contract P0.2) when the agent session id was null before the prompt and is set
 later, or when ``agent read <name> --source visible`` shows ``esc to interr`` or ``Working (``.
+After the turn has started, ``start`` compares the first user prompt of the agent's transcript (looked up by session id,
+for up to the same budget) with the prompt it sent, ignoring leading and trailing whitespace (Contract P0.3): the first
+``item_completed`` event whose item is a ``UserMessage`` (its ``text`` parts joined) for codex, the first ``user`` line
+whose content is a string or has a text block (its first one; tool results skipped) for claude. ``metadata.dispatch.prompt_received``
+is true (equal), false (different) or null (no transcript or prompt found, with ``prompt_check_note``). False adds
+``"warning": "prompt_truncated"`` to the output and ``status`` shows ``prompt_received``; it never fails the start, closes
+nothing and never sends the prompt again.
 The new pane is split ``right`` when the caller's pane is at least 120 columns wide (read from
 ``pane layout --pane <caller>``, ``rect.width``) and ``down`` otherwise, also when the layout call fails (P0.1).
 
@@ -56,7 +63,8 @@ Beads metadata written (every key is a plain JSON value; other keys are preserve
     (Herdr's agent session id, re-read after the prompt; null with session_id_note when
     Herdr still had none), worktree (path), base_sha, packet (path relative to the main
     checkout), packet_sha256, started_at (UTC ISO 8601), attempt (1, 2, ...),
-    permission_mode (claude only), split_direction (right|down), owned_paths (sorted list of
+    permission_mode (claude only), prompt_received (true|false|null) and prompt_check_note (when null),
+    split_direction (right|down), owned_paths (sorted list of
     normalized repository-relative paths, [] when none), native (true|false), approved (the
     ``--approved`` id or null), ended_at (set by ``stop``), review (set by ``reconcile``:
     state finished|needs_review, reason, detected_at, worktree_exists, worktree_dirty).
@@ -66,7 +74,8 @@ Beads metadata written (every key is a plain JSON value; other keys are preserve
     ``interrupted_detected_at`` (Contract C5.2); its other fields stay unchanged.
 ``metadata.receipt`` (``collect``)
     path, sha256, outcome, verdict, candidate_sha, collected_at. ``verdict`` is recorded only when the
-    receipt has the key (an explicit null is refused by ``collect``); an omitted verdict stays absent.
+    receipt has the key (an explicit null is refused by ``collect``); an omitted verdict stays absent. A stored
+    null (written by ``collect`` before P5) or a missing key both mean no verdict in ``start`` and ``gate`` (P8.7).
 ``metadata.metrics`` (``collect``)
     attempt, agent, kind, requested_model, requested_effort, collected_at, usage (null when
     no transcript was found) and usage_unavailable_reason. ``usage`` holds source, transcript,
@@ -213,11 +222,13 @@ def active_dispatches(environ: dict[str, str], cwd: Path, issues: list[dict] | N
 def receipt_failure(receipt: dict) -> str | None:
     """Why a collected receipt counts as a failure (Contract P2.5), else None.
 
-    A ``verdict`` key that is present with any value other than PASS (null included) fails; so does an
-    ``outcome`` that contains fail or reject. A receipt that omits the key (an implementer's receipt) is
-    judged by its outcome alone.
+    This judges a *stored* receipt (P8.7): a ``verdict`` that is neither null nor PASS fails, and so does an
+    ``outcome`` that contains fail or reject. A stored null or missing verdict (an implementer's receipt, or a
+    record collected before P5) means no verdict and is judged by its outcome alone. ``collect`` refuses an
+    explicit null at intake (P4-V-001).
     """
-    if "verdict" in receipt and (verdict := receipt["verdict"]) != "PASS":
+    verdict = receipt.get("verdict")
+    if verdict is not None and verdict != "PASS":
         return f"receipt verdict is {verdict!r}, not 'PASS'"
     outcome = receipt.get("outcome")
     if isinstance(outcome, str) and re.search(r"fail|reject", outcome, re.IGNORECASE):
@@ -589,7 +600,8 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         session_was_null = not before["session_id"]
         if baseline is None:
             baseline = before["state_change_seq"]
-        herdr(environ, cwd, "agent", "prompt", name, prompt_text(packet))
+        sent_prompt = prompt_text(packet)
+        herdr(environ, cwd, "agent", "prompt", name, sent_prompt)
         budget = submit_seconds(environ)
         submit_retry = False
         if not wait_for_turn(environ, cwd, name, baseline, budget, session_was_null):
@@ -599,6 +611,7 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
                 raise Failure(f"the prompt did not start a turn within {budget:g} s, even after pressing Enter "
                               f"(DISPATCH-LIVE-001); agent {name} in pane {new_pane}")
         info = read_session(environ, cwd, name)
+        prompt_received, prompt_note = check_prompt_received(a.kind, info["session_id"], sent_prompt, environ, budget)
         fresh_meta = metadata_of(get_issue(a.id, environ, cwd))
         old = fresh_meta.get("dispatch")
         history = list(fresh_meta.get("dispatch_history") or [])
@@ -611,6 +624,9 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
                   "packet": packet.relative_to(main.resolve()).as_posix(), "packet_sha256": sha256_of(packet),
                   "started_at": now(), "attempt": attempt, "split_direction": direction,
                   "owned_paths": ctx["owned"], "native": ctx["native"], "approved": ctx["approved"]}
+        record["prompt_received"] = prompt_received
+        if prompt_note:
+            record["prompt_check_note"] = prompt_note
         if not info["session_id"]:
             record["session_id_note"] = "Herdr reported no agent session id after the prompt"
         if a.kind == "claude":
@@ -633,8 +649,11 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         if submit_retry is not None:
             exc.submit_retry = submit_retry
         raise
-    return {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"],
-            "submit_retry": submit_retry}
+    out = {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"],
+           "submit_retry": submit_retry}
+    if prompt_received is False:
+        out["warning"] = "prompt_truncated"
+    return out
 
 
 # ---------------------------------------------------------------- show
@@ -783,6 +802,54 @@ def find_transcript(kind: str, session: str, environ: dict[str, str]) -> Path | 
         home = Path(environ.get("DFM_CLAUDE_HOME") or Path.home() / ".claude")
         hits = sorted((home / "projects").glob(f"*/{session}.jsonl"))
     return hits[-1] if hits else None
+
+
+def first_user_prompt(kind: str, path: Path) -> str | None:
+    """The first user prompt of a transcript (Contract P0.3), or None when there is none."""
+    for obj in iter_json_lines(path, [0]):
+        if kind == "codex":
+            payload = obj.get("payload")
+            item = payload.get("item") if isinstance(payload, dict) else None
+            if (obj.get("type") == "event_msg" and payload.get("type") == "item_completed"
+                    and isinstance(item, dict) and item.get("type") == "UserMessage"):
+                parts = item.get("content")
+                if not isinstance(parts, list):
+                    return None
+                return "".join(c.get("text", "") for c in parts
+                               if isinstance(c, dict) and c.get("type") == "text" and isinstance(c.get("text"), str))
+        elif obj.get("type") == "user":
+            msg = obj.get("message")
+            content = msg.get("content") if isinstance(msg, dict) else None
+            if isinstance(content, list):
+                if any(isinstance(b, dict) and b.get("type") == "tool_result" for b in content):
+                    continue
+                content = next((b.get("text") for b in content if isinstance(b, dict) and b.get("type") == "text"), None)
+            if isinstance(content, str) and content.strip():
+                return content
+    return None
+
+
+def check_prompt_received(kind: str, session: str | None, sent: str, environ: dict[str, str],
+                          budget: float) -> tuple[bool | None, str | None]:
+    """Compare the transcript's first user prompt with the sent one (P0.3). Never raises; (None, note) when unknown."""
+    if not session or not re.fullmatch(r"[A-Za-z0-9._-]+", str(session)):
+        return None, "no usable agent session id to look up a transcript"
+    deadline = time.monotonic() + budget
+    interval = min(1.0, max(0.05, budget / 10))
+    note = f"no {kind} transcript found for session {session}"
+    while True:
+        try:
+            path = find_transcript(kind, session, environ)
+            if path is not None:
+                got = first_user_prompt(kind, path)
+                if got is not None:
+                    return got.strip() == sent.strip(), None
+                note = f"transcript {path} has no user prompt yet"
+        except OSError as exc:
+            note = f"transcript could not be read: {exc}"
+        if time.monotonic() >= deadline:
+            return None, note
+        time.sleep(interval)
 
 
 def usage_for(rec: dict, environ: dict[str, str]) -> tuple[dict | None, str | None]:
@@ -991,8 +1058,8 @@ def cmd_status(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dic
         rows.append({"id": issue_id, "task_code": meta.get("task_code"), "agent": rec.get("agent"),
                      "kind": rec.get("kind"), "pane_id": rec.get("pane_id"), "session_id": rec.get("session_id"),
                      "worktree": rec.get("worktree"), "model": rec.get("model"), "started_at": rec.get("started_at"),
-                     "attempt": rec.get("attempt"), "owned_paths": rec.get("owned_paths") or [],
-                     "native": bool(rec.get("native")), "receipt_collected": isinstance(meta.get("receipt"), dict),
+                     "attempt": rec.get("attempt"), "prompt_received": rec.get("prompt_received"),
+                     "owned_paths": rec.get("owned_paths") or [], "native": bool(rec.get("native")), "receipt_collected": isinstance(meta.get("receipt"), dict),
                      "live": live_state(environ, cwd, rec)})
     return {"ok": True, "count": len(rows), "dispatches": rows}
 

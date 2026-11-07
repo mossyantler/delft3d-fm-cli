@@ -371,7 +371,8 @@ class IntegrationBase:
 @NEEDS_BD
 class Integration(IntegrationBase, unittest.TestCase):
     # Contract P2.1 would stop these C2-C5 cases, which leave many active dispatches in one workspace.
-    extra_env = {"DFM_DISPATCH_MAX_PARALLEL": "1000"}
+    # The transcript lookup of P0.3 waits up to the submit budget when there is no transcript: keep it short.
+    extra_env = {"DFM_DISPATCH_MAX_PARALLEL": "1000", "DFM_DISPATCH_SUBMIT_SECONDS": "1"}
 
     # -- C2 role gate
     def test_every_subcommand_but_show_needs_coordinator(self):
@@ -919,8 +920,9 @@ class Policy(unittest.TestCase):
         self.assertIsNone(f({"verdict": "PASS", "outcome": "completed"}))
         self.assertIsNone(f({"outcome": "completed"}))  # an implementer's receipt has no verdict
         self.assertIsNone(f({}))
-        self.assertTrue(f({"verdict": None}))  # an explicit null is a failure (P4-V-001)
-        self.assertTrue(f({"verdict": None, "outcome": "completed"}))
+        self.assertIsNone(f({"verdict": None}))  # a stored null means no verdict (P8.7)
+        self.assertIsNone(f({"verdict": None, "outcome": "completed"}))
+        self.assertTrue(f({"verdict": None, "outcome": "rejected"}))
         self.assertTrue(f({"verdict": "REJECT"}))
         self.assertTrue(f({"verdict": "pass"}))
         self.assertTrue(f({"verdict": "PASS", "outcome": "Failed 3 of 9"}))
@@ -1230,15 +1232,23 @@ class Parallel(IntegrationBase, unittest.TestCase):
                 self.assertEqual(r.returncode, 0, (dep_code, r.stdout, r.stderr))
                 self.retire(x)
 
-    def test_a_stored_explicit_null_verdict_fails_the_predecessor_check(self):
+    def test_a_stored_null_verdict_means_no_verdict_in_the_predecessor_check(self):
         dep = self.finished_predecessor("T-PRE-NULL", {"outcome": "completed"})
         self.store_explicit_null_verdict(dep)
         code = "T-PRE-NULL-X"
         x = self.make(code)
         self.depends(x, dep)
         self.clear_log()
-        self.refused(self.start(x, code), "failed_predecessor")
-        self.assert_nothing_started(x, code)
+        r = self.start(x, code, args=["--max-parallel", "9"])
+        self.assertEqual(r.returncode, 0, (r.stdout, r.stderr))
+        self.retire(x)
+        # but an outcome that says failed still fails it
+        dep2 = self.finished_predecessor("T-PRE-NULLF", {"outcome": "tests FAILED", "verdict": self.OMIT})
+        self.store_explicit_null_verdict(dep2)
+        code2 = "T-PRE-NULLF-X"
+        x2 = self.make(code2)
+        self.depends(x2, dep2)
+        self.refused(self.start(x2, code2), "failed_predecessor")
 
     def test_a_predecessor_that_was_never_dispatched_is_judged_by_status_alone(self):
         dep = self.task("T-PRE-PLAIN")
@@ -1606,6 +1616,85 @@ class Parallel(IntegrationBase, unittest.TestCase):
         self.assertNotIn("verdict", rec)
         self.assertEqual(rec["outcome"], "completed")
 
+    # -- P0.3 prompt received
+    def write_transcript(self, kind, code, first_prompt):
+        session = f"sess-{dispatch.default_name(code)}"
+        if kind == "codex":
+            f = self.codex_home / "sessions" / "2026" / "11" / "07" / f"rollout-2026-11-07T10-00-00-{session}.jsonl"
+            lines = [{"type": "session_meta", "payload": {"id": session}}]
+            if first_prompt is not None:
+                # a response_item user message (AGENTS.md and the environment) comes first and must be ignored
+                lines.append({"type": "response_item", "payload": {"type": "message", "role": "user",
+                                                                    "content": [{"type": "input_text", "text": "AGENTS"}]}})
+                half = len(first_prompt) // 2
+                lines.append({"type": "event_msg", "payload": {"type": "item_completed", "item": {
+                    "type": "UserMessage", "content": [{"type": "text", "text": first_prompt[:half]},
+                                                       {"type": "image", "text": "ignored"},
+                                                       {"type": "text", "text": first_prompt[half:]}]}}})
+        else:
+            f = self.claude_home / "projects" / "proj-p03" / f"{session}.jsonl"
+            lines = []
+            if first_prompt is not None:
+                lines.append({"type": "user", "message": {"role": "user", "content": first_prompt}})
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text("\n".join(json.dumps(x) for x in lines) + "\n", encoding="utf-8")
+        self.addCleanup(f.unlink, missing_ok=True)
+
+    def prompt_case(self, kind, code, first_prompt):
+        tid = self.make(code)
+        sent = dispatch.prompt_text(self.packet(code))
+        if first_prompt == "SENT":
+            first_prompt = "  " + sent + "\n"  # surrounding whitespace is ignored
+        elif first_prompt == "CUT":
+            first_prompt = sent[:84]
+        self.write_transcript(kind, code, first_prompt)
+        self.clear_log()
+        r = self.start(tid, code, kind=kind)
+        self.assertEqual(r.returncode, 0, (r.stdout, r.stderr))
+        self.assertEqual(self.herdr_calls("agent", "prompt")[-1][3], sent)
+        return tid, json.loads(r.stdout)
+
+    def test_prompt_received_true_for_codex_and_claude(self):
+        for kind in ("codex", "claude"):
+            tid, out = self.prompt_case(kind, f"T-P03-OK-{kind}", "SENT")
+            self.assertIs(out["dispatch"]["prompt_received"], True)
+            self.assertNotIn("warning", out)
+            self.assertNotIn("prompt_check_note", out["dispatch"])
+            self.assertIs(self.meta(tid)["dispatch"]["prompt_received"], True)
+
+    def test_prompt_received_false_warns_and_changes_nothing_else(self):
+        for kind in ("codex", "claude"):
+            tid, out = self.prompt_case(kind, f"T-P03-CUT-{kind}", "CUT")
+            self.assertEqual(out["warning"], "prompt_truncated")
+            self.assertIs(self.meta(tid)["dispatch"]["prompt_received"], False)
+            self.assertEqual(len(self.herdr_calls("agent", "prompt")), 1)  # never sent again
+            self.assertEqual(self.herdr_calls("pane", "close"), [])  # nothing closed
+            rows = {r["id"]: r for r in json.loads(self.dispatch(["status"]).stdout)["dispatches"]}
+            self.assertIs(rows[tid]["prompt_received"], False)
+
+    def test_prompt_received_null_without_a_transcript_or_a_prompt(self):
+        tid, out = self.prompt_case("codex", "T-P03-NOFILE", None)  # a transcript without a user prompt
+        self.assertIsNone(out["dispatch"]["prompt_received"])
+        self.assertIn("no user prompt", out["dispatch"]["prompt_check_note"])
+        self.assertNotIn("warning", out)
+        code = "T-P03-NOTRANS"
+        tid = self.make(code)
+        r = self.start(tid, code, kind="claude")
+        self.assertEqual(r.returncode, 0, (r.stdout, r.stderr))
+        d = json.loads(r.stdout)["dispatch"]
+        self.assertIsNone(d["prompt_received"])
+        self.assertIn("no claude transcript", d["prompt_check_note"])
+        self.assertIsNone(self.meta(tid)["dispatch"]["prompt_received"])
+
+    def test_claude_first_prompt_skips_tool_results_and_reads_text_blocks(self):
+        f = Path(tempfile.mkdtemp()) / "s.jsonl"
+        self.addCleanup(f.unlink, missing_ok=True)
+        f.write_text("\n".join(json.dumps(x) for x in (
+            {"type": "user", "message": {"content": [{"type": "tool_result", "content": "x"}]}},
+            {"type": "user", "message": {"content": [{"type": "text", "text": "hel"}, {"type": "text", "text": "lo"}]}},
+        )) + "\n", encoding="utf-8")
+        self.assertEqual(dispatch.first_user_prompt("claude", f), "hel")  # the first text block
+
     # -- P6 gate
     def gate(self, node, role="worker"):
         r = self.dispatch(["gate", node], role=role)
@@ -1645,7 +1734,7 @@ class Parallel(IntegrationBase, unittest.TestCase):
         self.assertEqual(self.issue(g)["status"], before["status"])  # read-only
         self.assertEqual(self.herdr_calls("agent", "prompt"), [])
 
-    def test_gate_treats_a_stored_explicit_null_verdict_as_a_failure(self):
+    def test_gate_treats_a_stored_null_verdict_as_no_verdict(self):
         g = self.make("T-GATE-NULL-G")
         dep, _ = self.launch("T-GATE-NULL")
         self.depends(g, dep)
@@ -1653,9 +1742,7 @@ class Parallel(IntegrationBase, unittest.TestCase):
         self.close(dep)
         self.assertIs(self.gate(g)["ok"], True)  # omission is valid
         self.store_explicit_null_verdict(dep)
-        out = self.gate(g)
-        self.assertIs(out["ok"], False)
-        self.assertEqual({r["dependency"]: r["code"] for r in out["reasons"]}, {dep: "failed_predecessor"})
+        self.assertIs(self.gate(g)["ok"], True)  # a stored null too (P8.7)
 
     def test_gate_for_a_mock_contract_graph(self):
         contract = self.make("T-MOCK-CONTRACT")
