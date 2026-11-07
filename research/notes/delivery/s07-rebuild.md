@@ -76,6 +76,11 @@ Acceptance:
 2. **Example quoting.** Windows PowerShell 5.1 strips the inner double quotes of a native argument, so the
    proposed `--changes '{"..."}'` line fails there. Commit `examples/wind_drag/` with the quoting changed so each
    command runs as written in Windows PowerShell 5.1, and run it once that way. Only the quoting may change.
+3. **Registration position (V-Run finding S07-R1-REGISTRATION-POSITION).** "Applied by hand next to the B06
+   `source_sink_run_profile` line" in R1 means the patch is applied by hand because B06's line now sits in its
+   context. The position is the one `registration.patch` gives: the `"wind_drag"` schema entry directly after
+   `"weir_series"`. It does not require the entry to be adjacent to the B06 line. This was the coordinator's
+   wording, not a candidate defect.
 
 ## Done when
 
