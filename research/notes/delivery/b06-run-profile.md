@@ -91,7 +91,8 @@ restart times via `checkpoint_schedule`. It does not compare the 170 scientific 
 
 - **New:** `src/dfm_cli/source_sink_run_inputs.py`, `src/dfm_cli/source_sink_run_profile.py`. The product becomes
   193 files.
-- **Changed, minimal hunks only:** `src/dfm_cli/runs.py` (import, registry, family membership), `src/dfm_cli/cli.py`
+- **Changed, minimal hunks only:** `src/dfm_cli/runs.py` (import, registry, family membership, and the
+  source-only route/pre-read gate that `API-CONTRACT.txt` lists for `runs.py`: `pre_read_hook(path)` before the MDU parser), `src/dfm_cli/cli.py`
   (one schema entry), `src/dfm_cli/run_pump_lifecycle.py` only if the source label needs it.
 - **Tests:** `tests/test_source_sink_run_profile.py` and fixtures under `tests/`. Every process or Job boundary in
   a test is synthetic.
