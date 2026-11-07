@@ -26,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-06 GRAPH-OPS-P3 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-07 GRAPH-OPS-P4 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -100,11 +100,11 @@
 | GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-V: verify Contract C5 | ✓ | `dfm-fmc.42` |
 | GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-G: integrate Contract C5 | ✓ | `dfm-fmc.43` |
 | GRAPH-OPS | HUMAN-20261106-19: Codex quota policy | ✓ | `dfm-fmc.44` |
-| GRAPH-OPS | GRAPH-OPS-P4: Phase 4: parallel multi-agent orchestration (isolation, ownership, fan-in gates) | Blocked | `dfm-fmc.45` |
-| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-I: implement Contract P1-P6 in dispatch | in_progress | `dfm-fmc.46` |
-| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-V-Plan: cases and verifier from Contract P1-P6 | in_progress | `dfm-fmc.47` |
-| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-V-Run: verify frozen candidate | Blocked | `dfm-fmc.48` |
-| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-G: integrate and live-trial Tests A-E | Blocked | `dfm-fmc.49` |
+| GRAPH-OPS | GRAPH-OPS-P4: Phase 4: parallel multi-agent orchestration (isolation, ownership, fan-in gates) | ✓ | `dfm-fmc.45` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-I: implement Contract P1-P6 in dispatch | ✓ | `dfm-fmc.46` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-V-Plan: cases and verifier from Contract P1-P6 | ✓ | `dfm-fmc.47` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-V-Run: verify frozen candidate | ✓ | `dfm-fmc.48` |
+| GRAPH-OPS | GRAPH-OPS-P4-PARALLEL-G: integrate and live-trial Tests A-E | ✓ | `dfm-fmc.49` |
 | GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
 | GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-SMOKE-C: live C5 check with Claude | ✓ | `dfm-fmc.50` |
 | GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-SMOKE-X: live C5 check with Codex | ✓ | `dfm-fmc.51` |
@@ -134,6 +134,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-P4 (Phase 4) | `b3fef1f` (merge of `d6352b9`) | [Phase 4 G 기록](research/notes/delivery/graph-ops-p4-parallel.md#g-record-coordinator-2026-11-07). 병렬 dispatch(`fill`·`status`·`reconcile`·`gate`, 담당 경로·모델 정책). 독립 검증 2회차 PASS 936건, 실제 Herdr 시험 A~E 통과 |
 | GRAPH-OPS-P3 (Phase 3) | `4156e61` | [Phase 3 마감](research/notes/delivery/graph-ops-p3-dispatch.md#phase-3-close-coordinator-2026-11-06). C5 독립 검증 2회차 PASS 27건, Claude·Codex 실제 시험 통과 |
 | B06-READER-G | 실험 폴더(`freeze.json` `74789de6…937d`) | 판독기 rev2 독립 검증 PASS 76/76. 판독·기록 계층만 승인, 실제 엔진 실행 없음 |
 | GRAPH-OPS-P3-CODEFIX-G | `1e4b316` | 대소문자 섞인 작업 코드 허용(C4.6 개정) |

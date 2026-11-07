@@ -199,3 +199,45 @@ fake Herdr and fixture transcripts only. All text that dispatch writes for agent
   - Test C: an ownership conflict refused.
   - Test D: `reconcile` after a coordinator restart while an agent is live.
   - Test E: bad receipts refused and `gate` closed until the receipts are valid.
+
+## G record (coordinator, 2026-11-07)
+
+G (`dfm-fmc.49`) approved candidate `d6352b9` and merged it as `b3fef1f` (`--no-ff`). `dispatch.py` and
+`test_dispatch.py` on main are byte-identical to the candidate. `dispatch gate dfm-fmc.49` was ok before the merge.
+
+- **Contract:** `39273eb` (P1-P7), `b6dc0e4` (P0), `e464f40` (P8.1-P8.6), `8e91368`/`8754727` (P0.3, P8.7), `14c1726`
+  (P8.8, a V-Run round 2 ruling).
+- **I** (Claude `claude-sonnet-5-5`): `3220086` (82 tests), rev2 `9ebcfcd` (P4-V-001), rev3 `d6352b9` (P8.7, P0.3; 89 tests).
+- **V-Plan** (Codex `gpt-6.1-sol` high): 6 ambiguities A1-A6, answered as P8.1-P8.6.
+- **V-Run** (same Codex session):
+  - Round 1 on `3220086`: REJECT, 717 cases. P4-V-001: `collect` stored an explicit `"verdict": null`.
+  - Round 2 on `d6352b9`: PASS, 936 cases, 912 pass, 24 superseded by P0/P2/C4.6 with the clause, 0 defects.
+    Regressions `verify_dispatch` 277/279, `verify_codefix` 24/34, `verify_livefix` 15/27, all PASS after supersession (every failure is superseded).
+    Verifier committed as `research/workflows/verification/verify_p4.py` (`659c23a`, sha256 `bf4c350c…`).
+- **Author tests on main after the merge:** `test_bdw` 15 and `test_dashboard` 5 (1 skip) OK, `compileall` clean.
+  The full `test_dispatch` run on main was stopped at 74 of 89 tests, all passing, when Claude Code reclaimed memory.
+  It was not re-run: the two files are byte-identical to `d6352b9`, where I and V each ran all 89 tests OK.
+- **Live trial in the real Herdr session** (Claude Code and Codex 0.167.0, throwaway repository `p4live`):
+  - Round 1 on `3220086` ([LIVE-R1](../../experiments/GRAPH-OPS-P4-PARALLEL-G-20261106-01/LIVE-R1.md), local): C, D, E
+    passed. A overlapped only after a manual re-prompt, because of DISPATCH-LIVE-003 (Codex got a truncated first
+    prompt), which led to P0.3.
+  - Round 2 on `d6352b9` ([LIVE-R2](../../experiments/GRAPH-OPS-P4-PARALLEL-G-20261106-01/LIVE-R2.md), local): A-E pass.
+    One `fill` started Claude I and Codex VP, which ran with 31 s of overlap. Every start recorded
+    `prompt_received: true`. There were no manual steps.
+
+Usage from `collect` (Codex `input` includes cached input; the V-Run row is the whole Codex session, V-Plan included):
+
+| Node | Model | Wall | Input | Cached read | Cache write | Output |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| I (attempt 2: rev2 and rev3) | claude-sonnet-5-5 medium | 30,663 s | 100 | 4,303,002 | 248,496 | 25,275 |
+| V-Plan | gpt-6.1-sol high | 6,279 s | 10,824,470 | 10,704,768 | 0 | 99,260 (49,778 reasoning) |
+| V-Run (2 rounds, session total) | gpt-6.1-sol high | 73,891 s | 30,001,010 | 29,372,800 | 0 | 267,829 (166,559 reasoning) |
+
+Follow-ups (not in this Contract):
+- **DISPATCH-LIVE-004:** `stop` right after a Claude pane closes can leave an empty, deregistered worktree folder
+  (`Permission denied`). This was seen for Claude only, in both rounds.
+- **P0.3 cost:** each start can wait up to the submit budget for the transcript. `test_dispatch` grew from about 33 to
+  about 71-85 minutes, and a two-task `fill` took 69 s.
+- `stop` removes the I worktree, so V-Run needs its own frozen worktree (done by hand in round 2).
+- A new repository path needs one Claude folder-trust answer before the first Claude start.
+- Codex 0.167.0 truncated a fresh first prompt once (DISPATCH-LIVE-003). P0.3 now detects it, but nothing resends.

@@ -16,13 +16,13 @@ evidence. These responsibilities never overlap.
 
 ## Transition status (update when a phase closes)
 
-| Phase | Status, 2026-11-06 |
+| Phase | Status, 2026-11-07 |
 | --- | --- |
 | 0 Inventory | Done. [Phase 0/1 report](research/notes/delivery/graph-ops-phase0-1.md) |
 | 1 Beads trial | Done. `bd` 1.3.1 at `research/tools/beads/1.3.1/bd.exe`; 15/15 checks in `research/experiments/GRAPH-OPS-P1-20261106-01/verification.json` |
 | 2 Migrate graph | Done 2026-11-06 (user-approved). [Phase 2 record](research/notes/delivery/graph-ops-phase2.md): bdw I/V/G, workspace init, 46-issue seed (7 epics, 39 tasks), DELIVERY cross-check |
 | 3 Herdr integration | Done 2026-11-06. [Record](research/notes/delivery/graph-ops-p3-dispatch.md#phase-3-close-coordinator-2026-11-06): dispatch tool, CODEFIX, recovery trial, LIVEFIX (C5), B06 reader pilot |
-| 4 Isolation and parallel work | In progress. [Contract](research/notes/delivery/graph-ops-p4-parallel.md) (Beads `GRAPH-OPS-P4`) |
+| 4 Isolation and parallel work | Done 2026-11-07. [G record](research/notes/delivery/graph-ops-p4-parallel.md#g-record-coordinator-2026-11-07): `fill`, `status`, `reconcile`, `gate`, ownership and model policy; live Tests A-E |
 | 5 | Blocked on 4. |
 
 Beads is the single source of truth for active state and dependencies. Read and
@@ -194,6 +194,10 @@ integration + rework + tools.
   other vendor. For high-risk work, agreement between models is not evidence.
   Require independent criteria, a frozen candidate, a raw-data check, the
   regressions, the required native verification and the G procedure.
+- Verification weight (user decision, 2026-11-07): the full procedure above is for product
+  CLI work (`src/dfm_cli`, native runs). Tool nodes (`research/workflows`, dispatch, bdw) and
+  doc nodes get a light check: author tests plus a short independent check of the core cases or
+  a coordinator check, with no large verifier suite, regression re-runs or repeated live rounds.
 - Before assigning a model, verify that it is available with its exact model ID,
   supported effort, tools and billing mode on the installed runtime. Previously
   seen IDs or prices are not verified settings.
@@ -204,11 +208,21 @@ Use **dispatch** for every assignment (coordinator only):
 
 ```powershell
 python -m research.workflows.graph.dispatch start <id> --packet research/experiments/<run>/TASK.md `
-    --kind claude|codex --model <verified-id> --effort <level> [--name <agent>]
+    --kind claude|codex --model <verified-id> --effort low|medium|high [--name <agent>] `
+    [--owns <path>]... [--native] [--approved HUMAN-YYYYMMDD-N] [--max-parallel <n>]
+python -m research.workflows.graph.dispatch fill [--dry-run] [--max-parallel <n>]  # starts ready nodes with metadata.plan
 python -m research.workflows.graph.dispatch show <id>         # any role
+python -m research.workflows.graph.dispatch status            # any role: active dispatches, live, prompt_received
+python -m research.workflows.graph.dispatch reconcile         # after a coordinator restart; never restarts an agent
+python -m research.workflows.graph.dispatch gate <id>         # any role: are the blocking dependencies' receipts valid?
 python -m research.workflows.graph.dispatch collect <id> --receipt <file>
 python -m research.workflows.graph.dispatch stop <id>
 ```
+
+At most 2 dispatches are active at once by default, owned paths must not overlap, a model with `astra` or `opus` in its ID needs `--approved`,
+and two `--native` dispatches are never active together. A native run still needs the review and the lease. The rules are in the
+[Phase 4 Contract](research/notes/delivery/graph-ops-p4-parallel.md). `stop` removes the worktree, so give V-Run its own
+frozen worktree of the candidate.
 
 `start` creates `<main>-wt/<CODE>`, splits a pane, starts the agent, sends the packet and
 records pane, session and model in the node. `collect` stores the receipt and the
