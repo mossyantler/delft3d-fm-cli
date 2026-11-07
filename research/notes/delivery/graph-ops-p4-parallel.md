@@ -175,6 +175,10 @@ answer is in `ok`. The coordinator runs `gate` before starting or closing a G no
 7. **Stored verdicts (compatibility).** `collect` before P5 stored `metadata.receipt.verdict: null` when a receipt had no
    `verdict`, so a stored null or a missing key both mean no verdict in P2.5 and P6. `collect` stops explicit nulls at
    intake (P5, P4-V-001). Records already in the graph stay valid without being collected again.
+8. **Claude records with a tool result (P0.3).** Claude Code writes tool results as `type: user` records. A record
+   whose `message.content` list holds any `tool_result` block is a tool-result record and is skipped as a whole, even
+   when it also holds `text` blocks. The first prompt precedes every tool call, so it never sits in such a record. If
+   no other `type: user` record qualifies, the prompt is unknown (`prompt_received: null` with a note).
 
 ## Safety
 
