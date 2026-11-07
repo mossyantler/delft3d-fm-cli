@@ -58,6 +58,9 @@ class SourceRunTests(unittest.TestCase):
         with self.assertRaises(DfmError) as error:
             function(*args, **kwargs)
         self.assertNotEqual(error.exception.exit_code, 70)
+        # R8.3: a reused pump/weir reader code never reaches a source-sink caller.
+        if getattr(function, '__module__', '') not in ('dfm_cli.pump_run_profile', 'dfm_cli.weir_run_profile'):
+            self.assertFalse(error.exception.code.startswith(('pump_', 'weir_')), error.exception.code)
         return error.exception
 
     def installation(self):
@@ -517,6 +520,90 @@ class SourceRunTests(unittest.TestCase):
                     elif mode == 'origin': var.units = 'seconds since 2001-01-01 01:00:00 +00:00'
                     else: var[60] = 59.5
             self.bad(run.outputs, verify=True)
+
+    def test_verify_outputs_hook_has_the_weir_signature_and_is_reached_by_registry(self):
+        import inspect
+        from dfm_cli import weir_run_profile
+        self.assertIs(runs.AUTHORED_PROFILES[PROFILE], subject)
+        self.assertEqual(str(inspect.signature(subject.verify_outputs)),
+                         str(inspect.signature(weir_run_profile.verify_outputs)))
+
+    def test_verify_outputs_hook_passes_correct_axes_both_routes_with_and_without_base(self):
+        for route in ('direct', 'dimr'):
+            run, *_ = self.stage(route, 'hook-' + route)
+            self.outputs_fixture(run)
+            staged, clock = Path(run.record['staged_mdu']), run.record['profile']['clock']
+            alone = subject.verify_outputs(staged)
+            self.assertEqual(alone['history_map_samples'], [121, 121])
+            self.assertEqual(alone['restart_times_seconds'], [0, 120])
+            self.assertEqual(alone['scientific_validation'], 'not_performed')
+            base = run.outputs(verify=True)
+            joined = subject.verify_outputs(staged, clock, base_verification=base)
+            self.assertIs(joined['shared_time_verification'], base)
+            self.assertEqual(joined['shared_time_verification']['checkpoint_schedule']['actual_iso_datetimes'],
+                             ['2001-01-01T00:00:00', '2001-01-01T00:02:00'])
+
+    def test_verify_outputs_hook_refuses_corrupt_axes_both_routes(self):
+        import netCDF4 as nc
+        for route in ('direct', 'dimr'):
+            for mode in ('no-initial', 'no-final', 'extra-restart', 'mask', 'origin', 'cadence', 'short-map', 'duplicate-final'):
+                with self.subTest(route=route, mode=mode):
+                    run, *_ = self.stage(route, f'hook-bad-{route}-{mode}')
+                    folder = self.outputs_fixture(run)
+                    if mode == 'no-initial':
+                        (folder / 'model_20010101_000000_rst.nc').unlink()
+                    elif mode == 'no-final':
+                        (folder / 'model_20010101_000200_rst.nc').unlink()
+                    elif mode in ('extra-restart', 'duplicate-final'):
+                        name = {'extra-restart': 'model_20010101_000100_rst.nc', 'duplicate-final': 'model_20010101_000200_dup_rst.nc'}[mode]
+                        with nc.Dataset(folder / name, 'w') as ds:
+                            ds.createDimension('time', 1)
+                            var = ds.createVariable('time', 'f8', ('time',))
+                            var.standard_name, var.calendar = 'time', 'proleptic_gregorian'
+                            var.units = 'seconds since 2001-01-01 00:00:00 +00:00'
+                            var[:] = [60 if mode == 'extra-restart' else 120]
+                    else:
+                        with nc.Dataset(folder / 'model_his.nc' if mode != 'short-map' else folder / 'model_map.nc', 'a') as ds:
+                            var = ds['time']
+                            if mode == 'mask': var[60] = nc.default_fillvals['f8']
+                            elif mode == 'origin': var.units = 'seconds since 2001-01-01 01:00:00 +00:00'
+                            elif mode == 'cadence': var[60] = 59.5
+                    if mode == 'short-map':
+                        (folder / 'model_map.nc').unlink()
+                        with nc.Dataset(folder / 'model_map.nc', 'w') as ds:
+                            ds.createDimension('time', 120)
+                            var = ds.createVariable('time', 'f8', ('time',))
+                            var.standard_name, var.calendar = 'time', 'proleptic_gregorian'
+                            var.units = 'seconds since 2001-01-01 00:00:00 +00:00'
+                            var[:] = list(range(120))
+                    self.bad(subject.verify_outputs, Path(run.record['staged_mdu']))
+
+    def test_verify_outputs_hook_refuses_base_without_the_schedule_receipt_or_wrong_clock(self):
+        run, *_ = self.stage(suffix='hook-base')
+        self.outputs_fixture(run)
+        staged, clock = Path(run.record['staged_mdu']), run.record['profile']['clock']
+        from dfm_cli.outputs import verify_outputs as research_verify
+        weak = research_verify(staged, clock)  # Final-restart-only gate, no initial/final schedule receipt.
+        self.assertEqual(self.bad(subject.verify_outputs, staged, clock, base_verification=weak).code, 'source_sink_run_outputs')
+        self.assertEqual(self.bad(subject.verify_outputs, staged, {**clock, 'stop': '2001-01-01T00:03:00'}).code, 'source_sink_run_outputs')
+
+    def test_reused_pump_and_weir_reader_codes_never_reach_a_source_sink_caller(self):
+        # Direct hook entries that call the reused lexical path guard without the inspect() wrapper.
+        error = self.bad(subject.pre_read_hook, self.source / 'AUX.mdu')
+        self.assertEqual(error.code, 'source_sink_run_input')
+        self.assertEqual(error.details['cause'], 'pump_path')
+        self.assertEqual(error.exit_code, 3)  # The reused reader's exit category is preserved.
+        self.assertEqual(self.bad(runs.prepare, self.source / 'AUX.mdu', self.root / 'never', None, 'direct', 20, False, PROFILE).code,
+                         'source_sink_run_input')
+        self.assertFalse((self.root / 'never').exists())
+        run, *_ = self.stage()
+        for foreign in ('pump_path', 'weir_series'):
+            with patch.object(subject, 'lexical_external', side_effect=DfmError(foreign, 'reused reader', 4, 'detail')):
+                for hook in (subject.staging_hook, subject.pre_launch_hook):
+                    self.assertEqual(self.bad(hook, run).code, 'source_sink_run_input')
+        # Shared generic reader codes keep their own namespace (R8.3).
+        generic = DfmError('observation_missing_input', 'shared', 3)
+        self.assertIs(subject._source_error(generic), generic)
 
 
 if __name__ == '__main__':

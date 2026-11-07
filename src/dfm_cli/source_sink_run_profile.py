@@ -25,8 +25,27 @@ def require_route(route):
         fail('Select direct FM or generated single-component serial DIMR', route, 'source_sink_run_route')
 
 
+def _source_error(exc):
+    """Report a reused pump/weir reader failure under the source-sink namespace.
+
+    Shared generic readers (observation_*, syntax_error, ...) keep their codes.
+    Exit category, message and details are preserved; the original code is kept
+    as the cause so no source fact is lost.
+    """
+    if not exc.code.startswith(('pump_', 'weir_')):
+        return exc
+    return DfmError('source_sink_run_input', 'Source/sink closed mesh, path or station qualification failed', exc.exit_code,
+                    {'cause': exc.code, 'message': str(exc), 'details': exc.details})
+
+
 def pre_read_hook(path):
-    return pre_read(path)
+    try:
+        return pre_read(path)
+    except DfmError as exc:
+        contextual = _source_error(exc)
+        if contextual is exc:
+            raise
+        raise contextual from exc
 
 
 def native_preflight(path, profile_name, *, route=None):
@@ -37,10 +56,10 @@ def native_preflight(path, profile_name, *, route=None):
     try:
         report = inspect(path)
     except DfmError as exc:
-        if not exc.code.startswith('pump_'):
+        contextual = _source_error(exc)
+        if contextual is exc:
             raise
-        raise DfmError('source_sink_run_input', 'Source/sink closed mesh or station qualification failed', 4,
-                       {'cause': exc.code, 'message': str(exc), 'details': exc.details}) from exc
+        raise contextual from exc
     except (OSError, UnicodeError, ValueError, TypeError, KeyError, IndexError, OverflowError) as exc:
         raise DfmError('source_sink_run_input', 'Cannot establish the bounded six-file source/sink graph', 4, str(exc)) from exc
     return report, report['source_sink']
@@ -105,6 +124,16 @@ def _route_binding(run, root):
 
 def staging_hook(run):
     """Recheck original closure, exact staged bytes/identities and route composition."""
+    try:
+        return _staging_hook(run)
+    except DfmError as exc:
+        contextual = _source_error(exc)
+        if contextual is exc:
+            raise
+        raise contextual from exc
+
+
+def _staging_hook(run):
     record = run.record
     require_route(record.get('route'))
     selected = record.get('profile', {})
@@ -188,6 +217,45 @@ def pre_launch_hook(run):
     if STAGED_KEY not in run.record or ROUTE_KEY not in run.record:
         fail('Missing post-staging source or route identity', code='input_changed')
     return staging_hook(run)
+
+
+def verify_outputs(mdu, expected_clock=None, *, base_verification=None):
+    """Family adapter for R5: 121 history/map times and exactly restart 0 and 120.
+
+    The shared reader owns CF time decoding. This adapter fixes the configured
+    initial/final checkpoint plan through checkpoint_schedule, so a lone final
+    restart is not enough. It compares no scientific variable.
+    """
+    from . import outputs as shared
+    from .model import Mdu
+    _, selected = native_preflight(mdu, PROFILE)
+    clock = expected_clock if expected_clock is not None else selected['clock']
+    if clock != selected['clock']:
+        fail('Output clock differs from the admitted 0..120 s source/sink clock', code='source_sink_run_outputs')
+    plan = selected['checkpoint_schedule']
+    if base_verification is None:
+        paths, intervals, restarts = shared.schedules(Mdu(mdu))
+        axes = {p: shared.read_axis(p, shared.sha(p), clock, intervals.get(p), {})
+                for p in set(intervals) | set(restarts) if p.is_file()}
+        base = shared.verified(paths, restarts, axes, checkpoint_schedule=plan)
+    else:
+        base = base_verification
+        receipt = base.get('checkpoint_schedule') if isinstance(base, dict) else None
+        if not isinstance(receipt, dict) or base.get('state') != 'passed' or receipt.get('state') != 'passed':
+            fail('Supplied output verification lacks the passed initial/final checkpoint schedule receipt',
+                 code='source_sink_run_outputs')
+    axes_found = base.get('axes', {})
+    if [axes_found.get(k, {}).get('samples') for k in ('history', 'map')] != [121, 121]:
+        fail('History and map must each hold exactly 121 times 0..120 s', code='source_sink_run_outputs')
+    receipt = base['checkpoint_schedule']
+    if (plan['expected_seconds_since_refdate'] != [0, 120] or receipt['expected_iso_datetimes'] != plan['expected_iso_datetimes']
+            or receipt['actual_iso_datetimes'] != plan['expected_iso_datetimes']
+            or receipt['actual_valid_singleton_count'] != 2 or len(base.get('restart_axes', [])) != 2):
+        fail('Restart output must be exactly the singleton initial 0 s and final 120 s checkpoints',
+             receipt, 'source_sink_run_outputs')
+    return {'shared_time_verification': base, 'scientific_validation': 'not_performed',
+            'restart_times_seconds': [0, 120], 'history_map_samples': [121, 121],
+            'limitations': list(LIMITATIONS)}
 
 
 def contract():
