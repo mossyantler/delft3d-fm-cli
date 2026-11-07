@@ -116,6 +116,18 @@ There are four runs: `point_set15` and `pair_set15`, each through `direct` and `
 
 The coordinator asks the user before the lease.
 
+## R8. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **A1, varying knots and column order.** The profile admits what R2 and the pinned "Linear BC admission" admit:
+   2..121 knots with time variation, and either order of the two physical columns, bytes kept and never reordered.
+   This holds for inspection and for the `run start` preflight alike; the profile does not refuse such a run.
+   "Acceptance" in R6 means native and scientific acceptance only: no R7 run covers these inputs, so no claim is
+   made about their results.
+2. **A2, route refusal.** The exit 4 in R1 is the profile's route gate (`require_route`, reached through
+   `runs.prepare`). The public parser keeps its existing `--route` choices `direct` and `dimr`, so an unknown public
+   route is a parser error with exit 2, as today. Both parser choices are supported by `source-sink`, so no public
+   route reaches the exit-4 gate; it is tested at the `runs.prepare` level.
+
 ## Done when
 
 - **I:**
