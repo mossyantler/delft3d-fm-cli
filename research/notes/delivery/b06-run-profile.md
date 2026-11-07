@@ -127,6 +127,11 @@ The coordinator asks the user before the lease.
    `runs.prepare`). The public parser keeps its existing `--route` choices `direct` and `dimr`, so an unknown public
    route is a parser error with exit 2, as today. Both parser choices are supported by `source-sink`, so no public
    route reaches the exit-4 gate; it is tested at the `runs.prepare` level.
+3. **Error codes (V-Run finding B06-VR-002).** "Errors use `source_sink_*` codes" in R2 covers errors the profile
+   raises itself and any `pump_*` or `weir_*` code coming from a reused pump or weir reader, which must be mapped to
+   `source_sink_*`. Errors from shared generic readers (`observation_*`, `syntax_error`, `invalid_scalar`,
+   `ambiguous_boundary`, `invalid_columns` and the like) keep their shared codes, exactly as the weir profile does.
+   The pinned `API-CONTRACT.txt` sentence means the same: source errors are not reported under pump or weir codes.
 
 ## Done when
 
