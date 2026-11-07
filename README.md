@@ -38,8 +38,10 @@ to it, and `source add` adds an explicit source to new EXT. Each write has its
 own preview and `result.sha256`. See the [worked input recipe](examples/source_sink/README.md)
 and [six 120-second comparisons](research/notes/verification/source-sink.md#public-225).
 Writing currently covers inline one/two-point XY, 2D UTC, zero momentum area,
-and linear discharge/salinityDelta BCs. These commands edit inputs; a dedicated
-public run profile and GUI export equivalence remain separate work.
+and linear discharge/salinityDelta BCs. These commands edit inputs. Run such a model with
+`dfm run start MODEL.mdu --profile source-sink --route direct|dimr --install '<suite root>' --out NEW --timeout 120`;
+[four installed runs](research/notes/verification/source-sink.md#public-run) matched #225 exactly. GUI export
+equivalence remains separate work.
 
 To see what a 2D model prescribes at a boundary **before running it**, use
 `dfm boundary preview f34.mdu --boundary L1 --signals all`. Add `--point`,

@@ -14,7 +14,7 @@ GUI에서 물을 넣는 점 하나를 그리는 작업과, 두 점을 연결해 
 
 7개 완료 사례에서 history와 map의 0–120초 121개 시각, 처음·끝 restart의 시각을 직접 대조했다. 실패 6개를 포함한 13개 작업은 원래 Job과 26개 멤버의 종료 기록이 남았다. [사전 수용 기준](../../experiments/B06-SOURCES-V-preflight-01/predeclared.json), [사례별 원본 기록](../../experiments/B06-SOURCES-RUNNER-I-native-215-01/verification.json), [좌표·PLI 입력 원본](../../experiments/B06-SOURCES-V-inputs-03/input-manifest.json), [집계와 종료 근거](../../experiments/B06-SOURCES-G215-readback-01/verification.json), [원자료를 다시 읽는 코드](../../experiments/B06-SOURCES-G215-readback-01/review.py). [첫 독립 검증](../../experiments/B06-SOURCES-V-native-215-01/verification.json)은 성공 사례에서도 관측점 식별자의 마스크 처리에서 멈췄다. [관측점 문자열 처리 수정 후 독립 재판독](../../experiments/B06-SOURCES-V-native-215-schema-followup-03/verification.json)에서도 접미사 없는 5/15 두 사례는 지정한 염분 반응을 통과하지 못했다. PLI 여섯 건을 포함해 전체 판정은 미승인이다.
 
-**제품 판정:** 아래 #225를 통과한 `source inspect/add/set/forcing-create`를 개발판에 통합했다. 작성은 inline XY 한 점/두 점, 2D UTC, 운동량 면적 0, 선형 discharge/salinityDelta BC에 한정한다. 전용 공개 실행 프로필, PLI 작성과 GUI의 무변경·변경 export 대조는 별도 후속 작업이다.
+**제품 판정:** 아래 #225를 통과한 `source inspect/add/set/forcing-create`를 개발판에 통합했다. 작성은 inline XY 한 점/두 점, 2D UTC, 운동량 면적 0, 선형 discharge/salinityDelta BC에 한정한다. 공개 실행 프로필 `run start --profile source-sink`는 아래 [#232](#public-run)에서 direct·DIMR 두 경로로 통합했다. PLI 작성과 GUI의 무변경·변경 export 대조는 별도 후속 작업이다.
 
 공개 편집 후보 1은 실제 오류를 발견해 병합을 보류했다. [별도 복사본에 대한 명령 검수](../../experiments/B06-PUBLIC-G-input-text-01/review.json)에서 JSON 이름의 `\\u0000`을 넣은 `source set`이 성공을 반환했고, [적용 결과](../../experiments/B06-PUBLIC-G-input-text-01/nul-apply.json)에는 EXT에 실제 NUL 바이트가 들어갔다. 수정본은 이 입력을 쓰기 전에 거부하고 원래 EXT·다른 입력 전체를 보존해야 한다. [후보 2의 설치 명령 독립 검수](../../experiments/B06-V-public-install-results-01/verification.json)는 312회 호출·158개 검사를 통과했다. 심볼릭 링크 세 조건은 이 Windows 사용자의 생성 권한이 없어 미검증으로 남겼다. [통합자의 별도 21회 명령 검사](../../experiments/B06-PUBLIC-G-rev02-01/verification.json)에서도 잘못된 텍스트 9종의 미리보기·적용을 거부하고 한글 이름만 정확히 바꿨다. [공개 명령으로 준비한 여섯 입력](../../experiments/B06-PUBLIC-G-inputs-01/input-manifest.json)은 무변경·기존 연결 수정·새 취방류 추가를 단일점과 두 점에 각각 적용한 것이다. 이 여섯 입력의 계산 결과는 아래 #225에서 별도로 판정했다.
 
@@ -60,3 +60,18 @@ GUI에서 물을 넣는 점 하나를 그리는 작업과, 두 점을 연결해 
 
 이 결과는 연구 실행기를 통한 한 격자의 짧은 직렬 검증이다. 전용 `run start` 프로필, 다른 지형·유량 부호·수직 범위·성분, GUI 내보내기와 과학적 보정을 승인하지 않는다.
 
+<a id="public-run"></a>
+
+## #232 · 공개 실행 프로필 `run start --profile source-sink` (direct·DIMR)
+
+```text
+dfm run start MODEL.mdu --profile source-sink --route direct|dimr --install SUITE --out NEW --timeout 120
+```
+
+[Contract](../delivery/b06-run-profile.md)(R1–R8)대로 #225와 같은 닫힌 범위만 받는다. 활성 입력 6개, 48셀 격자, inline 한 점 또는 연결 쌍, 선형 discharge/salinityDelta BC, 120초 cold UTC가 그 범위다. 실행 직전에 입력·실행 파일·DLL·DIMR XML의 신원을 다시 확인한다. pump·weir와 같은 직렬 종료 경로를 쓰며, 원래 Job 종료 근거가 없으면 `completed`가 되지 않는다. 시간에 따라 변하는 BC와 열 순서가 바뀐 BC도 입력으로는 받지만, 아래 실제 계산은 그 경우를 다루지 않는다.
+
+- **엔진 없는 독립 검증.** 1회차 REJECT 뒤 2회차에서 358/358 통과. 1회차에서는 `verify_outputs`가 빠져 있었다. [검토](../../experiments/B06-RUN-PROFILE-V-Run-20261107-01/REVIEW-r2.md), [결과](../../experiments/B06-RUN-PROFILE-V-Run-20261107-01/verification-r2.json).
+- **실제 계산 4회**(사용자 승인 `HUMAN-20261107-01`, 임대 `native-232`). `point_set15`·`pair_set15`를 각각 direct와 DIMR로 실행했다. 네 실행 모두 `completed`였고, 사례마다 170개 변수가 #225와 오차 0(atol·rtol 0)으로 일치했다. 날짜·uuid 같은 출처 속성만 달랐다. history·map은 0–120초 121개 시각이고 restart는 0·120초이며, 원래 Job과 CloseHandle 종료 근거가 모두 남았다. direct `dflowfm-cli.exe`는 #225와 같은 `78697b06…`이고, DIMR 실행 파일은 `5880b1e6…`이다. [검토](../../experiments/B06-RUN-PROFILE-V-Run-20261107-01/REVIEW-native.md), [결과](../../experiments/B06-RUN-PROFILE-V-Run-20261107-01/verification-native.json).
+- **통합.** 제품 파일은 193개(새 모듈 2개)이고 wheel과 바이트 단위로 같다. 명령은 98개로 그대로다. [G 기록](../../experiments/B06-RUN-PROFILE-G-20261107-01/).
+
+이 결과는 한 격자·한 BC 조합의 짧은 직렬 실행이다. 다른 지형·유량 부호·수직 범위·성분, 시간 변화 BC의 계산 결과, GUI 내보내기와 과학적 보정은 승인하지 않는다.

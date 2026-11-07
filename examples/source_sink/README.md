@@ -29,4 +29,4 @@ dfm source set source-case/model.mdu --id intake-A.1 --spec $links --apply --exp
 
 지원하는 작성 범위는 2D·명시적 UTC·운동량 면적 0·EXT 안의 XY 한 점 또는 두 점·선형 discharge/salinityDelta BC다. PLI 작성, 수직 범위, 운동량, 다른 성분과 단위 변환은 지원하지 않는다. `salinity`는 `salinityDelta`의 별칭이 아니다. 좌표를 쓰는 데 성공해도 격자 안의 위치나 과학적 타당성이 검증된 것은 아니다.
 
-[실제 계산 대조 #225](../../research/notes/verification/source-sink.md#public-225)에서 단일점/연결 쌍의 무변경·수정·추가 여섯 사례가 각각 수동 기준의 170개 변수와 일치했다. 이 명령들은 입력 파일 작업이며, 해당 실험은 별도의 연구 실행기를 사용했다. 전용 공개 실행 프로필과 GUI 내보내기는 아직 검증하지 않았다.
+[실제 계산 대조 #225](../../research/notes/verification/source-sink.md#public-225)에서 단일점/연결 쌍의 무변경·수정·추가 여섯 사례가 각각 수동 기준의 170개 변수와 일치했다. 이 명령들은 입력 파일 작업이며, 해당 실험은 별도의 연구 실행기를 사용했다. 만든 모델은 `dfm run start model.mdu --profile source-sink --route direct|dimr --install '<suite root>' --out NEW --timeout 120`으로 실행한다. [공개 실행 프로필 4회 실행](../../research/notes/verification/source-sink.md#public-run)은 #225와 정확히 일치했다. GUI 내보내기는 아직 검증하지 않았다.

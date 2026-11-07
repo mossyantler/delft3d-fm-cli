@@ -6,7 +6,7 @@ broadening a command, read its linked verification note. The note gives the
 tested scope and what is still unverified. Keep every scope as narrow as its
 evidence.
 
-This guide sits in `src/` rather than in `src/dfm_cli/`, so the 191-file product
+This guide sits in `src/` rather than in `src/dfm_cli/`, so the product
 tree that G reviews compare against each wheel stays unchanged.
 
 ## Contract every command keeps
