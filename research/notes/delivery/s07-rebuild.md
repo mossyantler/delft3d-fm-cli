@@ -66,6 +66,14 @@ Acceptance:
 - scientific calibration;
 - the installed engine's source commit.
 
+## R6. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **A1, test adjustments.** A change to the proposed `test_wind_drag.py` is allowed only where a test asserts a base
+   fact that has changed since the old base: product file count, public command count, the set of schema entries
+   (for example `source_sink_run_profile`), or a module or fixture path. Each change is listed in the I receipt with
+   its reason, and V-Run checks the diff against this list. Any change to an assertion about `wind drag-inspect` or
+   `wind drag-set` behaviour, bounds, errors or bytes is a defect.
+
 ## Done when
 
 - **I:**
