@@ -1,4 +1,4 @@
-# Existing Smith&Banke drag table: file-only proposal
+# Existing Smith&Banke drag table: inspect and edit
 
 This small 48-cell, two-boundary 2D input graph demonstrates inspecting and
 editing an existing two-breakpoint table. The authored `[wind]` table has
@@ -11,7 +11,7 @@ from the tracked weir-series example; the remaining inputs are authored with
 the existing channel JSON and file-only model authoring helper. No weir or
 structure input is used. See the private `example-proof.json` for provenance.
 
-After coordinator adoption and independent verification of the proposed commands:
+Commands, as written for Windows PowerShell 5.1:
 
 ```powershell
 Copy-Item -LiteralPath examples/wind_drag/model -Destination wind-case -Recurse

@@ -71,6 +71,8 @@ computational layer number. Inspection and editing do not start the solver.
 
 To inspect or change an existing 2D weir crest time series, use `dfm weir series-inspect`, `series-export` or `series-import`. The [worked PowerShell example](examples/weir_series/README.md) maps CSV seconds to TIM minutes and restores the original 11 inputs. Import edits height tokens at existing times; it cannot insert knots or turn a constant crest into a TIM. Simulation-time crest values and the GUI CSV format have separate checks. Run the 48-cell example with `dfm run start model.mdu --out NEW --route direct --profile weir-series --timeout 120`. [Four installed runs](research/notes/verification/weir-crest-series.md#public-run) matched their respective 120 s references, including both restarts.
 
+To change an existing two-breakpoint Smith & Banke wind drag table (`[wind] ICdtyp=2`), use `dfm wind drag-inspect` and `dfm wind drag-set` (preview, then `--apply --expect-sha256`). Only the selected coefficient or speed tokens change. See the [worked example](examples/wind_drag/README.md). [Seven installed runs](research/notes/verification/wind-drag.md) gave the predicted wind stress for each coefficient.
+
 For an existing 2D pump, `dfm pump inspect MODEL.mdu --id transfer_pump`
 reads the declared capacity, orientation, and ordered XY vertices from the
 referenced structure and PLI files. Omit `--id` to list the supported pumps.

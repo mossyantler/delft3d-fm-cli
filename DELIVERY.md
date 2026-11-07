@@ -15,18 +15,18 @@
 
 | 항목 | 현재 값 |
 | --- | --- |
-| 제품 | `B06-RUN-PROFILE-G` (`d22876a`). 제품 193파일이 wheel `b5806e9b…`와 일치. 직전 기준은 `SHORT-CLOSE-ROOT-G` (`df447d8`, 191파일) |
-| 공개 계약 | 명령 98개, JSON 프로토콜 2, manifest 3, 기본 물리 프로필 불변 |
-| 전체 회귀 | 1,756개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/B06-RUN-PROFILE-G-20261107-01/acceptance.json)). 직전 기준은 1,715개 중 1,679 통과 ([기록](research/proposals/short-close-native-gates/root-verification.json)) |
+| 제품 | `S07-G` (`32ae74f`). 제품 196파일이 wheel `f2dfa7fe…`와 일치. 그 전은 `B06-RUN-PROFILE-G` (`d22876a`, 193파일), `SHORT-CLOSE-ROOT-G` (`df447d8`, 191파일) |
+| 공개 계약 | 명령 100개(`wind drag-inspect`·`drag-set` 추가), JSON 프로토콜 2, manifest 3, 기본 물리 프로필 불변 |
+| 전체 회귀 | 1,774개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/S07-G-20261108-01/acceptance.json)). 직전 기준은 1,715개 중 1,679 통과 ([기록](research/proposals/short-close-native-gates/root-verification.json)) |
 | 실제 엔진 | #231 direct/DIMR 각 6사례, 원래 멤버 24개 종료, 600초·최종 restart, 원본 191변수 일치 ([`3851697` 검수](research/proposals/short-close-native231-review/RELEASE_VERDICT.md)) |
 | 거부 보존 | #229는 관찰 tick 동률로 `NOT_ACCEPTED`. 원본 192파일 유지 ([해제 검수](research/proposals/short-close-native229-review/RELEASE_VERDICT.md)) |
-| 네이티브 슬롯 | `idle233` (`B06-RUN-PROFILE-V-Run`의 #232 네 실행 뒤 `native-232` 해제). 실행 허가가 아니다 |
+| 네이티브 슬롯 | `idle235` (`S07-V-Run`의 #233 일곱 실행 뒤 `native-234` 해제). 실행 허가가 아니다 |
 
 승인 범위는 f34 2D UTC cold-start 600초, direct와 단일 FM DIMR까지다. 강제 종료의
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-07 B06-RUN-PROFILE 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-08 S07 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -115,9 +115,12 @@
 | GRAPH-OPS | GRAPH-OPS-BACKUP-G: 백업 통합 검수·첫 실제 백업 | ✓ | `dfm-fmc.9` |
 | S07 | S07-EDITOR-G: 설치 편집 통합 검수 (8입력 보존) | ✓ | `dfm-lo0.1` |
 | S07 | S07-V-Plan: 풍응력 7사례 판독 기준 (Lovelace) | ✓ | `dfm-lo0.2` |
-| S07 | S07-I: 현재 191파일 기준 새 구성 | Ready | `dfm-lo0.3` |
-| S07 | S07-V-Run: 풍응력 7사례 엔진 검수 (임대) | Blocked | `dfm-lo0.4` |
-| S07 | S07-G: S07 통합 검수 | Blocked | `dfm-lo0.5` |
+| S07 | S07-I: 현재 191파일 기준 새 구성 | ✓ | `dfm-lo0.3` |
+| S07 | S07-V-Run: 풍응력 7사례 엔진 검수 (임대) | ✓ | `dfm-lo0.4` |
+| S07 | S07-G: S07 통합 검수 | ✓ | `dfm-lo0.5` |
+| S07 | S07-V-Plan: re-bind the predeclared wind stress plan to the current product | ✓ | `dfm-lo0.6` |
+| S07 | HUMAN-20261108-01: Native runs for S07-V-Run (7 serial short runs, candidate 10c33f4) | ✓ | `dfm-lo0.7` |
+| S07 | HUMAN-20261108-02: Re-run S07 native 7 cases with operand = O fixtures | ✓ | `dfm-lo0.8` |
 | SHORT-CLOSE | SHORT-CLOSE-ROOT-G: 제품 통합 승인 df447d8 | ✓ | `dfm-nh0.1` |
 
 ## 공정 규칙
@@ -135,6 +138,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| S07-G | `32ae74f` (merge of `10c33f4`) | [#233 풍속별 항력 계수](research/notes/verification/wind-drag.md). `wind drag-inspect`·`drag-set`. 실제 7회 실행의 풍응력이 예측값과 허용 오차 안에서 일치(사용자 승인 `HUMAN-20261108-01`·`-02`) |
 | B06-RUN-PROFILE-G | `d22876a` (merge of `cf810b0`) | [#232 공개 실행 프로필](research/notes/verification/source-sink.md#public-run). `run start --profile source-sink` direct·DIMR. 독립 검증 2회차 358/358, 실제 4회 실행이 #225와 170변수 정확히 일치(사용자 승인 `HUMAN-20261107-01`) |
 | GRAPH-OPS-P4 (Phase 4) | `b3fef1f` (merge of `d6352b9`) | [Phase 4 G 기록](research/notes/delivery/graph-ops-p4-parallel.md#g-record-coordinator-2026-11-07). 병렬 dispatch(`fill`·`status`·`reconcile`·`gate`, 담당 경로·모델 정책). 독립 검증 2회차 PASS 936건, 실제 Herdr 시험 A~E 통과 |
 | GRAPH-OPS-P3 (Phase 3) | `4156e61` | [Phase 3 마감](research/notes/delivery/graph-ops-p3-dispatch.md#phase-3-close-coordinator-2026-11-06). C5 독립 검증 2회차 PASS 27건, Claude·Codex 실제 시험 통과 |
