@@ -234,3 +234,33 @@ process ownership after a real crash, Native engine termination and any
 scientific verification remain untested by this suite. Use a separately
 authorized disposable integration graph for rollout; no product queue replay
 or repeated live rounds are required for the tool's lightweight review.
+
+### Frozen-candidate observations (2026-11-08)
+
+Candidate `933a3ad4909c416d4760e2aeee7af8c43f4c3120`, branch
+`fix/graph-ops-reliability`, Beads `dfm-fmc.52`. The experiment
+`GRAPH-OPS-RELIABILITY-I-20261108-01` retains original outputs and hashes;
+[reliability-evidence.json](../../workflows/graph/reliability-evidence.json) is
+the portable index with the sixteen requested regression groups mapped to cases.
+
+- Observed: 59 relevant tests, 57 passed, 2 skipped; all 39 portable dispatch
+  tests passed with no skips. The two unchanged bdw/dashboard integration cases
+  lacked their pinned bd/bv binaries in the isolated worktree. No production DB
+  or installed runtime was substituted for a test fixture.
+- Observed: compileall for research/workflows and research/scripts, and
+  git diff --check, exit 0. Test elapsed time was about 38 seconds; that is a
+  regression-run observation, not a model-cost savings comparison.
+- Observed: a copied snapshot's 20 legacy receipts were inventoried twice with
+  identical results and byte-identical input. Operational records were not
+  migrated. Existing approval states and artifact sources were not changed.
+- Static analysis/coordinator light check: policy values match the baseline
+  after correcting the original YAML typo; no duplicated top-level definitions,
+  product-code changes or out-of-scope shared edits. The review is not represented
+  as an independent model verdict or a live integration approval.
+
+Raw artifacts remain ignored and local; the index does not imply they are
+available on another machine. Copy the artifact tree separately and verify its
+hashes before relying on it there. This candidate is not merged into accepted
+product code and has not been pushed. Rollout needs reviewed real plans/runtime
+observations and a separately authorized disposable integration check, not an
+operational migration or an automatic replay of the product queue.

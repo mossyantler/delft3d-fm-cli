@@ -1,0 +1,215 @@
+{
+  "node_id": "GRAPH-OPS-RELIABILITY-I",
+  "beads_id": "dfm-fmc.52",
+  "experiment_id": "GRAPH-OPS-RELIABILITY-I-20261108-01",
+  "source_commit": "933a3ad4909c416d4760e2aeee7af8c43f4c3120",
+  "source_branch": "fix/graph-ops-reliability",
+  "baseline_commit": "b8c93ff35a7ac4f6e0845cfd3ae7faac4b693da7",
+  "observed_checks": [
+    {
+      "check": "tests-final",
+      "source_commit": "933a3ad4909c416d4760e2aeee7af8c43f4c3120",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "research.workflows.graph.test_dispatch",
+        "research.workflows.graph.test_bdw",
+        "research.workflows.graph.test_dashboard",
+        "-v"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 38.218,
+      "artifact": "tests-final.log",
+      "sha256": "249d88cf03da122d8229caeca81d5577d937d9dfc92a0df9320511a6b3ef1615",
+      "total": 59,
+      "skips": [
+        "pinned bd binary not present",
+        "pinned bv binary not present"
+      ]
+    },
+    {
+      "check": "compileall-final",
+      "source_commit": "933a3ad4909c416d4760e2aeee7af8c43f4c3120",
+      "command": [
+        "python",
+        "-m",
+        "compileall",
+        "-q",
+        "research/workflows",
+        "research/scripts"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.25,
+      "artifact": "compileall-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "check": "diff-check-final",
+      "source_commit": "933a3ad4909c416d4760e2aeee7af8c43f4c3120",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.047,
+      "artifact": "diff-check-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "core_tests": 39,
+  "core_skips": 0,
+  "requirements_covered_by": {
+    "1": [
+      "test_retry_archives_receipt_metrics_and_cannot_finish_on_old_pass"
+    ],
+    "2": [
+      "test_receipt_bindings_and_critical_types"
+    ],
+    "3": [
+      "test_candidate_contract_and_plan_mismatches_block_g"
+    ],
+    "4": [
+      "test_receipt_bindings_and_critical_types"
+    ],
+    "5": [
+      "test_valid_role_chain_gate_and_exact_approval_refs",
+      "test_manual_document_review_preserves_legacy_without_inference"
+    ],
+    "6": [
+      "test_documented_receipts_use_the_actual_schema"
+    ],
+    "7": [
+      "test_legacy_inventory_is_idempotent_and_preserves_original",
+      "test_retry_archives_receipt_metrics_and_cannot_finish_on_old_pass"
+    ],
+    "8": [
+      "test_other_session_unreachable_or_unknown_cwd_preserves_worktree",
+      "test_dirty_and_unreferenced_commits_are_preserved"
+    ],
+    "9": [
+      "test_start_and_cleanup_failures_keep_both_errors",
+      "test_agent_start_failure_does_not_close_uncertain_session"
+    ],
+    "10": [
+      "test_predecessor_is_fresh_and_legacy_closed_is_not_new_approval"
+    ],
+    "11": [
+      "test_dry_run_and_real_share_dirty_missing_wrong_base_preflight",
+      "test_fill_skips_dirty_without_spending_projected_slot"
+    ],
+    "12": [
+      "test_reconcile_exact_identity_and_no_repeated_writes"
+    ],
+    "13": [
+      "test_bad_runtime_or_approval_never_reaches_runtime",
+      "test_premium_reference_scope_and_call_budget",
+      "test_runtime_policy_approval_and_repair_limits"
+    ],
+    "14": [
+      "test_ownership_violation_is_computed_from_real_git"
+    ],
+    "15": [
+      "test_legacy_inventory_is_idempotent_and_preserves_original"
+    ],
+    "16": [
+      "test_usage_intervals_and_repeated_collection_do_not_double_count",
+      "test_unknown_usage_remains_unknown"
+    ]
+  },
+  "legacy_inventory": {
+    "receipt_count": 20,
+    "source_sha256": "0525e4f847053976c0d40fc14fbc0ce0c8bea2f586928971e6a61f47dccf20a0",
+    "writes": 0,
+    "approval_changes": false
+  },
+  "coordinator_review": {
+    "type": "coordinator_light_check",
+    "basis": "user requirements and protocol-2 Contract; no independent model PASS claimed",
+    "baseline": "b8c93ff35a7ac4f6e0845cfd3ae7faac4b693da7",
+    "policy_values_preserved": true,
+    "policy_canonical_sha256": "fc45add47e1458b6c578d67ac14afdf75e12fff25ef7051931e2ddf3a3038d0e",
+    "duplicate_top_level_definitions": [],
+    "product_code_changed": false,
+    "checks": [
+      "Review task/attempt/packet/target binding and immutable artifacts",
+      "Review error preservation and no uncertain retransmission",
+      "Review session/cwd ownership before cleanup and release",
+      "Review fresh blocker reads, dry-run projection and G references",
+      "Review interval overlap exclusion and unknown usage/cost representation"
+    ],
+    "limitations": [
+      "No live Herdr/Beads integration",
+      "No Native/process-engine verification",
+      "No measured savings baseline",
+      "No remote merge or push"
+    ],
+    "source_commit": "933a3ad4909c416d4760e2aeee7af8c43f4c3120"
+  },
+  "artifacts": [
+    {
+      "artifact_id": "sha256:249d88cf03da122d8229caeca81d5577d937d9dfc92a0df9320511a6b3ef1615",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/tests-final.log",
+      "sha256": "249d88cf03da122d8229caeca81d5577d937d9dfc92a0df9320511a6b3ef1615",
+      "bytes": 9289,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/compileall-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/diff-check-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:eb81153f6a5a0971ce2cb8a4b4ee79befe60951aa870aafafbcc5c71791fda53",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/checks-final.json",
+      "sha256": "eb81153f6a5a0971ce2cb8a4b4ee79befe60951aa870aafafbcc5c71791fda53",
+      "bytes": 1495,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:739f379506c101cc4257b69720b4c351f55a9eb0eb498ef6718d2780e4194282",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/legacy-dry-run.json",
+      "sha256": "739f379506c101cc4257b69720b4c351f55a9eb0eb498ef6718d2780e4194282",
+      "bytes": 16734,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:0525e4f847053976c0d40fc14fbc0ce0c8bea2f586928971e6a61f47dccf20a0",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/source-export.jsonl",
+      "sha256": "0525e4f847053976c0d40fc14fbc0ce0c8bea2f586928971e6a61f47dccf20a0",
+      "bytes": 159541,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:a1309844a69f60597a65fe340e8a852d3a75b6eb81ea08f898c9bf8b24060c52",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/coordinator-review.json",
+      "sha256": "a1309844a69f60597a65fe340e8a852d3a75b6eb81ea08f898c9bf8b24060c52",
+      "bytes": 1001,
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:fec4dbaded0e0f97bebaac682fb71361bb0c0eb0d41a7f32a9ea5570b248360a",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-I-20261108-01/staged.patch",
+      "sha256": "fec4dbaded0e0f97bebaac682fb71361bb0c0eb0d41a7f32a9ea5570b248360a",
+      "bytes": 314182,
+      "local_only": true
+    }
+  ],
+  "operational_changes": [
+    "Created/updated only improvement node dfm-fmc.52; no product Ready assignment"
+  ],
+  "cost_baseline": null,
+  "measured_savings": null,
+  "accepted_product_merge": false,
+  "remote_push": false
+}
