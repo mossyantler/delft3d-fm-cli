@@ -204,56 +204,61 @@ integration + rework + tools.
 
 ## Starting agents
 
-Use **dispatch** for every assignment (coordinator only):
+Use **dispatch** for assignments (coordinator only). New executions use
+[protocol 2](research/notes/delivery/graph-ops-reliability.md), which supersedes
+Phase 3/4 intake, retry, resource-release and gate clauses for new work. Historical
+approvals keep their original meaning. Read the protocol before using a new plan.
 
 ```powershell
-python -m research.workflows.graph.dispatch start <id> --packet research/experiments/<run>/TASK.md `
-    --kind claude|codex --model <verified-id> --effort low|medium|high [--name <agent>] `
-    [--owns <path>]... [--native] [--approved HUMAN-YYYYMMDD-N] [--max-parallel <n>]
-python -m research.workflows.graph.dispatch fill [--dry-run] [--max-parallel <n>]  # starts ready nodes with metadata.plan
-python -m research.workflows.graph.dispatch show <id>         # any role
-python -m research.workflows.graph.dispatch status            # any role: active dispatches, live, prompt_received
-python -m research.workflows.graph.dispatch reconcile         # after a coordinator restart; never restarts an agent
-python -m research.workflows.graph.dispatch gate <id>         # any role: are the blocking dependencies' receipts valid?
+python -m research.workflows.graph.dispatch start <id> --packet <file> `
+    --kind codex --model <verified-id> --effort medium --role I --task-kind code `
+    --contract-sha <commit> --owns <path> --runtime-proof <probe.json> `
+    --task-class general_implementation
+python -m research.workflows.graph.dispatch fill --dry-run
+python -m research.workflows.graph.dispatch status
+python -m research.workflows.graph.dispatch reconcile
+python -m research.workflows.graph.dispatch gate <id>
 python -m research.workflows.graph.dispatch collect <id> --receipt <file>
 python -m research.workflows.graph.dispatch stop <id>
 ```
 
-At most 2 dispatches are active at once by default, owned paths must not overlap, a model with `astra` or `opus` in its ID needs `--approved`,
-and two `--native` dispatches are never active together. A native run still needs the review and the lease. The rules are in the
-[Phase 4 Contract](research/notes/delivery/graph-ops-p4-parallel.md). `stop` removes the worktree, so give V-Run its own
-frozen worktree of the candidate.
+`start` records intent and frozen packet bytes before creating resources. It
+tracks worktree, pane, session and prompt stages. It never retries an uncertain
+submission. Before retrying, inspect the prior attempt and explicitly release
+its resources. A closed task is not a terminated execution. I, V and G continue
+to use separate owned worktrees; V-Plan gets the Contract without the author's
+analysis, and V-Run gets the frozen candidate and plan.
 
-`start` creates `<main>-wt/<CODE>`, splits a pane, starts the agent, sends the packet and
-records pane, session and model in the node. `collect` stores the receipt and the
-transcript's token usage. `stop` closes the pane and removes a clean worktree. An agent
-that is `idle` or `done` may still have background work: wait for the receipt file and
-for the screen to show no running shell before you collect. The steps below still apply.
+`fill` is one scheduling pass, not an autonomous coordinator: no plan produces
+`no_plan`; an invalid or legacy plan produces `bad_plan`; policy/approval,
+resources, predecessors and worktree refusals carry distinct codes. The
+coordinator prepares missing packets/plans and resolves the reported blocker.
+Dry-run uses the same preflight without creating resources or changing Beads.
+No plan is inferred or written by fill.
 
-1. Confirm `HERDR_ENV=1`. In Herdr, use the herdr skill (INTENT §15.11
-   authorizes it). Outside Herdr, built-in subagents are allowed under the same
-   isolation, ownership, single-writer and model rules.
-2. Resolve the actual caller pane from live agent state, because inherited
-   `HERDR_*` pane or workspace variables can be stale.
-3. Claude example:
-   `herdr agent start <name> --kind claude --pane <pane> -- --model <verified-id> --effort <level>`.
-   Observed on 2026-11-05: Claude Code 2.1.318 accepted `claude-sonnet-5-5`
-   `--effort high`. Re-verify on each machine. Always pass `--model`: this
-   machine's Claude default is the `opus` alias, which is premium. The Codex
-   default is `gpt-6.1-sol` `high`.
-4. Confirm the startup banner and a first response, and confirm that CLI
-   defaults, environment variables or fallback did not override the requested
-   model. If a model is unavailable, stop and report it.
-5. Execution log for every start: requested and actual model ID, requested and
-   applied effort, runner and version, auth/billing mode, any fallback.
-6. Every Claude assignment tells the worker to read `AGENTS.md` explicitly.
-7. Workers read their task with bdw (no extra environment needed). Never set
-   `DFM_BD_ROLE` in a worker's pane.
-8. Language (HUMAN-20261106-14): only the coordinator, which faces the user, writes
-   Korean, and only to the user. Task Packets, prompts, worker replies, reviews and
-   receipts are English.
-9. Claude workers in Herdr panes start with `--permission-mode bypassPermissions`
-   (HUMAN-20261106-16). The packet's owned paths are the write scope, and V and G check it.
+Runtime proof records the exact installed model ID, supported effort, runner
+version, auth/billing mode, probe reference and expiry. It is an observation,
+not a user approval. Model policy comes only from INTENT ?6.8. An unknown setting
+or unavailable model refuses dispatch; there is no fallback. Requested settings
+and transcript observations stay separate; unobservable actual settings are
+`unknown`. Premium/exceptional approvals need an existing scoped HUMAN record,
+not a syntactically valid ID. Native dispatch reservation never grants a Native
+engine run or replaces the reviewed package/runner/reader and exclusive lease.
+
+`stop` verifies name/pane/session/cwd and confirmed absence before cleaning a
+registered, owned worktree. Dirty/ignored files, unreferenced commits, unknown
+ownership or failed cleanup preserve the worktree and reservation for review.
+Legacy dispatches require explicit manual inspection. Never remove another
+session's resources. A Herdr pane inventory is not a Native process lease.
+
+In Herdr use the herdr skill and discover the installed CLI before controlling
+panes. Outside Herdr, built-in subagents remain allowed under the same model,
+isolation and ownership rules. Resolve the actual caller from live state;
+inherited HERDR variables may be stale. Never set DFM_BD_ROLE in a worker's pane.
+Claude workers explicitly read AGENTS.md, get an exact --model and use the
+previously approved bypassPermissions mode. Verify the banner/first response.
+Only user-facing coordinator messages are Korean; packets, worker replies,
+comments and receipts are English (HUMAN-20261106-14).
 
 ## Isolation and ownership
 
@@ -279,17 +284,29 @@ authorizing a run are separate decisions.
 
 ## Result receipt
 
-Every task submits a structured receipt. The fields below are an example:
+Every new collection uses the executable schema in
+[protocol.py](research/workflows/graph/protocol.py). Complete synthetic examples
+for I, V-Plan, V-Run, G and Contract are in
+[receipt-examples.json](research/workflows/graph/receipt-examples.json); tests
+validate those exact examples. Replace synthetic identities with the context
+printed by start/manual-context and hashes of observed evidence before collect.
 
-```json
-{"task_code": "B06-V-Run", "outcome": "completed", "verdict": "pass",
- "candidate_sha": "<sha>", "contract_sha": "<sha>",
- "evidence_refs": ["research/experiments/<run-id>/verification.json"],
- "native_verification": "not_requested", "integrated": false, "approved": false}
-```
+Use `evidence`, a list of typed artifact references. `evidence_refs` belongs only
+to the legacy format. Outcome is an enum; explanation holds narrative. V-Run/G
+need explicit PASS or REJECT. Each receipt binds task, immutable dispatch ID,
+attempt, packet hash, base and role; target requirements vary by role. G names
+the exact upstream receipts. Protocol 2 refuses missing/unknown critical fields.
+Collect snapshots original bytes and evidence outside Git and rechecks the
+actual Git diff against owned paths. Gate rechecks retained artifact hashes.
 
-Track independent pass, native verification, product merge and final approval
-as separate fields. Each one is set only by its own evidence.
+Legacy records are display-only for new gates. For manual G or an undispatched
+Contract, `manual-context` records explicit reviewed identities without starting
+a runtime or changing task/approval status, then collect admits new evidence.
+It archives the legacy record; it never fills unknown targets by inference.
+
+Independent pass, Native verification, product merge and final approval remain
+separate claims. No automated gate merges or closes a task. A false gate now
+exits 3 with JSON on stdout; `--legacy-exit-zero` changes only that exit convention.
 
 ## Failure and recovery
 

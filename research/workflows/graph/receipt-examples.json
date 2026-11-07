@@ -1,0 +1,227 @@
+[
+  {
+    "context": {
+      "task_id": "example-I",
+      "task_code": "EXAMPLE-I",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "I",
+      "task_kind": "documentation",
+      "contract_sha": "1111111111111111111111111111111111111111"
+    },
+    "receipt": {
+      "schema_version": 2,
+      "task_id": "example-I",
+      "task_code": "EXAMPLE-I",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "I",
+      "task_kind": "documentation",
+      "contract_sha": "1111111111111111111111111111111111111111",
+      "outcome": "completed",
+      "explanation": "Synthetic schema example; replace identities and retain observed artifacts before collection.",
+      "evidence": [
+        {
+          "artifact_id": "example-checks",
+          "path": "checks.json",
+          "sha256": "218589323cbe80b7ed077e3ee36f1663e7cb5f8f4e4ad02c938ad8a5c2c5a6b9",
+          "kind": "checks",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        },
+        {
+          "artifact_id": "example-implementation",
+          "path": "implementation.json",
+          "sha256": "218589323cbe80b7ed077e3ee36f1663e7cb5f8f4e4ad02c938ad8a5c2c5a6b9",
+          "kind": "implementation",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        }
+      ],
+      "candidate_sha": "2222222222222222222222222222222222222222",
+      "checks": [
+        {
+          "command": "python -m unittest example",
+          "result": "pass"
+        }
+      ],
+      "changed_paths": [
+        "docs/example.md"
+      ]
+    }
+  },
+  {
+    "context": {
+      "task_id": "example-V-Plan",
+      "task_code": "EXAMPLE-V-Plan",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "V-Plan",
+      "task_kind": "planning",
+      "contract_sha": "1111111111111111111111111111111111111111"
+    },
+    "receipt": {
+      "schema_version": 2,
+      "task_id": "example-V-Plan",
+      "task_code": "EXAMPLE-V-Plan",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "V-Plan",
+      "task_kind": "planning",
+      "contract_sha": "1111111111111111111111111111111111111111",
+      "outcome": "completed",
+      "explanation": "Synthetic schema example; replace identities and retain observed artifacts before collection.",
+      "evidence": [
+        {
+          "artifact_id": "example-verification_plan",
+          "path": "verification_plan.md",
+          "sha256": "90391d4da93f152ad2e376172927abd68d0a9410741056689031e950f7660129",
+          "kind": "verification_plan",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        }
+      ],
+      "verification_plan_sha256": "90391d4da93f152ad2e376172927abd68d0a9410741056689031e950f7660129"
+    }
+  },
+  {
+    "context": {
+      "task_id": "example-V-Run",
+      "task_code": "EXAMPLE-V-Run",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "V-Run",
+      "task_kind": "verification",
+      "contract_sha": "1111111111111111111111111111111111111111"
+    },
+    "receipt": {
+      "schema_version": 2,
+      "task_id": "example-V-Run",
+      "task_code": "EXAMPLE-V-Run",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "V-Run",
+      "task_kind": "verification",
+      "contract_sha": "1111111111111111111111111111111111111111",
+      "outcome": "completed",
+      "explanation": "Synthetic schema example; replace identities and retain observed artifacts before collection.",
+      "evidence": [
+        {
+          "artifact_id": "example-checks",
+          "path": "checks.json",
+          "sha256": "218589323cbe80b7ed077e3ee36f1663e7cb5f8f4e4ad02c938ad8a5c2c5a6b9",
+          "kind": "checks",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        },
+        {
+          "artifact_id": "example-verification",
+          "path": "verification.json",
+          "sha256": "218589323cbe80b7ed077e3ee36f1663e7cb5f8f4e4ad02c938ad8a5c2c5a6b9",
+          "kind": "verification",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        }
+      ],
+      "candidate_sha": "2222222222222222222222222222222222222222",
+      "verification_plan_sha256": "90391d4da93f152ad2e376172927abd68d0a9410741056689031e950f7660129",
+      "verdict": "PASS",
+      "checks": [
+        {
+          "command": "python -m unittest example",
+          "result": "pass"
+        }
+      ]
+    }
+  },
+  {
+    "context": {
+      "task_id": "example-G",
+      "task_code": "EXAMPLE-G",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "G",
+      "task_kind": "code",
+      "contract_sha": "1111111111111111111111111111111111111111"
+    },
+    "receipt": {
+      "schema_version": 2,
+      "task_id": "example-G",
+      "task_code": "EXAMPLE-G",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "G",
+      "task_kind": "code",
+      "contract_sha": "1111111111111111111111111111111111111111",
+      "outcome": "completed",
+      "explanation": "Synthetic schema example; replace identities and retain observed artifacts before collection.",
+      "evidence": [
+        {
+          "artifact_id": "example-review",
+          "path": "review.json",
+          "sha256": "218589323cbe80b7ed077e3ee36f1663e7cb5f8f4e4ad02c938ad8a5c2c5a6b9",
+          "kind": "review",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        }
+      ],
+      "candidate_sha": "2222222222222222222222222222222222222222",
+      "verification_plan_sha256": "90391d4da93f152ad2e376172927abd68d0a9410741056689031e950f7660129",
+      "verdict": "PASS",
+      "approval_scope": "Frozen candidate and Contract only; no Native scientific approval",
+      "validation_refs": [
+        {
+          "task_id": "example-V-Run",
+          "dispatch_id": "00000000-0000-4000-8000-000000000001",
+          "receipt_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      ]
+    }
+  },
+  {
+    "context": {
+      "task_id": "example-Contract",
+      "task_code": "EXAMPLE-Contract",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "Contract",
+      "task_kind": "documentation",
+      "contract_sha": "1111111111111111111111111111111111111111"
+    },
+    "receipt": {
+      "schema_version": 2,
+      "task_id": "example-Contract",
+      "task_code": "EXAMPLE-Contract",
+      "dispatch_id": "00000000-0000-4000-8000-000000000001",
+      "attempt": 1,
+      "packet_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "base_sha": "1111111111111111111111111111111111111111",
+      "role": "Contract",
+      "task_kind": "documentation",
+      "contract_sha": "1111111111111111111111111111111111111111",
+      "outcome": "completed",
+      "explanation": "Synthetic schema example; replace identities and retain observed artifacts before collection.",
+      "evidence": [
+        {
+          "artifact_id": "example-contract",
+          "path": "contract.json",
+          "sha256": "218589323cbe80b7ed077e3ee36f1663e7cb5f8f4e4ad02c938ad8a5c2c5a6b9",
+          "kind": "contract",
+          "source": "dispatch:00000000-0000-4000-8000-000000000001"
+        }
+      ]
+    }
+  }
+]

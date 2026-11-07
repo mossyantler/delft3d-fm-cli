@@ -15,6 +15,7 @@ are in `research/`.
 | Node status, prerequisites, approvals | [DELIVERY.md](DELIVERY.md) |
 | Editing `src/dfm_cli/` or `tests/` | [src/AGENTS.md](src/AGENTS.md) |
 | Experiments, native runs, GUI/console, evidence, `research/` code | [research/AGENTS.md](research/AGENTS.md) |
+| Dispatch attempts, receipts, recovery and portable graph checks | [graph protocol 2](research/notes/delivery/graph-ops-reliability.md) |
 | Product scope and milestones | [ROADMAP.md](ROADMAP.md), [README.md](README.md) |
 
 Search the relevant files instead of loading whole manuals, inventories, history

@@ -495,108 +495,236 @@ API 비용을 측정할 수 없는 구독 실행에서는 사용량, 실행 시�
 
 ### 6.8 정책 YAML
 
-이 YAML은 **우리 시스템의 논리적 정책**이다. Herdr나 Beads가 그대로 인식하는 형식이 아니므로 Coordinator 지침 또는 별도 검증 코드가 해석하게 구현한다. `model_id`는 설치된 실행기에서 실제 사용 가능 여부를 확인한 뒤 채우며, `availability_verified: false`인 모델은 배정하지 않는다. 제한은 프롬프트에 적는 것만으로 강제되지 않으므로 모델 선택, effort 상한, Fallback, 예산을 실행기 또는 호출 전 검증 단계에서 검사한다. 특히 Astra의 `high` 상한은 호출 설정 검사에서도 강제한다.
+이 YAML은 **우리 시스템의 논리적 정책**이며 모델 후보·풀·effort·제한의 단일 원본이다. §6.8 블록은 표준 라이브러리로 읽을 수 있는 JSON 호환 YAML로 표기한다. Herdr나 Beads가 그대로 인식하는 설정은 아니다. `model_id`가 null인 논리 모델은 설치 환경별 runtime proof에 정확한 ID, 실제 가용성, 지원 effort, 실행기 버전, 인증·과금 방식, 관측 근거와 유효기간을 기록해야 배정할 수 있다. 이는 정책을 복제하거나 사용자 승인을 대신하는 파일이 아니다. 정책에 ID를 직접 지정했다면 그 ID와 `availability_verified: true`도 일치해야 한다. 관측이 없거나 가용성을 확인하지 못하면 배정하지 않는다. 모델 선택, effort 상한, Fallback과 승인·사용량 한도는 호출 전에 검사하며, 이 검사가 실행 중 과금의 강제 중단을 보장한다고 주장하지 않는다. Astra의 상한을 포함한 제한 값은 아래 정책에서만 읽는다. 새 실행·영수증·복구 규칙은 [그래프 프로토콜 2](research/notes/delivery/graph-ops-reliability.md)를 따른다.
 
 ```yaml
-model_policy:
-  version: 4
-  objective: minimize_cost_per_accepted_task
-
-  models:
-    luna:   {display_name: "GPT-6 Luna",       provider: openai,    class: lightweight,    model_id: null, availability_verified: false}
-    haiku:  {display_name: "Claude Haiku 5.5", provider: anthropic, class: lightweight,    model_id: null, availability_verified: false}
-    terra:  {display_name: "GPT-6.1 Terra",    provider: openai,    class: visual_document, model_id: null, availability_verified: false}
-    sol:    {display_name: "GPT-6.1 Sol",      provider: openai,    class: general,        model_id: null, availability_verified: false}
-    sonnet: {display_name: "Claude Sonnet 5.5", provider: anthropic, class: general,       model_id: null, availability_verified: false}
-    opus:   {display_name: "Claude Opus 5.5",  provider: anthropic, class: premium,        model_id: null, availability_verified: false}
-    astra:
-      display_name: "GPT-6 Astra"
-      provider: openai
-      class: premium
-      model_id: null
-      availability_verified: false
-      policy_allowed_efforts: [low, medium, high]
-      hard_max_effort: high
-    fable:
-      display_name: "Claude Fable 5.1"
-      provider: anthropic
-      class: exceptional
-      model_id: null
-      availability_verified: false
-      enabled_by_default: false
-
-  # 풀 -> 후보. 두 회사 모델은 기본/대안 관계가 아닌 동등 후보.
-  candidate_pools:
-    extraction_and_summary: [luna, haiku]
-    bounded_low_risk_code:  [luna, haiku]
-    visual_inspection:      [terra, haiku, sonnet]
-    documentation:          [terra, haiku, sonnet]
-    general_implementation: [sol, sonnet]
-    planning_and_contracts: [sol, sonnet]
-    complex_verification:   [sol, sonnet]
-    integration_review:     [sol, sonnet]
-    approved_deep_review:   [opus, astra]
-
-  # 역할 -> 풀 + effort (동일 모델이라도 effort는 역할별로 다름)
-  # Coordinator 세션 자체의 모델 (2026-11-06 사용자 결정). opus는 premium_policy의
-  # default_assignment: false에 대한 승인된 예외로, 이 세션에만 적용한다.
-  coordinator_session: {candidates: [sol, opus], effort: high, approved_by_user: "2026-11-06"}
-
-  role_defaults:
-    log_classification:      {pool: extraction_and_summary, effort: low_or_medium}
-    code_doc_search:         {pool: extraction_and_summary, effort: medium}   # Luna는 medium/high
-    task_packet_draft:       {pool: extraction_and_summary, effort: medium}
-    coordinator_judgment:    {pool: general_implementation, effort: medium}
-    planning_task_split:     {pool: planning_and_contracts, effort: medium_or_high}
-    contract_design:         {pool: planning_and_contracts, effort: high}
-    bounded_low_risk_impl:   {pool: bounded_low_risk_code,  effort: {luna: high, haiku: medium}}
-    general_impl:            {pool: general_implementation, effort: medium}
-    complex_impl_debug:      {pool: general_implementation, effort: high}
-    independent_verification:{pool: complex_verification,   effort: high}
-    visual_doc_work:         {pool: visual_inspection,      effort: medium}
-    integration_review:      {pool: integration_review,     effort: medium_or_high}
-    exceptional_design_review: {pool: approved_deep_review, effort: {opus: medium_then_high, astra: "<=high"}}
-
-  routing:
-    deterministic_first: true
-    require_verified_model_availability: true
-    require_task_class_evaluation: true
-    select_by: capability_then_total_cost
-    prefer_cross_provider_verification: true
-    enforce_provider_ratio: false
-    preserve_independent_verification: true
-    max_repairs_after_initial_attempt: 2
-    prohibit_sequential_model_sweeps: true
-
-  effort_policy:
-    require_runtime_support_check: true
-    automatic_max_effort: high
-    hard_limits: {astra: high}
-
-  premium_policy:
-    models: [opus, astra]
-    default_assignment: false
-    automatic_escalation: false
-    require_user_approval: true
-    require_scoped_question: true
-    require_usage_budget: true
-    continue_regular_work_on_general_models: true
-    prefer_opus_over_astra_when_both_fit: true
-
-  exceptional_policy:
-    models: [fable]
-    default_enabled: false
-    automatic_fallback: false
-    require_separate_user_approval: true
-
-  execution:
-    verify_actual_model_and_effort: true
-    prohibit_unapproved_premium_fallback: true
-    prohibit_automatic_high_cost_modes: true
-    log_auth_and_billing_mode: true
-    log_actual_model: true
-    log_actual_effort: true
-    preserve_existing_validation_gates: true
+{
+  "model_policy": {
+    "version": 4,
+    "objective": "minimize_cost_per_accepted_task",
+    "models": {
+      "luna": {
+        "display_name": "GPT-6 Luna",
+        "provider": "openai",
+        "class": "lightweight",
+        "model_id": null,
+        "availability_verified": false
+      },
+      "haiku": {
+        "display_name": "Claude Haiku 5.5",
+        "provider": "anthropic",
+        "class": "lightweight",
+        "model_id": null,
+        "availability_verified": false
+      },
+      "terra": {
+        "display_name": "GPT-6.1 Terra",
+        "provider": "openai",
+        "class": "visual_document",
+        "model_id": null,
+        "availability_verified": false
+      },
+      "sol": {
+        "display_name": "GPT-6.1 Sol",
+        "provider": "openai",
+        "class": "general",
+        "model_id": null,
+        "availability_verified": false
+      },
+      "sonnet": {
+        "display_name": "Claude Sonnet 5.5",
+        "provider": "anthropic",
+        "class": "general",
+        "model_id": null,
+        "availability_verified": false
+      },
+      "opus": {
+        "display_name": "Claude Opus 5.5",
+        "provider": "anthropic",
+        "class": "premium",
+        "model_id": null,
+        "availability_verified": false
+      },
+      "astra": {
+        "display_name": "GPT-6 Astra",
+        "provider": "openai",
+        "class": "premium",
+        "model_id": null,
+        "availability_verified": false,
+        "policy_allowed_efforts": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "hard_max_effort": "high"
+      },
+      "fable": {
+        "display_name": "Claude Fable 5.1",
+        "provider": "anthropic",
+        "class": "exceptional",
+        "model_id": null,
+        "availability_verified": false,
+        "enabled_by_default": false
+      }
+    },
+    "candidate_pools": {
+      "extraction_and_summary": [
+        "luna",
+        "haiku"
+      ],
+      "bounded_low_risk_code": [
+        "luna",
+        "haiku"
+      ],
+      "visual_inspection": [
+        "terra",
+        "haiku",
+        "sonnet"
+      ],
+      "documentation": [
+        "terra",
+        "haiku",
+        "sonnet"
+      ],
+      "general_implementation": [
+        "sol",
+        "sonnet"
+      ],
+      "planning_and_contracts": [
+        "sol",
+        "sonnet"
+      ],
+      "complex_verification": [
+        "sol",
+        "sonnet"
+      ],
+      "integration_review": [
+        "sol",
+        "sonnet"
+      ],
+      "approved_deep_review": [
+        "opus",
+        "astra"
+      ]
+    },
+    "coordinator_session": {
+      "candidates": [
+        "sol",
+        "opus"
+      ],
+      "effort": "high",
+      "approved_by_user": "2026-11-06"
+    },
+    "role_defaults": {
+      "log_classification": {
+        "pool": "extraction_and_summary",
+        "effort": "low_or_medium"
+      },
+      "code_doc_search": {
+        "pool": "extraction_and_summary",
+        "effort": "medium"
+      },
+      "task_packet_draft": {
+        "pool": "extraction_and_summary",
+        "effort": "medium"
+      },
+      "coordinator_judgment": {
+        "pool": "general_implementation",
+        "effort": "medium"
+      },
+      "planning_task_split": {
+        "pool": "planning_and_contracts",
+        "effort": "medium_or_high"
+      },
+      "contract_design": {
+        "pool": "planning_and_contracts",
+        "effort": "high"
+      },
+      "bounded_low_risk_impl": {
+        "pool": "bounded_low_risk_code",
+        "effort": {
+          "luna": "high",
+          "haiku": "medium"
+        }
+      },
+      "general_impl": {
+        "pool": "general_implementation",
+        "effort": "medium"
+      },
+      "complex_impl_debug": {
+        "pool": "general_implementation",
+        "effort": "high"
+      },
+      "independent_verification": {
+        "pool": "complex_verification",
+        "effort": "high"
+      },
+      "visual_doc_work": {
+        "pool": "visual_inspection",
+        "effort": "medium"
+      },
+      "integration_review": {
+        "pool": "integration_review",
+        "effort": "medium_or_high"
+      },
+      "exceptional_design_review": {
+        "pool": "approved_deep_review",
+        "effort": {
+          "opus": "medium_then_high",
+          "astra": "<=high"
+        }
+      }
+    },
+    "routing": {
+      "deterministic_first": true,
+      "require_verified_model_availability": true,
+      "require_task_class_evaluation": true,
+      "select_by": "capability_then_total_cost",
+      "prefer_cross_provider_verification": true,
+      "enforce_provider_ratio": false,
+      "preserve_independent_verification": true,
+      "max_repairs_after_initial_attempt": 2,
+      "prohibit_sequential_model_sweeps": true
+    },
+    "effort_policy": {
+      "require_runtime_support_check": true,
+      "automatic_max_effort": "high",
+      "hard_limits": {
+        "astra": "high"
+      }
+    },
+    "premium_policy": {
+      "models": [
+        "opus",
+        "astra"
+      ],
+      "default_assignment": false,
+      "automatic_escalation": false,
+      "require_user_approval": true,
+      "require_scoped_question": true,
+      "require_usage_budget": true,
+      "continue_regular_work_on_general_models": true,
+      "prefer_opus_over_astra_when_both_fit": true
+    },
+    "exceptional_policy": {
+      "models": [
+        "fable"
+      ],
+      "default_enabled": false,
+      "automatic_fallback": false,
+      "require_separate_user_approval": true
+    },
+    "execution": {
+      "verify_actual_model_and_effort": true,
+      "prohibit_unapproved_premium_fallback": true,
+      "prohibit_automatic_high_cost_modes": true,
+      "log_auth_and_billing_mode": true,
+      "log_actual_model": true,
+      "log_actual_effort": true,
+      "preserve_existing_validation_gates": true
+    }
+  }
+}
 ```
 
 ### 최종 운영 원칙

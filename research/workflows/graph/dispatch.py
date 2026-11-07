@@ -1,89 +1,10 @@
-"""dispatch: assign one Beads task to a Herdr agent and collect its receipt (GRAPH-OPS-P3-DISPATCH).
+"""Dispatch protocol 2: attempt-bound receipts, conservative recovery and shared preflight.
 
-From the main checkout or any worktree of this repository:
-
-    $env:DFM_BD_ROLE = "coordinator"
-    python -m research.workflows.graph.dispatch start <beads-id> --packet <file> --kind claude|codex `
-        --model <id> --effort low|medium|high [--name <agent>] [--base <sha>] [--owns <path>]... `
-        [--native] [--approved <HUMAN-id>] [--max-parallel N]
-    python -m research.workflows.graph.dispatch show <beads-id>            # any role
-    python -m research.workflows.graph.dispatch collect <beads-id> --receipt <file>
-    python -m research.workflows.graph.dispatch stop <beads-id>
-    python -m research.workflows.graph.dispatch fill [--max-parallel N] [--dry-run]
-    python -m research.workflows.graph.dispatch status                     # any role, read-only
-    python -m research.workflows.graph.dispatch reconcile
-    python -m research.workflows.graph.dispatch gate <beads-id>            # any role, read-only
-
-Every subcommand except ``show``, ``status`` and ``gate`` refuses unless ``DFM_BD_ROLE=coordinator``. All Beads
-access goes through bdw. Herdr is called through ``DFM_HERDR_EXE`` (default ``herdr``).
-Transcripts for ``collect`` come from ``DFM_CODEX_HOME`` / ``DFM_CLAUDE_HOME`` (default
-``~/.codex`` / ``~/.claude``). Success is exit 0 with one JSON object on stdout. Every
-refusal or failure is exit 2 with one JSON object on stderr that has a ``refused`` or an
-``error`` key (a failed ``start`` adds a ``cleanup`` key). Dispatch never commits, pushes
-or edits the main checkout.
-
-``start`` checks that the prompt began a turn (Contract C5.1): it polls ``agent get`` for up to
-``DFM_DISPATCH_SUBMIT_SECONDS`` (default 30), presses Enter once with ``agent send-keys <name> enter``
-when nothing started, and polls again. The JSON output has ``submit_retry`` (true when Enter was needed).
-A turn has also started (Contract P0.2) when the agent session id was null before the prompt and is set
-later, or when ``agent read <name> --source visible`` shows ``esc to interr`` or ``Working (``.
-After the turn has started, ``start`` compares the first user prompt of the agent's transcript (looked up by session id,
-for up to the same budget) with the prompt it sent, ignoring leading and trailing whitespace (Contract P0.3): the first
-``item_completed`` event whose item is a ``UserMessage`` (its ``text`` parts joined) for codex, the first ``user`` line
-whose content is a string or has a text block (its first one; tool results skipped) for claude. ``metadata.dispatch.prompt_received``
-is true (equal), false (different) or null (no transcript or prompt found, with ``prompt_check_note``). False adds
-``"warning": "prompt_truncated"`` to the output and ``status`` shows ``prompt_received``; it never fails the start, closes
-nothing and never sends the prompt again.
-The new pane is split ``right`` when the caller's pane is at least 120 columns wide (read from
-``pane layout --pane <caller>``, ``rect.width``) and ``down`` otherwise, also when the layout call fails (P0.1).
-
-``start`` preflight (P2) runs before any side effect and refuses with exit 2 (``refused`` and ``reason``):
-``limit`` (active dispatches on other nodes >= ``--max-parallel``, else ``DFM_DISPATCH_MAX_PARALLEL``, else 2),
-``ownership_conflict``, ``native_busy``, ``model_policy`` (effort outside low|medium|high; a model id with
-``astra`` or ``opus`` needs ``--approved HUMAN-YYYYMMDD-N``), ``missing_receipt`` and ``failed_predecessor``
-(a dispatched blocking dependency has no collected receipt, or its receipt is a failure). An *active
-dispatch* is an ``in_progress`` node whose ``metadata.dispatch`` has no ``ended_at``.
-
-``fill`` (P3) starts every ready task that has ``metadata.plan`` (``packet``, ``kind``, ``model``, ``effort``,
-optional ``owns``, ``native``, ``approved``, ``base``, ``name``; a relative ``packet`` is taken from the main
-checkout) in priority order, then id order, until the limit is reached. Output: ``started``, ``skipped``
-(``id`` and ``reason``), ``limit``, ``active_before`` (and ``dry_run``; with ``--dry-run`` ``started`` lists
-what would start and nothing is written). ``status`` (P4) lists the active dispatches and whether each agent is
-live (null when Herdr is unreachable). ``reconcile`` writes ``metadata.dispatch.review`` for each active dispatch
-whose agent is not live (worktree_dirty is null when the worktree does not exist; an unchanged state keeps the
-stored review and adds no comment). ``gate`` (P6) answers ``ok`` for a node's blocking dependencies (closed,
-receipt collected for dispatched ones, no failed receipt) with ``dependencies`` (one entry each) and ``reasons``
-(``dependency``, ``code``, ``reason``); exit 0 either way. Herdr error ``agent_not_found`` means an agent is not
-live; any other Herdr error, non-JSON output or a failure to run it means Herdr is unreachable (P8.5).
-
-Beads metadata written (every key is a plain JSON value; other keys are preserved):
-
-``metadata.dispatch`` (written by ``start``, completed by ``stop``)
-    agent (Herdr agent name), pane_id, kind, model and effort (as requested), session_id
-    (Herdr's agent session id, re-read after the prompt; null with session_id_note when
-    Herdr still had none), worktree (path), base_sha, packet (path relative to the main
-    checkout), packet_sha256, started_at (UTC ISO 8601), attempt (1, 2, ...),
-    permission_mode (claude only), prompt_received (true|false|null) and prompt_check_note (when null),
-    split_direction (right|down), owned_paths (sorted list of
-    normalized repository-relative paths, [] when none), native (true|false), approved (the
-    ``--approved`` id or null), ended_at (set by ``stop``), review (set by ``reconcile``:
-    state finished|needs_review, reason, detected_at, worktree_exists, worktree_dirty).
-``metadata.dispatch_history``
-    list of earlier ``dispatch`` records, oldest first. A record that never got an ``ended_at``
-    (its attempt was interrupted) is stored with ``interrupted: true`` and
-    ``interrupted_detected_at`` (Contract C5.2); its other fields stay unchanged.
-``metadata.receipt`` (``collect``)
-    path, sha256, outcome, verdict, candidate_sha, collected_at. ``verdict`` is recorded only when the
-    receipt has the key (an explicit null is refused by ``collect``); an omitted verdict stays absent. A stored
-    null (written by ``collect`` before P5) or a missing key both mean no verdict in ``start`` and ``gate`` (P8.7).
-``metadata.metrics`` (``collect``)
-    attempt, agent, kind, requested_model, requested_effort, collected_at, usage (null when
-    no transcript was found) and usage_unavailable_reason. ``usage`` holds source, transcript,
-    tokens (input_tokens, cached_input_tokens, cache_write_tokens, output_tokens,
-    reasoning_tokens, total_tokens where present; cached input is reported separately and is
-    not added into input), models, wall_seconds (number or null), first_timestamp and
-    last_timestamp (UTC ISO 8601), malformed_lines (skipped transcript lines) and, for Claude,
-    messages_counted.
+See research/notes/delivery/graph-ops-reliability.md for schema, legacy handling,
+resource ownership, runtime proofs and exit codes. All mutations are coordinator
+only. This module never merges, pushes, grants Native permission or runs a model
+in dry-run. Gate false exits 3 on stdout; --legacy-exit-zero preserves the old
+exit convention without relaxing any checks. Refusals/errors exit 2 on stderr.
 """
 from __future__ import annotations
 
@@ -95,10 +16,11 @@ import re
 import subprocess
 import time
 import sys
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from research.workflows.graph import bdw
+from research.workflows.graph import bdw, protocol, policy
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 KINDS = ("claude", "codex")
@@ -111,11 +33,8 @@ SUBMIT_SECONDS = 30.0  # Contract C5.1; DFM_DISPATCH_SUBMIT_SECONDS overrides it
 TURN_STATES = {"working", "blocked", "done"}
 SCREEN_TURN_MARKERS = ("esc to interr", "Working (")  # Contract P0.2
 RIGHT_SPLIT_MIN_WIDTH = 120  # Contract P0.1
-EFFORTS = ("low", "medium", "high")  # Contract P2.4
 APPROVED_ID = re.compile(r"HUMAN-[0-9]{8}-[0-9]+")
-RESTRICTED_MODEL_WORDS = ("astra", "opus")
 DEFAULT_MAX_PARALLEL = 2  # Contract P2.1
-VERDICTS = ("PASS", "REJECT")  # Contract P5
 
 
 class Failure(Exception):
@@ -152,7 +71,10 @@ def metadata_of(issue: dict) -> dict:
 
 
 def git(cwd: Path, *args: str, check: bool = True) -> subprocess.CompletedProcess:
-    p = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    try:
+        p = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    except OSError as exc:
+        raise Failure(f"git could not run in {cwd}: {exc}") from exc
     if check and p.returncode:
         raise Failure(f"git {' '.join(args)} failed: {p.stderr.strip()}")
     return p
@@ -201,12 +123,13 @@ def issue_list(args: list[str], environ: dict[str, str], cwd: Path) -> list[dict
 
 
 def in_progress_issues(environ: dict[str, str], cwd: Path) -> list[dict]:
-    return issue_list(["list", "--status", "in_progress", "--json", "--limit", "0"], environ, cwd)
+    # Query all lifecycle states: closing a node does not terminate its processes.
+    return issue_list(["list", "--all", "--json", "--limit", "0"], environ, cwd)
 
 
 def active_dispatches(environ: dict[str, str], cwd: Path, issues: list[dict] | None = None
                       ) -> list[tuple[str, dict, dict, dict]]:
-    """Active dispatches (Contract P2): ``in_progress`` nodes whose ``metadata.dispatch`` has no ``ended_at``.
+    """Reserved executions in any node status, until confirmed resource release.
 
     One ``bdw list`` call; each item is (id, issue, metadata, dispatch record).
     """
@@ -214,52 +137,113 @@ def active_dispatches(environ: dict[str, str], cwd: Path, issues: list[dict] | N
     for issue in in_progress_issues(environ, cwd) if issues is None else issues:
         meta = metadata_of(issue)
         rec = meta.get("dispatch")
-        if issue.get("status") == "in_progress" and isinstance(rec, dict) and not rec.get("ended_at"):
+        if isinstance(rec, dict) and not rec.get("ended_at"):
             found.append((issue.get("id", "?"), issue, meta, rec))
     return found
 
 
-def receipt_failure(receipt: dict) -> str | None:
-    """Why a collected receipt counts as a failure (Contract P2.5), else None.
+def artifact_root(main: Path, environ: dict[str, str]) -> Path:
+    return Path(environ.get("DFM_DISPATCH_ARTIFACT_ROOT") or
+                main.parent / f"{main.name}-beads" / "dispatch-artifacts").resolve()
 
-    This judges a *stored* receipt (P8.7): a ``verdict`` that is neither null nor PASS fails, and so does an
-    ``outcome`` that contains fail or reject. A stored null or missing verdict (an implementer's receipt, or a
-    record collected before P5) means no verdict and is judged by its outcome alone. ``collect`` refuses an
-    explicit null at intake (P4-V-001).
-    """
-    verdict = receipt.get("verdict")
-    if verdict is not None and verdict != "PASS":
-        return f"receipt verdict is {verdict!r}, not 'PASS'"
-    outcome = receipt.get("outcome")
-    if isinstance(outcome, str) and re.search(r"fail|reject", outcome, re.IGNORECASE):
-        return f"receipt outcome is {outcome!r}"
-    return None
+
+def receipt_failure(receipt: dict) -> str | None:
+    if receipt.get("schema_version") == protocol.VERSION:
+        return None if protocol.successful(receipt.get("document", receipt)) else "receipt does not claim success"
+    legacy = protocol.legacy_interpretation(receipt)
+    if legacy["verdict"] == "REJECT" or legacy["outcome"] in ("failed", "blocked", "cancelled"):
+        return "legacy receipt records failure"
+    return None  # display only; eligibility is checked separately
+
+
+def current_receipt(meta: dict, main: Path, environ: dict[str, str]) -> tuple[dict | None, str | None]:
+    rec, stored = meta.get("dispatch"), meta.get("receipt")
+    if not isinstance(rec, dict) or not isinstance(stored, dict):
+        return None, "no current receipt"
+    if rec.get("protocol_version") != protocol.VERSION or stored.get("schema_version") != protocol.VERSION:
+        return None, "legacy record is not evidence for a new gate"
+    try:
+        root = artifact_root(main, environ)
+        packet_bytes = protocol.read_artifact(root, rec["packet_artifact"])
+        if protocol.digest(packet_bytes) != rec.get("packet_sha256"):
+            raise protocol.Invalid("artifact_corrupt", "frozen Task Packet differs from dispatch fingerprint")
+        if rec.get("prompt_artifact"):
+            protocol.read_artifact(root, rec["prompt_artifact"])
+        raw = protocol.read_artifact(root, stored["raw_artifact"])
+        if protocol.digest(raw) != stored.get("sha256"):
+            raise protocol.Invalid("artifact_corrupt", "receipt summary hash differs from original bytes")
+        document = json.loads(raw)
+        if document != stored["document"]:
+            raise protocol.Invalid("artifact_corrupt", "stored summary differs from original receipt")
+        protocol.validate(document, rec)
+        for key in ("base_sha", "contract_sha", "candidate_sha"):
+            if document.get(key) is not None:
+                resolved_commit(main, document[key], key)
+        check_owned_changes(document, rec, main)
+        if stored.get("dispatch_id") != rec.get("dispatch_id"):
+            raise protocol.Invalid("attempt_mismatch", "receipt is for another dispatch")
+        if not isinstance(stored.get("artifacts"), list) or len(stored["artifacts"]) != len(document["evidence"]):
+            raise protocol.Invalid("missing_evidence", "artifact manifest is incomplete")
+        for item, declared in zip(stored["artifacts"], document["evidence"]):
+            if not isinstance(item, dict) or item.get("sha256") != declared["sha256"]:
+                raise protocol.Invalid("artifact_corrupt", "artifact differs from declared evidence")
+            protocol.read_artifact(root, item)
+        if rec.get("prompt_received") is False:
+            raise protocol.Invalid("prompt_mismatch", "the runtime received a different packet prompt")
+        if rec.get("runtime_policy_mismatch"):
+            raise protocol.Invalid("model_policy", "observed runtime settings require review")
+        return document, None
+    except (bdw.Refused, Failure, KeyError, ValueError, TypeError, OSError) as exc:
+        return None, str(exc)
+
+
+def dependencies_of(issue: dict):
+    for dep in issue.get("dependencies") or []:
+        if dep.get("dependency_type", dep.get("type")) in BLOCKING_DEPENDENCIES:
+            yield dep.get("id", dep.get("depends_on_id", "?"))
+
+
+def target_of(meta: dict) -> dict:
+    return meta.get("dispatch") or meta.get("plan") or meta.get("gate_target") or {}
 
 
 def predecessor_checks(issue: dict, environ: dict[str, str], cwd: Path) -> list[dict]:
-    """One result per blocking dependency (Contract P2.5 and P6): ``ok`` and, when not, ``code`` and ``reason``.
-
-    Codes: ``not_closed``, ``missing_receipt`` (dispatched, no collected receipt), ``failed_predecessor``.
-    A dependency that was never dispatched is judged by its Beads status alone.
-    """
-    results = []
-    for dep in issue.get("dependencies") or []:
-        if dep.get("dependency_type") not in BLOCKING_DEPENDENCIES:
-            continue
-        dep_id = dep.get("id", "?")
+    """Fresh dependency reads; closed alone never establishes a protocol-2 gate."""
+    main = bdw.derive_paths(cwd, environ).main
+    target = target_of(metadata_of(issue))
+    results, documents = [], []
+    for dep_id in dependencies_of(issue):
         dep_issue = get_issue(dep_id, environ, cwd)
         meta = metadata_of(dep_issue)
-        dispatched = isinstance(meta.get("dispatch"), dict)
-        receipt = meta.get("receipt") if isinstance(meta.get("receipt"), dict) else None
-        item = {"id": dep_id, "status": dep_issue.get("status"), "dispatched": dispatched,
+        receipt, error = current_receipt(meta, main, environ)
+        item = {"id": dep_id, "status": dep_issue.get("status"), "dispatched": isinstance(meta.get("dispatch"), dict),
                 "receipt_collected": receipt is not None, "ok": True}
         if dep_issue.get("status") != "closed":
-            item.update(ok=False, code="not_closed", reason=f"{dep_id} is {dep_issue.get('status')}, not closed")
-        elif dispatched and receipt is None:
-            item.update(ok=False, code="missing_receipt", reason=f"{dep_id} was dispatched but has no collected receipt")
-        elif receipt is not None and receipt_failure(receipt):
+            item.update(ok=False, code="not_closed", reason=f"{dep_id} is not closed")
+        elif receipt is None:
+            item.update(ok=False, code="missing_receipt", reason=f"{dep_id}: {error}; explicit legacy review required")
+        elif not protocol.successful(receipt):
             item.update(ok=False, code="failed_predecessor", reason=f"{dep_id}: {receipt_failure(receipt)}")
+        else:
+            documents.append((dep_id, receipt))
+            if not target.get("contract_sha"):
+                item.update(ok=False, code="target_missing", reason="new gates require an explicit Contract target")
+            for key in ("contract_sha", "candidate_sha", "verification_plan_sha256"):
+                expected = target.get(key)
+                if expected is not None and receipt.get(key) is not None and receipt[key] != expected:
+                    item.update(ok=False, code="target_mismatch", reason=f"{dep_id}: {key} differs from target")
+            # A G receipt must reference the exact current upstream receipts, too.
+            if receipt["role"] == "G":
+                try:
+                    check_validation_refs(receipt, environ, cwd)
+                except bdw.Refused as exc:
+                    item.update(ok=False, code="approval_mismatch", reason=str(exc))
         results.append(item)
+    for key in ("contract_sha", "candidate_sha", "verification_plan_sha256"):
+        values = {doc[key] for _, doc in documents if doc.get(key) is not None}
+        if len(values) > 1:
+            for item in results:
+                item.update(ok=False, code="target_mismatch", reason=f"predecessors disagree on {key}")
     return results
 
 
@@ -291,7 +275,10 @@ def herdr(environ: dict[str, str], cwd: Path, *args: str) -> dict:
         raise HerdrError(f"herdr {' '.join(args[:2])} failed ({p.returncode}): {p.stderr.strip()[-800:]}",
                          code if isinstance(code, str) else None)
     try:
-        return json.loads(p.stdout) if p.stdout.strip() else {}
+        reply = json.loads(p.stdout) if p.stdout.strip() else {}
+        if not isinstance(reply, dict):
+            raise ValueError("expected a JSON object")
+        return reply
     except ValueError as exc:
         raise HerdrError(f"herdr {' '.join(args[:2])} did not return JSON: {p.stdout[-300:]}", None) from exc
 
@@ -342,11 +329,10 @@ def submit_seconds(environ: dict[str, str]) -> float:
 def screen_shows_turn(environ: dict[str, str], cwd: Path, name: str) -> bool:
     """True when the visible screen of the agent shows a running turn (Contract P0.2). Read failures count as no."""
     try:
-        p = subprocess.run([herdr_exe(environ), "agent", "read", name, "--source", "visible"], cwd=cwd, env=environ,
-                           capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=HERDR_TIMEOUT)
-    except (OSError, subprocess.TimeoutExpired):
+        reply = herdr(environ, cwd, "agent", "read", name, "--source", "visible")
+    except Failure:
         return False
-    return p.returncode == 0 and any(marker in p.stdout for marker in SCREEN_TURN_MARKERS)
+    return any(marker in json.dumps(reply) for marker in SCREEN_TURN_MARKERS)
 
 
 def wait_for_turn(environ: dict[str, str], cwd: Path, name: str, baseline: int | None, budget: float,
@@ -387,28 +373,34 @@ def registered_worktrees(main: Path) -> list[Path]:
     return [Path(line[len("worktree "):]) for line in out.splitlines() if line.startswith("worktree ")]
 
 
-def prepare_worktree(main: Path, path: Path, base: str) -> bool:
-    """Create the detached worktree, or reuse a clean one at base. Returns True when created."""
+def inspect_worktree(main: Path, path: Path, base: str) -> bool:
+    """Read-only preflight, shared by actual start and projected fill. True means create."""
+    registered = any(same_path(w, path) for w in registered_worktrees(main))
     if not path.exists():
-        if any(same_path(w, path) for w in registered_worktrees(main)):
-            raise bdw.Refused(f"{path} is a registered but missing worktree; run 'git worktree prune' first")
-        git(main, "worktree", "add", "--detach", str(path), base)
+        if registered:
+            raise Refusal("worktree_missing", f"{path} is registered but missing; review before pruning")
         return True
-    if not any(same_path(w, path) for w in registered_worktrees(main)):
-        raise bdw.Refused(f"{path} exists but is not a worktree of this repository")
-    if git(path, "status", "--porcelain", "-uall").stdout.strip():
-        raise bdw.Refused(f"worktree {path} is not clean")
-    head = git(path, "rev-parse", "HEAD").stdout.strip()
-    if head != base:
-        raise bdw.Refused(f"worktree {path} is at {head}, not at the requested base {base}")
+    if not registered or not path.is_dir():
+        raise Refusal("worktree_invalid", f"{path} is not a registered directory")
+    if git(path, "status", "--porcelain", "-uall", "--ignored=matching").stdout.strip():
+        raise Refusal("worktree_dirty", f"{path} has uncommitted changes")
+    if git(path, "rev-parse", "HEAD").stdout.strip() != base:
+        raise Refusal("worktree_base", f"{path} is not at the requested base {base}")
     return False
+
+
+def prepare_worktree(main: Path, path: Path, base: str) -> bool:
+    created = inspect_worktree(main, path, base)
+    if created:
+        git(main, "worktree", "add", "--detach", str(path), base)
+    return created
 
 
 def remove_worktree(main: Path, path: Path, base: str | None) -> tuple[bool, str]:
     """Remove a registered worktree only when it is clean and holds no unreferenced commit."""
     if not path.exists() or not any(same_path(w, path) for w in registered_worktrees(main)):
         return False, "worktree not present"
-    if git(path, "status", "--porcelain", "-uall").stdout.strip():
+    if git(path, "status", "--porcelain", "-uall", "--ignored=matching").stdout.strip():
         return False, "worktree has uncommitted changes"
     head = git(path, "rev-parse", "HEAD").stdout.strip()
     if head != base and not git(main, "branch", "--contains", head, "--format=%(refname)").stdout.strip():
@@ -434,27 +426,25 @@ def default_name(code: str) -> str:
 
 def open_blockers(issue: dict) -> list[str]:
     return [d.get("id", "?") for d in issue.get("dependencies") or []
-            if d.get("dependency_type") in BLOCKING_DEPENDENCIES and d.get("status") != "closed"]
+            if d.get("dependency_type") in BLOCKING_DEPENDENCIES and d.get("status") is not None
+            and d.get("status") != "closed"]
 
 
-def prompt_text(packet: Path) -> str:
-    return (f"Read AGENTS.md in your working directory, then read and execute the task packet at {packet}. "
-            "Work and reply in English.")
+def prompt_text(packet: Path, body: str = "", context: dict | None = None) -> str:
+    return ("Read AGENTS.md in your working directory. Work and reply in English.\n"
+            f"Frozen packet source: {packet}\nExecution context: " + json.dumps(context or {}, sort_keys=True) +
+            "\nExecute only this frozen Task Packet; do not reread a mutable source as task input.\n" + body)
 
 
 def normalize_owned(raw: str) -> str:
-    """A repository-relative path with forward slashes (Contract P1); anything else is refused."""
-    path = raw.replace("\\", "/")
-    parts = path.split("/")
-    if not path or any(p in ("", ".", "..") for p in parts) or re.fullmatch(r"[A-Za-z]:", parts[0]):
-        raise Refusal("bad_owns", f"--owns {raw!r} must be a repository-relative path with no '..' or '.' part, no "
-                                  "empty part (so no leading, trailing or doubled slash) and nothing absolute")
-    return "/".join(parts)
+    try:
+        return protocol.relative_path(raw)
+    except protocol.Invalid as exc:
+        raise Refusal("bad_owns", str(exc)) from exc
 
 
 def paths_overlap(p: str, q: str) -> bool:
-    """Equal, or one is a directory prefix of the other (Contract P2.2). Whole path parts only; case-sensitive."""
-    return p == q or p.startswith(q + "/") or q.startswith(p + "/")
+    return protocol.covers(p, q) or protocol.covers(q, p)
 
 
 def max_parallel(a: argparse.Namespace, environ: dict[str, str]) -> int:
@@ -499,14 +489,35 @@ def split_direction(environ: dict[str, str], cwd: Path, caller_pane: str) -> str
 
 
 def check_start_policy(a: argparse.Namespace) -> list[str]:
-    """Arguments checks of Contract P1 and P2.4 that need no Beads or Herdr; returns the normalized owned paths."""
     owned = sorted({normalize_owned(p) for p in getattr(a, "owns", None) or []})
-    if a.effort not in EFFORTS:
-        raise Refusal("model_policy", f"--effort must be one of {', '.join(EFFORTS)}, got {a.effort!r}")
-    approved = getattr(a, "approved", None)
-    if any(w in a.model.lower() for w in RESTRICTED_MODEL_WORDS) and not (approved and APPROVED_ID.fullmatch(approved)):
-        raise Refusal("model_policy", f"model {a.model!r} needs --approved HUMAN-YYYYMMDD-N")
+    if not isinstance(a.effort, str) or not a.effort:
+        raise Refusal("model_policy", "effort must be an explicit nonempty string")
+    if not getattr(a, "read_only", False) and not owned:
+        raise Refusal("missing_ownership", "write tasks require explicit owned paths; use --read-only for no writes")
+    if getattr(a, "read_only", False) and owned:
+        raise Refusal("bad_owns", "read-only and owned write paths are mutually exclusive")
     return owned
+
+
+def resolved_commit(main: Path, value: str | None, label: str) -> str:
+    if not isinstance(value, str) or not re.fullmatch(r"[0-9a-fA-F]{4,40}", value):
+        raise Refusal("bad_target", f"{label} must identify a commit by hash")
+    result = git(main, "rev-parse", "--verify", "--quiet", f"{value}^{{commit}}", check=False)
+    if result.returncode:
+        raise Refusal("bad_target", f"{label} is not a commit")
+    return result.stdout.strip()
+
+
+def resolve_approval(reference: str | None, environ: dict, cwd: Path) -> dict | None:
+    if reference is None:
+        return None
+    if not APPROVED_ID.fullmatch(reference):
+        raise Refusal("model_policy", "approval must be a HUMAN reference")
+    matches = issue_list(["list", "--all", "--json", "--limit", "0", "--label", "human"], environ, cwd)
+    found = [i for i in matches if metadata_of(i).get("task_code") == reference]
+    if len(found) != 1:
+        raise Refusal("model_policy", f"approval {reference} is missing or ambiguous")
+    return get_issue(found[0]["id"], environ, cwd)
 
 
 def check_start_resources(a: argparse.Namespace, environ: dict[str, str], cwd: Path, issue: dict, owned: list[str],
@@ -524,9 +535,9 @@ def check_start_resources(a: argparse.Namespace, environ: dict[str, str], cwd: P
     if getattr(a, "native", False):
         for other_id, rec in others:
             if rec.get("native"):
-                raise Refusal("native_busy", f"active dispatch {other_id} already holds the native lease")
+                raise Refusal("native_busy", f"active dispatch {other_id} already reserves a Native dispatch slot (not an engine lease)")
     for dep in predecessor_checks(issue, environ, cwd):
-        if not dep["ok"] and dep["code"] != "not_closed":
+        if not dep["ok"]:
             raise Refusal(dep["code"], dep["reason"])
 
 
@@ -543,9 +554,8 @@ def prepare_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path, act
         raise bdw.Refused(f"{a.id} is an epic")
     if issue.get("status") == "closed":
         raise bdw.Refused(f"{a.id} is closed")
-    blockers = open_blockers(issue)
-    if blockers:
-        raise bdw.Refused(f"{a.id} has open blockers: {', '.join(blockers)}")
+    # The dependency summary may be stale in either direction. Admission below
+    # uses fresh reads of each blocker rather than this embedded status.
     code = meta.get("task_code")
     if not isinstance(code, str) or not TASK_CODE.fullmatch(code):
         raise bdw.Refused(f"{a.id} has no usable metadata.task_code")
@@ -562,98 +572,226 @@ def prepare_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path, act
     if not packet.is_file():
         raise bdw.Refused(f"packet {packet} is not a file")
     previous = meta.get("dispatch")
-    if isinstance(previous, dict) and previous.get("pane_id") and recorded_agent_is_live(environ, cwd, previous):
-        raise bdw.Refused(f"{a.id} still has a live agent '{previous.get('agent')}' in pane {previous['pane_id']}")
-    base_proc = git(main, "rev-parse", "--verify", "--quiet", f"{a.base or 'HEAD'}^{{commit}}", check=False)
+    if isinstance(previous, dict) and not previous.get("ended_at"):
+        raise Refusal("active_dispatch", "prior dispatch has no confirmed resource release; reconcile/stop first")
+    base_proc = git(main, "rev-parse", "--verify", "--quiet", "--end-of-options", f"{a.base or 'HEAD'}^{{commit}}", check=False)
     if base_proc.returncode:
         raise bdw.Refused(f"--base {a.base} is not a commit of this repository")
     base = base_proc.stdout.strip()
     caller_pane = environ.get("HERDR_PANE_ID")
     if environ.get("HERDR_ENV") != "1" or not caller_pane:
         raise bdw.Refused("not running inside a Herdr pane (HERDR_ENV=1 and HERDR_PANE_ID are required)")
-    check_start_resources(a, environ, cwd, issue, owned, active_dispatches(environ, cwd) if active is None else active)
-    return {"main": main, "code": code, "name": name, "packet": packet, "base": base, "caller_pane": caller_pane,
-            "owned": owned, "native": bool(getattr(a, "native", False)), "approved": getattr(a, "approved", None)}
+    role, task_kind = getattr(a, "role", None), getattr(a, "task_kind", None)
+    if role not in protocol.ROLES or task_kind not in protocol.TASK_KINDS:
+        raise Refusal("bad_plan", "explicit role and task_kind are required")
+    contract = resolved_commit(main, getattr(a, "contract_sha", None), "contract_sha")
+    candidate = getattr(a, "candidate_sha", None)
+    if candidate is not None:
+        candidate = resolved_commit(main, candidate, "candidate_sha")
+    if role in ("V-Run", "G") and candidate is None:
+        raise Refusal("bad_target", "V-Run/G requires the frozen candidate_sha")
+    plan_sha = getattr(a, "verification_plan_sha256", None)
+    if role == "V-Plan" and candidate is not None:
+        raise Refusal("independence", "V-Plan receives the Contract, not the implementation candidate")
+    if role == "V-Run" or (role == "G" and task_kind == "code"):
+        protocol.require_hash(plan_sha, "verification_plan_sha256")
+    elif plan_sha is not None:
+        protocol.require_hash(plan_sha, "verification_plan_sha256")
+    history = list(meta.get("dispatch_history") or []) + ([previous] if isinstance(previous, dict) else [])
+    proof_name = getattr(a, "runtime_proof", None)
+    if not proof_name:
+        raise Refusal("model_policy", "--runtime-proof is required; availability cannot be inferred from a model name")
+    policy_record = policy.check(policy.load(REPO_ROOT / "INTENT.md"), Path(proof_name),
+        kind=a.kind, model=a.model, effort=a.effort, task_id=a.id,
+        task_class=getattr(a, "task_class", None), approval=resolve_approval(getattr(a, "approved", None), environ, cwd),
+        attempts=history, failure_cause=getattr(a, "failure_cause", None))
+    check_approval_limits(policy_record, environ, cwd, projected=active)
+    # Use the freshly frozen target in predecessor checks, even when plan metadata is absent.
+    target = {"contract_sha": contract, "candidate_sha": candidate, "verification_plan_sha256": plan_sha}
+    checked_issue = {**issue, "metadata": {**meta, "gate_target": target}}
+    checked_issue["metadata"].pop("dispatch", None)
+    checked_issue["metadata"].pop("plan", None)
+    current_active = active_dispatches(environ, cwd) if active is None else active
+    check_start_resources(a, environ, cwd, checked_issue, owned, current_active)
+    for other_id, _, _, other in current_active:
+        if other_id != a.id and other.get("agent") == name:
+            raise Refusal("agent_conflict", f"agent name {name} is reserved by {other_id}")
+    worktree = main.parent / f"{main.name}-wt" / code
+    inspect_worktree(main, worktree, base)
+    try:
+        herdr(environ, cwd, "agent", "get", name)
+    except HerdrError as exc:
+        if exc.code != "agent_not_found":
+            raise Refusal("runtime_unreachable", str(exc)) from exc
+    else:
+        raise Refusal("agent_conflict", f"agent name {name} already exists; inspect its identity before starting")
+    current_pane = (herdr(environ, cwd, "pane", "current", "--current").get("result") or {}).get("pane") or {}
+    if not current_pane.get("pane_id"):
+        raise Refusal("caller_unknown", "runtime did not resolve the actual caller pane")
+    caller_pane = current_pane["pane_id"]
+    packet_bytes = packet.read_bytes()
+    packet_bytes.decode("utf-8")  # reject undecodable input before intent/resources
+    return {"main": main, "code": code, "name": name, "packet": packet, "packet_bytes": packet_bytes,
+            "base": base, "caller_pane": caller_pane, "worktree": worktree, "owned": owned,
+            "role": role, "task_kind": task_kind, **target, "read_only": bool(getattr(a, "read_only", False)),
+            "policy": policy_record, "native": bool(getattr(a, "native", False)),
+            "approved": getattr(a, "approved", None), "meta": meta}
+
+
+def check_approval_limits(record: dict, environ: dict, cwd: Path, projected=None) -> None:
+    if not record.get("approval_id"):
+        return
+    approval = get_issue(record["approval_id"], environ, cwd)
+    grant = metadata_of(approval)["model_approval"]
+    # Count all attempts charged to this approval, including failed starts.
+    all_issues = issue_list(["list", "--all", "--json", "--limit", "0"], environ, cwd)
+    attempts = []
+    for issue in all_issues:
+        meta = metadata_of(issue)
+        for rec in [*(meta.get("dispatch_history") or []), meta.get("dispatch")]:
+            if isinstance(rec, dict) and rec.get("policy", {}).get("approval_id") == record["approval_id"]:
+                attempts.append(rec)
+    attempts.extend(rec for _, _, _, rec in (projected or []) if rec.get("projection")
+                    and rec.get("policy", {}).get("approval_id") == record["approval_id"])
+    if len(attempts) >= grant["max_calls"]:
+        raise Refusal("model_policy", "approved call limit exhausted")
+    budget = grant["usage_budget"]
+    if type(budget.get("max_total_tokens")) is not int or budget["max_total_tokens"] <= 0:
+        raise Refusal("model_policy", "approval needs a positive max_total_tokens budget")
+    used = 0
+    for rec in attempts:
+        tokens = (rec.get("metrics") or {}).get("normalized_interval_tokens")
+        if not isinstance(tokens, dict) or type(tokens.get("total_tokens")) is not int:
+            raise Refusal("model_policy", "prior approved usage is unknown; coordinator review required")
+        used += tokens["total_tokens"]
+    if used >= budget["max_total_tokens"]:
+        raise Refusal("model_policy", "approved token budget exhausted")
+
+
+def persist_dispatch(issue_id: str, rec: dict, environ: dict, cwd: Path, extra=()):
+    fresh = metadata_of(get_issue(issue_id, environ, cwd))
+    if fresh.get("dispatch", {}).get("dispatch_id") != rec["dispatch_id"]:
+        raise Refusal("attempt_mismatch", "current dispatch changed; refusing to overwrite it")
+    fresh["dispatch"] = rec
+    write_metadata(issue_id, fresh, environ, cwd, extra)
 
 
 def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
     ctx = prepare_start(a, environ, cwd)
-    main, code, name, packet, base, caller_pane = (ctx[k] for k in ("main", "code", "name", "packet", "base",
-                                                                    "caller_pane"))
-    worktree = main.parent / f"{main.name}-wt" / code
-    created = prepare_worktree(main, worktree, base)
-    new_pane = None
-    submit_retry = None  # set once the prompt stage is reached; carried into a failure's JSON
+    main, code, name, packet, base, caller_pane = (ctx[k] for k in
+        ("main", "code", "name", "packet", "base", "caller_pane"))
+    worktree = ctx["worktree"]
+    meta = metadata_of(get_issue(a.id, environ, cwd))
+    if meta.get("dispatch") != ctx["meta"].get("dispatch"):
+        raise Refusal("attempt_mismatch", "dispatch changed during preflight")
+    old = meta.get("dispatch")
+    history = list(meta.get("dispatch_history") or [])
+    if old:
+        # Archive the complete attempt, not merely its execution metadata.
+        history.append({**old, **{k: meta[k] for k in ("receipt", "metrics") if k in meta}})
+    elif any(key in meta for key in ("receipt", "metrics")):
+        meta.setdefault("legacy_records", []).append({k: meta[k] for k in ("receipt", "metrics") if k in meta})
+    for key in ("receipt", "metrics"):
+        meta.pop(key, None)
+    rec = {"protocol_version": protocol.VERSION, "dispatch_id": str(uuid.uuid4()), "task_id": a.id,
+           "task_code": code, "attempt": max([r.get("attempt", 0) for r in history] + [0]) + 1,
+           "agent": name, "pane_id": None, "kind": a.kind, "model": a.model, "effort": a.effort,
+           "requested_model": a.model, "requested_effort": a.effort, "observed_model": "unknown",
+           "observed_effort": "unknown", "session_id": None, "worktree": str(worktree), "base_sha": base,
+           "packet": packet.relative_to(main.resolve()).as_posix(), "packet_sha256": protocol.digest(ctx["packet_bytes"]),
+           "started_at": now(), "stage": "intent", "owned_paths": ctx["owned"], "native": ctx["native"],
+           "approved": ctx["approved"], "read_only": ctx["read_only"], "policy": ctx["policy"],
+           "failure_cause": getattr(a, "failure_cause", None),
+           **{k: ctx[k] for k in ("role", "task_kind", "contract_sha", "candidate_sha", "verification_plan_sha256")}}
+    meta["dispatch"] = rec
+    if history:
+        meta["dispatch_history"] = history
+    # Write intent BEFORE creating even the packet snapshot. Beads alone owns lifecycle state.
+    write_metadata(a.id, meta, environ, cwd, ["--status", "in_progress", "--assignee", ""])
+    created, new_pane, prompt_attempted = False, None, False
     try:
+        root = artifact_root(main, environ)
+        rec["packet_artifact"] = protocol.archive(root, ctx["packet_bytes"], "TASK.md")
+        rec["stage"] = "worktree_requested"
+        persist_dispatch(a.id, rec, environ, cwd)
+        created = prepare_worktree(main, worktree, base)
+        rec.update(worktree_owned=True, worktree_created=created, stage="worktree_ready")
+        persist_dispatch(a.id, rec, environ, cwd)
         direction = split_direction(environ, cwd, caller_pane)
-        split = herdr(environ, cwd, "pane", "split", caller_pane, "--direction", direction, "--cwd", str(worktree),
-                      "--no-focus")
+        rec.update(split_direction=direction, stage="pane_requested")
+        persist_dispatch(a.id, rec, environ, cwd)
+        split = herdr(environ, cwd, "pane", "split", caller_pane, "--direction", direction,
+                      "--cwd", str(worktree), "--no-focus")
         new_pane = ((split.get("result") or {}).get("pane") or {}).get("pane_id")
         if not new_pane:
-            raise Failure(f"herdr pane split returned no pane id: {split}")
-        started = herdr(environ, cwd, "agent", "start", name, "--kind", a.kind, "--pane", new_pane, "--",
-                        *agent_args(a.kind, a.model, a.effort))
+            raise Failure("pane split returned no pane id; reconcile before any retry")
+        rec.update(pane_id=new_pane, pane_owned=True, stage="agent_requested")
+        persist_dispatch(a.id, rec, environ, cwd)
+        started = herdr(environ, cwd, "agent", "start", name, "--kind", a.kind, "--pane", new_pane,
+                        "--", *agent_args(a.kind, a.model, a.effort))
         before = agent_info(started)
-        baseline = before["state_change_seq"]
-        if "agent_session" not in before["agent"]:  # the start reply does not say: ask once before the prompt
+        if not before["session_id"] or not before["pane_id"]:
             before = agent_info(herdr(environ, cwd, "agent", "get", name))
-        session_was_null = not before["session_id"]
-        if baseline is None:
-            baseline = before["state_change_seq"]
-        sent_prompt = prompt_text(packet)
-        herdr(environ, cwd, "agent", "prompt", name, sent_prompt)
-        budget = submit_seconds(environ)
-        submit_retry = False
-        if not wait_for_turn(environ, cwd, name, baseline, budget, session_was_null):
-            herdr(environ, cwd, "agent", "send-keys", name, "enter")
-            submit_retry = True
-            if not wait_for_turn(environ, cwd, name, baseline, budget, session_was_null):
-                raise Failure(f"the prompt did not start a turn within {budget:g} s, even after pressing Enter "
-                              f"(DISPATCH-LIVE-001); agent {name} in pane {new_pane}")
-        info = read_session(environ, cwd, name)
-        prompt_received, prompt_note = check_prompt_received(a.kind, info["session_id"], sent_prompt, environ, budget)
-        fresh_meta = metadata_of(get_issue(a.id, environ, cwd))
-        old = fresh_meta.get("dispatch")
-        history = list(fresh_meta.get("dispatch_history") or [])
-        if isinstance(old, dict):
-            history.append(old if old.get("ended_at") else
-                           {**old, "interrupted": True, "interrupted_detected_at": now()})
-        attempt = (int(old.get("attempt", len(history))) if isinstance(old, dict) else 0) + 1
-        record = {"agent": name, "pane_id": new_pane, "kind": a.kind, "model": a.model, "effort": a.effort,
-                  "session_id": info["session_id"], "worktree": str(worktree), "base_sha": base,
-                  "packet": packet.relative_to(main.resolve()).as_posix(), "packet_sha256": sha256_of(packet),
-                  "started_at": now(), "attempt": attempt, "split_direction": direction,
-                  "owned_paths": ctx["owned"], "native": ctx["native"], "approved": ctx["approved"]}
-        record["prompt_received"] = prompt_received
-        if prompt_note:
-            record["prompt_check_note"] = prompt_note
-        if not info["session_id"]:
-            record["session_id_note"] = "Herdr reported no agent session id after the prompt"
+        if before["pane_id"] != new_pane:
+            raise Failure("started agent does not occupy the created pane")
+        rec.update(session_id=before["session_id"], stage="agent_ready")
+        baseline_usage, reason = usage_for(rec, environ)
+        rec["usage_baseline"] = baseline_usage
+        rec["usage_baseline_note"] = reason
+        rec["usage_started_at"] = now()
+        context = {k: rec[k] for k in (*protocol.BINDINGS, "contract_sha", "candidate_sha", "verification_plan_sha256")}
+        sent = prompt_text(packet, ctx["packet_bytes"].decode("utf-8"), context)
+        rec["prompt_artifact"] = protocol.archive(root, sent.encode("utf-8"), "PROMPT.txt")
+        rec["stage"] = "prompt_requested"
+        persist_dispatch(a.id, rec, environ, cwd)
+        prompt_attempted = True
+        herdr(environ, cwd, "agent", "prompt", name, sent)
+        if not wait_for_turn(environ, cwd, name, before["state_change_seq"], submit_seconds(environ),
+                             not before["session_id"]):
+            raise Failure("prompt submission is uncertain; no automatic Enter or retransmission")
+        info = read_session(environ, cwd, name, attempts=1)
+        if info["pane_id"] != new_pane or (rec["session_id"] and rec["session_id"] != info["session_id"]):
+            raise Failure("agent identity changed after prompt submission")
+        rec["session_id"] = info["session_id"]
+        received, note = check_prompt_received(a.kind, info["session_id"], sent, environ, submit_seconds(environ))
+        rec.update(prompt_received=received, prompt_check_note=note,
+                   stage="running" if received is not False else "needs_review")
         if a.kind == "claude":
-            record["permission_mode"] = "bypassPermissions"
-        fresh_meta["dispatch"] = record
-        if history:
-            fresh_meta["dispatch_history"] = history
-        write_metadata(a.id, fresh_meta, environ, cwd, ["--status", "in_progress", "--assignee", ""])
-    except BaseException as exc:
-        cleanup = {}
-        if new_pane:
+            rec["permission_mode"] = "bypassPermissions"
+        persist_dispatch(a.id, rec, environ, cwd)
+        return {"ok": True, "id": a.id, "task_code": code, "dispatch": rec,
+                "agent_status": info["status"], "submit_retry": False,
+                **({"warning": "prompt_mismatch_needs_review"} if received is False else {})}
+    except (Exception, KeyboardInterrupt) as original_error:
+        cleanup = {"worktree_created": created, "pane_id": new_pane, "resources_preserved": True}
+        # A failed external call may have applied. Preserve resources unless exact
+        # identity, settled state and cwd can still be verified by the runtime.
+        if new_pane and rec.get("session_id") and not prompt_attempted:
             try:
-                herdr(environ, cwd, "pane", "close", new_pane)
-                cleanup["pane_closed"] = new_pane
-            except Failure as exc:
-                cleanup["pane_close_failed"] = str(exc)
-        if created:
-            cleanup["worktree"] = remove_worktree(main, worktree, base)[1]
-        exc.cleanup = cleanup
-        if submit_retry is not None:
-            exc.submit_retry = submit_retry
-        raise
-    out = {"ok": True, "id": a.id, "task_code": code, "dispatch": record, "agent_status": info["status"],
-           "submit_retry": submit_retry}
-    if prompt_received is False:
-        out["warning"] = "prompt_truncated"
-    return out
+                observed = observe_execution(environ, cwd, rec)
+                if observed["state"] == "live" and observed["info"]["status"] in SETTLED:
+                    herdr(environ, cwd, "pane", "close", new_pane)
+                    cleanup["pane_closed"] = new_pane
+            except (Failure, OSError) as cleanup_error:
+                cleanup["pane_close_failed"] = str(cleanup_error)
+        try:
+            failed_metrics = metrics_record(rec, environ)
+        except (OSError, LookupError, ValueError, TypeError, Failure) as usage_error:
+            failed_metrics = {"dispatch_id": rec["dispatch_id"], "attempt": rec["attempt"],
+                "session_id": rec.get("session_id"), "interval_tokens": None, "cost": None,
+                "usage_unavailable_reason": str(usage_error)}
+            cleanup["usage_read_failed"] = str(usage_error)
+        failed_metrics.update(outcome="failed", role=rec["role"])
+        rec.update(stage="needs_review", start_error=str(original_error), cleanup=cleanup, metrics=failed_metrics)
+        try:
+            persist_dispatch(a.id, rec, environ, cwd)
+        except (bdw.Refused, Failure, OSError) as record_error:
+            cleanup["record_failed"] = str(record_error)
+        failure = original_error if isinstance(original_error, (bdw.Refused, Failure)) else Failure(str(original_error))
+        failure.cleanup = cleanup
+        if failure is original_error:
+            raise
+        raise failure from original_error
 
 
 # ---------------------------------------------------------------- show
@@ -677,6 +815,12 @@ def cmd_show(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
                 out["live"] = {"status": info["status"], "session_id": info["session_id"],
                                "matches_recorded_session": bool(rec.get("session_id")) and info["session_id"] == rec["session_id"],
                                "agent": info["agent"]}
+    main = bdw.derive_paths(cwd, environ).main
+    document, error = current_receipt(meta, main, environ)
+    out["current_receipt_valid"] = document is not None
+    out["current_receipt_note"] = error
+    if meta.get("receipt") and meta["receipt"].get("schema_version") != protocol.VERSION:
+        out["legacy_interpretation"] = protocol.legacy_interpretation(meta["receipt"])
     return out
 
 
@@ -743,7 +887,7 @@ def codex_usage(path: Path) -> dict:
              "cache_write_input_tokens": "cache_write_tokens", "cache_creation_input_tokens": "cache_write_tokens",
              "output_tokens": "output_tokens",
              "reasoning_output_tokens": "reasoning_tokens", "total_tokens": "total_tokens"}
-    usage = {names[k]: v for k, v in last.items() if k in names and isinstance(v, int)}
+    usage = {names[k]: v for k, v in last.items() if k in names and type(v) is int and v >= 0}
     seconds, first, last_t = wall_time(stamps)
     return {"source": "codex", "transcript": str(path), "tokens": usage, "models": models,
             "malformed_lines": skipped[0], "wall_seconds": seconds, "first_timestamp": first, "last_timestamp": last_t}
@@ -775,7 +919,7 @@ def claude_usage(path: Path) -> dict:
         merged = per_message.setdefault(key, {})
         for k, v in usage.items():
             # A message may be written once per content block; keep its largest figure, count it once.
-            if isinstance(v, int) and v > merged.get(k, -1):
+            if type(v) is int and v >= 0 and v > merged.get(k, -1):
                 merged[k] = v
     if not per_message:
         raise LookupError("the transcript has no assistant message with usage")
@@ -865,110 +1009,291 @@ def usage_for(rec: dict, environ: dict[str, str]) -> tuple[dict | None, str | No
     if path is None:
         return None, f"no {kind} transcript found for session {session}"
     try:
-        return (codex_usage if kind == "codex" else claude_usage)(path), None
+        usage = (codex_usage if kind == "codex" else claude_usage)(path)
+        usage.update(transcript_id=f"{kind}:{session}", transcript_sha256=sha256_of(path))
+        return usage, None
     except (LookupError, OSError) as exc:
         return None, f"transcript {path} could not be read: {exc}"
 
 
-def check_receipt(receipt: dict, receipt_path: Path, rec: dict, main: Path) -> None:
-    """Fan-in checks of Contract P5: commit, evidence and verdict. Refuses before anything is written."""
-    sha = receipt.get("candidate_sha")
-    if sha is not None:
-        base = rec.get("base_sha")
-        resolved = (git(main, "rev-parse", "--verify", "--quiet", f"{sha}^{{commit}}", check=False)
-                    if isinstance(sha, str) and re.fullmatch(r"[0-9A-Fa-f]{4,64}", sha) else None)
-        if resolved is None or resolved.returncode:
-            raise Refusal("bad_candidate", f"candidate_sha {sha!r} does not resolve to a commit in the main repository")
-        if not base:
-            raise Refusal("bad_candidate", "the dispatch record has no base_sha to compare candidate_sha with")
-        if git(main, "merge-base", "--is-ancestor", base, resolved.stdout.strip(), check=False).returncode:
-            raise Refusal("bad_candidate", f"candidate_sha {sha} is not equal to or a descendant of the dispatch base {base}")
-    evidence = receipt.get("evidence")
-    if isinstance(evidence, list):
-        for entry in evidence:
-            target = (receipt_path.parent / entry) if isinstance(entry, str) and entry else None
-            if target is None or not target.exists():
-                raise Refusal("missing_evidence", f"evidence entry {entry!r} does not exist")
-    if "verdict" in receipt and (verdict := receipt["verdict"]) not in VERDICTS:
-        raise Refusal("bad_verdict", f"verdict {verdict!r} is not one of {', '.join(VERDICTS)}")
+def changed_files(main: Path, base: str, candidate: str) -> list[str]:
+    # --no-renames includes both sides of a rename, using NUL rather than quoted paths.
+    return sorted(filter(None, git(main, "diff", "--name-only", "--no-renames", "-z", base, candidate).stdout.split("\0")))
+
+
+def check_owned_changes(receipt: dict, rec: dict, main: Path) -> list[str]:
+    paths = []
+    if receipt["role"] == "I":
+        paths = changed_files(main, rec["base_sha"], receipt["candidate_sha"])
+        if sorted(set(receipt["changed_paths"])) != paths:
+            raise Refusal("ownership_violation", "changed_paths does not match the frozen Git diff")
+        if (receipt["task_kind"] in ("code", "documentation") and protocol.successful(receipt) and not paths):
+            raise Refusal("empty_candidate", "a completed implementation needs a nonempty candidate commit")
+    worktree = Path(rec["worktree"]) if rec.get("worktree") else None
+    if worktree and worktree.exists():
+        if not any(same_path(w, worktree) for w in registered_worktrees(main)):
+            raise Refusal("ownership_unknown", "worktree is not registered")
+        head = git(worktree, "rev-parse", "HEAD").stdout.strip()
+        working = changed_files(worktree, rec["base_sha"], head)
+        # Include tracked modifications, staged changes and untracked files.
+        working += list(filter(None, git(worktree, "diff", "--name-only", "--no-renames", "-z", "HEAD").stdout.split("\0")))
+        working += list(filter(None, git(worktree, "ls-files", "--others", "--exclude-standard", "-z").stdout.split("\0")))
+        # V/G worktrees may start exactly at the frozen candidate. Its inherited
+        # implementation changes are not changes made by the verifier.
+        paths_to_check = set(paths + working)
+    else:
+        paths_to_check = set(paths)
+    for path in paths_to_check:
+        normalize_owned(path)
+        if rec.get("read_only") or not any(protocol.covers(owner, path) for owner in rec.get("owned_paths", [])):
+            raise Refusal("ownership_violation", f"changed file outside write scope: {path}")
+    return paths
+
+
+def check_receipt(receipt: dict, receipt_path: Path, rec: dict, main: Path) -> list[tuple[dict, bytes]]:
+    protocol.validate(receipt, rec)
+    for key in ("base_sha", "contract_sha", "candidate_sha"):
+        if receipt.get(key) is not None and resolved_commit(main, receipt[key], key) != receipt[key]:
+            raise Refusal("bad_target", f"{key} is not a full commit identity")
+    if receipt.get("candidate_sha") is not None and receipt["role"] == "I":
+        if git(main, "merge-base", "--is-ancestor", rec["base_sha"], receipt["candidate_sha"], check=False).returncode:
+            raise Refusal("bad_candidate", "implementation candidate is not descended from its base")
+    check_owned_changes(receipt, rec, main)
+    artifacts = []
+    for item in receipt["evidence"]:
+        source = (receipt_path.parent / protocol.relative_path(item["path"])).resolve()
+        if receipt_path.parent.resolve() not in source.parents or not source.is_file():
+            raise Refusal("missing_evidence", f"evidence is not a file under receipt bundle: {item['path']}")
+        data = source.read_bytes()
+        if protocol.digest(data) != item["sha256"]:
+            raise Refusal("artifact_corrupt", f"source evidence hash differs: {item['artifact_id']}")
+        if item["source"].startswith("git:"):
+            _, commit, repo_path = item["source"].split(":", 2)
+            source_blob = subprocess.run(["git", "show", f"{commit}:{repo_path}"], cwd=main, capture_output=True)
+            if source_blob.returncode or source_blob.stdout != data:
+                raise Refusal("bad_evidence", "Git source does not match the retained evidence bytes")
+        if item["kind"] in ("checks", "verification"):
+            try:
+                parsed = json.loads(data)
+                if not isinstance(parsed, (dict, list)):
+                    raise ValueError("expected JSON object or array")
+            except (ValueError, UnicodeError) as exc:
+                raise Refusal("bad_evidence", f"{item['kind']} must be structured JSON: {item['path']}") from exc
+        artifacts.append((item, data))
+    return artifacts
+
+
+def check_validation_refs(receipt: dict, environ: dict, cwd: Path, seen=None) -> None:
+    """G must name the current successful independent receipts and identical targets."""
+    main = bdw.derive_paths(cwd, environ).main
+    roles, sessions = set(), {}
+    seen = set() if seen is None else seen
+    if receipt["task_id"] in seen:
+        raise Refusal("approval_mismatch", "cyclic validation references")
+    seen.add(receipt["task_id"])
+    for ref in receipt["validation_refs"]:
+        issue = get_issue(ref["task_id"], environ, cwd)
+        meta = metadata_of(issue)
+        doc, reason = current_receipt(meta, main, environ)
+        if (issue.get("status") != "closed" or doc is None or not protocol.successful(doc)
+                or doc["dispatch_id"] != ref["dispatch_id"]
+                or meta["receipt"]["sha256"] != ref["receipt_sha256"]):
+            raise Refusal("approval_mismatch", f"invalid validation reference {ref['task_id']}: {reason}")
+        for key in ("contract_sha", "candidate_sha", "verification_plan_sha256"):
+            if doc.get(key) is not None and receipt.get(key) is not None and doc[key] != receipt[key]:
+                raise Refusal("target_mismatch", f"G and {ref['task_id']} disagree on {key}")
+        if doc["role"] == "G":
+            check_validation_refs(doc, environ, cwd, set(seen))
+        if doc["role"] in roles:
+            raise Refusal("approval_mismatch", "ambiguous duplicate validation role")
+        roles.add(doc["role"])
+        sessions[doc["role"]] = (meta.get("dispatch") or {}).get("session_id")
+    required = {"I", "V-Plan", "V-Run"} if receipt["task_kind"] == "code" else {"I"}
+    if not required <= roles:
+        raise Refusal("approval_mismatch", f"G requires current receipts for {sorted(required)}")
+    if "V-Run" in roles and (not sessions.get("I") or not sessions.get("V-Run")
+                            or sessions["I"] == sessions["V-Run"]):
+        raise Refusal("independence", "implementation and verification need distinct, identified sessions")
+    if "V-Plan" in roles and (not sessions.get("I") or not sessions.get("V-Plan")
+                             or sessions["I"] == sessions["V-Plan"]):
+        raise Refusal("independence", "V-Plan must be independent from implementation; V-Plan/V-Run may share a session")
+
+
+def metrics_record(rec: dict, environ: dict) -> dict:
+    usage, reason = usage_for(rec, environ)
+    baseline = rec.get("usage_baseline")
+    interval = None
+    # Only a measured baseline permits a delta. Session totals are never task totals.
+    if usage and baseline and usage.get("source") == baseline.get("source"):
+        end, begin = usage["tokens"], baseline["tokens"]
+        if all(k in end and end[k] >= v for k, v in begin.items()):
+            interval = {k: end[k] - begin[k] for k in begin}
+    normalized = None
+    if interval is not None:
+        normalized = {k: v for k, v in interval.items() if k != "input_tokens"}
+        if "input_tokens" in interval:
+            if rec.get("kind") == "claude":
+                normalized["uncached_input_tokens"] = interval["input_tokens"]
+            elif "cached_input_tokens" in interval and interval["input_tokens"] >= interval["cached_input_tokens"]:
+                normalized["uncached_input_tokens"] = interval["input_tokens"] - interval["cached_input_tokens"]
+        if rec.get("kind") == "claude" and all(k in interval for k in
+                ("input_tokens", "cached_input_tokens", "cache_write_tokens", "output_tokens")):
+            normalized["total_tokens"] = sum(interval[k] for k in
+                ("input_tokens", "cached_input_tokens", "cache_write_tokens", "output_tokens"))
+    collected = now()
+    start_time, end_time = parse_time(rec.get("started_at")), parse_time(collected)
+    elapsed = max(0.0, (end_time - start_time).total_seconds()) if start_time and end_time else None
+    return {"dispatch_id": rec["dispatch_id"], "attempt": rec["attempt"], "session_id": rec.get("session_id"),
+            "task_id": rec["task_id"], "task_code": rec["task_code"], "failure_cause": rec.get("failure_cause"),
+            "agent": rec.get("agent"), "kind": rec.get("kind"), "requested_model": rec.get("model"),
+            "requested_effort": rec.get("effort"), "observed_models": usage.get("models", []) if usage else [],
+            "observed_effort": "unknown", "observed_models_scope": "session", "session_usage": usage,
+            "interval_tokens": interval, "normalized_interval_tokens": normalized,
+            "interval_start": baseline.get("tokens") if baseline else None,
+            "interval_end": usage.get("tokens") if usage else None,
+            "interval_unavailable_reason": None if interval is not None else "no comparable measured baseline",
+            "usage_unavailable_reason": reason, "cost": None, "cost_scope": "unknown", "currency": None,
+            "cost_unavailable_reason": "no billed cost observation",
+            "cache_semantics": {"codex": "input_includes_cache_read", "claude": "input_excludes_cache_read"}.get(rec.get("kind"), "unknown"),
+            "collected_at": collected, "attempt_wall_seconds": elapsed}
 
 
 def cmd_collect(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
     issue = get_issue(a.id, environ, cwd)
     meta = metadata_of(issue)
-    code = meta.get("task_code")
     rec = meta.get("dispatch")
-    if not isinstance(rec, dict):
-        raise bdw.Refused(f"{a.id} has no recorded dispatch")
+    if not isinstance(rec, dict) or rec.get("protocol_version") != protocol.VERSION:
+        raise Refusal("legacy_review_required", "collection requires an explicit protocol-2 dispatch/manual context")
     receipt_path = Path(a.receipt).resolve()
-    if not receipt_path.is_file():
-        raise bdw.Refused(f"receipt {receipt_path} is not a file")
     try:
-        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        raw = receipt_path.read_bytes()
+        receipt = json.loads(raw)
     except (ValueError, OSError) as exc:
-        raise bdw.Refused(f"receipt {receipt_path} is not readable JSON: {exc}") from exc
-    if not isinstance(receipt, dict) or receipt.get("task_code") != code:
-        raise bdw.Refused(f"receipt task_code {receipt.get('task_code') if isinstance(receipt, dict) else None!r} "
-                          f"does not match the node's {code!r}")
-    check_receipt(receipt, receipt_path, rec, bdw.derive_paths(cwd, environ).main)
-    usage, reason = usage_for(rec, environ)
-    receipt_rec = {"path": str(receipt_path), "sha256": sha256_of(receipt_path),
-                   "outcome": receipt.get("outcome"),
-                   "candidate_sha": receipt.get("candidate_sha"), "collected_at": now()}
-    if "verdict" in receipt:
-        receipt_rec["verdict"] = receipt["verdict"]
-    metrics = {"attempt": rec.get("attempt"), "agent": rec.get("agent"), "kind": rec.get("kind"),
-               "requested_model": rec.get("model"), "requested_effort": rec.get("effort"),
-               "usage": usage, "usage_unavailable_reason": reason, "collected_at": receipt_rec["collected_at"]}
+        raise Refusal("bad_receipt", f"receipt is not readable JSON: {exc}") from exc
+    main = bdw.derive_paths(cwd, environ).main
+    root = artifact_root(main, environ)
+    frozen = protocol.read_artifact(root, rec["packet_artifact"])
+    if protocol.digest(frozen) != rec["packet_sha256"]:
+        raise Refusal("artifact_corrupt", "frozen packet differs from execution context")
+    artifacts = check_receipt(receipt, receipt_path, rec, main)
+    if receipt["role"] == "G":
+        check_validation_refs(receipt, environ, cwd)
+    stored = {"schema_version": protocol.VERSION, "dispatch_id": rec["dispatch_id"],
+              "sha256": protocol.digest(raw), "document": receipt,
+              "raw_artifact": protocol.archive(root, raw, "receipt.json"), "artifacts": [], "collected_at": now()}
+    for item, data in artifacts:
+        stored["artifacts"].append({**protocol.archive(root, data, "evidence"),
+                                    "declared_id": item["artifact_id"], "kind": item["kind"], "source": item["source"]})
     fresh = metadata_of(get_issue(a.id, environ, cwd))
-    fresh["receipt"] = receipt_rec
-    fresh["metrics"] = metrics
+    if fresh.get("dispatch", {}).get("dispatch_id") != rec["dispatch_id"]:
+        raise Refusal("attempt_mismatch", "dispatch changed during collection")
+    old = fresh.get("receipt")
+    if old and old.get("sha256") == stored["sha256"]:
+        # Still revalidated source and snapshots; never double count usage or comment.
+        valid, error = current_receipt(fresh, main, environ)
+        if error and protocol.successful(receipt):
+            raise Refusal("invalid_current_receipt", error)
+        return {"ok": True, "id": a.id, "unchanged": True, "receipt": old, "metrics": fresh.get("metrics")}
+    if old:
+        fresh.setdefault("collection_history", []).append({"dispatch_id": rec["dispatch_id"],
+            "receipt": old, "metrics": fresh.get("metrics")})
+    metrics = metrics_record(rec, environ)
+    metrics["outcome"] = receipt["outcome"]
+    metrics["verdict"] = receipt.get("verdict")
+    metrics["role"] = receipt["role"]
+    fresh.update(receipt=stored, metrics=metrics)
+    fresh["dispatch"]["metrics"] = metrics
+    models = metrics["observed_models"]
+    if len(models) == 1:
+        fresh["dispatch"]["observed_model"] = models[0]
+    if models and any(model != rec.get("model") for model in models):
+        fresh["dispatch"]["runtime_policy_mismatch"] = True
+        fresh["dispatch"]["review"] = {"state": "needs_review", "reason": "observed model differs from request",
+                                         "detected_at": now()}
     write_metadata(a.id, fresh, environ, cwd)
-    if usage:
-        t = usage["tokens"]
-        usage_text = (f"usage from {usage['source']} transcript: input {t.get('input_tokens')}, cached "
-                      f"{t.get('cached_input_tokens')}, cache-write {t.get('cache_write_tokens')}, output "
-                      f"{t.get('output_tokens')}, reasoning {t.get('reasoning_tokens')}; models "
-                      f"{', '.join(usage['models']) or 'unknown'}; wall {usage['wall_seconds']} s")
-    else:
-        usage_text = f"usage unavailable: {reason}"
-    bd(["comment", a.id, f"dispatch collect (attempt {rec.get('attempt')}): receipt {receipt_path} "
-        f"sha256 {receipt_rec['sha256']}, outcome {receipt.get('outcome')}, verdict {receipt.get('verdict')}; "
-        f"{usage_text}. The status is unchanged; closing stays with the coordinator."], environ, cwd)
-    return {"ok": True, "id": a.id, "task_code": code, "receipt": receipt_rec, "metrics": metrics}
+    bd(["comment", a.id, f"dispatch collect {rec['dispatch_id']} attempt {rec['attempt']}: "
+        f"receipt sha256 {stored['sha256']}, outcome {receipt['outcome']}. Status unchanged."], environ, cwd)
+    return {"ok": True, "id": a.id, "receipt": stored, "metrics": metrics}
 
 
 # ---------------------------------------------------------------- stop
 
+def observe_execution(environ: dict, cwd: Path, rec: dict) -> dict:
+    """Reachability, absence and identity are separate observations."""
+    if not rec.get("agent") or not rec.get("pane_id"):
+        return {"state": "unknown", "reason": "resource creation may have been interrupted"}
+    try:
+        info = agent_info(herdr(environ, cwd, "agent", "get", rec["agent"]))
+        if info["pane_id"] != rec["pane_id"] or not rec.get("session_id") or info["session_id"] != rec["session_id"]:
+            return {"state": "identity_mismatch", "reason": "name/pane/session tuple differs", "info": info}
+        agent_cwd = info["agent"].get("cwd")
+        if not agent_cwd or not same_path(Path(agent_cwd), Path(rec["worktree"])):
+            return {"state": "unknown", "reason": "runtime cwd ownership is unconfirmed", "info": info}
+        return {"state": "live", "reason": None, "info": info}
+    except HerdrError as exc:
+        if exc.code != "agent_not_found":
+            return {"state": "unreachable", "reason": str(exc)}
+    try:
+        reply = herdr(environ, cwd, "pane", "list")
+        panes = (reply.get("result") or {}).get("panes")
+        if not isinstance(panes, list):
+            return {"state": "unknown", "reason": "pane inventory shape unknown"}
+        if any(p.get("pane_id") == rec["pane_id"] for p in panes):
+            return {"state": "identity_mismatch", "reason": "recorded pane exists without recorded agent"}
+        return {"state": "confirmed_absent", "reason": "agent and pane are absent from authoritative inventory"}
+    except Failure as exc:
+        return {"state": "unreachable", "reason": str(exc)}
+
+
+def mark_review(issue_id, rec, reason, environ, cwd, **facts):
+    review = {"state": "needs_review", "reason": reason, **facts}
+    old = rec.get("review")
+    if isinstance(old, dict) and {k: v for k, v in old.items() if k != "detected_at"} == review:
+        return old
+    review["detected_at"] = now()
+    persist_dispatch(issue_id, {**rec, "review": review}, environ, cwd)
+    return review
+
+
 def cmd_stop(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
-    paths = bdw.derive_paths(cwd, environ)
-    main = paths.main
-    issue = get_issue(a.id, environ, cwd)
-    meta = metadata_of(issue)
+    main = bdw.derive_paths(cwd, environ).main
+    meta = metadata_of(get_issue(a.id, environ, cwd))
     rec = meta.get("dispatch")
-    if not isinstance(rec, dict) or not rec.get("pane_id"):
+    if not isinstance(rec, dict):
         raise bdw.Refused(f"{a.id} has no recorded dispatch")
-    info = live_agent(environ, cwd, rec)
-    pane_closed, pane_note = False, None
-    if info is None:
-        pane_note = "Herdr has no such agent in the recorded pane; nothing was closed"
-    elif rec.get("session_id") and info["session_id"] and info["session_id"] != rec["session_id"]:
-        pane_note = "the recorded pane hosts a different agent session; it was left open"
-    elif info["status"] not in SETTLED:
-        raise bdw.Refused(f"the recorded agent is {info['status']}, not idle or done; nothing was changed")
-    else:
-        herdr(environ, cwd, "pane", "close", rec["pane_id"])
-        pane_closed = True
-    worktree = Path(rec["worktree"]) if rec.get("worktree") else None
-    removed, note = (remove_worktree(main, worktree, rec.get("base_sha")) if worktree else (False, "no worktree"))
-    ended = now()
-    fresh = metadata_of(get_issue(a.id, environ, cwd))
-    current = dict(fresh.get("dispatch") or rec)
-    current["ended_at"] = ended
-    fresh["dispatch"] = current
-    write_metadata(a.id, fresh, environ, cwd)
-    return {"ok": True, "id": a.id, "pane_closed": pane_closed, "pane_note": pane_note,
-            "worktree_removed": removed, "worktree_note": note, "ended_at": ended}
+    if rec.get("ended_at"):
+        return {"ok": True, "id": a.id, "unchanged": True, "ended_at": rec["ended_at"]}
+    if rec.get("protocol_version") != protocol.VERSION:
+        raise Refusal("legacy_review_required", "legacy resource ownership needs manual inspection; nothing removed")
+    observed = observe_execution(environ, cwd, rec)
+    pane_closed = False
+    if observed["state"] == "live" and observed["info"]["status"] in SETTLED:
+        try:
+            herdr(environ, cwd, "pane", "close", rec["pane_id"])
+            # Do not infer process exit solely from close's acknowledgement.
+            observed = observe_execution(environ, cwd, rec)
+            pane_closed = observed["state"] == "confirmed_absent"
+        except Failure as close_error:
+            observed = {"state": "unreachable", "reason": str(close_error)}
+    if observed["state"] != "confirmed_absent":
+        reason = observed.get("reason") or "execution is still live or working"
+        mark_review(a.id, rec, reason, environ, cwd, execution_state=observed["state"])
+        raise Refusal("needs_review", reason)
+    expected = main.parent / f"{main.name}-wt" / rec["task_code"]
+    path = Path(rec.get("worktree", ""))
+    if not rec.get("worktree_owned") or not same_path(path, expected):
+        mark_review(a.id, rec, "worktree ownership unconfirmed", environ, cwd)
+        raise Refusal("needs_review", "worktree ownership unconfirmed")
+    removed, note = remove_worktree(main, path, rec.get("base_sha"))
+    if not removed:
+        # Even an empty deregistered leftover may be a failed Windows removal.
+        if path.exists() or any(same_path(w, path) for w in registered_worktrees(main)):
+            mark_review(a.id, rec, note, environ, cwd, execution_state="confirmed_absent")
+            raise Refusal("needs_review", note)
+    rec.update(ended_at=now(), stage="released", cleanup={"pane_closed": pane_closed, "worktree": note})
+    persist_dispatch(a.id, rec, environ, cwd)
+    return {"ok": True, "id": a.id, "pane_closed": pane_closed, "worktree_removed": removed,
+            "worktree_note": note, "ended_at": rec["ended_at"]}
 
 
 # ---------------------------------------------------------------- fill
@@ -978,24 +1303,30 @@ def natural_key(text: str) -> list:
 
 
 def plan_namespace(issue_id: str, plan: dict, limit: int, main: Path) -> argparse.Namespace:
-    """The ``start`` arguments for a task, taken from its ``metadata.plan`` (Contract P3)."""
-    for key in ("packet", "kind", "model", "effort"):
+    required = ("packet", "kind", "model", "effort", "role", "task_kind", "contract_sha", "runtime_proof", "task_class")
+    optional = ("name", "approved", "base", "candidate_sha", "verification_plan_sha256", "failure_cause")
+    unknown = set(plan) - set(required) - set(optional) - {"owns", "native", "read_only"}
+    if unknown:
+        raise Refusal("bad_plan", f"unknown plan fields: {sorted(unknown)}")
+    for key in required:
         if not isinstance(plan.get(key), str) or not plan[key]:
-            raise Refusal("bad_plan", f"metadata.plan.{key} must be a non-empty string")
+            raise Refusal("bad_plan", f"metadata.plan.{key} must be a nonempty string")
     owns = plan.get("owns", [])
     owns = [owns] if isinstance(owns, str) else owns
     if not isinstance(owns, list) or not all(isinstance(p, str) for p in owns):
-        raise Refusal("bad_plan", "metadata.plan.owns must be a string or a list of strings")
-    for key in ("name", "approved", "base"):
+        raise Refusal("bad_plan", "metadata.plan.owns must be a list of paths")
+    for key in optional:
         if plan.get(key) is not None and not isinstance(plan[key], str):
             raise Refusal("bad_plan", f"metadata.plan.{key} must be a string")
-    if not isinstance(plan.get("native", False), bool):
-        raise Refusal("bad_plan", "metadata.plan.native must be true or false")
-    packet = Path(plan["packet"])
-    return argparse.Namespace(id=issue_id, packet=str(packet if packet.is_absolute() else main / packet),
-                              kind=plan["kind"], model=plan["model"], effort=plan["effort"], name=plan.get("name"),
-                              base=plan.get("base"), owns=owns, native=plan.get("native", False),
-                              approved=plan.get("approved"), max_parallel=str(limit))
+    for key in ("native", "read_only"):
+        if type(plan.get(key, False)) is not bool:
+            raise Refusal("bad_plan", f"metadata.plan.{key} must be boolean")
+    values = {key: plan.get(key) for key in (*required, *optional)}
+    for key in ("packet", "runtime_proof"):
+        path = Path(values[key])
+        values[key] = str(path if path.is_absolute() else main / path)
+    return argparse.Namespace(id=issue_id, **values, owns=owns, native=plan.get("native", False),
+                              read_only=plan.get("read_only", False), max_parallel=str(limit))
 
 
 def cmd_fill(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
@@ -1013,7 +1344,8 @@ def cmd_fill(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
             meta = metadata_of(get_issue(issue_id, environ, cwd))
             plan = meta.get("plan")
             if not isinstance(plan, dict):
-                skipped.append({"id": issue_id, "reason": "no_plan"})
+                skipped.append({"id": issue_id, "reason": "no_plan", "code": "no_plan",
+                                "next_action": "coordinator prepares and reviews a Task Packet and plan"})
                 continue
             if isinstance(meta.get("dispatch"), dict) and not meta["dispatch"].get("ended_at"):
                 skipped.append({"id": issue_id, "reason": "active_dispatch: the earlier attempt has no ended_at; "
@@ -1025,7 +1357,8 @@ def cmd_fill(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
             ns = plan_namespace(issue_id, plan, limit, main)
             if a.dry_run:
                 ctx = prepare_start(ns, environ, cwd, active=active)
-                active.append((issue_id, {}, {}, {"owned_paths": ctx["owned"], "native": ctx["native"]}))
+                active.append((issue_id, {}, {}, {"owned_paths": ctx["owned"], "native": ctx["native"],
+                    "agent": ctx["name"], "policy": ctx["policy"], "projection": True}))
                 started.append({"id": issue_id, "task_code": ctx["code"], "agent": ctx["name"], "dry_run": True})
             else:
                 result = cmd_start(ns, environ, cwd)
@@ -1033,9 +1366,12 @@ def cmd_fill(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
                                 "agent": result["dispatch"]["agent"], "dispatch": result["dispatch"],
                                 "submit_retry": result["submit_retry"]})
             count += 1
-        except (bdw.Refused, Failure) as exc:  # one failed worker never undoes another worker's start
-            skipped.append({"id": issue_id, "reason": str(exc),
+        except (bdw.Refused, Failure, OSError) as exc:  # concrete external/filesystem failures are local to this item
+            skipped.append({"id": issue_id, "reason": str(exc), "code": getattr(exc, "reason", "external_failure"),
                             **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {})})
+            if not a.dry_run:
+                active = active_dispatches(environ, cwd)
+                count = len(active)
     return {"ok": True, "dry_run": bool(a.dry_run), "started": started, "skipped": skipped, "limit": limit,
             "active_before": active_before}
 
@@ -1043,85 +1379,85 @@ def cmd_fill(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
 # ---------------------------------------------------------------- status, reconcile, gate
 
 def live_state(environ: dict[str, str], cwd: Path, rec: dict) -> bool | None:
-    """True or False for a recorded agent, None when Herdr cannot be reached (Contract P4)."""
-    if not (rec.get("pane_id") and rec.get("agent")):
-        return False
-    try:
-        return live_agent(environ, cwd, rec) is not None
-    except Failure:
-        return None
+    state = observe_execution(environ, cwd, rec)["state"]
+    return {"live": True, "confirmed_absent": False}.get(state)
 
 
 def cmd_status(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
     rows = []
-    for issue_id, _issue, meta, rec in active_dispatches(environ, cwd):
-        rows.append({"id": issue_id, "task_code": meta.get("task_code"), "agent": rec.get("agent"),
-                     "kind": rec.get("kind"), "pane_id": rec.get("pane_id"), "session_id": rec.get("session_id"),
-                     "worktree": rec.get("worktree"), "model": rec.get("model"), "started_at": rec.get("started_at"),
-                     "attempt": rec.get("attempt"), "prompt_received": rec.get("prompt_received"),
-                     "owned_paths": rec.get("owned_paths") or [], "native": bool(rec.get("native")), "receipt_collected": isinstance(meta.get("receipt"), dict),
-                     "live": live_state(environ, cwd, rec)})
+    main = bdw.derive_paths(cwd, environ).main
+    for issue_id, issue, meta, rec in active_dispatches(environ, cwd):
+        receipt, reason = current_receipt(meta, main, environ)
+        observed = observe_execution(environ, cwd, rec)
+        rows.append({"id": issue_id, "task_code": meta.get("task_code"), "node_status": issue.get("status"),
+            **{k: rec.get(k) for k in ("dispatch_id", "agent", "kind", "pane_id", "session_id", "worktree", "model",
+                "started_at", "attempt", "prompt_received", "owned_paths", "native", "stage")},
+            "receipt_collected": receipt is not None, "receipt_successful": protocol.successful(receipt) if receipt else False,
+            "receipt_note": reason,
+            "execution_state": observed["state"], "execution_note": observed.get("reason"),
+            "live": {"live": True, "confirmed_absent": False}.get(observed["state"])})
     return {"ok": True, "count": len(rows), "dispatches": rows}
 
 
 def worktree_facts(rec: dict) -> tuple[bool, bool | None]:
     path = Path(rec["worktree"]) if rec.get("worktree") else None
     if path is None or not path.exists():
-        return False, None  # no worktree: nothing to be dirty (Contract P8.6)
+        return False, None
     status = git(path, "status", "--porcelain", "-uall", check=False)
-    return True, bool(status.returncode or status.stdout.strip())
+    return True, None if status.returncode else bool(status.stdout.strip())
 
 
 def cmd_reconcile(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
-    in_progress = in_progress_issues(environ, cwd)
-    active = active_dispatches(environ, cwd, in_progress)
-    # Read everything first: an unreachable Herdr must leave every node unwritten.
-    states = {}
-    for issue_id, _issue, _meta, rec in active:
-        if rec.get("pane_id") and rec.get("agent"):
-            found = live_agent(environ, cwd, rec)  # an unreachable Herdr raises: nothing has been written yet
-            states[issue_id] = (found is not None,
-                                "Herdr has no such agent in the recorded pane" if found is None else None)
-        else:
-            states[issue_id] = (False, "the dispatch record has no agent or pane")
-    listing = herdr(environ, cwd, "agent", "list")
-    result = listing.get("result") if isinstance(listing, dict) else None
-    agents = result.get("agents") if isinstance(result, dict) else result
-    recorded_names = {rec.get("agent") for _i, _is, _m, rec in active}
-    recorded_panes = {rec.get("pane_id") for _i, _is, _m, rec in active}
-    unrecorded = [{"name": x.get("name"), "pane_id": x.get("pane_id")} for x in (agents or []) if isinstance(x, dict)
-                  and x.get("name") not in recorded_names and x.get("pane_id") not in recorded_panes]
-    active_ids = {i for i, *_ in active}
-    untracked = [{"id": i.get("id"), "task_code": metadata_of(i).get("task_code")}
-                 for i in in_progress
-                 if i.get("id") not in active_ids and i.get("issue_type") != "epic"]
+    issues = in_progress_issues(environ, cwd)
+    active = active_dispatches(environ, cwd, issues)
+    states = {i: observe_execution(environ, cwd, rec) for i, _, _, rec in active}
+    try:
+        listing = herdr(environ, cwd, "agent", "list")
+        agents = (listing.get("result") or {}).get("agents")
+        if not isinstance(agents, list):
+            raise Failure("agent inventory shape is unknown")
+        inventory_error = None
+    except Failure as exc:
+        agents, inventory_error = [], str(exc)
+    def identity(agent):
+        session = agent.get("agent_session") or {}
+        return (agent.get("name"), agent.get("pane_id"), session.get("value"))
+    recorded = {(r.get("agent"), r.get("pane_id"), r.get("session_id")) for _, _, _, r in active}
+    unrecorded = [{"name": x.get("name"), "pane_id": x.get("pane_id"),
+                   "session_id": (x.get("agent_session") or {}).get("value")}
+                  for x in agents if isinstance(x, dict) and identity(x) not in recorded]
     live, reviewed = [], []
-    for issue_id, _issue, meta, rec in active:
-        is_live, reason = states[issue_id]
-        if is_live:
+    main = bdw.derive_paths(cwd, environ).main
+    for issue_id, _, meta, rec in active:
+        observed = states[issue_id]
+        if observed["state"] == "live":
             live.append(issue_id)
             continue
         exists, dirty = worktree_facts(rec)
-        state = "finished" if isinstance(meta.get("receipt"), dict) else "needs_review"
-        review = {"state": state, "reason": reason, "detected_at": now(), "worktree_exists": exists,
-                  "worktree_dirty": dirty}
+        document, receipt_error = current_receipt(meta, main, environ)
+        finished = observed["state"] == "confirmed_absent" and document is not None and protocol.successful(document)
+        review = {"state": "finished" if finished else "needs_review", "execution_state": observed["state"],
+                  "reason": observed.get("reason"), "receipt_error": receipt_error,
+                  "worktree_exists": exists, "worktree_dirty": dirty}
         old = rec.get("review")
-        same = isinstance(old, dict) and all(old.get(k) == review[k] for k in
-                                             ("state", "reason", "worktree_exists", "worktree_dirty"))
-        if same:
-            review = old  # unchanged state: keep the recorded review, write nothing, add no comment
+        if isinstance(old, dict) and {k: v for k, v in old.items() if k != "detected_at"} == review:
+            review = old
         else:
+            review["detected_at"] = now()
+            # Legacy records can be diagnosed without claiming protocol validation.
             fresh = metadata_of(get_issue(issue_id, environ, cwd))
-            current = dict(fresh.get("dispatch") or rec)
-            current["review"] = review
-            fresh["dispatch"] = current
+            if fresh.get("dispatch") != rec:
+                raise Refusal("attempt_mismatch", "dispatch changed during reconcile")
+            fresh["dispatch"] = {**rec, "review": review}
             write_metadata(issue_id, fresh, environ, cwd)
-            bd(["comment", issue_id, f"dispatch reconcile: agent {rec.get('agent')} in pane {rec.get('pane_id')} is "
-                f"not live ({reason}); review state {state}; worktree exists {exists}, dirty {dirty}. The status and "
-                "ended_at are unchanged."], environ, cwd)
+            bd(["comment", issue_id, f"dispatch reconcile: {review['state']}; {observed['state']}. "
+                "No restart, cleanup, closure or reservation release performed."], environ, cwd)
         reviewed.append({"id": issue_id, "review": review})
-    return {"ok": True, "checked": len(active), "live": live, "reviewed": reviewed,
-            "untracked_in_progress": untracked, "unrecorded_agents": unrecorded}
+    active_ids = {i for i, *_ in active}
+    return {"ok": inventory_error is None, "checked": len(active), "live": live, "reviewed": reviewed,
+            "inventory_error": inventory_error, "unrecorded_agents": unrecorded,
+            "untracked_in_progress": [{"id": i["id"], "task_code": metadata_of(i).get("task_code")} for i in issues
+                if i.get("status") == "in_progress" and i["id"] not in active_ids and i.get("issue_type") != "epic"]}
 
 
 def cmd_gate(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
@@ -1129,6 +1465,86 @@ def cmd_gate(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict:
     return {"id": a.id, "ok": all(d["ok"] for d in dependencies), "dependencies": dependencies,
             "reasons": [{"dependency": d["id"], "code": d["code"], "reason": d["reason"]}
                         for d in dependencies if not d["ok"]]}
+
+
+def cmd_manual(a: argparse.Namespace, environ: dict, cwd: Path) -> dict:
+    issue = get_issue(a.id, environ, cwd)
+    meta = metadata_of(issue)
+    old = meta.get("dispatch")
+    if old and not old.get("ended_at"):
+        raise Refusal("active_dispatch", "manual context cannot replace unreleased execution")
+    raw = Path(a.context).read_bytes()
+    context = json.loads(raw)
+    allowed = {"task_id", "task_code", "role", "task_kind", "base_sha", "contract_sha", "candidate_sha",
+               "verification_plan_sha256", "manual_actor", "owned_paths", "read_only", "session_id", "explanation"}
+    if not isinstance(context, dict) or set(context) - allowed:
+        raise Refusal("bad_plan", "manual context must be an object with only documented context fields")
+    for key in ("task_id", "task_code", "role", "task_kind", "base_sha", "contract_sha", "manual_actor"):
+        protocol.require_text(context, key)
+    if context["task_id"] != a.id or context["task_code"] != meta.get("task_code"):
+        raise Refusal("attempt_mismatch", "manual context names another task")
+    if context["role"] not in protocol.ROLES or context["task_kind"] not in protocol.TASK_KINDS:
+        raise Refusal("bad_plan", "invalid manual role/task kind")
+    if not isinstance(context.get("owned_paths"), list) or type(context.get("read_only")) is not bool:
+        raise Refusal("bad_owns", "manual context requires explicit owned_paths/read_only")
+    owned = [normalize_owned(p) for p in context["owned_paths"]]
+    if (not owned and not context["read_only"]) or (owned and context["read_only"]):
+        raise Refusal("bad_owns", "manual write scope is ambiguous")
+    main = bdw.derive_paths(cwd, environ).main
+    for key in ("base_sha", "contract_sha", "candidate_sha"):
+        if context.get(key) is not None:
+            context[key] = resolved_commit(main, context[key], key)
+    if context["role"] in ("V-Run", "G") and not context.get("candidate_sha"):
+        raise Refusal("bad_target", "manual V-Run/G requires an explicit candidate")
+    if context["role"] == "V-Run" or (context["role"] == "G" and context["task_kind"] == "code"):
+        protocol.require_hash(context.get("verification_plan_sha256"), "verification_plan_sha256")
+    history = list(meta.get("dispatch_history") or [])
+    if old:
+        history.append({**old, **{k: meta[k] for k in ("receipt", "metrics") if k in meta}})
+    elif meta.get("receipt") or meta.get("metrics"):
+        meta.setdefault("legacy_records", []).append({k: meta[k] for k in ("receipt", "metrics") if k in meta})
+    rec = {**context, "protocol_version": protocol.VERSION, "dispatch_id": str(uuid.uuid4()),
+           "attempt": max([r.get("attempt", 0) for r in history] + [0]) + 1,
+           "packet_sha256": protocol.digest(raw), "mode": "manual", "started_at": now(), "ended_at": now(),
+           "stage": "manual_recorded", "session_id": context.get("session_id"), "owned_paths": owned}
+    # Never accept fabricated runtime resource claims from a manual context.
+    for key in ("pane_id", "agent", "worktree", "worktree_owned", "pane_owned", "native", "metrics"):
+        rec.pop(key, None)
+    rec["packet_artifact"] = protocol.archive(artifact_root(main, environ), raw, "manual-context.json")
+    meta.update(dispatch=rec)
+    if history:
+        meta["dispatch_history"] = history
+    meta.pop("receipt", None)
+    meta.pop("metrics", None)
+    write_metadata(a.id, meta, environ, cwd)
+    return {"ok": True, "id": a.id, "dispatch": rec, "note": "Status/approval unchanged; collect explicit new evidence next"}
+
+
+def cmd_metrics(a: argparse.Namespace, environ: dict, cwd: Path) -> dict:
+    records, legacy = [], []
+    for issue_id in a.ids:
+        meta = metadata_of(get_issue(issue_id, environ, cwd))
+        attempts = [*(meta.get("dispatch_history") or []), meta.get("dispatch")]
+        for rec in attempts:
+            if not isinstance(rec, dict):
+                continue
+            metric = rec.get("metrics")
+            if rec is meta.get("dispatch"):
+                metric = meta.get("metrics") or metric
+            if not rec.get("dispatch_id"):
+                if metric:
+                    legacy.append({"task_id": issue_id, "metrics": metric, "reason": "no immutable dispatch binding"})
+                continue
+            if metric is not None and metric.get("dispatch_id") != rec["dispatch_id"]:
+                legacy.append({"task_id": issue_id, "metrics": metric, "reason": "metrics binding differs from dispatch"})
+                metric = None
+            if metric is None:
+                metric = {"dispatch_id": rec["dispatch_id"], "attempt": rec["attempt"], "kind": rec.get("kind"),
+                          "session_id": rec.get("session_id"), "interval_tokens": None, "cost": None,
+                          "role": rec.get("role"), "outcome": "unknown"}
+            records.append({**metric, "accepted_task": a.accepted_task, "cohort": a.cohort,
+                            "benchmark_case": a.benchmark_case})
+    return {"ok": True, "records": records, "legacy_metrics": legacy}
 
 
 # ---------------------------------------------------------------- entry point
@@ -1153,6 +1569,9 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--native", action="store_true")
     s.add_argument("--approved")
     s.add_argument("--max-parallel")
+    for flag in ("role", "task-kind", "contract-sha", "candidate-sha", "verification-plan-sha256", "runtime-proof", "task-class", "failure-cause"):
+        s.add_argument("--" + flag)
+    s.add_argument("--read-only", action="store_true")
     s = sub.add_parser("show", help="show the recorded dispatch and the live agent")
     s.add_argument("id")
     s = sub.add_parser("collect", help="record the receipt and usage")
@@ -1167,12 +1586,22 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("reconcile", help="mark active dispatches whose agent is gone for review")
     s = sub.add_parser("gate", help="check that a node's blocking dependencies have valid receipts")
     s.add_argument("id")
+    s.add_argument("--legacy-exit-zero", action="store_true", help="deprecated exit convention only; checks stay strict")
+    s = sub.add_parser("manual-context", help="record an explicit context for a manual/previously undispatched review")
+    s.add_argument("id")
+    s.add_argument("--context", required=True)
+    s = sub.add_parser("metrics", help="export selected nodes' attempt metrics for offline matched-case comparison")
+    s.add_argument("ids", nargs="+")
+    s.add_argument("--accepted-task", required=True)
+    s.add_argument("--cohort", required=True)
+    s.add_argument("--benchmark-case", required=True)
     return p
 
 
 COMMANDS = {"start": cmd_start, "show": cmd_show, "collect": cmd_collect, "stop": cmd_stop, "fill": cmd_fill,
-            "status": cmd_status, "reconcile": cmd_reconcile, "gate": cmd_gate}
-READ_ONLY = ("show", "status", "gate")  # open to every role
+            "status": cmd_status, "reconcile": cmd_reconcile, "gate": cmd_gate, "manual-context": cmd_manual,
+            "metrics": cmd_metrics}
+READ_ONLY = ("show", "status", "gate", "metrics")  # open to every role
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1181,18 +1610,21 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if (argv[:1] not in [[c] for c in READ_ONLY] and argv[:1] not in (["-h"], ["--help"])
                 and bdw.role_of(environ) != "coordinator"):
-            raise bdw.Refused("dispatch requires DFM_BD_ROLE=coordinator (only 'show', 'status' and 'gate' are open "
-                              "to every role)")
+            raise bdw.Refused("dispatch requires DFM_BD_ROLE=coordinator (read-only commands: " +
+                              ", ".join(READ_ONLY) + ")")
         args = build_parser().parse_args(argv)
         result = COMMANDS[args.command](args, environ, Path.cwd())
+        if args.command == "reconcile" and not result["ok"]:
+            print(json.dumps({"error": result["inventory_error"], "reconciliation": result}), file=sys.stderr)
+            return 2
         print(json.dumps(result, indent=1, ensure_ascii=False))
-        return 0
+        return 3 if args.command == "gate" and not result["ok"] and not args.legacy_exit_zero else 0
     except bdw.Refused as exc:
         print(json.dumps({"refused": str(exc), **({"reason": exc.reason} if hasattr(exc, "reason") else {}),
                           **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {})}),
               file=sys.stderr)
         return 2
-    except Failure as exc:
+    except (Failure, OSError, ValueError, UnicodeError) as exc:
         print(json.dumps({"error": str(exc), **({"cleanup": exc.cleanup} if hasattr(exc, "cleanup") else {}),
                           **({"submit_retry": exc.submit_retry} if hasattr(exc, "submit_retry") else {})}),
               file=sys.stderr)

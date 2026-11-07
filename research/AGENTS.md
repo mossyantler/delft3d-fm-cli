@@ -135,6 +135,13 @@ research/.venv/Scripts/python.exe -m pip install -r research/requirements.txt
 python -m compileall -q research/workflows research/scripts
 python research/scripts/audit_research.py
 
+# Portable graph regressions (stdlib + Git, no runtime/DB/engine/network):
+python -m unittest research.workflows.graph.test_dispatch -v
+# Read-only legacy inventory; never applies a migration:
+python -m research.workflows.graph.compat --snapshot research/notes/delivery/beads-state.jsonl
+# Offline representative-task comparison; unknown usage/cost stays null:
+python -m research.workflows.graph.accounting <metrics-array.json>
+
 # E009/E011 replay (copied inputs, same-executable controls; needs a lease):
 .venv/Scripts/python.exe research/scripts/verify_failure_cancellation.py --baseline <baseline-folder> --install <suite-root> --out <new-experiment-folder>
 ```
@@ -145,3 +152,8 @@ audit validates no simulation. Run `build_catalog.py` only when intentionally
 refreshing the acquisition lock and candidate index. Native integration uses the
 application venv with `.[run]`, and the commands are in the
 [experiment index](notes/experiments.md).
+
+New graph executions follow [protocol 2](notes/delivery/graph-ops-reliability.md).
+Beads owns lifecycle state; the separate content-addressed artifact directory
+holds frozen packets, original receipts and evidence, not another status DB.
+Back up both: the graph backup alone does not contain those evidence bytes.
