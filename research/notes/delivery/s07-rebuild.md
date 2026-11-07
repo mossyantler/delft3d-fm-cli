@@ -73,6 +73,9 @@ Acceptance:
    (for example `source_sink_run_profile`), or a module or fixture path. Each change is listed in the I receipt with
    its reason, and V-Run checks the diff against this list. Any change to an assertion about `wind drag-inspect` or
    `wind drag-set` behaviour, bounds, errors or bytes is a defect.
+2. **Example quoting.** Windows PowerShell 5.1 strips the inner double quotes of a native argument, so the
+   proposed `--changes '{"..."}'` line fails there. Commit `examples/wind_drag/` with the quoting changed so each
+   command runs as written in Windows PowerShell 5.1, and run it once that way. Only the quoting may change.
 
 ## Done when
 
