@@ -142,6 +142,7 @@ def execute(args) -> dict:
                 "weir_series": weir_series.contract(),
                 "pump_run_profile": {"name": "pump-scalar", "routes": ["direct"], "required_inputs": 6, "maximum_duration_seconds": 120,
                                      "limits": list(runs.pump_run_profile.LIMITATIONS)},
+                "source_sink_run_profile": runs.source_sink_run_profile.contract(),
                 "fm_model_identity": fm_model_identity.contract(),
                 "boundary_location_import": boundary_locations.contract(),
                 "boundary_preview": boundary_preview.contract(),

@@ -23,11 +23,11 @@ from .outputs import reader, output_paths, collect_outputs, verify_outputs
 from .diagnostics import collect_diagnostics
 from .windows_job import OwnedJob, process_identity
 from . import progress as simulation_progress
-from . import layers, morph, network, pump_run_profile, weir_run_profile
+from . import layers, morph, network, pump_run_profile, weir_run_profile, source_sink_run_profile
 
 # Authored model families verify their complete input graphs on both sides of
 # staging. The runner remains the sole owner of launch, monitoring and cleanup.
-AUTHORED_PROFILES = {name: module for module in (network, layers, morph, pump_run_profile, weir_run_profile) for name in module.PROFILES}
+AUTHORED_PROFILES = {name: module for module in (network, layers, morph, pump_run_profile, weir_run_profile, source_sink_run_profile) for name in module.PROFILES}
 
 
 def _pump(run):
@@ -36,7 +36,7 @@ def _pump(run):
 
 def _guarded_serial(run):
     """Closed families sharing strict retained-handle lifecycle, not physics."""
-    return AUTHORED_PROFILES.get(run.record.get("profile_name")) in (pump_run_profile, weir_run_profile)
+    return AUTHORED_PROFILES.get(run.record.get("profile_name")) in (pump_run_profile, weir_run_profile, source_sink_run_profile)
 
 
 def _guarded_terminal(run):
@@ -119,7 +119,7 @@ def terminate_owned(process: subprocess.Popen, folder: Path, job: OwnedJob, *, r
 
 
 def prepare(path: Path, destination: Path, installation: str | None, route: str, timeout: float, progress: bool, profile_name: str = "short", *, restart_policy: str = "require-final") -> Run:
-    if AUTHORED_PROFILES.get(profile_name) in (pump_run_profile, weir_run_profile):
+    if AUTHORED_PROFILES.get(profile_name) in (pump_run_profile, weir_run_profile, source_sink_run_profile):
         AUTHORED_PROFILES[profile_name].require_route(route)  # Before reader, install or filesystem work.
     if not 0 < timeout <= 3600 or not math.isfinite(timeout):
         raise DfmError("invalid_timeout", "Timeout must be finite and between 0 and 3600 seconds", 2)
@@ -127,6 +127,8 @@ def prepare(path: Path, destination: Path, installation: str | None, route: str,
         raise DfmError("invalid_route", "Select direct or single-component dimr", 2, route)
     if restart_policy not in {"configured", "require-final"} or restart_policy == "configured" and profile_name != "short":
         raise DfmError("unsupported_restart_policy", "Configured restart output schedules require the cold short serial profile", 2)
+    if AUTHORED_PROFILES.get(profile_name) is source_sink_run_profile:
+        source_sink_run_profile.pre_read_hook(path)  # Bounded ordinary MDU before any parser.
     mdu = Mdu(path)
     identity = require_fm_identity(mdu)  # Before install/output/staging/process side effects.
     if os.name != "nt":

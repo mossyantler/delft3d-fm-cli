@@ -1,0 +1,29 @@
+[General]
+fileVersion = 1.01
+fileType = boundConds
+
+# Selected object, NOT a PLI support suffix
+[Forcing]
+Name = intake-A.1
+Function = timeseries
+TimeInterpolation = linear
+Quantity = time
+Unit = seconds since 2001-01-01 00:00:00 +00:00
+Quantity = sourcesink_discharge
+Unit = m3/s
+Quantity = sourcesink_salinityDelta
+Unit = ppt
+0 0.1 5
+120 0.1 5
+
+# unrelated exact bytes must survive public operations
+[Forcing]
+Name = other-object
+Function = timeseries
+TimeInterpolation = linear
+Quantity = time
+Unit = seconds since 2001-01-01 00:00:00 +00:00
+Quantity = sourcesink_discharge
+Unit = m3/s
+0 0
+120 0

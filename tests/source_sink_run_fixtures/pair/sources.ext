@@ -1,0 +1,15 @@
+# B06 independent EXT; all nonselected bytes are protected
+[General]
+fileVersion = 2.01
+fileType = extForce
+
+[SourceSink]
+id = intake-A.1
+name = Independent V source
+numCoordinates = 2
+xCoordinates = 500025 500095
+yCoordinates = 5700015 5700015
+area = 0
+discharge = source.bc
+salinityDelta = source.bc
+# retained trailing comment
