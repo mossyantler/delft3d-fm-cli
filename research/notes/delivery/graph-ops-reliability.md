@@ -279,3 +279,43 @@ hashes before relying on it there. This candidate is not merged into accepted
 product code and has not been pushed. Rollout needs reviewed real plans/runtime
 observations and a separately authorized disposable integration check, not an
 operational migration or an automatic replay of the product queue.
+
+### G adoption preparation (2026-11-08)
+
+The follow-up request authorizes remaining G review, disposable integration and
+local adoption. G work is isolated on `integrate/graph-ops-reliability`, Beads
+`dfm-fmc.53`; the I branch and the shared checkout's dashboard changes are intact.
+The current code candidate is `6c37a727be8c6aeca9e2f49e6c5031769555caa0`.
+[reliability-adoption.json](../../workflows/graph/reliability-adoption.json)
+retains content-addressed evidence and exact per-attempt facts. It is a captured
+evidence snapshot, not a second graph-state database.
+
+- Observed: 63 relevant tests passed, zero skips. Both previously skipped bd/bv
+  boundary cases ran with verified installed binaries on temporary repositories
+  and temporary databases. No production queue or Native engine ran.
+- Observed G counterexamples: a light G could relabel product work; on Windows,
+  a case-variant product path could bypass the scope guard. The corrected guard
+  uses verified Git changes and the host's path-case convention.
+- Observed runtime incompatibilities: Codex 0.167 opens its command center
+  without [PROMPT]; Herdr rejects literal-newline startup argv; a long startup
+  command stalled at the Windows shell. Retained task bytes plus a short
+  path-and-SHA startup instruction reached the actual folder-trust dialog.
+  Herdr agent read returns text, while agent get/list require JSON; the adapter
+  and its focused regression now reflect that distinction.
+- Five isolated startup attempts are retained, including a long Git-path
+  failure, command-center launch, argv rejection, long shell input, and pending
+  folder trust. Every owned pane and worktree reservation was explicitly
+  inspected and released. No task session or independent model verdict was
+  observed, and unknown usage/cost is not reported as zero.
+- Pending input: the installed herdr skill requires asking before answering a
+  blocked approval UI. The user was asked about Trust and continue for only
+  `C:/Users/minyeop/project/delft3d-fm-cli-wt/gr-live/r`. No trust selection has
+  been made. The revised frozen candidate and compact packet are prepared for
+  that same scope; no model change or blind prompt retransmission is planned.
+
+After an explicit trust decision, the coordinator must verify the exact dialog
+and scope, perform the short independent check on the frozen candidate, inspect
+and collect its typed receipt, and release only its resources. G approval and
+local main adoption then require current matching evidence. They have not been
+issued here. Existing approval records, the production DB format and the shared
+main HEAD are unchanged. No remote push or Native permission is implied.

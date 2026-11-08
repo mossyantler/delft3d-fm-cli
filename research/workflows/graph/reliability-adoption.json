@@ -1,0 +1,412 @@
+{
+  "node": "GRAPH-OPS-RELIABILITY-G",
+  "beads_id": "dfm-fmc.53",
+  "experiment_id": "GRAPH-OPS-RELIABILITY-G-20261108-01",
+  "source_commit": "6c37a727be8c6aeca9e2f49e6c5031769555caa0",
+  "source_branch": "integrate/graph-ops-reliability",
+  "captured_scope": "pre-adoption evidence snapshot; Beads remains lifecycle authority",
+  "test_result": {
+    "total": 63,
+    "passed": 63,
+    "skipped": 0,
+    "exit_code": 0,
+    "command": [
+      "python",
+      "-m",
+      "unittest",
+      "research.workflows.graph.test_dispatch",
+      "research.workflows.graph.test_bdw",
+      "research.workflows.graph.test_dashboard",
+      "-v"
+    ],
+    "wall_seconds": 64.53099999995902
+  },
+  "findings_fixed": [
+    "light-review relabeling of product paths",
+    "Windows case convention in product scope",
+    "Codex command-center startup mode",
+    "Windows newline and long startup transport",
+    "Herdr text screen response versus JSON agent state"
+  ],
+  "isolated_trial_attempts": [
+    {
+      "dispatch_id": "300a64bf-08ba-43b5-a97a-19e745df229f",
+      "task_id": "dfm-b79",
+      "attempt": 1,
+      "base_sha": "162c646dd71ce77815588b786e2e9c6f90807ad6",
+      "packet_sha256": "01173144befd779010c534a37c98633cf813ad792ef53b8cd9c1e6cec0338642",
+      "stage": "released",
+      "failure_stage": null,
+      "start_error": "prompt submission is uncertain; no automatic Enter or retransmission",
+      "ended_at": "2026-11-08T01:11:27Z",
+      "session_id": null,
+      "metrics": {
+        "cost": null,
+        "kind": "codex",
+        "role": "V-Run",
+        "agent": "graph-rel-v",
+        "attempt": 1,
+        "outcome": "failed",
+        "task_id": "dfm-b79",
+        "currency": null,
+        "task_code": "GRAPH-REL-V",
+        "cost_scope": "unknown",
+        "session_id": null,
+        "dispatch_id": "300a64bf-08ba-43b5-a97a-19e745df229f",
+        "collected_at": "2026-11-08T01:09:07Z",
+        "interval_end": null,
+        "failure_cause": null,
+        "session_usage": null,
+        "interval_start": null,
+        "cache_semantics": "input_includes_cache_read",
+        "interval_tokens": null,
+        "observed_effort": "unknown",
+        "observed_models": [],
+        "requested_model": "gpt-6.1-sol",
+        "requested_effort": "high",
+        "attempt_wall_seconds": 50,
+        "observed_models_scope": "session",
+        "cost_unavailable_reason": "no billed cost observation",
+        "usage_unavailable_reason": "no agent session id was recorded at start",
+        "normalized_interval_tokens": null,
+        "interval_unavailable_reason": "no comparable measured baseline"
+      }
+    },
+    {
+      "dispatch_id": "656cecbf-4194-4aae-806b-0c4964369588",
+      "task_id": "dfm-b79",
+      "attempt": 2,
+      "base_sha": "75836240f90ece23f817c0e8d5cb55edf45cf69f",
+      "packet_sha256": "98dd7e15a672e3e29d6057d5933fa50614a6519b5fa5852262203d32f5f3eed4",
+      "stage": "released",
+      "failure_stage": "startup_prompt_requested",
+      "start_error": "herdr agent start failed (1): {\"error\":{\"code\":\"invalid_agent_argument\",\"message\":\"agent arguments cannot be encoded safely for the target shell\"},\"id\":\"cli:agent:start\"}",
+      "ended_at": "2026-11-08T01:16:22Z",
+      "session_id": null,
+      "metrics": {
+        "cost": null,
+        "kind": "codex",
+        "role": "V-Run",
+        "agent": "graph-rel-v",
+        "attempt": 2,
+        "outcome": "failed",
+        "task_id": "dfm-b79",
+        "currency": null,
+        "task_code": "GRAPH-REL-V",
+        "cost_scope": "unknown",
+        "session_id": null,
+        "dispatch_id": "656cecbf-4194-4aae-806b-0c4964369588",
+        "collected_at": "2026-11-08T01:13:22Z",
+        "interval_end": null,
+        "failure_cause": "cli",
+        "session_usage": null,
+        "interval_start": null,
+        "cache_semantics": "input_includes_cache_read",
+        "interval_tokens": null,
+        "observed_effort": "unknown",
+        "observed_models": [],
+        "requested_model": "gpt-6.1-sol",
+        "requested_effort": "high",
+        "attempt_wall_seconds": 13,
+        "observed_models_scope": "session",
+        "cost_unavailable_reason": "no billed cost observation",
+        "usage_unavailable_reason": "no agent session id was recorded at start",
+        "normalized_interval_tokens": null,
+        "interval_unavailable_reason": "no comparable measured baseline"
+      }
+    },
+    {
+      "dispatch_id": "d22866c7-3e8e-4729-9b32-6c7264c4b87e",
+      "task_id": "dfm-b79",
+      "attempt": 3,
+      "base_sha": "83f5abf4d2b730e0a2bfdaf7458b049357bb1838",
+      "packet_sha256": "38c56b305ec1df0dc2faf866ff74e4dbcc1802261e1b479a89fa37406f340193",
+      "stage": "released",
+      "failure_stage": "startup_prompt_requested",
+      "start_error": "herdr agent start failed (1): {\"error\":{\"code\":\"timeout\",\"message\":\"timed out waiting for agent startup\"},\"id\":\"cli:agent:start\"}",
+      "ended_at": "2026-11-08T01:19:57Z",
+      "session_id": null,
+      "metrics": {
+        "cost": null,
+        "kind": "codex",
+        "role": "V-Run",
+        "agent": "graph-rel-v",
+        "attempt": 3,
+        "outcome": "failed",
+        "task_id": "dfm-b79",
+        "currency": null,
+        "task_code": "GRAPH-REL-V",
+        "cost_scope": "unknown",
+        "session_id": null,
+        "dispatch_id": "d22866c7-3e8e-4729-9b32-6c7264c4b87e",
+        "collected_at": "2026-11-08T01:17:04Z",
+        "interval_end": null,
+        "failure_cause": "cli",
+        "session_usage": null,
+        "interval_start": null,
+        "cache_semantics": "input_includes_cache_read",
+        "interval_tokens": null,
+        "observed_effort": "unknown",
+        "observed_models": [],
+        "requested_model": "gpt-6.1-sol",
+        "requested_effort": "high",
+        "attempt_wall_seconds": 37,
+        "observed_models_scope": "session",
+        "cost_unavailable_reason": "no billed cost observation",
+        "usage_unavailable_reason": "no agent session id was recorded at start",
+        "normalized_interval_tokens": null,
+        "interval_unavailable_reason": "no comparable measured baseline"
+      }
+    },
+    {
+      "dispatch_id": "7b80039c-8829-411c-9e54-309c4b87423e",
+      "task_id": "dfm-b79",
+      "attempt": 4,
+      "base_sha": "9c8239282e98cc84955bd1cdc25f2791a04900ed",
+      "packet_sha256": "4706b70c89c259ac5009c2d7b81c05c56a2e668017d1ae08960d3db030f0168f",
+      "stage": "released",
+      "failure_stage": "agent_ready",
+      "start_error": "prompt submission is uncertain; no automatic Enter or retransmission",
+      "ended_at": "2026-11-08T01:25:33Z",
+      "session_id": null,
+      "metrics": {
+        "cost": null,
+        "kind": "codex",
+        "role": "V-Run",
+        "agent": "graph-rel-v",
+        "attempt": 4,
+        "outcome": "failed",
+        "task_id": "dfm-b79",
+        "currency": null,
+        "task_code": "GRAPH-REL-V",
+        "cost_scope": "unknown",
+        "session_id": null,
+        "dispatch_id": "7b80039c-8829-411c-9e54-309c4b87423e",
+        "collected_at": "2026-11-08T01:20:50Z",
+        "interval_end": null,
+        "failure_cause": "environment",
+        "session_usage": null,
+        "interval_start": null,
+        "cache_semantics": "input_includes_cache_read",
+        "interval_tokens": null,
+        "observed_effort": "unknown",
+        "observed_models": [],
+        "requested_model": "gpt-6.1-sol",
+        "requested_effort": "high",
+        "attempt_wall_seconds": 46,
+        "observed_models_scope": "session",
+        "cost_unavailable_reason": "no billed cost observation",
+        "usage_unavailable_reason": "no agent session id was recorded at start",
+        "normalized_interval_tokens": null,
+        "interval_unavailable_reason": "no comparable measured baseline"
+      }
+    },
+    {
+      "dispatch_id": "b85325c8-f8be-4b10-999b-e5e056ca9f38",
+      "task_id": "dfm-n0a",
+      "attempt": 1,
+      "base_sha": "162c646dd71ce77815588b786e2e9c6f90807ad6",
+      "packet_sha256": "0ae09643b10964f5afa516adb8955fcf7b87684f9c512d9929e86bf914ee2ee3",
+      "stage": "released",
+      "failure_stage": null,
+      "start_error": "git worktree add --detach C:\\Users\\minyeop\\project\\delft3d-fm-cli-wt\\GRAPH-OPS-RELIABILITY-G\\research\\experiments\\GRAPH-OPS-RELIABILITY-G-20261108-01\\fixture\\repo-wt\\GRAPH-REL-V 162c646dd71ce77815588b786e2e9c6f90807ad6 failed: Preparing worktree (detached HEAD 162c646)\nerror: unable to create file research/checkpoints/20261105-quota-pause/pending/B06-profile/overlay/src/dfm_cli/source_sink_run_profile.py: Filename too long\nerror: unable to create file research/checkpoints/20261105-quota-pause/pending/G15-I/package-02/src/dfm_cli/structure_transfer_contract.py: Filename too long\nerror: unable to create file research/checkpoints/20261105-quota-pause/pending/common-package/tests/legacy49/test_pump_close_attribution.py: Filename too long\nerror: unable to create file research/checkpoints/20261105-quota-pause/pending/common-package/tests/legacy49/test_pump_terminal_publication.py: Filename too long\nfatal: Could not reset index file to revision 'HEAD'.",
+      "ended_at": "2026-11-08T01:07:45.657351+00:00",
+      "session_id": null,
+      "metrics": {
+        "cost": null,
+        "kind": "codex",
+        "role": "V-Run",
+        "agent": "graph-rel-v",
+        "attempt": 1,
+        "outcome": "failed",
+        "task_id": "dfm-n0a",
+        "currency": null,
+        "task_code": "GRAPH-REL-V",
+        "cost_scope": "unknown",
+        "session_id": null,
+        "dispatch_id": "b85325c8-f8be-4b10-999b-e5e056ca9f38",
+        "collected_at": "2026-11-08T01:05:25Z",
+        "interval_end": null,
+        "failure_cause": null,
+        "session_usage": null,
+        "interval_start": null,
+        "cache_semantics": "input_includes_cache_read",
+        "interval_tokens": null,
+        "observed_effort": "unknown",
+        "observed_models": [],
+        "requested_model": "gpt-6.1-sol",
+        "requested_effort": "high",
+        "attempt_wall_seconds": 3,
+        "observed_models_scope": "session",
+        "cost_unavailable_reason": "no billed cost observation",
+        "usage_unavailable_reason": "no agent session id was recorded at start",
+        "normalized_interval_tokens": null,
+        "interval_unavailable_reason": "no comparable measured baseline"
+      }
+    }
+  ],
+  "runtime_review": {
+    "task_session_created": false,
+    "independent_verdict": null,
+    "folder_trust_decision": "pending user response",
+    "folder_scope": "C:/Users/minyeop/project/delft3d-fm-cli-wt/gr-live/r",
+    "trust_selection_made": false,
+    "owned_trial_resources_released": true
+  },
+  "adoption": {
+    "g_approved": false,
+    "main_merged": false,
+    "remote_pushed": false,
+    "native_run": false,
+    "production_queue_dispatched": false,
+    "production_migrated": false
+  },
+  "artifacts": [
+    {
+      "artifact_id": "sha256:71a1da8643b0432055cf58cda083cc0dad226831098e2f11a2086be212b3565b",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/71a1da8643b0432055cf58cda083cc0dad226831098e2f11a2086be212b3565b/frozen-candidate-tests.log",
+      "sha256": "71a1da8643b0432055cf58cda083cc0dad226831098e2f11a2086be212b3565b",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:c5883b572fc8612ab2de7829495c98e3c9169136e58500ae79cb97c54c5adf9a",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/c5883b572fc8612ab2de7829495c98e3c9169136e58500ae79cb97c54c5adf9a/frozen-candidate-tests-result.json",
+      "sha256": "c5883b572fc8612ab2de7829495c98e3c9169136e58500ae79cb97c54c5adf9a",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:8f66461b69a0f0248ad5f088b370d9baf02037a7bcbd521a1929184482b3a43a",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/8f66461b69a0f0248ad5f088b370d9baf02037a7bcbd521a1929184482b3a43a/runtime-observation.json",
+      "sha256": "8f66461b69a0f0248ad5f088b370d9baf02037a7bcbd521a1929184482b3a43a",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:d38f0c75ef44deb9f6f3f40c3bed05aefc44e36905432361c4254a1d799a50bc",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/d38f0c75ef44deb9f6f3f40c3bed05aefc44e36905432361c4254a1d799a50bc/codex-help.txt",
+      "sha256": "d38f0c75ef44deb9f6f3f40c3bed05aefc44e36905432361c4254a1d799a50bc",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:81f0d1c92033932cdbbf98f1d52781de7f7890a96ccf3a3f9713ae49f9e2899f",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/81f0d1c92033932cdbbf98f1d52781de7f7890a96ccf3a3f9713ae49f9e2899f/case-scope-repro.json",
+      "sha256": "81f0d1c92033932cdbbf98f1d52781de7f7890a96ccf3a3f9713ae49f9e2899f",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:e7841092390f17b09573b4975dd14164d75398f397ece07d47493a1187240562",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/e7841092390f17b09573b4975dd14164d75398f397ece07d47493a1187240562/failed-path-inspection.json",
+      "sha256": "e7841092390f17b09573b4975dd14164d75398f397ece07d47493a1187240562",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:32650a0bcb37b4cc7c518049d2fb9472c873b609d43a0e795397cd63011df62e",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/32650a0bcb37b4cc7c518049d2fb9472c873b609d43a0e795397cd63011df62e/live-start-path-failure.json",
+      "sha256": "32650a0bcb37b4cc7c518049d2fb9472c873b609d43a0e795397cd63011df62e",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:4fda0ec1de10db5fc9da8bb6048baad0d272f8a220ff89adf2ce63972a53ab24",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/4fda0ec1de10db5fc9da8bb6048baad0d272f8a220ff89adf2ce63972a53ab24/live-start-command-center-failure.json",
+      "sha256": "4fda0ec1de10db5fc9da8bb6048baad0d272f8a220ff89adf2ce63972a53ab24",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:609941895ecbf382a18ebaa9f0d0cbce50be169d8ba096e4c46622ddb7be83d0",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/609941895ecbf382a18ebaa9f0d0cbce50be169d8ba096e4c46622ddb7be83d0/command-center-inspection.json",
+      "sha256": "609941895ecbf382a18ebaa9f0d0cbce50be169d8ba096e4c46622ddb7be83d0",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:60197e89a67b7e497e9890b1691934d829028e4421e5f2fda6462fc06722b15c",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/60197e89a67b7e497e9890b1691934d829028e4421e5f2fda6462fc06722b15c/failed-submission-stop.json",
+      "sha256": "60197e89a67b7e497e9890b1691934d829028e4421e5f2fda6462fc06722b15c",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:5e5d79a4a6e6737022bca7f0beca1740673027e762777d6d5401aedb77ecd448",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/5e5d79a4a6e6737022bca7f0beca1740673027e762777d6d5401aedb77ecd448/live-start-argv-failure.json",
+      "sha256": "5e5d79a4a6e6737022bca7f0beca1740673027e762777d6d5401aedb77ecd448",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:5536388ec92f9bb6427c82ae476d73c67cf3e1f5cb91f703abf0803a1aa56cfa",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/5536388ec92f9bb6427c82ae476d73c67cf3e1f5cb91f703abf0803a1aa56cfa/argv-failure-pane.json",
+      "sha256": "5536388ec92f9bb6427c82ae476d73c67cf3e1f5cb91f703abf0803a1aa56cfa",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:b80fe63b1a18a438e6cf683a31afce6b9c30f30d960d0b0dd4b466928c39c417",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/b80fe63b1a18a438e6cf683a31afce6b9c30f30d960d0b0dd4b466928c39c417/argv-failure-stop.json",
+      "sha256": "b80fe63b1a18a438e6cf683a31afce6b9c30f30d960d0b0dd4b466928c39c417",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:c3daa23234b9eb0256820e624de09eeff6fcb6f4dcca75d8eaa818b675e63c0a",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/c3daa23234b9eb0256820e624de09eeff6fcb6f4dcca75d8eaa818b675e63c0a/live-start-long-input-failure.json",
+      "sha256": "c3daa23234b9eb0256820e624de09eeff6fcb6f4dcca75d8eaa818b675e63c0a",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:f62021a948876da27018ce04cd62e6accea5a504ce21b2700a93b4a324e0e10d",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/f62021a948876da27018ce04cd62e6accea5a504ce21b2700a93b4a324e0e10d/long-startup-inspection.json",
+      "sha256": "f62021a948876da27018ce04cd62e6accea5a504ce21b2700a93b4a324e0e10d",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:76681d159fff9b581c6f92bf96a7e703e346362d4fe215e7100828e49ab1722a",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/76681d159fff9b581c6f92bf96a7e703e346362d4fe215e7100828e49ab1722a/long-input-stop.json",
+      "sha256": "76681d159fff9b581c6f92bf96a7e703e346362d4fe215e7100828e49ab1722a",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:dd0e535ac55a01c43a0266a33a42d57f0c7698d32a420e55a730f502b0576f1c",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/dd0e535ac55a01c43a0266a33a42d57f0c7698d32a420e55a730f502b0576f1c/live-start-trust-pending.json",
+      "sha256": "dd0e535ac55a01c43a0266a33a42d57f0c7698d32a420e55a730f502b0576f1c",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:77f09a73087ca181caf94ae699b3419567ebe7936c924b4aa443a908677cadd8",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/77f09a73087ca181caf94ae699b3419567ebe7936c924b4aa443a908677cadd8/trust-dialog.json",
+      "sha256": "77f09a73087ca181caf94ae699b3419567ebe7936c924b4aa443a908677cadd8",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:d33d9551295bd3709d8a54333f204a6cd57264f4164eacc099e605451533a958",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/d33d9551295bd3709d8a54333f204a6cd57264f4164eacc099e605451533a958/trust-pending-stop.json",
+      "sha256": "d33d9551295bd3709d8a54333f204a6cd57264f4164eacc099e605451533a958",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:563c4431ece3086523dbedad80448c17ad3dccbeaa22c2fa6af31e5ae80978cb",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/563c4431ece3086523dbedad80448c17ad3dccbeaa22c2fa6af31e5ae80978cb/short-tracker-export.jsonl",
+      "sha256": "563c4431ece3086523dbedad80448c17ad3dccbeaa22c2fa6af31e5ae80978cb",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:d309cc29e5b38f273f66b8b6dbb4e2cec8d7fd8c4d907ea905e8b036f66d41a4",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/d309cc29e5b38f273f66b8b6dbb4e2cec8d7fd8c4d907ea905e8b036f66d41a4/path-failure-tracker-export.jsonl",
+      "sha256": "d309cc29e5b38f273f66b8b6dbb4e2cec8d7fd8c4d907ea905e8b036f66d41a4",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:edbd83d737f78e438158167d615e5a6ef62dc641bb2bf545d14f371e4c7b47e6",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/edbd83d737f78e438158167d615e5a6ef62dc641bb2bf545d14f371e4c7b47e6/fixture.json",
+      "sha256": "edbd83d737f78e438158167d615e5a6ef62dc641bb2bf545d14f371e4c7b47e6",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:2d72dab958de038f84f7726cb0d84efe7c914aa8a9bcfac67701c87640a3b884",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/2d72dab958de038f84f7726cb0d84efe7c914aa8a9bcfac67701c87640a3b884/PLAN.md",
+      "sha256": "2d72dab958de038f84f7726cb0d84efe7c914aa8a9bcfac67701c87640a3b884",
+      "local_only": true
+    },
+    {
+      "artifact_id": "sha256:9e6101c52fba164b422bffceeb4ee4a0a230e449b5d219279eebac7418e5cd53",
+      "path": "research/experiments/GRAPH-OPS-RELIABILITY-G-20261108-01/artifacts/9e6101c52fba164b422bffceeb4ee4a0a230e449b5d219279eebac7418e5cd53/RESUME.md",
+      "sha256": "9e6101c52fba164b422bffceeb4ee4a0a230e449b5d219279eebac7418e5cd53",
+      "local_only": true
+    }
+  ],
+  "measured_model_cost": null,
+  "measured_savings": null
+}

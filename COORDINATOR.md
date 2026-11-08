@@ -238,12 +238,19 @@ No plan is inferred or written by fill.
 
 Runtime proof records the exact installed model ID, supported effort, runner
 version, auth/billing mode, probe reference and expiry. It is an observation,
-not a user approval. Model policy comes only from INTENT ?6.8. An unknown setting
+not a user approval. Model policy comes only from INTENT section 6.8. An unknown setting
 or unavailable model refuses dispatch; there is no fallback. Requested settings
 and transcript observations stay separate; unobservable actual settings are
 `unknown`. Premium/exceptional approvals need an existing scoped HUMAN record,
 not a syntactically valid ID. Native dispatch reservation never grants a Native
 engine run or replaces the reviewed package/runner/reader and exclusive lease.
+
+For Codex, proof also verifies `prompt_delivery` (`interactive` or
+`startup_argument`). A command center is not a task session. Startup delivery
+uses a short path-and-SHA instruction to read retained task/context bytes, not
+the mutable packet source; this avoids Windows shell newline/length limits.
+An actual folder-trust dialog needs the user's trust decision before selection.
+An uncertain launch is never fixed by blindly sending Enter or another packet.
 
 `stop` verifies name/pane/session/cwd and confirmed absence before cleaning a
 registered, owned worktree. Dirty/ignored files, unreferenced commits, unknown
