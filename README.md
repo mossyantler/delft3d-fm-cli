@@ -179,6 +179,18 @@ and interval checks. BC/PLI/mesh contents remain opaque. A passed check is not
 complete native or scientific validation; the JSON states the performed levels.
 Unknown nonempty file references and legacy EXT are reported as unsupported.
 
+For standalone observation sections, preview `dfm section export MODEL.mdu --all --out NEW.pli`
+to copy the whole existing CrsFile, or use repeated `--id 'Full name'` arguments
+to copy selected sections in source-file order. Apply the identical request with
+`--apply --expect-sha256 HASH` using the preview's `result.input_sha256`.
+`section import` requires an external `--source FILE.pli`, selection, an explicit
+`--mode append|replace-matching`, and `--coordinates model-xy-as-is`. Append
+refuses name collisions; replacement keeps matching destination slots and other
+sections. The coordinate assertion performs no CRS or unit conversion.
+See the [file-only example](examples/section_transfer/README.md) for exact names,
+comments, no-op imports and stale previews. These file operations do not establish
+native results or GUI standalone import/export equivalence.
+
 ## Run and read status
 
 Prepare a copied model with an explicit UTC interval of **at most 600 seconds**.
