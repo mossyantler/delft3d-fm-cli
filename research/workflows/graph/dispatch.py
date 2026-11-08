@@ -169,6 +169,8 @@ def current_receipt(meta: dict, main: Path, environ: dict[str, str]) -> tuple[di
             raise protocol.Invalid("artifact_corrupt", "frozen Task Packet differs from dispatch fingerprint")
         if rec.get("prompt_artifact"):
             protocol.read_artifact(root, rec["prompt_artifact"])
+        if rec.get("task_prompt_artifact"):
+            protocol.read_artifact(root, rec["task_prompt_artifact"])
         raw = protocol.read_artifact(root, stored["raw_artifact"])
         if protocol.digest(raw) != stored.get("sha256"):
             raise protocol.Invalid("artifact_corrupt", "receipt summary hash differs from original bytes")
@@ -732,10 +734,14 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         rec["prompt_delivery"] = delivery
         startup_prompt = delivery == "startup_argument"
         if startup_prompt:
-            # Herdr rejects newline-bearing argv on Windows. JSON retains exact
-            # task text without shell control characters or a mutable path input.
-            sent = json.dumps({"instruction": "Execute task_text once as the frozen Task Packet.",
-                               "task_text": sent}, ensure_ascii=True)
+            # Herdr rejects newlines; long inline argv can also stall a Windows
+            # shell's startup command. Refer to retained bytes by path AND hash,
+            # never to the mutable packet source or an unchecked file path.
+            payload = protocol.archive(root, sent.encode("utf-8"), "TASK-PROMPT.txt")
+            rec["task_prompt_artifact"] = payload
+            sent = (f"Read AGENTS.md. Verify SHA256 {payload['sha256']} of the frozen UTF-8 task file "
+                    f"{(root / payload['path']).as_posix()}, then execute its exact task text once. "
+                    "Refuse missing or changed content; do not reread the original mutable packet source.")
             rec["stage"] = "startup_prompt_requested"
         rec["prompt_artifact"] = protocol.archive(root, sent.encode("utf-8"), "PROMPT.txt")
         persist_dispatch(a.id, rec, environ, cwd)
@@ -1196,6 +1202,8 @@ def cmd_collect(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> di
     frozen = protocol.read_artifact(root, rec["packet_artifact"])
     if protocol.digest(frozen) != rec["packet_sha256"]:
         raise Refusal("artifact_corrupt", "frozen packet differs from execution context")
+    if rec.get("task_prompt_artifact"):
+        protocol.read_artifact(root, rec["task_prompt_artifact"])
     artifacts = check_receipt(receipt, receipt_path, rec, main)
     if receipt["role"] == "G":
         check_validation_refs(receipt, environ, cwd)

@@ -192,10 +192,13 @@ documented [PROMPT] argument and never sends a second prompt. Its pre-task usage
 baseline is unknown because execution can precede observation. Failure records
 retain `failure_stage` before changing stage to needs_review. A command-center
 launch is not proof of a task session or prompt acceptance.
-Startup argv uses a single-line JSON envelope with the exact task text; Herdr's
-Windows shell encoder rejects literal newlines. The archived prompt and
-transcript comparison cover that exact envelope, while packet hashes retain the
-original bytes independently.
+Startup argv uses a short instruction naming the retained task-prompt file AND
+its SHA-256, requiring verification before execution. The full task/context is
+archived before launch, and collect/gate check it again. This avoids literal
+newlines rejected by Herdr and long Windows shell input lines without assuming
+that a mutable file path identifies unchanged content. The archived wire prompt
+and transcript comparison cover the exact startup instruction; the packet and
+full task prompt retain independent hashes.
 
 Requested model/effort are separate from transcript model observations; actual
 effort stays unknown if unavailable. An observed model mismatch blocks the

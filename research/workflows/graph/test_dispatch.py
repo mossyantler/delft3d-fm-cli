@@ -271,10 +271,14 @@ class Portable(unittest.TestCase):
         def startup(env, cwd, *args):
             result = boundary(env, cwd, *args)
             if args[:2] == ("agent", "start"):
-                self.assertIn("Execute only this frozen Task Packet", args[-1])
+                self.assertIn("Verify SHA256", args[-1])
                 self.assertNotIn("\n", args[-1])
                 self.assertNotIn("\r", args[-1])
-                self.assertIn("Purpose: exercise frozen dispatch input.", json.loads(args[-1])["task_text"])
+                payload = self.meta()["dispatch"]["task_prompt_artifact"]
+                retained = protocol.read_artifact(dispatch.artifact_root(self.repo, self.env), payload)
+                self.assertIn(payload["sha256"], args[-1])
+                self.assertIn("Purpose: exercise frozen dispatch input.", retained.decode())
+                self.assertLess(len(args[-1]), 1024)
                 self.fake.agents[args[2]]["agent_status"] = "working"
                 result["result"]["agent"]["agent_status"] = "working"
             return result
