@@ -879,7 +879,8 @@ class Transcripts(unittest.TestCase):
 
     def test_claude_pasted_prompt_wrapper_is_unwrapped_exactly(self):
         sent = "Read AGENTS.md in your working directory.\nPacket line\n"
-        cases = ((f'\n\n<pasted_content id="4121">\n{sent}</pasted_content id="4121">\n', sent),
+        cases = ((f'<pasted_content id="590d">\n{sent}</pasted_content id="590d">', sent),
+                 (f'\n\n<pasted_content id="4121">\n{sent}</pasted_content id="4121">\n', sent),
                  (f'<pasted_content id="1">\n{sent}</pasted_content id="2">', None),
                  (f'note <pasted_content id="1">\n{sent}</pasted_content id="1">', None),
                  (sent, sent))

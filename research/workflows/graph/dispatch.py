@@ -1001,7 +1001,7 @@ def first_user_prompt(kind: str, path: Path) -> str | None:
     return None
 
 
-PASTED = re.compile(r'\s*<pasted_content id="(?P<n>\d+)">\n(?P<body>.*)</pasted_content id="(?P=n)">\s*', re.S)
+PASTED = re.compile(r'\s*<pasted_content id="(?P<n>[0-9A-Za-z]+)">\n(?P<body>.*)</pasted_content id="(?P=n)">\s*', re.S)
 
 
 def check_prompt_received(kind: str, session: str | None, sent: str, environ: dict[str, str],
