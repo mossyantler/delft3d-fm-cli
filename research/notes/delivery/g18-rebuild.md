@@ -117,6 +117,18 @@ The V-Plan rebind (below) fixes `T`, the admission-receipt fields and the restar
    `f4edd82d…`; V confirms `dfm_cli.__file__` before the first launch. The admission's `dfm` entry records that
    python and the payload folder, and V re-freezes the admission with its new sha256 before the first launch.
    Nothing else in the admission, bindings, plan or reader changes.
+5. **Appended-section geometry (native attempt 1, G18-R4-APPEND-NODE-COUNT).** Attempt 1 (lease `native-235`)
+   stopped at `manual_append`, the hand-built control: Mill's reader expected the engine to report the appended
+   section `G18_new_cut-A.1 (subset)` with its 4 PLI vertices, and the engine reported 7 nodes, the vertices 0–6 of
+   the existing `(7,7)..(7,14)` section (the subset's first to last vertex, including the three it skips). The three
+   existing sections matched their PLI exactly. The cause is not established. This is a defect in the plan's
+   prediction for a vertex-skipping subset, not in the candidate, which `manual_append` does not use.
+   For attempt 2 only this prediction changes, before any launch: the appended section's expected native geometry is
+   those 7 vertices of `(7,7)..(7,14)` (node count 7, `cross_section_geom_nNodes` +7), recorded as an observation from
+   attempt 1, not a prior prediction. Every other predicate stays: names and order, the existing sections' geometry
+   and signals unchanged, the exact `manual_append`/`public_append` pair (which carries the CLI claim), and all
+   replace and reversal checks. V implements it as one named change to the rebind adapter, pinned before the first
+   launch. All six cases run again in fresh folders (user approval `HUMAN-20261108-04`, lease `native-236`).
 
 ## Done when
 
