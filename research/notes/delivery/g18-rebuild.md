@@ -96,6 +96,21 @@ The V-Plan rebind (below) fixes `T`, the admission-receipt fields and the restar
 - other section formats or partial-record edits;
 - scientific calibration; the installed engine's source commit.
 
+## R6. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **Fresh-path bindings (V-Plan A1).** Mill's `plan.json` stores historical absolute MDU paths and the frozen
+   `science.py` compares the run's MDU to them literally. For R4, V-Run uses the rebind adapter
+   (`reader_rebind.py`) with a bindings JSON that maps each case to its fresh copy. The bindings file is written and
+   hashed before the first launch, it changes only the source path, and the copy's bytes must equal the plan's
+   recorded hashes. `plan.json`, `predeclared.json`, every digest, prediction and tolerance stay unchanged.
+2. **Area under reversal (V-Plan A2).** R4's "area equal" paraphrases Mill's predeclared statement ("area
+   unchanged", with the frozen 8·eps32·max(1,|a|,|b|) roundoff bound and no other threshold). Mill's frozen reader
+   governs: area is checked against that same bound. Exact manual/public pairs keep zero tolerance.
+3. **Admission and timeout.** The admission receipt is the mapping in the V-Plan's `NATIVE-PLAN.md` (engine,
+   201-file wheel built from the frozen candidate, `common_freeze` = the SHORT-CLOSE root verification record,
+   `dfm.exe` of a clean install of that wheel, candidate commit), frozen with its sha256 before the first launch.
+   `T` = 60 s per run, no extension or retry.
+
 ## Done when
 
 - **I:**
