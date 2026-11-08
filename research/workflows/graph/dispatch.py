@@ -276,6 +276,9 @@ def herdr(environ: dict[str, str], cwd: Path, *args: str) -> dict:
             pass
         raise HerdrError(f"herdr {' '.join(args[:2])} failed ({p.returncode}): {p.stderr.strip()[-800:]}",
                          code if isinstance(code, str) else None)
+    if args[:2] == ("agent", "read"):
+        # This documented surface returns screen text, unlike agent get/list.
+        return {"result": {"read": {"text": p.stdout}}}
     try:
         reply = json.loads(p.stdout) if p.stdout.strip() else {}
         if not isinstance(reply, dict):

@@ -744,6 +744,13 @@ def bdw_refused():
 
 
 class DeterministicPolicy(unittest.TestCase):
+    def test_herdr_screen_read_is_text_but_agent_state_requires_json(self):
+        completed = subprocess.CompletedProcess([], 0, stdout="Working (1s) - esc to interrupt", stderr="")
+        with patch.object(dispatch.subprocess, "run", return_value=completed):
+            self.assertTrue(dispatch.screen_shows_turn({}, Path.cwd(), "fixture"))
+            with self.assertRaises(dispatch.HerdrError):
+                dispatch.herdr({}, Path.cwd(), "agent", "get", "fixture")
+
     def test_cli_roles_and_parser_errors_keep_json_contract(self):
         for argv in (["start", "T"], ["not-a-command"]):
             with patch.dict(os.environ, {}, clear=True), redirect_stderr(io.StringIO()) as stderr:
