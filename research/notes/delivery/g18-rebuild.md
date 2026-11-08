@@ -110,6 +110,13 @@ The V-Plan rebind (below) fixes `T`, the admission-receipt fields and the restar
    201-file wheel built from the frozen candidate, `common_freeze` = the SHORT-CLOSE root verification record,
    `dfm.exe` of a clean install of that wheel, candidate commit), frozen with its sha256 before the first launch.
    `T` = 60 s per run, no extension or retry.
+4. **Runner environment (coordinator review before the native packet).** `dfm run start` needs the `run` extra
+   (`netCDF4==1.7.5.1.post1`, `runs.py:136`), which the clean `--no-deps` install does not have. The six runs use
+   `C:\Users\minyeop\project\delft3d-fm-cli\.venv\Scripts\python.exe -m dfm_cli` (netCDF4 1.7.5.1.post1) with
+   `PYTHONPATH` set to the clean venv's `Lib\site-packages`, so `dfm_cli` is the installed 201-file payload of wheel
+   `f4edd82d…`; V confirms `dfm_cli.__file__` before the first launch. The admission's `dfm` entry records that
+   python and the payload folder, and V re-freezes the admission with its new sha256 before the first launch.
+   Nothing else in the admission, bindings, plan or reader changes.
 
 ## Done when
 
