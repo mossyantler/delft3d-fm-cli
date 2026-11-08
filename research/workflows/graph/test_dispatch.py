@@ -272,6 +272,9 @@ class Portable(unittest.TestCase):
             result = boundary(env, cwd, *args)
             if args[:2] == ("agent", "start"):
                 self.assertIn("Execute only this frozen Task Packet", args[-1])
+                self.assertNotIn("\n", args[-1])
+                self.assertNotIn("\r", args[-1])
+                self.assertIn("Purpose: exercise frozen dispatch input.", json.loads(args[-1])["task_text"])
                 self.fake.agents[args[2]]["agent_status"] = "working"
                 result["result"]["agent"]["agent_status"] = "working"
             return result

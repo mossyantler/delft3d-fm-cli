@@ -728,12 +728,16 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         rec.update(pane_id=new_pane, pane_owned=True, stage="agent_requested")
         context = {k: rec[k] for k in (*protocol.BINDINGS, "contract_sha", "candidate_sha", "verification_plan_sha256")}
         sent = prompt_text(packet, ctx["packet_bytes"].decode("utf-8"), context)
-        rec["prompt_artifact"] = protocol.archive(root, sent.encode("utf-8"), "PROMPT.txt")
         delivery = ctx["policy"]["proof"].get("prompt_delivery", "interactive") if a.kind == "codex" else "interactive"
         rec["prompt_delivery"] = delivery
         startup_prompt = delivery == "startup_argument"
         if startup_prompt:
+            # Herdr rejects newline-bearing argv on Windows. JSON retains exact
+            # task text without shell control characters or a mutable path input.
+            sent = json.dumps({"instruction": "Execute task_text once as the frozen Task Packet.",
+                               "task_text": sent}, ensure_ascii=True)
             rec["stage"] = "startup_prompt_requested"
+        rec["prompt_artifact"] = protocol.archive(root, sent.encode("utf-8"), "PROMPT.txt")
         persist_dispatch(a.id, rec, environ, cwd)
         # Codex 0.167 can open a command center without [PROMPT]. The verified
         # adapter supplies the frozen prompt once at startup; never send it twice.

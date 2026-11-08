@@ -192,6 +192,10 @@ documented [PROMPT] argument and never sends a second prompt. Its pre-task usage
 baseline is unknown because execution can precede observation. Failure records
 retain `failure_stage` before changing stage to needs_review. A command-center
 launch is not proof of a task session or prompt acceptance.
+Startup argv uses a single-line JSON envelope with the exact task text; Herdr's
+Windows shell encoder rejects literal newlines. The archived prompt and
+transcript comparison cover that exact envelope, while packet hashes retain the
+original bytes independently.
 
 Requested model/effort are separate from transcript model observations; actual
 effort stays unknown if unavailable. An observed model mismatch blocks the
