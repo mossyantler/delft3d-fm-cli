@@ -18,10 +18,15 @@ def register(groups):
     p=actions.add_parser("reverse",help="Preview/apply selected full XY record-body reversal; preserve trivia and other inputs")
     p.add_argument("mdu",type=Path);p.add_argument("--id",required=True)
     p.add_argument("--apply",action="store_true");p.add_argument("--expect-sha256",help="input_sha256 from this exact reverse preview")
+    from . import section_transfer
+    section_transfer.register(actions)
     return actions
 
 
 def execute(args):
+    if args.action in ("export", "import"):
+        from . import section_transfer
+        return section_transfer.execute(args)
     if args.action=="inspect":return inspect(args.mdu,args.id)
     if args.action=="reverse":return reverse(args.mdu,args.id,args.apply,args.expect_sha256)
     raise DfmError("usage","Unknown section action",2)

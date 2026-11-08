@@ -12,6 +12,7 @@ from . import installation, model, runs
 from . import bmi, coupling, fields, layers, mesh, morph, network, parallel, project, results, water_quality
 from . import boundary_export, boundary_import, boundary_locations, boundary_series, boundary_series_rows, rr_f152, water_quality_offline_workflow
 from . import boundary_preview, boundary_vertical, weir_series, wind_drag
+from . import section_transfer
 from . import boundary_support, fm_model_identity, observation, observation_transfer, section_orientation, pump_public, pump_commands, pump_edit_contract
 from . import boundary_coefficients, results_stations
 
@@ -137,6 +138,7 @@ def execute(args) -> dict:
                 "observation_edit": observation.contract(),
                 "observation_transfer": observation_transfer.contract(),
                 "section_orientation": section_orientation.contract(),
+                "section_transfer": section_transfer.contract(),
                 "pump_inspection": pump_public.contract(),
                 "pump_edit": pump_edit_contract.contract(),
                 "weir_series": weir_series.contract(),
