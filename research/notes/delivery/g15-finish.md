@@ -100,6 +100,32 @@ rules apply in full. No native engine or GUI run belongs to this Contract.
    example `tests/test_project.py`, `tests/test_job_trace_proof.py`) are part of the full `unittest discover` and are
    allowed, on the candidate and the base alike, as in every earlier V-Run.
 
+## R6. Uncatalogued MDU keys that name model entities (coordinator, after V-Run round 2; binding for I and V)
+
+1. **Ruling.** V-Run round 2 finding `G15-R2-D01`
+   (`research/experiments/G15-TRANSFER-V-Run-20261108-01/REVIEW-r2.md`) is a candidate defect under rev02
+   "Closure, assertions and unknowns" (`PROPOSAL.md:228-244`): an unknown MDU key such as `[future] ControlTarget = 7`,
+   `[future] ControlTarget = W_Main` or `[unselected] Alias = nested.tbl` (an existing file) is a possible graph edge,
+   yet `structure inspect` reports `graph_closed_I1: true` and `structure import` previews and applies with exit 0. The
+   cause is in the candidate's `structure_transfer_graph.py:145-160`, which qualifies unknown grammar only in non-MDU
+   containers and leaves MDU keys to the accepted `observation_inputs.py:175` filename rule.
+2. **Required behaviour.** An MDU entry is *catalogued* when its address (`section/key`, casefolded) is a record in the
+   accepted `src/dfm_cli/fields_registry.json` or is handled by the candidate's own typed grammar (StructureFile, output
+   destinations, the `IGNORE` keys). An uncatalogued MDU entry with a non-empty value is a *possible reference* when its
+   trimmed value, or any `;`-separated item of it, either equals a `Structure.id` of the model (exact or casefold), or
+   names an existing file or directory resolved from the MDU folder (also when it lies outside the model root). A
+   possible reference is reported as the existing reason `unqualified_dependency_grammar` with its address and value:
+   `structure inspect` shows the graph as not closed, `structure export` and `structure import` refuse with exit 3
+   and write nothing. Other uncatalogued entries stay raw and unbound and do not block, as now (for example the
+   repeated `[custom] Tag = 1` in V's base fixtures).
+3. **How.** One fix commit in `structure_transfer_graph.py` (other modules only if the fix needs it), preceded by
+   tests in `tests/test_structure_transfer.py` that fail on `ef2acd4` for the three V cases and pass for an
+   uncatalogued key whose value names nothing. Do not change `observation_inputs.py`, `fields_registry.json` or any
+   other accepted module. The schema entry `structure_transfer` and the 105 commands stay byte-equal; if the fix
+   cannot keep them equal, stop and report.
+4. **V-Run round 3** re-runs R3 in full on the new candidate (wheel, installed public 30 and fault 11 on the R5.1
+   material, schema, candidate regression); the base regression from round 2 may be reused if the base is unchanged.
+
 ## R4. Out of scope
 
 - Native engine or GUI runs (G15-ENGINE-Contract);
