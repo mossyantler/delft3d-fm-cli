@@ -191,6 +191,8 @@ See the [file-only example](examples/section_transfer/README.md) for exact names
 comments, no-op imports and stale previews. These file operations do not establish
 native results or GUI standalone import/export equivalence.
 
+For structures, `dfm structure inspect MODEL.mdu` is read-only and lists every structure with its scope row. `dfm structure export MODEL.mdu --all --representation geometry|hydraulic-bundle --out NEW_DIR` (or repeated `--id`) copies raw route geometry or a hydraulic bundle into a fresh directory, and `dfm structure import MODEL.mdu --source DIR --representation ... --id ID --mode append|replace-matching --coordinates model-xy-as-is --xy-unit m` brings one structure back; hydraulic bundles also need `--height-unit`, `--vertical-datum`, `--target-structure-file` and an `--asset-map`. Each of export and import previews first and applies only with `--apply --expect-sha256 HASH` from the preview. Writes cover only the planar weir (scalar or TIM crest, W2D) and the scalar pump (P2D); the other scope rows are reported by `structure inspect` as deferred or unsupported and are never written. These are file operations; they establish no native-engine or GUI result.
+
 ## Run and read status
 
 Prepare a copied model with an explicit UTC interval of **at most 600 seconds**.
