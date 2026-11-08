@@ -877,6 +877,19 @@ class Transcripts(unittest.TestCase):
             self.assertEqual(u["malformed_lines"], 0)
             self.assertIsInstance(u["wall_seconds"], float)
 
+    def test_claude_pasted_prompt_wrapper_is_unwrapped_exactly(self):
+        sent = "Read AGENTS.md in your working directory.\nPacket line\n"
+        cases = ((f'\n\n<pasted_content id="4121">\n{sent}</pasted_content id="4121">\n', sent),
+                 (f'<pasted_content id="1">\n{sent}</pasted_content id="2">', None),
+                 (f'note <pasted_content id="1">\n{sent}</pasted_content id="1">', None),
+                 (sent, sent))
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "t.jsonl"
+            for content, expected in cases:
+                f.write_text(json.dumps({"type": "user", "message": {"role": "user", "content": content}}) + "\n")
+                got = dispatch.first_user_prompt("claude", f)
+                self.assertEqual(got, expected if expected is not None else content)
+
     def test_missing_transcript_is_a_reason_not_an_error(self):
         with tempfile.TemporaryDirectory() as d:
             env = {"DFM_CODEX_HOME": d, "DFM_CLAUDE_HOME": d}

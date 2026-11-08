@@ -995,8 +995,13 @@ def first_user_prompt(kind: str, path: Path) -> str | None:
                     continue
                 content = next((b.get("text") for b in content if isinstance(b, dict) and b.get("type") == "text"), None)
             if isinstance(content, str) and content.strip():
-                return content
+                # Claude Code records a pasted prompt as one exact wrapper; unwrap only that form.
+                wrapped = PASTED.fullmatch(content)
+                return wrapped["body"] if wrapped else content
     return None
+
+
+PASTED = re.compile(r'\s*<pasted_content id="(?P<n>\d+)">\n(?P<body>.*)</pasted_content id="(?P=n)">\s*', re.S)
 
 
 def check_prompt_received(kind: str, session: str | None, sent: str, environ: dict[str, str],
