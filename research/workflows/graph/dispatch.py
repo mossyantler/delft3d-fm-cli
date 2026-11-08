@@ -726,28 +726,40 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         if not new_pane:
             raise Failure("pane split returned no pane id; reconcile before any retry")
         rec.update(pane_id=new_pane, pane_owned=True, stage="agent_requested")
+        context = {k: rec[k] for k in (*protocol.BINDINGS, "contract_sha", "candidate_sha", "verification_plan_sha256")}
+        sent = prompt_text(packet, ctx["packet_bytes"].decode("utf-8"), context)
+        rec["prompt_artifact"] = protocol.archive(root, sent.encode("utf-8"), "PROMPT.txt")
+        delivery = ctx["policy"]["proof"].get("prompt_delivery", "interactive") if a.kind == "codex" else "interactive"
+        rec["prompt_delivery"] = delivery
+        startup_prompt = delivery == "startup_argument"
+        if startup_prompt:
+            rec["stage"] = "startup_prompt_requested"
         persist_dispatch(a.id, rec, environ, cwd)
+        # Codex 0.167 can open a command center without [PROMPT]. The verified
+        # adapter supplies the frozen prompt once at startup; never send it twice.
+        prompt_attempted = startup_prompt
         started = herdr(environ, cwd, "agent", "start", name, "--kind", a.kind, "--pane", new_pane,
-                        "--", *agent_args(a.kind, a.model, a.effort))
+                        "--", *agent_args(a.kind, a.model, a.effort), *([sent] if startup_prompt else []))
         before = agent_info(started)
         if not before["session_id"] or not before["pane_id"]:
             before = agent_info(herdr(environ, cwd, "agent", "get", name))
         if before["pane_id"] != new_pane:
             raise Failure("started agent does not occupy the created pane")
         rec.update(session_id=before["session_id"], stage="agent_ready")
-        baseline_usage, reason = usage_for(rec, environ)
+        if startup_prompt:
+            baseline_usage, reason = None, "startup prompt precedes the first observable usage; interval is unknown"
+        else:
+            baseline_usage, reason = usage_for(rec, environ)
         rec["usage_baseline"] = baseline_usage
         rec["usage_baseline_note"] = reason
         rec["usage_started_at"] = now()
-        context = {k: rec[k] for k in (*protocol.BINDINGS, "contract_sha", "candidate_sha", "verification_plan_sha256")}
-        sent = prompt_text(packet, ctx["packet_bytes"].decode("utf-8"), context)
-        rec["prompt_artifact"] = protocol.archive(root, sent.encode("utf-8"), "PROMPT.txt")
-        rec["stage"] = "prompt_requested"
-        persist_dispatch(a.id, rec, environ, cwd)
-        prompt_attempted = True
-        herdr(environ, cwd, "agent", "prompt", name, sent)
+        if not startup_prompt:
+            rec["stage"] = "prompt_requested"
+            persist_dispatch(a.id, rec, environ, cwd)
+            prompt_attempted = True
+            herdr(environ, cwd, "agent", "prompt", name, sent)
         if not wait_for_turn(environ, cwd, name, before["state_change_seq"], submit_seconds(environ),
-                             not before["session_id"]):
+                             startup_prompt or not before["session_id"]):
             raise Failure("prompt submission is uncertain; no automatic Enter or retransmission")
         info = read_session(environ, cwd, name, attempts=1)
         if info["pane_id"] != new_pane or (rec["session_id"] and rec["session_id"] != info["session_id"]):
@@ -782,7 +794,8 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
                 "usage_unavailable_reason": str(usage_error)}
             cleanup["usage_read_failed"] = str(usage_error)
         failed_metrics.update(outcome="failed", role=rec["role"])
-        rec.update(stage="needs_review", start_error=str(original_error), cleanup=cleanup, metrics=failed_metrics)
+        rec.update(failure_stage=rec["stage"], stage="needs_review", start_error=str(original_error),
+                   cleanup=cleanup, metrics=failed_metrics)
         try:
             persist_dispatch(a.id, rec, environ, cwd)
         except (bdw.Refused, Failure, OSError) as record_error:

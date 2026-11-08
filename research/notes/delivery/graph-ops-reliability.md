@@ -185,6 +185,14 @@ grants. No approval node is created or closed by dispatch. Call and previously
 measured usage limits are admission controls; this wrapper is not an in-flight
 billing/token hard cap. Unknown prior approved usage requires coordinator review.
 
+Codex proof also requires `prompt_delivery`: `interactive` for a verified chat
+input at launch, or `startup_argument` for CLIs that open a command center without
+an initial prompt. The latter passes the already archived frozen prompt as the
+documented [PROMPT] argument and never sends a second prompt. Its pre-task usage
+baseline is unknown because execution can precede observation. Failure records
+retain `failure_stage` before changing stage to needs_review. A command-center
+launch is not proof of a task session or prompt acceptance.
+
 Requested model/effort are separate from transcript model observations; actual
 effort stays unknown if unavailable. An observed model mismatch blocks the
 receipt's new gate. Unavailable models never auto-substitute. Retries require a

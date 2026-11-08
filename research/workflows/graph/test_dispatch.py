@@ -121,7 +121,8 @@ class Portable(unittest.TestCase):
         self.proof.write_text(json.dumps({"model_key": "sol", "model_id": "test-sol", "kind": "codex",
             "availability_verified": True, "supported_efforts": ["medium", "high"], "runner": "fixture",
             "runner_version": "1", "billing_mode": "fixture", "auth_mode": "fixture", "probe_ref": "fixture:runtime",
-            "expires_at": "2099-01-01T00:00:00Z", "task_classes_evaluated": ["general_implementation"]}))
+            "expires_at": "2099-01-01T00:00:00Z", "task_classes_evaluated": ["general_implementation"],
+            "prompt_delivery": "interactive"}))
         self.task("T")
 
     def git(self, *args, cwd=None, check=True):
@@ -262,6 +263,26 @@ class Portable(unittest.TestCase):
         sent = next(call[3] for call in self.fake.calls if call[:2] == ("agent", "prompt"))
         self.assertIn(original.decode(), sent)
         self.assertNotIn("MUTATED", sent)
+
+    def test_codex_startup_packet_is_frozen_and_sent_exactly_once(self):
+        proof = json.loads(self.proof.read_text()); proof["prompt_delivery"] = "startup_argument"
+        self.proof.write_text(json.dumps(proof))
+        boundary = self.fake.herdr
+        def startup(env, cwd, *args):
+            result = boundary(env, cwd, *args)
+            if args[:2] == ("agent", "start"):
+                self.assertIn("Execute only this frozen Task Packet", args[-1])
+                self.fake.agents[args[2]]["agent_status"] = "working"
+                result["result"]["agent"]["agent_status"] = "working"
+            return result
+        with patch.object(dispatch, "herdr", startup):
+            rec = self.start()
+        self.assertEqual(rec["prompt_delivery"], "startup_argument")
+        self.assertIsNone(rec["usage_baseline"])
+        self.assertFalse(any(call[:2] == ("agent", "prompt") for call in self.fake.calls))
+        sent = next(call[-1] for call in self.fake.calls if call[:2] == ("agent", "start"))
+        frozen = protocol.read_artifact(dispatch.artifact_root(self.repo, self.env), rec["prompt_artifact"])
+        self.assertEqual(frozen.decode(), sent)
 
     def test_evidence_snapshots_survive_source_loss_but_not_store_loss(self):
         rec = self.start()
@@ -489,7 +510,8 @@ class Portable(unittest.TestCase):
         self.assertEqual(caught.exception.reason, "ownership_violation")
 
     def test_bad_runtime_or_approval_never_reaches_runtime(self):
-        for changes in ({"availability_verified": False}, {"supported_efforts": []}, {"expires_at": "2000-01-01T00:00:00Z"}):
+        for changes in ({"availability_verified": False}, {"supported_efforts": []},
+                        {"expires_at": "2000-01-01T00:00:00Z"}, {"prompt_delivery": "unknown"}):
             raw = self.proof.read_text(); obj = json.loads(raw); obj.update(changes); self.proof.write_text(json.dumps(obj))
             with self.assertRaises(bdw_refused()): self.start()
             self.proof.write_text(raw)

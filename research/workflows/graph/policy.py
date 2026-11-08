@@ -51,6 +51,8 @@ def check(policy: dict, proof_path: Path, *, kind: str, model: str, effort: str,
                 or effort not in proof.get("supported_efforts", [])
                 or proof.get("task_classes_evaluated") is None):
             raise ValueError("model/effort availability is not verified")
+        if kind == "codex" and proof.get("prompt_delivery") not in ("interactive", "startup_argument"):
+            raise ValueError("Codex runtime proof must verify interactive or startup_argument prompt delivery")
         # A logical model without a configured ID needs the exact runtime proof.
         if spec.get("model_id") is not None and spec["model_id"] != model:
             raise ValueError("runtime proof differs from policy model_id")
