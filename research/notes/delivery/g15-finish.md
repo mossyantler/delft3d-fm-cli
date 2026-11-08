@@ -81,6 +81,25 @@ rules apply in full. No native engine or GUI run belongs to this Contract.
   without it, V reports those cases as not run.
 - Regression on the candidate and on main with the same setup, listing every differing test.
 
+## R5. Clarifications (coordinator, after V-Run round 1; binding for V)
+
+1. **Asterisk lines in INI fixtures (V01).** The product's INI grammar is the accepted shared `model.parse`
+   (`src/dfm_cli/model.py:77-99`): `#` and `;` comments only. G15 reuses it unchanged, and rev02 does not extend it.
+   Lovelace's fixtures give several `.ini` files a first line `* file prologue …`, which that grammar rejects, so 16
+   public and all 11 fault tests stop before their real check. This is a defect in the V fixtures for this product,
+   not in the candidate (the I checkpoint met the same issue in its own fixtures). In PLI files, first-column `*`
+   comments are valid and stay as they are.
+   For round 2, V-Run makes a new frozen copy of the V material in its own folder in which, **in `.ini` files only**,
+   every line whose first byte is `*` gets `#` instead, in the inputs and in the literal expected bytes alike. No
+   other byte changes, and the oracle code, test scripts and assertions stay unchanged. V lists every changed file
+   and line with before/after sha256 and freezes the copy before running it. If an adverse fixture's purpose depends
+   on the `*` line itself, V reports it instead of changing it. Whether `*` lines should be accepted in INI files is a
+   separate question (follow-up node), outside G15.
+2. **Job-launching unit tests (V02).** The packet's "no Job launch" means no Delft3D engine, GUI or Job of a native
+   run. The repository's own unit tests that start a harmless Python payload under a Windows Job (`OwnedJob`, for
+   example `tests/test_project.py`, `tests/test_job_trace_proof.py`) are part of the full `unittest discover` and are
+   allowed, on the candidate and the base alike, as in every earlier V-Run.
+
 ## R4. Out of scope
 
 - Native engine or GUI runs (G15-ENGINE-Contract);
