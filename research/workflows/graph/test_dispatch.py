@@ -615,6 +615,24 @@ class Portable(unittest.TestCase):
         self.meta("RUN")["dispatch"]["attempt"] += 1
         self.assertFalse(dispatch.cmd_gate(argparse.Namespace(id="NEXT"), self.env, self.repo)["ok"])
 
+    def test_light_review_scope_respects_host_path_case(self):
+        rec = self.start(task_kind="documentation", owns=["Src/dfm_cli"])
+        candidate = self.candidate(rec, "Src/dfm_cli/example.py")
+        path, _ = self.receipt(rec, candidate_sha=candidate, changed_paths=["Src/dfm_cli/example.py"])
+        self.collect(path); self.release(rec)
+        self.fake.issues["T"]["status"] = "closed"
+        self.task("G")
+        gate = self.start("G", role="G", task_kind="review", candidate_sha=candidate, base=candidate,
+                          read_only=True, owns=[])
+        refs = [{"task_id": "T", "dispatch_id": rec["dispatch_id"], "receipt_sha256": self.meta()["receipt"]["sha256"]}]
+        path, _ = self.receipt(gate, validation_refs=refs)
+        if os.name == "nt":
+            with self.assertRaises(dispatch.Refusal) as caught:
+                self.collect(path, "G")
+            self.assertEqual(caught.exception.reason, "approval_scope")
+        else:
+            self.assertTrue(self.collect(path, "G")["ok"])  # Src is distinct on POSIX.
+
     def test_candidate_contract_and_plan_mismatches_block_g(self):
         candidate, refs = self.accepted_graph()
         self.task("G")
