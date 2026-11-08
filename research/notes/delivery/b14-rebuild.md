@@ -82,6 +82,18 @@ Beads: `B14-PUBLIC-I` (`dfm-jtm.6`), `B14-REBIND-V-Plan` (new), `B14-PUBLIC-V-Ru
   natural completion with 121 frames, restart files as planned, exact equality of public and manual outputs per
   epoch, A0 controls retained. The prescribed signal is a receiving state, not proof of a constituent phase.
 
+## R6. Clarifications (coordinator, after V-Plan; binding for V)
+
+1. **A0 controls (V-Plan ambiguity A1).** The frozen gate asks to retain the A0-only control outputs of both epochs
+   and to compare their physical arrays on a normalized elapsed clock, but names no variable set, tolerance or pass
+   condition. The A0 controls are therefore **recorded observations, not an acceptance criterion**: V-Run runs both,
+   applies the same completion checks as the other four cases, reports every cross-epoch comparison the reader
+   records and states any difference plainly, without a verdict on it. R4 acceptance is: all six runs complete as the
+   gate requires (natural rc 0, 121 frames decoded to the right epoch, exactly the restarts at 0 and 120 s,
+   fatal/error-free diagnostics), input integrity holds, and public and manual outputs are exactly equal for each
+   epoch. The reader `reader_b14_direct.py` state `direct_observations_complete_pending_A1` with every other item
+   passing meets R4; no reader change is needed.
+
 ## R5. Out of scope
 
 - The BMI runner branch and its four diagnostics (deferred);
