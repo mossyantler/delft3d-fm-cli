@@ -69,8 +69,9 @@ Intent is written before resource creation. Each requested/confirmed resource
 stage is persisted. External calls can succeed without returning a response;
 uncertainty preserves the reservation. A failed start retains its primary error,
 separate cleanup errors, resource identities and unknown/measured usage. Cleanup
-never removes a reused or uncertain worktree. A prompt is sent once with frozen
-packet bytes inline; the source path is diagnostic only. Transcript mismatch
+never removes a reused or uncertain worktree. A prompt is sent once from frozen packet bytes, either inline or through the
+retained task file and SHA-256 startup instruction described below. Mutable
+source paths never establish input equality. Transcript mismatch
 requires review, and an uncertain submission never sends Enter or the prompt
 again. Reconcile never restarts work.
 
@@ -319,3 +320,54 @@ and collect its typed receipt, and release only its resources. G approval and
 local main adoption then require current matching evidence. They have not been
 issued here. Existing approval records, the production DB format and the shared
 main HEAD are unchanged. No remote push or Native permission is implied.
+
+### Accepted G evidence and local cutover (2026-11-08)
+
+This section supersedes the pending state in the earlier captured preparation
+record; those artifacts remain unchanged. G `dfm-fmc.53` approved candidate and
+Contract `ab064b1baae6bdd692cf780baf32d853c15c785b` relative to accepted base
+`397ab92015f6f2544a8c76df9b1a6c289f7a6008`.
+[reliability-acceptance.json](../../workflows/graph/reliability-acceptance.json)
+links original bytes, hashes, current I/G dispatches, and the independent V
+receipt. Beads remains the state authority. No historical approval was changed.
+
+- Observed: 63 relevant tests passed, zero skips, on this frozen candidate;
+  compileall and diff checks passed. Previously missing pinned bd/bv boundary
+  cases ran on temporary repositories/DBs. Source Python is unchanged through
+  the evidence-only review and unrelated accepted G15 documentation merges.
+- Observed: the user explicitly approved folder trust for only disposable
+  `gr-live/r`. One trust response was applied; the actual session's first prompt
+  matched the frozen startup instruction. No blind prompt retransmission ran.
+- Independent review: commit `c65772598336f167656d922fabce17afcf1e0e52`,
+  [scoped report](reliability-live-review.md). Three prescribed counterexamples
+  passed and live read-only Beads/Herdr identity matched. Coordinator inspected
+  raw results and content hashes, then collected the typed V receipt.
+- Observed on the private actual Beads fixture: Gate exit sequence 0/3/0 after
+  mismatch and exact restore; wrong-dispatch collect exited 2. Current retained
+  evidence remained valid after the source worktree was removed. Owned pane and
+  worktree release were confirmed. All six startup attempts, including errors,
+  were retained; no product Ready work ran. Live crash/retry and foreign-process
+  destruction were not exercised; their safety cases use fake boundaries.
+- Usage: the real V transcript contains session cumulative counters. No measured
+  pre-start baseline exists, so task interval usage and billed cost remain
+  unknown. Cumulative cached input is included in input; it is not added twice.
+  No cost reduction or benchmark improvement is claimed.
+- Artifact evidence is separately copied and hash-verified under the existing
+  OneDrive backup's `evidence/GRAPH-OPS-RELIABILITY-G` subtree, with a manifest.
+  The portable index identifies files by relative path/hash; graph backup and
+  artifact backup have different restoration responsibilities. Local copy
+  verification does not prove cloud upload or cross-machine restore.
+
+Cutover preserves the shared dashboard edits, its test edits and CLAUDE.md.
+The active pre-cutover `G15-V-Run` (`dfm-h9c.4`) is not restarted or migrated.
+A detached `GRAPH-OPS-LEGACY-COLLECT` checkout pins pre-cutover main
+`f264402fbad6d0d0e80449516bf00df4b20b4d72`: use it only for read-only
+inspection and explicitly directed collection of that legacy result. Do not
+use its old start, stop or gate logic. Its receipt remains legacy, is not
+protocol-2 evidence, and cannot open a new Gate. New approval requires explicit
+review/context against the target and retained evidence, without retroactively
+rewriting prior approvals. Resource cleanup requires owned-identity/handle
+review; no ownership may be inferred from a legacy record. New executions use
+protocol 2 and explicit runtime/plan/approval admission. Native authorization
+and leases remain separate. No DB migration, remote push or scientific approval
+is included in this local tooling acceptance.
