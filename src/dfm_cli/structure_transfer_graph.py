@@ -5,7 +5,8 @@ import re
 
 from .common import DfmError
 from .model import parse
-from .observation_inputs import Inputs,one,LEAVES,CONTAINERS,IGNORE
+from .fields_evidence import registry
+from .observation_inputs import Inputs,one,LEAVES,CONTAINERS,IGNORE,OUTPUTS
 from .structure_transfer_contract import fail,LIMITS
 from .structure_transfer_paths import Binding,plain,lexical,relative
 from .structure_transfer_text import structures,field,number,parameter,pli,clock,tim,clock_public,identifier
@@ -140,6 +141,7 @@ class Graph(Binding):
     def _walk(self,parent,entries,stack,depth):
         if self.structure_path is not None and parent==self.structure_path:
             self.issues.append(issue('StructureFile_foreign_consumer_role',path=str(parent)));return
+        if parent==self.mdu:self._uncatalogued_references(entries)
         if parent!=self.mdu:
             # A generic filename scanner inventories bytes but cannot prove
             # logical/controller closure. Qualify the new EXT vocabulary used
@@ -153,6 +155,22 @@ class Graph(Binding):
                 if parent.suffix.casefold()!='.ext' or block not in vocabulary or key not in vocabulary[block]:
                     self.issues.append(issue('unqualified_dependency_grammar',path=str(parent),address=e.address,value=e.value))
         return Inputs._walk(self,parent,entries,stack,depth)
+
+    def _uncatalogued_references(self,entries):
+        # R6: an MDU key that is neither a fields_registry record nor typed grammar
+        # here may still name a model entity. Its value is a possible graph edge when
+        # the value, or one ';' item, is a Structure.id or an existing file/directory.
+        records=registry()['records'];ids={b['id'].casefold() for b in self.native.objects} if self.native else set()
+        for e in entries:
+            key=e.address.rsplit('/',1)[-1]
+            if not e.value or e.address in records or e.address in OUTPUTS or key in IGNORE:continue
+            for item in {e.value.strip(),*(i.strip() for i in e.value.split(';'))}:
+                if item and (item.casefold() in ids or self._names_existing(item)):
+                    self.issues.append(issue('unqualified_dependency_grammar',path=str(self.mdu),address=e.address,value=e.value));break
+
+    def _names_existing(self,item):
+        try:return os.path.exists(os.path.join(self.root,item))
+        except (OSError,ValueError):return False
 
     def _native_assets(self):
         for b in self.native.objects:
