@@ -146,4 +146,34 @@ class Faults(Harness):
         with patch.object(Path,'open',guarded):
             r=structure_transfer.inspect(self.mdu);self.assertTrue(r['graph_closed_I1'])
 
+class UncataloguedMduKeys(Harness):
+    """Contract R6 (G15-R2-D01): an uncatalogued MDU entry whose value names a Structure.id or an existing file/directory is a possible graph edge."""
+    def append_mdu(self,text):write(self.mdu,MDU+text.replace('\n','\r\n').encode())
+    def refused(self,reason_address):
+        r=self.call('structure','inspect',self.mdu);self.assertFalse(r['graph_closed_I1'])
+        hits=[x for x in r['graph_reasons'] if x['code']=='unqualified_dependency_grammar' and x.get('address')==reason_address]
+        self.assertEqual(len(hits),1,r['graph_reasons']);self.assertEqual(os.path.normcase(hits[0]['path']),os.path.normcase(str(self.mdu)))
+        args=self.import_args(self.geo());before=inventory(self.work)
+        self.call(*args,code=3)
+        self.call('structure','export',self.mdu,'--all','--representation','geometry','--out',self.work/'out',code=3)
+        self.assertFalse((self.work/'out').exists());self.assertEqual(before,inventory(self.work))
+    def test_structure_id_value_refuses(self):
+        for value in ('7','W_Main','w_main','nothing; W_Main','7 ; nothing'):
+            with self.subTest(value=value):
+                self.append_mdu(f'[future]\nControlTarget = {value}\n');self.refused('future/controltarget');write(self.mdu,MDU)
+    def test_existing_file_or_directory_value_refuses(self):
+        write(self.model/'nested.tbl',b'[Control]\nTarget=W_Main\nFurther=not_in_model\n');(self.model/'folder').mkdir();write(self.work/'outside.tbl',b'x')
+        for value in ('nested.tbl','folder','nothing;nested.tbl','../outside.tbl'):
+            with self.subTest(value=value):
+                self.append_mdu(f'[unselected]\nAlias = {value}\n');self.refused('unselected/alias');write(self.mdu,MDU)
+    def test_names_nothing_stays_raw_and_unbound(self):
+        self.append_mdu('[custom]\nTag = 1\nTag = 1\n[future]\nNote = names_nothing\nEmpty =\nList = a;b;c\n')
+        r=self.call('structure','inspect',self.mdu);self.assertTrue(r['graph_closed_I1']);self.assertEqual(r['graph_reasons'],[]);self.assertEqual(len(r['files']),7)
+        args=self.import_args(self.geo(XY.replace(b'500000',b'500005')));p=self.call(*args);self.call(*args,'--apply','--expect-sha256',p['input_sha256'])
+        self.assertEqual((self.model/'geo line.pli').read_bytes(),XY.replace(b'500000',b'500005'))
+    def test_catalogued_and_typed_keys_are_not_possible_references(self):
+        # NetFile/ObsFile/StructureFile/OutputDir name existing files or directories but are catalogued or typed grammar.
+        r=self.call('structure','inspect',self.mdu);self.assertTrue(r['graph_closed_I1'])
+        (self.work/'model'/'output').mkdir();r=self.call('structure','inspect',self.mdu);self.assertTrue(r['graph_closed_I1'])
+
 if __name__=='__main__':unittest.main(verbosity=2)
