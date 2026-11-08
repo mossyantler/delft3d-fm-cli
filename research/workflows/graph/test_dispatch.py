@@ -555,6 +555,22 @@ class Portable(unittest.TestCase):
                  "receipt_sha256": self.meta(name)["receipt"]["sha256"]} for name in ("T", "PLAN", "RUN")]
         return candidate, refs
 
+    def test_light_review_cannot_relabel_product_changes(self):
+        rec = self.start(task_kind="documentation", owns=["src/dfm_cli"])
+        candidate = self.candidate(rec, "src/dfm_cli/example.py")
+        path, _ = self.receipt(rec, candidate_sha=candidate, changed_paths=["src/dfm_cli/example.py"])
+        self.collect(path)
+        self.release(rec)
+        self.fake.issues["T"]["status"] = "closed"
+        self.task("G")
+        gate = self.start("G", role="G", task_kind="review", candidate_sha=candidate, base=candidate,
+                          read_only=True, owns=[])
+        refs = [{"task_id": "T", "dispatch_id": rec["dispatch_id"], "receipt_sha256": self.meta()["receipt"]["sha256"]}]
+        path, _ = self.receipt(gate, validation_refs=refs)
+        with self.assertRaises(dispatch.Refusal) as caught:
+            self.collect(path, "G")
+        self.assertEqual(caught.exception.reason, "approval_scope")
+
     def test_valid_role_chain_gate_and_exact_approval_refs(self):
         candidate, refs = self.accepted_graph()
         self.task("G")

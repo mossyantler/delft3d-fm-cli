@@ -1102,6 +1102,10 @@ def check_validation_refs(receipt: dict, environ: dict, cwd: Path, seen=None) ->
         for key in ("contract_sha", "candidate_sha", "verification_plan_sha256"):
             if doc.get(key) is not None and receipt.get(key) is not None and doc[key] != receipt[key]:
                 raise Refusal("target_mismatch", f"G and {ref['task_id']} disagree on {key}")
+        if doc["role"] == "I" and receipt["task_kind"] != "code":
+            product_paths = ("src/", "tests/")
+            if any(path.startswith(product_paths) or path == "pyproject.toml" for path in doc["changed_paths"]):
+                raise Refusal("approval_scope", "product changes require a code G and its full verification chain")
         if doc["role"] == "G":
             check_validation_refs(doc, environ, cwd, set(seen))
         if doc["role"] in roles:

@@ -103,7 +103,7 @@ fields refuse; use an `extensions` object for noncritical annotations.
 | I | Candidate commit, exact changed_paths, nonempty checks with command/result, implementation and checks artifacts. Completed code/docs I needs a nonempty commit |
 | V-Plan | Plan SHA-256 identifying its frozen verification_plan artifact; Contract only, no I analysis |
 | V-Run | Exact candidate, Contract and plan; explicit verdict; checks and structured verification/checks artifacts |
-| G | Candidate, Contract, approval_scope, review artifact and exact validation_refs (task ID, dispatch ID, original receipt hash). Code G also requires plan and current I/V-Plan/V-Run, with identified distinct I/V-Run sessions. Documentation G uses the lighter I + independent review evidence route |
+| G | Candidate, Contract, approval_scope, review artifact and exact validation_refs (task ID, dispatch ID, original receipt hash). Code G also requires plan and current I/V-Plan/V-Run, with identified distinct I/V-Run sessions. Tool/documentation review may use the lighter I + coordinator/independent review evidence route. Verified I changes under src/, tests/ or pyproject.toml require code G regardless of task labels |
 | Contract | Explicit Contract commit and contract artifact; no fake candidate/test/native fields |
 
 `checks.result` is pass/fail/skip. A successful I/V-Run needs at least one pass
