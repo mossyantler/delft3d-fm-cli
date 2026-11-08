@@ -17,10 +17,12 @@ from . import boundary_support, fm_model_identity, observation, observation_tran
 from . import boundary_coefficients, results_stations
 
 from . import source_sink
+from . import structure_transfer
 
 COMMAND_MODULES = {"mesh": mesh, "network": network, "layers": layers, "morph": morph, "coupling": coupling, "bmi": bmi, "water-quality": water_quality, "waq-offline": water_quality_offline_workflow, "rr-f152": rr_f152, "parallel": parallel, "project": project, "results": results, "observation": observation, "section": section_orientation, "pump": pump_commands, "weir": weir_series, "wind": wind_drag}
 
 COMMAND_MODULES["source"] = source_sink
+COMMAND_MODULES["structure"] = structure_transfer
 
 EXIT_CODES = {"0": "success (warnings may remain)", "2": "argument or edit usage error", "3": "unsupported capability, missing resource or I/O",
               "4": "validation/conflict", "5": "native execution/timeout/interruption", "6": "completion/output verification", "70": "unexpected internal error"}
@@ -153,6 +155,7 @@ def execute(args) -> dict:
                 "boundary_support_edit": boundary_support.contract(),
                 "boundary_coefficients": boundary_coefficients.contract(),
                 "source_sink": source_sink.contract(),
+                "structure_transfer": structure_transfer.contract(),
                 "station_results": results_stations.contract(),
                 "boundary_export": {"command": "boundary export", "contract": boundary_export.CONTRACT,
                                     "group_by": list(boundary_export.GROUPS), "limits": boundary_export.LIMITS,
