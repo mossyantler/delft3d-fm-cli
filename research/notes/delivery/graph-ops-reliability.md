@@ -371,3 +371,29 @@ review; no ownership may be inferred from a legacy record. New executions use
 protocol 2 and explicit runtime/plan/approval admission. Native authorization
 and leases remain separate. No DB migration, remote push or scientific approval
 is included in this local tooling acceptance.
+
+### Post-adoption operational snapshot
+
+Observed local integration: `a8d18019511a8bd0478b1e5505e6283d7004477d`.
+[Cutover index](../../workflows/graph/reliability-cutover.json) records actual
+post-adoption Gate/receipt revalidation, source equality, graph backup and the
+additional artifact manifest. The Beads backup/export contains 102 issues and
+its hash matches the tracked snapshot. Artifact copies were separately hashed.
+Cloud upload and cross-machine restore were not tested.
+
+The two shared dashboard edits retain their pre-adoption hashes. CLAUDE.md is
+an untracked symbolic link to AGENTS.md: the link and target path are preserved,
+while its displayed content follows the deliberately updated tracked guide.
+It is not claimed to have unchanged dereferenced bytes.
+
+Production `fill --dry-run` started nothing. Three dependency-Ready nodes
+(`dfm-jtm.3`, `dfm-jtm.6`, `dfm-qu3`) have no plan; the next coordinator action is
+to prepare and review their explicit packets/plans. Four legacy dispatches lack
+confirmed end records: `dfm-vbl.6`, `dfm-h9c.4`, `dfm-lo0.4`, `dfm-985.7`.
+Three nodes are closed, which does not prove their resources were released.
+All four reservations remain protected, without rewriting their history or
+controlling their sessions. Review retained name/pane/session/cwd, owned process
+handles, Git dirt/ignored evidence and unpreserved commits before any explicit
+release. New automatic cleanup cannot infer legacy ownership. This conservative
+cutover may hold capacity until that review; it is visible in the dry-run's
+`active_before: 4`. No product Ready work, old approval or live session changed.

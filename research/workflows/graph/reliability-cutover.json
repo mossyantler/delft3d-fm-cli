@@ -1,0 +1,155 @@
+{
+  "node": "GRAPH-OPS-RELIABILITY-G",
+  "integration_commit": "a8d18019511a8bd0478b1e5505e6283d7004477d",
+  "approved_source_candidate": "ab064b1baae6bdd692cf780baf32d853c15c785b",
+  "source_inputs_unchanged_after_verification": true,
+  "current_receipts_verified": [
+    {
+      "task_id": "dfm-fmc.53",
+      "status": "closed",
+      "receipt_sha256": "961c90d97a415b1c0e310c4fea9eb9673a587916e01121e57e88a845be1639aa"
+    },
+    {
+      "task_id": "dfm-fmc.52",
+      "status": "closed",
+      "receipt_sha256": "d34766bd39c4257e9f2f60782adb0f978ba4cef3cd5379abecb5715c36695a0d"
+    }
+  ],
+  "gate": {
+    "id": "dfm-fmc.53",
+    "ok": true,
+    "dependencies": [
+      {
+        "id": "dfm-fmc.52",
+        "status": "closed",
+        "dispatched": true,
+        "receipt_collected": true,
+        "ok": true
+      }
+    ],
+    "reasons": []
+  },
+  "ready_diagnosis": {
+    "ok": true,
+    "dry_run": true,
+    "started": [],
+    "skipped": [
+      {
+        "id": "dfm-jtm.3",
+        "reason": "no_plan",
+        "code": "no_plan",
+        "next_action": "coordinator prepares and reviews a Task Packet and plan"
+      },
+      {
+        "id": "dfm-jtm.6",
+        "reason": "no_plan",
+        "code": "no_plan",
+        "next_action": "coordinator prepares and reviews a Task Packet and plan"
+      },
+      {
+        "id": "dfm-qu3",
+        "reason": "no_plan",
+        "code": "no_plan",
+        "next_action": "coordinator prepares and reviews a Task Packet and plan"
+      }
+    ],
+    "limit": 2,
+    "active_before": 4
+  },
+  "legacy_reservations": {
+    "observed_from": "post-adoption exported Beads snapshot",
+    "records": [
+      {
+        "task_id": "dfm-vbl.6",
+        "task_code": "G18-REBIND-V-Plan",
+        "node_status": "closed",
+        "protocol_version": null,
+        "action": "preserve reservation; inspect exact owned session/pane/cwd, Git changes and retained commits before explicit recovery; closure is not process-exit evidence"
+      },
+      {
+        "task_id": "dfm-h9c.4",
+        "task_code": "G15-V-Run",
+        "node_status": "in_progress",
+        "protocol_version": null,
+        "action": "preserve reservation; inspect exact owned session/pane/cwd, Git changes and retained commits before explicit recovery; closure is not process-exit evidence"
+      },
+      {
+        "task_id": "dfm-lo0.4",
+        "task_code": "S07-V-Run",
+        "node_status": "closed",
+        "protocol_version": null,
+        "action": "preserve reservation; inspect exact owned session/pane/cwd, Git changes and retained commits before explicit recovery; closure is not process-exit evidence"
+      },
+      {
+        "task_id": "dfm-985.7",
+        "task_code": "B06-RUN-PROFILE-V-Run",
+        "node_status": "closed",
+        "protocol_version": null,
+        "action": "preserve reservation; inspect exact owned session/pane/cwd, Git changes and retained commits before explicit recovery; closure is not process-exit evidence"
+      }
+    ],
+    "writes_to_these_nodes": 0
+  },
+  "shared_files": {
+    "dashboard.py": "same SHA-256 as pre-adoption",
+    "test_dashboard.py": "same SHA-256 as pre-adoption",
+    "CLAUDE.md": "original untracked symbolic link to AGENTS.md preserved; target reflects approved guide change"
+  },
+  "graph_backup": {
+    "ok": true,
+    "jsonl_issues": 102,
+    "jsonl_sha256": "55b48e39f6cafd549a37f87688f882db799e837bbb3b921bc85580400d40ce05"
+  },
+  "graph_backup_locator": "OneDrive/delft3d-fm-cli-beads-backup",
+  "artifact_backup_locator": "OneDrive/delft3d-fm-cli-beads-backup/evidence/GRAPH-OPS-RELIABILITY-G",
+  "artifact_manifest": {
+    "path": "cutover-manifest.json",
+    "sha256": "9159531a3dca8ad2abb7de19f1a4388caadef4563fc4d08f217d690585684197",
+    "original_manifest_sha256": "c112326bdf069ac9133608acccbe50da31ad7a1d90927af1ac5e292ae5536c8c"
+  },
+  "additional_artifacts": [
+    {
+      "original": "post-adoption-dry-run.json",
+      "artifact_id": "sha256:87ab8b0f261b9140a4321fe50108b550935f781eedcc83b41d36f48a6c5bab2e",
+      "path": "87ab8b0f261b9140a4321fe50108b550935f781eedcc83b41d36f48a6c5bab2e/post-adoption-dry-run.json",
+      "sha256": "87ab8b0f261b9140a4321fe50108b550935f781eedcc83b41d36f48a6c5bab2e"
+    },
+    {
+      "original": "post-adoption-gate.json",
+      "artifact_id": "sha256:fae0b0808a7cb9350a28db25af68668098c67de5a5064de19386bc06b3d27cba",
+      "path": "fae0b0808a7cb9350a28db25af68668098c67de5a5064de19386bc06b3d27cba/post-adoption-gate.json",
+      "sha256": "fae0b0808a7cb9350a28db25af68668098c67de5a5064de19386bc06b3d27cba"
+    },
+    {
+      "original": "legacy-reservation-review.json",
+      "artifact_id": "sha256:c7aefa461fddc17c5940f1f55c8eba6380fc4d765f993f48853b765272f5e668",
+      "path": "c7aefa461fddc17c5940f1f55c8eba6380fc4d765f993f48853b765272f5e668/legacy-reservation-review.json",
+      "sha256": "c7aefa461fddc17c5940f1f55c8eba6380fc4d765f993f48853b765272f5e668"
+    },
+    {
+      "original": "post-adoption-graph-backup.json",
+      "artifact_id": "sha256:e3b2910dc7f98017db2a07f5adc1ad6838a95b16b568b7b0fd6e097ca6c9c2d7",
+      "path": "e3b2910dc7f98017db2a07f5adc1ad6838a95b16b568b7b0fd6e097ca6c9c2d7/post-adoption-graph-backup.json",
+      "sha256": "e3b2910dc7f98017db2a07f5adc1ad6838a95b16b568b7b0fd6e097ca6c9c2d7"
+    },
+    {
+      "original": "final-graph-backup.json",
+      "artifact_id": "sha256:c41277c330e3ebc32a86717afc8cb992ad9e6f42a2820a468828ad5253fc6307",
+      "path": "c41277c330e3ebc32a86717afc8cb992ad9e6f42a2820a468828ad5253fc6307/final-graph-backup.json",
+      "sha256": "c41277c330e3ebc32a86717afc8cb992ad9e6f42a2820a468828ad5253fc6307"
+    }
+  ],
+  "not_performed": [
+    "remote push",
+    "product queue execution",
+    "legacy migration or approval changes",
+    "Native/scientific verification",
+    "live crash/foreign-process cleanup experiment",
+    "cloud-upload or cross-machine restoration test"
+  ],
+  "next_actions": [
+    "Coordinator prepares reviewed plans/packets for three no_plan Ready nodes; no inferred plan was written.",
+    "Review four preserved legacy reservations using retained owned identity and Git evidence before manual release; do not treat closed as stopped.",
+    "Pinned GRAPH-OPS-LEGACY-COLLECT at f264402 supports explicitly directed legacy collection only; new Gate evidence requires explicit current-target review."
+  ]
+}

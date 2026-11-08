@@ -26,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-08 G18 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-08 GRAPH-OPS-RELIABILITY-G 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -53,10 +53,11 @@
 | B14 | B14-G: B14 전체 합류 검수 | Blocked | `dfm-jtm.8` |
 | G15 | G15-Contract: 수정 계약 승인 (23의무·16범위) | ✓ | `dfm-h9c.1` |
 | G15 | G15-V-Plan: 공개 30·저장 오류 11 시험 준비 (Lovelace) | ✓ | `dfm-h9c.2` |
-| G15 | G15-I: 정확한 후보 확정·동결 (package-02 이후 추가분 포함) | Ready | `dfm-h9c.3` |
-| G15 | G15-V-Run: 독립 설치 검수 | Blocked | `dfm-h9c.4` |
+| G15 | G15-I: 정확한 후보 확정·동결 (package-02 이후 추가분 포함) | ✓ | `dfm-h9c.3` |
+| G15 | G15-V-Run: 독립 설치 검수 | in_progress | `dfm-h9c.4` |
 | G15 | G15-G: G15 파일 기능 통합 검수 | Blocked | `dfm-h9c.5` |
 | G15 | G15-ENGINE-Contract: 엔진·GUI 검증 별도 계획 | Blocked | `dfm-h9c.6` |
+| G15 | HUMAN-20261108-05: ACL writes for G15-V-Run inside its own experiment folder | ✓ | `dfm-h9c.7` |
 | G18 | G18-FILE-G: 파일 작업 최종 검수 (입력 편집만) | ✓ | `dfm-vbl.1` |
 | G18 | G18-NATIVE-V-Plan: 수치 검증 계획·입력 동결 (Mill) | ✓ | `dfm-vbl.2` |
 | G18 | G18-NATIVE-I: 현재 191파일 기준 새 구성 | ✓ | `dfm-vbl.3` |
@@ -112,8 +113,8 @@
 | GRAPH-OPS | GRAPH-OPS-P2-MIGRATE-G: 공정 이관과 DELIVERY 교차 검수 | ✓ | `dfm-fmc.5` |
 | GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-SMOKE-C: live C5 check with Claude | ✓ | `dfm-fmc.50` |
 | GRAPH-OPS | GRAPH-OPS-P3-LIVEFIX-SMOKE-X: live C5 check with Codex | ✓ | `dfm-fmc.51` |
-| GRAPH-OPS | GRAPH-OPS-RELIABILITY-I: bind attempts, receipts, gates and recovery | in_progress | `dfm-fmc.52` |
-| GRAPH-OPS | GRAPH-OPS-RELIABILITY-G: isolated integration review and local adoption | in_progress | `dfm-fmc.53` |
+| GRAPH-OPS | GRAPH-OPS-RELIABILITY-I: bind attempts, receipts, gates and recovery | ✓ | `dfm-fmc.52` |
+| GRAPH-OPS | GRAPH-OPS-RELIABILITY-G: isolated integration review and local adoption | ✓ | `dfm-fmc.53` |
 | GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | ✓ | `dfm-fmc.6` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-I: bdw backup-sync (OneDrive Dolt + Git JSONL) | ✓ | `dfm-fmc.7` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-V: backup-sync 독립 검증·복원 대조 | ✓ | `dfm-fmc.8` |
@@ -143,6 +144,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| GRAPH-OPS-RELIABILITY-G | `a8d1801` (candidate `ab064b1`, V `c657725`) | [Graph protocol 2 acceptance](research/notes/delivery/graph-ops-reliability.md#accepted-g-evidence-and-local-cutover-2026-11-08): 63 checks, no skips; scoped independent V and isolated live receipt/Gate/cleanup checks. Tooling only; no Native/scientific claim. |
 | G18-G | `954f5b3` (merge of `f95f415`) | [#235·#236 관측 단면 교환](research/notes/verification/section-transfer.md). `section export`·`import`. 실제 6회 실행에서 수동·공개 입력 결과가 정확히 일치, 방향 반전 오차 0(사용자 승인 `HUMAN-20261108-03`·`-04`) |
 | S07-G | `32ae74f` (merge of `10c33f4`) | [#233 풍속별 항력 계수](research/notes/verification/wind-drag.md). `wind drag-inspect`·`drag-set`. 실제 7회 실행의 풍응력이 예측값과 허용 오차 안에서 일치(사용자 승인 `HUMAN-20261108-01`·`-02`) |
 | B06-RUN-PROFILE-G | `d22876a` (merge of `cf810b0`) | [#232 공개 실행 프로필](research/notes/verification/source-sink.md#public-run). `run start --profile source-sink` direct·DIMR. 독립 검증 2회차 358/358, 실제 4회 실행이 #225와 170변수 정확히 일치(사용자 승인 `HUMAN-20261107-01`) |
