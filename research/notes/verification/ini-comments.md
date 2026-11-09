@@ -28,10 +28,11 @@ The installed binary's source commit is not established.
   comments; in the data rows they keep their earlier handling.
 - Writers never touch comment lines, so preview/apply edits keep them byte for byte.
 - The product still also accepts `;` lines and inline `#`, which the engine readers do not all list.
-- **Known gap:** eleven other callers of `boundary._blocks` (in `boundary_export*`, `boundary_vertical*`,
-  `boundary_preview_graph`, `boundary_import_parse`, `boundary_series*`, `boundary_constituents*`, `source_sink*`) still
-  read EXT/BC/inifield with the earlier rule, so `boundary inspect` and these commands can disagree on `*` lines.
-  Tracked as `INI-ALIGN-CONSUMERS`.
+- **Other `boundary._blocks` callers:** since `CONSUMERS-G` the twelve callers in `boundary_export*`,
+  `boundary_vertical*`, `boundary_preview_graph`, `boundary_import_parse`, `boundary_series*`,
+  `boundary_constituents*` and `source_sink_graph` pass the mode of the file they read (`ini` for new EXT and inifield,
+  `bc` for `.bc`). **Remaining gap:** `source_sink_run_inputs.py:110` still reads its `.bc` with the earlier rule
+  (`CONSUMERS-RUN-INPUTS`).
 
 ## Verification (2026-11-09)
 
@@ -39,6 +40,7 @@ The installed binary's source commit is not established.
 | --- | --- |
 | `model.parse` ([Contract](../delivery/ini-star-comment.md) + R5) | 20 author tests; V 265 cases (112 new acceptance fail on base); schema and usage of 107 commands unchanged; regression 1,878 |
 | Other readers ([Contract](../delivery/ini-star-align.md) + R5) | 23 author tests; V 410 decisive cases pass (164 new-behaviour cases fail on base); round 1 REJECTED only a frozen private probe that omitted the new mode argument, round 2 passed with the reviewed one-call adapter; regression 1,901 |
+| `_blocks` callers ([Contract](../delivery/ini-align-consumers.md) + R5) | 18-line product change in 10 modules; V 7,717 checks over 2,033 public CLI calls in eight command families; regression 1,927 |
 
 - **Evidence:** [model.parse V review](../../experiments/INI-STAR-V-Run-20261109-01/REVIEW.md),
   [G](../../experiments/INI-STAR-G-20261109-01/acceptance.json);
@@ -50,5 +52,5 @@ The installed binary's source commit is not established.
 ## Not established
 
 - engine or GUI runs with these comment lines;
-- the eleven other `_blocks` callers (above);
+- `source_sink_run_inputs.py:110` (above);
 - TIM and other readers not listed.
