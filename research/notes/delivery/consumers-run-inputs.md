@@ -37,6 +37,15 @@ on a `.bc` file with header comment lines. `bc_state` feeds the admission of `df
 - **V-Run:** the plan against the frozen candidate on a clean wheel install; regression on candidate and base. No
   engine, GUI or real-run Job.
 
+## R5. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **Lines after a block's data (A1).** As `ini-star-align.md` R5.2: from a block's first numeric row until the next
+   block header the engine's data reader applies, so `!`, `%` and `*` lines there keep their current outcome.
+2. **Schema byte-equal (A2).** The exact UTF-8 stdout of public `dfm schema inspect`, including its protocol envelope.
+3. **Equal `bc_state` result (A3).** Equal semantic values; provenance line numbers (`quantity_line`, `unit_line`)
+   point at the physical lines of each file and therefore shift by exactly the number of inserted lines, as
+   `ini-star-comment.md` R5.2 defines for offsets.
+
 ## R4. Out of scope
 
 - Engine runs; any other parser or caller; `;` and inline `#`.
