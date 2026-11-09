@@ -60,6 +60,20 @@ Make each site follow the engine rule of the file kind it reads, and nothing els
   without comment lines.
 - **V-Run:** the plan against the frozen candidate on a clean wheel install; regression on candidate and base.
 
+## R5. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **PLI scope (A1).** R1.2 changes comment handling only within what each reader already supports. Readers that
+   accept exactly one polyline keep refusing a second one; for them the rule covers `*` lines before the first label.
+   Readers that already accept several polylines also skip `*` lines between one polyline's last row and the next
+   label. No reader gains multi-polyline support.
+2. **BC lines after numeric rows (A2).** A `.bc` line is a header comment under R1.3 only when it comes before the
+   first numeric data row of its block (or before the first block). From a block's first numeric row until the next
+   block header, the engine's data reader applies (`ec_bcreader.f90:803-806`: empty or column-1 `#` only), so `!`,
+   `%` and `*` lines there keep their current product behaviour.
+3. **Project audit (A3).** There is no public `project audit` command, and console-backed `project import/export` is
+   outside this Contract. Labeled internal coverage through `project_files.audit_project` and `_bc_semantics` meets
+   R3 for `project_files.py`; no console run and no new command.
+
 ## R4. Out of scope
 
 - `;` and inline `#` differences; `.bc` data-row and PLI data-row comments; `.xyn`; `model.parse`;
