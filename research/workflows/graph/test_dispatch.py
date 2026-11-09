@@ -264,6 +264,24 @@ class Portable(unittest.TestCase):
         self.assertIn(original.decode(), sent)
         self.assertNotIn("MUTATED", sent)
 
+    def test_late_session_id_is_recorded_after_submission(self):
+        boundary, gets = self.fake.herdr, []
+        def late(env, cwd, *args):
+            result = boundary(env, cwd, *args)
+            if args[:2] == ("agent", "start"):
+                self.fake.agents[args[2]]["agent_session"] = {"value": None}
+                result["result"]["agent"]["agent_session"] = {"value": None}
+            if args[:2] == ("agent", "get") and args[2] in self.fake.agents:
+                gets.append(args[2])
+                if len(gets) == 4:
+                    self.fake.agents[args[2]]["agent_session"] = {"value": "late-session"}
+                    result["result"]["agent"]["agent_session"] = {"value": "late-session"}
+            return result
+        with patch.object(dispatch, "herdr", late), patch.object(dispatch.time, "sleep", lambda s: None):
+            rec = self.start(kind="codex")
+        self.assertEqual(rec["session_id"], "late-session")
+        self.assertEqual(dispatch.observe_execution(self.env, self.repo, rec)["state"], "live")
+
     def test_codex_startup_packet_is_frozen_and_sent_exactly_once(self):
         proof = json.loads(self.proof.read_text()); proof["prompt_delivery"] = "startup_argument"
         self.proof.write_text(json.dumps(proof))

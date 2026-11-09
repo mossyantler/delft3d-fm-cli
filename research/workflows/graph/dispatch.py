@@ -30,6 +30,7 @@ BLOCKING_DEPENDENCIES = {"blocks", "conditional-blocks", "waits-for"}
 SETTLED = {"idle", "done"}
 HERDR_TIMEOUT = 240
 SUBMIT_SECONDS = 30.0  # Contract C5.1; DFM_DISPATCH_SUBMIT_SECONDS overrides it (tests)
+SESSION_SECONDS = 60.0  # late Codex session ids (GRAPH-CODEX-SESSION); DFM_DISPATCH_SESSION_SECONDS overrides
 TURN_STATES = {"working", "blocked", "done"}
 SCREEN_TURN_MARKERS = ("esc to interr", "Working (")  # Contract P0.2
 RIGHT_SPLIT_MIN_WIDTH = 120  # Contract P0.1
@@ -329,6 +330,14 @@ def submit_seconds(environ: dict[str, str]) -> float:
         return max(0.0, float(environ["DFM_DISPATCH_SUBMIT_SECONDS"]))
     except (KeyError, ValueError):
         return SUBMIT_SECONDS
+
+
+def session_seconds(environ: dict[str, str]) -> float:
+    """Seconds to wait for a late agent session id after submission; DFM_DISPATCH_SESSION_SECONDS overrides."""
+    try:
+        return max(0.0, float(environ["DFM_DISPATCH_SESSION_SECONDS"]))
+    except (KeyError, ValueError):
+        return SESSION_SECONDS
 
 
 def screen_shows_turn(environ: dict[str, str], cwd: Path, name: str) -> bool:
@@ -774,7 +783,10 @@ def cmd_start(a: argparse.Namespace, environ: dict[str, str], cwd: Path) -> dict
         if not wait_for_turn(environ, cwd, name, before["state_change_seq"], submit_seconds(environ),
                              startup_prompt or not before["session_id"]):
             raise Failure("prompt submission is uncertain; no automatic Enter or retransmission")
-        info = read_session(environ, cwd, name, attempts=1)
+        # Codex reports its session id only after the first turn creates a rollout;
+        # poll for it so stop/collect can later verify the name/pane/session tuple.
+        info = read_session(environ, cwd, name,
+                            attempts=1 if rec["session_id"] else max(1, int(session_seconds(environ))))
         if info["pane_id"] != new_pane or (rec["session_id"] and rec["session_id"] != info["session_id"]):
             raise Failure("agent identity changed after prompt submission")
         rec["session_id"] = info["session_id"]
