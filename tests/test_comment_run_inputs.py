@@ -24,7 +24,7 @@ from dfm_cli.source_sink_run_inputs import PROFILE
 TESTS = Path(__file__).resolve().parent
 if str(TESTS) not in sys.path:
     sys.path.insert(0, str(TESTS))
-from test_comment_consumers import norm, note_bc, without_notes  # noqa: E402
+from test_comment_consumers import is_note, norm, note_bc, without_notes  # noqa: E402
 
 FIXTURES = TESTS / 'source_sink_run_fixtures'
 
@@ -132,7 +132,34 @@ class RunInputsComments(unittest.TestCase):
         self.assertEqual(self.bc().read_bytes(), (run.folder / 'model/source.bc').read_bytes())
         self.assertNotEqual((run.folder / 'model/source.bc').read_bytes(), (plain.folder / 'model/source.bc').read_bytes())
 
+    def test_comment_lines_shift_only_the_provenance_line_numbers(self):  # NEW (R5.3)
+        self.bc(note_bc(self.bc().read_bytes()))
+        noted = self.bc().read_bytes().splitlines(keepends=True)
+        before = [sum(is_note(line) for line in noted[:i]) for i in range(len(noted))]  # notes above physical line i+1
+        plain = [i + 1 - before[i] for i in range(len(noted)) if not is_note(noted[i])]  # plain number of each kept line
+        shifted = {plain_number: i + 1 for i, plain_number in zip((i for i in range(len(noted)) if not is_note(noted[i])), plain)}
+        got = self.preflight(self.noted)[1]['source_sink']['forcing_blocks']
+        want = self.plain_result[1]['source_sink']['forcing_blocks']
+        self.assertEqual(len(got), len(want))
+        for new, old in zip(got, want):
+            for column_new, column_old in zip(new['columns'], old['columns']):
+                for key in ('quantity_line', 'unit_line'):
+                    self.assertEqual(column_new[key], shifted[column_old[key]], key)
+                    self.assertGreater(column_new[key], column_old[key] - 1)
+                self.assertEqual({k: v for k, v in column_new.items() if not k.endswith('_line')},
+                                 {k: v for k, v in column_old.items() if not k.endswith('_line')})
+        self.assertNotEqual(got, want)
+
     # ------------------------------------------------------------------ controls (pass on the base too)
+
+    def test_each_comment_char_after_the_first_row_keeps_its_refusal(self):  # control (R5.1)
+        raw = self.bc().read_bytes()
+        for char in (b'!', b'%', b'*'):
+            for anchor in (b'120 0.1 5', b'# unrelated exact bytes must survive public operations'):
+                with self.subTest(char=char, before=anchor):
+                    self.bc(raw)
+                    self.insert(anchor, char + b' cmt-note after data')
+                    self.refused()
 
     def test_no_comment_lines_admit_exactly_as_before(self):  # control
         self.assertSameAdmission()
