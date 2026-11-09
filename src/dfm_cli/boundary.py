@@ -52,7 +52,8 @@ def _number(value: str, *, argument: bool = False) -> Decimal:
     return number
 
 
-def _text(raw: bytes, path: Path):
+def _scan(raw: bytes, path: Path):
+    """Yield ``(line, byte offset, code, content)``; ``content`` is the full line without a line-1 BOM."""
     try:
         raw.decode("utf-8-sig")
     except UnicodeError as exc:
@@ -63,8 +64,21 @@ def _text(raw: bytes, path: Path):
         bom = len(original) - len(content)
         code = content.split(b"#", 1)[0].rstrip(b"\r\n")
         if code.strip() and not code.lstrip().startswith(b";"):
-            yield line, offset + bom, code
+            yield line, offset + bom, code, content
         offset += len(original)
+
+
+def _ini_comment(content: bytes) -> bool:
+    # Engine INI reader (properties.f90:325-334): '*' after leading ASCII spaces; a tab keeps the line content.
+    return content.lstrip(b" ").startswith(b"*")
+
+
+def _text(raw: bytes, path: Path, comments: str | None = None):
+    """Content lines. ``comments="ini"`` also drops engine ``*`` comment lines (new EXT)."""
+    for line, offset, code, content in _scan(raw, path):
+        if comments == "ini" and _ini_comment(content):
+            continue
+        yield line, offset, code
 
 
 @dataclass
@@ -105,9 +119,15 @@ class _Block:
         return matches[0].value
 
 
-def _blocks(raw: bytes, path: Path, *, opaque_forcing: bool = False) -> list[_Block]:
+def _blocks(raw: bytes, path: Path, *, opaque_forcing: bool = False, comments: str | None = None) -> list[_Block]:
+    """``comments``: ``"ini"`` (EXT: ``*`` after spaces) or ``"bc"`` (column-1 ``!%*`` outside numeric rows)."""
     result: list[_Block] = []
-    for line, offset, code in _text(raw, path):
+    for line, offset, code, content in _scan(raw, path):
+        if comments == "ini" and _ini_comment(content):
+            continue
+        # ec_bcreader.f90:194-195 (header scan); data rows only skip '#' (:803-804), handled by _scan.
+        if comments == "bc" and content[:1] in (b"!", b"%", b"*") and not (result and result[-1].rows):
+            continue
         stripped = code.strip()
         if stripped.startswith(b"["):
             if not re.fullmatch(rb"\[[A-Za-z ]+\]", stripped):
@@ -244,7 +264,12 @@ class _Inputs:
 
 
 def _pli(raw: bytes, path: Path) -> tuple[str, list[dict]]:
-    lines = list(_text(raw, path))
+    # read1polylin (meteo1.f90:473-475): column-1 '*' lines before the label are comments. This reader accepts
+    # exactly one polyline (Contract R5.1), so only the lines before the first label qualify.
+    items = list(_scan(raw, path))
+    while items and items[0][3][:1] == b"*":
+        del items[0]
+    lines = [item[:3] for item in items]
     if len(lines) < 3:
         _fail("invalid_pli", "Expected a polyline label, dimensions and coordinates", path)
     label = lines[0][2].strip().decode("utf-8")
@@ -270,7 +295,7 @@ def _pli(raw: bytes, path: Path) -> tuple[str, list[dict]]:
 
 
 def _bc(raw: bytes, path: Path) -> dict[str, dict]:
-    blocks = _blocks(raw, path, opaque_forcing=True)
+    blocks = _blocks(raw, path, opaque_forcing=True, comments="bc")
     _header(blocks, path, "boundconds", {"1.01"})
     signals = {}
     for ordinal, block in enumerate(blocks[1:], 1):
@@ -346,7 +371,7 @@ class _Graph:
             _fail("missing_reference", "Required ExtForceFileNew is missing", self.mdu)
         self.references: list[dict] = []
         ext = self.reference(self.mdu, ext_name, "extforcefilenew")
-        blocks = _blocks(self.inputs.raw(ext), ext)
+        blocks = _blocks(self.inputs.raw(ext), ext, comments="ini")
         _header(blocks, ext, "extforce", {"2.01", "2.02"})
         self.boundaries: list[dict] = []
         self.consumers: dict[Path, list[dict]] = {}

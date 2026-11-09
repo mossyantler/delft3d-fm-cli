@@ -60,13 +60,19 @@ class Block:
         return values[0]
 
 
-def blocks(raw):
+def blocks(raw, kind="ini"):
+    """INI blocks. ``kind="ini"`` (inifield, EXT): engine ``*`` comment lines (after ASCII spaces; properties.f90:325-334).
+    ``kind="bc"``: column-1 ``!``/``%``/``*`` lines outside numeric data rows (ec_bcreader.f90:194-195)."""
     result = []
     try:
         text = raw.decode("utf-8-sig")
     except UnicodeError as exc:
         raise DfmError("unsupported_layers_profile", "Layer text inputs must be UTF-8/ASCII", 4) from exc
     for line, original in enumerate(text.splitlines(), 1):
+        if kind == "ini" and original.lstrip(" ").startswith("*"):
+            continue
+        if kind == "bc" and original[:1] in ("!", "%", "*") and not (result and result[-1].rows):
+            continue
         code = original.split("#", 1)[0].strip()
         if not code or code.startswith(";"):
             continue
@@ -175,9 +181,18 @@ def collect(mdu):
     return report, inputs, profile
 
 
+def _pli_lines(raw):
+    """PLI/reapol content lines. These readers accept one polyline, so a column-1 ``*`` line is a comment only before
+    the first label (meteo1.f90:473-475, reapol_nampli.f90:85; Contract R5.1). Elsewhere it stays content."""
+    entries = [(line.split("#", 1)[0].strip(), line[:1] == "*") for line in raw.decode("utf-8-sig").splitlines()]
+    entries = [item for item in entries if item[0] and not item[0].startswith(";")]
+    while entries and entries[0][1]:
+        del entries[0]
+    return [code for code, _ in entries]
+
+
 def polyline(raw):
-    lines = [line.split("#", 1)[0].strip() for line in raw.decode("utf-8-sig").splitlines()]
-    lines = [line for line in lines if line and not line.startswith(";")]
+    lines = _pli_lines(raw)
     if len(lines) < 4 or not re.fullmatch(r"[A-Za-z][A-Za-z0-9_-]{0,63}", lines[0]):
         fail("Invalid boundary polyline identity", code="unsupported_layers_profile")
     dims = lines[1].split()
@@ -196,8 +211,7 @@ def polyline(raw):
 
 
 def profile_table(raw):
-    lines = [line.split("#", 1)[0].strip() for line in raw.decode("utf-8-sig").splitlines()]
-    lines = [line for line in lines if line and not line.startswith(";")]
+    lines = _pli_lines(raw)
     if len(lines) < 4 or len(lines[1].split()) != 2:
         fail("Initial vertical profile requires a PLI label and row/column counts", code="unsupported_layers_profile")
     try:
@@ -215,7 +229,7 @@ def profile_table(raw):
 
 
 def signals(raw, clock):
-    parsed = blocks(raw)
+    parsed = blocks(raw, "bc")
     header(parsed, "boundconds", {"1.01"})
     result, total = {}, 0
     origin = datetime.fromisoformat(clock["start"])

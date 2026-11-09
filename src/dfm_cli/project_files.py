@@ -122,16 +122,19 @@ def _bc_references(path: Path):
     # Unsupported metadata cannot conceal another file/URL or executable script.
     allowed = {"general": {"filetype", "fileversion"},
                "forcing": {"name", "function", "quantity", "unit", "time-interpolation", "offset", "factor"}}
-    section, function = "", None
+    section, function, rows = "", None, False
     try:
         text = path.read_text(encoding="utf-8-sig")
     except UnicodeError as exc:
         raise DfmError("project_unsupported_bc", "BC reference audit requires UTF-8/ASCII", details=str(path)) from exc
     for line_number, line in enumerate(text.splitlines(), 1):
+        if line[:1] in ("!", "%", "*") and not rows:  # ec_bcreader.f90:194-195, outside numeric data rows
+            continue
         code = line.split("#", 1)[0].strip()
         if not code or code.startswith(";"):
             continue
         if code.startswith("[") and code.endswith("]"):
+            rows = False
             if section == "forcing" and function not in {"harmonic", "timeseries"}:
                 fail("project_unsupported_bc", "Only harmonic/timeseries terminal BC data is covered", str(path))
             section, function = code[1:-1].strip().casefold(), None
@@ -147,6 +150,8 @@ def _bc_references(path: Path):
                 function = value.casefold()
         elif section != "forcing":
             fail("project_unsupported_bc", "Unexpected BC content", str(path))
+        else:
+            rows = True
     if section == "forcing" and function not in {"harmonic", "timeseries"}:
         fail("project_unsupported_bc", "Only harmonic/timeseries terminal BC data is covered", str(path))
 
@@ -170,6 +175,8 @@ def _bc_semantics(path: Path) -> list:
     """Ordered metadata/columns/rows for supported BC, ignoring presentation."""
     result, rows_started = [], False
     for number, line in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
+        if line[:1] in ("!", "%", "*") and not rows_started:  # ec_bcreader.f90:194-195, outside numeric data rows
+            continue
         code = line.split("#", 1)[0].strip()
         if not code or code.startswith(";"):
             continue

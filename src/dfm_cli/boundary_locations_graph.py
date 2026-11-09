@@ -220,7 +220,9 @@ def prior_objects(prior, mdu_name, files):
     return objects
 
 
-def lines(raw):
+def lines(raw, kind="ini"):
+    """Content lines. ``kind="ini"`` drops engine ``*`` comment lines (EXT, properties.f90:325-334: ``*`` after ASCII
+    spaces); ``kind="pli"`` yields a fifth item, True for a column-1 ``*`` line (read1polylin, meteo1.f90:473-475)."""
     try:
         raw.decode("utf-8-sig")
     except UnicodeError as exc:
@@ -231,7 +233,10 @@ def lines(raw):
         bom = len(line) - len(code)
         code = code.split(b"#", 1)[0].rstrip(b"\r\n")
         if code.strip() and not code.lstrip().startswith(b";"):
-            yield number, offset, offset + bom, code
+            if kind == "pli":
+                yield number, offset, offset + bom, code, line[bom:bom + 1] == b"*"
+            elif not line[bom:].lstrip(b" ").startswith(b"*"):
+                yield number, offset, offset + bom, code
         offset += len(line)
 
 
@@ -247,13 +252,19 @@ def numeric(token):
 
 
 def pli(raw, path):
-    codes = list(lines(raw)); cursor = 0; result = []
+    codes = list(lines(raw, "pli")); cursor = 0; result = []
     while cursor < len(codes):
-        _, _, _, label_code = codes[cursor]; label = label_code.strip().decode("utf-8")
+        if codes[cursor][4]:  # column-1 '*' before a label (first, or after a polyline's last row) is a comment
+            ahead = cursor
+            while ahead < len(codes) and codes[ahead][4]:
+                ahead += 1
+            if ahead < len(codes):  # a label follows; with none the line keeps its current refusal
+                cursor = ahead
+        _, _, _, label_code, _ = codes[cursor]; label = label_code.strip().decode("utf-8")
         require(LABEL.fullmatch(label) and not label.endswith('.') and label.split('.')[0].upper() not in RESERVED,
                 "pli", "PLI label must be one bounded portable non-reserved identifier", label)
         require(cursor + 1 < len(codes), "pli", "Missing PLI row/column counts", str(path))
-        _, _, count_offset, count_code = codes[cursor+1]
+        _, _, count_offset, count_code, _ = codes[cursor+1]
         counts = list(re.finditer(rb"\S+", count_code))
         require(len(counts) == 2 and all(re.fullmatch(rb"[0-9]+", item[0]) for item in counts), "pli", "Expected integral PLI row/column counts")
         require(len(counts[0][0]) <= 7 and len(counts[1][0]) <= 2, "pli", "PLI count exceeds bounds")
@@ -261,7 +272,7 @@ def pli(raw, path):
         require(2 <= rows <= 100000 and columns == 2, "pli", "Require2..100000 XY-only points; vertical coordinates/datum conversion unsupported")
         require(cursor + 2 + rows <= len(codes), "pli", "Insufficient PLI coordinate rows")
         points = []
-        for index, (_, start, data_offset, data) in enumerate(codes[cursor+2:cursor+2+rows], 1):
+        for index, (_, start, data_offset, data, _) in enumerate(codes[cursor+2:cursor+2+rows], 1):
             tokens = list(re.finditer(rb"\S+", data))
             require(len(tokens) in (2, 3), "pli", "Exactly two numeric columns plus optional canonical support ID required")
             support = None
@@ -324,7 +335,8 @@ def comment_block(raw, block):
     result = []
     for line in raw[block.start:block.end].splitlines(keepends=True):
         code = line.strip()
-        result.append(b"# boundary-location-import removed: " + line if code and not code.startswith((b"#", b";")) else line)
+        star = line.lstrip(b" ").startswith(b"*")  # engine INI comment line: kept byte for byte
+        result.append(b"# boundary-location-import removed: " + line if code and not star and not code.startswith((b"#", b";")) else line)
     return b"".join(result)
 
 
