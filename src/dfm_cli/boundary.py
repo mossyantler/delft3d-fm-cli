@@ -264,17 +264,12 @@ class _Inputs:
 
 
 def _pli(raw: bytes, path: Path) -> tuple[str, list[dict]]:
-    # read1polylin (meteo1.f90:473-475): column-1 '*' lines before the label are comments; so after the rows,
-    # where the next label would be read. '*' lines between the label and the last row stay content.
+    # read1polylin (meteo1.f90:473-475): column-1 '*' lines before the label are comments. This reader accepts
+    # exactly one polyline (Contract R5.1), so only the lines before the first label qualify.
     items = list(_scan(raw, path))
     while items and items[0][3][:1] == b"*":
         del items[0]
     lines = [item[:3] for item in items]
-    dimensions = lines[1][2].split() if len(lines) > 1 else []
-    if len(dimensions) == 2 and all(re.fullmatch(rb"[0-9]+", v) for v in dimensions) and len(dimensions[0]) < 8:
-        end = int(dimensions[0]) + 2
-        if len(items) > end and all(item[3][:1] == b"*" for item in items[end:]):
-            del lines[end:]
     if len(lines) < 3:
         _fail("invalid_pli", "Expected a polyline label, dimensions and coordinates", path)
     label = lines[0][2].strip().decode("utf-8")

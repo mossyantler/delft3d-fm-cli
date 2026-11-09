@@ -254,9 +254,12 @@ def numeric(token):
 def pli(raw, path):
     codes = list(lines(raw, "pli")); cursor = 0; result = []
     while cursor < len(codes):
-        if codes[cursor][4]:  # column-1 '*' where a label is expected is a comment (read1polylin / reapol)
-            cursor += 1
-            continue
+        if codes[cursor][4]:  # column-1 '*' before a label (first, or after a polyline's last row) is a comment
+            ahead = cursor
+            while ahead < len(codes) and codes[ahead][4]:
+                ahead += 1
+            if ahead < len(codes):  # a label follows; with none the line keeps its current refusal
+                cursor = ahead
         _, _, _, label_code, _ = codes[cursor]; label = label_code.strip().decode("utf-8")
         require(LABEL.fullmatch(label) and not label.endswith('.') and label.split('.')[0].upper() not in RESERVED,
                 "pli", "PLI label must be one bounded portable non-reserved identifier", label)

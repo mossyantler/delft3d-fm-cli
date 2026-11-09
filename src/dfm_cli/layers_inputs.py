@@ -182,17 +182,12 @@ def collect(mdu):
 
 
 def _pli_lines(raw):
-    """PLI/reapol content lines. A column-1 ``*`` line is a comment where a label is expected: before the label and
-    after the declared rows (meteo1.f90:473-475, reapol_nampli.f90:85). Elsewhere it stays content."""
+    """PLI/reapol content lines. These readers accept one polyline, so a column-1 ``*`` line is a comment only before
+    the first label (meteo1.f90:473-475, reapol_nampli.f90:85; Contract R5.1). Elsewhere it stays content."""
     entries = [(line.split("#", 1)[0].strip(), line[:1] == "*") for line in raw.decode("utf-8-sig").splitlines()]
     entries = [item for item in entries if item[0] and not item[0].startswith(";")]
     while entries and entries[0][1]:
         del entries[0]
-    dims = entries[1][0].split() if len(entries) > 1 else []
-    if len(dims) == 2 and all(re.fullmatch(r"[0-9]+", value) for value in dims) and len(dims[0]) < 8:
-        end = int(dims[0]) + 2
-        if len(entries) > end and all(star for _, star in entries[end:]):
-            del entries[end:]
     return [code for code, _ in entries]
 
 
