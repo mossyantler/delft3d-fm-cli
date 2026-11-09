@@ -44,7 +44,7 @@ class Graph(boundary._Graph):
         if self.mode not in ('0','1') or setting(self,'external forcing/extforcefile',''): fail('ext','Require new EXT only and explicit supported path mode')
         self.model_clock=clock(self); self.references=[]; self.boundaries=[]; self.consumers={}; self.signals={}
         ext=self.reference(self.mdu,setting(self,'external forcing/extforcefilenew'),'extforcefilenew')
-        blocks=boundary._blocks(self.inputs.raw(ext),ext); boundary._header(blocks,ext,'extforce',{'2.01','2.02'})
+        blocks=boundary._blocks(self.inputs.raw(ext),ext,comments="ini"); boundary._header(blocks,ext,'extforce',{'2.01','2.02'})
         if blocks[0].get('fileversion',ext) not in ('2.01','2.02') or any(f.key not in {'fileversion','filetype'} for f in blocks[0].fields): fail('header','Unknown EXT General semantics')
         for block in blocks[1:]:
             if block.kind!='boundary' or block.rows or any(f.key not in {'quantity','locationfile','forcingfile','operand'} for f in block.fields):
@@ -103,7 +103,7 @@ class Graph(boundary._Graph):
                 ini=self.reference(self.mdu,entry.value,entry.address,entry.line)
                 raw=self.inputs.raw(ini)
                 if len(raw)>128*1024: fail('bound','Initial provider exceeds128KiB')
-                blocks=boundary._blocks(raw,ini); boundary._header(blocks,ini,'inifield',{'2.02'})
+                blocks=boundary._blocks(raw,ini,comments="ini"); boundary._header(blocks,ini,'inifield',{'2.02'})
                 if blocks[0].get('fileversion',ini)!='2.02' or any(f.key not in {'fileversion','filetype'} for f in blocks[0].fields): fail('dependency','Unknown initial General semantics')
                 if len(blocks)!=2 or blocks[1].kind!='initial' or blocks[1].rows: fail('dependency','Only one explicit initial vertical salinity provider')
                 b=blocks[1]

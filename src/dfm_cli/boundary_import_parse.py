@@ -49,7 +49,7 @@ def unit(value, *, mapping=False):
 def blocks(raw, path):
     if len(raw) > 16 * 1024**2:
         fail("bound", "BC exceeds 16 MiB")
-    parsed = boundary._blocks(raw, path)
+    parsed = boundary._blocks(raw, path, comments="bc")
     boundary._header(parsed, path, "boundconds", {"1.01"})
     if any(f.key not in {"filetype", "fileversion"} for f in parsed[0].fields):
         fail("header", "Unknown BC General metadata is outside the import profile", str(path))

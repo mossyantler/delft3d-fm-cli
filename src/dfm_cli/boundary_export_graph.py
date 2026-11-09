@@ -106,7 +106,7 @@ def _one(fields, name, path, default=None):
 
 
 def bc_blocks(raw, path):
-    parsed = boundary._blocks(raw, path)
+    parsed = boundary._blocks(raw, path, comments="bc")
     boundary._header(parsed, path, "boundconds", {"1.01"})
     starts, offset = [], 0
     for line in raw.splitlines(keepends=True):
@@ -180,7 +180,7 @@ class Graph:
         if not ext_value:
             fail("mdu", "Explicit ExtForceFileNew is required")
         self.ext = self.reference(self.mdu, ext_value, "extforcefilenew")
-        ext_blocks = boundary._blocks(self.inputs.raw(self.ext), self.ext)
+        ext_blocks = boundary._blocks(self.inputs.raw(self.ext), self.ext, comments="ini")
         boundary._header(ext_blocks, self.ext, "extforce", {"2.01", "2.02"})
         self.boundaries, edges, self.other_ext = {}, [], []
         positions_cache = {}
