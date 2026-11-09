@@ -63,12 +63,26 @@ class StarCommentParseTests(unittest.TestCase):
         marker = b"[output]"
         self.assert_comment_equivalent(BASE, insert(BASE, marker, line), BASE.index(marker), len(line), 2)
 
-    def test_indented_star_lines(self):
-        for prefix in (b"  ", b"\t", b" \t "):
+    def test_star_lines_indented_by_spaces(self):
+        for prefix in (b" ", b"  ", b"     "):
             with self.subTest(prefix=prefix):
                 line = prefix + b"* indented note\n"
                 marker = b"HisInterval"
                 self.assert_comment_equivalent(BASE, insert(BASE, marker, line), BASE.index(marker), len(line), 3)
+
+    def test_tab_before_star_keeps_syntax_error(self):
+        # R5.1: the engine checks for * after adjustl (spaces only); a tab before the * is not a comment.
+        for prefix in (b"\t", b" \t", b"\t ", b" \t "):
+            with self.subTest(prefix=prefix):
+                with self.assertRaises(DfmError) as caught:
+                    model.parse(insert(BASE, b"HisInterval", prefix + b"* indented note\n"))
+                self.assertEqual(caught.exception.code, "syntax_error")
+                self.assertEqual(caught.exception.details, {"line": 4})
+
+    def test_tab_before_star_key_value_keeps_its_current_meaning(self):
+        raw = b"[output]\n\t*key=1\nlast = 2\n"
+        entries = {e.address: e.value for e in model.parse(raw)}
+        self.assertEqual(entries, {"output/*key": "1", "output/last": "2"})
 
     def test_star_line_with_crlf_endings(self):
         plain = BASE.replace(b"\n", b"\r\n")
@@ -122,7 +136,7 @@ class StarCommentParseTests(unittest.TestCase):
 
 class StarCommentEditTests(unittest.TestCase):
     def test_in_place_edit_preserves_star_lines_byte_for_byte(self):
-        raw = (BOM + b"* header comment\r\n[time]\r\n\t* tab note\r\nStartDateTime = 20000101000000\r\n"
+        raw = (BOM + b"* header comment\r\n[time]\r\n   * three spaces\r\nStartDateTime = 20000101000000\r\n"
                b"[output]\r\n  * spaced note\r\nHisInterval = 600 # keep\r\n* between\r\nMapInterval = 1200\r\n* tail")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "model.mdu"
