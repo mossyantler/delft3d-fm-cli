@@ -23,7 +23,7 @@ Contract.
   with `*` is a comment line and is skipped like a `;` line. Nothing else changes: entry addresses, values, byte
   offsets of every other line, section handling, errors for other malformed lines, and every writer's byte
   preservation (comment lines stay untouched in edited files).
-- No other product module changes. The other line parsers that also ignore `*` (`boundary.py`,
+- No other product module changes. The other line parsers that also do not treat `*` as a comment (`boundary.py`,
   `boundary_locations_graph.py`, `layers_inputs.py`, `project_files.py`) are listed in the follow-up node
   `INI-STAR-OTHER-PARSERS`; each needs its own engine-reader mapping first.
 - Result: 212 product files, 107 commands, schema unchanged byte for byte.
@@ -44,6 +44,22 @@ Contract.
   commands), and a check that every existing public command result on the repository's fixtures is unchanged.
 - **V-Run:** the plan against the frozen candidate on a clean wheel install, plus regression on candidate and base
   listing every differing test.
+
+## R5. Clarifications (coordinator, after V-Plan; binding for I and V; they replace conflicting R1-R3 wording)
+
+1. **Leading whitespace means spaces only.** The engine tests for `#`/`*` after `adjustl`, which removes leading
+   spaces only, and converts tabs to spaces later (`properties.f90:325-334` versus `:382-395`). A tab before the `*`
+   therefore does not make an engine comment. In `model.parse`, a `*` comment line is one whose first byte after the
+   optional line-1 BOM and any run of ASCII spaces is `*`. A line with a tab anywhere before its first non-blank `*`
+   keeps its current behaviour (`syntax_error`). R2's "or a tab" case becomes this refusal case.
+2. **Offsets.** "Byte offsets unchanged" means: every entry's recorded span slices exactly its value from the actual
+   file; compared with the same file without the `*` line, entries before the line keep their offsets and entries
+   after it shift by exactly the inserted byte length, with equal addresses, values and line-number shift.
+3. **Failing-before rule.** R2's "each new test fails on the base" applies to tests of the new `*` behaviour. Control
+   tests of unchanged meaning (`x*=1`, `key = *value`, other malformed lines, the tab refusal) pass on both.
+4. **Public fixture results (R3).** Discharged by the full `unittest discover` regression on candidate and base (the
+   repository's fixtures run through public commands there), V's no-star fixture command comparisons and its usage
+   parity check over every advertised command. No complete invocation matrix is required.
 
 ## R4. Out of scope
 
