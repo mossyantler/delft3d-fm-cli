@@ -151,7 +151,7 @@ class IniRule(Tmp):
             layers_inputs.blocks(b("\t* tab\n[General]\n"))
 
     def test_boundary_set_apply_keeps_star_lines_byte_for_byte(self):  # NEW
-        pli = "* pli head\nL1\n3 2\n0.5 0.5 L1_0001\n1.5 0.5 L1_0002\n2.5 0.5 L1_0003\n* pli tail\n"
+        pli = "* pli head\nL1\n3 2\n0.5 0.5 L1_0001\n1.5 0.5 L1_0002\n2.5 0.5 L1_0003\n"
         bc = BC.replace("[General]\n", "* bc top\n[General]\n").replace("0 0 0\n", "! bang\n% pct\n0 0 0\n") + "\n"
         mdu = self.model(EXT_COMMENTED, pli, bc)
         before = {p.name: p.read_bytes() for p in self.root.iterdir()}
@@ -183,7 +183,7 @@ class PliRule(Tmp):
 
     def test_boundary_pli_star_before_label_and_after_rows(self):  # NEW
         expected = self.points(PLI)
-        for text in ("* a\n* b\n" + PLI, PLI + "* tail\n", "* a\n" + PLI + "* b\n* c\n",
+        for text in ("* a\n* b\n" + PLI,
                      "\ufeff* a\n" + PLI):
             with self.subTest(text[:12]):
                 self.assertEqual(self.points(text), expected)
@@ -193,7 +193,9 @@ class PliRule(Tmp):
                      "L1\n3 2\n0.5 0.5\n* row\n1.5 0.5\n2.5 0.5\n",
                      "L1\n3 2\n0.5 0.5\n1.5 0.5\n2.5 0.5\n* row?\n3.5 0.5\n",
                      "  * indented\n" + PLI,
-                     "\t* tab\n" + PLI):
+                     "\t* tab\n" + PLI,
+                     PLI + "* tail\n",                      # R5.1: single-polyline reader, only before the first label
+                     PLI + "* a\n* b\n"):
             with self.subTest(text[:14]), self.assertRaises(DfmError):
                 self.points(text)
 
@@ -203,25 +205,29 @@ class PliRule(Tmp):
                     for item in locations.pli(b(raw), Path("x.pli"))]
         expected = shape(MULTI)
         for text in ("* a\n" + MULTI, "L1\n2 2\n0 0\n1 0\n* between\n* more\nL2\n2 2\n0 1\n1 1\n",
-                     MULTI + "* tail\n", "* a\nL1\n2 2\n0 0\n1 0\n* b\nL2\n2 2\n0 1\n1 1\n* c\n"):
+                     "* a\nL1\n2 2\n0 0\n1 0\n* b\nL2\n2 2\n0 1\n1 1\n"):
             with self.subTest(text[:12]):
                 self.assertEqual(shape(text), expected)
 
     def test_locations_pli_star_elsewhere_keeps_refusal(self):  # control
         for text in ("L1\n2 2\n* row\n0 0\n1 0\n", "L1\n2 2\n0 0\n* row\n1 0\n", "L1\n* c\n2 2\n0 0\n1 0\n",
-                     "  * indented\n" + MULTI):
+                     "  * indented\n" + MULTI,
+                     MULTI + "* tail\n",                    # R5.1: no next label follows
+                     "* only\n* stars\n"):
             with self.subTest(text[:14]), self.assertRaises(DfmError):
                 locations.pli(b(text), Path("x.pli"))
 
     def test_layers_polyline_and_profile_table(self):  # NEW
         line = "L1\n2 2\n0 0\n1 0\n"
-        self.assertEqual(layers_inputs.polyline(b("* a\n* b\n" + line + "* c\n")), layers_inputs.polyline(b(line)))
+        self.assertEqual(layers_inputs.polyline(b("* a\n* b\n" + line)), layers_inputs.polyline(b(line)))
         profile = "P\n3 2\n-3 30\n-2 20\n-1 10\n"
-        self.assertEqual(layers_inputs.profile_table(b("* a\n" + profile + "* b\n")), layers_inputs.profile_table(b(profile)))
+        self.assertEqual(layers_inputs.profile_table(b("* a\n" + profile)), layers_inputs.profile_table(b(profile)))
         self.assertEqual(layers_inputs.profile_table(b("\ufeff* a\n" + profile)), layers_inputs.profile_table(b(profile)))
 
     def test_layers_polyline_and_profile_table_star_elsewhere_control(self):  # control
-        for call, text in ((layers_inputs.polyline, "L1\n2 2\n* r\n0 0\n1 0\n"),
+        for call, text in ((layers_inputs.polyline, "L1\n2 2\n0 0\n1 0\n* tail\n"),      # R5.1: only before the label
+                           (layers_inputs.profile_table, "P\n3 2\n-3 30\n-2 20\n-1 10\n* tail\n"),
+                           (layers_inputs.polyline, "L1\n2 2\n* r\n0 0\n1 0\n"),
                            (layers_inputs.polyline, "L1\n2 2\n0 0\n* r\n1 0\n"),
                            (layers_inputs.polyline, "  * x\nL1\n2 2\n0 0\n1 0\n"),
                            (layers_inputs.profile_table, "P\n3 2\n-3 30\n* r\n-2 20\n-1 10\n"),
@@ -274,6 +280,7 @@ class BcRule(Tmp):
         for text in (BC.replace("750 1.5 3\n", "* row\n750 1.5 3\n"),      # data row
                      BC.replace("0 0 0\n", "0 0 0\n! row\n"),
                      BC.replace("0 0 0\n", "0 0 0\n% row\n"),
+                     BC.replace("750 1.5 3\n", "750 1.5 3\n* after last row\n"),   # R5.2: until the next block header
                      BC.replace("0 0 0\n", "  * indented\n0 0 0\n"),         # not column 1
                      BC.replace("0 0 0\n", "\t! tab\n0 0 0\n"),
                      BC.replace("name = L1_0001\n", "x* = 1\nname = L1_0001\n")):
@@ -333,6 +340,36 @@ class BcRule(Tmp):
             project_files._bc_references(self.write("[General]\n  * indented\nfileVersion=1.01\n"))
         with self.assertRaises(DfmError):
             project_files._bc_references(self.write("[General]\n\t! tab\nfileVersion=1.01\n"))
+
+
+class ProjectFilesBundle(Tmp):
+    """R5.3: internal coverage of the project reference audit (model_bundle) and BC comparison."""
+
+    def models(self):
+        from tests.test_project import portable_model
+        plain = portable_model(self.root / "plain")
+        noted = portable_model(self.root / "noted")
+        bc = noted.parent / "f34_001.bc"
+        text = bc.read_text(encoding="utf-8")
+        text = ("* top\n" + text.replace("[General]\n", "[General]\n! note\n", 1)
+                .replace("[Forcing]\n", "[Forcing]\n% before name\n* x = bogus\n")
+                .replace("0 0 0\n", "! head\n* head\n0 0 0\n"))
+        bc.write_bytes(text.encode())
+        return plain, noted
+
+    def test_model_bundle_and_bc_semantics_ignore_header_comment_lines(self):  # NEW
+        plain, noted = self.models()
+        names = lambda mdu: [item["relative_path"] for item in project_files.model_bundle(mdu)["files"]]
+        self.assertEqual(names(noted), names(plain))
+        self.assertEqual(project_files._bc_semantics(noted.parent / "f34_001.bc"),
+                         project_files._bc_semantics(plain.parent / "f34_001.bc"))
+
+    def test_model_bundle_data_row_star_keeps_refusal(self):  # control (R5.2)
+        plain, noted = self.models()
+        bc = plain.parent / "f34_001.bc"
+        bc.write_text(bc.read_text(encoding="utf-8").replace("750 1.625 0\n", "750 1.625 0\n* row = 1\n", 1), encoding="utf-8")
+        with self.assertRaises(DfmError):
+            project_files.model_bundle(plain)
 
 
 if __name__ == "__main__":
