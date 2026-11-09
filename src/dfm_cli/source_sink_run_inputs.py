@@ -107,7 +107,7 @@ def bc_state(graph, source, origin):
     path = next(iter(paths))
     raw = graph.text_cache[path]
     need(not raw.startswith(b'\xef\xbb\xbf'), 'BC BOM is outside the native profile; original bytes are never normalized')
-    blocks = bounded_blocks(raw, path)
+    blocks = bounded_blocks(raw, path, comments='bc')
     need(2 <= len(blocks) <= 9 and blocks[0].kind == 'general'
          and all(b.kind == 'forcing' for b in blocks[1:]), 'Require General and at most eight known forcing blocks')
     need({f.key for f in blocks[0].fields} == {'fileversion', 'filetype'}, 'Unknown BC General metadata')
