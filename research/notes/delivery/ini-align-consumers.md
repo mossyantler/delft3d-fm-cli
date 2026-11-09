@@ -57,6 +57,17 @@ are out of scope.
   helpers may change signature (a mode parameter); V-Plan probes should call public commands or pass the mode
   explicitly, so a signature change is not a verification failure.
 
+## R5. Clarifications (coordinator, after V-Plan; binding for I and V)
+
+1. **`source_sink_run_inputs.py:110` (A1).** This caller of `bounded_blocks` reads a `.bc` file but is not in the R1
+   table or the I's owned paths. In this Contract it keeps the earlier rule: `bounded_blocks` must default to no mode
+   when a caller passes none, so that call's behaviour is unchanged. It is listed as a remaining gap
+   (`CONSUMERS-RUN-INPUTS`).
+2. **New export files (A2).** R2's "edits keep comment lines byte for byte" applies to files the product edits in
+   place or through preview/apply. `boundary export` authors a new `.bc` with a fresh `[General]` header and copied
+   `[Forcing]` spans; comments outside the copied spans are not carried into the new file. The source inputs stay byte
+   for byte unchanged, and comment lines inside a copied span stay as they are.
+
 ## R4. Out of scope
 
 - `;` and inline `#`; `.bc` and PLI data rows; `.xyn`; `model.parse`; modules with their own `_blocks`;
