@@ -1030,7 +1030,8 @@ def check_prompt_received(kind: str, session: str | None, sent: str, environ: di
             if path is not None:
                 got = first_user_prompt(kind, path)
                 if got is not None:
-                    a, b = got.strip(), sent.strip()
+                    # Terminals deliver CRLF packets as LF; only that line-ending difference is equal.
+                    a, b = (t.replace("\r\n", "\n").strip() for t in (got, sent))
                     if a == b:
                         return True, None
                     # Keep enough to diagnose a mismatch later (GRAPH-CLAUDE-PROMPT-RACE).

@@ -907,6 +907,11 @@ class Transcripts(unittest.TestCase):
             f.write_text(json.dumps({"type": "user", "message": {"role": "user", "content": "Read AGENTS.md\n"}}) + "\n")
             self.assertEqual(dispatch.check_prompt_received("claude", "s1", "Read AGENTS.md", {"DFM_CLAUDE_HOME": d}, 0),
                              (True, None))
+            # A CRLF packet arrives as LF in the transcript (GRAPH-CLAUDE-PROMPT-RACE); other bytes still count.
+            f.write_text(json.dumps({"type": "user", "message": {"role": "user", "content": "A\nB\n"}}) + "\n")
+            self.assertEqual(dispatch.check_prompt_received("claude", "s1", "A\r\nB\r\n", {"DFM_CLAUDE_HOME": d}, 0),
+                             (True, None))
+            self.assertIs(dispatch.check_prompt_received("claude", "s1", "A\r\nC\r\n", {"DFM_CLAUDE_HOME": d}, 0)[0], False)
 
     def test_claude_pasted_prompt_wrapper_is_unwrapped_exactly(self):
         sent = "Read AGENTS.md in your working directory.\nPacket line\n"
