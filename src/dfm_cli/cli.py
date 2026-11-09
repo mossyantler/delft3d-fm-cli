@@ -14,7 +14,7 @@ from . import boundary_export, boundary_import, boundary_locations, boundary_ser
 from . import boundary_preview, boundary_vertical, weir_series, wind_drag
 from . import section_transfer
 from . import boundary_support, fm_model_identity, observation, observation_transfer, section_orientation, pump_public, pump_commands, pump_edit_contract
-from . import boundary_coefficients, results_stations
+from . import boundary_coefficients, results_stations, boundary_constituents
 
 from . import source_sink
 from . import structure_transfer
@@ -65,6 +65,7 @@ def parser() -> Parser:
     boundary_locations.register(boundaries)
     boundary_preview.register(boundaries)
     boundary_vertical.register(boundaries)
+    boundary_constituents.register(boundaries)
     boundary_support.register(boundaries)
     boundary_coefficients.register(boundaries)
     boundaries.add_parser("inspect", help="Follow MDU and EXT references to geometry and forcing data").add_argument("mdu", type=Path)
@@ -152,6 +153,7 @@ def execute(args) -> dict:
                 "boundary_location_import": boundary_locations.contract(),
                 "boundary_preview": boundary_preview.contract(),
                 "boundary_vertical": boundary_vertical.contract(),
+                "boundary_constituents": boundary_constituents.contract(),
                 "boundary_support_edit": boundary_support.contract(),
                 "boundary_coefficients": boundary_coefficients.contract(),
                 "source_sink": source_sink.contract(),
@@ -206,6 +208,8 @@ def execute(args) -> dict:
     if args.group == "boundary":
         if args.action == "preview":
             return boundary_preview.execute(args)
+        if args.action in {"constituents-inspect", "constituents-set"}:
+            return boundary_constituents.execute(args)
         if args.action in {"vertical-inspect", "vertical-set"}:
             return boundary_vertical.execute(args)
         if args.action == "coefficients":
