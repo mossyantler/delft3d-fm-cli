@@ -70,7 +70,7 @@ def times(rows,time_unit,width,model_clock,path):
 
 def parse(raw,path,model_clock):
     if len(raw)>16*1024**2: fail('bound','BC exceeds16MiB')
-    blocks=boundary._blocks(raw,path); boundary._header(blocks,path,'boundconds',{'1.01'})
+    blocks=boundary._blocks(raw,path,comments="bc"); boundary._header(blocks,path,'boundconds',{'1.01'})
     if blocks[0].get('fileversion',path)!='1.01' or any(f.key not in {'fileversion','filetype'} for f in blocks[0].fields): fail('header','Require explicit BC1.01 and no unknown General semantics')
     if not 1<=len(blocks)-1<=256: fail('bound','Require1..256 forcing blocks')
     result={}; cells=0

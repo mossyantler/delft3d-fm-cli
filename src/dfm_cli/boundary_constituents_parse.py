@@ -68,7 +68,7 @@ def request(raw):
 
 def parse(raw, path):
     if len(raw) > MAX_TEXT: fail("bound", "BC exceeds8MiB", str(path))
-    blocks = boundary._blocks(raw, path)
+    blocks = boundary._blocks(raw, path, comments="bc")
     boundary._header(blocks, path, "boundconds", {"1.01"})
     if blocks[0].get("fileversion", path) != "1.01" or any(f.key not in {"fileversion", "filetype"} for f in blocks[0].fields):
         fail("header", "Require explicit boundConds1.01 without unknown General semantics", str(path))

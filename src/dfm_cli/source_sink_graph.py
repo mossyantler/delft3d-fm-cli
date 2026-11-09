@@ -139,7 +139,7 @@ def unit_ok(q, unit):
     return bool(unit and len(unit) <= 64 and not any(c in unit for c in '\r\n#;'))
 
 
-def bounded_blocks(raw, path, budget=None):
+def bounded_blocks(raw, path, budget=None, comments=None):
     if len(raw) > LIMITS['text_bytes']:
         fail('budget', 'Text exceeds 8MiB', path=str(path))
     lines = tokens = 0
@@ -156,7 +156,7 @@ def bounded_blocks(raw, path, budget=None):
         budget['lines'] = budget.get('lines', 0) + lines
         if budget['tokens'] > LIMITS['tokens'] or budget['lines'] > LIMITS['lines']:
             fail('budget', 'Request-wide text parser budget exceeded before parsing')
-    return _blocks(raw, path)
+    return _blocks(raw, path, comments=comments)
 
 
 def location(block, graph):
@@ -234,7 +234,7 @@ class Graph(Inputs):
         self.ext = self.reference(self.mdu, self.setting('external forcing/extforcefilenew'), 'extforcefilenew', text=True)
         self.ext_raw = self.text_cache[self.ext] if ext_override is None else ext_override
         self.ext_lines = self.ext_raw.splitlines()
-        self.blocks = bounded_blocks(self.ext_raw, self.ext, self.parse_budget)
+        self.blocks = bounded_blocks(self.ext_raw, self.ext, self.parse_budget, "ini")
         for block in self.blocks:
             for field in block.fields:
                 self.observe_text(field.key, block.kind + '/<key>', self.ext, field.line)
@@ -416,7 +416,7 @@ class Graph(Inputs):
         if path in self.bc_cache:
             return self.bc_cache[path]
         raw = self.text_cache[path]
-        blocks = bounded_blocks(raw, path, self.parse_budget)
+        blocks = bounded_blocks(raw, path, self.parse_budget, "bc")
         for block in blocks:
             for item in block.fields:
                 self.observe_text(item.key, 'BC/<key>', path, item.line)

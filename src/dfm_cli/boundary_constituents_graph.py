@@ -84,7 +84,7 @@ class Graph(boundary._Graph):
             fail("bound", "Text/path/reference budget exceeded")
         result = super().reference(parent, value, key, line, opaque=opaque)
         if key == "extforcefilenew":
-            blocks = boundary._blocks(self.inputs.raw(result), result)
+            blocks = boundary._blocks(self.inputs.raw(result), result, comments="ini")
             if blocks[0].get("fileversion", result) not in ("2.01", "2.02") or any(f.key not in {"fileversion", "filetype"} for f in blocks[0].fields):
                 fail("header", "Require explicit modern EXT without unknown General semantics")
         if sum(len(raw) for raw, _ in self.inputs.files.values()) > 32 * 1024**2: fail("bound", "Captured text graph exceeds32MiB")

@@ -69,7 +69,7 @@ def request(raw):
 
 
 def physical_rows(raw, path, point):
-    parsed = boundary._blocks(raw, path)
+    parsed = boundary._blocks(raw, path, comments="bc")
     found = [block for block in parsed[1:] if block.kind == "forcing" and block.get("name", path) == point]
     if len(found) != 1:
         fail("identity", "Require exactly one selected Forcing block", point)

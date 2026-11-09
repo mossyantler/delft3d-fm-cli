@@ -68,7 +68,7 @@ def series(graph, path, point, raw=None):
     raw = graph.inputs.raw(path) if raw is None else raw
     if len(raw) > 16 * 1024**2:
         fail("bound", "BC exceeds the 16 MiB bounded edit profile")
-    blocks = harmonic._blocks(raw, path)
+    blocks = harmonic._blocks(raw, path, comments="bc")
     harmonic._header(blocks, path, "boundconds", {"1.01"})
     selected = [b for b in blocks[1:] if b.kind == "forcing" and b.get("name", path).casefold() == point.casefold()]
     if len(selected) != 1 or selected[0].get("name", path) != point:

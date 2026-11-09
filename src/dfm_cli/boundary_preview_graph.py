@@ -143,7 +143,7 @@ class Graph:
         self.references, self.excluded, self.boundaries, self.authored = [], [], [], []
         self.bc_files = {}
         ext = self.reference(self.mdu, ext_name, 'extforcefilenew')
-        blocks = self.parse_blocks(ext)
+        blocks = self.parse_blocks(ext, "ini")
         _header(blocks, ext, 'extforce', {'2.01', '2.02'})
         total_supports = 0
         seen = set()
@@ -209,14 +209,14 @@ class Graph:
         self.references.append({'from': str(parent), 'setting': key, 'value': value, 'path': str(target)})
         return target
 
-    def parse_blocks(self, path):
-        blocks = _blocks(self.inputs.files[path]['raw'], path)
+    def parse_blocks(self, path, comments):
+        blocks = _blocks(self.inputs.files[path]['raw'], path, comments=comments)
         if len(blocks) > LIMITS['blocks']:
             fail('preview_budget', 'Too many input blocks', path=str(path))
         return blocks
 
     def parse_bc(self, path):
-        blocks = self.parse_blocks(path)
+        blocks = self.parse_blocks(path, "bc")
         _header(blocks, path, 'boundconds', {'1.01'})
         raw = self.inputs.files[path]['raw']
         lines = raw.splitlines(keepends=True)
