@@ -85,7 +85,7 @@ def parse(raw: bytes) -> list[Entry]:
         content = line.removeprefix(b"\xef\xbb\xbf") if line_number == 1 else line
         bom = len(line) - len(content)
         code = content.split(b"#", 1)[0].strip()
-        if not code or code.startswith((b";", b"*")):  # engine reader: a line starting with * is a comment
+        if not code or code.startswith(b";") or content.lstrip(b" ").startswith(b"*"):  # engine: * after spaces only (not tabs) is a comment
             pass
         elif code.startswith(b"[") and code.endswith(b"]"):
             section = code[1:-1].decode("utf-8").strip().casefold()
