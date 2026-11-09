@@ -271,12 +271,14 @@ class ExportFamily(Model2D):
     def test_export_reads_commented_ext_and_bc_like_plain(self):  # NEW
         outputs = {}
         for mdu in self.models():
+            before = snapshot(mdu.parent)
             code, preview = run_cli(*self.argv(mdu))
             self.assertEqual((code, preview["ok"]), (0, True), preview)
             out = Path(self.argv(mdu)[4])
             code, applied = run_cli(*self.argv(mdu), "--apply", "--expect-sha256", preview["result"]["input_sha256"])
             self.assertEqual((code, applied["ok"]), (0, True), applied)
             outputs[mdu.parent.name] = snapshot(out)
+            self.assertEqual(snapshot(mdu.parent), before, "Export changed a source input")   # R5.2
         self.assertEqual(outputs["plain"].keys(), outputs["noted"].keys())
         for name, raw in outputs["noted"].items():
             if name.endswith(".bc"):
@@ -507,6 +509,15 @@ class SourceSinkFamily(SourceSinkFixture, unittest.TestCase):
         after = (self.root / "sources.ext").read_bytes()
         self.assertEqual(notes(after)[:len(notes(before))], notes(before))
         self.assertEqual([s["id"] for s in sources.inspect(self.mdu)["sources"]], ["Outfall+A", "Intake-B"])
+
+    def test_bounded_blocks_without_a_mode_keeps_the_earlier_rule(self):  # control (R5.1: source_sink_run_inputs)
+        from dfm_cli.source_sink_graph import bounded_blocks
+        raw = note_bc((self.root / "sources.bc").read_bytes())
+        with self.assertRaises(DfmError):
+            bounded_blocks(raw, self.root / "sources.bc")
+        plain = (self.root / "sources.bc").read_bytes()
+        self.assertEqual([b.kind for b in bounded_blocks(plain, self.root / "sources.bc")],
+                         ["general", "forcing", "forcing"])
 
     def test_source_data_row_star_and_tab_led_star_keep_current_refusal(self):  # control
         self.replace("sources.bc", b"120 0.1 5\r\n", b"* row\r\n120 0.1 5\r\n")
