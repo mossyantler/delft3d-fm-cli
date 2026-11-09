@@ -51,6 +51,16 @@ compared with the untouched target (so the comparison is not vacuous)?
   approved cases and judges them by the frozen plan.
 - **G:** records the result in `research/notes/verification/structure-transfer.md` and DELIVERY; no merge.
 
+## R5. Clarification (coordinator, after V-Plan; binding for V-Run)
+
+1. **Scalar-crest weir (V-Plan A1).** No public run profile admits a scalar-crest weir model: `weir-series` requires an
+   authored TIM (`weir_run_inputs.py:147-150`, refusal `weir_series_constant_conversion`) and `short` refuses
+   `geometry/structurefile`. R1 forbids widening a profile, and the proposed substitute (the TIM row again) would not
+   establish the scalar claim. The engine gate is therefore the **six admitted runs**: `weir_tim` and `pump_scalar`,
+   each control, public and manual. The three `weir_scalar` folders stay frozen, unexecuted, and the scalar-weir
+   engine result stays "not established" (file transfer is verified by `G15-G`). A public profile that admits scalar
+   weirs is a separate product question (`G15-SCALAR-WEIR-PROFILE`).
+
 ## R4. Out of scope
 
 - GUI export/import parity (`G15-GUI-PARITY`, deferred by user decision); the 14 deferred or unsupported scope rows;
