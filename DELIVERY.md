@@ -15,9 +15,9 @@
 
 | 항목 | 현재 값 |
 | --- | --- |
-| 제품 | `CONSUMERS-G` (`cd67e7a`). 제품 212파일이 wheel `64740d34…`와 일치. 그 전은 `INI-ALIGN-G` (`e7c32a0`), `INI-STAR-G` (`9c2a735`), `B14-G` (`aad1bf8`), 모두 212파일. S07·B06 G의 wheel 지문은 작업 트리 `diagnostics.py`의 줄끝 차이(CRLF, 내용 동일)를 포함했다([기록](research/experiments/G18-G-20261108-01/acceptance.json)) |
+| 제품 | `RUNIN-G` (`b347cfb`). 제품 212파일이 wheel `a8db94f1…`와 일치. 그 전은 `CONSUMERS-G` (`cd67e7a`), `INI-ALIGN-G` (`e7c32a0`), `INI-STAR-G` (`9c2a735`), `B14-G` (`aad1bf8`), 모두 212파일. S07·B06 G의 wheel 지문은 작업 트리 `diagnostics.py`의 줄끝 차이(CRLF, 내용 동일)를 포함했다([기록](research/experiments/G18-G-20261108-01/acceptance.json)) |
 | 공개 계약 | 명령 107개(`boundary constituents-inspect`·`constituents-set` 추가), JSON 프로토콜 2, manifest 3, 기본 물리 프로필 불변 |
-| 전체 회귀 | 1,927개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/CONSUMERS-G-20261109-01/acceptance.json)). 직전 기준은 1,901개 ([INI-ALIGN-G](research/experiments/INI-ALIGN-G-20261109-01/acceptance.json)) |
+| 전체 회귀 | 1,936개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/RUNIN-G-20261109-01/acceptance.json)). 직전 기준은 1,927개 ([CONSUMERS-G](research/experiments/CONSUMERS-G-20261109-01/acceptance.json)) |
 | 실제 엔진 | #231 direct/DIMR 각 6사례, 원래 멤버 24개 종료, 600초·최종 restart, 원본 191변수 일치 ([`3851697` 검수](research/proposals/short-close-native231-review/RELEASE_VERDICT.md)) |
 | 거부 보존 | #229는 관찰 tick 동률로 `NOT_ACCEPTED`. 원본 192파일 유지 ([해제 검수](research/proposals/short-close-native229-review/RELEASE_VERDICT.md)) |
 | 네이티브 슬롯 | `idle238` (`B14-NATIVE-V-Run`의 #237 여섯 실행 뒤 `native-237` 해제). 실행 허가가 아니다 |
@@ -26,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-09 CONSUMERS 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-09 INI 주석 규칙 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -123,7 +123,7 @@
 | GRAPH-OPS | GRAPH-PASTE-WRAP: unwrap Claude Code pasted_content in the prompt check | ✓ | `dfm-fmc.54` |
 | GRAPH-OPS | GRAPH-CODEX-SESSION: record the Codex session id after start so stop can verify identity | ✓ | `dfm-fmc.55` |
 | GRAPH-OPS | GRAPH-CODEX-NEWLINES: Codex interactive prompts lose newlines; prefer startup_argument delivery | ✓ | `dfm-fmc.56` |
-| GRAPH-OPS | GRAPH-CLAUDE-PROMPT-RACE: Claude start-time prompt check returns false although the transcript later matches | Ready | `dfm-fmc.57` |
+| GRAPH-OPS | GRAPH-CLAUDE-PROMPT-RACE: Claude start-time prompt check returns false although the transcript later matches | ✓ | `dfm-fmc.57` |
 | GRAPH-OPS | GRAPH-OPS-P3: Phase 3: Herdr 코디네이터 통합(배정·영수증·복구 시험) | ✓ | `dfm-fmc.6` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-I: bdw backup-sync (OneDrive Dolt + Git JSONL) | ✓ | `dfm-fmc.7` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-V: backup-sync 독립 검증·복원 대조 | ✓ | `dfm-fmc.8` |
@@ -134,7 +134,11 @@
 | INI | CONSUMERS-V-Plan: independent cases per caller and command family | ✓ | `dfm-3ks.12` |
 | INI | CONSUMERS-V-Run: verify the frozen consumers candidate | ✓ | `dfm-3ks.13` |
 | INI | CONSUMERS-G: merge and close the comment-rule gap | ✓ | `dfm-3ks.14` |
-| INI | CONSUMERS-RUN-INPUTS: pass the bc comment mode at source_sink_run_inputs.py:110 | Ready | `dfm-3ks.15` |
+| INI | CONSUMERS-RUN-INPUTS: pass the bc comment mode at source_sink_run_inputs.py:110 | ✓ | `dfm-3ks.15` |
+| INI | RUNIN-I: bc comment mode in source_sink_run_inputs bc_state | ✓ | `dfm-3ks.16` |
+| INI | RUNIN-V-Plan: independent cases for the source-sink run inputs | ✓ | `dfm-3ks.17` |
+| INI | RUNIN-V-Run: verify the frozen run-inputs candidate | ✓ | `dfm-3ks.18` |
+| INI | RUNIN-G: merge and close the last comment-rule gap | ✓ | `dfm-3ks.19` |
 | INI | INI-STAR-V-Run: verify the frozen model.parse candidate | ✓ | `dfm-3ks.2` |
 | INI | INI-STAR-G: merge and record * comment lines | ✓ | `dfm-3ks.3` |
 | INI | INI-STAR-OTHER-PARSERS: map the four other line parsers to their engine readers before any change | ✓ | `dfm-3ks.4` |
@@ -169,6 +173,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| RUNIN-G | `b347cfb` (merge of `c48c089`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). 취·방류 실행 프로필의 입력 검사(`bc_state`)도 `.bc` 주석 규칙을 따름. 독립 검증 156검사 통과(엔진 실행 전 단계). INI 주석 규칙 epic 완료 |
 | CONSUMERS-G | `cd67e7a` (merge of `7aec98c`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). `boundary._blocks`를 쓰는 나머지 12곳이 읽는 파일 종류의 주석 모드를 넘김. 독립 검증 7,717검사(공개 CLI 2,033호출) 통과. 남은 1곳은 `CONSUMERS-RUN-INPUTS` |
 | INI-ALIGN-G | `e7c32a0` (merge of `3a419d6`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). EXT·inifield·PLI·`.bc` 헤더 판독기가 엔진 규칙을 따름. 독립 검증 2회차 410사례 통과(1회차는 검사 호출 인자 누락으로 REJECT). `boundary._blocks`의 다른 호출 11곳은 후속 `INI-ALIGN-CONSUMERS` |
 | INI-STAR-G | `9c2a735` (merge of `bce84e9`) | [INI `*` 주석 줄](research/notes/verification/ini-comments.md). 공용 판독기 `model.parse`가 엔진처럼 공백 뒤 `*` 줄을 주석으로 넘김(탭 앞은 기존대로 거부). 독립 검증 265사례 통과, 명령·스키마 불변. 엔진·GUI 실행 없음 |
