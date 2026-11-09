@@ -45,11 +45,34 @@ engine or GUI run belongs to this result.
   [round 2 review](../../experiments/G15-TRANSFER-V-Run-20261108-01/REVIEW-r2.md),
   [G acceptance](../../experiments/G15-G-20261109-01/acceptance.json).
 
+## #238 · Installed engine (2026-11-09)
+
+[Contract](../delivery/g15-engine.md) with R5 (engine only; GUI parity deferred by user decision). Six serial direct
+runs, each 120 s with a 120 s limit, on copies of the public examples: a weir with a TIM crest under
+`--profile weir-series` and a scalar pump under `--profile pump-scalar`. For each kind the target ran untouched
+(control), after `structure export` from a source model and `structure import` into it (public), and after the same
+change by hand (manual). Public and manual inputs were byte-equal before launch.
+
+| Kind | public vs manual | control vs transferred |
+| --- | --- | --- |
+| weir, TIM crest | history, map and both restarts equal at rtol = atol = 0 | `weirgen_crest_level` −0.5 m vs +0.5 m at all 55 times 66–120 s |
+| pump, scalar capacity | equal at rtol = atol = 0 | `pump_structure_discharge` 4 vs 0 at all 120 times 1–120 s |
+
+- 362 variable comparisons over 8 file pairs; only per-file creation provenance (16 attributes per kind) differs.
+- Every run completed with the original Job closure, 121 history and map frames, and restarts at 0 and 120 s.
+- **Approvals:** the user approved the runs as `HUMAN-20261109-02` under lease `native-238`.
+- **Not run:** a scalar-crest weir. No public run profile admits it (`weir-series` needs a TIM, `short` refuses
+  structures), so its engine result is not established (`G15-SCALAR-WEIR-PROFILE`).
+- **Evidence:** [native review](../../experiments/G15-ENGINE-V-Run-20261109-01/REVIEW.md),
+  [result](../../experiments/G15-ENGINE-V-Run-20261109-01/verification.json),
+  [plan](../../experiments/G15-ENGINE-V-Plan-20261109-01/PLAN.md).
+
+The control comparison only shows that the transfer reaches the engine; no discharge magnitude was predicted.
+
 ## Not established
 
-- Engine initialization, completed simulation and scientific validity of transferred structures (separate node
-  `G15-ENGINE-Contract`);
-- GUI export/import parity;
+- engine behaviour of a transferred scalar-crest weir (no admitted public profile);
+- GUI export/import parity (`G15-GUI-PARITY`, deferred by user decision);
+- scientific validity beyond the equality above;
 - the 14 deferred or unsupported scope rows;
-- whether `*` comment lines should be accepted in INI files (follow-up `dfm-qu3`);
 - coordinate conversion and POSIX behaviour.

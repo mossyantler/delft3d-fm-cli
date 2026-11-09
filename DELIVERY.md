@@ -20,13 +20,13 @@
 | 전체 회귀 | 1,936개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/RUNIN-G-20261109-01/acceptance.json)). 직전 기준은 1,927개 ([CONSUMERS-G](research/experiments/CONSUMERS-G-20261109-01/acceptance.json)) |
 | 실제 엔진 | #231 direct/DIMR 각 6사례, 원래 멤버 24개 종료, 600초·최종 restart, 원본 191변수 일치 ([`3851697` 검수](research/proposals/short-close-native231-review/RELEASE_VERDICT.md)) |
 | 거부 보존 | #229는 관찰 tick 동률로 `NOT_ACCEPTED`. 원본 192파일 유지 ([해제 검수](research/proposals/short-close-native229-review/RELEASE_VERDICT.md)) |
-| 네이티브 슬롯 | `idle238` (`B14-NATIVE-V-Run`의 #237 여섯 실행 뒤 `native-237` 해제). 실행 허가가 아니다 |
+| 네이티브 슬롯 | `idle239` (`G15-ENGINE-V-Run`의 #238 여섯 실행 뒤 `native-238` 해제). 실행 허가가 아니다 |
 
 승인 범위는 f34 2D UTC cold-start 600초, direct와 단일 FM DIMR까지다. 강제 종료의
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-09 INI 주석 규칙 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-09 G15 엔진 검증 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -55,11 +55,17 @@
 | B14 | B14-G: B14 전체 합류 검수 | ✓ | `dfm-jtm.8` |
 | B14 | B14-REBIND-V-Plan: re-bind the frozen direct gate to the current short lifecycle | ✓ | `dfm-jtm.9` |
 | G15 | G15-Contract: 수정 계약 승인 (23의무·16범위) | ✓ | `dfm-h9c.1` |
+| G15 | G15-ENGINE-V-Plan: cases, frozen inputs and reader for structure transfer engine runs | ✓ | `dfm-h9c.10` |
+| G15 | G15-ENGINE-V-Run: run and judge the approved structure transfer cases (임대) | ✓ | `dfm-h9c.11` |
+| G15 | G15-ENGINE-G: record structure transfer engine evidence | ✓ | `dfm-h9c.12` |
+| G15 | G15-GUI-PARITY: DeltaShell export/import parity for structures (deferred by user) | deferred | `dfm-h9c.13` |
+| G15 | G15-SCALAR-WEIR-PROFILE: a public run profile that admits scalar-crest weir models | Ready | `dfm-h9c.14` |
+| G15 | HUMAN-20261109-02: Native runs for G15-ENGINE-V-Run (6 serial direct runs: weir_tim and pump_scalar x control/public/manual) | ✓ | `dfm-h9c.15` |
 | G15 | G15-V-Plan: 공개 30·저장 오류 11 시험 준비 (Lovelace) | ✓ | `dfm-h9c.2` |
 | G15 | G15-I: 정확한 후보 확정·동결 (package-02 이후 추가분 포함) | ✓ | `dfm-h9c.3` |
 | G15 | G15-V-Run: 독립 설치 검수 | ✓ | `dfm-h9c.4` |
 | G15 | G15-G: G15 파일 기능 통합 검수 | ✓ | `dfm-h9c.5` |
-| G15 | G15-ENGINE-Contract: 엔진·GUI 검증 별도 계획 | Ready | `dfm-h9c.6` |
+| G15 | G15-ENGINE-Contract: 엔진·GUI 검증 별도 계획 | ✓ | `dfm-h9c.6` |
 | G15 | HUMAN-20261108-05: ACL writes for G15-V-Run inside its own experiment folder | ✓ | `dfm-h9c.7` |
 | G15 | G15-CLOSURE-I: qualify uncatalogued MDU keys that name model entities (R6) | ✓ | `dfm-h9c.8` |
 | G15 | G15-CLOSURE-V-Run: round 3 on the R6-fixed candidate | ✓ | `dfm-h9c.9` |
@@ -173,6 +179,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| G15-ENGINE-G | 병합 없음 (`b93a31f`의 제품 검증) | [#238 구조물 교환 엔진 실행](research/notes/verification/structure-transfer.md). TIM 보·펌프를 `structure export`·`import`로 옮긴 모델과 수동 편집 모델의 출력이 6회 실행에서 정확히 일치, 원래 모델과는 구조물 관측값이 다름(사용자 승인 `HUMAN-20261109-02`). 고정 마루 보는 공개 프로필이 없어 미실행, GUI 대조는 사용자 결정으로 보류 |
 | RUNIN-G | `b347cfb` (merge of `c48c089`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). 취·방류 실행 프로필의 입력 검사(`bc_state`)도 `.bc` 주석 규칙을 따름. 독립 검증 156검사 통과(엔진 실행 전 단계). INI 주석 규칙 epic 완료 |
 | CONSUMERS-G | `cd67e7a` (merge of `7aec98c`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). `boundary._blocks`를 쓰는 나머지 12곳이 읽는 파일 종류의 주석 모드를 넘김. 독립 검증 7,717검사(공개 CLI 2,033호출) 통과. 남은 1곳은 `CONSUMERS-RUN-INPUTS` |
 | INI-ALIGN-G | `e7c32a0` (merge of `3a419d6`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). EXT·inifield·PLI·`.bc` 헤더 판독기가 엔진 규칙을 따름. 독립 검증 2회차 410사례 통과(1회차는 검사 호출 인자 누락으로 REJECT). `boundary._blocks`의 다른 호출 11곳은 후속 `INI-ALIGN-CONSUMERS` |
