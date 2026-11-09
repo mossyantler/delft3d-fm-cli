@@ -895,6 +895,19 @@ class Transcripts(unittest.TestCase):
             self.assertEqual(u["malformed_lines"], 0)
             self.assertIsInstance(u["wall_seconds"], float)
 
+    def test_prompt_mismatch_keeps_a_diagnostic_note(self):
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "projects" / "p" / "s1.jsonl"
+            f.parent.mkdir(parents=True)
+            f.write_text(json.dumps({"type": "user", "message": {"role": "user", "content": "Base directory for skill"}}) + "\n")
+            ok, note = dispatch.check_prompt_received("claude", "s1", "Read AGENTS.md", {"DFM_CLAUDE_HOME": d}, 0)
+            self.assertIs(ok, False)
+            self.assertIn("differs at char 0", note)
+            self.assertIn("Base directory for skill", note)
+            f.write_text(json.dumps({"type": "user", "message": {"role": "user", "content": "Read AGENTS.md\n"}}) + "\n")
+            self.assertEqual(dispatch.check_prompt_received("claude", "s1", "Read AGENTS.md", {"DFM_CLAUDE_HOME": d}, 0),
+                             (True, None))
+
     def test_claude_pasted_prompt_wrapper_is_unwrapped_exactly(self):
         sent = "Read AGENTS.md in your working directory.\nPacket line\n"
         cases = ((f'<pasted_content id="590d">\n{sent}</pasted_content id="590d">', sent),

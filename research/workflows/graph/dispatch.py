@@ -1030,7 +1030,14 @@ def check_prompt_received(kind: str, session: str | None, sent: str, environ: di
             if path is not None:
                 got = first_user_prompt(kind, path)
                 if got is not None:
-                    return got.strip() == sent.strip(), None
+                    a, b = got.strip(), sent.strip()
+                    if a == b:
+                        return True, None
+                    # Keep enough to diagnose a mismatch later (GRAPH-CLAUDE-PROMPT-RACE).
+                    at = next((i for i, (x, y) in enumerate(zip(a, b)) if x != y), min(len(a), len(b)))
+                    return False, (f"transcript {path}: first user prompt differs at char {at}; "
+                                   f"got {len(a)} chars sha256 {hashlib.sha256(a.encode()).hexdigest()[:16]} "
+                                   f"head {a[:120]!r}; sent {len(b)} chars")
                 note = f"transcript {path} has no user prompt yet"
         except OSError as exc:
             note = f"transcript could not be read: {exc}"
