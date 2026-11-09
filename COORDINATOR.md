@@ -249,7 +249,9 @@ For Codex, proof also verifies `prompt_delivery` (`interactive` or
 `startup_argument`). A command center is not a task session. Startup delivery
 uses a short path-and-SHA instruction to read retained task/context bytes, not
 the mutable packet source; this avoids Windows shell newline/length limits.
-An actual folder-trust dialog needs the user's trust decision before selection.
+Prefer `startup_argument` for Codex: interactive delivery with codex-cli 0.167
+dropped newlines from the recorded prompt, so the prompt check fails
+(GRAPH-CODEX-NEWLINES). An actual folder-trust dialog needs the user's trust decision before selection.
 An uncertain launch is never fixed by blindly sending Enter or another packet.
 
 `stop` verifies name/pane/session/cwd and confirmed absence before cleaning a
