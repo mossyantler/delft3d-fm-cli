@@ -15,9 +15,9 @@
 
 | 항목 | 현재 값 |
 | --- | --- |
-| 제품 | `INI-STAR-G` (`9c2a735`). 제품 212파일이 wheel `1c05a0df…`와 일치. 그 전은 `B14-G` (`aad1bf8`, 212파일), `G15-G` (`d8665fc`, 209파일). S07·B06 G의 wheel 지문은 작업 트리 `diagnostics.py`의 줄끝 차이(CRLF, 내용 동일)를 포함했다([기록](research/experiments/G18-G-20261108-01/acceptance.json)) |
+| 제품 | `INI-ALIGN-G` (`e7c32a0`). 제품 212파일이 wheel `2e104b8d…`와 일치. 그 전은 `INI-STAR-G` (`9c2a735`), `B14-G` (`aad1bf8`), 모두 212파일. S07·B06 G의 wheel 지문은 작업 트리 `diagnostics.py`의 줄끝 차이(CRLF, 내용 동일)를 포함했다([기록](research/experiments/G18-G-20261108-01/acceptance.json)) |
 | 공개 계약 | 명령 107개(`boundary constituents-inspect`·`constituents-set` 추가), JSON 프로토콜 2, manifest 3, 기본 물리 프로필 불변 |
-| 전체 회귀 | 1,878개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/INI-STAR-G-20261109-01/acceptance.json)). 직전 기준은 1,858개 ([B14-G](research/experiments/B14-G-20261109-01/acceptance.json)) |
+| 전체 회귀 | 1,901개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/INI-ALIGN-G-20261109-01/acceptance.json)). 직전 기준은 1,878개 ([INI-STAR-G](research/experiments/INI-STAR-G-20261109-01/acceptance.json)) |
 | 실제 엔진 | #231 direct/DIMR 각 6사례, 원래 멤버 24개 종료, 600초·최종 restart, 원본 191변수 일치 ([`3851697` 검수](research/proposals/short-close-native231-review/RELEASE_VERDICT.md)) |
 | 거부 보존 | #229는 관찰 tick 동률로 `NOT_ACCEPTED`. 원본 192파일 유지 ([해제 검수](research/proposals/short-close-native229-review/RELEASE_VERDICT.md)) |
 | 네이티브 슬롯 | `idle238` (`B14-NATIVE-V-Run`의 #237 여섯 실행 뒤 `native-237` 해제). 실행 허가가 아니다 |
@@ -26,7 +26,7 @@
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-09 INI-STAR 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-09 INI-ALIGN 마감 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -128,9 +128,15 @@
 | GRAPH-OPS | GRAPH-OPS-BACKUP-V: backup-sync 독립 검증·복원 대조 | ✓ | `dfm-fmc.8` |
 | GRAPH-OPS | GRAPH-OPS-BACKUP-G: 백업 통합 검수·첫 실제 백업 | ✓ | `dfm-fmc.9` |
 | INI | INI-STAR-V-Plan: independent cases for * comment lines | ✓ | `dfm-3ks.1` |
+| INI | INI-ALIGN-CONSUMERS: decide the comment mode for the other callers of boundary._blocks (EXT/BC/inifield readers in boundary_export, boundary_vertical, boundary_preview, boundary_import, boundary_series, boundary_constituents, source_sink) | Ready | `dfm-3ks.10` |
 | INI | INI-STAR-V-Run: verify the frozen model.parse candidate | ✓ | `dfm-3ks.2` |
 | INI | INI-STAR-G: merge and record * comment lines | ✓ | `dfm-3ks.3` |
-| INI | INI-STAR-OTHER-PARSERS: map the four other line parsers to their engine readers before any change | Ready | `dfm-3ks.4` |
+| INI | INI-STAR-OTHER-PARSERS: map the four other line parsers to their engine readers before any change | ✓ | `dfm-3ks.4` |
+| INI | INI-ALIGN-I: engine comment rules in EXT, inifield, PLI and BC header parsers | ✓ | `dfm-3ks.5` |
+| INI | INI-ALIGN-V-Plan: independent cases per file-kind comment rule | ✓ | `dfm-3ks.6` |
+| INI | INI-ALIGN-V-Run: verify the frozen alignment candidate | ✓ | `dfm-3ks.7` |
+| INI | INI-ALIGN-G: merge and record per-file-kind comment rules | ✓ | `dfm-3ks.8` |
+| INI | INI-ALIGN-V-Run-r2: rerun the frozen plan with the reviewed _blocks mode adapter | ✓ | `dfm-3ks.9` |
 | INI | INI-STAR-COMMENT: decide whether INI inputs may start lines with '*' (engine/GUI evidence first) | ✓ | `dfm-qu3` |
 | S07 | S07-EDITOR-G: 설치 편집 통합 검수 (8입력 보존) | ✓ | `dfm-lo0.1` |
 | S07 | S07-V-Plan: 풍응력 7사례 판독 기준 (Lovelace) | ✓ | `dfm-lo0.2` |
@@ -157,6 +163,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| INI-ALIGN-G | `e7c32a0` (merge of `3a419d6`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). EXT·inifield·PLI·`.bc` 헤더 판독기가 엔진 규칙을 따름. 독립 검증 2회차 410사례 통과(1회차는 검사 호출 인자 누락으로 REJECT). `boundary._blocks`의 다른 호출 11곳은 후속 `INI-ALIGN-CONSUMERS` |
 | INI-STAR-G | `9c2a735` (merge of `bce84e9`) | [INI `*` 주석 줄](research/notes/verification/ini-comments.md). 공용 판독기 `model.parse`가 엔진처럼 공백 뒤 `*` 줄을 주석으로 넘김(탭 앞은 기존대로 거부). 독립 검증 265사례 통과, 명령·스키마 불변. 엔진·GUI 실행 없음 |
 | B14-G | `aad1bf8` (merge of `e2b4079`) | [#237 분조 일괄 지정](research/notes/verification/boundary-constituents.md). `boundary constituents-inspect`·`constituents-set`. 실제 6회 직접 실행에서 날짜별 수동·CLI 편집 출력 169변수가 정확히 일치(사용자 승인 `HUMAN-20261109-01`). 연구용 BMI 실행기 갈래는 사용자 결정으로 보류 |
 | G15-G | `d8665fc` (merge of `bdd90b0`) | [G15 구조물 파일 교환](research/notes/verification/structure-transfer.md). `structure inspect`·`export`·`import`, W2D 보·P2D 펌프 쓰기. 독립 검증 3회차 공개 30/30·저장 오류 11/11, 2회차에서 찾은 참조 누락 결함(R6) 수정 확인(ACL 사용자 승인 `HUMAN-20261108-05`). 엔진·GUI 미검증 |
