@@ -49,7 +49,7 @@ def contract() -> dict:
             "admission": "closed input graph only; no feature gate",
             "catalog": {"mdu": ["geometry/inifieldfile", "sediment/sedfile", "sediment/morfile"],
                         "ini_field": "[Initial]/[Parameter] dataFile of types " + ", ".join(sorted(open_catalog.INI_TYPES)),
-                        "sediment_morphology": "values that name a file or library are refused",
+                        "sediment_morphology": "data file names (BcFil, file form of number-or-file keys) are resolved from the folder of the .sed/.mor file (IniFluffMass: the .mor folder) and enumerated; library keys (SettleLib, DLL, TranspLib, InputFile) are refused",
                         "sources": open_catalog.SOURCES},
             "refused": ["Wavemodelnr != 0 (before launch; no override in this profile)", "unknown or uncataloged file-naming keys (StructureFile, legacy ExtForceFile, RestartFile, ...)",
                         "trachytopes", "custom map/snapshot/waq/classmap output paths and split output", "output colliding with an input",
