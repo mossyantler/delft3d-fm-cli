@@ -136,6 +136,27 @@ Phase A is delivered as two chains, each with its own I, V-Plan, V-Run and G; A2
 2. **A2 · detached long runs and disk preflight** (`RUN-OPEN-A2-*`): R2.2 and R2.3 for `--profile open`, with
    the remaining R4 Phase A items. Planned after A1's G.
 
+## R7. A1 V-Plan ambiguities (coordinator, after V-Plan and before any A1 candidate result; binding)
+
+Rulings on the five ambiguities of `RUN-OPEN-A1-V-Plan` (plan-freeze sha256 `43e4a1fa…`), made without reading the
+A1 candidate:
+
+1. **A-INTERFACE.** Field names are the implementation's. V-Run binds the plan's unbound template to the
+   candidate's actual manifest, `run start` reply and `run status` fields, records every pointer, and the coordinator
+   reviews the binding before launch. A binding may only name where a layer or status is reported, never change what
+   the plan expects it to say. A refused case need not create a manifest; its reply must carry the reason and, for
+   Garolim, the feature table.
+2. **A-FEATURE-SCOPE.** As the plan proposes: a feature's status may cite a gate that verified that feature alone,
+   with the gate's scope stated; a configuration outside that scope (for example 14 layers, mud instead of sand,
+   astronomic instead of harmonic tide) is reported as such, and the combination is never verified.
+3. **A-CLOCK.** As the plan proposes: the CF time origin of outputs is the MDU `RefDate` as the engine writes it,
+   with time-zone offsets honoured as encoded in the CF units.
+4. **A-GAROLIM-CLOSURE.** A1 closure means the FM input graph (MDU, EXT, INI, sediment and morphology files and
+   every file they name). Closure of the coupled graph (DIMR configuration, `Waves.mdw` and its files) belongs to
+   Phase B; A1 does not claim it, and the Garolim refusal must say that waves are not handled.
+5. **A-DIAGNOSTICS.** As the plan proposes (counts over the run's `.dia` files, first 32 lines, raw stdout/stderr
+   scanned separately). Before launch, execution layers are reported as not performed, not as zero.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
