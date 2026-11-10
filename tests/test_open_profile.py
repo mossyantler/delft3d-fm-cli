@@ -225,6 +225,34 @@ class ReportTests(OpenBase):
         manifest = json.loads((self.out / "manifest.json").read_text())
         self.assertEqual(manifest["open_report"]["verification"], "open")
 
+    def test_files_named_inside_sed_and_mor_are_staged_next_to_the_model(self):
+        # R8: BcFil and the file form of a number-or-file key are part of the closed, staged graph.
+        replace(self.folder / "FlowFM.mor", "MorStt                = 600", "MorStt                = 600\n    BcFil                 = morbound.bcm")
+        replace(self.folder / "FlowFM.sed", "IniSedThick           = 1 ", "IniSedThick           = thickness.xyz ")
+        (self.folder / "morbound.bcm").write_text("bcm")
+        (self.folder / "thickness.xyz").write_text("0 0 1\n")
+        run = self.prepare()
+        self.assertTrue({"morbound.bcm", "thickness.xyz"} <= {Path(f["path"]).name for f in run.record["inputs"]})
+        run.save("preparing")
+        runs.stage(run)
+        for name, text in (("morbound.bcm", "bcm"), ("thickness.xyz", "0 0 1\n")):
+            self.assertEqual((run.folder / "model" / name).read_text(), text)
+        closure = run.record["open_report"]["layers"]["input_closure"]
+        self.assertEqual(closure["state"], "closed")
+        self.assertEqual(sorted(r["key"] for r in closure["data_references"]), ["bcfil", "inisedthick"])
+
+    def test_missing_or_outside_sed_mor_file_names_are_refused_before_launch(self):
+        replace(self.folder / "FlowFM.mor", "MorStt                = 600", "MorStt                = 600\n    BcFil                 = morbound.bcm")
+        self.refused("model_not_supported")  # missing
+        (self.folder.parent / "morbound.bcm").write_text("x")
+        replace(self.folder / "FlowFM.mor", "BcFil                 = morbound.bcm", "BcFil                 = ../morbound.bcm")
+        self.refused("model_not_supported")  # outside the model folder
+
+    def test_sediment_libraries_are_refused_before_launch(self):
+        replace(self.folder / "FlowFM.sed", "SedTyp                = mud", "SedTyp                = mud\n    TranspLib             = lib.dll")
+        (self.folder / "lib.dll").write_text("x")
+        self.refused("model_not_supported")
+
     def test_other_profiles_manifests_carry_no_open_report(self):
         self.assertNotIn("open_report", runs.AUTHORED_PROFILES)
 
