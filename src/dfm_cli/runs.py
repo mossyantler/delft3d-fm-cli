@@ -313,7 +313,7 @@ def execute_native(run, command, cwd, environment):
         # Even cold serial FM can spawn a second process. Observe membership
         # before resuming the first thread, while handles can still be retained.
         pump = _guarded_serial(run)
-        trace_members = pump or record.get("profile_name") == "short" or (
+        trace_members = pump or record.get("profile_name") in {"short", open_profile.NAME} or (
             record.get("profile_name") == "coupling"
             and record.get("coupling", {}).get("profile", {}).get("name") in {"fm_rtc", "rr_f152"}
         )
@@ -353,6 +353,8 @@ def execute_native(run, command, cwd, environment):
     record["finished_at_utc"] = utc_now()
     if run.job.members():
         raise DfmError("owned_descendants_remaining", "Root exited with live owned descendants", 5)
+    if record.get("profile_name") == open_profile.NAME:
+        open_profile.require_exit_confirmed(record)  # R11.2: never completed on unproven member exits.
     record["ownership"]["final_job_pids"] = []
 
 

@@ -389,6 +389,22 @@ def refresh(record: dict) -> dict:
     return {**{k: v for k, v in old.items() if k != "layers"}, "layers": {k: layers[k] for k in LAYER_ORDER}}
 
 
+def require_exit_confirmed(record: dict) -> None:
+    """R11.2: a completed open run proves that every owned Job member exited.
+
+    Applies the same prospective-handle assessment as the short profile (retained handle and
+    confirmed exit for every traced member, final Job accounting, no forced termination). Only
+    the proof is checked here: a nonzero engine exit code is still reported by the runner as
+    native_failure, never as an unconfirmed exit.
+    """
+    from .run_pump_lifecycle import natural_exit
+    assessment = natural_exit(record)
+    if not assessment["passed"]:
+        raise DfmError("open_exit_unconfirmed",
+                       "Open completion requires all prospective retained member handles and original Job accounting",
+                       5, {"exit_assessment": assessment})
+
+
 def verify_outputs(run) -> dict:
     """Output cadence for the open profile; restart output is checked only when it is requested.
 
