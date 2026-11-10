@@ -157,6 +157,19 @@ A1 candidate:
 5. **A-DIAGNOSTICS.** As the plan proposes (counts over the run's `.dia` files, first 32 lines, raw stdout/stderr
    scanned separately). Before launch, execution layers are reported as not performed, not as zero.
 
+## R8. Files named inside `.sed`/`.mor` (coordinator, after A1-I; binding)
+
+A1-I (candidate `6f07e42`) enumerated `SedFile`/`MorFile` but refused every file name inside them (`BcFil`, file
+values of keys such as `IniSedThick`, and library keys), because the engine opens such names relative to its working
+directory. On the direct route `dfm` starts the engine with the staged MDU folder as working directory
+(`runs.py:209`), so that folder is the base. Ruling:
+
+1. File names inside `.sed`/`.mor` that the engine opens as data (at least `BcFil`, and the file form of keys that
+   accept a number or a file) are resolved from the MDU folder and enumerated, staged and refused like any other
+   reference (missing, outside the folder). Each key cites the engine source line that opens it.
+2. Library keys that load executable code (`TranspLib`, `SettleLib` and the like) stay refused in A1.
+3. The rest of A1-I stands. A follow-up I (`RUN-OPEN-A1-FIX-I`) applies this on top of `6f07e42`.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
