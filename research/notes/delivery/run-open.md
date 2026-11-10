@@ -232,6 +232,17 @@ of `REVISION.md` all carry the corrected bytes (`a57d6865…`, `476f8f60…`, `d
 re-hashed in the frozen integrated and manual cases. For those three entries only, the authoritative manual input
 hashes are the `REVISION.md` after-hashes; every other inventory entry and every expectation stay as frozen.
 
+## R13. CF origin in the A1 reader (coordinator, after A1 V-Run r3; binding)
+
+Round 3 (candidate `227ccc0`) completed both approved launches with exit 0, all-member exit proof and exact
+public/manual equality. Its only failing predicate is the frozen reader's output schedule: the engine writes
+`seconds since 2001-01-01 00:00:00 +09:00` with raw times `[0, 10, 20]` for a model whose `RefDate` is 2001-01-01,
+`TZone = 9`, `TStart = 0`; the reader converts those instants to UTC and measures them from a time-zone-naive
+`2001-01-01T00:00:00` taken as UTC, giving `[-32400, -32390, -32380]`. R7.3 (ruled before any candidate result) fixes
+the origin as `RefDate` with the offset encoded in the CF units, that is `2001-01-01T00:00:00+09:00`. Measured from it,
+the retained times are exactly the frozen `[0, 10, 20]`. The expected schedule, tolerance and every other predicate stay
+as frozen; only the origin follows R7.3. No engine rerun is needed.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
