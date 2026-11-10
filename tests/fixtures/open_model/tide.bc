@@ -1,1 +1,11 @@
-opaque tide.bc
+[forcing]
+Name = bnd_0001
+Function = harmonic
+Time-interpolation = linear
+Quantity = harmonic component
+Unit = minutes
+Quantity = waterlevelbnd amplitude
+Unit = m
+Quantity = waterlevelbnd phase
+Unit = deg
+0 0.5 0

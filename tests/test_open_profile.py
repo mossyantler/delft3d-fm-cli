@@ -65,9 +65,16 @@ class AdmissionTests(OpenBase):
         self.assertIn("wavemodelnr", json.dumps(error.details).casefold())
         # The refusal still carries the feature table, with the left-out physics named.
         table = {f["feature"]: f for f in error.details["open_report"]["feature_table"]}
-        self.assertEqual(table["wave_coupling"]["status"], "not verified by dfm")
+        self.assertEqual(table["waves_coupling"]["status"], "not verified by dfm")
+        self.assertEqual(table["waves_coupling"]["configuration"], {"waves/wavemodelnr": "3"})
         self.assertIn("sigma_layers", table)
         self.assertEqual(error.details["open_report"]["combination"], "not verified")
+        # R7.4/R10.3: the refusal says that waves are not handled, and no execution layer is claimed.
+        self.assertIn("not handled", str(error).casefold() + json.dumps(error.details).casefold())
+        layers = error.details["open_report"]["layers"]
+        self.assertEqual(layers["input_closure"]["state"], "closed")
+        for name in ("engine_initialization", "simulation", "outputs", "diagnostics"):
+            self.assertEqual(layers[name]["state"], "not_performed", name)
 
     def test_cli_refuses_waves_and_keeps_the_folder_clean(self):
         replace(self.mdu, "Wavemodelnr = 0", "Wavemodelnr = 3")
@@ -148,38 +155,126 @@ class ReportTests(OpenBase):
         self.assertEqual(report["combination"], "not verified")
         self.assertEqual(report["scientific_validation"], "not_performed")
 
-    def test_feature_table_lists_every_used_feature_with_its_status(self):
+    def test_feature_table_has_one_row_per_feature_with_the_models_configuration(self):
         table = self.features(self.prepare())
-        for name in ("sigma_layers", "local_time_zone", "salinity_transport", "temperature_transport",
-                     "sediment_morphology", "spatial_friction_ini_parameter", "tidal_water_level_boundary",
-                     "meteo_wind", "meteo_rain_evaporation", "duration", "ini_initial_field"):
-            self.assertIn(name, table)
-        self.assertNotIn("wave_coupling", table, "waves are refused, never listed as run")
+        self.assertEqual(sorted(table), sorted(["sigma_layers", "local_time", "salinity", "temperature", "sediment", "morphology",
+                                                "initial_fields", "spatial_roughness", "waterlevel_boundary", "meteo", "duration"]))
+        self.assertNotIn("waves_coupling", table, "waves are refused, never listed as run")
         for item in table.values():
             status = item["status"]
             self.assertTrue(status.startswith("verified ") or status == "not verified by dfm", status)
-            self.assertIn("evidence", item)
+            self.assertIn("configuration", item)
+            if status == "not verified by dfm":
+                self.assertTrue(item["reason"], item["feature"])
+            else:
+                self.assertTrue(item["scope"], item["feature"])
+        self.assertEqual(table["sigma_layers"]["configuration"]["geometry/kmx"], "3")
+        self.assertEqual(table["local_time"]["configuration"], {"time/tzone": "9"})
+        self.assertEqual(table["waterlevel_boundary"]["configuration"]["forcing_kinds"], ["harmonic"])
+        sediment = table["sediment"]["configuration"]
+        self.assertEqual([f["kind"] for f in sediment["fractions"]], ["mud/suspended"])
+        self.assertEqual(table["morphology"]["configuration"]["morfac"], "1")
+        self.assertEqual(table["initial_fields"]["configuration"]["quantities"], ["initialsedfracSediment_mud"])
+        self.assertEqual(table["spatial_roughness"]["configuration"]["quantity"], "frictioncoefficient")
 
-    def test_verified_status_names_the_gate_that_verified_the_feature_alone(self):
+    def test_meteo_is_one_row_naming_every_meteo_quantity(self):
+        meteo = [f for f in self.prepare().record["open_report"]["feature_table"] if f["feature"] == "meteo"]
+        self.assertEqual(len(meteo), 1)
+        self.assertEqual(meteo[0]["configuration"]["quantities"], ["rainfall_rate", "windxy"])
+        self.assertEqual(meteo[0]["status"], "not verified by dfm")
+
+    def test_status_cites_a_gate_only_when_its_recorded_scope_covers_the_configuration(self):
         table = self.features(self.prepare())
-        self.assertEqual(table["tidal_water_level_boundary"]["status"], "verified M5-G-coordinator-final-01")
-        self.assertEqual(table["sigma_layers"]["status"], "verified 3D-G-coordinator-final-01")
-        self.assertEqual(table["salinity_transport"]["status"], "verified 3D-G-coordinator-final-01")
-        for name in ("local_time_zone", "temperature_transport", "meteo_wind", "meteo_rain_evaporation",
-                     "spatial_friction_ini_parameter", "ini_initial_field"):
+        # 3D-G: three-layer sigma channel and layered salinity; a different count is cited with the scope stated.
+        for name in ("sigma_layers", "salinity"):
+            self.assertEqual(table[name]["status"], "verified 3D-G-coordinator-final-01", name)
+            self.assertEqual(table[name]["gate"], "3D-G-coordinator-final-01")
+            self.assertIn("three", table[name]["scope"].casefold(), name)
+        # M5: harmonic and linear time-series water-level boundaries.
+        self.assertEqual(table["waterlevel_boundary"]["status"], "verified M5-G-coordinator-final-01")
+        self.assertIn("harmonic", table["waterlevel_boundary"]["scope"])
+        # No gate today: temperature, local time, initial fields, spatial roughness, meteo.
+        for name in ("local_time", "temperature", "initial_fields", "spatial_roughness", "meteo"):
             self.assertEqual(table[name]["status"], "not verified by dfm", name)
-        # The fixture's mud fraction is outside the verified single-sand-bedload case.
-        self.assertEqual(table["sediment_morphology"]["status"], "not verified by dfm")
+            self.assertNotIn("gate", table[name], name)
+        # The fixture's mud fraction is outside the sand/bedload scope of MORPH-G, and so is its morphology.
+        for name in ("sediment", "morphology"):
+            self.assertEqual(table[name]["status"], "not verified by dfm", name)
+            self.assertIn("mud", table[name]["reason"].casefold(), name)
+        # Kmx=3 for 1200 s: the 3D gate ran 20 s.
+        self.assertEqual(table["duration"]["status"], "not verified by dfm")
+        self.assertIn("20", table["duration"]["reason"])
 
-    def test_duration_is_verified_only_inside_the_observed_extended_horizon(self):
-        self.assertEqual(self.features(self.prepare())["duration"]["status"], "verified M5-G-coordinator-final-01")
+    def test_an_astronomic_water_level_boundary_is_outside_the_m5_scope(self):
+        replace(self.folder / "tide.bc", "Function = harmonic", "Function = astronomic")
+        row = self.features(self.prepare())["waterlevel_boundary"]
+        self.assertEqual(row["configuration"]["forcing_kinds"], ["astronomic"])
+        self.assertEqual(row["status"], "not verified by dfm")
+        self.assertIn("astronomic", row["reason"])
+
+    def test_time_series_boundary_is_covered_only_with_linear_interpolation(self):
+        replace(self.folder / "tide.bc", "Function = harmonic", "Function = timeseries")
+        row = self.features(self.prepare())["waterlevel_boundary"]
+        self.assertEqual(row["configuration"]["forcing_kinds"], ["time series"])
+        self.assertEqual(row["status"], "verified M5-G-coordinator-final-01")
+        shutil.rmtree(self.out)
+        replace(self.folder / "tide.bc", "Time-interpolation = linear", "Time-interpolation = block-from")
+        row = self.features(self.prepare())["waterlevel_boundary"]
+        self.assertEqual(row["status"], "not verified by dfm")
+        self.assertIn("block-from", row["reason"])
+
+    def test_an_unreadable_water_level_forcing_is_reported_as_unknown_never_as_verified(self):
+        (self.folder / "tide.bc").write_text("opaque tide.bc")
+        row = self.features(self.prepare())["waterlevel_boundary"]
+        self.assertEqual(row["status"], "not verified by dfm")
+        self.assertEqual(row["configuration"]["forcing_kinds"], [])
+
+    def test_duration_is_checked_against_the_gate_of_the_same_dimensionality(self):
+        replace(self.mdu, "StopDateTime = 20230701002000", "StopDateTime = 20230701000020")
+        row = self.features(self.prepare())["duration"]
+        self.assertEqual(row["status"], "verified 3D-G-coordinator-final-01")
+        self.assertEqual(row["configuration"], {"seconds": 20, "dimension": "3D"})
+        shutil.rmtree(self.out)
+        replace(self.mdu, "StopDateTime = 20230701000020", "StopDateTime = 20230701000021")
+        self.assertEqual(self.features(self.prepare())["duration"]["status"], "not verified by dfm")
+
+    def test_two_dimensional_duration_is_covered_up_to_the_m5_run(self):
+        replace(self.mdu, "Kmx = 3", "Kmx = 0")
+        row = self.features(self.prepare())["duration"]
+        self.assertEqual((row["status"], row["configuration"]["dimension"]), ("verified M5-G-coordinator-final-01", "2D"))
         shutil.rmtree(self.out)
         replace(self.mdu, "StopDateTime = 20230701002000", "StopDateTime = 20230702000000")
         self.assertEqual(self.features(self.prepare())["duration"]["status"], "not verified by dfm")
 
-    def test_single_sand_fraction_is_verified_by_the_morphology_gate_alone(self):
-        replace(self.folder / "FlowFM.sed", "SedTyp                = mud", "SedTyp                = sand")
-        self.assertEqual(self.features(self.prepare())["sediment_morphology"]["status"], "verified MORPH-G-exchange-final-02")
+    def test_another_layer_count_is_still_cited_with_the_three_layer_scope_stated(self):
+        replace(self.mdu, "Kmx = 3", "Kmx = 14")
+        row = self.features(self.prepare())["sigma_layers"]
+        self.assertEqual(row["status"], "verified 3D-G-coordinator-final-01")
+        self.assertEqual(row["configuration"]["geometry/kmx"], "14")
+        self.assertIn("14", row["scope"])
+        self.assertIn("three", row["scope"].casefold())
+
+    def test_one_sand_bedload_fraction_and_its_morphology_are_covered_by_the_morphology_gate(self):
+        replace(self.folder / "FlowFM.sed", "SedTyp                = mud", "SedTyp                = sand\n    TraFrm                = 2")
+        table = self.features(self.prepare())
+        for name in ("sediment", "morphology"):
+            self.assertEqual(table[name]["status"], "verified MORPH-G-exchange-final-02", name)
+            self.assertIn("MPM", table[name]["scope"], name)
+        self.assertEqual(table["sediment"]["configuration"]["fractions"][0]["kind"], "sand/bedload (TraFrm 2)")
+
+    def test_sand_with_another_transport_formula_is_not_covered(self):
+        replace(self.folder / "FlowFM.sed", "SedTyp                = mud", "SedTyp                = sand\n    TraFrm                = 4")
+        table = self.features(self.prepare())
+        for name in ("sediment", "morphology"):
+            self.assertEqual(table[name]["status"], "not verified by dfm", name)
+        self.assertIn("TraFrm", table["sediment"]["reason"])
+
+    def test_two_fractions_are_not_covered_by_the_single_fraction_gate(self):
+        sed = self.folder / "FlowFM.sed"
+        sed.write_text(sed.read_text() + "[Sediment]\n    Name                  = #Second#\n    SedTyp                = sand\n    TraFrm                = 2\n")
+        table = self.features(self.prepare())
+        self.assertEqual(table["sediment"]["status"], "not verified by dfm")
+        self.assertEqual(len(table["sediment"]["configuration"]["fractions"]), 2)
 
     def test_gates_in_the_table_exist_in_the_schema_evidence(self):
         from dfm_cli.workflow_evidence import run_profiles
@@ -187,15 +282,14 @@ class ReportTests(OpenBase):
         for gate in open_profile.GATES.values():
             self.assertIn(gate, known, gate)
 
-    def test_layers_report_each_stage_separately(self):
+    def test_layers_before_launch_are_not_performed_not_pending(self):
         run = self.prepare()
         layers = run.record["open_report"]["layers"]
         self.assertEqual(list(layers), ["input_closure", "engine_initialization", "simulation", "outputs", "diagnostics"])
         self.assertEqual(layers["input_closure"]["state"], "closed")
-        self.assertEqual(layers["engine_initialization"]["state"], "not_performed")
-        self.assertEqual(layers["simulation"]["state"], "not_performed")
-        self.assertEqual(layers["outputs"]["state"], "pending")
-        self.assertEqual(layers["diagnostics"]["state"], "pending")
+        for name in ("engine_initialization", "simulation", "outputs", "diagnostics"):
+            self.assertEqual(layers[name]["state"], "not_performed", name)
+        self.assertNotIn("pending", json.dumps(layers))
 
     def test_refresh_follows_the_record_and_never_upgrades_a_failed_run(self):
         record = {"validation": {"engine_initialization": "passed_native_marker", "simulation": "completed_and_output_times_verified"},
@@ -208,8 +302,10 @@ class ReportTests(OpenBase):
         self.assertEqual(layers["engine_initialization"]["state"], "passed_native_marker")
         self.assertEqual(layers["simulation"]["state"], "completed_and_output_times_verified")
         self.assertEqual(layers["outputs"]["state"], "passed")
-        self.assertEqual(layers["diagnostics"]["warnings"], 5)
+        # R10.4: counts come from the run's .dia files only; this record names none.
+        self.assertEqual(layers["diagnostics"]["warnings"], 0)
         self.assertEqual(layers["diagnostics"]["errors"], 0)
+        self.assertEqual(layers["diagnostics"]["dia_files"], [])
         failed = dict(record, validation={"engine_initialization": "failed_native_diagnostic", "simulation": "failed"},
                       verification={"state": "not_completed", "reason": "native_failure"})
         layers = open_profile.refresh(failed)["layers"]
@@ -335,6 +431,66 @@ class OutputVerificationTests(OpenBase):
         self.assertEqual(report["combination"], "not verified")
 
 
+class DiagnosticsTests(OpenBase):
+    """R10.4: counts over the run's .dia files; stdout and stderr are scanned and reported separately."""
+
+    def finished(self, dia=None, stdout="", stderr=""):
+        run = self.prepare()
+        run.save("preparing")
+        runs.stage(run)
+        for name, text in (dia or {}).items():
+            path = run.folder / "model" / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text)
+        (run.folder / "stdout.log").write_text(stdout)
+        (run.folder / "stderr.log").write_text(stderr)
+        from dfm_cli.diagnostics import collect_diagnostics
+        collect_diagnostics(run.folder, run.record)
+        return open_profile.refresh(run.record)["layers"]["diagnostics"]
+
+    def test_counts_and_first_32_lines_come_from_the_dia_files_only(self):
+        errors = "".join(f"** ERROR   : dia error {n}\n" for n in range(40))
+        warnings = "".join(f"** WARNING : dia warning {n}\n" for n in range(35))
+        report = self.finished({"output/FlowFM.dia": "info\n" + errors + warnings},
+                               stdout="** ERROR   : stdout error\n** WARNING : stdout warning\n",
+                               stderr="forrtl: severe (1): stderr\n")
+        self.assertEqual((report["state"], report["errors"], report["warnings"]), ("collected", 40, 35))
+        self.assertEqual(report["first_error_lines"], [f"** ERROR   : dia error {n}" for n in range(32)])
+        self.assertEqual(report["first_warning_lines"], [f"** WARNING : dia warning {n}" for n in range(32)])
+        self.assertEqual(report["dia_files"], ["model/output/FlowFM.dia"])
+        self.assertEqual(report["first_error_at"][0], "model/output/FlowFM.dia:2")
+
+    def test_stdout_and_stderr_are_reported_separately_and_never_added_to_the_dia_counts(self):
+        report = self.finished({"output/FlowFM.dia": "** ERROR   : one\n"},
+                               stdout="** ERROR   : out 1\n** ERROR   : out 2\n** WARNING : out w\n",
+                               stderr="forrtl: severe (41): err\nplain line\n")
+        self.assertEqual((report["errors"], report["warnings"]), (1, 0))
+        self.assertEqual((report["stdout"]["errors"], report["stdout"]["warnings"]), (2, 1))
+        self.assertEqual(report["stdout"]["first_error_lines"], ["** ERROR   : out 1", "** ERROR   : out 2"])
+        self.assertEqual((report["stderr"]["errors"], report["stderr"]["lines"]), (1, 2))
+        self.assertEqual(report["stderr"]["first_error_lines"], ["forrtl: severe (41): err"])
+
+    def test_several_dia_files_are_counted_in_path_order_and_a_run_without_dia_has_zero_counts(self):
+        report = self.finished({"output/b.dia": "** WARNING : b\n", "a.dia": "** WARNING : a\n** ERROR   : a\n"})
+        self.assertEqual((report["errors"], report["warnings"]), (1, 2))
+        self.assertEqual(report["first_warning_lines"], ["** WARNING : a", "** WARNING : b"])
+        self.assertEqual(report["dia_files"], ["model/a.dia", "model/output/b.dia"])
+        none = self.finished(stdout="** ERROR   : only in stdout\n")
+        self.assertEqual((none["errors"], none["warnings"], none["dia_files"]), (0, 0, []))
+        self.assertEqual(none["stdout"]["errors"], 1)
+
+    def test_the_manifest_carries_the_dia_based_report(self):
+        run = self.prepare()
+        run.save("preparing")
+        runs.stage(run)
+        (run.folder / "model" / "x.dia").write_text("** ERROR   : boom\n")
+        from dfm_cli.diagnostics import collect_diagnostics
+        collect_diagnostics(run.folder, run.record)
+        run.save("failed")
+        layers = json.loads((self.out / "manifest.json").read_text())["open_report"]["layers"]
+        self.assertEqual((layers["diagnostics"]["errors"], layers["diagnostics"]["dia_files"]), (1, ["model/x.dia"]))
+
+
 class SurfaceTests(unittest.TestCase):
     def test_run_start_offers_the_open_profile(self):
         commands = command_schema(parser())
@@ -353,6 +509,14 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual(contract["maximum_timeout_seconds"], 3600)
         self.assertEqual(contract["combination"], "not verified")
         self.assertEqual(len(result["commands"]), 107)
+        # R10: rows, status by gate scope, pre-launch layers and .dia-based diagnostics are described.
+        report = contract["report"]
+        self.assertEqual(report["layers_before_launch"], "not_performed")
+        for word in ("sigma_layers", "waves_coupling", "scope", "not verified by dfm"):
+            self.assertIn(word, report["feature_table"], word)
+        self.assertIn(".dia", report["diagnostics"])
+        self.assertIn("32", report["diagnostics"])
+        self.assertIn("separately", report["diagnostics"])
 
 
 if __name__ == "__main__":
