@@ -204,6 +204,21 @@ next V-Run:
 5. **V-Run paths.** The next V-Run may call the pinned V-Plan reader through a path-only collector that remaps the
    frozen case and output paths to its owned folder, without changing any expectation.
 
+## R11. A1 V-Run round 2 triage (coordinator; binding)
+
+Round 2 (candidate `f3c4839`) made one approved launch, which failed at engine initialization:
+`*** ERROR Unknown boundary "west" in morphology.mor`. Two separate causes:
+
+1. **Fixture (V-Plan).** The integrated model's `morphology.mor` names boundaries `west`/`east` (from the morph
+   example), while its flow boundaries come from `boundary_west.pli`/`boundary_east.pli`. A V-Plan revision corrects
+   the names to the flow boundaries and re-freezes; nothing else in the plan changes.
+2. **Product (I).** The open profile is not in the set of profiles whose Job members are traced
+   (`runs.py:316-323,348-351`), so with two Job processes the run could not prove that every owned member exited
+   (`all_owned_members_exit_confirmed: false`). R2.1's "existing owned Job" includes that proof: the open profile
+   traces members like the other guarded profiles.
+
+The CLI's reporting of the failed run (exit 5, initialization failed, no outputs, `.dia` error) followed R3 and R10.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
