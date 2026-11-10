@@ -74,6 +74,12 @@ class OpenCatalogTests(unittest.TestCase):
         self.assertEqual(catalog["morphology"]["morfac"], "1")
         self.assertEqual(before, tree_hash(self.folder))
 
+    def test_a_sediment_fraction_reports_its_transport_formula_when_the_file_sets_one(self):
+        # RUN-OPEN-A1-FIX2-I (R10.2): the morphology gate covers TraFrm 2 only, so the catalog must carry it.
+        replace(self.folder / "FlowFM.sed", "SedTyp                = mud", "SedTyp                = sand\n    TraFrm                = 2")
+        fractions = model.validate(self.mdu)["open_catalog"]["sediment"]["fractions"]
+        self.assertEqual(fractions, [{"name": "Sediment_mud", "type": "sand", "trafrm": "2"}])
+
     def test_cli_validate_reports_the_graph_closed(self):
         code, payload = cli("model", "validate", self.mdu)
         self.assertEqual(code, 0, payload)
