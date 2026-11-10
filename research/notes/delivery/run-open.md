@@ -224,6 +224,14 @@ The CLI's reporting of the failed run (exit 5, initialization failed, no outputs
    (`fm_external_forcings_init.f90:876-878`, coordinator-checked). The same plan revision also sets that name to
    `global` in every integrated-derived case and re-freezes. Garolim's `RainEvap.bc` already says `global`.
 
+## R12. Stale manual inventory in the revised plan (coordinator, after A1 V-Run r3 stage 1; binding)
+
+In the revised plan (plan-freeze `bbc167cf…`), `admission.json /manual/input_inventory` still lists the pre-R11 hashes
+of `morphology.mor`, `bedload.bcm` and `rain.bc`, while `case-inputs.json`, `expected.json` and the before/after table
+of `REVISION.md` all carry the corrected bytes (`a57d6865…`, `476f8f60…`, `d5c6b8ec…`), which the coordinator
+re-hashed in the frozen integrated and manual cases. For those three entries only, the authoritative manual input
+hashes are the `REVISION.md` after-hashes; every other inventory entry and every expectation stay as frozen.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
