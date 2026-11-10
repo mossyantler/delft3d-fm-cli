@@ -15,6 +15,7 @@ from dfm_cli import model, open_profile, runs
 from dfm_cli.cli import command_schema, parser
 from dfm_cli.common import DfmError
 
+from short_fixtures import Scenario, normal_receipt
 from test_open_catalog import cli, copy_model, replace, tree_hash
 
 STUB = {"root": "stub", "kernels": "stub", "product": "stub", "proj_data": None, "capabilities": {},
@@ -518,6 +519,68 @@ class SurfaceTests(unittest.TestCase):
         self.assertIn(".dia", report["diagnostics"])
         self.assertIn("32", report["diagnostics"])
         self.assertIn("separately", report["diagnostics"])
+
+
+class MemberTraceTests(unittest.TestCase):
+    """RUN-OPEN-A1-FIX3-I (Contract R11.2): the open profile traces its Job members like the guarded profiles.
+
+    The Job, monitor, exit capture and output verification are synthetic (tests/short_fixtures.py);
+    nothing here launches a process, loads a DLL or touches a native engine.
+    """
+
+    def scenario(self, profile_name="open"):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        s = Scenario(Path(tmp.name) / "run", profile_name=profile_name)
+        if profile_name == "open":
+            s.run.record["open_report"] = {"layers": {"input_closure": {"state": "passed"}}}
+        return s
+
+    def test_open_profile_creates_its_job_with_member_tracing(self):
+        s = self.scenario()
+        self.assertEqual(s.start()["state"], "completed")
+        self.assertEqual([e for e in s.events if isinstance(e, tuple) and e[0] == "birth"], [("birth", True)])
+        self.assertIn("member_trace", s.load()["ownership"]["normal_exit"])
+
+    def test_unconfirmed_member_exit_is_not_reported_as_completed(self):
+        s = self.scenario()
+        s.normal["all_owned_members_exit_confirmed"] = False
+        s.normal["member_trace"]["all_owned_members_exit_confirmed"] = False
+        s.normal["member_trace"]["confirmed_member_exit_count"] = 1
+        with self.assertRaises(DfmError) as caught:
+            s.start()
+        self.assertEqual((caught.exception.code, caught.exception.exit_code), ("open_exit_unconfirmed", 5))
+        manifest = s.load()
+        self.assertNotEqual(manifest["state"], "completed")
+        self.assertEqual(manifest["state"], "failed")
+        self.assertEqual(manifest["error"]["code"], "open_exit_unconfirmed")
+        self.assertEqual(manifest["verification"]["state"], "not_completed")
+        self.assertFalse(manifest["ownership"]["normal_exit"]["all_owned_members_exit_confirmed"])
+        self.assertNotEqual(manifest["validation"].get("simulation"), "completed_and_output_times_verified")
+
+    def test_unobserved_member_is_not_reported_as_completed(self):
+        s = self.scenario()
+        s.normal["member_trace"]["unobserved_member_count"] = 1
+        with self.assertRaises(DfmError) as caught:
+            s.start()
+        self.assertEqual(caught.exception.code, "open_exit_unconfirmed")
+        self.assertNotEqual(s.load()["state"], "completed")
+
+    def test_a_failed_engine_is_still_reported_by_its_native_failure(self):
+        s = self.scenario()
+        s.native_code = 1
+        s.normal = normal_receipt(1)
+        with self.assertRaises(DfmError) as caught:
+            s.start()
+        self.assertEqual(caught.exception.code, "native_failure")
+        self.assertEqual(s.load()["state"], "failed")
+
+    def test_other_profiles_keep_their_untraced_job(self):
+        s = self.scenario("extended")
+        s.normal["all_owned_members_exit_confirmed"] = False
+        s.normal["member_trace"]["all_owned_members_exit_confirmed"] = False
+        self.assertEqual(s.start()["state"], "completed")
+        self.assertEqual([e for e in s.events if isinstance(e, tuple) and e[0] == "birth"], [("birth", False)])
 
 
 if __name__ == "__main__":
