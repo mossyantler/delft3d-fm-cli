@@ -198,6 +198,7 @@ For structures, `dfm structure inspect MODEL.mdu` is read-only and lists every s
 ## Run and read status
 
 Prepare a copied model with an explicit UTC interval of **at most 600 seconds**.
+For an integrated user model (layers, time zone, transport, sediment, morphology, meteo and so on together), `run start --profile open --route direct` admits the model when its input graph is closed and reports each layer (closure, initialization, stop time, outputs, `.dia` diagnostics) with a feature table that cites a verified gate only within that gate's scope; the combination itself is never reported as verified. It runs blocking for at most 3600 s and refuses wave-coupled models for now. See [the open profile note](research/notes/verification/run-open.md).
 For authored cold 2D water-level models, `run start --profile extended` explicitly opts into a different, resource-bounded profile. See [the verified 1,200-second case](research/notes/verification/roadmap-2d.md). The engine progress row, controller wall time, and NetCDF-verified final time are separate fields; absent progress is unknown. Use `schema inspect` for limits.
 The first run profile requires `Kmx=0`, cold start, disabled Waves/trachytopes,
 new EXT Boundary/Meteo, and scalar history/map intervals that divide the duration

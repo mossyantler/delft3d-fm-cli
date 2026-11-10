@@ -15,18 +15,18 @@
 
 | 항목 | 현재 값 |
 | --- | --- |
-| 제품 | `RUNIN-G` (`b347cfb`). 제품 212파일이 wheel `a8db94f1…`와 일치. 그 전은 `CONSUMERS-G` (`cd67e7a`), `INI-ALIGN-G` (`e7c32a0`), `INI-STAR-G` (`9c2a735`), `B14-G` (`aad1bf8`), 모두 212파일. S07·B06 G의 wheel 지문은 작업 트리 `diagnostics.py`의 줄끝 차이(CRLF, 내용 동일)를 포함했다([기록](research/experiments/G18-G-20261108-01/acceptance.json)) |
+| 제품 | `RUN-OPEN-A1-G` (`255d582`). 제품 214파일이 wheel `8f00b301…`와 일치. 그 전은 `RUNIN-G` (`b347cfb`, 212파일, wheel `a8db94f1…`), `CONSUMERS-G` (`cd67e7a`), `INI-ALIGN-G` (`e7c32a0`), `INI-STAR-G` (`9c2a735`), `B14-G` (`aad1bf8`), 모두 212파일. S07·B06 G의 wheel 지문은 작업 트리 `diagnostics.py`의 줄끝 차이(CRLF, 내용 동일)를 포함했다([기록](research/experiments/G18-G-20261108-01/acceptance.json)) |
 | 공개 계약 | 명령 107개(`boundary constituents-inspect`·`constituents-set` 추가), JSON 프로토콜 2, manifest 3, 기본 물리 프로필 불변 |
-| 전체 회귀 | 1,936개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/RUNIN-G-20261109-01/acceptance.json)). 직전 기준은 1,927개 ([CONSUMERS-G](research/experiments/CONSUMERS-G-20261109-01/acceptance.json)) |
+| 전체 회귀 | 2,015개 통과, 선택 `geo` 33 건너뜀, 실패·오류 0 ([기록](research/experiments/RUN-OPEN-A1-G-20261110-01/acceptance.json)). 직전 기준은 1,936개 ([RUNIN-G](research/experiments/RUNIN-G-20261109-01/acceptance.json)) |
 | 실제 엔진 | #231 direct/DIMR 각 6사례, 원래 멤버 24개 종료, 600초·최종 restart, 원본 191변수 일치 ([`3851697` 검수](research/proposals/short-close-native231-review/RELEASE_VERDICT.md)) |
 | 거부 보존 | #229는 관찰 tick 동률로 `NOT_ACCEPTED`. 원본 192파일 유지 ([해제 검수](research/proposals/short-close-native229-review/RELEASE_VERDICT.md)) |
-| 네이티브 슬롯 | `idle239` (`G15-ENGINE-V-Run`의 #238 여섯 실행 뒤 `native-238` 해제). 실행 허가가 아니다 |
+| 네이티브 슬롯 | `idle241` (`RUN-OPEN-A1-V-Run-r2`의 `native-239` 1회, `-r3`의 #240 두 실행 뒤 해제). 실행 허가가 아니다 |
 
 승인 범위는 f34 2D UTC cold-start 600초, direct와 단일 FM DIMR까지다. 강제 종료의
 인과 귀속, 정상 마무리, 사용 가능한 restart, 다른 모델·CRS·MPI·결합·GUI 동등성은
 승인하지 않았다.
 
-## 활성 공정 스냅숏 (Beads, 2026-11-09 G15 엔진 검증 마감 직후)
+## 활성 공정 스냅숏 (Beads, 2026-11-11 RUN-OPEN A1 통합 검수 직후)
 
 모든 후보는 현재 191파일 제품을 기준으로 **새로 구성**한다. 과거 `23f9` 또는 구형 제품 기반 결합 wheel을
 승인본으로 재사용하지 않는다. 체크포인트의 후보 코드는 [중단 체크포인트](research/checkpoints/20261105-quota-pause/README.md)에 있다.
@@ -154,6 +154,19 @@
 | INI | INI-ALIGN-G: merge and record per-file-kind comment rules | ✓ | `dfm-3ks.8` |
 | INI | INI-ALIGN-V-Run-r2: rerun the frozen plan with the reviewed _blocks mode adapter | ✓ | `dfm-3ks.9` |
 | INI | INI-STAR-COMMENT: decide whether INI inputs may start lines with '*' (engine/GUI evidence first) | ✓ | `dfm-qu3` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-Contract: open run route for integrated user models (Garolim target) | ✓ | `dfm-7tv` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-I: open profile admission, INI/sediment closure and layered report | ✓ | `dfm-9l0.1` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-FIX3-I: trace open profile Job members (Contract R11.2) | ✓ | `dfm-9l0.10` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-V-Plan-r2: correct the integrated fixture's morphology boundary names and re-freeze (Contract R11.1) | ✓ | `dfm-9l0.11` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-V-Run-r3: verify the R11 candidate on the corrected plan, two native runs | ✓ | `dfm-9l0.12` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-V-Plan: open profile admission, INI/sediment closure and layered report | ✓ | `dfm-9l0.2` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-V-Run: open profile admission, INI/sediment closure and layered report | ✓ | `dfm-9l0.3` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-G: open profile admission, INI/sediment closure and layered report | ✓ | `dfm-9l0.4` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-FIX-I: resolve files named inside sed/mor from the MDU folder (Contract R8) | ✓ | `dfm-9l0.5` |
+| RUN-OPEN · open run route for integrated user models | HUMAN-20261110-01: Native runs for RUN-OPEN-A1-V-Run (2 serial direct runs: integrated test model public run start --profile open and manual dflowfm, 120 s each) | ✓ | `dfm-9l0.6` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-FIX2-I: feature rows and statuses by gate scope, not_performed pre-launch layers, dia diagnostics (Contract R10) | ✓ | `dfm-9l0.7` |
+| RUN-OPEN · open run route for integrated user models | RUN-OPEN-A1-V-Run-r2: verify the R10 candidate, two native runs | ✓ | `dfm-9l0.8` |
+| RUN-OPEN · open run route for integrated user models | HUMAN-20261110-02: Native runs for RUN-OPEN-A1-V-Run-r3 (2 serial direct runs: corrected integrated test model public open and manual dflowfm, 120 s each) | ✓ | `dfm-9l0.9` |
 | S07 | S07-EDITOR-G: 설치 편집 통합 검수 (8입력 보존) | ✓ | `dfm-lo0.1` |
 | S07 | S07-V-Plan: 풍응력 7사례 판독 기준 (Lovelace) | ✓ | `dfm-lo0.2` |
 | S07 | S07-I: 현재 191파일 기준 새 구성 | ✓ | `dfm-lo0.3` |
@@ -179,6 +192,7 @@
 
 | 노드 | 커밋 | 근거 |
 | --- | --- | --- |
+| RUN-OPEN-A1-G | `255d582` (merge of `227ccc0`) | [통합 모델용 `run start --profile open`](research/notes/verification/run-open.md). 입력 그래프가 닫혔는지만 보고 실행을 허용하고(INI·`.sed`/`.mor` 참조 추적 추가), 단계별 보고와 게이트 범위 기반 기능 표를 남김. 통합 시험 모델의 공개·수동 실행 출력이 정확히 일치(#240, 사용자 승인 `HUMAN-20261110-02`). 가로림 복사본은 입력 닫힘 확인 후 파랑 연동으로 실행 전 거절. 장시간 분리 실행(A2)과 FM+Waves(Phase B)는 미구현 |
 | G15-ENGINE-G | 병합 없음 (`b93a31f`의 제품 검증) | [#238 구조물 교환 엔진 실행](research/notes/verification/structure-transfer.md). TIM 보·펌프를 `structure export`·`import`로 옮긴 모델과 수동 편집 모델의 출력이 6회 실행에서 정확히 일치, 원래 모델과는 구조물 관측값이 다름(사용자 승인 `HUMAN-20261109-02`). 고정 마루 보는 공개 프로필이 없어 미실행, GUI 대조는 사용자 결정으로 보류 |
 | RUNIN-G | `b347cfb` (merge of `c48c089`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). 취·방류 실행 프로필의 입력 검사(`bc_state`)도 `.bc` 주석 규칙을 따름. 독립 검증 156검사 통과(엔진 실행 전 단계). INI 주석 규칙 epic 완료 |
 | CONSUMERS-G | `cd67e7a` (merge of `7aec98c`) | [파일 종류별 주석 규칙](research/notes/verification/ini-comments.md). `boundary._blocks`를 쓰는 나머지 12곳이 읽는 파일 종류의 주석 모드를 넘김. 독립 검증 7,717검사(공개 CLI 2,033호출) 통과. 남은 1곳은 `CONSUMERS-RUN-INPUTS` |

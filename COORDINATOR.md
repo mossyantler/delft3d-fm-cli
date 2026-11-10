@@ -288,7 +288,7 @@ processes using one executable, the shared merge and shared test fixtures each
 need a lock or lease. The existing native rules stay in force. Grant a lease
 only after reviewing the exact plan, package, runner and reader, and only to one
 branch at a time. A Beads status, a Herdr session state or an idle slot
-(`idle239` at present) is not run permission. Producing a candidate and
+(`idle241` at present) is not run permission. Producing a candidate and
 authorizing a run are separate decisions.
 
 ## Result receipt
