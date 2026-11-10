@@ -117,6 +117,25 @@ Phase B (DIMR FM + Waves) is where the Garolim model itself first runs, on a bou
 3. **Detached long runs are allowed in principle**, including multi-day wall clocks; each native run still needs its
    own approval.
 
+## R6. Phase A split (coordinator, before dispatch; binding)
+
+Phase A is delivered as two chains, each with its own I, V-Plan, V-Run and G; A2 starts after A1's G.
+
+1. **A1 · admission, closure and report** (`RUN-OPEN-A1-*`):
+   - `run start --profile open` on the **direct route only**, blocking, with the existing wall-clock limit
+     (`--timeout` ≤ 3600 s) and the existing owned Job, `run status` and `run cancel`.
+   - Reference catalog (R1.2) for `IniFieldFile` and the data files of its blocks, and for `SedFile`/`MorFile` and
+     the files they name, also in `model validate`. Any other key or block that names a file stays refused as
+     `unsupported_reference` (R1.1): for example `StructureFile`, legacy `ExtForceFile`, `RestartFile`.
+     The existing authored readers (`layers_inputs.py`, `morph_inputs.py`) may be reused, not widened in meaning.
+   - R1.3 (no feature gate) and R1.4 as a plain refusal: `Wavemodelnr ≠ 0` is refused before launch; the
+     override of R1.4 is not part of A1.
+   - The layered report and feature table (R3) in the manifest, `run start` output and `run status`.
+   - A1 acceptance is R4 Phase A without the disk-estimate refusal and the detached lifecycle; the integrated test
+     model's window must finish within the 3600 s wall clock.
+2. **A2 · detached long runs and disk preflight** (`RUN-OPEN-A2-*`): R2.2 and R2.3 for `--profile open`, with
+   the remaining R4 Phase A items. Planned after A1's G.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
