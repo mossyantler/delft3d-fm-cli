@@ -219,6 +219,11 @@ Round 2 (candidate `f3c4839`) made one approved launch, which failed at engine i
 
 The CLI's reporting of the failed run (exit 5, initialization failed, no outputs, `.dia` error) followed R3 and R10.
 
+3. **Second fixture name (V-Plan-r2 audit).** The revision's static name audit found `rain.bc` `Name = rainfall_rate`,
+   while the engine asks for location `global` for a `bcAscii` meteo forcing
+   (`fm_external_forcings_init.f90:876-878`, coordinator-checked). The same plan revision also sets that name to
+   `global` in every integrated-derived case and re-freezes. Garolim's `RainEvap.bc` already says `global`.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
