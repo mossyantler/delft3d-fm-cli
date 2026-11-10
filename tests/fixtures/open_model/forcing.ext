@@ -1,0 +1,32 @@
+[General]
+fileVersion=2.02
+fileType=extForce
+
+[Boundary]
+quantity=waterlevelbnd
+locationFile=bnd.pli
+forcingFile=tide.bc
+
+[Boundary]
+quantity=salinitybnd
+locationFile=bnd.pli
+forcingFile=salinity.bc
+
+[Boundary]
+quantity=temperaturebnd
+locationFile=bnd.pli
+forcingFile=temperature.bc
+
+[Meteo]
+quantity=windxy
+forcingFile=wind.wnd
+forcingFileType=uniMagDir
+interpolationMethod=linearSpaceTime
+operand=O
+
+[Meteo]
+quantity = rainfall_rate
+forcingFile = rain.bc
+forcingFileType = bcAscii
+interpolationMethod = linearSpaceTime
+operand = O
