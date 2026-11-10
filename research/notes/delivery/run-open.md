@@ -178,6 +178,32 @@ therefore the folder of the `.sed`/`.mor` file that names it; this equals the MD
 there, as in every A1 case. The rest of R8 stands. The open profile's `schema inspect` description is updated to
 match (the only schema change allowed in A1-FIX-I).
 
+## R10. Feature table, pre-launch layers and diagnostics (coordinator, after A1 V-Run stage 1; binding)
+
+A1 V-Run stage 1 (candidate `25be65e`, no native launch) found that the candidate's report does not follow R7.2 and
+R7.5, which were ruled while A1-I was already running and never handed to it. Rules for the follow-up I and the
+next V-Run:
+
+1. **Rows.** The feature table has one row per feature, at least: `sigma_layers`, `local_time`, `salinity`,
+   `temperature`, `sediment` (with its kind, for example sand/bedload or mud/suspended), `morphology`,
+   `initial_fields`, `spatial_roughness`, `waterlevel_boundary` (with its forcing kind: harmonic, astronomic,
+   time series), `meteo` (one row naming every meteo quantity), `waves_coupling` (when `Wavemodelnr ≠ 0`) and
+   `duration`. A feature the model does not use has no row.
+2. **Status by gate scope.** A row cites a gate only when the gate's recorded scope covers the model's configuration
+   of that feature, and states that scope; otherwise it is `not verified by dfm` with the reason. With today's gates:
+   `3D-G-coordinator-final-01` covers sigma layers and salinity transport (three-layer channel; a different layer count
+   is still cited with that scope stated); `MORPH-G-exchange-final-02` covers sand/bedload sediment and its
+   morphology only (mud or suspended sediment is not covered); `M5-G-coordinator-final-01` covers harmonic and linear
+   time-series water-level boundaries (astronomic is not covered); `duration` is covered only up to the longest
+   verified run of the same dimensionality (2D: `M5`, 1200 s; 3D: `3D-G`, 20 s). Temperature, local time, initial
+   fields, spatial roughness, meteo and wave coupling have no gate today.
+3. **Pre-launch layers.** When a run is refused or not yet launched, every execution layer (initialization,
+   simulation, outputs, diagnostics) is `not_performed`, never `pending` or zero.
+4. **Diagnostics.** Counts are taken over the run's `.dia` files; the report keeps their first 32 matching lines;
+   stdout and stderr are scanned and reported separately, not added to the `.dia` counts.
+5. **V-Run paths.** The next V-Run may call the pinned V-Plan reader through a path-only collector that remaps the
+   frozen case and output paths to its owned folder, without changing any expectation.
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
