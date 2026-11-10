@@ -141,15 +141,14 @@ class OpenCatalogTests(unittest.TestCase):
         self.assertIn("unsupported_path", [i["code"] for i in model.validate(self.mdu)["issues"]])
 
     def test_other_file_naming_keys_stay_refused(self):
-        for line, setting in (("StructureFile = structs.ini", "geometry/structurefile"),
-                              ("RestartFile = old_rst.nc", "restart/restartfile"),
-                              ("ExtForceFile = legacy.ext", "external forcing/extforcefile"),
-                              ("UnknownFile = data.dat", "geometry/unknownfile")):
+        for old, new, setting in (("[geometry]", "[geometry]" + chr(10) + "StructureFile = structs.ini", "geometry/structurefile"),
+                                  ("RestartFile =", "RestartFile = old_rst.nc", "restart/restartfile"),
+                                  ("[external forcing]", "[external forcing]" + chr(10) + "ExtForceFile = legacy.ext", "external forcing/extforcefile"),
+                                  ("[geometry]", "[geometry]" + chr(10) + "UnknownFile = data.dat", "geometry/unknownfile")):
             with self.subTest(setting=setting):
                 folder = copy_model(self)
                 mdu = folder / "FlowFM.mdu"
-                section = "[" + setting.split("/")[0] + "]"
-                mdu.write_text(mdu.read_text().replace(section, section + "\n" + line, 1))
+                replace(mdu, old, new)
                 issues = model.validate(mdu)["issues"]
                 self.assertIn(setting, [i.get("setting") for i in issues if i["code"] == "unsupported_reference"], issues)
 

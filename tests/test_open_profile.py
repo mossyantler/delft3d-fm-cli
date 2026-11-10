@@ -6,6 +6,7 @@ admission.
 """
 import json
 from pathlib import Path
+import shutil
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -62,6 +63,11 @@ class AdmissionTests(OpenBase):
         replace(self.mdu, "Wavemodelnr = 0", "Wavemodelnr = 3")
         error = self.refused("unsupported_wave_coupling")
         self.assertIn("wavemodelnr", json.dumps(error.details).casefold())
+        # The refusal still carries the feature table, with the left-out physics named.
+        table = {f["feature"]: f for f in error.details["open_report"]["feature_table"]}
+        self.assertEqual(table["wave_coupling"]["status"], "not verified by dfm")
+        self.assertIn("sigma_layers", table)
+        self.assertEqual(error.details["open_report"]["combination"], "not verified")
 
     def test_cli_refuses_waves_and_keeps_the_folder_clean(self):
         replace(self.mdu, "Wavemodelnr = 0", "Wavemodelnr = 3")
@@ -167,6 +173,7 @@ class ReportTests(OpenBase):
 
     def test_duration_is_verified_only_inside_the_observed_extended_horizon(self):
         self.assertEqual(self.features(self.prepare())["duration"]["status"], "verified M5-G-coordinator-final-01")
+        shutil.rmtree(self.out)
         replace(self.mdu, "StopDateTime = 20230701002000", "StopDateTime = 20230702000000")
         self.assertEqual(self.features(self.prepare())["duration"]["status"], "not verified by dfm")
 
@@ -220,6 +227,84 @@ class ReportTests(OpenBase):
 
     def test_other_profiles_manifests_carry_no_open_report(self):
         self.assertNotIn("open_report", runs.AUTHORED_PROFILES)
+
+
+def write_axis(path, seconds, units="seconds since 2023-07-01 00:00:00"):
+    import netCDF4
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with netCDF4.Dataset(path, "w") as ds:
+        ds.createDimension("time", len(seconds))
+        var = ds.createVariable("time", "f8", ("time",))
+        var.standard_name, var.units, var.calendar = "time", units, "standard"
+        var[:] = seconds
+
+
+class OutputVerificationTests(OpenBase):
+    """Mocked execution: staged inputs and synthetic NetCDF axes, never an engine run."""
+
+    def staged_run(self):
+        run = self.prepare()
+        run.save("preparing")
+        runs.stage(run)
+        return run
+
+    def outputs(self, run, seconds=(0, 600, 1200), units="seconds since 2023-07-01 00:00:00"):
+        for name in ("FlowFM_his.nc", "FlowFM_map.nc"):
+            write_axis(run.folder / "model" / "output" / name, seconds, units)
+
+    def test_complete_axes_pass_and_a_disabled_restart_is_reported_not_required(self):
+        run = self.staged_run()
+        self.outputs(run)
+        result = open_profile.verify_outputs(run)
+        self.assertEqual(result["state"], "passed")
+        self.assertEqual(result["restart"]["state"], "disabled_by_model")
+        self.assertEqual(result["clock_basis"], "model_local_naive")
+        self.assertEqual(result["scientific_validation"], "not_performed")
+        self.assertEqual(result["scope"], "CF times and cadence only")
+
+    def test_offset_labelled_time_units_are_read_against_the_model_local_window(self):
+        run = self.staged_run()
+        self.outputs(run, units="seconds since 2023-07-01 00:00:00 +09:00")
+        self.assertEqual(open_profile.verify_outputs(run)["clock_basis"], "utc_instants_from_tzone")
+
+    def test_a_short_time_axis_is_an_incomplete_output(self):
+        run = self.staged_run()
+        self.outputs(run, seconds=(0, 600))
+        with self.assertRaises(DfmError) as caught:
+            open_profile.verify_outputs(run)
+        self.assertEqual(caught.exception.code, "incomplete_output")
+
+    def test_missing_map_output_is_reported(self):
+        run = self.staged_run()
+        write_axis(run.folder / "model" / "output" / "FlowFM_his.nc", (0, 600, 1200))
+        with self.assertRaises(DfmError) as caught:
+            open_profile.verify_outputs(run)
+        self.assertEqual(caught.exception.code, "missing_output")
+
+    def test_positive_rst_interval_still_requires_a_final_checkpoint(self):
+        replace(self.mdu, "RstInterval = 0", "RstInterval = 600")
+        run = self.staged_run()
+        self.outputs(run)
+        with self.assertRaises(DfmError) as caught:
+            open_profile.verify_outputs(run)
+        self.assertEqual(caught.exception.code, "missing_final_restart")
+        write_axis(run.folder / "model" / "output" / "FlowFM_20230701_002000_rst.nc", (1200,))
+        run.outputs_attempted = False
+        self.assertEqual(open_profile.verify_outputs(run)["restart"]["state"], "final_checkpoint_time_matches")
+
+    def test_completed_state_reports_every_layer_through_the_manifest(self):
+        run = self.staged_run()
+        self.outputs(run)
+        run.record["validation"].update(engine_initialization="passed_native_marker", simulation="completed_and_output_times_verified")
+        run.record["verification"] = open_profile.verify_outputs(run)
+        run.record["diagnostics"] = {"error_lines": [], "warning_lines": [], "omitted": {}, "primary_error": None}
+        run.record["state"] = "verifying"
+        run.save("completed")
+        report = json.loads((self.out / "manifest.json").read_text())["open_report"]
+        self.assertEqual({k: v["state"] for k, v in report["layers"].items()},
+                         {"input_closure": "closed", "engine_initialization": "passed_native_marker",
+                          "simulation": "completed_and_output_times_verified", "outputs": "passed", "diagnostics": "collected"})
+        self.assertEqual(report["combination"], "not verified")
 
 
 class SurfaceTests(unittest.TestCase):
