@@ -269,6 +269,8 @@ def enumerate_sed_or_mor(kind: str, path: Path, issues: list, parsed: dict, refe
                                                  f"{'sediment' if kind == 'sed' else 'morphology'}_number_or_file"]})
         if kind == "sed" and name == "sediment":
             fraction = {"name": _first(block["entries"], "name"), "type": (_first(block["entries"], "sedtyp") or "").casefold()}
+            if (formula := _first(block["entries"], "trafrm")) is not None:
+                fraction["trafrm"] = formula  # selects the transport formula; the morphology gate covers TraFrm 2 only
             fractions.append(fraction)
         if kind == "mor" and name == "morphology":
             summary.update(morfac=_first(block["entries"], "morfac"), morstt=_first(block["entries"], "morstt"))
