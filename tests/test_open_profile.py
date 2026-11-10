@@ -475,6 +475,7 @@ class DiagnosticsTests(OpenBase):
         self.assertEqual((report["errors"], report["warnings"]), (1, 2))
         self.assertEqual(report["first_warning_lines"], ["** WARNING : a", "** WARNING : b"])
         self.assertEqual(report["dia_files"], ["model/a.dia", "model/output/b.dia"])
+        shutil.rmtree(self.out)
         none = self.finished(stdout="** ERROR   : only in stdout\n")
         self.assertEqual((none["errors"], none["warnings"], none["dia_files"]), (0, 0, []))
         self.assertEqual(none["stdout"]["errors"], 1)
