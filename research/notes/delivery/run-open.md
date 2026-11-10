@@ -1,9 +1,10 @@
 # Contract: open run route for integrated user models (`RUN-OPEN`)
 
-Beads: `RUN-OPEN-Contract` (`dfm-7tv`, this Contract), then `RUN-OPEN-A-*` and `RUN-OPEN-B-*` (to be created after the user
-approves the scope). Status: **draft by the coordinator, 2026-11-10; not approved.** Product direction decided by the
-user on 2026-11-10: besides the narrow verified profiles, `dfm` runs integrated models and reports per layer what
-was checked, instead of refusing every feature combination that no profile has verified.
+Beads: `RUN-OPEN-Contract` (`dfm-7tv`, this Contract), then `RUN-OPEN-A-*` (Phase A) and later `RUN-OPEN-B-*`
+(Phase B). Status: proposal by the coordinator, 2026-11-10, with the user's scope decisions of the same day (section
+"User decisions"). Product direction decided by the user on 2026-11-10: besides the narrow verified profiles, `dfm`
+runs integrated models and reports per layer what was checked, instead of refusing every feature combination that no
+profile has verified.
 
 ## Why
 
@@ -63,8 +64,8 @@ established, without claiming verification that does not exist?
 3. **Disk preflight:** before launch, an estimate of output size (map and history schedule × grid × layers ×
    variables) is compared with free space; the run is refused below the estimate unless the user sets a limit.
 4. **Phase B (DIMR FM + Waves):** a DIMR configuration is generated from or checked against the existing
-   `coupling` module (`coupling_profiles.py`, profile `fm_waves`) and its evidence `E015`/`08`. Whether `dfm`
-   generates the configuration for a user model or requires one supplied is a scope question for the user.
+   `coupling` module (`coupling_profiles.py`, profile `fm_waves`) and its evidence `E015`/`08`; `dfm` generates the
+   configuration for a user model (user decision 2).
 
 ## R3. Report (layered, never "verified")
 
@@ -76,18 +77,29 @@ with its `dfm` evidence status (`verified <ID>` with the gate that verified it a
 
 ## R4. Acceptance (V-Plan predeclares before any run)
 
-- **Public vs manual (Phase A):** a copy of the Garolim model with a bounded window set through public `model set`
-  (V-Plan fixes the window, for example the first 6 h, and the wave handling of R1.4) runs through
-  `run start --profile open` and through a coordinator-reviewed manual `dflowfm` launch on byte-equal staged inputs.
-  History, map and restart outputs are exactly equal (rtol = atol = 0) except listed creation provenance.
+Phase A (direct FM, no waves):
+
+- **Integrated test model:** V-Plan builds or selects one uncoupled model (`Wavemodelnr = 0`) that combines at least
+  `Kmx > 0`, `Tzone ≠ 0`, salinity and temperature transport, an `IniFieldFile` with an `[Initial]` and a
+  `[Parameter]` block (sample `.xyz` and polygon data), `SedFile`/`MorFile` with one sediment fraction, and an EXT
+  `[Meteo]` forcing; from repository examples or a copied official example, with sources stated. It is not the
+  Garolim model (user decision 1).
+- **Public vs manual:** that model runs through `run start --profile open` and through a coordinator-reviewed manual
+  `dflowfm` launch on byte-equal staged inputs. History, map and restart outputs are exactly equal (rtol = atol = 0)
+  except listed creation provenance.
+- **Garolim closure without launch:** on the Garolim copy, `model validate` reports the input graph closed (the three
+  survey issues gone, every INI, sediment and morphology file enumerated), and `run start --profile open` refuses
+  before launch under R1.4 (`Wavemodelnr = 3`, no coupled route yet) with the input unchanged. The feature table of
+  its report lists every feature in the survey table, each with the correct status.
 - **Refusals:** missing INI `dataFile`, sediment file outside the folder, an unknown file-naming key, a disk estimate
   above the set limit: each refused before launch with the input unchanged.
 - **Detached lifecycle:** launch, status with progress, cancel of a running case with every owned process exited
   and partial outputs retained and labelled.
-- **Report:** the feature table for the Garolim copy lists every feature in the survey table above, each with the
-  correct status.
+
+Phase B (DIMR FM + Waves) is where the Garolim model itself first runs, on a bounded window chosen by its V-Plan.
+
 - **Not required:** agreement with the user's Classic results or with field data; the full 123-day run (separate
-  approval if the user wants it).
+  approval when the user wants it).
 
 ## R5. Process and limits
 
@@ -96,12 +108,14 @@ with its `dfm` evidence status (`verified <ID>` with the gate that verified it a
 - The user's project folder is read and copied only, never written; the DeltaShell GUI is never touched.
 - The narrow profiles stay unchanged and keep their meaning as verified runs.
 
-## Open questions for the user (before approval)
+## User decisions (2026-11-10)
 
-1. Phase A without waves: run the Garolim copy with `Wavemodelnr = 0` on the copy (recorded physics change), or
-   wait for Phase B?
-2. Phase B: should `dfm` generate the FM + Waves DIMR configuration itself, or require one exported from the GUI?
-3. Detached long runs: is a multi-day wall clock on this machine acceptable in principle (each run still approved)?
+1. **Garolim waits for Phase B.** Phase A does not run the Garolim model with waves switched off; its native
+   acceptance uses a separate integrated test model (R4), and Garolim is checked for closure and refusal only.
+2. **`dfm` generates the DIMR configuration** for FM + Waves in Phase B, from the MDU and `Waves.mdw`, through the
+   existing `coupling` module; a GUI export is not required.
+3. **Detached long runs are allowed in principle**, including multi-day wall clocks; each native run still needs its
+   own approval.
 
 ## Out of scope
 
