@@ -24,6 +24,7 @@ from .diagnostics import collect_diagnostics
 from .windows_job import OwnedJob, process_identity
 from . import progress as simulation_progress
 from . import layers, morph, network, pump_run_profile, weir_run_profile, source_sink_run_profile
+from . import open_profile
 
 # Authored model families verify their complete input graphs on both sides of
 # staging. The runner remains the sole owner of launch, monitoring and cleanup.
@@ -125,6 +126,8 @@ def prepare(path: Path, destination: Path, installation: str | None, route: str,
         raise DfmError("invalid_timeout", "Timeout must be finite and between 0 and 3600 seconds", 2)
     if route not in {"direct", "dimr"}:
         raise DfmError("invalid_route", "Select direct or single-component dimr", 2, route)
+    if profile_name == "open" and route != "direct":
+        raise DfmError("unsupported_route", "The open profile runs the direct FM route only", 2, route)
     if restart_policy not in {"configured", "require-final"} or restart_policy == "configured" and profile_name != "short":
         raise DfmError("unsupported_restart_policy", "Configured restart output schedules require the cold short serial profile", 2)
     if AUTHORED_PROFILES.get(profile_name) is source_sink_run_profile:
@@ -136,6 +139,10 @@ def prepare(path: Path, destination: Path, installation: str | None, route: str,
     nc, np = reader()  # Identity failure needs no optional reader or installation.
     if profile_name in AUTHORED_PROFILES:
         report, run_profile = AUTHORED_PROFILES[profile_name].native_preflight(path, profile_name)
+    elif profile_name == open_profile.NAME:
+        # Closed input graph is the only gate; waves and unenumerable references are refused here, before any install lookup.
+        report = validate_mdu(mdu, fm_identity=identity, catalog=True)
+        run_profile, open_report = open_profile.admit(report, mdu)
     else:
         report = validate_mdu(mdu, fm_identity=identity)
         run_profile = profile(report, mdu, profile_name)
@@ -169,6 +176,8 @@ def prepare(path: Path, destination: Path, installation: str | None, route: str,
                 "simulation_progress": simulation_progress.unknown(),
                 "installation": install, "source_mdu": report["mdu"], "inputs": report["files"],
                 "validation": report["checks"], "verification": None, "limitations": report["limitations"]}
+    if profile_name == open_profile.NAME:
+        manifest["open_report"] = open_report
     return Run(destination, manifest, progress)
 
 
@@ -259,6 +268,8 @@ class Run:
         change = {"state": state, "updated_at_utc": utc_now()}
         manifest = self.folder / "manifest.json"
         proposed = self.record | change
+        if proposed.get("profile_name") == open_profile.NAME:
+            change["open_report"] = proposed["open_report"] = open_profile.refresh(proposed)
         if _guarded_terminal(self) and state not in TRANSITIONS:
             from .run_pump_lifecycle import publish_terminal
             publish_terminal(manifest, proposed, write_json)
@@ -302,7 +313,7 @@ def execute_native(run, command, cwd, environment):
         # Even cold serial FM can spawn a second process. Observe membership
         # before resuming the first thread, while handles can still be retained.
         pump = _guarded_serial(run)
-        trace_members = pump or record.get("profile_name") == "short" or (
+        trace_members = pump or record.get("profile_name") in {"short", open_profile.NAME} or (
             record.get("profile_name") == "coupling"
             and record.get("coupling", {}).get("profile", {}).get("name") in {"fm_rtc", "rr_f152"}
         )
@@ -342,6 +353,8 @@ def execute_native(run, command, cwd, environment):
     record["finished_at_utc"] = utc_now()
     if run.job.members():
         raise DfmError("owned_descendants_remaining", "Root exited with live owned descendants", 5)
+    if record.get("profile_name") == open_profile.NAME:
+        open_profile.require_exit_confirmed(record)  # R11.2: never completed on unproven member exits.
     record["ownership"]["final_job_pids"] = []
 
 
@@ -360,7 +373,7 @@ def verify_completion(run):
         if not target.is_file() or sha(target) != entry["sha256"]:
             raise DfmError("input_changed", "Run modified a staged input", 6, str(target))
     run.save("verifying")
-    record["verification"] = run.outputs(verify=True)
+    record["verification"] = open_profile.verify_outputs(run) if record.get("profile_name") == open_profile.NAME else run.outputs(verify=True)
     if record.get("profile_name") in ("layers", "morph"):
         name = record["profile_name"]
         base = record["verification"]
@@ -454,7 +467,10 @@ def start(path: Path, destination: Path, installation: str | None, route: str, t
     finally:
         if run.job is not None and not _guarded_terminal(run):
             run.job.close()
-    return {"manifest": str(run.folder / "manifest.json"), "state": run.record["state"],
-            "verification": run.record["verification"], "diagnostics": run.record["diagnostics"],
-            "simulation_progress": run.record["simulation_progress"], "wall_clock": simulation_progress.wall_clock(run.record),
-            "verified_simulation_time": simulation_progress.verified_time(run.record)}
+    result = {"manifest": str(run.folder / "manifest.json"), "state": run.record["state"],
+              "verification": run.record["verification"], "diagnostics": run.record["diagnostics"],
+              "simulation_progress": run.record["simulation_progress"], "wall_clock": simulation_progress.wall_clock(run.record),
+              "verified_simulation_time": simulation_progress.verified_time(run.record)}
+    if "open_report" in run.record:
+        result["open_report"] = run.record["open_report"]
+    return result

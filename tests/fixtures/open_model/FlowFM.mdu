@@ -1,0 +1,40 @@
+[General]
+Program = D-Flow FM
+FileVersion = 1.02
+PathsRelativeToParent = 0
+[geometry]
+NetFile = mesh_net.nc
+IniFieldFile = initialFields.ini
+BedlevType = 1
+Kmx = 3
+Layertype = 1
+[physics]
+UnifFrictType = 1
+UnifFrictCoef = 0.023
+Salinity = 1
+Temperature = 1
+[waves]
+Wavemodelnr = 0
+[time]
+RefDate = 20230101
+Tzone = 9
+DtUser = 60
+TUnit = S
+StartDateTime = 20230701000000
+StopDateTime = 20230701002000
+[restart]
+RestartFile =
+[sediment]
+Sedimentmodelnr = 4
+SedFile = FlowFM.sed
+MorFile = FlowFM.mor
+[external forcing]
+ExtForceFileNew = forcing.ext
+[trachytopes]
+TrtRou = N
+[output]
+OutputDir = output
+ObsFile = obs.xyn
+HisInterval = 600
+MapInterval = 600
+RstInterval = 0

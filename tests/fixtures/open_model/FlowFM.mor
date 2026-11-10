@@ -1,0 +1,6 @@
+[MorphologyFileInformation]
+    FileVersion           = 02.00
+[Morphology]
+    MorFac                = 1
+    MorStt                = 600
+    BedUpd                = 1
