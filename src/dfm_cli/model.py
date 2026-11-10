@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 
 from .common import DfmError, atomic_bytes, inside, sha
+from . import open_catalog
 from .output_schedule import SETTING as RESTART_INTERVAL_SETTING
 from .fm_model_identity import observe as observe_fm_identity, require as require_fm_identity
 
@@ -43,6 +44,8 @@ INPUTS = {"geometry/netfile", "geometry/thindamfile", "geometry/drypointsfile", 
           "external forcing/extforcefilenew", "output/obsfile", "output/crsfile"}
 OUTPUT_FILES = {"output/hisfile", "output/mapfile", "output/flowgeomfile", "output/classmapfile", "output/waqfilebase"}
 OPAQUE_SUFFIXES = {".nc", ".pli", ".pliz", ".xyz", ".xyn", ".ldb", ".wnd", ".bc"}
+# Cataloged only on request (open run route); the default graph keeps refusing them.
+OPEN_FILES = {"geometry/inifieldfile": "ini_field", "sediment/sedfile": "sediment", "sediment/morfile": "morphology"}
 
 
 @dataclass
@@ -136,8 +139,9 @@ def inspect(path: Path) -> dict:
     return inspect_mdu(Mdu(path))
 
 
-def inspect_mdu(mdu: Mdu) -> dict:
+def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
     root, files, links, issues = mdu.path.parent, {mdu.path}, [], []
+    open_catalog_report = {"sources": open_catalog.SOURCES} if catalog else None
     parsed_files = {mdu.path: (hashlib.sha256(mdu.raw).hexdigest(), len(mdu.raw))}
     mode = mdu.get("general/pathsrelativetoparent", "0")
     if mode not in {"0", "1"}:
@@ -165,7 +169,18 @@ def inspect_mdu(mdu: Mdu) -> dict:
         if not entry.value:
             continue
         key = entry.address.split("/", 1)[1]
-        if entry.address in INPUTS:
+        if catalog and entry.address in OPEN_FILES:
+            target = reference(mdu.path, entry.address, entry.value)
+            if target is not None:
+                kind = OPEN_FILES[entry.address]
+                try:
+                    if kind == "ini_field":
+                        open_catalog_report[kind] = open_catalog.enumerate_ini_field(target, reference, issues, parsed_files)
+                    else:
+                        open_catalog_report[kind] = open_catalog.enumerate_sed_or_mor("sed" if kind == "sediment" else "mor", target, issues, parsed_files)
+                except DfmError as exc:
+                    issues.append({"code": exc.code, "file": str(target), "message": str(exc)})
+        elif entry.address in INPUTS:
             target = reference(mdu.path, entry.address, entry.value)
             if target and entry.address == "external forcing/extforcefilenew":
                 try:
@@ -204,20 +219,26 @@ def inspect_mdu(mdu: Mdu) -> dict:
     for path in sorted(files):
         digest, size = parsed_files[path] if path in parsed_files else (sha(path), path.stat().st_size)
         inventory.append({"path": str(path), "relative_path": path.relative_to(root).as_posix(), "sha256": digest, "bytes": size})
-    return {"mdu": str(mdu.path), "sha256": parsed_files[mdu.path][0], "settings": [{"setting": e.address, "value": e.value, "line": e.line} for e in mdu.records],
+    report = {"mdu": str(mdu.path), "sha256": parsed_files[mdu.path][0], "settings": [{"setting": e.address, "value": e.value, "line": e.line} for e in mdu.records],
             "clock": time, "paths_relative_to_parent": mode, "files": inventory, "references": links, "issues": issues,
             "limitations": ["Reference traversal covers selected MDU inputs and new EXT Boundary/Meteo only; BC/PLI/mesh contents are opaque", "No complete schema, boundary identity, CRS/datum or forcing-time coverage validation"]}
+    if catalog:
+        open_catalog_report["closed"] = not issues
+        report["open_catalog"] = open_catalog_report
+        report["limitations"] = [report["limitations"][0].replace("EXT Boundary/Meteo only", "EXT Boundary/Meteo, IniFieldFile data files and SedFile/MorFile only"),
+                                 report["limitations"][1], "Closure only: no file content is checked beyond the catalog; sediment/morphology values that name a file are refused"]
+    return report
 
 
 def validate(path: Path) -> dict:
-    return validate_mdu(Mdu(path))
+    return validate_mdu(Mdu(path), catalog=True)
 
 
-def validate_mdu(mdu: Mdu, *, fm_identity: dict | None = None) -> dict:
+def validate_mdu(mdu: Mdu, *, fm_identity: dict | None = None, catalog: bool = False) -> dict:
     identity = observe_fm_identity(mdu) if fm_identity is None else fm_identity
     if identity["state"] == "ambiguous":
         require_fm_identity(mdu, observation=identity)
-    report = inspect_mdu(mdu)
+    report = inspect_mdu(mdu, catalog=catalog)
     report["fm_model_identity"] = identity
     report["issues"].extend(identity["issues"])
     for address in ["output/hisinterval", "output/mapinterval"]:
