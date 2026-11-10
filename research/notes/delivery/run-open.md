@@ -170,6 +170,14 @@ directory. On the direct route `dfm` starts the engine with the staged MDU folde
 2. Library keys that load executable code (`TranspLib`, `SettleLib` and the like) stay refused in A1.
 3. The rest of A1-I stands. A follow-up I (`RUN-OPEN-A1-FIX-I`) applies this on top of `6f07e42`.
 
+## R9. Base folder for names inside `.sed`/`.mor` (coordinator, after A1-FIX-I; binding, replaces R8.1's base)
+
+The engine joins a name inside `.sed`/`.mor` to the folder of that file (`properties.f90:3229`, `rdmor.f90:727`;
+`IniFluffMass` in `.sed` uses the `.mor` folder, `rdmor.f90:2197`), not to the working directory. R8.1's base is
+therefore the folder of the `.sed`/`.mor` file that names it; this equals the MDU folder whenever those files sit
+there, as in every A1 case. The rest of R8 stands. The open profile's `schema inspect` description is updated to
+match (the only schema change allowed in A1-FIX-I).
+
 ## Out of scope
 
 GUI parity, scientific calibration, MPI for user models (`parallel` stays separate), RTC, RR, water quality,
