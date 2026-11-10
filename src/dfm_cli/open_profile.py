@@ -76,6 +76,10 @@ def admit(report: dict, mdu: Mdu) -> tuple[dict, dict]:
                    "layers": {"input_closure": {"state": "closed", "files": len(report["files"]), "bytes": total,
                                                 "catalog": {k: report["open_catalog"][k]["path"] for k in ("ini_field", "sediment", "morphology")
                                                             if k in report["open_catalog"]},
+                                                # Files named inside .sed/.mor (R8): key, value, resolved path and engine lines.
+                                                "data_references": [{k: r[k] for k in ("key", "value", "path", "base", "source", "opened_at")}
+                                                                    for part in ("sediment", "morphology")
+                                                                    for r in report["open_catalog"].get(part, {}).get("references", [])],
                                                 "sources": open_catalog.SOURCES["commit"]},
                               "engine_initialization": {"state": report["checks"]["engine_initialization"]},
                               "simulation": {"state": report["checks"]["simulation"]},

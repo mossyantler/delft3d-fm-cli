@@ -141,7 +141,7 @@ def inspect(path: Path) -> dict:
 
 def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
     root, files, links, issues = mdu.path.parent, {mdu.path}, [], []
-    open_catalog_report = {"sources": open_catalog.SOURCES} if catalog else None
+    open_catalog_report = {"sources": open_catalog.SOURCES, "file_name_sources": open_catalog.FILE_NAME_SOURCES} if catalog else None
     parsed_files = {mdu.path: (hashlib.sha256(mdu.raw).hexdigest(), len(mdu.raw))}
     mode = mdu.get("general/pathsrelativetoparent", "0")
     if mode not in {"0", "1"}:
@@ -149,9 +149,11 @@ def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
     if not mdu.get("geometry/netfile", ""):
         issues.append({"code": "missing_mesh", "setting": "geometry/netfile"})
     # No generic INI serialization or guessed traversal of unknown formats.
-    def reference(parent: Path, address: str, value: str):
+    def reference(parent: Path, address: str, value: str, base: Path | None = None):
+        # `base` is set only by the sediment/morphology catalog: the engine joins those names to the
+        # path of the .sed/.mor file itself (open_catalog.py, R8), whatever PathsRelativeToParent says.
         try:
-            target = inside(parent.parent if mode == "1" else root, value, root=root)
+            target = inside(base if base is not None else parent.parent if mode == "1" else root, value, root=root)
             if not target.is_relative_to(root):
                 raise DfmError("unsupported_path", "Input is outside MDU folder", details=value)
             exists = target.is_file()
@@ -165,6 +167,7 @@ def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
             issues.append({"code": exc.code, "setting": address, "value": value})
             return None
 
+    sed_mor: dict[str, Path] = {}
     for entry in mdu.records:
         if not entry.value:
             continue
@@ -177,7 +180,7 @@ def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
                     if kind == "ini_field":
                         open_catalog_report[kind] = open_catalog.enumerate_ini_field(target, reference, issues, parsed_files)
                     else:
-                        open_catalog_report[kind] = open_catalog.enumerate_sed_or_mor("sed" if kind == "sediment" else "mor", target, issues, parsed_files)
+                        sed_mor[kind] = target  # enumerated below: IniFluffMass needs both paths
                 except DfmError as exc:
                     issues.append({"code": exc.code, "file": str(target), "message": str(exc)})
         elif entry.address in INPUTS:
@@ -207,6 +210,13 @@ def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
                 issues.append({"code": "unsupported_input_format", "path": str(target)})
         elif ("file" in key and entry.address not in OUTPUT_FILES and entry.address not in {"general/fileversion", "general/filetype"}) or entry.address in {"trachytopes/trtdef", "trachytopes/trtl"}:
             issues.append({"code": "unsupported_reference", "setting": entry.address, "value": entry.value})
+    for kind in ("sediment", "morphology"):
+        if kind in sed_mor:
+            try:
+                open_catalog_report[kind] = open_catalog.enumerate_sed_or_mor("sed" if kind == "sediment" else "mor", sed_mor[kind], issues, parsed_files,
+                                                                              reference, sed_mor.get("morphology"))
+            except DfmError as exc:
+                issues.append({"code": exc.code, "file": str(sed_mor[kind]), "message": str(exc)})
     for address, entries in mdu.index.items():
         if len(entries) > 1:
             mdu.get(address)  # A repeated MDU key has no silently chosen winner.
@@ -225,8 +235,8 @@ def inspect_mdu(mdu: Mdu, *, catalog: bool = False) -> dict:
     if catalog:
         open_catalog_report["closed"] = not issues
         report["open_catalog"] = open_catalog_report
-        report["limitations"] = [report["limitations"][0].replace("EXT Boundary/Meteo only", "EXT Boundary/Meteo, IniFieldFile data files and SedFile/MorFile only"),
-                                 report["limitations"][1], "Closure only: no file content is checked beyond the catalog; sediment/morphology values that name a file are refused"]
+        report["limitations"] = [report["limitations"][0].replace("EXT Boundary/Meteo only", "EXT Boundary/Meteo, IniFieldFile data files, SedFile/MorFile and the data files they name only"),
+                                 report["limitations"][1], "Closure only: no file content is checked beyond the catalog; files named inside .sed/.mor (BcFil, file form of number-or-file keys) are enumerated from the folder of that file, library keys are refused"]
     return report
 
 

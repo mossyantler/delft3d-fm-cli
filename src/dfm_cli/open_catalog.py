@@ -24,14 +24,18 @@ Observed in source (static analysis, not a native run):
 * A format below major version 2 is refused by the engine (:86), which then
   ignores the whole file (:87-:91).
 * Accepted dataFileType strings: time_space_parameters.f90:105-127.
-* Sediment and morphology: keys that accept either a number or a file name are
-  read through prop_get(..., is_float, value, filename): rdsed.f90:507 MudCnt,
-  :544 PmCrit, :680 SedD50, :685 SedDia, :866 IniSedThick, :869 SdBUni;
-  rdmor.f90:178 MorFac, :498 ThetSD, :2197 IniFluffMass, :2221 FluffLayer keys,
-  :2270 DepFac. The name is opened relative to the working directory, which the
-  catalog cannot tie to a model-relative base, so a non-numeric value is refused.
-  File and library keys: rdmor.f90:725 BcFil; rdsed.f90:789 SettleLib, :921
-  DLL, :922 TranspLib; rdtrafrm.f90:589 and :678 InputFile.
+* Sediment and morphology, Contract R8: keys that accept either a number or a file name are
+  read through prop_get(..., is_float, value, filename) (properties.f90:3189-3235). A value that
+  is neither a real number nor a logical word is a file name, joined to the path of the .sed or
+  .mor file as MDU wrote it, filename = combinepaths(filsed|filmor, value) (properties.f90:3229;
+  combinepaths.f90:51-88: absolute names stay, relative names take the folder of that file).
+  The base is therefore the folder of the .sed/.mor file, not the working directory and not
+  PathsRelativeToParent; it equals the MDU folder when the file sits there. The key sites and
+  the lines that open the file are in FILE_NAME_SOURCES below. IniFluffMass sits in the .sed
+  file but rdmor.f90:2197 resolves it against filmor (its own TODO says so): the .mor folder.
+  A name is enumerated, staged and refused like any other reference (missing, outside folder).
+  Library keys load executable code and stay refused: rdsed.f90:789 SettleLib, :921 DLL,
+  :922 TranspLib; rdtrafrm.f90:589 and :678 InputFile (user-defined transport routine input).
 * Initialization of both files: flow_sedmorinit.f90:117-148,189-220
   (morph_inputs.py header cites the same lines).
 """
@@ -66,9 +70,27 @@ INI_TYPES = {"polygon": {".pol", ".pli", ".pliz"}, "sample": {".xyz"}, "arcinfo"
              "geotiff": {".tif", ".tiff"}, "netcdf": {".nc"}}
 # Engine-recognised types the catalog cannot enumerate (companion grid, nested INI, spiderweb).
 INI_UNENUMERATED = {"1dfield", "bcascii", "curvigrid", "spiderweb", "uniform", "unimagdir"}
-NUMBER_OR_FILE = {"sed": {"mudcnt", "pmcrit", "sedd50", "seddia", "inisedthick", "sdbuni"},
-                  "mor": {"morfac", "thetsd", "inifluffmass", "depfac"}}
-FILE_KEYS = {"bcfil", "settlelib", "dll", "transplib", "inputfile"}
+# Number-or-file keys: (block the engine reads it from, engine line of the read, engine line that opens the file).
+# Library and user-routine keys load code and are never opened as data by dfm.
+NUMBER_OR_FILE = {
+    "sed": {"mudcnt": ("sedimentoverall", "rdsed.f90:507", "rdsed.f90:521"),
+            "pmcrit": ("sedimentoverall", "rdsed.f90:544", "rdsed.f90:556"),
+            "sedd50": ("sediment", "rdsed.f90:680", "rdsed.f90:694"),
+            "seddia": ("sediment", "rdsed.f90:685", "rdsed.f90:694"),
+            "inisedthick": ("sediment", "rdsed.f90:866", "rdmorlyr.f90:1342"),
+            "sdbuni": ("sediment", "rdsed.f90:869", "rdmorlyr.f90:1342"),
+            "inifluffmass": ("sediment", "rdmor.f90:2197", "rdmorlyr.f90:1290")},
+    "mor": {"morfac": ("morphology", "rdmor.f90:178", "rdmor.f90:187"),
+            "thetsd": ("morphology", "rdmor.f90:498", "rdmor.f90:506"),
+            "burfluff0": ("flufflayer", "rdmor.f90:2221", "rdmor.f90:2235"),
+            "burfluff1": ("flufflayer", "rdmor.f90:2221", "rdmor.f90:2235"),
+            "depfac": ("flufflayer", "rdmor.f90:2270", "rdmor.f90:2286")}}
+BC_FILE = ("morphology", "rdmor.f90:725", "rdmor.f90:729")  # combinepaths(filmor, BcFil) at rdmor.f90:727
+FILE_NAME_SOURCES = {"resolution": "properties.f90:3229 and rdmor.f90:727: combinepaths(path of the .sed/.mor file, value)",
+                     "combinepaths": "combinepaths.f90:51-88", "commit": SOURCES["commit"]}
+LIBRARY_KEYS = {"settlelib", "dll", "transplib", "inputfile"}
+LOGICAL_WORDS = {"true", "t", "y", "yes", ".true.", "j", "ja", "w", "waar", "on",
+                 "false", "f", "n", "no", ".false.", "nee", "o", "off", "onwaar"}  # string_module.f90:1102-1146
 METADATA = {"filecreatedby", "filecreationdate", "fileversion"}
 NUMBER = re.compile(r"[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eEdD][+-]?[0-9]+)?")
 
@@ -199,11 +221,17 @@ def sed_or_mor_values(text: str) -> list[dict]:
     return blocks
 
 
-def enumerate_sed_or_mor(kind: str, path: Path, issues: list, parsed: dict) -> dict:
-    """Catalog one .sed (`sed`) or .mor (`mor`) file; refuse every value that names a file."""
+def enumerate_sed_or_mor(kind: str, path: Path, issues: list, parsed: dict, reference=None, mor_path: Path | None = None) -> dict:
+    """Catalog one .sed (`sed`) or .mor (`mor`) file; Contract R8.
+
+    `reference(parent, address, value, base)` is the caller's resolver (as for the INI
+    catalog) with an explicit base folder. File names are resolved from the folder of the
+    .sed/.mor file (`mor_path`'s folder for IniFluffMass); without a resolver every name
+    is refused as before. Library keys and every other file-naming key stay refused.
+    """
     raw = path.read_bytes()
     parsed[path] = (hashlib.sha256(raw).hexdigest(), len(raw))
-    summary = {"path": str(path)}
+    summary = {"path": str(path), "references": []}
     try:
         blocks = sed_or_mor_values(_decode(raw, path))
     except DfmError as exc:
@@ -212,20 +240,37 @@ def enumerate_sed_or_mor(kind: str, path: Path, issues: list, parsed: dict) -> d
     fractions = []
     for ordinal, block in enumerate(blocks, 1):
         label = f"{path.name}[{block['name']}#{ordinal}]"
+        name = block["name"].casefold()
         for key, token, line in block["entries"]:
             if key in METADATA or not token:
                 continue
-            names_file = key in FILE_KEYS or bool(re.search(r"^file|file$|fil$", key))
-            numeric_key = key in NUMBER_OR_FILE[kind] or (kind == "mor" and block["name"].casefold() == "flufflayer")
-            if names_file or (numeric_key and not NUMBER.fullmatch(token)):
+            site = NUMBER_OR_FILE[kind].get(key)
+            if kind == "mor" and key == "bcfil":
+                site = BC_FILE
+            data_key = site is not None and site[0] == name
+            names_file = key in LIBRARY_KEYS or key == "bcfil" or bool(re.search(r"^file|file$|fil$", key))
+            if data_key and (key == "bcfil" or not (NUMBER.fullmatch(token) or token.casefold() in LOGICAL_WORDS)):
+                base = path.parent
+                if key == "inifluffmass":
+                    base = mor_path.parent if mor_path is not None else None
+                if reference is None or base is None:
+                    issues.append({"code": "unsupported_reference", "setting": f"{label}/{key}", "value": token, "line": line, "source": site[1]})
+                    continue
+                target = reference(path, f"{label}/{key}", token, base)
+                summary["references"].append({"key": key, "setting": f"{label}/{key}", "value": token, "line": line,
+                                              "path": str(target) if target is not None else None, "exists": target is not None,
+                                              "base": str(base), "source": site[1], "opened_at": site[2]})
+                continue
+            numeric_key = key in NUMBER_OR_FILE[kind] or (kind == "mor" and name == "flufflayer")
+            if names_file or (numeric_key and not (NUMBER.fullmatch(token) or token.casefold() in LOGICAL_WORDS)):
                 issues.append({"code": "unsupported_reference", "setting": f"{label}/{key}", "value": token, "line": line,
                                "source": SOURCES["sediment_libraries" if kind == "sed" and names_file else
                                                  "morphology_bc_file" if names_file else
                                                  f"{'sediment' if kind == 'sed' else 'morphology'}_number_or_file"]})
-        if kind == "sed" and block["name"].casefold() == "sediment":
+        if kind == "sed" and name == "sediment":
             fraction = {"name": _first(block["entries"], "name"), "type": (_first(block["entries"], "sedtyp") or "").casefold()}
             fractions.append(fraction)
-        if kind == "mor" and block["name"].casefold() == "morphology":
+        if kind == "mor" and name == "morphology":
             summary.update(morfac=_first(block["entries"], "morfac"), morstt=_first(block["entries"], "morstt"))
     if kind == "sed":
         summary["fractions"] = fractions
